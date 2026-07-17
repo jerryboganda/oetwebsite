@@ -1,0 +1,213 @@
+@use '../utils' as *;
+
+ul{
+	li{
+		list-style: none; 
+	}
+}
+.w-img{
+	& img{
+		width: 100%;
+	}
+}
+.m-img{
+	& img{
+		max-width: 100%;
+	}
+}
+
+.br{
+	&-8{
+		border-radius: 8px;
+	}
+	&-16{
+		border-radius: 16px;
+	}
+}
+
+p{
+	margin: 0;
+}
+.fix {
+    overflow:hidden
+}
+.clear{
+    clear: both;
+}
+
+.z-index-1{
+	z-index: 1;
+}
+
+.z-index-11{
+	z-index: 11;
+}
+
+.overflow-y-visible{
+	overflow-x: hidden;
+	overflow-y: visible;
+}
+.overflow-x-visible{
+	overflow-x: visible;
+	overflow-y: hidden;
+}
+
+.p-relative{
+	position: relative;
+}
+.p-absolute{
+	position: absolute;
+}
+
+// common color
+.vkl-gray-bg{
+	background: var(--vkl-bg-gray-bg-1);
+}
+.vkl-gray-white-bg{
+	background: var(--vkl-bg-gray-bg-2);
+}
+.vkl-gray-bg-3{
+	background: var(--vkl-bg-gray-bg-3);
+}
+.vkl-gray-bg-4{ 
+	background: var(--vkl-bg-bg-4);
+}
+.vkl-gray-bg-5{ 
+	background: var(--vkl-bg-gray-bg-5);
+}
+.vkl-gray-bg-6{ 
+	background: var(--vkl-bg-gray-bg-6);
+}
+.vkl-primary-bg-6{ 
+	background: var(--vkl-text-primary-color-6);
+}
+.vkl-black-bg-1{
+	background: var(--vkl-text-heading-color-1);
+}
+.vkl-black-bg-5{
+	background: var(--vkl-text-heading-color-5);
+}
+.vkl-black-bg-6{
+	background: var(--vkl-bg-bg-7);
+}
+.vkl-black-bg-7{
+	background: var(--vkl-bg-bg-8);
+}
+ .vkl-black-bg-3{
+	background: var(--vkl-text-heading-color-3);
+}
+.vkl-white-bg{
+	background: var(--vkl-text-text-white);
+}
+.vkl-blue-bg{
+	background: var(--vkl-text-primary-color-1);
+}
+.vkl-blue-bg-3{
+	background: var(--vkl-bg-bg-3);
+}
+.vkl-footer-black-bg-6{
+	background: var(--vkl-bg-bg-11);
+}
+
+// bg style 7 
+.vkl-gray-bg-7{
+	background: var(--vkl-bg-gray-bg-7);
+}
+.vkl-gray-bg-8{
+	background: var(--vkl-bg-gray-bg-8);
+}
+
+.vkl-primary-bg-7{
+	background: var(--vkl-text-heading-color-7);
+}
+
+// bg style 8
+
+.vkl-gray-bg-10{
+	background: var(--vkl-bg-bg-13);
+}
+.vkl-gray-bg-11{
+	background: var(--vkl-bg-bg-14);
+}
+.vkl-gray-bg-12{
+	background: var(--vkl-text-heading-color-8);
+}
+
+// bg style 9
+.vkl-gray-bg-15{
+	background: var(--vkl-bg-bg-15);
+}
+.vkl-gray-bg-16{
+	background: var(--vkl-bg-bg-16);
+}
+.vkl-gray-bg-17{
+	background: var(--vkl-bg-bg-17);
+}
+
+// bg style 10
+.vkl-gray-bg-19{
+	background: var(--vkl-bg-bg-19);
+}
+.vkl-gray-bg-20{
+	background: var(--vkl-bg-bg-20);
+}
+.vkl-gray-bg-21{
+	background: var(--vkl-bg-bg-21);
+}
+.vkl-primary-bg-10{
+	background: var(--vkl-text-primary-color-9);
+}
+
+// bg style 4
+.vkl-gray-bg-23{
+	background: var(--vkl-bg-bg-23);
+}
+ 
+.vkl-gray-bg-24{
+	background: var(--vkl-bg-bg-24);
+}
+
+.vkl-gray-bg-25{
+	background: var(--vkl-bg-bg-25);
+}
+
+
+// bg style 2 
+.vkl-gray-bg-28{
+	background: var(--vkl-bg-bg-28);
+}
+.vkl-gray-bg-31{
+	background: var(--vkl-bg-bg-31);
+}
+
+.bg-common{
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+// clip amiga tion
+.vl-clip-anim {
+  width: 100%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  overflow: hidden;
+  position: relative;
+}
+.vl-clip-anim .vl-anim-img {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+.vl-clip-anim .mask {
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.005);
+}
+.vl-clip-anim > * {
+  grid-area: 1/1/2/2;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+}

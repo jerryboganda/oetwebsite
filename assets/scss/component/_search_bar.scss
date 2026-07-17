@@ -1,0 +1,104 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.9 Search
+/*----------------------------------------*/
+
+.vl-header-search-bar {
+	height: 400px;
+	position: fixed;
+	top: -100%;
+	left: 0;
+	right: 0;
+	z-index: 99;
+	background: #fff;
+    transition: .3s;
+	z-index: 999;
+    &.vl-search-open{
+        top: 0;
+    }
+	input[type="text"] {
+		background: transparent;
+		font-size: var(--vkl-font-size-font-s18);
+        line-height: var(--vkl-specing-height18);
+        font-weight: var(--vkl-weight-medium);
+		color: var(--vkl-text-paragrapgh-color-1);
+		border-radius: 8px;
+		&::placeholder{
+			font-size: var(--vkl-font-size-font-s18);
+			line-height: var(--vkl-specing-height18);
+			font-weight: var(--vkl-weight-medium);
+			color: var(--vkl-text-paragrapgh-color-1);
+		}
+	}
+}
+
+
+.contact-search-form-box{
+    & form{
+        position: relative;
+        & button{
+			position: absolute;
+			right: 20px;
+			top: 50%;
+			font-size: 17px;
+			transform: translateY(-50%);
+        }
+    }
+}
+.vl-search-close {
+	position: absolute;
+	right: 50px;
+	top: 35px;
+	font-size: 50px;
+	color: #222;
+	font-weight: 300;
+	width: 45px;
+	height: 45px;
+}
+.vl-search-toggle {
+    cursor: pointer;
+}
+
+.vl-header-right{
+	display: flex;
+	align-items: center;
+	justify-content: end;
+}
+
+.vl-header-search {
+    margin-right: 20px;
+    padding-right: 20px;
+    border-right: 1px solid #CCC7E8;
+	&-3{
+		border-right: 1px solid #0086D1;
+	}
+	&-4{
+		border-right: 1px solid #6F6D64;
+	}
+	&-7{
+		border-right: 1px solid #C8C7CD;
+	}
+	
+}
+
+.vl-header-search.vl-header-search{
+	&-6{
+		border-right: 1px solid #434E3E;
+		& img{
+			filter: brightness(0) invert(1);
+		}
+	}
+	&-4{
+		border-right: 1px solid #939489;
+		& img{
+			filter: brightness(0) invert(1);
+		}
+	}
+	
+}
+
+.vl-search-bar-title{
+	color: var(--vkl-text-heading-color-1);
+	font-weight: var(--vkl-weight-regular);
+}

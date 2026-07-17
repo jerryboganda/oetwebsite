@@ -1,0 +1,206 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.1 Back to top
+/*----------------------------------------*/
+
+.progress-wrap {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  height: 56px;
+  width: 56px;
+  cursor: pointer;
+  display: block;
+  border-radius: 50px;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 200ms linear;
+
+  &.active-progress {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    z-index: 999;
+  }
+
+  &::after {
+    position: absolute;
+    font-family: "FontAwesome";
+    content: "\f062";
+    text-align: center;
+    line-height: 56px;
+    font-size: 18px;
+    color: #03256c;
+    left: 0;
+    top: 0;
+    height: 56px;
+    width: 56px;
+    cursor: pointer;
+    display: block;
+    z-index: 1;
+    transition: all 200ms linear;
+  }
+
+  &::before {
+    position: absolute;
+    font-family: "FontAwesome";
+    content: "\f062";
+    text-align: center;
+    line-height: 56px;
+    font-size: 18px;
+    opacity: 0;
+    left: 0;
+    top: 0;
+    height: 56px;
+    width: 56px;
+    cursor: pointer;
+    display: block;
+    z-index: 2;
+    transition: all 200ms linear;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  svg {
+    path {
+      fill: none;
+    }
+
+    &.progress-circle {
+      path {
+        stroke: #03256c;
+        stroke-width: 4;
+        box-sizing: border-box;
+        transition: all 200ms linear;
+      }
+    }
+  }
+
+  &-2{
+    &::after{
+      color: #96E173;
+    }
+    svg {
+    path {
+      fill: none;
+    }
+
+    &.progress-circle {
+        path {
+          stroke: #96E173;
+          stroke-width: 4;
+          box-sizing: border-box;
+          transition: all 200ms linear;
+        }
+      }
+    }
+  }
+
+  &-4{
+    &::after{
+      color: #FAFF7A;
+    }
+    svg {
+    path {
+      fill: none;
+    }
+
+    &.progress-circle {
+        path {
+          stroke: #FAFF7A;
+          stroke-width: 4;
+          box-sizing: border-box;
+          transition: all 200ms linear;
+        }
+      }
+    }
+  }
+  &-5{
+    &::after{
+      color: #14F0E5;
+    }
+    svg {
+    path {
+      fill: none;
+    }
+
+    &.progress-circle {
+        path {
+          stroke: #14F0E5;
+          stroke-width: 4;
+          box-sizing: border-box;
+          transition: all 200ms linear;
+        }
+      }
+    }
+  }
+
+  &-6{
+    &::after{
+      color: #CAF31D;
+    }
+    svg {
+    path {
+      fill: none;
+    }
+
+    &.progress-circle {
+        path {
+          stroke: #CAF31D;
+          stroke-width: 4;
+          box-sizing: border-box;
+          transition: all 200ms linear;
+        }
+      }
+    }
+  }
+
+  &-7{
+    &::after{
+      color: #050048;
+    }
+    svg {
+    path {
+      fill: none;
+    }
+
+    &.progress-circle {
+        path {
+          stroke: #050048;
+          stroke-width: 4;
+          box-sizing: border-box;
+          transition: all 200ms linear;
+        }
+      }
+    }
+  }
+  &-9{
+    &::after{
+      color: #AFEC2C;
+    }
+    svg {
+    path {
+      fill: none;
+    }
+
+    &.progress-circle {
+        path {
+          stroke: #AFEC2C;
+          stroke-width: 4;
+          box-sizing: border-box;
+          transition: all 200ms linear;
+        }
+      }
+    }
+  }
+}
+
+  

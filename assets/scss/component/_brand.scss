@@ -1,0 +1,55 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.12 Brand
+/*----------------------------------------*/
+
+.brand-area{
+    margin-top: -140px;
+}
+.brand__thumb{
+    & img{
+        border-radius: 8px;
+        object-fit: cover;
+    }
+}
+
+// brand style 9 
+
+.vlaward-wrapper {
+    margin-left: 30px;
+    @media #{$lg,$md,$xs}{
+        margin-left: 0;
+    }
+}
+.vlaward {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    padding: 24px;
+    @media #{$xs}{
+        padding: 20px;
+    }
+}
+
+.vlaward-wrapper .row [class*=col-]:nth-child(even) .vlaward {
+    padding-left: 55px;
+    border-left: 1px solid rgba(255, 255, 255, 0.10);
+    @media #{$xs}{
+        padding-left: 0;
+        border-left: transparent;
+        padding: 20px;
+    }
+}
+
+.vlaward-wrapper .row [class*=col-]:nth-last-child(-n+2) .vlaward {
+    padding-bottom: 0;
+    border-bottom: 0;  
+}
+
+.swiper-slide-transtion {
+	-webkit-transition-timing-function: linear;
+	transition-timing-function: linear;
+}
+.swiper-brand-slide-element {
+	width: auto;
+	display: inline-block;
+}

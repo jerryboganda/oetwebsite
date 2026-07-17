@@ -1,0 +1,229 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.13 Counter
+/*----------------------------------------*/
+
+
+.counterbox__grid{
+    display: flex;
+    justify-content: space-between;
+    @media #{$xs}{
+        display: block;
+    }
+}
+
+.counterbox__single{
+    & .title{
+        font-size: var(--vkl-font-size-font-s44);
+        line-height: var(--vkl-specing-height44);
+        transition: .3s;
+        color: var(--vkl-text-heading-color-1);
+        transition: .3s;
+        font-weight: var(--vkl-weight-regular);
+    }
+    & p{
+        font-size: var(--vkl-font-size-font-s18);
+        line-height: var(--vkl-specing-height18);
+        color: var(--vkl-text-paragrapgh-color-1);
+        font-weight: var(--vkl-weight-semibold);
+    }
+    &-10{
+        & .title{
+            color: var(--vkl-text-heading-color-10);
+        }
+    }
+}
+
+// counter box style 6 
+
+.counter-box-6{
+    margin-bottom: 50px;
+    @media #{$lg,$md}{
+        margin-bottom: 0;
+        margin-top: 30px;
+    }
+    &:last-child{
+        margin-bottom: 0;
+    }
+    & .title{
+        color: var(--vkl-text-text-white);
+        font-size: var(--vkl-font-size-font-s44);
+        line-height: var(--vkl-specing-height44);
+        font-weight: var(--vkl-weight-semibold);
+        padding-bottom: 16px;
+    }
+    & .para{
+        color: var(--vkl-text-text-white);
+        opacity: .9;
+        font-size: var(--vkl-font-size-font-s18);
+        line-height: var(--vkl-specing-height18);
+        font-weight: var(--vkl-weight-semibold);
+    }
+}
+
+
+.counter-wrap-6 {
+    @media #{$lg,$md}{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+}
+
+// counter style 7 
+
+.vl-about-counter-7{
+    & .title{
+        font-size: var(--vkl-font-size-font-s44);
+        line-height: var(--vkl-specing-height44);
+        color: var(--vkl-text-heading-color-7);
+        font-weight: var(--vkl-weight-regular);
+        margin-right: 16px;
+    }
+}
+
+.about-content-wrap-7-flex{
+    display: flex;
+    align-items: center;
+}
+
+.year-content{
+    & .para{
+        font-size: var(--vkl-font-size-font-s18);
+        line-height: var(--vkl-specing-height28);
+        color: var(--vkl-text-heading-color-7);
+        font-weight: var(--vkl-weight-semibold);
+    }
+}
+
+
+
+// counter style 8
+
+.about__counter8{
+    padding: 32px 24px;
+    background: var(--vkl-text-text-white);
+    border-radius: 8px;
+    transition: .3s;
+    & .number{
+        font-size: var(--vkl-font-size-font-s44);
+        line-height: var(--vkl-specing-height44);
+        font-weight: var(--vkl-weight-medium);
+        color: var(--vkl-text-heading-color-8);
+        transition: .3s;
+        padding-bottom: 48px;
+    }
+    & .title{
+        font-size: var(--vkl-font-size-font-s20);
+        line-height: var(--vkl-specing-height28);
+        color: var(--vkl-text-heading-color-8);
+        font-weight: var(--vkl-weight-regular);
+        transition: .3s;
+        padding-bottom: 16px;
+    }
+    & .para{
+        font-size: var(--vkl-font-size-font-s18);
+        line-height: var(--vkl-specing-height26);
+        font-weight: var(--vkl-weight-medium);
+        transition: .3s;
+        color: var(--vkl-text-paragrapgh-color-8);
+    }
+    &:hover{
+        transform: translateY(-5px);
+        transition: .3s;
+    }
+}
+
+// counter style 9
+
+.vl-counter-wrap-baner-9{
+    & .title{
+        color: var(--vkl-text-text-white);
+        font-size: var(--vkl-font-size-font-s44);
+        line-height: var(--vkl-specing-height44);
+        font-weight: var(--vkl-weight-regular);
+        transition: .3s;
+        padding-bottom: 16px;
+    }
+    & .para{
+        color: rgba(255, 255, 255, 0.90);
+        font-size: var(--vkl-font-size-font-s18);
+        line-height: var(--vkl-specing-height26);
+        font-weight: var(--vkl-weight-medium);
+
+    }
+    margin-bottom: 32px;
+    &:last-child{
+        margin-bottom: 0;
+    }
+}
+
+// counter style 4 
+
+.counter__wrap4{
+    border-radius: 16px;
+    border: 1px solid rgba(54, 61, 43, 0.10);
+    padding: 32px 24px;
+    transition: .3s;
+    &-number{
+        & .title{
+            color: var(--vkl-bg-bg-25);
+            font-size: var(--vkl-font-size-font-s44);
+            line-height: var(--vkl-specing-height44);
+            font-weight: var(--vkl-weight-regular);
+            transition: .3s;
+            margin-bottom: 48px;
+        }
+    }
+    &-content{
+        & .title{
+            color: var(--vkl-bg-bg-25);
+            font-size: var(--vkl-font-size-font-s20);
+            line-height: var(--vkl-specing-height20);
+            font-weight: var(--vkl-weight-regular);
+            padding-bottom: 16px;
+        }
+        & .para{
+            color: var(--vkl-text-paragrapgh-color-4);
+            font-size: var(--vkl-font-size-font-s18);
+            line-height: var(--vkl-specing-height26);
+            font-weight: var(--vkl-weight-medium);
+            transition: .3s;
+        }
+    }
+    &:hover{
+        background: var(--vkl-bg-bg-26);
+        transition: .3s;
+    }
+}
+
+// counter style 2 
+.counter__wrap-right2{
+    float: right;
+    margin-right: 90px;
+    @media #{$lg,$md,$xs}{
+        float: inherit;
+        margin-right: 0;
+    }
+}
+
+.vl-testimonial-counter2{
+    margin-bottom: 40px;
+    & .title{
+        color: var(--vkl-text-text-white);
+        font-weight: var(--vkl-weight-regular);
+        font-size: var(--vkl-font-size-font-s44);
+        line-height: 44px;
+        transition: .3s;
+        
+    }
+    & .para{
+        color: rgba(255, 255, 255, 0.90);
+        font-size: var(--vkl-font-size-font-s18);
+        line-height: var(--vkl-specing-height18);
+        font-weight: var(--vkl-weight-medium);
+        transition: .3s;
+        padding-top: 16px;
+    }
+}

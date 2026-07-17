@@ -1,0 +1,2806 @@
+<!DOCTYPE html>
+<html lang="en" class="oet-live-site">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OET with Dr Hesham | The Pathway to UK</title>
+
+    <!-- fav logo -->
+    <link rel="icon" href="assets/img/logo/fav-icon.png" type="image/png" sizes="64x64">
+
+    <!-- css files -->
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css">
+    <!-- swiper css -->
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
+    <!-- fontawesome css -->
+    <link rel="stylesheet" href="assets/css/plugins/all.css">
+    <!-- magnific-popup css -->
+    <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css">
+    <!-- sal css -->
+    <link rel="stylesheet" href="assets/css/plugins/sal.css">
+    <!-- jarallax -->
+    <link rel="stylesheet" href="assets/css/plugins/jarallax.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .vl-header-top-text a.oet-community-cta {
+            display: inline-grid;
+            align-items: center;
+            justify-items: start;
+            margin-left: 14px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #5f46f5;
+            font-weight: 700;
+            line-height: 1;
+            white-space: nowrap;
+            box-shadow: 0 10px 24px rgba(16, 24, 40, 0.16);
+            text-decoration: none;
+        }
+
+        .vl-header-top-text a.oet-community-cta:hover {
+            color: #4b37d3;
+            background: #ffffff;
+        }
+
+        .oet-community-cta__sizer,
+        .oet-community-cta__content {
+            grid-area: 1 / 1;
+        }
+
+        .oet-community-cta__sizer {
+            visibility: hidden;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .oet-community-cta__content {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            white-space: nowrap;
+        }
+
+        .oet-community-cta__text {
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .oet-community-cta__cursor {
+            display: inline-block;
+            min-width: 0.65ch;
+            opacity: 1;
+        }
+
+        .hero-banner-lavender {
+            background: #E6E0FF !important;
+        }
+
+        body.oet-live-site .vl-logo img,
+        body.oet-live-site .vl-offcanvas-logo img {
+            width: clamp(120px, 14vw, 150px);
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        @media (max-width: 575px) {
+            body.oet-live-site .vl-logo img,
+            body.oet-live-site .vl-offcanvas-logo img {
+                width: 112px;
+            }
+        }
+
+        body.oet-live-site .hero-banner-lavender .row.align-items-center {
+            align-items: center !important;
+        }
+
+        body.oet-live-site .hero-banner-lavender .col-xl-6 > .p-relative {
+            position: relative;
+            min-height: clamp(610px, 47vw, 735px);
+            overflow: visible;
+            isolation: isolate;
+        }
+
+        body.oet-live-site .hero-banner-lavender .vl-banner-thumb-1 {
+            position: absolute;
+            inset: 0;
+            overflow: visible;
+            z-index: 2;
+        }
+
+        body.oet-live-site .hero-banner-lavender .vl-banner-thumb-1 img.oet-hero-doctor {
+            position: absolute;
+            top: auto;
+            right: clamp(-70px, -3.6vw, -24px);
+            bottom: -112px;
+            left: auto;
+            width: clamp(545px, 40vw, 760px);
+            max-width: none;
+            height: auto;
+            margin: 0;
+            display: block;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        body.oet-live-site .hero-banner-lavender .vl-banner-card-1,
+        body.oet-live-site .hero-banner-lavender .vl-banner-card-2 {
+            position: absolute;
+            z-index: 5;
+            width: clamp(230px, 15vw, 285px);
+        }
+
+        body.oet-live-site .hero-banner-lavender .vl-banner-card-1 img,
+        body.oet-live-site .hero-banner-lavender .vl-banner-card-2 img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        body.oet-live-site .hero-banner-lavender .vl-banner-card-1 {
+            top: clamp(420px, 32vw, 510px);
+            right: clamp(390px, 30vw, 570px);
+            left: auto;
+        }
+
+        body.oet-live-site .hero-banner-lavender .vl-banner-card-2 {
+            top: clamp(292px, 23vw, 380px);
+            right: clamp(382px, 29vw, 550px);
+            left: auto;
+        }
+
+        body.oet-live-site .hero-banner-lavender .vl-hero-shape-2,
+        body.oet-live-site .hero-banner-lavender .vl-hero-shape-3,
+        body.oet-live-site .hero-banner-lavender .vl-hero-shape-4 {
+            z-index: 1;
+        }
+
+        body.oet-live-site .hero-banner-lavender .vl-hero-shape-2 img {
+            top: 170px;
+            left: 112px;
+        }
+
+        @media only screen and (min-width: 1200px) and (max-height: 900px) {
+            body.oet-live-site .hero-banner-lavender .col-xl-6 > .p-relative {
+                min-height: 675px;
+            }
+
+            body.oet-live-site .hero-banner-lavender .vl-banner-thumb-1 img.oet-hero-doctor {
+                width: clamp(535px, 39vw, 710px);
+                right: -56px;
+            }
+
+            body.oet-live-site .hero-banner-lavender .vl-banner-card-1 {
+                top: 452px;
+                right: clamp(360px, 28vw, 500px);
+            }
+
+            body.oet-live-site .hero-banner-lavender .vl-banner-card-2 {
+                top: 320px;
+                right: clamp(350px, 27vw, 485px);
+            }
+        }
+
+        @media only screen and (max-width: 1199px) {
+            body.oet-live-site .hero-banner-lavender .col-xl-6 > .p-relative {
+                min-height: auto;
+                padding-top: 20px;
+            }
+
+            body.oet-live-site .hero-banner-lavender .vl-banner-thumb-1 {
+                position: relative;
+                inset: auto;
+                min-height: auto;
+                text-align: center;
+            }
+
+            body.oet-live-site .hero-banner-lavender .vl-banner-thumb-1 img.oet-hero-doctor {
+                position: relative;
+                right: auto;
+                bottom: auto;
+                width: min(82vw, 430px);
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            body.oet-live-site .hero-banner-lavender .vl-banner-card-1 {
+                top: auto;
+                right: auto;
+                bottom: 22px;
+                left: 8%;
+                width: min(44vw, 230px);
+            }
+
+            body.oet-live-site .hero-banner-lavender .vl-banner-card-2 {
+                top: 44px;
+                right: 8%;
+                width: min(44vw, 230px);
+            }
+        }
+
+        @media (max-width: 575px) {
+            body.oet-live-site .hero-banner-lavender .vl-banner-thumb-1 img.oet-hero-doctor {
+                width: min(90vw, 340px);
+            }
+
+            body.oet-live-site .hero-banner-lavender .vl-banner-card-1,
+            body.oet-live-site .hero-banner-lavender .vl-banner-card-2 {
+                width: min(48vw, 175px);
+            }
+        }
+
+        .brand__thumb {
+            width: 270px;
+            height: 140px;
+        }
+
+        .brand-badge {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            padding: 12px 18px 11px;
+            border-radius: 12px;
+            background: linear-gradient(180deg, #ffffff 0%, #fcfbff 100%);
+            border: 1px solid rgba(100, 74, 249, 0.1);
+            box-shadow: 0 10px 24px rgba(100, 74, 249, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 3px;
+            text-align: left;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+        }
+
+        .brand-badge:hover {
+            transform: translateY(-4px);
+            background: linear-gradient(180deg, #ffffff 0%, #f7f4ff 100%);
+            border-color: rgba(100, 74, 249, 0.18);
+            box-shadow: 0 16px 34px rgba(100, 74, 249, 0.1);
+        }
+
+        .brand-badge__icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 18px;
+            background: rgba(100, 74, 249, 0.08);
+            color: #644af9;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex: 0 0 68px;
+            box-shadow: 0 8px 18px rgba(100, 74, 249, 0.07);
+            transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+        }
+
+        .brand-badge:hover .brand-badge__icon {
+            background: #644af9;
+            color: #ffffff;
+            box-shadow: 0 10px 22px rgba(100, 74, 249, 0.18);
+            transform: translateY(-1px) scale(1.03);
+        }
+
+        .brand-badge__title {
+            margin: 0;
+            color: var(--vkl-text-heading-color-1);
+            font-size: 15.5px;
+            line-height: 1.02;
+            font-weight: 700;
+            letter-spacing: -0.035em;
+        }
+
+        .brand-badge__sub {
+            margin: 0;
+            color: var(--vkl-text-paragrapgh-color-1);
+            font-size: 11.5px;
+            line-height: 1.16;
+            font-weight: 500;
+        }
+
+        .brand-badge__micro {
+            display: none;
+        }
+
+        @media only screen and (min-width: 576px) and (max-width: 991px) {
+            .brand__thumb {
+                width: 240px;
+                height: 128px;
+            }
+
+            .brand-badge {
+                padding: 11px 14px 10px;
+                border-radius: 11px;
+                gap: 3px;
+            }
+
+            .brand-badge__icon {
+                width: 60px;
+                height: 60px;
+                border-radius: 16px;
+                font-size: 21px;
+                flex-basis: 60px;
+            }
+
+            .brand-badge__title {
+                font-size: 14.5px;
+            }
+
+            .brand-badge__sub {
+                font-size: 11px;
+            }
+
+            .brand-badge__micro {
+                display: none;
+            }
+        }
+
+        @media only screen and (max-width: 575px) {
+            .brand__thumb {
+                width: 210px;
+                height: 120px;
+            }
+
+            .brand-badge {
+                padding: 10px 12px 9px;
+                border-radius: 11px;
+                gap: 3px;
+            }
+
+            .brand-badge__icon {
+                width: 53px;
+                height: 53px;
+                border-radius: 14px;
+                font-size: 19px;
+                flex-basis: 53px;
+            }
+
+            .brand-badge__title {
+                font-size: 13.5px;
+                line-height: 1.03;
+            }
+
+            .brand-badge__sub {
+                font-size: 10.5px;
+                line-height: 1.12;
+            }
+
+            .brand-badge__micro {
+                display: none;
+            }
+        }
+
+        .vl-main-menu ul > li .sub-menu {
+            width: max-content;
+            min-width: 260px;
+            padding: 14px 0;
+            overflow: visible;
+        }
+
+        .vl-main-menu ul > li .sub-menu li {
+            margin-right: 0;
+            display: block;
+            text-align: start;
+        }
+
+        .vl-main-menu ul > li .sub-menu li a,
+        .vl-offcanvas-menu ul li .sub-menu li a {
+            color: var(--vkl-text-heading-color-1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 17px;
+            line-height: 1.25;
+            white-space: nowrap;
+            width: calc(100% - 24px);
+            box-sizing: border-box;
+            margin: 0 12px;
+            padding: 11px 36px 11px 14px;
+            position: relative;
+            border-radius: 10px;
+            line-height: 1.25;
+            transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .vl-main-menu ul > li .sub-menu li a .submenu-icon,
+        .vl-offcanvas-menu ul li .sub-menu li a .submenu-icon {
+            width: 20px;
+            flex: 0 0 20px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            color: var(--vkl-text-primary-color-1);
+            transition: color 0.25s ease;
+        }
+
+        .vl-main-menu ul > li .sub-menu li a .submenu-text,
+        .vl-offcanvas-menu ul li .sub-menu li a .submenu-text {
+            display: inline-block;
+            white-space: nowrap;
+            font-size: 17px;
+            line-height: 1.25;
+        }
+
+        .vl-main-menu ul > li .sub-menu li a:hover,
+        .vl-main-menu ul > li .sub-menu li a:focus-visible,
+        .vl-offcanvas-menu ul li .sub-menu li a:hover,
+        .vl-offcanvas-menu ul li .sub-menu li a:focus-visible {
+            background: linear-gradient(135deg, #5f46f5 0%, #7c67ff 100%);
+            color: #ffffff;
+            transform: translateX(6px);
+            box-shadow: 0 12px 24px rgba(95, 70, 245, 0.22);
+        }
+
+        .vl-main-menu ul > li .sub-menu li a:hover .submenu-icon,
+        .vl-main-menu ul > li .sub-menu li a:focus-visible .submenu-icon,
+        .vl-offcanvas-menu ul li .sub-menu li a:hover .submenu-icon,
+        .vl-offcanvas-menu ul li .sub-menu li a:focus-visible .submenu-icon {
+            color: #ffffff;
+        }
+
+        .vl-main-menu ul > li .sub-menu li .sub-menu,
+        .vl-offcanvas-menu ul li .sub-menu li .sub-menu {
+            left: calc(100% + 10px);
+            top: 0;
+            min-width: 240px;
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown {
+            position: relative;
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown > .sub-menu {
+            display: block;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateX(8px) scale(0.98);
+            transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+            z-index: 20;
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown:hover > .sub-menu,
+        .vl-main-menu ul > li .sub-menu li.has-dropdown:focus-within > .sub-menu {
+            display: block;
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateX(0) scale(1) !important;
+            pointer-events: auto;
+        }
+
+        .vl-main-menu ul > li .sub-menu li a .downarrow,
+        .vl-offcanvas-menu ul li .sub-menu li a .downarrow {
+            right: 14px;
+        }
+
+        .work__thumb,
+        .vl-work-box-grid-three {
+            position: relative;
+            z-index: 1;
+        }
+
+        .faq-theme-purple {
+            background: linear-gradient(180deg, #fbf9ff 0%, #f3efff 100%) !important;
+        }
+
+        .faq-theme-purple .vl-faq-content-7 .sub-title {
+            color: #5f46f5;
+        }
+
+        .faq-theme-purple .vl-faq-content-7 .title {
+            color: #10134f;
+        }
+
+        .faq-theme-purple .vl-faq-content-7 .para {
+            color: #4f4b7b;
+        }
+
+        .faq-theme-purple .vl-faqs2 .vl-accordion-item {
+            background: #ffffff;
+            border: 1px solid rgba(95, 70, 245, 0.18);
+            box-shadow: 0 16px 32px rgba(95, 70, 245, 0.06);
+        }
+
+        .faq-theme-purple .vl-faqs2 .vl-accordion-item .vl-accordion-button {
+            color: #11155c;
+        }
+
+        .faq-theme-purple .vl-faqs2 .vl-accordion-item .vl-accordion-button.collapsed {
+            background: #ffffff;
+        }
+
+        .faq-theme-purple .vl-faqs2 .vl-accordion-item .vl-accordion-button span.vl-faqarrow {
+            background: #5f46f5;
+            color: #ffffff;
+        }
+
+        .faq-theme-purple .vl-faqs2 .vl-accordion-item .vl-accordion-button.collapsed span.vl-faqarrow {
+            background: #e6e0ff;
+            color: #5f46f5;
+        }
+
+        .faq-theme-purple .vl-faqs2 .vl-accordion-item .vl-accordion-body .para {
+            color: #5c5984;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .oet-community-cta__cursor {
+                display: none;
+            }
+        }
+    </style>
+
+    <style id="oet-community-popup-styles">
+        body.oet-community-popup-lock {
+            overflow: visible;
+        }
+
+        .oet-community-popup {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.28s ease, visibility 0.28s ease;
+        }
+
+        .oet-community-popup.is-open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .oet-community-popup__overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(29, 18, 73, 0.52);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .oet-community-popup__dialog {
+            position: relative;
+            width: min(940px, 100%);
+            max-height: min(88vh, 760px);
+            overflow: visible;
+            border-radius: 32px;
+            background: linear-gradient(145deg, #ffffff 0%, #fbf9ff 54%, #efe9ff 100%);
+            box-shadow: 0 32px 90px rgba(34, 21, 93, 0.28);
+            border: 1px solid rgba(255, 255, 255, 0.78);
+            transform: translateY(18px) scale(0.97);
+            transition: transform 0.28s ease;
+        }
+
+        .oet-community-popup.is-open .oet-community-popup__dialog {
+            transform: translateY(0) scale(1);
+        }
+
+        .oet-community-popup__dialog::before {
+            content: '';
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            right: -90px;
+            top: -110px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(100, 74, 249, 0.24), rgba(100, 74, 249, 0));
+            pointer-events: none;
+        }
+
+        .oet-community-popup__close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 3;
+            width: 42px;
+            height: 42px;
+            border: 0;
+            border-radius: 50%;
+            background: #ffffff;
+            color: #17152f;
+            box-shadow: 0 12px 28px rgba(17, 24, 39, 0.12);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease;
+        }
+
+        .oet-community-popup__close:hover,
+        .oet-community-popup__close:focus-visible {
+            transform: translateY(-1px);
+            color: #ffffff;
+            background: #644af9;
+            outline: none;
+        }
+
+        .oet-community-popup__body {
+            position: relative;
+            z-index: 2;
+            max-height: min(88vh, 760px);
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            -webkit-overflow-scrolling: touch;
+            padding: 38px 38px 34px;
+        }
+
+        .oet-community-popup__eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            color: #644af9;
+            background: rgba(100, 74, 249, 0.1);
+            font-size: 13px;
+            line-height: 1;
+            font-weight: 800;
+        }
+
+        .oet-community-popup__title {
+            margin: 0;
+            max-width: 650px;
+            color: #17152f;
+            font-size: clamp(30px, 4vw, 48px);
+            line-height: 1.02;
+            font-weight: 800;
+        }
+
+        .oet-community-popup__intro {
+            margin: 14px 0 26px;
+            max-width: 680px;
+            color: #5c5a72;
+            font-size: 16px;
+            line-height: 1.62;
+        }
+
+        .oet-community-popup__section-title {
+            margin: 0 0 14px;
+            color: #17152f;
+            font-size: 16px;
+            line-height: 1.2;
+            font-weight: 800;
+        }
+
+        .oet-community-popup__grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-bottom: 26px;
+        }
+
+        .oet-community-popup__resources {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .oet-community-popup__card,
+        .oet-community-popup__resource {
+            min-height: 136px;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.86);
+            border: 1px solid rgba(100, 74, 249, 0.12);
+            box-shadow: 0 14px 34px rgba(100, 74, 249, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
+            color: #17152f;
+            text-decoration: none;
+            padding: 18px 14px;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+        }
+
+        .oet-community-popup__card:hover,
+        .oet-community-popup__card:focus-visible,
+        .oet-community-popup__resource:hover,
+        .oet-community-popup__resource:focus-visible {
+            transform: translateY(-5px);
+            border-color: rgba(100, 74, 249, 0.38);
+            box-shadow: 0 22px 44px rgba(100, 74, 249, 0.18);
+            background: #ffffff;
+            color: #17152f;
+            outline: none;
+        }
+
+
+        .oet-community-popup__card--featured {
+            position: relative;
+            overflow: visible;
+            border-color: rgba(100, 74, 249, 0.42);
+            background: linear-gradient(145deg, #ffffff 0%, #f6f2ff 52%, #ebe4ff 100%);
+            box-shadow: 0 18px 44px rgba(100, 74, 249, 0.16);
+        }
+
+        .oet-community-popup__card--featured::before {
+            content: 'Featured';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border-radius: 999px;
+            padding: 5px 9px;
+            background: #644af9;
+            color: #ffffff;
+            font-size: 10px;
+            line-height: 1;
+            font-weight: 800;
+            letter-spacing: 0;
+            box-shadow: 0 8px 18px rgba(100, 74, 249, 0.22);
+        }
+
+        .oet-community-popup__card--featured .oet-community-popup__icon {
+            background: linear-gradient(135deg, #644af9 0%, #23d366 100%);
+            box-shadow: 0 14px 30px rgba(100, 74, 249, 0.24);
+        }
+
+        .oet-community-popup__card--featured .oet-community-popup__name {
+            color: #3b2bb8;
+        }
+
+        .oet-community-popup__icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            background: linear-gradient(135deg, #23d366 0%, #10a85a 100%);
+            font-size: 28px;
+            box-shadow: 0 12px 26px rgba(35, 211, 102, 0.24);
+        }
+
+        .oet-community-popup__icon--telegram {
+            background: linear-gradient(135deg, #37aee2 0%, #1b82c3 100%);
+            box-shadow: 0 12px 26px rgba(55, 174, 226, 0.22);
+        }
+
+        .oet-community-popup__icon--youtube {
+            background: linear-gradient(135deg, #ff4d4d 0%, #d71920 100%);
+            box-shadow: 0 12px 26px rgba(215, 25, 32, 0.2);
+        }
+
+        .oet-community-popup__icon--facebook {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            box-shadow: 0 12px 26px rgba(59, 130, 246, 0.2);
+        }
+
+        .oet-community-popup__name {
+            color: #17152f;
+            font-size: 15px;
+            line-height: 1.22;
+            font-weight: 800;
+        }
+
+        .oet-community-popup__hint {
+            color: #77748b;
+            font-size: 12px;
+            line-height: 1.2;
+            font-weight: 600;
+        }
+
+        .oet-community-popup__resource {
+            min-height: 116px;
+            border-radius: 18px;
+        }
+
+        .oet-community-popup__resource .oet-community-popup__icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            font-size: 22px;
+        }
+
+        .oet-community-popup__resource .oet-community-popup__name {
+            font-size: 13.5px;
+        }
+
+        @media (max-width: 991px) {
+            .oet-community-popup__grid,
+            .oet-community-popup__resources {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 575px) {
+            .oet-community-popup {
+                padding: 14px;
+            }
+
+            .oet-community-popup__dialog {
+                border-radius: 24px;
+            }
+
+            .oet-community-popup__body {
+                padding: 28px 18px 22px;
+            }
+
+            .oet-community-popup__close {
+                top: 14px;
+                right: 14px;
+                width: 38px;
+                height: 38px;
+            }
+
+            .oet-community-popup__title {
+                max-width: calc(100% - 42px);
+            }
+
+            .oet-community-popup__grid,
+            .oet-community-popup__resources {
+                grid-template-columns: 1fr;
+            }
+
+            .oet-community-popup__card,
+            .oet-community-popup__resource {
+                min-height: 104px;
+                flex-direction: row;
+                justify-content: flex-start;
+                text-align: left;
+                padding: 14px;
+            }
+        }
+    </style>
+
+
+<style id="oet-stable-dropdown-css">
+    @media (min-width: 1200px) {
+        .vl-main-menu,
+        .vl-main-menu nav,
+        .vl-main-menu nav > ul,
+        .vl-main-menu nav > ul > li {
+            overflow: visible !important;
+        }
+
+        .vl-main-menu ul > li .sub-menu {
+            z-index: 9999 !important;
+            pointer-events: none;
+        }
+
+        .vl-main-menu nav > ul > li > .sub-menu {
+            top: 100% !important;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .vl-main-menu nav > ul > li:hover > .sub-menu,
+        .vl-main-menu nav > ul > li:focus-within > .sub-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            top: 100% !important;
+        }
+
+        .vl-main-menu nav > ul > li:hover > .sub-menu .sub-menu,
+        .vl-main-menu nav > ul > li:focus-within > .sub-menu .sub-menu {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown {
+            position: relative;
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown::after {
+            content: "";
+            position: absolute;
+            top: -8px;
+            right: -22px;
+            width: 28px;
+            height: calc(100% + 16px);
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown > .sub-menu {
+            left: calc(100% - 2px) !important;
+            top: 0 !important;
+            min-width: 240px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateX(6px) scale(0.98);
+            transition: opacity 0.16s ease, visibility 0.16s ease, transform 0.16s ease;
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown:hover > .sub-menu,
+        .vl-main-menu ul > li .sub-menu li.has-dropdown:focus-within > .sub-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            top: 0 !important;
+            transform: translateX(0) scale(1) !important;
+        }
+    }
+</style>
+
+</head>
+
+<body class="oet-live-site">
+
+    <!-- preloader -->
+    <div class="preloader">
+        <div class="loading-container">
+            <div class="loading"></div>
+            <div id="loading-icon"><img src="assets/img/preloader/logo.png" alt="OET with Dr Hesham"></div>
+        </div>
+    </div>
+
+    <!--================= Header section start =================-->
+    <header>
+        <div id="vl-header-sticky" class="vl-header-area vl-transparent-header">
+            <!-- header top -->
+            <div class="vl-header-top-area vkl-blue-bg d-none d-xl-block">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="vl-header-top-text">
+                                <p>Free OET Prep for Doctors &amp; Nurses</p>
+                                <a class="oet-community-cta" href="#oet-community-popup" aria-label="Join Free Community!" aria-haspopup="dialog" aria-controls="oet-community-popup">
+                                    <span class="oet-community-cta__sizer" aria-hidden="true">Join Free Community!</span>
+                                    <span class="oet-community-cta__content" aria-hidden="true">
+                                        <span class="oet-community-cta__text">Join Free Community!</span>
+                                        <span class="oet-community-cta__cursor">|</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- header top icon list -->
+                            <div class="header-top">
+                                <ul>
+                                    <li><a href="mailto:support@oetwithdrhesham.co.uk"><span class="mr-4"><i class="fa-regular fa-envelope"></i></span>support@oetwithdrhesham.co.uk</a></li>
+                                    <li><a href="tel:+447961725989"><span class="mr-4"><i class="fa-solid fa-phone"></i></span>+44 7961 725989</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="header-border-bottom">
+                    <div class="row align-items-center">
+                        <div class="col-xl-2 col-md-6 col-6">
+                            <div class="vl-logo">
+                                <a href="/" title="OET with Dr Hesham | The Pathway to UK"><img src="assets/img/logo/platform-logo.png" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 d-none d-xl-block">
+                            <div class="vl-main-menu text-center">
+                                <nav class="vl-mobile-menu-active">
+                                    <ul>
+                                        <li class="has-dropdown"><a href="about.html">About <span class="downarrow"><i class="fa-regular fa-angle-down"></i></span></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="about.html"><span class="submenu-icon"><i class="fa-solid fa-user-doctor"></i></span><span class="submenu-text">About Dr. Hesham</span></a></li>
+                                                <li><a href="https://www.youtube.com/watch?v=kL91eG32Uok" class="popup-video" aria-label="Play Why OET video"><span class="submenu-icon"><i class="fa-solid fa-bullseye"></i></span><span class="submenu-text">Why OET</span></a></li>
+                                                <li><a href="teaching-approach.html"><span class="submenu-icon"><i class="fa-solid fa-chalkboard-user"></i></span><span class="submenu-text">Teaching Approach</span></a></li>
+                                                <li><a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-pen-to-square"></i></span><span class="submenu-text">Writing Corrections</span></a></li>
+                                                <li><a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-tags"></i></span><span class="submenu-text">Packages &amp; Offers</span></a></li>
+                                                <li><a href="https://www.youtube.com/watch?v=rbNsB7Olxts" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-star"></i></span><span class="submenu-text">Success Stories</span></a></li>
+                                                <li><a href="faq.html"><span class="submenu-icon"><i class="fa-solid fa-circle-question"></i></span><span class="submenu-text">FAQ</span></a></li>
+                                                <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-telegram"></i></span><span class="submenu-text">Telegram Materials</span></a></li>
+                                                <li class="has-dropdown"><a href="#"><span class="submenu-icon"><i class="fa-solid fa-route"></i></span><span class="submenu-text">Pathway Guidelines</span> <span class="downarrow"><i class="fa-regular fa-angle-right"></i></span></a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="uk-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-flag"></i></span><span class="submenu-text">UK Pathway Guide</span></a></li>
+                                                        <li><a href="usa-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-location-dot"></i></span><span class="submenu-text">USA Pathway Guide</span></a></li>
+                                                        <li><a href="australia-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-earth-oceania"></i></span><span class="submenu-text">Australia Pathway Guide</span></a></li>
+                                                        <li><a href="gulf-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-compass"></i></span><span class="submenu-text">Gulf Pathway Guide</span></a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-dropdown"><a href="https://www.youtube.com/watch?v=hlD1BXfijWs" target="_blank" rel="noopener noreferrer">OET <span class="downarrow"><i class="fa-regular fa-angle-down"></i></span></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="https://www.youtube.com/watch?v=hlD1BXfijWs" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-notes-medical"></i></span><span class="submenu-text">Nursing OET</span></a></li>
+                                                <li><a href="https://www.youtube.com/watch?v=kL91eG32Uok" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-stethoscope"></i></span><span class="submenu-text">Doctor OET</span></a></li>
+                                                <li><a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-pills"></i></span><span class="submenu-text">Pharmacist OET</span></a></li>
+                                                <li><a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-person-walking"></i></span><span class="submenu-text">Physiotherapy OET</span></a></li>
+                                                <li><a href="pricing.html"><span class="submenu-icon"><i class="fa-solid fa-box-open"></i></span><span class="submenu-text">OET Packages</span></a></li>
+                                            </ul>
+                                        </li>
+                                        
+                                        <li class="has-dropdown"><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">Free Resources <span class="downarrow"><i class="fa-regular fa-angle-down"></i></span></a>
+                                            <ul class="sub-menu">
+                                                <li class="has-dropdown"><a href="oet-tips.html"><span class="submenu-icon"><i class="fa-solid fa-lightbulb"></i></span><span class="submenu-text">OET Tips</span> <span class="downarrow"><i class="fa-regular fa-angle-right"></i></span></a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="oet-writing-tips.html"><span class="submenu-icon"><i class="fa-solid fa-pen-nib"></i></span><span class="submenu-text">Writing Tips</span></a></li>
+                                                                                                                <li><a href="oet-reading-tips.html"><span class="submenu-icon"><i class="fa-solid fa-book-open-reader"></i></span><span class="submenu-text">Reading Tips</span></a></li>
+                                                        <li><a href="oet-listening-tips.html"><span class="submenu-icon"><i class="fa-solid fa-headphones"></i></span><span class="submenu-text">Listening Tips</span></a></li>
+                                                        <li><a href="oet-speaking-tips.html"><span class="submenu-icon"><i class="fa-solid fa-comments"></i></span><span class="submenu-text">Speaking Tips</span></a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="has-dropdown"><a href="oet-materials-support.html"><span class="submenu-icon"><i class="fa-solid fa-folder-open"></i></span><span class="submenu-text">Materials &amp; Support</span> <span class="downarrow"><i class="fa-regular fa-angle-right"></i></span></a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-telegram"></i></span><span class="submenu-text">Telegram Materials</span></a></li>
+                                                        <li><a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-users"></i></span><span class="submenu-text">Join Free Community</span></a></li>
+                                                <li><a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-whatsapp"></i></span><span class="submenu-text">WhatsApp Support</span></a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="login.html"><i class="fa-solid fa-right-to-bracket" style="margin-right: 8px;"></i><strong>Login / Register</strong></a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-6">
+                            <div class="vl-header-right">
+                                <!-- header btn -->
+                                <div class="vl-header-search d-none d-xl-block">
+                                    <span><img class="vl-search-toggle" src="assets/img/icon/vl-search-1.1.svg"
+                                            alt="Search OET tips, writing, speaking, UK pathway"></span>
+                                </div>
+                                <!-- header social area -->
+                                <div class="social-area social-area-headerTop d-none d-xl-block">
+                                    <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram"></i></a>
+                                    <a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+
+                            <!-- action btn -->
+                            <div class="vl-header-action-item d-block d-xl-none">
+                                <button type="button" class="vl-offcanvas-toggle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" viewBox="0 0 30 16">
+                                        <g clip-path="url(#clip0_54_1070)">
+                                            <path d="M3.625 3.45829H26.375" stroke="#000000" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M3.625 12.5416H26.375" stroke="#000000" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M6.625 8H23.375" stroke="#000000" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_54_1070">
+                                                <rect width="30" height="16" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- vl header search  -->
+    <div class="vl-header-search-bar d-flex align-items-center">
+        <button class="vl-search-close">�</button>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="vl-search-bar text-center">
+                        <h2 class="vl-search-bar-title mb-30">Search OET tips, writing, speaking, UK pathway</h2>
+                        <div class="contact-form-box contact-search-form-box">
+                            <form action="#">
+                                <input type="text" placeholder="Search OET preparation, writing, speaking...">
+                                <button type="submit"><i class="far fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- vl header search end -->
+
+    <!-- offcanvas menu start -->
+    <div class="vl-offcanvas">
+        <div class="vl-offcanvas-wrapper">
+            <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-50">
+                <div class="vl-offcanvas-logo">
+                    <a href="/" title="OET with Dr Hesham | The Pathway to UK"><img src="assets/img/logo/platform-logo.png" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                </div>
+                <div class="vl-offcanvas-close">
+                    <button class="vl-offcanvas-toggle">�</button>
+                </div>
+            </div>
+
+            <div class="vl-offcanvas-menu d-lg-block mb-40">
+                <nav></nav>
+            </div>
+            <div class="vl-offcanvas-info mb-40">
+                <h3 class="vl-offcanvas-sm-title mb-20">Contact &amp; Community</h3>
+                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer"> <span><img src="assets/img/icon/vl-icon-1.1.svg" alt=""></span> Join Free Community</a>
+                                    <a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"> <span><img src="assets/img/icon/vl-icon-1.3.svg" alt=""></span> WhatsApp Support</a>
+                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"> <span><img src="assets/img/icon/vl-icon-1.2.svg" alt=""></span> Telegram Channel</a>
+            </div>
+
+            <div class="vl-offcanvas-social mb-40">
+                <h3 class="vl-offcanvas-sm-title mb-20">Follow the Journey</h3>
+                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fab fa-youtube"></i></a>
+                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fab fa-telegram"></i></a>
+                                    <a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="vl-offcanvas-overlay"></div>
+
+    <!-- offcanvas menu end -->
+
+    <!--================= Header section End =================-->
+
+            <main>
+                <!--================= Banner section start =================-->
+                <section class="vl-banner-area p-relative vkl-gray-bg fix hero-banner-lavender">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="banner-area-content-1 p-relative">
+                                    <!-- sec title -->
+                                    <div class="vl-section-title vl-section-title-heading">
+                                        <!-- subtitle -->
+                                        <h4 class="sub-title" data-sal="slide-up" data-sal-duration="800" data-sal-delay="100"
+                                    data-sal-easing="ease-in-out"> <span><img
+                                                    src="assets/img/icon/sub-title-icon1.1.svg" alt=""></span> OET
+                                            Prep For Doctors, Nurses, Pharmacists, Physiotherapist &amp; Allied Health Professionals </h4>
+                                        <!-- title -->
+                                        <h1 class="title text-anime-style-2 pt-16 pb-16">OET Success Starts Here — Trusted by Thousands of Healthcare Professionals</h1>
+                                        <p class="text-anime-style-3">Over 6 years of proven success helping healthcare professionals pass OET and secure opportunities in the UK, USA, Australia, Canada, and Qatar.</p>
+                                    </div>
+                                    <!-- btn -->
+                                    <div class="vl-hero-btn mt-32" data-sal="slide-up" data-sal-duration="1100"
+                                        data-sal-delay="100" data-sal-easing="ease-in-out">
+                                        <a href="#oet-community-popup" class="vl-primary-btn oet-community-cta" aria-label="Join Free Community!" aria-haspopup="dialog" aria-controls="oet-community-popup"> Join Free Community
+                                            <span><img src="assets/img/icon/arrow-right.svg" alt=""></span></a>
+                                    </div>
+                                    <!-- shape 1 -->
+                                    <div class="vl-hero-shape-1 aniamtion-key-5 d-none d-xl-block">
+                                        <img src="assets/img/icon/vl-hero-shape-1.1.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="p-relative">
+                                    <div class="vl-banner-thumb-1">
+                                        <img class="oet-hero-doctor" src="assets/img/businessconsulting/banner/oet-hero-dr-hesham-clean.png?v=20260528c" alt="OET with Dr Hesham">
+                                    </div>
+                                    <!-- shppe 1 -->
+                                    <div class="vl-banner-card-1 aniamtion-key-4">
+                                        <img src="assets/img/icon/contactzzz.png?v=5" alt="Contact us QR code">
+                                    </div>
+                                    <!-- shppe 2 -->
+                                    <div class="vl-banner-card-2 aniamtion-key-4 d-none d-md-block">
+                                        <img src="assets/img/icon/rating.png" alt="Google Rating 5.0 for OET with Dr Hesham">
+                                    </div>
+                                    <!-- shppe 3 -->
+                                    <div class="vl-hero-shape-2">
+                                        <img class="circle" src="assets/img/icon/vl-hero-shape-1.2.svg" alt="">
+                                    </div>
+                                    <!-- shppe 4 -->
+                                    <div class="vl-hero-shape-3 aniamtion-key-5">
+                                        <img src="assets/img/icon/vl-hero-shape-1.3.svg" alt="">
+                                    </div>
+
+                                    <!-- shppe 5 -->
+                                    <div class="vl-hero-shape-4">
+                                        <img src="assets/img/icon/vl-blue-shape-1.1.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--================= Banner section End =================-->
+
+                <!--================= Brand section start =================-->
+                <div class="brand-area vkl-gray-white-bg">
+                    <div class="swiper marquee-swiper">
+                        <div class="swiper-wrapper swiper-slide-transtion">
+                            <div class="swiper-slide swiper-brand-slide-element">
+                                <div class="brand__thumb">
+                                    <div class="brand-badge">
+                                        <span class="brand-badge__icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                        <h3 class="brand-badge__title">OET Diagnostic</h3>
+                                        <p class="brand-badge__sub">Assess writing, speaking &amp; grammar</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide swiper-brand-slide-element">
+                                <div class="brand__thumb">
+                                    <div class="brand-badge">
+                                        <span class="brand-badge__icon"><i class="fa-solid fa-pen-to-square"></i></span>
+                                        <h3 class="brand-badge__title">OET Writing Practice</h3>
+                                        <p class="brand-badge__sub">Timed letters with fast feedback</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide swiper-brand-slide-element">
+                                <div class="brand__thumb">
+                                    <div class="brand-badge">
+                                        <span class="brand-badge__icon"><i class="fa-solid fa-microphone-lines"></i></span>
+                                        <h3 class="brand-badge__title">OET Speaking Practice</h3>
+                                        <p class="brand-badge__sub">Recorded role plays for confidence</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide swiper-brand-slide-element">
+                                <div class="brand__thumb">
+                                    <div class="brand-badge">
+                                        <span class="brand-badge__icon"><i class="fa-solid fa-user-check"></i></span>
+                                        <h3 class="brand-badge__title">Expert Review</h3>
+                                        <p class="brand-badge__sub">Human correction for faster progress</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide swiper-brand-slide-element">
+                                <div class="brand__thumb">
+                                    <div class="brand-badge">
+                                        <span class="brand-badge__icon"><i class="fa-solid fa-calendar-check"></i></span>
+                                        <h3 class="brand-badge__title">Study Planner</h3>
+                                        <p class="brand-badge__sub">Weekly roadmap to stay on track</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide swiper-brand-slide-element">
+                                <div class="brand__thumb">
+                                    <div class="brand-badge">
+                                        <span class="brand-badge__icon"><i class="fa-solid fa-chart-line"></i></span>
+                                        <h3 class="brand-badge__title">Progress Tracker</h3>
+                                        <p class="brand-badge__sub">Track writing, speaking &amp; grammar</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide swiper-brand-slide-element">
+                                <div class="brand__thumb">
+                                    <div class="brand-badge">
+                                        <span class="brand-badge__icon"><i class="fa-solid fa-window-restore"></i></span>
+                                        <h3 class="brand-badge__title">OET Mock Center</h3>
+                                        <p class="brand-badge__sub">Full exam simulation</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide swiper-brand-slide-element">
+                                <div class="brand__thumb">
+                                    <div class="brand-badge">
+                                        <span class="brand-badge__icon"><i class="fa-solid fa-gauge-high"></i></span>
+                                        <h3 class="brand-badge__title">OET Readiness Score</h3>
+                                        <p class="brand-badge__sub">See how close you are to exam day</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide swiper-brand-slide-element">
+                                <div class="brand__thumb">
+                                    <div class="brand-badge">
+                                        <span class="brand-badge__icon"><i class="fa-solid fa-layer-group"></i></span>
+                                        <h3 class="brand-badge__title">Pathway Tracks</h3>
+                                        <p class="brand-badge__sub">Nursing, medicine &amp; pharmacy support</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--================= Brand section End =================-->
+
+                <!--================= About section start =================-->
+                <section class="vl-about-area vkl-gray-white-bg pt-100 pb-70">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-4 mb-30">
+                                <div class="vl-section-title" data-sal="slide-up" data-sal-duration="1100"
+                                    data-sal-delay="100" data-sal-easing="ease-in-out">
+                                    <!-- subtitle -->
+                                    <h4 class="sub-title"> <span><img src="assets/img/icon/sub-title-icon1.1.svg"
+                                                alt=""></span> About Dr Hesham</h4>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 mb-30">
+                                <div class="vl-section-title">
+                                    <!-- title -->
+                                    <h2 class="title text-effect">Trusted OET coaching for nurses, doctors, and pharmacists
+                                        <br>preparing for the UK pathway.</h2>
+                                    <p class="para">Follow a practical learning path built for healthcare professionals through orientation sessions, speaking practice, writing feedback, mock tests, and clear UK pathway guidance designed to help you prepare with confidence.</p>
+                                    <a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer" class="vl-primary-btn mt-32 mb-60" data-sal="slide-up"
+                                        data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out">Message
+                                        on WhatsApp <span><img src="assets/img/icon/arrow-right.svg" alt=""></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-4 mb-30">
+                                <!-- thumb area -->
+                                <div class="vl-about-thumb-wrap reveal image-anime">
+                                    <img class="w-100" src="assets/img/businessconsulting/about/oet-coaching-banner.png" alt="OET coaching banner for healthcare professionals">
+                                </div>
+                            </div>
+                            <div class="col-xl-8 mb-30">
+                                <div class="counterbox__grid mb-30" data-sal="slide-up" data-sal-duration="1100"
+                                    data-sal-delay="100" data-sal-easing="ease-in-out">
+                                    <!-- single counter box -->
+                                    <div class="counterbox__single mb-30">
+                                        <h4 class="title pb-16"><span class="counter">15</span><span>K+</span></h4>
+                                        <p>Nursing Orientation Views</p>
+                                    </div>
+
+                                    <!-- single counter box -->
+                                    <div class="counterbox__single mb-30">
+                                        <h4 class="title pb-16"><span class="counter">20</span><span>K+</span></h4>
+                                        <p>Doctor Orientation Views</p>
+                                    </div>
+
+                                    <!-- single counter box -->
+                                    <div class="counterbox__single mb-30">
+                                        <h4 class="title pb-16"><span class="counter">7000</span><span>+</span></h4>
+                                        <p>Telegram Community Members</p>
+                                    </div>
+                                </div>
+
+                                <div class="counterbox__grid mb-30" data-sal="slide-up" data-sal-duration="1100"
+                                    data-sal-delay="100" data-sal-easing="ease-in-out">
+                                    <!-- single counter box -->
+                                    <div class="counterbox__single mb-30">
+                                        <h4 class="title pb-16"><span class="counter">7</span><span>+</span></h4>
+                                        <p>OET Skills Covered</p>
+                                    </div>
+
+                                    <!-- single counter box -->
+                                    <div class="counterbox__single mb-30">
+                                        <h4 class="title pb-16"><span class="counter">500</span><span>+</span></h4>
+                                        <p>Mock Tests &amp; Practice Tasks</p>
+                                    </div>
+
+                                    <!-- single counter box -->
+                                    <div class="counterbox__single mb-30">
+                                        <h4 class="title pb-16"><span class="counter">7</span><span>+</span></h4>
+                                        <p>Healthcare Professions Served</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--================= About section End =================-->
+
+                <!--================= Service section start =================-->
+                <section class="vkl-gray-bg fix pt-100 pb-100 oet-services-tone">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-xl-6">
+                                <!-- sec title -->
+                                <div class="vl-section-title vl-section-title-10 mb-60">
+                                    <!-- subtitle -->
+                                    <h4 class="sub-title" data-sal="slide-up" data-sal-duration="1100"
+                                        data-sal-delay="100" data-sal-easing="ease-in-out"> <span><img
+                                                src="assets/img/hrconsulting/icon/sub-title10.1.svg" alt=""></span> Our
+                                        Services
+                                    </h4>
+                                    <!-- title -->
+                                    <h2 class="title text-effect pt-16">Practical OET Services for Nurses,
+                                        Doctors &amp; Pharmacists</h2>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="blog-btn10 mb-60" data-sal="slide-up" data-sal-duration="1100"
+                                    data-sal-delay="100" data-sal-easing="ease-in-out">
+                                    <a href="service.html" class="primary-btn-10">Explore OET Services <span><i
+                                                class="fa-regular fa-arrow-right"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- single service -->
+                            <div class="col-xl-6 col-md-6 mb-30" data-sal="slide-right" data-sal-duration="1100"
+                                data-sal-delay="100" data-sal-easing="ease-in-out">
+                                <div class="service__box10">
+                                    <!-- service thumb -->
+                                    <div class="service__box10-thumb image-anime">
+                                        <img src="assets/img/hrconsulting/service/service-thumb-10.1.png"
+                                            alt="OET diagnostic assessment">
+                                    </div>
+
+                                    <div class="service__box10-content">
+                                        <h3 class="title"><a href="service-single.html">OET Diagnostic Assessment</a>
+                                        </h3>
+                                        <p class="para">See your starting point fast. Identify speaking, writing,
+                                            grammar, and readiness gaps before you book your exam.</p>
+                                        <a href="service-single.html" class="readmore">Read More <span><i
+                                                    class="fa-regular fa-arrow-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- single service -->
+                            <div class="col-xl-6 col-md-6 mb-30" data-sal="slide-left" data-sal-duration="1100"
+                                data-sal-delay="100" data-sal-easing="ease-in-out">
+                                <div class="service__box10">
+                                    <!-- service thumb -->
+                                    <div class="service__box10-thumb image-anime">
+                                        <img src="assets/img/hrconsulting/service/service-thumb-10.2.png"
+                                            alt="OET speaking and writing coaching">
+                                    </div>
+
+                                    <div class="service__box10-content">
+                                        <h3 class="title"><a href="service-single.html">OET Speaking &amp; Writing
+                                                Coaching</a></h3>
+                                        <p class="para">Build confidence with focused practice. Work through role
+                                            plays, timed letters, and correction-led feedback that improves task
+                                            control.</p>
+                                        <a href="service-single.html" class="readmore">Read More <span><i
+                                                    class="fa-regular fa-arrow-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- single service -->
+                            <div class="col-xl-4 col-md-6 mb-30" data-sal="slide-right" data-sal-duration="1100"
+                                data-sal-delay="100" data-sal-easing="ease-in-out">
+                                <div class="service__box10 service__box10-iconbox">
+                                    <!-- service thumb -->
+                                    <div class="service__box10-icon">
+                                        <span><img src="assets/img/hrconsulting/icon/service-icon-10.1.svg"
+                                                alt="Expert review"></span>
+                                    </div>
+
+                                    <div class="service__box10-content">
+                                        <h3 class="title"><a href="service-single.html">Expert Review</a></h3>
+                                        <p class="para">Human feedback for faster progress. Get clear next steps on
+                                            what to fix, refine, and repeat.</p>
+                                        <a href="service-single.html" class="readmore">Read More <span><i
+                                                    class="fa-regular fa-arrow-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- single service -->
+                            <div class="col-xl-4 col-md-6 mb-30" data-sal="slide-up" data-sal-duration="1100"
+                                data-sal-delay="100" data-sal-easing="ease-in-out">
+                                <div class="service__box10 service__box10-iconbox">
+                                    <!-- service thumb -->
+                                    <div class="service__box10-icon">
+                                        <span><img src="assets/img/hrconsulting/icon/service-icon-10.2.svg"
+                                                alt="Mock test and readiness"></span>
+                                    </div>
+
+                                    <div class="service__box10-content">
+                                        <h3 class="title"><a href="service-single.html">Mock Test &amp; Readiness</a>
+                                        </h3>
+                                        <p class="para">Train timing and stamina before test day. Practice under
+                                            exam conditions and know when you're ready to sit OET.</p>
+                                        <a href="service-single.html" class="readmore">Read More <span><i
+                                                    class="fa-regular fa-arrow-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- single service -->
+                            <div class="col-xl-4 col-md-6 mb-30" data-sal="slide-left" data-sal-duration="1100"
+                                data-sal-delay="100" data-sal-easing="ease-in-out">
+                                <div class="service__box10 service__box10-iconbox">
+                                    <!-- service thumb -->
+                                    <div class="service__box10-icon">
+                                        <span><img src="assets/img/hrconsulting/icon/service-icon-10.3.svg"
+                                                alt="Study planner"></span>
+                                    </div>
+
+                                    <div class="service__box10-content">
+                                        <h3 class="title"><a href="service-single.html">Study Planner</a></h3>
+                                        <p class="para">Stay on track with a clear weekly plan. Follow a structured
+                                            pathway built for busy healthcare professionals.</p>
+                                        <a href="service-single.html" class="readmore">Read More <span><i
+                                                    class="fa-regular fa-arrow-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- single service -->
+                            <div class="col-xl-4 col-md-6 mb-30" data-sal="slide-right" data-sal-duration="1100"
+                                data-sal-delay="100" data-sal-easing="ease-in-out">
+                                <div class="service__box10 service__box10-iconbox">
+                                    <!-- service thumb -->
+                                    <div class="service__box10-icon">
+                                        <span><img src="assets/img/hrconsulting/icon/service-icon-10.1.svg"
+                                                alt="OET writing practice"></span>
+                                    </div>
+
+                                    <div class="service__box10-content">
+                                        <h3 class="title"><a href="service-single.html">OET Writing Practice</a>
+                                        </h3>
+                                        <p class="para">Timed letters with guided correction. Build structure, tone,
+                                            and task control.</p>
+                                        <a href="service-single.html" class="readmore">Read More <span><i
+                                                    class="fa-regular fa-arrow-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- single service -->
+                            <div class="col-xl-4 col-md-6 mb-30" data-sal="slide-up" data-sal-duration="1100"
+                                data-sal-delay="100" data-sal-easing="ease-in-out">
+                                <div class="service__box10 service__box10-iconbox">
+                                    <!-- service thumb -->
+                                    <div class="service__box10-icon">
+                                        <span><img src="assets/img/hrconsulting/icon/service-icon-10.2.svg"
+                                                alt="OET speaking practice"></span>
+                                    </div>
+
+                                    <div class="service__box10-content">
+                                        <h3 class="title"><a href="service-single.html">OET Speaking Practice</a>
+                                        </h3>
+                                        <p class="para">Role plays that build exam confidence. Improve fluency,
+                                            response timing, and clarity.</p>
+                                        <a href="service-single.html" class="readmore">Read More <span><i
+                                                    class="fa-regular fa-arrow-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- single service -->
+                            <div class="col-xl-4 col-md-6 mb-30" data-sal="slide-left" data-sal-duration="1100"
+                                data-sal-delay="100" data-sal-easing="ease-in-out">
+                                <div class="service__box10 service__box10-iconbox">
+                                    <!-- service thumb -->
+                                    <div class="service__box10-icon">
+                                        <span><img src="assets/img/hrconsulting/icon/service-icon-10.3.svg"
+                                                alt="Vocabulary and grammar support"></span>
+                                    </div>
+
+                                    <div class="service__box10-content">
+                                        <h3 class="title"><a href="service-single.html">Vocabulary &amp; Grammar
+                                                Support</a></h3>
+                                        <p class="para">Fix the language issues that lower scores. Strengthen sentence
+                                            control and accuracy.</p>
+                                        <a href="service-single.html" class="readmore">Read More <span><i
+                                                    class="fa-regular fa-arrow-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- single service -->
+                            <div class="col-xl-4 col-md-6 mb-30" data-sal="slide-right" data-sal-duration="1100"
+                                data-sal-delay="100" data-sal-easing="ease-in-out">
+                                <div class="service__box10 service__box10-iconbox">
+                                    <!-- service thumb -->
+                                    <div class="service__box10-icon">
+                                        <span><img src="assets/img/hrconsulting/icon/service-icon-10.1.svg"
+                                                alt="Timed letter review"></span>
+                                    </div>
+
+                                    <div class="service__box10-content">
+                                        <h3 class="title"><a href="service-single.html">Timed Letter Review</a></h3>
+                                        <p class="para">Review letters quickly and act on feedback. Learn what to
+                                            change before the next draft.</p>
+                                        <a href="service-single.html" class="readmore">Read More <span><i
+                                                    class="fa-regular fa-arrow-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- single service -->
+                            <div class="col-xl-4 col-md-6 mb-30" data-sal="slide-up" data-sal-duration="1100"
+                                data-sal-delay="100" data-sal-easing="ease-in-out">
+                                <div class="service__box10 service__box10-iconbox">
+                                    <!-- service thumb -->
+                                    <div class="service__box10-icon">
+                                        <span><img src="assets/img/hrconsulting/icon/service-icon-10.2.svg"
+                                                alt="Mock test analysis"></span>
+                                    </div>
+
+                                    <div class="service__box10-content">
+                                        <h3 class="title"><a href="service-single.html">Mock Test Analysis</a></h3>
+                                        <p class="para">Learn from mock results and improve weak areas. Turn test
+                                            performance into a clear plan.</p>
+                                        <a href="service-single.html" class="readmore">Read More <span><i
+                                                    class="fa-regular fa-arrow-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- single service -->
+                            <div class="col-xl-4 col-md-6 mb-30" data-sal="slide-left" data-sal-duration="1100"
+                                data-sal-delay="100" data-sal-easing="ease-in-out">
+                                <div class="service__box10 service__box10-iconbox">
+                                    <!-- service thumb -->
+                                    <div class="service__box10-icon">
+                                        <span><img src="assets/img/hrconsulting/icon/service-icon-10.3.svg"
+                                                alt="Recorded course access"></span>
+                                    </div>
+
+                                    <div class="service__box10-content">
+                                        <h3 class="title"><a href="service-single.html">Recorded Course Access</a>
+                                        </h3>
+                                        <p class="para">Study anytime with structured video lessons. Review the
+                                            material at your own pace.</p>
+                                        <a href="service-single.html" class="readmore">Read More <span><i
+                                                    class="fa-regular fa-arrow-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--================= Service section End =================-->
+
+                <!--================= Choose section start =================-->
+                <section class="vl-choose-area vkl-gray-white-bg pt-100 pb-70">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-6 mb-30">
+                                <div class="vl-choose-wrap-content-1">
+                                    <!-- sec title -->
+                                    <div class="vl-section-title mb-32">
+                                    <!-- subtitle -->
+                                        <h4 class="sub-title" data-sal="slide-up" data-sal-duration="1100"
+                                            data-sal-delay="100" data-sal-easing="ease-in-out"> <span><img
+                                                    src="assets/img/icon/sub-title-icon1.1.svg" alt=""></span> Why
+                                            Choose OET with Dr Hesham </h4>
+                                        <!-- title -->
+                                        <h2 class="title text-effect pt-16 pb-16">Practical OET Coaching for Nurses,
+                                            Doctors &amp; Pharmacists</h2>
+                                        <p>Get practical OET preparation built around speaking, writing, grammar, and
+                                            exam strategy, so you can move forward with confidence toward the UK
+                                            pathway.</p>
+                                    </div>
+                                    <!-- thumbnail -->
+                                    <div class="vl-choose-thumb-1 reveal image-anime">
+                                        <img class="w-100"
+                                            src="assets/img/businessconsulting/choose/vl-choose-thumb-1.1.png" alt="OET preparation support visual">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 mb-30">
+                                <div class="vl-choose-wrap-content-2">
+                                    <!-- thumbnail -->
+                                    <div class="vl-choose-thumb-2 mb-32 reveal image-anime">
+                                        <img class="w-100"
+                                            src="assets/img/businessconsulting/choose/vl-choose-thumb-1.2.png" alt="OET coaching and UK pathway guidance visual">
+                                    </div>
+                                    <!-- sec title -->
+                                    <div class="vl-section-title mb-32" data-sal="slide-up" data-sal-duration="1100"
+                                        data-sal-delay="100" data-sal-easing="ease-in-out">
+                                        <p>With over six years of dedicated experience in OET preparation, I have
+                                            helped thousands of healthcare professionals achieve the results they need
+                                            to advance their international careers. From doctors and nurses to
+                                            pharmacists and allied health practitioners, my goal is to make OET
+                                            success practical, achievable, and career-focused.</p>
+                                    </div>
+                                    <!-- checkbox icon -->
+                                    <div class="vl-checkicon-list" data-sal="slide-up" data-sal-duration="1100"
+                                        data-sal-delay="100" data-sal-easing="ease-in-out">
+                                        <ul>
+                                            <li><span><img src="assets/img/icon/check.svg" alt=""></span>Practical OET
+                                                preparation for busy healthcare professionals</li>
+                                            <li><span><img src="assets/img/icon/check.svg" alt=""></span>Speaking and
+                                                writing support that improves exam performance</li>
+                                            <li><span><img src="assets/img/icon/check.svg" alt=""></span>Clear UK
+                                                pathway guidance for nurses, doctors, and pharmacists</li>
+                                        </ul>
+                                    </div>
+                                    <!-- btn -->
+                                    <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" class="vl-primary-btn mt-32">Subscribe Now <span><img
+                                                src="assets/img/icon/arrow-right.svg" alt=""></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--================= Choose section End =================-->
+
+                <!--================= Work section start =================-->
+                <section class="vkl-gray-bg-1 pt-100 pb-70 oet-work-tone">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-6 mx-auto text-center">
+                                <!-- sec title -->
+                                <div class="vl-section-title vl-section-title-3 mb-60">
+                                    <!-- subtitle -->
+                                    <h4 class="sub-title" data-sal="slide-up" data-sal-duration="1100"
+                                        data-sal-delay="100" data-sal-easing="ease-in-out"> <span><img
+                                                src="assets/img/icon/sub-title-icon3.1.svg" alt=""></span> How OET
+                                        Coaching Works </h4>
+                                    <!-- title -->
+                                    <h2 class="title text-anime-style-2 pt-16">Your Path to OET Success</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-relative">
+                            <div class="col-xl-6 mx-auto">
+                                <div class="work__thumb p-relative">
+                                    <!-- thumb -->
+                                    <div class="vl-work-thumb-three p-relative">
+                                        <img class="w-100" src="assets/img/marketingconsulting/work/vl-work-thumb-3.1.png"
+                                            alt="OET coaching process video thumbnail">
+                                    </div>
+                                    <!-- video popup btn -->
+                                    <div class="vl-video-pla2y">
+                                        <a href="https://www.youtube.com/watch?v=hlD1BXfijWs"
+                                            class="video-play-btn popup-video"><i class="fa-solid fa-play"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- shape 1 -->
+                            <div class="workright-arrow-right d-none d-xl-block">
+                                <img src="assets/img/marketingconsulting/work/right-arrow.png" alt="">
+                            </div>
+                            <!-- shape 2 -->
+                            <div class="workright-arrow-left d-none d-xl-block">
+                                <img src="assets/img/marketingconsulting/work/left-arrow.png" alt="">
+                            </div>
+                            <!-- shape 3 -->
+                            <div class="workright-arrow-down d-none d-xl-block">
+                                <img src="assets/img/marketingconsulting/work/down-arrow.png" alt="">
+                            </div>
+
+
+                            <div class="vl-work-box-grid-three">
+                                <!-- single work box -->
+                                <div class="workitem__three mb-30" data-sal="slide-up" data-sal-duration="1100"
+                                    data-sal-delay="100" data-sal-easing="ease-in-out">
+                                    <h3 class="toptitle">Step 01</h3>
+                                    <div class="workitem__three-box">
+                                        <h4 class="title">Assess Your Starting Point</h4>
+                                        <p>We review your speaking, writing, grammar, and exam readiness so you know
+                                            exactly where to begin.</p>
+                                    </div>
+                                </div>
+
+                                <!-- single work box -->
+                                <div class="workitem__three workitem__three-active mb-30" data-sal="slide-up"
+                                    data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out">
+                                    <h3 class="toptitle">Step 02</h3>
+                                    <div class="workitem__three-box">
+                                        <h4 class="title">Guided OET Coaching</h4>
+                                        <p>Build confidence with timed tasks, model responses, and correction-led
+                                            support that improves control.</p>
+                                    </div>
+                                </div>
+
+                                <!-- single work box -->
+                                <div class="workitem__three mb-30" data-sal="slide-up" data-sal-duration="1100"
+                                    data-sal-delay="100" data-sal-easing="ease-in-out">
+                                    <h3 class="toptitle">Step 03</h3>
+                                    <div class="workitem__three-box">
+                                        <h4 class="title">Track Progress &amp; Exam Readiness</h4>
+                                        <p>Refine weak areas, monitor growth, and move toward the UK pathway with
+                                            clarity.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--================= Work section End =================-->
+                <!--================= Testimonial section start =================-->
+                <div class="vkl-gray-bg-19 test-slider">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-4">
+                                <div class="testimonial-right10 pt-100">
+                                    <!-- sec title -->
+                                    <div class="vl-section-title vl-section-title-white mb-60">
+                                        <!-- subtitle -->
+                                        <h4 class="sub-title" data-sal="slide-up" data-sal-duration="1100"
+                                            data-sal-delay="100" data-sal-easing="ease-in-out"> <span><img
+                                                    src="assets/img/hrconsulting/icon/sub-title10.1.svg" alt=""></span>
+                                            Testimonials </h4>
+                                        <!-- title -->
+                                        <h2 class="title text-effect pt-16">What OET Students Are Saying About Their
+                                            Progress</h2>
+                                        <!-- btn -->
+                                        <div class="testimonil-btn" data-sal="slide-up" data-sal-duration="1100"
+                                            data-sal-delay="100" data-sal-easing="ease-in-out">
+                                        <a href="testimonial.html" class="primary-btn-10">More Reviews <span><i
+                                                        class="fa-regular fa-arrow-right"></i></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-8">
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-6">
+                                        <div class="vl-swiper-ver">
+                                            <div class="swiper swiper1">
+                                                <div class="swiper-wrapper swiper-slide-transtion">
+                                                    <div class="swiper-slide swiper-brand-slide-element">
+                                                        <div class="testimonial__wrap10">
+                                                            <div class="testimonial__wrap10-quote">
+                                                                <img src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
+                                                                    alt="">
+                                                            </div>
+                                                            <div class="testimonial__wrap10-review">
+                                                                <ul>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="testimonial__wrap10-content">
+                                                                <p class="para">&quot;The writing feedback was clear and practical. I finally knew how to structure my letters with confidence.&quot;</p>
+                                                            </div>
+                                                            <div class="testimonial__wrap10-authbox">
+                                                                <div class="testimonial__wrap10-authbox-thumb">
+                                                                    <img src="assets/img/hrconsulting/testimonial/oet-testimonial-rh.png"
+                                                                        alt="Dr. Rania Hassan, MBBS, MD Internal Medicine">
+                                                                </div>
+                                                                <div class="testimonial__wrap10-authbox-content">
+                                                                    <h4 class="title"><a href="testimonial.html">Dr. Rania Hassan</a></h4>
+                                                                    <p class="position">MBBS, MD Internal Medicine</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-slide swiper-brand-slide-element">
+                                                        <div class="testimonial__wrap10">
+                                                            <div class="testimonial__wrap10-quote">
+                                                                <img src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
+                                                                    alt="">
+                                                            </div>
+                                                            <div class="testimonial__wrap10-review">
+                                                                <ul>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="testimonial__wrap10-content">
+                                                                <p class="para">&quot;The speaking role plays helped me stay calm, answer naturally, and improve my timing.&quot;</p>
+                                                            </div>
+                                                            <div class="testimonial__wrap10-authbox">
+                                                                <div class="testimonial__wrap10-authbox-thumb">
+                                                                    <img src="assets/img/hrconsulting/testimonial/oet-testimonial-as.png"
+                                                                        alt="Amina Saleh, BSc Nursing, RN">
+                                                                </div>
+                                                                <div class="testimonial__wrap10-authbox-content">
+                                                                    <h4 class="title"><a href="testimonial.html">Amina Saleh</a></h4>
+                                                                    <p class="position">BSc Nursing, RN</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-slide swiper-brand-slide-element">
+                                                        <div class="testimonial__wrap10">
+                                                            <div class="testimonial__wrap10-quote">
+                                                                <img src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
+                                                                    alt="">
+                                                            </div>
+                                                            <div class="testimonial__wrap10-review">
+                                                                <ul>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="testimonial__wrap10-content">
+                                                                <p class="para">&quot;The mock practice showed exactly what I needed to fix before booking my test.&quot;</p>
+                                                            </div>
+                                                            <div class="testimonial__wrap10-authbox">
+                                                                <div class="testimonial__wrap10-authbox-thumb">
+                                                                    <img src="assets/img/hrconsulting/testimonial/oet-testimonial-ok.png"
+                                                                        alt="Omar Khaled, PharmD, MPharm">
+                                                                </div>
+                                                                <div class="testimonial__wrap10-authbox-content">
+                                                                    <h4 class="title"><a href="testimonial.html">Omar Khaled</a></h4>
+                                                                    <p class="position">PharmD, MPharm</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-slide swiper-brand-slide-element">
+                                                        <div class="testimonial__wrap10">
+                                                            <div class="testimonial__wrap10-quote">
+                                                                <img src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
+                                                                    alt="">
+                                                            </div>
+                                                            <div class="testimonial__wrap10-review">
+                                                                <ul>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="testimonial__wrap10-content">
+                                                                <p class="para">&quot;The weekly plan kept my OET prep focused, even with a busy work schedule.&quot;</p>
+                                                            </div>
+                                                            <div class="testimonial__wrap10-authbox">
+                                                                <div class="testimonial__wrap10-authbox-thumb">
+                                                                    <img src="assets/img/hrconsulting/testimonial/oet-testimonial-st.png"
+                                                                        alt="Sara Tarek, BPT, MSc Rehab">
+                                                                </div>
+                                                                <div class="testimonial__wrap10-authbox-content">
+                                                                    <h4 class="title"><a href="testimonial.html">Sara Tarek</a></h4>
+                                                                    <p class="position">BPT, MSc Rehab</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6">
+                                        <div class="vl-swiper-ver">
+                                            <div class="swiper swiper2">
+                                                <div class="swiper-wrapper swiper-slide-transtion">
+                                                    <div class="swiper-slide swiper-brand-slide-element">
+                                                        <div class="testimonial__wrap10">
+                                                            <div class="testimonial__wrap10-quote">
+                                                                <img src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
+                                                                    alt="">
+                                                            </div>
+                                                            <div class="testimonial__wrap10-review">
+                                                                <ul>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="testimonial__wrap10-content">
+                                                                <p class="para">&quot;The corrections were specific and easy to apply, so I improved faster than I expected.&quot;</p>
+                                                            </div>
+                                                            <div class="testimonial__wrap10-authbox">
+                                                                <div class="testimonial__wrap10-authbox-thumb">
+                                                                    <img src="assets/img/hrconsulting/testimonial/oet-testimonial-he.png"
+                                                                        alt="Dr. Hossam El-Sayed, MBBS, MRCP Part 1">
+                                                                </div>
+                                                                <div class="testimonial__wrap10-authbox-content">
+                                                                    <h4 class="title"><a href="testimonial.html">Dr. Hossam El-Sayed</a></h4>
+                                                                    <p class="position">MBBS, MRCP Part 1</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-slide swiper-brand-slide-element">
+                                                        <div class="testimonial__wrap10">
+                                                            <div class="testimonial__wrap10-quote">
+                                                                <img src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
+                                                                    alt="">
+                                                            </div>
+                                                            <div class="testimonial__wrap10-review">
+                                                                <ul>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="testimonial__wrap10-content">
+                                                                <p class="para">&quot;The coaching made the UK pathway feel clear and achievable step by step.&quot;</p>
+                                                            </div>
+                                                            <div class="testimonial__wrap10-authbox">
+                                                                <div class="testimonial__wrap10-authbox-thumb">
+                                                                    <img src="assets/img/hrconsulting/testimonial/oet-testimonial-mf.png"
+                                                                        alt="Mona Fathy, MSc Nursing, ICU RN">
+                                                                </div>
+                                                                <div class="testimonial__wrap10-authbox-content">
+                                                                    <h4 class="title"><a href="testimonial.html">Mona Fathy</a></h4>
+                                                                    <p class="position">MSc Nursing, ICU RN</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-slide swiper-brand-slide-element">
+                                                        <div class="testimonial__wrap10">
+                                                            <div class="testimonial__wrap10-quote">
+                                                                <img src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
+                                                                    alt="">
+                                                            </div>
+                                                            <div class="testimonial__wrap10-review">
+                                                                <ul>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="testimonial__wrap10-content">
+                                                                <p class="para">&quot;I stopped wasting time on random materials because the lessons showed me what to practice each week.&quot;</p>
+                                                            </div>
+                                                            <div class="testimonial__wrap10-authbox">
+                                                                <div class="testimonial__wrap10-authbox-thumb">
+                                                                    <img src="assets/img/hrconsulting/testimonial/oet-testimonial-kn.png"
+                                                                        alt="Karim Nabil, PharmD, Clinical Pharmacist">
+                                                                </div>
+                                                                <div class="testimonial__wrap10-authbox-content">
+                                                                    <h4 class="title"><a href="testimonial.html">Karim Nabil</a></h4>
+                                                                    <p class="position">PharmD, Clinical Pharmacist</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-slide swiper-brand-slide-element">
+                                                        <div class="testimonial__wrap10">
+                                                            <div class="testimonial__wrap10-quote">
+                                                                <img src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
+                                                                    alt="">
+                                                            </div>
+                                                            <div class="testimonial__wrap10-review">
+                                                                <ul>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="testimonial__wrap10-content">
+                                                                <p class="para">&quot;The exam strategy sessions helped me understand where marks are lost and how to answer more effectively.&quot;</p>
+                                                            </div>
+                                                            <div class="testimonial__wrap10-authbox">
+                                                                <div class="testimonial__wrap10-authbox-thumb">
+                                                                    <img src="assets/img/hrconsulting/testimonial/oet-testimonial-la.png"
+                                                                        alt="Lina Adel, BSc OT, OET Candidate">
+                                                                </div>
+                                                                <div class="testimonial__wrap10-authbox-content">
+                                                                    <h4 class="title"><a href="testimonial.html">Lina Adel</a></h4>
+                                                                    <p class="position">BSc OT, OET Candidate</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--================= Testimonial section End =================-->
+
+                <!--================= Blog section start =================-->
+                <section class="blog-padding-bottom10 vkl-gray-bg-21 fix pt-100" style="background-color:#E6E0FF;">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-xl-5">
+                                <!-- sec title -->
+                                <div class="vl-section-title vl-section-title-10 mb-60">
+                                    <!-- subtitle -->
+                                    <h4 class="sub-title" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100"
+                                        data-sal-easing="ease-in-out"> <span><img
+                                                src="assets/img/hrconsulting/icon/sub-title10.1.svg" alt="Section icon"></span> Our Blog
+                                    </h4>
+                                    <!-- title -->
+                                    <h2 class="title text-effect pt-16">OET Tips, Exam Insights And <span>UK Pathway
+                                            Guidance</span></h2>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-7">
+                                <div class="blog-btn10 mb-60" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100"
+                                    data-sal-easing="ease-in-out">
+                            <a href="blog-style-one.html" class="primary-btn-10">View More Blog <span><i
+                                                class="fa-regular fa-arrow-right"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- single blog -->
+                            <div class="col-xl-6 col-md-6 mb-30" data-sal="slide-right" data-sal-duration="1100"
+                                data-sal-delay="100" data-sal-easing="ease-in-out">
+                                <div class="blog__wrap10">
+                                    <!-- thumb -->
+                                    <div class="blog__wrap10-thumb image-anime">
+                                        <img src="assets/img/hrconsulting/blog/blog-thumb-10.1.png" alt="Healthcare professionals reviewing OET preparation material">
+                                        <!-- tag -->
+                                        <div class="tags">
+                                            <a href="#">OET Preparation</a>
+                                        </div>
+                                    </div>
+                                    <div class="blog__wrap10-content">
+                                        <!-- meta -->
+                                        <div class="meta">
+                                            <a href="#"> <span><img src="assets/img/hrconsulting/icon/calnender-10.1.svg"
+                                                        alt="Calendar icon"></span> Mar 20, 2026 </a>
+                                            <a href="#"> <span><img src="assets/img/hrconsulting/icon/user-10.1.svg"
+                                                        alt="Author icon"></span> Dr Hesham </a>
+                                        </div>
+                                        <div class="content-block">
+                                            <h3 class="title"><a href="blog-single.html">How to Prepare for OET Writing Without
+                                                    Wasting Time on the Wrong Practice</a></h3>
+                                            <!-- btn -->
+                                            <div class="blg-btn10 mt-32">
+                                                <a href="blog-single.html" class="primary-btn-10">Read More <span><i
+                                                            class="fa-regular fa-arrow-right"></i></span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- single blog -->
+                            <div class="col-xl-6 col-md-6 mb-30" data-sal="slide-left" data-sal-duration="1100"
+                                data-sal-delay="100" data-sal-easing="ease-in-out">
+                                <div class="blog__wrap10">
+                                    <!-- thumb -->
+                                    <div class="blog__wrap10-thumb image-anime">
+                                        <img src="assets/img/hrconsulting/blog/blog-thumb-10.2.png" alt="Students discussing OET speaking strategy and UK pathway planning">
+                                        <!-- tag -->
+                                        <div class="tags">
+                                            <a href="#">UK Pathway</a>
+                                        </div>
+                                    </div>
+                                    <div class="blog__wrap10-content">
+                                        <!-- meta -->
+                                        <div class="meta">
+                                            <a href="#"> <span><img src="assets/img/hrconsulting/icon/calnender-10.1.svg"
+                                                        alt="Calendar icon"></span> Mar 18, 2026 </a>
+                                            <a href="#"> <span><img src="assets/img/hrconsulting/icon/user-10.1.svg"
+                                                        alt="Author icon"></span> Dr Hesham </a>
+                                        </div>
+                                        <div class="content-block">
+                                            <h3 class="title"><a href="blog-single.html">OET Speaking Tips for Nurses, Doctors
+                                                    and Pharmacists Planning the UK Pathway</a></h3>
+                                            <!-- btn -->
+                                            <div class="blg-btn10 mt-32">
+                                                <a href="blog-single.html" class="primary-btn-10">Read More <span><i
+                                                            class="fa-regular fa-arrow-right"></i></span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--================= Blog section End =================-->
+
+                <!--================= Faq section Start =================-->
+                <section class="vkl-gray-bg-7 pt-100 pb-70 faq-theme-purple" style="background: linear-gradient(180deg, #fbf9ff 0%, #f3efff 100%);">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-5 mb-30">
+                                <div class="vl-faq-content-7">
+                                    <!-- sec title -->
+                                    <div class="vl-section-title vl-section-title-7">
+                                        <!-- subtitle -->
+                                        <h4 class="sub-title" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100"
+                                            data-sal-easing="ease-in-out"> <span><img
+                                                    src="assets/img/accountant/icon/sub-title-icon7.1-purple.svg" alt="FAQ icon"></span> FAQ
+                                        </h4>
+                                        <!-- title -->
+                                        <h2 class="title text-anime-style-1 pt-16">Got OET Questions? We've Got Straight Answers.
+                                        </h2>
+                                        <p class="para text-anime-style-3 pt-16">Clarity builds confidence when you're preparing for OET. These answers cover the questions learners ask most about coaching, practice, and the UK pathway.</p>
+                                    </div>
+
+                                    <!-- faq btn -->
+                                    <div class="vl-faq-btn-7">
+                                        <a href="faq.html" class="vl-primary-btn-7"> <span class="arrow-1"><i
+                                                    class="fa-regular fa-arrow-right"></i></span> View Full FAQ <span
+                                                class="arrow-2"><i class="fa-regular fa-arrow-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-7 mb-30">
+                                <div class="vl-faqs2" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100"
+                                    data-sal-easing="ease-in-out">
+                                    <div class="accordion" id="accordionExampleFaq">
+                                        <div class="vl-accordion-item">
+                                            <h2 class="accordion-header" id="headingFaqOne">
+                                                <button class="vl-accordion-button" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseFaqOne" aria-expanded="true"
+                                                    aria-controls="collapseFaqOne">
+                                                    What types of OET support do you offer? <span class="vl-faqarrow"><i
+                                                            class="fa-regular fa-angle-down"></i></span>
+                                                </button>
+                                            </h2>
+                                            <div id="collapseFaqOne" class="accordion-collapse collapse show"
+                                                aria-labelledby="headingFaqOne" data-bs-parent="#accordionExampleFaq">
+                                                <div class="vl-accordion-body">
+                                                    <p class="para">We help with practical OET preparation, speaking practice, writing feedback, recorded lessons, and UK pathway guidance.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="vl-accordion-item">
+                                            <h2 class="accordion-header" id="headingFaqTwo">
+                                                <button class="vl-accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapseFaqTwo"
+                                                    aria-expanded="false" aria-controls="collapseFaqTwo">
+                                                    Is this suitable for nurses, doctors, pharmacists, and allied health professionals? <span class="vl-faqarrow"><i
+                                                            class="fa-regular fa-angle-down"></i></span>
+                                                </button>
+                                            </h2>
+                                            <div id="collapseFaqTwo" class="accordion-collapse collapse"
+                                                aria-labelledby="headingFaqTwo" data-bs-parent="#accordionExampleFaq">
+                                                <div class="vl-accordion-body">
+                                                    <p class="para">Yes. The support is designed for healthcare professionals preparing for OET and working toward the UK pathway.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="vl-accordion-item">
+                                            <h2 class="accordion-header" id="headingFaqThree">
+                                                <button class="vl-accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapseFaqThree"
+                                                    aria-expanded="false" aria-controls="collapseFaqThree">
+                                                    Do you help with speaking and writing specifically? <span
+                                                        class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                                </button>
+                                            </h2>
+                                            <div id="collapseFaqThree" class="accordion-collapse collapse"
+                                                aria-labelledby="headingFaqThree" data-bs-parent="#accordionExampleFaq">
+                                                <div class="vl-accordion-body">
+                                                    <p class="para">Yes. We focus on the parts that most affect your score, with clear practice and feedback you can apply immediately.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="vl-accordion-item">
+                                            <h2 class="accordion-header" id="headingFaqFour">
+                                                <button class="vl-accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapseFaqFour"
+                                                    aria-expanded="false" aria-controls="collapseFaqFour">
+                                                    How do I get started? <span class="vl-faqarrow"><i
+                                                            class="fa-regular fa-angle-down"></i></span>
+                                                </button>
+                                            </h2>
+                                            <div id="collapseFaqFour" class="accordion-collapse collapse"
+                                                aria-labelledby="headingFaqFour" data-bs-parent="#accordionExampleFaq">
+                                                <div class="vl-accordion-body">
+                                                    <p class="para">Start with the free community, then choose the support route that fits your schedule and goals.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--================= Faq section End =================-->
+
+                <!--================= Cta section Start =================-->
+                <section class="cta-wrap7 fix" style="background-color:#F3EFFF;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-5 mb-30">
+                                <div class="cta-content-wrap10">
+                                    <h3 class="title text-effect pb-32">Struggling <span>With OET</span> You Don&rsquo;t Have To Do
+                                        It Alone</h3>
+                                    <!-- btn -->
+                                    <div class="cta-btn-10" data-sal="slide-right" data-sal-duration="1100" data-sal-delay="100"
+                                        data-sal-easing="ease-in-out">
+                                        <a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer" class="primary-btn-10">Get OET Support <span><i
+                                                    class="fa-regular fa-arrow-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-7 mb-30">
+                                <div class="cta-large-thumb-10 reveal image-anime">
+                        <img src="assets/img/hrconsulting/cta/oet-cta-banner.webp" alt="Supportive coaching call for OET learners">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--================= Cta section End =================-->
+
+
+
+                <!-- progress -->
+                <div class="paginacontainer">
+                    <div class="progress-wrap progress-wrap-7">
+                        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+                        </svg>
+                    </div>
+                </div>
+
+            </main>
+
+            <!--================= Footer section start =================-->
+            <footer class="vl-footer-10 fix vkl-gray-bg-19 pt-60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-4 col-md-6 mb-30">
+                            <!-- footer widget 1 -->
+                            <div class="vl-footer-widget-1">
+                                <div class="vl-footer-logo">
+                                    <a href="/"><img src="assets/img/logo/footer-logo.png" alt="OET with Dr Hesham"></a>
+                                </div>
+                                <div class="vl-footer-content vl-footer-content-6">
+                                    <p class="para pt-16 pb-24">We help nurses, doctors, pharmacists, and allied health professionals prepare for OET with practical guidance, focused feedback, and clear UK pathway support.</p>
+                                </div>
+
+                                <!-- social area -->
+                                <div class="social-area-footer-10">
+                                    <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram"></i></a>
+                                    <a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-md-6 mb-30">
+                            <div class="vl-footer-widget-2 vl-footer-widget-2-10">
+                                <h3 class="vl-footer-widget-title vl-footer-widget-title-6 mb-30">Support</h3>
+                                <div class="vl-footer-menu vl-footer-menu-10">
+                                    <ul>
+                                        <li><a href="about.html">About Dr. Hesham</a></li>
+                                        <li><a href="teaching-approach.html">Teaching Approach</a></li>
+                                        <li><a href="https://www.youtube.com/watch?v=hlD1BXfijWs" target="_blank" rel="noopener noreferrer">OET Programs</a></li>
+                                        <li><a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
+                                        <li><a href="mailto:support@oetwithdrhesham.co.uk">Email Support</a></li>
+                                        <li><a href="faq.html">FAQ</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-md-6 mb-30">
+                            <div class="vl-footer-widget-3 vl-footer-widget-3-10">
+                                <h3 class="vl-footer-widget-title vl-footer-widget-title-6 mb-30">Top Links</h3>
+                                <div class="vl-footer-menu vl-footer-menu-10">
+                                    <ul>
+
+                                        <li><a href="oet-materials-support.html">Free Resources</a></li>
+
+                                        <li><a href="oet-speaking-tips.html">Speaking Tips</a></li>
+
+                                        <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">Telegram Materials</a></li>
+
+                                        <li><a href="https://www.youtube.com/watch?v=rbNsB7Olxts" target="_blank" rel="noopener noreferrer">Success Stories</a></li>
+                                        <li><a href="uk-pathway-guide.html">UK Pathway Guide</a></li>
+                                        <li><a href="usa-pathway-guide.html">USA Pathway Guide</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 mb-30">
+                            <!-- footer widget 4 -->
+                            <div class="vl-footer-widget-4 vl-footer-widget-4-10">
+                                <h3 class="vl-footer-widget-title vl-footer-widget-title-6 mb-30">Subscribe for OET Updates</h3>
+                                <!-- Newslater -->
+                                <div class="vl-footer-newslate10">
+                                    <form action="#">
+                                        <input type="email" placeholder="Your Email">
+                                    </form>
+                                    <div class="neslat-btn10">
+                                        <button class="primary-btn-10">Subscribe Now <span><i
+                                                    class="fa-regular fa-arrow-right"></i></span></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="vl-copy-righ1t vl-copy-righ1t-10">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 mb-30">
+                                    <div class="vl-footer-copy-right-widget vl-footer-copy-right-widget-6">
+                                        <p class="para">&copy; Copyright 2026 - OET with Dr Hesham. All Rights Reserved</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 mb-30">
+                                    <div class="vl-copy-right-menu vl-copy-right-menu-10">
+                                        <ul>
+                                            <li><a href="#">Terms &amp; Conditions</a></li>
+                                            <li><a href="#">Privacy Policy</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!--================= Footer section End =================-->
+
+
+    <!-- js file -->
+
+    <!-- jquery js-->
+    <script src="assets/js/plugins/jquery-3.7.1.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="assets/js/plugins/bootstrap.min.js"></script>
+    <!-- gsap js-->
+    <script src="assets/js/plugins/gsap.min.js"></script>
+    <!-- scrollTrigger js-->
+    <script src="assets/js/plugins/ScrollTrigger.min.js"></script>
+    <!-- swiper js -->
+    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+    <!-- nice select js -->
+    <script src="assets/js/plugins/nice-select.js"></script>
+    <!-- fontawesome -->
+    <script src="assets/js/plugins/fontawesome.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="assets/js/plugins/magnific-popup.js"></script>
+    <!-- counter js -->
+    <script src="assets/js/plugins/jquery.counterup.min.js"></script>
+    <!-- waypoints js-->
+    <script src="assets/js/plugins/waypoints.js"></script>
+    <!-- sal js-->
+    <script src="assets/js/plugins/sal.min.js"></script>
+    <!-- ScrollSmoother js -->
+    <script src="assets/js/plugins/lenis.min.js"></script>
+    <!-- SplitText js -->
+    <script src="assets/js/plugins/SplitText.min.js"></script>
+    <script src="assets/js/plugins/jarallax.min.js"></script>
+    <!-- Custom js -->
+     <script src="assets/js/cat.js"></script>
+     <script src="assets/js/main.js"></script>
+     <script src="assets/js/oet-contact-widget.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            var cta = document.querySelector('.oet-community-cta');
+            var fullText = 'Join Free Community!';
+
+            if (!cta || typeof gsap === 'undefined') return;
+            var contentEl = cta.querySelector('.oet-community-cta__content');
+            var textEl = contentEl ? contentEl.querySelector('.oet-community-cta__text') : null;
+            var cursorEl = contentEl ? contentEl.querySelector('.oet-community-cta__cursor') : null;
+            cta.setAttribute('aria-label', fullText);
+
+            if (!textEl || !cursorEl) {
+                cta.textContent = fullText;
+                return;
+            }
+
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                textEl.textContent = fullText;
+                cursorEl.style.display = 'none';
+                return;
+            }
+
+            function startTypingLoop() {
+                var state = { progress: 0 };
+                gsap.killTweensOf([textEl, cursorEl]);
+                textEl.textContent = '';
+                gsap.set(cursorEl, { opacity: 1 });
+
+                gsap.to(state, {
+                    progress: fullText.length,
+                    duration: 2.8,
+                    ease: 'none',
+                    onUpdate: function () {
+                        textEl.textContent = fullText.slice(0, Math.floor(state.progress));
+                    },
+                    onComplete: function () {
+                        gsap.delayedCall(0.5, function () {
+                            var blinkTl = gsap.timeline({
+                                onComplete: function () {
+                                    textEl.textContent = '';
+                                    gsap.delayedCall(0.7, startTypingLoop);
+                                }
+                            });
+
+                            for (var i = 0; i < 3; i++) {
+                                blinkTl.to(cursorEl, { opacity: 0, duration: 0.16, ease: 'none' })
+                                    .to(cursorEl, { opacity: 1, duration: 0.16, ease: 'none' });
+                            }
+                        });
+                    }
+                });
+            }
+
+            startTypingLoop();
+        });
+    </script>
+    <script>
+        (function () {
+            if (typeof gsap === 'undefined') {
+                return;
+            }
+
+            if (!window.matchMedia || !window.matchMedia('(min-width: 1200px)').matches) {
+                return;
+            }
+
+            var menuRoot = document.querySelector('.vl-main-menu');
+            if (!menuRoot) {
+                return;
+            }
+
+            var dropdownItems = menuRoot.querySelectorAll('li.has-dropdown');
+            dropdownItems.forEach(function (item) {
+                var submenu = Array.from(item.children).find(function (child) {
+                    return child.classList && child.classList.contains('sub-menu');
+                });
+                if (!submenu) {
+                    return;
+                }
+
+                var submenuItems = Array.from(submenu.children).filter(function (child) {
+                    return child.tagName === 'LI';
+                });
+                var closeTimer = null;
+                var openTimeline = null;
+                var closeTimeline = null;
+
+                function clearTimers() {
+                    if (closeTimer) {
+                        clearTimeout(closeTimer);
+                        closeTimer = null;
+                    }
+                }
+
+                function killActiveTweens() {
+                    gsap.killTweensOf([submenu].concat(submenuItems));
+                    if (openTimeline) {
+                        openTimeline.kill();
+                        openTimeline = null;
+                    }
+                    if (closeTimeline) {
+                        closeTimeline.kill();
+                        closeTimeline = null;
+                    }
+                }
+
+                function openDropdown() {
+                    clearTimers();
+                    killActiveTweens();
+                    gsap.set(submenu, { transformOrigin: 'top center' });
+
+                    openTimeline = gsap.timeline({
+                        defaults: { overwrite: 'auto' },
+                        onComplete: function () {
+                            openTimeline = null;
+                        }
+                    });
+
+                    openTimeline.fromTo(submenu, {
+                        autoAlpha: 0,
+                        y: 12,
+                        scale: 0.98
+                    }, {
+                        autoAlpha: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 0.3,
+                        ease: 'power3.out'
+                    }, 0).fromTo(submenuItems, {
+                        autoAlpha: 0,
+                        y: 8
+                    }, {
+                        autoAlpha: 1,
+                        y: 0,
+                        duration: 0.24,
+                        ease: 'power2.out',
+                        stagger: 0.03
+                    }, 0.04);
+                }
+
+                function closeDropdown() {
+                    clearTimers();
+                    closeTimer = window.setTimeout(function () {
+                        closeTimer = null;
+                        killActiveTweens();
+
+                        closeTimeline = gsap.timeline({
+                            defaults: { overwrite: 'auto' },
+                            onComplete: function () {
+                                gsap.set(submenu, { clearProps: 'opacity,visibility,transform' });
+                                gsap.set(submenuItems, { clearProps: 'opacity,transform' });
+                                closeTimeline = null;
+                            }
+                        });
+
+                        closeTimeline.to(submenuItems, {
+                            autoAlpha: 0,
+                            y: 6,
+                            duration: 0.16,
+                            ease: 'power2.in',
+                            stagger: {
+                                each: 0.015,
+                                from: 'end'
+                            }
+                        }, 0).to(submenu, {
+                            autoAlpha: 0,
+                            y: 10,
+                            scale: 0.98,
+                            duration: 0.2,
+                            ease: 'power3.in'
+                        }, 0.02);
+                    }, 90);
+                }
+
+                item.addEventListener('mouseenter', openDropdown);
+                item.addEventListener('mouseleave', closeDropdown);
+            });
+        })();
+    </script>
+
+
+    <div class="oet-community-popup" id="oet-community-popup" aria-hidden="true">
+        <div class="oet-community-popup__overlay" data-oet-community-close></div>
+        <div class="oet-community-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="oet-community-popup-title" aria-describedby="oet-community-popup-intro">
+            <button class="oet-community-popup__close" type="button" data-oet-community-close aria-label="Close community popup">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+            <div class="oet-community-popup__body">
+                <span class="oet-community-popup__eyebrow"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Free OET support</span>
+                <h2 class="oet-community-popup__title" id="oet-community-popup-title">Join Our Free OET Communities</h2>
+                <p class="oet-community-popup__intro" id="oet-community-popup-intro">Choose the group or resource that matches your profession, language preference, or preparation stage. Each link opens in a new tab so you can join instantly.</p>
+
+                <h3 class="oet-community-popup__section-title">WhatsApp Groups</h3>
+                <div class="oet-community-popup__grid">
+                    <a class="oet-community-popup__card" href="https://chat.whatsapp.com/LPSFtrljYdjAYGpBStpMz5" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Exam Recalls Group 1</span>
+                        <span class="oet-community-popup__hint">Recent exam recall discussions</span>
+                    </a>
+                    <a class="oet-community-popup__card" href="https://chat.whatsapp.com/CzVgwnH73Vn8PupWxPrhkz" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Exam Recalls Group 2</span>
+                        <span class="oet-community-popup__hint">Backup recalls community</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/GwXdSX6v38F3EjNzC4wS2F?mode=hq1tsha" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET Nursing WhatsApp - New</span>
+                        <span class="oet-community-popup__hint">Highlighted nursing community</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/CeJmvXO5dJA50OKBGtZcuD?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Medicine Orientation Group</span>
+                        <span class="oet-community-popup__hint">Free orientation sessions for medicine</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/IuCFuWFXFrQHtK6qICP4jg?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET English Only</span>
+                        <span class="oet-community-popup__hint">English-only practice community</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/Kz8zXv7GpoCJBAHpfDygPW?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Pharmacy WhatsApp Group</span>
+                        <span class="oet-community-popup__hint">Pharmacy OET support</span>
+                    </a>
+                </div>
+
+                <h3 class="oet-community-popup__section-title">Free Orientation &amp; Resources</h3>
+                <div class="oet-community-popup__resources">
+                    <a class="oet-community-popup__resource" href="https://t.me/OET_Nursing_DrHesham" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Telegram Nursing Channel</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/kL91eG32Uok?si=Q464XynULlIxpiav" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Doctors Arabic Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/3aBIQq_p3MQ?si=eNwqS82aYuYBaifr" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Doctors Non-Arabic Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/rbNsB7Olxts?si=RNoigvu5kz_bUVYI" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Course Feedback</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/hlD1BXfijWs?si=EQFjYcWKTBOvltPI" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Nursing Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/MCPZb589zdY?si=vSLShtttUOEH89rx" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET &amp; UK Nursing Live</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script id="oet-community-popup-script">
+        (function () {
+            var popup = document.getElementById('oet-community-popup');
+            var triggers = document.querySelectorAll('.oet-community-cta');
+            if (!popup || !triggers.length) return;
+
+            var closeButtons = popup.querySelectorAll('[data-oet-community-close]');
+            var scrollBody = popup.querySelector('.oet-community-popup__body');
+            var focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+            var lastTrigger = null;
+            var lastTouchY = 0;
+
+            function firstFocusable() {
+                return popup.querySelector(focusableSelector);
+            }
+
+            function openPopup(trigger) {
+                lastTrigger = trigger || null;
+                popup.classList.add('is-open');
+                popup.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('oet-community-popup-lock');
+                window.setTimeout(function () {
+                    var target = firstFocusable();
+                    if (target) target.focus({ preventScroll: true });
+                }, 30);
+            }
+
+            function closePopup() {
+                popup.classList.remove('is-open');
+                popup.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('oet-community-popup-lock');
+                if (lastTrigger && typeof lastTrigger.focus === 'function') {
+                    lastTrigger.focus({ preventScroll: true });
+                }
+            }
+
+            triggers.forEach(function (trigger) {
+                trigger.setAttribute('href', '#oet-community-popup');
+                trigger.setAttribute('aria-haspopup', 'dialog');
+                trigger.setAttribute('aria-controls', 'oet-community-popup');
+                trigger.removeAttribute('target');
+                trigger.removeAttribute('rel');
+                trigger.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    openPopup(trigger);
+                });
+            });
+
+            closeButtons.forEach(function (button) {
+                button.addEventListener('click', closePopup);
+            });
+
+            if (scrollBody) {
+                scrollBody.addEventListener('wheel', function (event) {
+                    event.stopPropagation();
+                }, { passive: true });
+
+                scrollBody.addEventListener('touchstart', function (event) {
+                    if (event.touches && event.touches.length) {
+                        lastTouchY = event.touches[0].clientY;
+                    }
+                }, { passive: true });
+
+                scrollBody.addEventListener('touchmove', function (event) {
+                    if (!event.touches || !event.touches.length) return;
+                    var currentY = event.touches[0].clientY;
+                    var deltaY = lastTouchY - currentY;
+                    var atTop = scrollBody.scrollTop <= 0;
+                    var atBottom = Math.ceil(scrollBody.scrollTop + scrollBody.clientHeight) >= scrollBody.scrollHeight;
+
+                    if ((atTop && deltaY < 0) || (atBottom && deltaY > 0)) {
+                        event.preventDefault();
+                    }
+
+                    event.stopPropagation();
+                    lastTouchY = currentY;
+                }, { passive: false });
+            }
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' && popup.classList.contains('is-open')) {
+                    closePopup();
+                }
+            });
+        })();
+    </script>
+
+</body>
+</html>

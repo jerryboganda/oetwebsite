@@ -1,0 +1,215 @@
+
+:root{--oet-ink:#16213e;--oet-muted:#667085;--oet-lav:#eeeaff;--oet-purple:#5f46f5;--oet-line:#ded8fb}
+.oet-legal-body{margin:0;background:linear-gradient(180deg,#f7f5ff 0,#fff 32%);color:var(--oet-ink);font-family:Arial,sans-serif}.oet-legal-header{background:#fff;border-bottom:1px solid var(--oet-line);position:sticky;top:0;z-index:20}.oet-legal-nav{max-width:1180px;margin:auto;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}.oet-legal-nav img{width:145px;height:auto}.oet-legal-nav a{color:var(--oet-ink);text-decoration:none;font-weight:700}.oet-legal-links{display:flex;gap:18px;flex-wrap:wrap}.oet-legal-hero{background:var(--oet-lav);padding:62px 22px 86px;position:relative;overflow:hidden}.oet-legal-hero:after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;right:-80px;top:-150px;background:rgba(95,70,245,.12)}.oet-legal-hero-inner{max-width:980px;margin:auto;position:relative;z-index:1}.oet-legal-kicker{color:var(--oet-purple);font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}.oet-legal-hero h1{font-size:clamp(36px,6vw,62px);line-height:1.05;margin:12px 0 10px;font-family:Georgia,serif}.oet-legal-hero p{max-width:680px;color:#4f5570}.oet-legal-main{max-width:980px;margin:-48px auto 64px;padding:0 20px;position:relative;z-index:2}.oet-legal-main .card{background:#fff;border:1px solid var(--oet-line);border-radius:24px;padding:clamp(22px,5vw,54px);box-shadow:0 24px 70px rgba(35,29,80,.12)}.oet-legal-main h1{display:none}.oet-legal-main h2{font-family:Georgia,serif;color:var(--oet-ink);font-size:25px;margin-top:34px}.oet-legal-main p,.oet-legal-main li,.oet-legal-main td,.oet-legal-main th{line-height:1.75;color:#4f5570}.oet-legal-main a{color:var(--oet-purple)}.oet-legal-main table{width:100%;border-collapse:collapse;display:block;overflow-x:auto}.oet-legal-main td,.oet-legal-main th{border:1px solid var(--oet-line);padding:10px;text-align:left}.oet-legal-footer{background:#15152a;color:#fff;padding:34px 22px}.oet-legal-footer-inner{max-width:980px;margin:auto}.oet-legal-footer a{color:#ddd8ff;text-decoration:none;margin-right:16px;line-height:2.1}.oet-legal-footer button{border:0;background:none;color:#ddd8ff;padding:0;cursor:pointer;font:inherit}.oet-cc{position:fixed;inset:auto 16px 16px;max-width:760px;margin:auto;background:#fff;border:1px solid #ded8fb;border-radius:20px;padding:20px;box-shadow:0 20px 55px rgba(22,33,62,.24);z-index:9999;color:#16213e}.oet-cc[hidden]{display:none}.oet-cc h2{font:700 22px Georgia,serif;margin:0 0 8px}.oet-cc p{color:#667085;line-height:1.55}.oet-cc-actions{display:flex;flex-wrap:wrap;gap:8px}.oet-cc button{border:1px solid #ded8fb;border-radius:9px;padding:9px 13px;font-weight:700;background:#fff;color:#16213e;cursor:pointer}.oet-cc .primary{background:#5f46f5;color:#fff;border-color:#5f46f5}.oet-cc-prefs{display:grid;gap:8px;margin:12px 0}.oet-cc-prefs label{border:1px solid #ded8fb;border-radius:9px;padding:10px}@media(max-width:680px){.oet-legal-links{display:none}.oet-legal-hero{padding-top:44px}.oet-legal-main{margin-top:-34px}.oet-legal-nav img{width:118px}}
+
+/* Consent visual alignment with OET production design */
+.oet-cc{
+    inset:auto 18px 14px!important;
+    max-width:min(860px,calc(100vw - 36px))!important;
+    padding:0!important;
+    border:1px solid rgba(255,255,255,.78)!important;
+    border-radius:22px!important;
+    background:linear-gradient(145deg,rgba(255,255,255,.98) 0%,rgba(251,249,255,.98) 52%,rgba(239,233,255,.96) 100%)!important;
+    box-shadow:0 28px 86px rgba(22,18,74,.24),0 0 0 1px rgba(100,74,249,.08)!important;
+    color:#101828!important;
+    overflow:hidden;
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+}
+.oet-cc:before,
+.oet-cc:after{
+    content:"";
+    position:absolute;
+    pointer-events:none;
+    border-radius:999px;
+}
+.oet-cc:before{
+    width:220px;
+    height:220px;
+    right:-82px;
+    top:-98px;
+    background:radial-gradient(circle,rgba(100,74,249,.24),rgba(100,74,249,0) 68%);
+}
+.oet-cc:after{
+    width:190px;
+    height:190px;
+    left:-88px;
+    bottom:-105px;
+    background:radial-gradient(circle,rgba(35,211,102,.13),rgba(35,211,102,0) 70%);
+}
+.oet-cc[hidden]{display:none!important}
+.oet-cc-shell{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:auto minmax(0,1fr);
+    gap:14px;
+    align-items:flex-start;
+    padding:16px 20px;
+}
+.oet-cc-icon{
+    width:48px;
+    height:48px;
+    border-radius:17px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    background:linear-gradient(135deg,#644af9 0%,#7c5cff 62%,#23d366 140%);
+    box-shadow:0 18px 34px rgba(100,74,249,.28);
+}
+.oet-cc-icon span{
+    width:21px;
+    height:21px;
+    border-radius:50%;
+    position:relative;
+    background:rgba(255,255,255,.96);
+}
+.oet-cc-icon span:before,
+.oet-cc-icon span:after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    background:#644af9;
+}
+.oet-cc-icon span:before{width:5px;height:5px;left:5px;top:5px;box-shadow:9px 3px 0 #644af9,4px 11px 0 #644af9}
+.oet-cc-icon span:after{width:8px;height:8px;right:-1px;top:-2px;background:#fff}
+.oet-cc-kicker{
+    margin:0 0 5px!important;
+    color:#644af9!important;
+    font-size:11px!important;
+    font-weight:900!important;
+    line-height:1!important;
+    letter-spacing:.16em!important;
+    text-transform:uppercase!important;
+}
+.oet-cc h2{
+    margin:0 0 5px!important;
+    font-family:Manrope,Inter,Arial,sans-serif!important;
+    color:#101828!important;
+    font-size:clamp(21px,2vw,28px)!important;
+    line-height:1.08!important;
+    font-weight:900!important;
+    letter-spacing:-.2px!important;
+}
+.oet-cc p{
+    max-width:710px;
+    margin:0!important;
+    color:#5f627a!important;
+    font-size:13.5px!important;
+    line-height:1.45!important;
+}
+.oet-cc a{color:#644af9!important;font-weight:900;text-decoration:none}
+.oet-cc a:hover{text-decoration:underline}
+.oet-cc-actions{
+    display:flex!important;
+    flex-wrap:wrap;
+    gap:8px!important;
+    margin-top:12px;
+}
+.oet-cc button{
+    min-height:40px;
+    border-radius:999px!important;
+    padding:10px 17px!important;
+    border:1px solid rgba(100,74,249,.2)!important;
+    background:rgba(255,255,255,.82)!important;
+    color:#17152f!important;
+    box-shadow:0 10px 22px rgba(17,24,39,.06);
+    font-family:Manrope,Inter,Arial,sans-serif!important;
+    font-size:14px!important;
+    font-weight:900!important;
+    line-height:1!important;
+    transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease!important;
+}
+.oet-cc button:hover{
+    transform:translateY(-2px);
+    background:#fff!important;
+    box-shadow:0 16px 30px rgba(100,74,249,.16);
+}
+.oet-cc .primary{
+    color:#fff!important;
+    border-color:#644af9!important;
+    background:linear-gradient(135deg,#644af9 0%,#7c5cff 100%)!important;
+    box-shadow:0 16px 34px rgba(100,74,249,.28);
+}
+.oet-cc .primary:hover{box-shadow:0 20px 38px rgba(100,74,249,.34)}
+.oet-cc button:focus-visible{outline:3px solid rgba(100,74,249,.34);outline-offset:3px}
+.oet-cc-prefs{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:8px!important;
+    margin:12px 0 2px!important;
+}
+.oet-cc-prefs[hidden]{display:none!important}
+.oet-cc-prefs label{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    min-height:64px;
+    border:1px solid rgba(100,74,249,.14)!important;
+    border-radius:14px!important;
+    background:rgba(255,255,255,.76)!important;
+    padding:11px!important;
+    color:#302b59!important;
+    box-shadow:0 12px 28px rgba(100,74,249,.07);
+}
+.oet-cc-pref-copy{display:grid;gap:4px}
+.oet-cc-pref-copy strong{color:#17152f;font-size:13px;font-weight:900;line-height:1.1}
+.oet-cc-pref-copy small{color:#6f6b86;font-size:11px;font-weight:700;line-height:1.2}
+.oet-cc-always{
+    flex:0 0 auto;
+    border-radius:999px;
+    padding:6px 8px;
+    color:#644af9;
+    background:rgba(100,74,249,.1);
+    font-size:10px;
+    font-weight:900;
+    line-height:1;
+}
+.oet-cc input[type="checkbox"]{
+    appearance:none;
+    -webkit-appearance:none;
+    flex:0 0 auto;
+    width:44px;
+    height:26px;
+    border:1px solid rgba(100,74,249,.28);
+    border-radius:999px;
+    background:#eeeaff;
+    position:relative;
+    cursor:pointer;
+    transition:background .2s ease,border-color .2s ease;
+}
+.oet-cc input[type="checkbox"]:before{
+    content:"";
+    position:absolute;
+    width:20px;
+    height:20px;
+    left:3px;
+    top:2px;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 4px 10px rgba(17,24,39,.18);
+    transition:transform .2s ease;
+}
+.oet-cc input[type="checkbox"]:checked{background:#644af9;border-color:#644af9}
+.oet-cc input[type="checkbox"]:checked:before{transform:translateX(18px)}
+@media(max-width:767px){
+    .oet-cc{inset:auto 10px 10px!important;max-width:calc(100vw - 20px)!important;border-radius:22px!important}
+    .oet-cc-shell{grid-template-columns:1fr;padding:15px 14px;gap:9px}
+    .oet-cc-icon{display:none}
+    .oet-cc p{font-size:13px!important}
+    .oet-cc-actions{gap:8px!important}
+    .oet-cc button{min-height:38px;padding:9px 12px!important;font-size:13px!important}
+    .oet-cc-prefs{grid-template-columns:1fr}
+    .oet-cc-prefs label{min-height:58px}
+}
+@media(prefers-reduced-motion:reduce){
+    .oet-cc button,
+    .oet-cc input[type="checkbox"],
+    .oet-cc input[type="checkbox"]:before{transition:none!important}
+    .oet-cc button:hover{transform:none}
+}
+
+/* Ensure the injected Legal footer label remains visible on the dark footer. */
+.vl-copy-right-menu ul[aria-label="Legal"] li strong { color: #ffffff !important; font-weight: 800; }

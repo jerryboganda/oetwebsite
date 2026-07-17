@@ -1,0 +1,51 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.5 Breadcrumb 
+/*----------------------------------------*/
+
+.breadcrumb-wrapper{
+    background: var(--vkl-bg-gray-bg-1);
+    padding-top: 180px;
+    padding-bottom: 100px;
+    position: relative;
+    z-index: 1;
+}
+
+
+.breadcrumb-text{
+    & .title{
+        font-size: var(--vkl-font-size-font-s70);
+        font-weight: var(--vkl-weight-regular);
+        line-height: var(--vkl-specing-height70);
+        color: var(--vkl-text-heading-color-1);
+        display: inline-block;
+        padding-bottom: 24px;
+        @media #{$md,$xs}{
+            font-size: var(--vkl-font-size-font-s40);
+            line-height: var(--vkl-specing-height40);
+        }
+    }
+    & ul{
+        & li{
+            display: inline-block;
+            & a{
+                display: inline-block;
+                &.active{
+                    font-family: var(--vkl-family-font1);
+                    color: var(--vkl-text-heading-color-1);
+                }
+            }
+        }
+    }
+}
+
+.breadcrumb-shape{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    text-align: center;
+    z-index: -1;
+}

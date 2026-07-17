@@ -1,0 +1,186 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  4.1 Main menu css
+/*----------------------------------------*/
+
+.vl-offcanvas-menu{
+    & ul {
+        list-style: none;
+        & li{
+            position: relative;
+            & a{
+                padding: 8px 0;
+                display: block;
+                font-size: 16px;
+                font-weight: 500;
+                & span.downarrow{
+                    display: none; 
+                }
+            }
+            & > a{
+                border-bottom: 1px solid rgba(1, 15, 28, 0.1);
+            }
+            &.active{
+                & > a{
+                    color: var(--vkl-text-primary-color-1);
+                }
+                & > .vl-menu-close{
+                    border-bottom:var(--vl-theme-color);
+                    color: var(--vkl-text-text-white);
+                    background: var(--vkl-text-primary-color-1);
+                    & i{
+                        transform: rotate(90deg);
+                        // @include transform(rotate(90deg));
+                    }
+                }
+            }
+
+            & .sub-menu{
+                display: none;
+                padding-left: 20px;
+            }
+        }
+    }
+    &-4{
+        & ul{
+            & li{
+                & a{
+                    &:hover{
+                        color: var(--vkl-bg-bg-25);
+                    }
+                }
+                &.active{
+                    & > a{
+                        color: var(--vkl-bg-bg-25);
+                    }
+                     & > .vl-menu-close{
+                        background: var(--vkl-bg-bg-27);
+                        color: var(--vkl-bg-bg-25);
+                     }
+                }
+            }
+        }
+    }
+    &-5{
+        & ul{
+            & li{
+                & a{
+                    &:hover{
+                        color: var(--vkl-bg-bg-6);
+                    }
+                }
+                &.active{
+                    & > a{
+                        color: var(--vkl-bg-bg-6);
+                    }
+                     & > .vl-menu-close{
+                        background: var(--vkl-bg-bg-6);
+                        color: var(--vkl-text-heading-color-6);
+                     }
+                }
+            }
+        }
+    }
+    &-6{
+        & ul{
+            & li{
+                & a{
+                    &:hover{
+                        color: var(--vkl-text-primary-color-6);
+                    }
+                }
+                &.active{
+                    & > a{
+                        color: var(--vkl-text-primary-color-6);
+                    }
+                     & > .vl-menu-close{
+                        background: var(--vkl-text-primary-color-6);
+                        color: var(--vkl-text-heading-color-6);
+                     }
+                }
+            }
+        }
+    }
+    &-7{
+        & ul{
+            & li{
+                & a{
+                    &:hover{
+                        color: var(--vkl-text-primary-color-7);
+                    }
+                }
+                &.active{
+                    & > a{
+                        color: var(--vkl-text-primary-color-7);
+                    }
+                     & > .vl-menu-close{
+                        background: var(--vkl-text-primary-color-7);
+                        color: var(--vkl-text-heading-color-7);
+                     }
+                }
+            }
+        }
+    }
+    &-8{
+        & ul{
+            & li{
+                & a{
+                    &:hover{
+                        color: #FB015C;
+                    }
+                }
+                &.active{
+                    & > a{
+                        color:  #FB015C;
+                    }
+                     & > .vl-menu-close{
+                        background:  #FB015C;
+                        color: var(--vkl-text-heading-color-8);
+                     }
+                }
+            }
+        }
+    }
+    &-10{
+        & ul{
+            & li{
+                & a{
+                    &:hover{
+                        color: var(--vkl-text-paragrapgh-color-9);
+                    }
+                }
+                &.active{
+                    & > a{
+                        color: var(--vkl-text-paragrapgh-color-9);
+                    }
+                     & > .vl-menu-close{
+                        background: var(--vkl-text-paragrapgh-color-9);
+                        color: var(--vkl-text-heading-color-10);
+                     }
+                }
+            }
+        }
+    }
+}
+
+// .vl-offcanvas-menu ul li .sub-menu{
+//     display: none;
+// }
+
+.vl-menu-close{
+    position: absolute;
+    right: 0;
+    top: 7px;
+    border: 1px solid rgba(1, 15, 28, 0.12);
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 30px;
+    border-radius: 4px;
+    & i{
+        transition: .3s;
+        // @include transition(.3s);
+    }
+}

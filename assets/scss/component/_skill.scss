@@ -1,0 +1,83 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.16 Skill
+/*----------------------------------------*/
+
+.tp-team-sm-title{
+    font-size: 24px;
+    line-height: 1;
+}
+
+.tp-skill-item {
+    & label {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--vkl-text-text-2);
+        margin-bottom: 20px;
+        line-height: 1;
+    }
+    & .progress-bar {
+        background-color: #363D2B;
+    }
+    & .progress, & .progress-stacked {
+        height: 12px;
+        background-color: #D4E0C5;
+        border-radius: 4px;
+        &-2{
+            background: #DBDAE9;
+        }
+    }
+    &-2{
+        & label{
+            color: var(--vkl-text-heading-color-1);
+        }  
+    }
+}
+.progress{
+    &-outer {
+        background: #E7E7E7;
+        border-radius: 5px;
+        position: relative;
+        &-2{
+            background: #DBDAE9;
+        }
+    }
+    &-num {
+        position: absolute;
+        left: calc(25% - 31px);
+        top: -40px;
+        color: var(--vkl-text-text-2);
+        padding: 6px 5px;
+        font-size: 18px;
+        line-height: 1;
+        font-weight: var(--vkl-weight-bold);
+    }
+}
+
+
+.tpSkillInLeft {
+    opacity: 0; /* Start invisible */
+    animation: tpSkillInLeft 2s ease-out forwards; /* 2 seconds duration, ease-out effect */
+  }
+  @keyframes tpSkillInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-300px); /* Start slightly to the left */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* End at original position */
+    }
+}
+
+
+.tp-team-skill-info {
+    background: var(--vkl-bg-bg-24);
+    padding: 24px;
+    border-radius: 8px;
+    &-2{
+        background: transparent;
+        padding: inherit;
+    }
+}   

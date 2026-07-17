@@ -1,0 +1,105 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.19 Category
+/*----------------------------------------*/
+
+
+    .category-wrap {
+        max-width: 620px;
+        margin-bottom: 32px;
+        padding: 42px;
+        border-radius: 24px;
+        background:
+            radial-gradient(circle at top left, #ff4d9d, #b4004a 60%);
+        color: #fff;
+        overflow: hidden;
+        @media #{$lg,$md,$xs}{
+            max-width: 100%;
+        }
+    }
+
+    .cat-title {
+        font-size: 20px;
+        line-height: 20px;
+        font-weight: 400;
+        margin-bottom: 35px;
+    }
+
+    .tags {
+        position: relative;
+        height: 340px;
+    }
+
+    .tag {
+        position: absolute;
+        padding: 12px 26px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, .16);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+        cursor: pointer;
+        will-change: transform;
+
+        transition:
+            background .3s ease,
+            color .3s ease,
+            box-shadow .3s ease;
+    }
+
+    /* hover – magnetic feel */
+    .tag:hover {
+        background: #fff;
+        color: #b4004a;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, .3);
+    }
+
+    /* active */
+    .tag.active {
+        background: #fff;
+        color: #b4004a;
+    }
+
+    /* positions */
+    .tag:nth-child(1) {
+        top: 40px;
+        left: 20px;
+        transform: rotate(-18deg);
+    }
+
+    .tag:nth-child(2) {
+        top: 70px;
+        right: 20px;
+        transform: rotate(18deg);
+    }
+
+    .tag:nth-child(3) {
+        top: 150px;
+        left: 200px;
+    }
+
+    .tag:nth-child(4) {
+        top: 211px;
+        right: 179px;
+    }
+
+    .tag:nth-child(5) {
+        top: 132px;
+        left: -17px;
+    }
+
+    .tag:nth-child(6) {
+        bottom: 69px;
+        left: 168px;
+    }
+
+    .tag:nth-child(7) {
+        bottom: -9px;
+        left: -17px;
+    }
+
+    .tag:nth-child(8) {
+        bottom: 5px;
+        right: -5px;
+    }

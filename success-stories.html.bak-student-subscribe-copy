@@ -1,0 +1,2710 @@
+<!DOCTYPE html>
+<html lang="en" class="oet-live-site">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Stories | OET with Dr Hesham</title>
+
+    <!-- fav logo -->
+    <link rel="icon" href="assets/img/logo/fav-icon.png" type="image/png" sizes="64x64">
+
+    <!-- css files -->
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css">
+    <!-- swiper css -->
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
+    <!-- fontawesome css -->
+    <link rel="stylesheet" href="assets/css/plugins/all.css">
+    <!-- magnific-popup css -->
+    <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css">
+    <!-- sal css -->
+    <link rel="stylesheet" href="assets/css/plugins/sal.css">
+    <!-- jarallax -->
+    <link rel="stylesheet" href="assets/css/plugins/jarallax.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .vl-header-top-text a.oet-community-cta {
+            display: inline-grid;
+            align-items: center;
+            justify-items: start;
+            margin-left: 14px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #5f46f5;
+            font-weight: 700;
+            line-height: 1;
+            white-space: nowrap;
+            box-shadow: 0 10px 24px rgba(16, 24, 40, 0.16);
+            text-decoration: none;
+        }
+
+        .vl-header-top-text a.oet-community-cta:hover {
+            color: #4b37d3;
+            background: #ffffff;
+        }
+
+        .oet-community-cta__sizer,
+        .oet-community-cta__content {
+            grid-area: 1 / 1;
+        }
+
+        .oet-community-cta__sizer {
+            visibility: hidden;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .oet-community-cta__content {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            white-space: nowrap;
+        }
+
+        .oet-community-cta__text {
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .oet-community-cta__cursor {
+            display: inline-block;
+            min-width: 0.65ch;
+            opacity: 1;
+        }
+
+        .hero-banner-lavender {
+            background: #E6E0FF !important;
+        }
+
+        body.oet-live-site .vl-logo img,
+        body.oet-live-site .vl-offcanvas-logo img {
+            width: clamp(120px, 14vw, 150px);
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        @media (max-width: 575px) {
+            body.oet-live-site .vl-logo img,
+            body.oet-live-site .vl-offcanvas-logo img {
+                width: 112px;
+            }
+        }
+
+        body.oet-live-site .hero-banner-lavender .row.align-items-center {
+            align-items: center !important;
+        }
+
+        body.oet-live-site .hero-banner-lavender .col-xl-6 > .p-relative {
+            position: relative;
+            min-height: clamp(610px, 47vw, 735px);
+            overflow: visible;
+            isolation: isolate;
+        }
+
+        body.oet-live-site .hero-banner-lavender .vl-banner-thumb-1 {
+            position: absolute;
+            inset: 0;
+            overflow: visible;
+            z-index: 2;
+        }
+
+        body.oet-live-site .hero-banner-lavender .vl-banner-thumb-1 img.oet-hero-doctor {
+            position: absolute;
+            top: auto;
+            right: clamp(-70px, -3.6vw, -24px);
+            bottom: -112px;
+            left: auto;
+            width: clamp(545px, 40vw, 760px);
+            max-width: none;
+            height: auto;
+            margin: 0;
+            display: block;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        body.oet-live-site .hero-banner-lavender .vl-banner-card-1,
+        body.oet-live-site .hero-banner-lavender .vl-banner-card-2 {
+            position: absolute;
+            z-index: 5;
+            width: auto;
+            max-width: none;
+        }
+
+        body.oet-live-site .hero-banner-lavender .vl-banner-card-1 img,
+        body.oet-live-site .hero-banner-lavender .vl-banner-card-2 img {
+            width: auto;
+            max-width: none;
+            height: auto;
+            display: block;
+        }
+
+        body.oet-live-site .hero-banner-lavender .vl-banner-card-1 {
+            top: 350px;
+            left: -50px;
+            right: auto;
+        }
+
+        body.oet-live-site .hero-banner-lavender .vl-banner-card-2 {
+            top: 190px;
+            right: -50px;
+            left: auto;
+        }
+
+        body.oet-live-site .hero-banner-lavender .vl-hero-shape-2,
+        body.oet-live-site .hero-banner-lavender .vl-hero-shape-3,
+        body.oet-live-site .hero-banner-lavender .vl-hero-shape-4 {
+            z-index: 1;
+        }
+
+        body.oet-live-site .hero-banner-lavender .vl-hero-shape-2 img {
+            top: 170px;
+            left: 112px;
+        }
+
+        @media only screen and (min-width: 1200px) and (max-height: 900px) {
+            body.oet-live-site .hero-banner-lavender .col-xl-6 > .p-relative {
+                min-height: 675px;
+            }
+
+            body.oet-live-site .hero-banner-lavender .vl-banner-thumb-1 img.oet-hero-doctor {
+                width: clamp(535px, 39vw, 710px);
+                right: -56px;
+            }
+
+            body.oet-live-site .hero-banner-lavender .vl-banner-card-1 {
+                top: 350px;
+                left: -50px;
+                right: auto;
+            }
+
+            body.oet-live-site .hero-banner-lavender .vl-banner-card-2 {
+                top: 190px;
+                right: -50px;
+                left: auto;
+            }
+        }
+
+        @media only screen and (max-width: 1199px) {
+            body.oet-live-site .hero-banner-lavender .col-xl-6 > .p-relative {
+                min-height: auto;
+                padding-top: 20px;
+            }
+
+            body.oet-live-site .hero-banner-lavender .vl-banner-thumb-1 {
+                position: relative;
+                inset: auto;
+                min-height: auto;
+                text-align: center;
+            }
+
+            body.oet-live-site .hero-banner-lavender .vl-banner-thumb-1 img.oet-hero-doctor {
+                position: relative;
+                right: auto;
+                bottom: auto;
+                width: min(82vw, 430px);
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            body.oet-live-site .hero-banner-lavender .vl-banner-card-1 {
+                top: auto;
+                right: auto;
+                bottom: 22px;
+                left: 8%;
+                width: min(44vw, 230px);
+            }
+
+            body.oet-live-site .hero-banner-lavender .vl-banner-card-2 {
+                top: 44px;
+                right: 8%;
+                width: min(44vw, 230px);
+            }
+        }
+
+        @media (max-width: 575px) {
+            body.oet-live-site .hero-banner-lavender .vl-banner-thumb-1 img.oet-hero-doctor {
+                width: min(90vw, 340px);
+            }
+
+            body.oet-live-site .hero-banner-lavender .vl-banner-card-1,
+            body.oet-live-site .hero-banner-lavender .vl-banner-card-2 {
+                width: min(48vw, 175px);
+            }
+        }
+
+        .brand__thumb {
+            width: 270px;
+            height: 140px;
+        }
+
+        .brand-badge {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            padding: 12px 18px 11px;
+            border-radius: 12px;
+            background: linear-gradient(180deg, #ffffff 0%, #fcfbff 100%);
+            border: 1px solid rgba(100, 74, 249, 0.1);
+            box-shadow: 0 10px 24px rgba(100, 74, 249, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 3px;
+            text-align: left;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+        }
+
+        .brand-badge:hover {
+            transform: translateY(-4px);
+            background: linear-gradient(180deg, #ffffff 0%, #f7f4ff 100%);
+            border-color: rgba(100, 74, 249, 0.18);
+            box-shadow: 0 16px 34px rgba(100, 74, 249, 0.1);
+        }
+
+        .brand-badge__icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 18px;
+            background: rgba(100, 74, 249, 0.08);
+            color: #644af9;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex: 0 0 68px;
+            box-shadow: 0 8px 18px rgba(100, 74, 249, 0.07);
+            transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+        }
+
+        .brand-badge:hover .brand-badge__icon {
+            background: #644af9;
+            color: #ffffff;
+            box-shadow: 0 10px 22px rgba(100, 74, 249, 0.18);
+            transform: translateY(-1px) scale(1.03);
+        }
+
+        .brand-badge__title {
+            margin: 0;
+            color: var(--vkl-text-heading-color-1);
+            font-size: 15.5px;
+            line-height: 1.02;
+            font-weight: 700;
+            letter-spacing: -0.035em;
+        }
+
+        .brand-badge__sub {
+            margin: 0;
+            color: var(--vkl-text-paragrapgh-color-1);
+            font-size: 11.5px;
+            line-height: 1.16;
+            font-weight: 500;
+        }
+
+        .brand-badge__micro {
+            display: none;
+        }
+
+        @media only screen and (min-width: 576px) and (max-width: 991px) {
+            .brand__thumb {
+                width: 240px;
+                height: 128px;
+            }
+
+            .brand-badge {
+                padding: 11px 14px 10px;
+                border-radius: 11px;
+                gap: 3px;
+            }
+
+            .brand-badge__icon {
+                width: 60px;
+                height: 60px;
+                border-radius: 16px;
+                font-size: 21px;
+                flex-basis: 60px;
+            }
+
+            .brand-badge__title {
+                font-size: 14.5px;
+            }
+
+            .brand-badge__sub {
+                font-size: 11px;
+            }
+
+            .brand-badge__micro {
+                display: none;
+            }
+        }
+
+        @media only screen and (max-width: 575px) {
+            .brand__thumb {
+                width: 210px;
+                height: 120px;
+            }
+
+            .brand-badge {
+                padding: 10px 12px 9px;
+                border-radius: 11px;
+                gap: 3px;
+            }
+
+            .brand-badge__icon {
+                width: 53px;
+                height: 53px;
+                border-radius: 14px;
+                font-size: 19px;
+                flex-basis: 53px;
+            }
+
+            .brand-badge__title {
+                font-size: 13.5px;
+                line-height: 1.03;
+            }
+
+            .brand-badge__sub {
+                font-size: 10.5px;
+                line-height: 1.12;
+            }
+
+            .brand-badge__micro {
+                display: none;
+            }
+        }
+
+        .vl-main-menu ul > li .sub-menu {
+            width: max-content;
+            min-width: 260px;
+            padding: 14px 0;
+            overflow: visible;
+        }
+
+        .vl-main-menu ul > li .sub-menu li {
+            margin-right: 0;
+            display: block;
+            text-align: start;
+        }
+
+        .vl-main-menu ul > li .sub-menu li a,
+        .vl-offcanvas-menu ul li .sub-menu li a {
+            color: var(--vkl-text-heading-color-1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 17px;
+            line-height: 1.25;
+            white-space: nowrap;
+            width: calc(100% - 24px);
+            box-sizing: border-box;
+            margin: 0 12px;
+            padding: 11px 36px 11px 14px;
+            position: relative;
+            border-radius: 10px;
+            line-height: 1.25;
+            transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .vl-main-menu ul > li .sub-menu li a .submenu-icon,
+        .vl-offcanvas-menu ul li .sub-menu li a .submenu-icon {
+            width: 20px;
+            flex: 0 0 20px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            color: var(--vkl-text-primary-color-1);
+            transition: color 0.25s ease;
+        }
+
+        .vl-main-menu ul > li .sub-menu li a .submenu-text,
+        .vl-offcanvas-menu ul li .sub-menu li a .submenu-text {
+            display: inline-block;
+            white-space: nowrap;
+            font-size: 17px;
+            line-height: 1.25;
+        }
+
+        .vl-main-menu ul > li .sub-menu li a:hover,
+        .vl-main-menu ul > li .sub-menu li a:focus-visible,
+        .vl-offcanvas-menu ul li .sub-menu li a:hover,
+        .vl-offcanvas-menu ul li .sub-menu li a:focus-visible {
+            background: linear-gradient(135deg, #5f46f5 0%, #7c67ff 100%);
+            color: #ffffff;
+            transform: translateX(6px);
+            box-shadow: 0 12px 24px rgba(95, 70, 245, 0.22);
+        }
+
+        .vl-main-menu ul > li .sub-menu li a:hover .submenu-icon,
+        .vl-main-menu ul > li .sub-menu li a:focus-visible .submenu-icon,
+        .vl-offcanvas-menu ul li .sub-menu li a:hover .submenu-icon,
+        .vl-offcanvas-menu ul li .sub-menu li a:focus-visible .submenu-icon {
+            color: #ffffff;
+        }
+
+        .vl-main-menu ul > li .sub-menu li .sub-menu,
+        .vl-offcanvas-menu ul li .sub-menu li .sub-menu {
+            left: calc(100% + 10px);
+            top: 0;
+            min-width: 240px;
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown {
+            position: relative;
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown > .sub-menu {
+            display: block;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateX(8px) scale(0.98);
+            transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+            z-index: 20;
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown:hover > .sub-menu,
+        .vl-main-menu ul > li .sub-menu li.has-dropdown:focus-within > .sub-menu {
+            display: block;
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateX(0) scale(1) !important;
+            pointer-events: auto;
+        }
+
+        .vl-main-menu ul > li .sub-menu li a .downarrow,
+        .vl-offcanvas-menu ul li .sub-menu li a .downarrow {
+            right: 14px;
+        }
+
+        .work__thumb,
+        .vl-work-box-grid-three {
+            position: relative;
+            z-index: 1;
+        }
+
+        .faq-theme-purple {
+            background: linear-gradient(180deg, #fbf9ff 0%, #f3efff 100%) !important;
+        }
+
+        .faq-theme-purple .vl-faq-content-7 .sub-title {
+            color: #5f46f5;
+        }
+
+        .faq-theme-purple .vl-faq-content-7 .title {
+            color: #10134f;
+        }
+
+        .faq-theme-purple .vl-faq-content-7 .para {
+            color: #4f4b7b;
+        }
+
+        .faq-theme-purple .vl-faqs2 .vl-accordion-item {
+            background: #ffffff;
+            border: 1px solid rgba(95, 70, 245, 0.18);
+            box-shadow: 0 16px 32px rgba(95, 70, 245, 0.06);
+        }
+
+        .faq-theme-purple .vl-faqs2 .vl-accordion-item .vl-accordion-button {
+            color: #11155c;
+        }
+
+        .faq-theme-purple .vl-faqs2 .vl-accordion-item .vl-accordion-button.collapsed {
+            background: #ffffff;
+        }
+
+        .faq-theme-purple .vl-faqs2 .vl-accordion-item .vl-accordion-button span.vl-faqarrow {
+            background: #5f46f5;
+            color: #ffffff;
+        }
+
+        .faq-theme-purple .vl-faqs2 .vl-accordion-item .vl-accordion-button.collapsed span.vl-faqarrow {
+            background: #e6e0ff;
+            color: #5f46f5;
+        }
+
+        .faq-theme-purple .vl-faqs2 .vl-accordion-item .vl-accordion-body .para {
+            color: #5c5984;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .oet-community-cta__cursor {
+                display: none;
+            }
+        }
+    
+        body.oet-live-site .success-page {
+            background: #f7f4ff;
+            color: #111329;
+            overflow: hidden;
+        }
+
+        body.oet-live-site .success-page .container {
+            max-width: 1320px;
+        }
+
+
+        .success-hero {
+            position: relative;
+            padding: 176px 0 58px;
+            background:
+                radial-gradient(circle at 78% 24%, rgba(105, 77, 255, 0.22), transparent 34%),
+                linear-gradient(135deg, #eee9ff 0%, #f8f5ff 48%, #e9e2ff 100%);
+        }
+
+        .success-hero::after {
+            content: "";
+            position: absolute;
+            inset: auto -10% -1px -10%;
+            height: 90px;
+            background: linear-gradient(180deg, rgba(247,244,255,0), #f7f4ff 76%);
+            pointer-events: none;
+        }
+
+        .success-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-bottom: 18px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            color: #5f43f3;
+            background: #ffffff;
+            box-shadow: 0 12px 34px rgba(84, 61, 220, 0.12);
+            font-weight: 700;
+        }
+
+        .success-title {
+            max-width: 840px;
+            margin: 0;
+            font-size: clamp(48px, 7vw, 112px);
+            line-height: 0.92;
+            letter-spacing: 0;
+            color: #101327;
+        }
+
+        .success-lede {
+            max-width: 720px;
+            margin: 28px 0 0;
+            color: #5f6075;
+            font-size: 20px;
+            line-height: 1.65;
+        }
+
+        .success-stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .success-stat {
+            padding: 20px;
+            border: 1px solid rgba(96, 68, 245, 0.12);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.82);
+            box-shadow: 0 20px 45px rgba(73, 57, 185, 0.10);
+        }
+
+        .success-stat strong {
+            display: block;
+            color: #6044f5;
+            font-size: 34px;
+            line-height: 1;
+            margin-bottom: 7px;
+        }
+
+        .success-stat span {
+            color: #5f6075;
+            font-weight: 600;
+        }
+
+        .success-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .success-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 52px;
+            padding: 0 22px;
+            border-radius: 8px;
+            font-weight: 800;
+            color: #fff;
+            background: #6044f5;
+            box-shadow: 0 16px 34px rgba(96, 68, 245, 0.24);
+        }
+
+        .success-btn--ghost {
+            color: #211d45;
+            background: #fff;
+            box-shadow: 0 14px 30px rgba(73, 57, 185, 0.10);
+        }
+
+        .success-gallery-section {
+            position: relative;
+            padding: 50px 0 92px;
+            background: #f7f4ff;
+        }
+
+        .success-tabs-wrap {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            margin-bottom: 34px;
+            padding: 12px 0;
+            background: rgba(247, 244, 255, 0.84);
+            backdrop-filter: blur(14px);
+        }
+
+        .success-tabs {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .success-tabs::-webkit-scrollbar { display: none; }
+
+        .success-tab {
+            flex: 0 0 auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 44px;
+            padding: 0 16px;
+            border: 1px solid rgba(96, 68, 245, 0.14);
+            border-radius: 999px;
+            color: #2d2d43;
+            background: #fff;
+            font-weight: 800;
+            transition: transform .18s ease, background .18s ease, color .18s ease;
+        }
+
+        .success-tab span {
+            min-width: 26px;
+            padding: 2px 7px;
+            border-radius: 999px;
+            color: #6044f5;
+            background: #f1edff;
+            font-size: 12px;
+        }
+
+        .success-tab.is-active {
+            color: #fff;
+            background: #6044f5;
+            border-color: #6044f5;
+        }
+
+        .success-tab.is-active span {
+            color: #6044f5;
+            background: #fff;
+        }
+
+        .success-tab:disabled {
+            opacity: .45;
+            cursor: not-allowed;
+        }
+
+        .success-gallery-heading {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+
+        .success-gallery-heading h2 {
+            margin: 0;
+            font-size: clamp(32px, 4vw, 58px);
+            word-spacing: 0.08em;
+            line-height: 1.02;
+        }
+
+        .success-gallery-heading p {
+            max-width: 520px;
+            margin: 0;
+            color: #67687b;
+            line-height: 1.7;
+        }
+
+        .success-masonry {
+            column-count: 4;
+            column-gap: 18px;
+        }
+
+        .success-card {
+            display: inline-block;
+            width: 100%;
+            margin: 0 0 18px;
+            break-inside: avoid;
+        }
+
+        .success-card[hidden] { display: none; }
+
+        .success-card__button {
+            width: 100%;
+            padding: 0;
+            border: 0;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 16px 42px rgba(35, 27, 96, 0.12);
+            overflow: hidden;
+            cursor: zoom-in;
+            text-align: left;
+        }
+
+        .success-card__media {
+            display: block;
+            background: #fff;
+        }
+
+        .success-card__media img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .success-card__meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            padding: 12px 14px;
+            color: #4f4d63;
+            font-size: 13px;
+            font-weight: 800;
+            background: linear-gradient(180deg, #fff, #fbfaff);
+        }
+
+        .success-card__meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .success-empty {
+            display: none;
+            padding: 34px;
+            border-radius: 8px;
+            background: #fff;
+            color: #66677a;
+            box-shadow: 0 16px 42px rgba(35, 27, 96, 0.10);
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .success-empty.is-visible { display: block; }
+
+        .success-cta-band {
+            padding: 64px 0;
+            background: #121329;
+            color: #fff;
+        }
+
+        .success-cta-panel {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 26px;
+            padding: 34px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(96, 68, 245, 0.92), rgba(130, 93, 255, 0.78));
+        }
+
+        .success-cta-panel h2 {
+            margin: 0 0 10px;
+            color: #fff;
+            font-size: clamp(30px, 4vw, 54px);
+        }
+
+        .success-cta-panel p {
+            margin: 0;
+            color: rgba(255,255,255,.82);
+        }
+
+        .success-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 28px;
+            background: rgba(8, 8, 18, 0.86);
+        }
+
+        .success-lightbox.is-open { display: flex; }
+
+        .success-lightbox__panel {
+            position: relative;
+            max-width: min(1100px, 94vw);
+            max-height: 92vh;
+            display: grid;
+            gap: 12px;
+        }
+
+        .success-lightbox__image-wrap {
+            max-height: calc(92vh - 74px);
+            overflow: auto;
+            border-radius: 8px;
+            background: #fff;
+        }
+
+        .success-lightbox img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .success-lightbox__bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            color: #fff;
+        }
+
+        .success-lightbox__meta {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+            font-weight: 800;
+        }
+
+        .success-lightbox__controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .success-lightbox button,
+        .success-lightbox a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 42px;
+            height: 42px;
+            padding: 0 13px;
+            border: 0;
+            border-radius: 999px;
+            color: #141529;
+            background: #fff;
+            font-weight: 900;
+        }
+
+
+
+        @media (max-width: 1199px) {
+            body.oet-live-site .success-page,
+            body.oet-live-site .success-page .container,
+            body.oet-live-site .success-page .row,
+            body.oet-live-site .success-page [class*="col-"] {
+                max-width: 100% !important;
+            }
+
+            body.oet-live-site .success-page .container {
+                width: 100% !important;
+                padding-left: 18px !important;
+                padding-right: 18px !important;
+            }
+        }
+
+        @media (max-width: 1199px) {
+            .success-masonry { column-count: 3; }
+        }
+
+        @media (max-width: 767px) {
+            .success-hero { padding: 126px 0 40px; }
+            .success-stat-grid { grid-template-columns: 1fr; }
+            .success-gallery-heading { display: block; }
+            .success-gallery-heading p { margin-top: 12px; }
+            .success-masonry { column-count: 2; column-gap: 12px; }
+            .success-card { margin-bottom: 12px; }
+            .success-cta-panel { display: block; padding: 24px; }
+            .success-cta-panel .success-actions { margin-top: 22px; }
+        }
+
+        @media (max-width: 480px) {
+            body.oet-live-site .success-page .container {
+                width: 100%;
+                max-width: 100%;
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .success-masonry { column-count: 1; }
+            .success-title {
+                font-size: clamp(40px, 12vw, 48px);
+                line-height: 0.98;
+            }
+            .success-lede {
+                max-width: 100%;
+                font-size: 18px;
+                line-height: 1.55;
+            }
+            .success-stat {
+                padding: 18px;
+            }
+        }
+
+
+
+        .success-results-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            margin: -8px 0 24px;
+            color: #5f6075;
+            font-weight: 800;
+        }
+
+        .success-page-size {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 13px;
+            border-radius: 999px;
+            color: #6044f5;
+            background: #fff;
+            box-shadow: 0 10px 24px rgba(73, 57, 185, 0.08);
+        }
+
+        .success-pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 34px;
+            flex-wrap: wrap;
+        }
+
+        .success-page-btn {
+            min-width: 42px;
+            height: 42px;
+            padding: 0 13px;
+            border: 1px solid rgba(96, 68, 245, 0.14);
+            border-radius: 999px;
+            color: #2d2d43;
+            background: #fff;
+            font-weight: 900;
+        }
+
+        .success-page-btn.is-active {
+            color: #fff;
+            border-color: #6044f5;
+            background: #6044f5;
+        }
+
+        .success-page-btn:disabled {
+            opacity: .45;
+            cursor: not-allowed;
+        }
+
+        .success-loading {
+            padding: 34px;
+            border-radius: 8px;
+            background: #fff;
+            color: #6044f5;
+            box-shadow: 0 16px 42px rgba(35, 27, 96, 0.10);
+            text-align: center;
+            font-weight: 900;
+        }
+
+        @media (max-width: 767px) {
+            .success-results-bar {
+                display: block;
+            }
+            .success-page-size {
+                margin-top: 10px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            html,
+            body.oet-live-site {
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+
+            body.oet-live-site .success-page,
+            body.oet-live-site .success-page * {
+                box-sizing: border-box;
+            }
+
+            body.oet-live-site .success-page {
+                width: 100%;
+                max-width: 100vw;
+                overflow-x: hidden;
+            }
+
+            body.oet-live-site .success-page .container {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding-left: 18px !important;
+                padding-right: 18px !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            body.oet-live-site .success-page .row {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+
+            body.oet-live-site .success-page [class*="col-"] {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                flex: 0 0 100% !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+
+            .success-title,
+            .success-lede,
+            .success-gallery-heading,
+            .success-gallery-heading p,
+            .success-actions,
+            .success-stat-grid,
+            .success-results-bar,
+            .success-tabs,
+            .success-pagination,
+            .success-cta-panel {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .success-lede {
+                overflow-wrap: anywhere;
+            }
+        }
+
+
+
+
+        .success-benefit-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .success-benefit-card::after {
+            content: "";
+            position: absolute;
+            inset: auto -28px -36px auto;
+            width: 92px;
+            height: 92px;
+            border-radius: 999px;
+            background: rgba(96, 68, 245, .08);
+            pointer-events: none;
+        }
+
+        .success-benefit-icon {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            margin-bottom: 13px;
+            border-radius: 14px;
+            color: #ffffff !important;
+            background: linear-gradient(135deg, #6044f5 0%, #8468ff 100%);
+            box-shadow: 0 14px 28px rgba(96, 68, 245, .22);
+            font-size: 18px;
+        }
+
+        .success-benefit-card strong {
+            font-size: clamp(24px, 2.2vw, 32px);
+            line-height: 1.02;
+        }
+
+        .success-benefit-card span:last-child {
+            display: block;
+            max-width: 15ch;
+            line-height: 1.35;
+        }
+
+        /* Success Stories interaction polish */
+        @keyframes successFadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes successSoftPulse {
+            0%, 100% { box-shadow: 0 16px 34px rgba(96, 68, 245, 0.24); }
+            50% { box-shadow: 0 22px 44px rgba(96, 68, 245, 0.34); }
+        }
+
+        body.oet-live-site .success-page + footer.vl-footer-10 {
+            margin-top: 0 !important;
+            padding-top: 82px !important;
+            position: relative;
+            z-index: 1;
+        }
+
+        .success-hero,
+        .success-gallery-section,
+        .success-cta-band {
+            isolation: isolate;
+        }
+
+        .success-eyebrow,
+        .success-title,
+        .success-lede,
+        .success-actions,
+        .success-stat,
+        .success-tabs-wrap,
+        .success-gallery-heading,
+        .success-results-bar,
+        .success-cta-panel {
+            animation: successFadeUp .62s cubic-bezier(.2,.8,.2,1) both;
+        }
+
+        .success-title { animation-delay: .05s; }
+        .success-lede { animation-delay: .1s; }
+        .success-actions { animation-delay: .15s; }
+        .success-stat:nth-child(1) { animation-delay: .1s; }
+        .success-stat:nth-child(2) { animation-delay: .16s; }
+        .success-stat:nth-child(3) { animation-delay: .22s; }
+        .success-stat:nth-child(4) { animation-delay: .28s; }
+
+        .success-btn,
+        .success-tab,
+        .success-page-btn,
+        .success-lightbox button,
+        .success-lightbox a,
+        .success-card__button,
+        .success-stat {
+            will-change: transform;
+            transition:
+                transform .22s cubic-bezier(.2,.8,.2,1),
+                box-shadow .22s cubic-bezier(.2,.8,.2,1),
+                border-color .22s ease,
+                background .22s ease,
+                color .22s ease,
+                opacity .22s ease;
+        }
+
+        .success-btn {
+            position: relative;
+            overflow: hidden;
+            color: #ffffff !important;
+            text-decoration: none !important;
+            white-space: nowrap;
+        }
+
+        .success-btn::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,.28) 42%, transparent 62%);
+            transform: translateX(-120%);
+            transition: transform .55s ease;
+            pointer-events: none;
+        }
+
+        .success-btn:hover,
+        .success-btn:focus-visible {
+            color: #ffffff !important;
+            transform: translateY(-3px);
+            box-shadow: 0 22px 46px rgba(96, 68, 245, 0.34);
+            outline: none;
+        }
+
+        .success-btn:hover::after,
+        .success-btn:focus-visible::after {
+            transform: translateX(120%);
+        }
+
+        .success-btn--ghost {
+            color: #17152f !important;
+            background: #ffffff !important;
+            border: 1px solid rgba(255,255,255,.72);
+        }
+
+        .success-btn--ghost:hover,
+        .success-btn--ghost:focus-visible {
+            color: #6044f5 !important;
+            background: #ffffff !important;
+        }
+
+        .success-btn--whatsapp {
+            background: linear-gradient(135deg, #25d366 0%, #13a85a 100%) !important;
+            box-shadow: 0 18px 38px rgba(37, 211, 102, .25);
+        }
+
+        .success-btn--community {
+            background: #ffffff !important;
+            color: #17152f !important;
+        }
+
+        .success-tab:hover:not(:disabled),
+        .success-tab:focus-visible,
+        .success-page-btn:hover:not(:disabled),
+        .success-page-btn:focus-visible {
+            transform: translateY(-2px);
+            border-color: rgba(96, 68, 245, .38);
+            box-shadow: 0 14px 30px rgba(73, 57, 185, .12);
+            outline: none;
+        }
+
+        .success-card {
+            opacity: 0;
+            transform: translateY(16px);
+        }
+
+        .success-card.is-visible {
+            animation: successFadeUp .5s cubic-bezier(.2,.8,.2,1) both;
+        }
+
+        .success-card__button:hover,
+        .success-card__button:focus-visible {
+            transform: translateY(-7px);
+            box-shadow: 0 28px 58px rgba(35, 27, 96, 0.18);
+            outline: 3px solid rgba(96, 68, 245, .18);
+            outline-offset: 3px;
+        }
+
+        .success-card__media {
+            overflow: hidden;
+        }
+
+        .success-card__media img {
+            transition: transform .42s cubic-bezier(.2,.8,.2,1), filter .42s ease;
+        }
+
+        .success-card__button:hover .success-card__media img,
+        .success-card__button:focus-visible .success-card__media img {
+            transform: scale(1.025);
+            filter: saturate(1.04) contrast(1.02);
+        }
+
+        .success-stat:hover {
+            transform: translateY(-5px);
+            border-color: rgba(96, 68, 245, .28);
+            box-shadow: 0 28px 58px rgba(73, 57, 185, .16);
+        }
+
+        .success-cta-band {
+            position: relative;
+            padding: 92px 0 96px;
+            background:
+                radial-gradient(circle at 16% 14%, rgba(100, 74, 249, .24), transparent 32%),
+                linear-gradient(180deg, #121329 0%, #06114a 100%);
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .success-cta-panel {
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            min-height: 214px;
+            padding: clamp(28px, 4vw, 48px);
+            border: 1px solid rgba(255,255,255,.18);
+            background:
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,.20), transparent 28%),
+                linear-gradient(135deg, #6044f5 0%, #7c5cff 48%, #4d35d8 100%);
+            box-shadow: 0 32px 80px rgba(18, 19, 41, .32);
+        }
+
+        .success-cta-panel::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent 10%, rgba(255,255,255,.16) 45%, transparent 72%);
+            transform: translateX(-75%);
+            animation: successCtaShine 7s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes successCtaShine {
+            0%, 54% { transform: translateX(-80%); }
+            72%, 100% { transform: translateX(85%); }
+        }
+
+        .success-cta-panel > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .success-cta-panel .success-actions {
+            flex: 0 0 auto;
+            justify-content: flex-end;
+            margin-top: 0;
+        }
+
+        .success-lightbox.is-open .success-lightbox__panel {
+            animation: successFadeUp .28s cubic-bezier(.2,.8,.2,1) both;
+        }
+
+        .success-lightbox button:hover,
+        .success-lightbox a:hover,
+        .success-lightbox button:focus-visible,
+        .success-lightbox a:focus-visible {
+            transform: translateY(-2px);
+            color: #6044f5;
+            outline: none;
+        }
+
+        @media (max-width: 991px) {
+            .success-cta-panel,
+            .success-cta-panel .success-actions {
+                align-items: flex-start;
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .success-btn {
+                width: 100%;
+                justify-content: center;
+                white-space: normal;
+                text-align: center;
+            }
+
+            .success-cta-band {
+                padding: 56px 0 62px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .success-page *,
+            .success-page *::before,
+            .success-page *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+            }
+            .success-card {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+</style>
+
+    <style id="oet-community-popup-styles">
+        body.oet-community-popup-lock {
+            overflow: visible;
+        }
+
+        .oet-community-popup {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.28s ease, visibility 0.28s ease;
+        }
+
+        .oet-community-popup.is-open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .oet-community-popup__overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(29, 18, 73, 0.52);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .oet-community-popup__dialog {
+            position: relative;
+            width: min(940px, 100%);
+            max-height: min(88vh, 760px);
+            overflow: visible;
+            border-radius: 32px;
+            background: linear-gradient(145deg, #ffffff 0%, #fbf9ff 54%, #efe9ff 100%);
+            box-shadow: 0 32px 90px rgba(34, 21, 93, 0.28);
+            border: 1px solid rgba(255, 255, 255, 0.78);
+            transform: translateY(18px) scale(0.97);
+            transition: transform 0.28s ease;
+        }
+
+        .oet-community-popup.is-open .oet-community-popup__dialog {
+            transform: translateY(0) scale(1);
+        }
+
+        .oet-community-popup__dialog::before {
+            content: '';
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            right: -90px;
+            top: -110px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(100, 74, 249, 0.24), rgba(100, 74, 249, 0));
+            pointer-events: none;
+        }
+
+        .oet-community-popup__close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 3;
+            width: 42px;
+            height: 42px;
+            border: 0;
+            border-radius: 50%;
+            background: #ffffff;
+            color: #17152f;
+            box-shadow: 0 12px 28px rgba(17, 24, 39, 0.12);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease;
+        }
+
+        .oet-community-popup__close:hover,
+        .oet-community-popup__close:focus-visible {
+            transform: translateY(-1px);
+            color: #ffffff;
+            background: #644af9;
+            outline: none;
+        }
+
+        .oet-community-popup__body {
+            position: relative;
+            z-index: 2;
+            max-height: min(88vh, 760px);
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            -webkit-overflow-scrolling: touch;
+            padding: 38px 38px 34px;
+        }
+
+        .oet-community-popup__eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            color: #644af9;
+            background: rgba(100, 74, 249, 0.1);
+            font-size: 13px;
+            line-height: 1;
+            font-weight: 800;
+        }
+
+        .oet-community-popup__title {
+            margin: 0;
+            max-width: 650px;
+            color: #17152f;
+            font-size: clamp(30px, 4vw, 48px);
+            line-height: 1.02;
+            font-weight: 800;
+        }
+
+        .oet-community-popup__intro {
+            margin: 14px 0 26px;
+            max-width: 680px;
+            color: #5c5a72;
+            font-size: 16px;
+            line-height: 1.62;
+        }
+
+        .oet-community-popup__section-title {
+            margin: 0 0 14px;
+            color: #17152f;
+            font-size: 16px;
+            line-height: 1.2;
+            font-weight: 800;
+        }
+
+        .oet-community-popup__grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-bottom: 26px;
+        }
+
+        .oet-community-popup__resources {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .oet-community-popup__card,
+        .oet-community-popup__resource {
+            min-height: 136px;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.86);
+            border: 1px solid rgba(100, 74, 249, 0.12);
+            box-shadow: 0 14px 34px rgba(100, 74, 249, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
+            color: #17152f;
+            text-decoration: none;
+            padding: 18px 14px;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+        }
+
+        .oet-community-popup__card:hover,
+        .oet-community-popup__card:focus-visible,
+        .oet-community-popup__resource:hover,
+        .oet-community-popup__resource:focus-visible {
+            transform: translateY(-5px);
+            border-color: rgba(100, 74, 249, 0.38);
+            box-shadow: 0 22px 44px rgba(100, 74, 249, 0.18);
+            background: #ffffff;
+            color: #17152f;
+            outline: none;
+        }
+
+
+        .oet-community-popup__card--featured {
+            position: relative;
+            overflow: visible;
+            border-color: rgba(100, 74, 249, 0.42);
+            background: linear-gradient(145deg, #ffffff 0%, #f6f2ff 52%, #ebe4ff 100%);
+            box-shadow: 0 18px 44px rgba(100, 74, 249, 0.16);
+        }
+
+        .oet-community-popup__card--featured::before {
+            content: 'Featured';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border-radius: 999px;
+            padding: 5px 9px;
+            background: #644af9;
+            color: #ffffff;
+            font-size: 10px;
+            line-height: 1;
+            font-weight: 800;
+            letter-spacing: 0;
+            box-shadow: 0 8px 18px rgba(100, 74, 249, 0.22);
+        }
+
+        .oet-community-popup__card--featured .oet-community-popup__icon {
+            background: linear-gradient(135deg, #644af9 0%, #23d366 100%);
+            box-shadow: 0 14px 30px rgba(100, 74, 249, 0.24);
+        }
+
+        .oet-community-popup__card--featured .oet-community-popup__name {
+            color: #3b2bb8;
+        }
+
+        .oet-community-popup__icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            background: linear-gradient(135deg, #23d366 0%, #10a85a 100%);
+            font-size: 28px;
+            box-shadow: 0 12px 26px rgba(35, 211, 102, 0.24);
+        }
+
+        .oet-community-popup__icon--telegram {
+            background: linear-gradient(135deg, #37aee2 0%, #1b82c3 100%);
+            box-shadow: 0 12px 26px rgba(55, 174, 226, 0.22);
+        }
+
+        .oet-community-popup__icon--youtube {
+            background: linear-gradient(135deg, #ff4d4d 0%, #d71920 100%);
+            box-shadow: 0 12px 26px rgba(215, 25, 32, 0.2);
+        }
+
+        .oet-community-popup__icon--facebook {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            box-shadow: 0 12px 26px rgba(59, 130, 246, 0.2);
+        }
+
+        .oet-community-popup__name {
+            color: #17152f;
+            font-size: 15px;
+            line-height: 1.22;
+            font-weight: 800;
+        }
+
+        .oet-community-popup__hint {
+            color: #77748b;
+            font-size: 12px;
+            line-height: 1.2;
+            font-weight: 600;
+        }
+
+        .oet-community-popup__resource {
+            min-height: 116px;
+            border-radius: 18px;
+        }
+
+        .oet-community-popup__resource .oet-community-popup__icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            font-size: 22px;
+        }
+
+        .oet-community-popup__resource .oet-community-popup__name {
+            font-size: 13.5px;
+        }
+
+        @media (max-width: 991px) {
+            .oet-community-popup__grid,
+            .oet-community-popup__resources {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 575px) {
+            .oet-community-popup {
+                padding: 14px;
+            }
+
+            .oet-community-popup__dialog {
+                border-radius: 24px;
+            }
+
+            .oet-community-popup__body {
+                padding: 28px 18px 22px;
+            }
+
+            .oet-community-popup__close {
+                top: 14px;
+                right: 14px;
+                width: 38px;
+                height: 38px;
+            }
+
+            .oet-community-popup__title {
+                max-width: calc(100% - 42px);
+            }
+
+            .oet-community-popup__grid,
+            .oet-community-popup__resources {
+                grid-template-columns: 1fr;
+            }
+
+            .oet-community-popup__card,
+            .oet-community-popup__resource {
+                min-height: 104px;
+                flex-direction: row;
+                justify-content: flex-start;
+                text-align: left;
+                padding: 14px;
+            }
+        }
+    </style>
+
+
+<style id="oet-stable-dropdown-css">
+    @media (min-width: 1200px) {
+        .vl-main-menu,
+        .vl-main-menu nav,
+        .vl-main-menu nav > ul,
+        .vl-main-menu nav > ul > li {
+            overflow: visible !important;
+        }
+
+        .vl-main-menu ul > li .sub-menu {
+            z-index: 9999 !important;
+            pointer-events: none;
+        }
+
+        .vl-main-menu nav > ul > li > .sub-menu {
+            top: 100% !important;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .vl-main-menu nav > ul > li:hover > .sub-menu,
+        .vl-main-menu nav > ul > li:focus-within > .sub-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            top: 100% !important;
+        }
+
+        .vl-main-menu nav > ul > li:hover > .sub-menu .sub-menu,
+        .vl-main-menu nav > ul > li:focus-within > .sub-menu .sub-menu {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown {
+            position: relative;
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown::after {
+            content: "";
+            position: absolute;
+            top: -8px;
+            right: -22px;
+            width: 28px;
+            height: calc(100% + 16px);
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown > .sub-menu {
+            left: calc(100% - 2px) !important;
+            top: 0 !important;
+            min-width: 240px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateX(6px) scale(0.98);
+            transition: opacity 0.16s ease, visibility 0.16s ease, transform 0.16s ease;
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown:hover > .sub-menu,
+        .vl-main-menu ul > li .sub-menu li.has-dropdown:focus-within > .sub-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            top: 0 !important;
+            transform: translateX(0) scale(1) !important;
+        }
+    }
+</style>
+
+</head>
+
+<body class="oet-live-site">
+
+    <!-- preloader -->
+    <div class="preloader">
+        <div class="loading-container">
+            <div class="loading"></div>
+            <div id="loading-icon"><img src="assets/img/preloader/logo.png" alt="OET with Dr Hesham"></div>
+        </div>
+    </div>
+
+    <!--================= Header section start =================-->
+    <header>
+        <div id="vl-header-sticky" class="vl-header-area vl-transparent-header">
+            <!-- header top -->
+            <div class="vl-header-top-area vkl-blue-bg d-none d-xl-block">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="vl-header-top-text">
+                                <p>Free OET Prep for Doctors &amp; Nurses</p>
+                                <a class="oet-community-cta" href="#oet-community-popup" aria-label="Join Free Community!" aria-haspopup="dialog" aria-controls="oet-community-popup">
+                                    <span class="oet-community-cta__sizer" aria-hidden="true">Join Free Community!</span>
+                                    <span class="oet-community-cta__content" aria-hidden="true">
+                                        <span class="oet-community-cta__text">Join Free Community!</span>
+                                        <span class="oet-community-cta__cursor">|</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- header top icon list -->
+                            <div class="header-top">
+                                <ul>
+                                    <li><a href="mailto:support@oetwithdrhesham.co.uk"><span class="mr-4"><i class="fa-regular fa-envelope"></i></span>support@oetwithdrhesham.co.uk</a></li>
+                                    <li><a href="tel:+447961725989"><span class="mr-4"><i class="fa-solid fa-phone"></i></span>+44 7961 725989</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="header-border-bottom">
+                    <div class="row align-items-center">
+                        <div class="col-xl-2 col-md-6 col-6">
+                            <div class="vl-logo">
+                                <a href="/" title="OET with Dr Hesham | The Pathway to UK"><img src="assets/img/logo/platform-logo.png" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 d-none d-xl-block">
+                            <div class="vl-main-menu text-center">
+                                <nav class="vl-mobile-menu-active">
+                                    <ul>
+                                        <li class="has-dropdown"><a href="about.html">About <span class="downarrow"><i class="fa-regular fa-angle-down"></i></span></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="about.html"><span class="submenu-icon"><i class="fa-solid fa-user-doctor"></i></span><span class="submenu-text">About Dr. Hesham</span></a></li>
+                                                <li><a href="https://www.youtube.com/watch?v=kL91eG32Uok" class="popup-video" aria-label="Play Why OET video"><span class="submenu-icon"><i class="fa-solid fa-bullseye"></i></span><span class="submenu-text">Why OET</span></a></li>
+                                                <li><a href="teaching-approach.html"><span class="submenu-icon"><i class="fa-solid fa-chalkboard-user"></i></span><span class="submenu-text">Teaching Approach</span></a></li>
+                                                <li><a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-pen-to-square"></i></span><span class="submenu-text">Writing Corrections</span></a></li>
+                                                <li><a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-tags"></i></span><span class="submenu-text">Packages &amp; Offers</span></a></li>
+                                                <li><a href="success-stories.html"><span class="submenu-icon"><i class="fa-solid fa-star"></i></span><span class="submenu-text">Success Stories</span></a></li>
+                                                <li><a href="faq.html"><span class="submenu-icon"><i class="fa-solid fa-circle-question"></i></span><span class="submenu-text">FAQ</span></a></li>
+                                                <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-telegram"></i></span><span class="submenu-text">Telegram Materials</span></a></li>
+                                                <li class="has-dropdown"><a href="#"><span class="submenu-icon"><i class="fa-solid fa-route"></i></span><span class="submenu-text">Pathway Guidelines</span> <span class="downarrow"><i class="fa-regular fa-angle-right"></i></span></a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="uk-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-flag"></i></span><span class="submenu-text">UK Pathway Guide</span></a></li>
+                                                        <li><a href="usa-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-location-dot"></i></span><span class="submenu-text">USA Pathway Guide</span></a></li>
+                                                        <li><a href="australia-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-earth-oceania"></i></span><span class="submenu-text">Australia Pathway Guide</span></a></li>
+                                                        <li><a href="gulf-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-compass"></i></span><span class="submenu-text">Gulf Pathway Guide</span></a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-dropdown"><a href="https://www.youtube.com/watch?v=hlD1BXfijWs" target="_blank" rel="noopener noreferrer">OET <span class="downarrow"><i class="fa-regular fa-angle-down"></i></span></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="https://www.youtube.com/watch?v=hlD1BXfijWs" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-notes-medical"></i></span><span class="submenu-text">Nursing OET</span></a></li>
+                                                <li><a href="https://www.youtube.com/watch?v=kL91eG32Uok" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-stethoscope"></i></span><span class="submenu-text">Doctor OET</span></a></li>
+                                                <li><a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-pills"></i></span><span class="submenu-text">Pharmacist OET</span></a></li>
+                                                <li><a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-person-walking"></i></span><span class="submenu-text">Physiotherapy OET</span></a></li>
+                                                <li><a href="pricing.html"><span class="submenu-icon"><i class="fa-solid fa-box-open"></i></span><span class="submenu-text">OET Packages</span></a></li>
+                                            </ul>
+                                        </li>
+                                        
+                                        <li class="has-dropdown"><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">Free Resources <span class="downarrow"><i class="fa-regular fa-angle-down"></i></span></a>
+                                            <ul class="sub-menu">
+                                                <li class="has-dropdown"><a href="oet-tips.html"><span class="submenu-icon"><i class="fa-solid fa-lightbulb"></i></span><span class="submenu-text">OET Tips</span> <span class="downarrow"><i class="fa-regular fa-angle-right"></i></span></a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="oet-writing-tips.html"><span class="submenu-icon"><i class="fa-solid fa-pen-nib"></i></span><span class="submenu-text">Writing Tips</span></a></li>
+                                                                                                                <li><a href="oet-reading-tips.html"><span class="submenu-icon"><i class="fa-solid fa-book-open-reader"></i></span><span class="submenu-text">Reading Tips</span></a></li>
+                                                        <li><a href="oet-listening-tips.html"><span class="submenu-icon"><i class="fa-solid fa-headphones"></i></span><span class="submenu-text">Listening Tips</span></a></li>
+                                                        <li><a href="oet-speaking-tips.html"><span class="submenu-icon"><i class="fa-solid fa-comments"></i></span><span class="submenu-text">Speaking Tips</span></a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="has-dropdown"><a href="oet-materials-support.html"><span class="submenu-icon"><i class="fa-solid fa-folder-open"></i></span><span class="submenu-text">Materials &amp; Support</span> <span class="downarrow"><i class="fa-regular fa-angle-right"></i></span></a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-telegram"></i></span><span class="submenu-text">Telegram Materials</span></a></li>
+                                                        <li><a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-users"></i></span><span class="submenu-text">Join Free Community</span></a></li>
+                                                <li><a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-whatsapp"></i></span><span class="submenu-text">WhatsApp Support</span></a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="login.html"><i class="fa-solid fa-right-to-bracket" style="margin-right: 8px;"></i><strong>Login / Register</strong></a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-6">
+                            <div class="vl-header-right">
+                                <!-- header btn -->
+                                <div class="vl-header-search d-none d-xl-block">
+                                    <span><img class="vl-search-toggle" src="assets/img/icon/vl-search-1.1.svg"
+                                            alt="Search OET tips, writing, speaking, UK pathway"></span>
+                                </div>
+                                <!-- header social area -->
+                                <div class="social-area social-area-headerTop d-none d-xl-block">
+                                    <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram"></i></a>
+                                    <a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+
+                            <!-- action btn -->
+                            <div class="vl-header-action-item d-block d-xl-none">
+                                <button type="button" class="vl-offcanvas-toggle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" viewBox="0 0 30 16">
+                                        <g clip-path="url(#clip0_54_1070)">
+                                            <path d="M3.625 3.45829H26.375" stroke="#000000" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M3.625 12.5416H26.375" stroke="#000000" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M6.625 8H23.375" stroke="#000000" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_54_1070">
+                                                <rect width="30" height="16" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- vl header search  -->
+    <div class="vl-header-search-bar d-flex align-items-center">
+        <button class="vl-search-close">�</button>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="vl-search-bar text-center">
+                        <h2 class="vl-search-bar-title mb-30">Search OET tips, writing, speaking, UK pathway</h2>
+                        <div class="contact-form-box contact-search-form-box">
+                            <form action="#">
+                                <input type="text" placeholder="Search OET preparation, writing, speaking...">
+                                <button type="submit"><i class="far fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- vl header search end -->
+
+    <!-- offcanvas menu start -->
+    <div class="vl-offcanvas">
+        <div class="vl-offcanvas-wrapper">
+            <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-50">
+                <div class="vl-offcanvas-logo">
+                    <a href="/" title="OET with Dr Hesham | The Pathway to UK"><img src="assets/img/logo/platform-logo.png" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                </div>
+                <div class="vl-offcanvas-close">
+                    <button class="vl-offcanvas-toggle">�</button>
+                </div>
+            </div>
+
+            <div class="vl-offcanvas-menu d-lg-block mb-40">
+                <nav></nav>
+            </div>
+            <div class="vl-offcanvas-info mb-40">
+                <h3 class="vl-offcanvas-sm-title mb-20">Contact &amp; Community</h3>
+                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer"> <span><img src="assets/img/icon/vl-icon-1.1.svg" alt=""></span> Join Free Community</a>
+                                    <a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"> <span><img src="assets/img/icon/vl-icon-1.3.svg" alt=""></span> WhatsApp Support</a>
+                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"> <span><img src="assets/img/icon/vl-icon-1.2.svg" alt=""></span> Telegram Channel</a>
+            </div>
+
+            <div class="vl-offcanvas-social mb-40">
+                <h3 class="vl-offcanvas-sm-title mb-20">Follow the Journey</h3>
+                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fab fa-youtube"></i></a>
+                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fab fa-telegram"></i></a>
+                                    <a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="vl-offcanvas-overlay"></div>
+
+    <!-- offcanvas menu end -->
+
+    <!--================= Header section End =================-->
+
+            
+
+<main class="success-page">
+    <section class="success-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mb-30">
+                    <span class="success-eyebrow"><i class="fa-solid fa-star"></i> Real OET candidate wins</span>
+                    <h1 class="success-title">Success Stories</h1>
+                    <p class="success-lede">A living wall of candidate feedback, social proof and result moments from the OET with Dr Hesham community.</p>
+                    <div class="success-actions">
+                        <a class="success-btn" href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Share Your Story</a>
+                        <a class="success-btn success-btn--ghost" href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-users"></i> Join Free Community</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-30">
+                    <div class="success-stat-grid success-benefit-grid" aria-label="Why students subscribe">
+                        <div class="success-stat success-benefit-card"><span class="success-benefit-icon"><i class="fa-solid fa-route"></i></span><strong>Clear Plan</strong><span>Know exactly what to study next for your OET target.</span></div>
+                        <div class="success-stat success-benefit-card"><span class="success-benefit-icon"><i class="fa-solid fa-pen-to-square"></i></span><strong>Expert Feedback</strong><span>Improve faster with guided writing and speaking support.</span></div>
+                        <div class="success-stat success-benefit-card"><span class="success-benefit-icon"><i class="fa-solid fa-users"></i></span><strong>Free Community</strong><span>Stay motivated with doctors, nurses, and allied professionals.</span></div>
+                        <div class="success-stat success-benefit-card"><span class="success-benefit-icon"><i class="fa-solid fa-trophy"></i></span><strong>Your Turn</strong><span>Follow the same pathway behind these candidate wins.</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="success-gallery-section">
+        <div class="container">
+            <div class="success-tabs-wrap" aria-label="Filter success stories by year">
+                <div class="success-tabs" role="tablist">
+                    <button class="success-tab is-active" type="button" data-year="All">All Stories <span>1634</span></button>
+                    <button class="success-tab" type="button" data-year="2026">2026 <span>65</span></button>
+                    <button class="success-tab" type="button" data-year="2025">2025 <span>264</span></button>
+                    <button class="success-tab" type="button" data-year="2024">2024 <span>882</span></button>
+                    <button class="success-tab" type="button" data-year="2023">2023 <span>292</span></button>
+                    <button class="success-tab" type="button" data-year="2022">2022 <span>123</span></button>
+                    <button class="success-tab" type="button" data-year="2021">2021 <span>8</span></button>
+                </div>
+            </div>
+            <div class="success-gallery-heading">
+                <h2>Browse by year</h2>
+                <p>Filter the archive by result year, then open any screenshot to view the full testimonial in a focused lightbox.</p>
+            </div>
+            <div class="success-results-bar">
+                <span id="success-results-summary">Loading success stories...</span>
+                <span class="success-page-size"><i class="fa-solid fa-layer-group"></i> 40 per page</span>
+            </div>
+            <div class="success-empty" id="success-empty">No screenshots are currently assigned to this year.</div>
+            <div class="success-loading" id="success-loading">Loading the full success archive...</div>
+            <div class="success-masonry" id="success-gallery"></div>
+            <nav class="success-pagination" id="success-pagination" aria-label="Success stories pagination"></nav>
+        </div>
+    </section>
+
+    <section class="success-cta-band">
+        <div class="container">
+            <div class="success-cta-panel">
+                <div>
+                    <h2>Your success story can be next.</h2>
+                    <p>Send your target score, profession and test timeline. We will help you choose the right next step.</p>
+                </div>
+                <div class="success-actions success-cta-actions">
+                    <a class="success-btn success-btn--whatsapp" href="https://wa.me/447961725989?text=Hello%20Dr%20Hesham%2C%20I%20want%20to%20prepare%20for%20OET." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Message on WhatsApp</a>
+                    <a class="success-btn success-btn--community" href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-users"></i> Join Free Community</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="success-lightbox" id="success-lightbox" aria-hidden="true">
+        <div class="success-lightbox__panel" role="dialog" aria-modal="true" aria-label="Success story image viewer">
+            <div class="success-lightbox__image-wrap"><img id="success-lightbox-img" alt=""></div>
+            <div class="success-lightbox__bar">
+                <div class="success-lightbox__meta"><span id="success-lightbox-year"></span><span id="success-lightbox-platform"></span></div>
+                <div class="success-lightbox__controls">
+                    <a id="success-lightbox-original" href="#" target="_blank" rel="noopener noreferrer">Original</a>
+                    <button type="button" id="success-prev" aria-label="Previous success story"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button type="button" id="success-next" aria-label="Next success story"><i class="fa-solid fa-chevron-right"></i></button>
+                    <button type="button" id="success-close" aria-label="Close viewer"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+            <!--================= Footer section start =================-->
+            <footer class="vl-footer-10 fix vkl-gray-bg-19 pt-60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-4 col-md-6 mb-30">
+                            <!-- footer widget 1 -->
+                            <div class="vl-footer-widget-1">
+                                <div class="vl-footer-logo">
+                                    <a href="/"><img src="assets/img/logo/footer-logo.png" alt="OET with Dr Hesham"></a>
+                                </div>
+                                <div class="vl-footer-content vl-footer-content-6">
+                                    <p class="para pt-16 pb-24">We help nurses, doctors, pharmacists, and allied health professionals prepare for OET with practical guidance, focused feedback, and clear UK pathway support.</p>
+                                </div>
+
+                                <!-- social area -->
+                                <div class="social-area-footer-10">
+                                    <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram"></i></a>
+                                    <a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-md-6 mb-30">
+                            <div class="vl-footer-widget-2 vl-footer-widget-2-10">
+                                <h3 class="vl-footer-widget-title vl-footer-widget-title-6 mb-30">Support</h3>
+                                <div class="vl-footer-menu vl-footer-menu-10">
+                                    <ul>
+                                        <li><a href="about.html">About Dr. Hesham</a></li>
+                                        <li><a href="teaching-approach.html">Teaching Approach</a></li>
+                                        <li><a href="https://www.youtube.com/watch?v=hlD1BXfijWs" target="_blank" rel="noopener noreferrer">OET Programs</a></li>
+                                        <li><a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
+                                        <li><a href="mailto:support@oetwithdrhesham.co.uk">Email Support</a></li>
+                                        <li><a href="faq.html">FAQ</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-md-6 mb-30">
+                            <div class="vl-footer-widget-3 vl-footer-widget-3-10">
+                                <h3 class="vl-footer-widget-title vl-footer-widget-title-6 mb-30">Top Links</h3>
+                                <div class="vl-footer-menu vl-footer-menu-10">
+                                    <ul>
+
+                                        <li><a href="oet-materials-support.html">Free Resources</a></li>
+
+                                        <li><a href="oet-speaking-tips.html">Speaking Tips</a></li>
+
+                                        <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">Telegram Materials</a></li>
+
+                                        <li><a href="success-stories.html">Success Stories</a></li>
+                                        <li><a href="uk-pathway-guide.html">UK Pathway Guide</a></li>
+                                        <li><a href="usa-pathway-guide.html">USA Pathway Guide</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 mb-30">
+                            <!-- footer widget 4 -->
+                            <div class="vl-footer-widget-4 vl-footer-widget-4-10">
+                                <h3 class="vl-footer-widget-title vl-footer-widget-title-6 mb-30">Subscribe for OET Updates</h3>
+                                <!-- Newslater -->
+                                <div class="vl-footer-newslate10">
+                                    <form action="#">
+                                        <input type="email" placeholder="Your Email">
+                                    </form>
+                                    <div class="neslat-btn10">
+                                        <button class="primary-btn-10">Subscribe Now <span><i
+                                                    class="fa-regular fa-arrow-right"></i></span></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="vl-copy-righ1t vl-copy-righ1t-10">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 mb-30">
+                                    <div class="vl-footer-copy-right-widget vl-footer-copy-right-widget-6">
+                                        <p class="para">&copy; Copyright 2026 - OET with Dr Hesham. All Rights Reserved</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 mb-30">
+                                    <div class="vl-copy-right-menu vl-copy-right-menu-10">
+                                        <ul>
+                                            <li><a href="#">Terms &amp; Conditions</a></li>
+                                            <li><a href="#">Privacy Policy</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!--================= Footer section End =================-->
+
+
+    <!-- js file -->
+
+    <!-- jquery js-->
+    <script src="assets/js/plugins/jquery-3.7.1.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="assets/js/plugins/bootstrap.min.js"></script>
+    <!-- gsap js-->
+    <script src="assets/js/plugins/gsap.min.js"></script>
+    <!-- scrollTrigger js-->
+    <script src="assets/js/plugins/ScrollTrigger.min.js"></script>
+    <!-- swiper js -->
+    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+    <!-- nice select js -->
+    <script src="assets/js/plugins/nice-select.js"></script>
+    <!-- fontawesome -->
+    <script src="assets/js/plugins/fontawesome.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="assets/js/plugins/magnific-popup.js"></script>
+    <!-- counter js -->
+    <script src="assets/js/plugins/jquery.counterup.min.js"></script>
+    <!-- waypoints js-->
+    <script src="assets/js/plugins/waypoints.js"></script>
+    <!-- sal js-->
+    <script src="assets/js/plugins/sal.min.js"></script>
+    <!-- ScrollSmoother js -->
+    <script src="assets/js/plugins/lenis.min.js"></script>
+    <!-- SplitText js -->
+    <script src="assets/js/plugins/SplitText.min.js"></script>
+    <script src="assets/js/plugins/jarallax.min.js"></script>
+    <!-- Custom js -->
+     <script src="assets/js/cat.js"></script>
+     <script src="assets/js/main.js"></script>
+     <script src="assets/js/oet-contact-widget.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            var fullText = 'Join Free Community!';
+            var ctas = document.querySelectorAll('.oet-community-cta');
+
+            ctas.forEach(function (cta) {
+                var contentEl = cta.querySelector('.oet-community-cta__content');
+                var textEl = contentEl ? contentEl.querySelector('.oet-community-cta__text') : null;
+                var cursorEl = contentEl ? contentEl.querySelector('.oet-community-cta__cursor') : null;
+                cta.setAttribute('aria-label', fullText);
+
+                if (!textEl || !cursorEl) {
+                    cta.textContent = fullText;
+                    return;
+                }
+
+                textEl.textContent = fullText;
+
+                if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    cursorEl.style.display = 'none';
+                    return;
+                }
+
+                if (typeof gsap !== 'undefined') {
+                    gsap.killTweensOf(cursorEl);
+                    gsap.to(cursorEl, {
+                        opacity: 0,
+                        duration: 0.55,
+                        ease: 'none',
+                        repeat: -1,
+                        yoyo: true
+                    });
+                }
+            });
+        });
+    </script>
+    <script>
+        (function () {
+            if (typeof gsap === 'undefined') {
+                return;
+            }
+
+            if (!window.matchMedia || !window.matchMedia('(min-width: 1200px)').matches) {
+                return;
+            }
+
+            var menuRoot = document.querySelector('.vl-main-menu');
+            if (!menuRoot) {
+                return;
+            }
+
+            var dropdownItems = menuRoot.querySelectorAll('li.has-dropdown');
+            dropdownItems.forEach(function (item) {
+                var submenu = Array.from(item.children).find(function (child) {
+                    return child.classList && child.classList.contains('sub-menu');
+                });
+                if (!submenu) {
+                    return;
+                }
+
+                var submenuItems = Array.from(submenu.children).filter(function (child) {
+                    return child.tagName === 'LI';
+                });
+                var closeTimer = null;
+                var openTimeline = null;
+                var closeTimeline = null;
+
+                function clearTimers() {
+                    if (closeTimer) {
+                        clearTimeout(closeTimer);
+                        closeTimer = null;
+                    }
+                }
+
+                function killActiveTweens() {
+                    gsap.killTweensOf([submenu].concat(submenuItems));
+                    if (openTimeline) {
+                        openTimeline.kill();
+                        openTimeline = null;
+                    }
+                    if (closeTimeline) {
+                        closeTimeline.kill();
+                        closeTimeline = null;
+                    }
+                }
+
+                function openDropdown() {
+                    clearTimers();
+                    killActiveTweens();
+                    gsap.set(submenu, { transformOrigin: 'top center' });
+
+                    openTimeline = gsap.timeline({
+                        defaults: { overwrite: 'auto' },
+                        onComplete: function () {
+                            openTimeline = null;
+                        }
+                    });
+
+                    openTimeline.fromTo(submenu, {
+                        autoAlpha: 0,
+                        y: 12,
+                        scale: 0.98
+                    }, {
+                        autoAlpha: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 0.3,
+                        ease: 'power3.out'
+                    }, 0).fromTo(submenuItems, {
+                        autoAlpha: 0,
+                        y: 8
+                    }, {
+                        autoAlpha: 1,
+                        y: 0,
+                        duration: 0.24,
+                        ease: 'power2.out',
+                        stagger: 0.03
+                    }, 0.04);
+                }
+
+                function closeDropdown() {
+                    clearTimers();
+                    closeTimer = window.setTimeout(function () {
+                        closeTimer = null;
+                        killActiveTweens();
+
+                        closeTimeline = gsap.timeline({
+                            defaults: { overwrite: 'auto' },
+                            onComplete: function () {
+                                gsap.set(submenu, { clearProps: 'opacity,visibility,transform' });
+                                gsap.set(submenuItems, { clearProps: 'opacity,transform' });
+                                closeTimeline = null;
+                            }
+                        });
+
+                        closeTimeline.to(submenuItems, {
+                            autoAlpha: 0,
+                            y: 6,
+                            duration: 0.16,
+                            ease: 'power2.in',
+                            stagger: {
+                                each: 0.015,
+                                from: 'end'
+                            }
+                        }, 0).to(submenu, {
+                            autoAlpha: 0,
+                            y: 10,
+                            scale: 0.98,
+                            duration: 0.2,
+                            ease: 'power3.in'
+                        }, 0.02);
+                    }, 90);
+                }
+
+                item.addEventListener('mouseenter', openDropdown);
+                item.addEventListener('mouseleave', closeDropdown);
+            });
+        })();
+    </script>
+
+
+    <div class="oet-community-popup" id="oet-community-popup" aria-hidden="true">
+        <div class="oet-community-popup__overlay" data-oet-community-close></div>
+        <div class="oet-community-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="oet-community-popup-title" aria-describedby="oet-community-popup-intro">
+            <button class="oet-community-popup__close" type="button" data-oet-community-close aria-label="Close community popup">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+            <div class="oet-community-popup__body">
+                <span class="oet-community-popup__eyebrow"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Free OET support</span>
+                <h2 class="oet-community-popup__title" id="oet-community-popup-title">Join Our Free OET Communities</h2>
+                <p class="oet-community-popup__intro" id="oet-community-popup-intro">Choose the group or resource that matches your profession, language preference, or preparation stage. Each link opens in a new tab so you can join instantly.</p>
+
+                <h3 class="oet-community-popup__section-title">WhatsApp Groups</h3>
+                <div class="oet-community-popup__grid">
+                    <a class="oet-community-popup__card" href="https://chat.whatsapp.com/LPSFtrljYdjAYGpBStpMz5" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Exam Recalls Group 1</span>
+                        <span class="oet-community-popup__hint">Recent exam recall discussions</span>
+                    </a>
+                    <a class="oet-community-popup__card" href="https://chat.whatsapp.com/CzVgwnH73Vn8PupWxPrhkz" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Exam Recalls Group 2</span>
+                        <span class="oet-community-popup__hint">Backup recalls community</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/GwXdSX6v38F3EjNzC4wS2F?mode=hq1tsha" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET Nursing WhatsApp - New</span>
+                        <span class="oet-community-popup__hint">Highlighted nursing community</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/CeJmvXO5dJA50OKBGtZcuD?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Medicine Orientation Group</span>
+                        <span class="oet-community-popup__hint">Free orientation sessions for medicine</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/IuCFuWFXFrQHtK6qICP4jg?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET English Only</span>
+                        <span class="oet-community-popup__hint">English-only practice community</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/Kz8zXv7GpoCJBAHpfDygPW?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Pharmacy WhatsApp Group</span>
+                        <span class="oet-community-popup__hint">Pharmacy OET support</span>
+                    </a>
+                </div>
+
+                <h3 class="oet-community-popup__section-title">Free Orientation &amp; Resources</h3>
+                <div class="oet-community-popup__resources">
+                    <a class="oet-community-popup__resource" href="https://t.me/OET_Nursing_DrHesham" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Telegram Nursing Channel</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/kL91eG32Uok?si=Q464XynULlIxpiav" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Doctors Arabic Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/3aBIQq_p3MQ?si=eNwqS82aYuYBaifr" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Doctors Non-Arabic Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/rbNsB7Olxts?si=RNoigvu5kz_bUVYI" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Course Feedback</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/hlD1BXfijWs?si=EQFjYcWKTBOvltPI" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Nursing Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/MCPZb589zdY?si=vSLShtttUOEH89rx" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET &amp; UK Nursing Live</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script id="oet-community-popup-script">
+        (function () {
+            var popup = document.getElementById('oet-community-popup');
+            var triggers = document.querySelectorAll('.oet-community-cta');
+            if (!popup || !triggers.length) return;
+
+            var closeButtons = popup.querySelectorAll('[data-oet-community-close]');
+            var scrollBody = popup.querySelector('.oet-community-popup__body');
+            var focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+            var lastTrigger = null;
+            var lastTouchY = 0;
+
+            function firstFocusable() {
+                return popup.querySelector(focusableSelector);
+            }
+
+            function openPopup(trigger) {
+                lastTrigger = trigger || null;
+                popup.classList.add('is-open');
+                popup.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('oet-community-popup-lock');
+                window.setTimeout(function () {
+                    var target = firstFocusable();
+                    if (target) target.focus({ preventScroll: true });
+                }, 30);
+            }
+
+            function closePopup() {
+                popup.classList.remove('is-open');
+                popup.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('oet-community-popup-lock');
+                if (lastTrigger && typeof lastTrigger.focus === 'function') {
+                    lastTrigger.focus({ preventScroll: true });
+                }
+            }
+
+            triggers.forEach(function (trigger) {
+                trigger.setAttribute('href', '#oet-community-popup');
+                trigger.setAttribute('aria-haspopup', 'dialog');
+                trigger.setAttribute('aria-controls', 'oet-community-popup');
+                trigger.removeAttribute('target');
+                trigger.removeAttribute('rel');
+                trigger.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    openPopup(trigger);
+                });
+            });
+
+            closeButtons.forEach(function (button) {
+                button.addEventListener('click', closePopup);
+            });
+
+            if (scrollBody) {
+                scrollBody.addEventListener('wheel', function (event) {
+                    event.stopPropagation();
+                }, { passive: true });
+
+                scrollBody.addEventListener('touchstart', function (event) {
+                    if (event.touches && event.touches.length) {
+                        lastTouchY = event.touches[0].clientY;
+                    }
+                }, { passive: true });
+
+                scrollBody.addEventListener('touchmove', function (event) {
+                    if (!event.touches || !event.touches.length) return;
+                    var currentY = event.touches[0].clientY;
+                    var deltaY = lastTouchY - currentY;
+                    var atTop = scrollBody.scrollTop <= 0;
+                    var atBottom = Math.ceil(scrollBody.scrollTop + scrollBody.clientHeight) >= scrollBody.scrollHeight;
+
+                    if ((atTop && deltaY < 0) || (atBottom && deltaY > 0)) {
+                        event.preventDefault();
+                    }
+
+                    event.stopPropagation();
+                    lastTouchY = currentY;
+                }, { passive: false });
+            }
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' && popup.classList.contains('is-open')) {
+                    closePopup();
+                }
+            });
+        })();
+    </script>
+
+
+
+<script>
+(function () {
+    const PAGE_SIZE = 40;
+    const manifestUrl = 'assets/img/success-stories/success-stories.json?v=full-20260528';
+    const tabs = Array.from(document.querySelectorAll('.success-tab'));
+    const gallery = document.getElementById('success-gallery');
+    const empty = document.getElementById('success-empty');
+    const loading = document.getElementById('success-loading');
+    const pagination = document.getElementById('success-pagination');
+    const summary = document.getElementById('success-results-summary');
+    const lightbox = document.getElementById('success-lightbox');
+    const img = document.getElementById('success-lightbox-img');
+    const yearLabel = document.getElementById('success-lightbox-year');
+    const platformLabel = document.getElementById('success-lightbox-platform');
+    const originalLink = document.getElementById('success-lightbox-original');
+    let stories = [];
+    let filtered = [];
+    let page = 1;
+    let currentYear = 'All';
+    let currentVisible = [];
+    let current = 0;
+
+    function escapeHtml(value) {
+        return String(value || '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
+    }
+
+    function filterStories() {
+        filtered = currentYear === 'All' ? stories.slice() : stories.filter(story => story.year === currentYear);
+        const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+        if (page > totalPages) page = totalPages;
+        const start = (page - 1) * PAGE_SIZE;
+        currentVisible = filtered.slice(start, start + PAGE_SIZE);
+        renderGallery(start);
+        renderPagination(totalPages);
+        empty.classList.toggle('is-visible', filtered.length === 0);
+        const from = filtered.length ? start + 1 : 0;
+        const to = Math.min(start + PAGE_SIZE, filtered.length);
+        summary.textContent = filtered.length ? `Showing ${from}-${to} of ${filtered.length.toLocaleString()} stories` : 'No stories found for this year';
+    }
+
+    function renderGallery(offset) {
+        gallery.innerHTML = currentVisible.map((story, localIndex) => `
+            <article class="success-card" data-visible-index="${localIndex}">
+                <button class="success-card__button" type="button" aria-label="Open ${escapeHtml(story.alt || story.filename)}">
+                    <span class="success-card__media">
+                        <img src="${escapeHtml(story.optimizedSrc)}" alt="${escapeHtml(story.alt || story.filename)}" loading="lazy" decoding="async">
+                    </span>
+                    <span class="success-card__meta">
+                        <span><i class="fa-solid fa-calendar-check"></i> ${escapeHtml(story.year)}</span>
+                        <span><i class="fa-solid fa-share-nodes"></i> ${escapeHtml(story.platform)}</span>
+                    </span>
+                </button>
+            </article>`).join('');
+        gallery.querySelectorAll('.success-card').forEach((card, index) => {
+            card.style.animationDelay = `${Math.min(index, 11) * 35}ms`;
+            requestAnimationFrame(() => card.classList.add('is-visible'));
+        });
+        gallery.querySelectorAll('.success-card__button').forEach((button, index) => {
+            button.addEventListener('click', () => openAt(index));
+        });
+    }
+
+    function pageButton(label, target, active, disabled) {
+        return `<button class="success-page-btn${active ? ' is-active' : ''}" type="button" data-page="${target}"${disabled ? ' disabled' : ''}>${label}</button>`;
+    }
+
+    function renderPagination(totalPages) {
+        if (filtered.length <= PAGE_SIZE) {
+            pagination.innerHTML = '';
+            return;
+        }
+        const pages = new Set([1, totalPages, page, page - 1, page + 1, page - 2, page + 2]);
+        const list = Array.from(pages).filter(n => n >= 1 && n <= totalPages).sort((a, b) => a - b);
+        let html = pageButton('Prev', page - 1, false, page === 1);
+        let prev = 0;
+        for (const n of list) {
+            if (prev && n - prev > 1) html += '<span class="success-page-btn" aria-hidden="true">...</span>';
+            html += pageButton(n, n, n === page, false);
+            prev = n;
+        }
+        html += pageButton('Next', page + 1, false, page === totalPages);
+        pagination.innerHTML = html;
+        pagination.querySelectorAll('button[data-page]').forEach(button => {
+            button.addEventListener('click', () => {
+                const next = Number(button.dataset.page);
+                if (!next || next === page || button.disabled) return;
+                page = next;
+                filterStories();
+                document.querySelector('.success-gallery-section').scrollIntoView({behavior: 'smooth', block: 'start'});
+            });
+        });
+    }
+
+    function openAt(localIndex) {
+        const story = currentVisible[localIndex];
+        if (!story) return;
+        current = localIndex;
+        img.src = story.optimizedSrc;
+        img.alt = story.alt || story.filename;
+        yearLabel.textContent = story.year;
+        platformLabel.textContent = story.platform;
+        originalLink.href = story.originalDriveUrl;
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    function step(delta) {
+        if (!currentVisible.length) return;
+        current = (current + delta + currentVisible.length) % currentVisible.length;
+        openAt(current);
+    }
+
+    tabs.forEach(tab => tab.addEventListener('click', () => {
+        if (tab.disabled) return;
+        currentYear = tab.dataset.year;
+        page = 1;
+        tabs.forEach(item => item.classList.toggle('is-active', item === tab));
+        filterStories();
+    }));
+
+    document.getElementById('success-close').addEventListener('click', close);
+    document.getElementById('success-prev').addEventListener('click', () => step(-1));
+    document.getElementById('success-next').addEventListener('click', () => step(1));
+    lightbox.addEventListener('click', event => { if (event.target === lightbox) close(); });
+    document.addEventListener('keydown', event => {
+        if (!lightbox.classList.contains('is-open')) return;
+        if (event.key === 'Escape') close();
+        if (event.key === 'ArrowLeft') step(-1);
+        if (event.key === 'ArrowRight') step(1);
+    });
+
+    fetch(manifestUrl)
+        .then(response => {
+            if (!response.ok) throw new Error('Unable to load success stories manifest');
+            return response.json();
+        })
+        .then(data => {
+            stories = data;
+            loading.style.display = 'none';
+            filterStories();
+        })
+        .catch(error => {
+            loading.textContent = 'Unable to load the success stories archive. Please refresh the page.';
+            console.error(error);
+        });
+})();
+</script>
+</body>
+</html>

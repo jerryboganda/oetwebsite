@@ -1,0 +1,125 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.4 Preloader
+/*----------------------------------------*/
+.preloader{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9999999999;
+	background-color: var(--vkl-text-primary-color-1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&-2{
+		background: var(--vkl-bg-bg-30);
+	}
+	&-4{
+		background: var(--vkl-bg-bg-27);
+	}
+	&-5{
+		background: var(--vkl-text-primary-color-5);
+	}
+	&-6{
+		background: var(--vkl-text-primary-color-6);
+	}
+	&-7{
+		background: var(--vkl-text-primary-color-7);
+	}
+	&-8{
+		background: #F92B74;
+	}
+	&-9{
+		background: var(--vkl-text-primary-color-9);
+	}
+	&-10{
+		background: var(--vkl-text-paragrapgh-color-9);
+	}
+	
+}
+
+.loading-container,
+.loading{
+	height: clamp(240px, 28vw, 420px);
+	position: relative;
+	width: clamp(240px, 28vw, 420px);
+	border-radius: 100%;
+}
+
+.loading-container{
+	margin: 0 auto
+}
+
+.loading{
+	border: 2px solid transparent;
+	border-color: transparent var(--vkl-text-text-white) transparent var(--vkl-text-text-white);
+	animation: rotate-loading 1.5s linear 0s infinite normal;
+	transform-origin: 50% 50%;
+	&-2{
+		border-color: transparent var(--vkl-text-heading-color-2) transparent var(--vkl-text-heading-color-2);
+	}
+	&-4{
+		border-color: transparent var(--vkl-text-heading-color-2) transparent var(--vkl-text-heading-color-2);
+	}
+	&-5{
+		border-color: transparent var(--vkl-text-heading-color-5) transparent var(--vkl-text-heading-color-5);
+	}
+	&-6{
+		border-color: transparent var(--vkl-text-heading-color-6) transparent var(--vkl-text-heading-color-6);
+	}
+	&-7{
+		border-color: transparent var(--vkl-text-heading-color-7) transparent var(--vkl-text-heading-color-7);
+	}
+	&-9{
+		border-color: transparent var(--vkl-text-heading-color-9) transparent var(--vkl-text-heading-color-9);
+	}
+}
+.loading-container:hover .loading,
+.loading-container .loading{
+	transition: all 0.5s ease-in-out;
+}
+
+#loading-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: clamp(160px, 18vw, 280px);
+    width: clamp(160px, 18vw, 280px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loading-icon img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	display: block;
+}
+
+@media (max-width: 575px) {
+	.loading-container,
+	.loading {
+		width: 180px;
+		height: 180px;
+	}
+
+	#loading-icon {
+		width: 122px;
+		height: 122px;
+	}
+}
+
+@keyframes rotate-loading{
+	0%{
+		transform: rotate(0deg);
+	}
+
+	100%{
+		transform: rotate(360deg);
+	}
+}

@@ -1,0 +1,2730 @@
+<!DOCTYPE html>
+<html lang="en" class="oet-live-site">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | OET with Dr Hesham</title>
+
+    <!-- fav logo -->
+    <link rel="shortcut icon" href="assets/img/logo/fav-icon.svg" type="image/x-icon">
+
+    <!-- css files -->
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css">
+    <!-- swiper css -->
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
+    <!-- fontawesome css -->
+    <link rel="stylesheet" href="assets/css/plugins/all.css">
+    <!-- magnific-popup css -->
+    <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css">
+    <!-- sal css -->
+    <link rel="stylesheet" href="assets/css/plugins/sal.css">
+    <!-- jarallax -->
+    <link rel="stylesheet" href="assets/css/plugins/jarallax.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- pricing title font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap" rel="stylesheet">
+    
+    <style>
+        .vl-header-top-text a.oet-community-cta {
+            display: inline-grid;
+            align-items: center;
+            justify-items: start;
+            margin-left: 14px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #5f46f5;
+            font-weight: 700;
+            line-height: 1;
+            white-space: nowrap;
+            box-shadow: 0 10px 24px rgba(16, 24, 40, 0.16);
+            text-decoration: none;
+        }
+
+        .vl-header-top-text a.oet-community-cta:hover {
+            color: #4b37d3;
+            background: #ffffff;
+        }
+
+        .oet-community-cta__sizer,
+        .oet-community-cta__content {
+            grid-area: 1 / 1;
+        }
+
+        .oet-community-cta__sizer {
+            visibility: hidden;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .oet-community-cta__content {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            white-space: nowrap;
+        }
+
+        .oet-community-cta__text {
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .oet-community-cta__cursor {
+            display: inline-block;
+            min-width: 0.65ch;
+            opacity: 1;
+        }
+
+        .hero-banner-lavender {
+            background: #E6E0FF !important;
+        }
+
+        body.oet-live-site .vl-logo img,
+        body.oet-live-site .vl-offcanvas-logo img {
+            width: clamp(120px, 14vw, 150px);
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        @media (max-width: 575px) {
+            body.oet-live-site .vl-logo img,
+            body.oet-live-site .vl-offcanvas-logo img {
+                width: 112px;
+            }
+        }
+
+        .brand__thumb {
+            width: 270px;
+            height: 140px;
+        }
+
+        .brand-badge {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            padding: 12px 18px 11px;
+            border-radius: 12px;
+            background: linear-gradient(180deg, #ffffff 0%, #fcfbff 100%);
+            border: 1px solid rgba(100, 74, 249, 0.1);
+            box-shadow: 0 10px 24px rgba(100, 74, 249, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 3px;
+            text-align: left;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+        }
+
+        .brand-badge:hover {
+            transform: translateY(-4px);
+            background: linear-gradient(180deg, #ffffff 0%, #f7f4ff 100%);
+            border-color: rgba(100, 74, 249, 0.18);
+            box-shadow: 0 16px 34px rgba(100, 74, 249, 0.1);
+        }
+
+        .brand-badge__icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 18px;
+            background: rgba(100, 74, 249, 0.08);
+            color: #644af9;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex: 0 0 68px;
+            box-shadow: 0 8px 18px rgba(100, 74, 249, 0.07);
+            transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+        }
+
+        .brand-badge:hover .brand-badge__icon {
+            background: #644af9;
+            color: #ffffff;
+            box-shadow: 0 10px 22px rgba(100, 74, 249, 0.18);
+            transform: translateY(-1px) scale(1.03);
+        }
+
+        .brand-badge__title {
+            margin: 0;
+            color: var(--vkl-text-heading-color-1);
+            font-size: 15.5px;
+            line-height: 1.02;
+            font-weight: 700;
+            letter-spacing: -0.035em;
+        }
+
+        .brand-badge__sub {
+            margin: 0;
+            color: var(--vkl-text-paragrapgh-color-1);
+            font-size: 11.5px;
+            line-height: 1.16;
+            font-weight: 500;
+        }
+
+        .brand-badge__micro {
+            display: none;
+        }
+
+        @media only screen and (min-width: 576px) and (max-width: 991px) {
+            .brand__thumb {
+                width: 240px;
+                height: 128px;
+            }
+
+            .brand-badge {
+                padding: 11px 14px 10px;
+                border-radius: 11px;
+                gap: 3px;
+            }
+
+            .brand-badge__icon {
+                width: 60px;
+                height: 60px;
+                border-radius: 16px;
+                font-size: 21px;
+                flex-basis: 60px;
+            }
+
+            .brand-badge__title {
+                font-size: 14.5px;
+            }
+
+            .brand-badge__sub {
+                font-size: 11px;
+            }
+
+            .brand-badge__micro {
+                display: none;
+            }
+        }
+
+        @media only screen and (max-width: 575px) {
+            .brand__thumb {
+                width: 210px;
+                height: 120px;
+            }
+
+            .brand-badge {
+                padding: 10px 12px 9px;
+                border-radius: 11px;
+                gap: 3px;
+            }
+
+            .brand-badge__icon {
+                width: 53px;
+                height: 53px;
+                border-radius: 14px;
+                font-size: 19px;
+                flex-basis: 53px;
+            }
+
+            .brand-badge__title {
+                font-size: 13.5px;
+                line-height: 1.03;
+            }
+
+            .brand-badge__sub {
+                font-size: 10.5px;
+                line-height: 1.12;
+            }
+
+            .brand-badge__micro {
+                display: none;
+            }
+        }
+
+        .vl-main-menu ul > li .sub-menu {
+            width: max-content;
+            min-width: 260px;
+            padding: 14px 0;
+            overflow: visible;
+        }
+
+        .vl-main-menu ul > li .sub-menu li {
+            margin-right: 0;
+            display: block;
+            text-align: start;
+        }
+
+        .vl-main-menu ul > li .sub-menu li a,
+        .vl-offcanvas-menu ul li .sub-menu li a {
+            color: var(--vkl-text-heading-color-1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 17px;
+            line-height: 1.25;
+            white-space: nowrap;
+            width: calc(100% - 24px);
+            box-sizing: border-box;
+            margin: 0 12px;
+            padding: 11px 36px 11px 14px;
+            position: relative;
+            border-radius: 10px;
+            line-height: 1.25;
+            transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .vl-main-menu ul > li .sub-menu li a .submenu-icon,
+        .vl-offcanvas-menu ul li .sub-menu li a .submenu-icon {
+            width: 20px;
+            flex: 0 0 20px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            color: var(--vkl-text-primary-color-1);
+            transition: color 0.25s ease;
+        }
+
+        .vl-main-menu ul > li .sub-menu li a .submenu-text,
+        .vl-offcanvas-menu ul li .sub-menu li a .submenu-text {
+            display: inline-block;
+            white-space: nowrap;
+            font-size: 17px;
+            line-height: 1.25;
+        }
+
+        .vl-main-menu ul > li .sub-menu li a:hover,
+        .vl-main-menu ul > li .sub-menu li a:focus-visible,
+        .vl-offcanvas-menu ul li .sub-menu li a:hover,
+        .vl-offcanvas-menu ul li .sub-menu li a:focus-visible {
+            background: linear-gradient(135deg, #5f46f5 0%, #7c67ff 100%);
+            color: #ffffff;
+            transform: translateX(6px);
+            box-shadow: 0 12px 24px rgba(95, 70, 245, 0.22);
+        }
+
+        .vl-main-menu ul > li .sub-menu li a:hover .submenu-icon,
+        .vl-main-menu ul > li .sub-menu li a:focus-visible .submenu-icon,
+        .vl-offcanvas-menu ul li .sub-menu li a:hover .submenu-icon,
+        .vl-offcanvas-menu ul li .sub-menu li a:focus-visible .submenu-icon {
+            color: #ffffff;
+        }
+
+        .vl-main-menu ul > li .sub-menu li .sub-menu,
+        .vl-offcanvas-menu ul li .sub-menu li .sub-menu {
+            left: calc(100% + 10px);
+            top: 0;
+            min-width: 240px;
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown {
+            position: relative;
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown > .sub-menu {
+            display: block;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateX(8px) scale(0.98);
+            transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+            z-index: 20;
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown:hover > .sub-menu,
+        .vl-main-menu ul > li .sub-menu li.has-dropdown:focus-within > .sub-menu {
+            display: block;
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateX(0) scale(1) !important;
+            pointer-events: auto;
+        }
+
+        .vl-main-menu ul > li .sub-menu li a .downarrow,
+        .vl-offcanvas-menu ul li .sub-menu li a .downarrow {
+            right: 14px;
+        }
+
+        .work__thumb,
+        .vl-work-box-grid-three {
+            position: relative;
+            z-index: 1;
+        }
+
+        .faq-theme-purple {
+            background: linear-gradient(180deg, #fbf9ff 0%, #f3efff 100%) !important;
+        }
+
+        .faq-theme-purple .vl-faq-content-7 .sub-title {
+            color: #5f46f5;
+        }
+
+        .faq-theme-purple .vl-faq-content-7 .title {
+            color: #10134f;
+        }
+
+        .faq-theme-purple .vl-faq-content-7 .para {
+            color: #4f4b7b;
+        }
+
+        .faq-theme-purple .vl-faqs2 .vl-accordion-item {
+            background: #ffffff;
+            border: 1px solid rgba(95, 70, 245, 0.18);
+            box-shadow: 0 16px 32px rgba(95, 70, 245, 0.06);
+        }
+
+        .faq-theme-purple .vl-faqs2 .vl-accordion-item .vl-accordion-button {
+            color: #11155c;
+        }
+
+        .faq-theme-purple .vl-faqs2 .vl-accordion-item .vl-accordion-button.collapsed {
+            background: #ffffff;
+        }
+
+        .faq-theme-purple .vl-faqs2 .vl-accordion-item .vl-accordion-button span.vl-faqarrow {
+            background: #5f46f5;
+            color: #ffffff;
+        }
+
+        .faq-theme-purple .vl-faqs2 .vl-accordion-item .vl-accordion-button.collapsed span.vl-faqarrow {
+            background: #e6e0ff;
+            color: #5f46f5;
+        }
+
+        .faq-theme-purple .vl-faqs2 .vl-accordion-item .vl-accordion-body .para {
+            color: #5c5984;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .oet-community-cta__cursor {
+                display: none;
+            }
+        }
+    </style>
+
+    <style id="oet-community-popup-styles">
+        body.oet-community-popup-lock {
+            overflow: visible;
+        }
+
+        .oet-community-popup {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.28s ease, visibility 0.28s ease;
+        }
+
+        .oet-community-popup.is-open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .oet-community-popup__overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(29, 18, 73, 0.52);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .oet-community-popup__dialog {
+            position: relative;
+            width: min(940px, 100%);
+            max-height: min(88vh, 760px);
+            overflow: visible;
+            border-radius: 32px;
+            background: linear-gradient(145deg, #ffffff 0%, #fbf9ff 54%, #efe9ff 100%);
+            box-shadow: 0 32px 90px rgba(34, 21, 93, 0.28);
+            border: 1px solid rgba(255, 255, 255, 0.78);
+            transform: translateY(18px) scale(0.97);
+            transition: transform 0.28s ease;
+        }
+
+        .oet-community-popup.is-open .oet-community-popup__dialog {
+            transform: translateY(0) scale(1);
+        }
+
+        .oet-community-popup__dialog::before {
+            content: '';
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            right: -90px;
+            top: -110px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(100, 74, 249, 0.24), rgba(100, 74, 249, 0));
+            pointer-events: none;
+        }
+
+        .oet-community-popup__close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 3;
+            width: 42px;
+            height: 42px;
+            border: 0;
+            border-radius: 50%;
+            background: #ffffff;
+            color: #17152f;
+            box-shadow: 0 12px 28px rgba(17, 24, 39, 0.12);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease;
+        }
+
+        .oet-community-popup__close:hover,
+        .oet-community-popup__close:focus-visible {
+            transform: translateY(-1px);
+            color: #ffffff;
+            background: #644af9;
+            outline: none;
+        }
+
+        .oet-community-popup__body {
+            position: relative;
+            z-index: 2;
+            max-height: min(88vh, 760px);
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            -webkit-overflow-scrolling: touch;
+            padding: 38px 38px 34px;
+        }
+
+        .oet-community-popup__eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            color: #644af9;
+            background: rgba(100, 74, 249, 0.1);
+            font-size: 13px;
+            line-height: 1;
+            font-weight: 800;
+        }
+
+        .oet-community-popup__title {
+            margin: 0;
+            max-width: 650px;
+            color: #17152f;
+            font-size: clamp(30px, 4vw, 48px);
+            line-height: 1.02;
+            font-weight: 800;
+        }
+
+        .oet-community-popup__intro {
+            margin: 14px 0 26px;
+            max-width: 680px;
+            color: #5c5a72;
+            font-size: 16px;
+            line-height: 1.62;
+        }
+
+        .oet-community-popup__section-title {
+            margin: 0 0 14px;
+            color: #17152f;
+            font-size: 16px;
+            line-height: 1.2;
+            font-weight: 800;
+        }
+
+        .oet-community-popup__grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-bottom: 26px;
+        }
+
+        .oet-community-popup__resources {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .oet-community-popup__card,
+        .oet-community-popup__resource {
+            min-height: 136px;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.86);
+            border: 1px solid rgba(100, 74, 249, 0.12);
+            box-shadow: 0 14px 34px rgba(100, 74, 249, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
+            color: #17152f;
+            text-decoration: none;
+            padding: 18px 14px;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+        }
+
+        .oet-community-popup__card:hover,
+        .oet-community-popup__card:focus-visible,
+        .oet-community-popup__resource:hover,
+        .oet-community-popup__resource:focus-visible {
+            transform: translateY(-5px);
+            border-color: rgba(100, 74, 249, 0.38);
+            box-shadow: 0 22px 44px rgba(100, 74, 249, 0.18);
+            background: #ffffff;
+            color: #17152f;
+            outline: none;
+        }
+
+
+        .oet-community-popup__card--featured {
+            position: relative;
+            overflow: visible;
+            border-color: rgba(100, 74, 249, 0.42);
+            background: linear-gradient(145deg, #ffffff 0%, #f6f2ff 52%, #ebe4ff 100%);
+            box-shadow: 0 18px 44px rgba(100, 74, 249, 0.16);
+        }
+
+        .oet-community-popup__card--featured::before {
+            content: 'Featured';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border-radius: 999px;
+            padding: 5px 9px;
+            background: #644af9;
+            color: #ffffff;
+            font-size: 10px;
+            line-height: 1;
+            font-weight: 800;
+            letter-spacing: 0;
+            box-shadow: 0 8px 18px rgba(100, 74, 249, 0.22);
+        }
+
+        .oet-community-popup__card--featured .oet-community-popup__icon {
+            background: linear-gradient(135deg, #644af9 0%, #23d366 100%);
+            box-shadow: 0 14px 30px rgba(100, 74, 249, 0.24);
+        }
+
+        .oet-community-popup__card--featured .oet-community-popup__name {
+            color: #3b2bb8;
+        }
+
+        .oet-community-popup__icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            background: linear-gradient(135deg, #23d366 0%, #10a85a 100%);
+            font-size: 28px;
+            box-shadow: 0 12px 26px rgba(35, 211, 102, 0.24);
+        }
+
+        .oet-community-popup__icon--telegram {
+            background: linear-gradient(135deg, #37aee2 0%, #1b82c3 100%);
+            box-shadow: 0 12px 26px rgba(55, 174, 226, 0.22);
+        }
+
+        .oet-community-popup__icon--youtube {
+            background: linear-gradient(135deg, #ff4d4d 0%, #d71920 100%);
+            box-shadow: 0 12px 26px rgba(215, 25, 32, 0.2);
+        }
+
+        .oet-community-popup__icon--facebook {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            box-shadow: 0 12px 26px rgba(59, 130, 246, 0.2);
+        }
+
+        .oet-community-popup__name {
+            color: #17152f;
+            font-size: 15px;
+            line-height: 1.22;
+            font-weight: 800;
+        }
+
+        .oet-community-popup__hint {
+            color: #77748b;
+            font-size: 12px;
+            line-height: 1.2;
+            font-weight: 600;
+        }
+
+        .oet-community-popup__resource {
+            min-height: 116px;
+            border-radius: 18px;
+        }
+
+        .oet-community-popup__resource .oet-community-popup__icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            font-size: 22px;
+        }
+
+        .oet-community-popup__resource .oet-community-popup__name {
+            font-size: 13.5px;
+        }
+
+        @media (max-width: 991px) {
+            .oet-community-popup__grid,
+            .oet-community-popup__resources {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 575px) {
+            .oet-community-popup {
+                padding: 14px;
+            }
+
+            .oet-community-popup__dialog {
+                border-radius: 24px;
+            }
+
+            .oet-community-popup__body {
+                padding: 28px 18px 22px;
+            }
+
+            .oet-community-popup__close {
+                top: 14px;
+                right: 14px;
+                width: 38px;
+                height: 38px;
+            }
+
+            .oet-community-popup__title {
+                max-width: calc(100% - 42px);
+            }
+
+            .oet-community-popup__grid,
+            .oet-community-popup__resources {
+                grid-template-columns: 1fr;
+            }
+
+            .oet-community-popup__card,
+            .oet-community-popup__resource {
+                min-height: 104px;
+                flex-direction: row;
+                justify-content: flex-start;
+                text-align: left;
+                padding: 14px;
+            }
+        }
+    </style>
+
+
+<style id="oet-stable-dropdown-css">
+    @media (min-width: 1200px) {
+        .vl-main-menu,
+        .vl-main-menu nav,
+        .vl-main-menu nav > ul,
+        .vl-main-menu nav > ul > li {
+            overflow: visible !important;
+        }
+
+        .vl-main-menu ul > li .sub-menu {
+            z-index: 9999 !important;
+            pointer-events: none;
+        }
+
+        .vl-main-menu nav > ul > li > .sub-menu {
+            top: 100% !important;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .vl-main-menu nav > ul > li:hover > .sub-menu,
+        .vl-main-menu nav > ul > li:focus-within > .sub-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            top: 100% !important;
+        }
+
+        .vl-main-menu nav > ul > li:hover > .sub-menu .sub-menu,
+        .vl-main-menu nav > ul > li:focus-within > .sub-menu .sub-menu {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown {
+            position: relative;
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown::after {
+            content: "";
+            position: absolute;
+            top: -8px;
+            right: -22px;
+            width: 28px;
+            height: calc(100% + 16px);
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown > .sub-menu {
+            left: calc(100% - 2px) !important;
+            top: 0 !important;
+            min-width: 240px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateX(6px) scale(0.98);
+            transition: opacity 0.16s ease, visibility 0.16s ease, transform 0.16s ease;
+        }
+
+        .vl-main-menu ul > li .sub-menu li.has-dropdown:hover > .sub-menu,
+        .vl-main-menu ul > li .sub-menu li.has-dropdown:focus-within > .sub-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            top: 0 !important;
+            transform: translateX(0) scale(1) !important;
+        }
+    }
+</style>
+
+    <link rel="stylesheet" href="/assets/css/oet-cookie-consent.css">
+
+    <style id="oet-pricing-catalogue-css">
+        .oet-pricing-main {
+            position: relative;
+            z-index: 1;
+            background: #fff;
+            overflow: visible;
+        }
+        .oet-pricing-hero {
+            background: linear-gradient(135deg, #f2edff 0%, #ffffff 42%, #e9fff7 100%);
+            padding: 175px 0 68px;
+            position: relative;
+            overflow: hidden;
+        }
+        .oet-pricing-hero::after {
+            content: "";
+            position: absolute;
+            right: -80px;
+            bottom: -90px;
+            width: 360px;
+            height: 360px;
+            background: url("assets/img/logo/platform-logo.png") center / contain no-repeat;
+            opacity: .07;
+            pointer-events: none;
+        }
+        .oet-pricing-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #5f3df5;
+            background: #ffffff;
+            border: 1px solid rgba(95,61,245,.16);
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-weight: 800;
+            margin-bottom: 18px;
+        }
+        .oet-pricing-hero h1 {
+            color: #191829;
+            font-size: 52px;
+            line-height: 1.04;
+            max-width: 1140px;
+            margin: 0 auto 18px;
+        }
+        .oet-pricing-hero p {
+            color: #4f5060;
+            font-size: 18px;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+        .oet-pricing-hero-slider {
+            position: relative;
+            z-index: 2;
+            max-width: 920px;
+            margin: 30px auto 0;
+            padding: 14px;
+            border-radius: 26px;
+            background: rgba(255, 255, 255, 0.78);
+            border: 1px solid rgba(101, 66, 255, 0.16);
+            box-shadow: 0 24px 68px rgba(44, 34, 110, 0.16);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            overflow: hidden;
+        }
+        .oet-pricing-hero-slider::before {
+            content: "";
+            position: absolute;
+            inset: 12px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, rgba(101, 66, 255, 0.08), rgba(36, 214, 165, 0.06));
+            pointer-events: none;
+        }
+        .oet-pricing-hero-slider__topline {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 10px;
+            padding: 2px 4px;
+        }
+        .oet-pricing-hero-slider__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #5f3df5;
+            background: #f0ebff;
+            border-radius: 999px;
+            padding: 8px 13px;
+            font-size: 13px;
+            font-weight: 900;
+            line-height: 1;
+        }
+        .oet-pricing-hero-slider__hint {
+            color: #5f5d76;
+            font-size: 13px;
+            font-weight: 800;
+        }
+        .oet-pricing-hero-swiper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: min(68vh, 650px);
+            min-height: 500px;
+            border-radius: 22px;
+            overflow: hidden;
+            background: linear-gradient(145deg, #ffffff, #f8f6ff);
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            will-change: transform;
+        }
+        .oet-pricing-hero-swiper .swiper-wrapper {
+            align-items: stretch;
+            height: 100%;
+        }
+        .oet-pricing-hero-swiper .swiper-slide {
+            width: 100% !important;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .oet-pricing-hero-slide {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-width: 0;
+            padding: 28px 28px 58px;
+            box-sizing: border-box;
+        }
+        .oet-pricing-hero-slide img {
+            position: absolute;
+            inset: 28px 28px 58px;
+            display: block;
+            width: calc(100% - 56px);
+            height: calc(100% - 86px);
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 16px;
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            will-change: transform;
+        }
+        .oet-pricing-hero-nav {
+            position: absolute;
+            top: 50%;
+            z-index: 5;
+            width: 40px;
+            height: 40px;
+            margin-top: -20px;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.94);
+            color: #191829;
+            box-shadow: 0 12px 28px rgba(28, 22, 70, 0.14);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform .2s ease, background .2s ease, color .2s ease;
+        }
+        .oet-pricing-hero-nav:hover,
+        .oet-pricing-hero-nav:focus-visible {
+            transform: scale(1.06);
+            background: #6542ff;
+            color: #fff;
+            outline: none;
+        }
+        .oet-pricing-hero-nav--prev { left: 16px; }
+        .oet-pricing-hero-nav--next { right: 16px; }
+        .oet-pricing-hero-pagination {
+            position: absolute;
+            left: 50% !important;
+            bottom: 16px !important;
+            z-index: 6;
+            width: auto !important;
+            transform: translateX(-50%);
+            display: inline-flex;
+            gap: 7px;
+            align-items: center;
+            border-radius: 999px;
+            padding: 8px 10px;
+            background: rgba(255, 255, 255, 0.82);
+            box-shadow: 0 10px 24px rgba(28, 22, 70, 0.1);
+        }
+        .oet-pricing-hero-pagination .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            margin: 0 !important;
+            background: #6542ff;
+            opacity: .32;
+            transition: width .22s ease, opacity .22s ease;
+        }
+        .oet-pricing-hero-pagination .swiper-pagination-bullet-active {
+            width: 24px;
+            border-radius: 999px;
+            opacity: 1;
+        }
+        .oet-pricing-tabs {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(255,255,255,.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #ece8fb;
+            padding: 12px 0;
+        }
+        .oet-pricing-tabs .container {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            scrollbar-width: thin;
+        }
+        .oet-pricing-tabs a {
+            flex: 0 0 auto;
+            color: #242234;
+            border: 1px solid #e5ddff;
+            border-radius: 999px;
+            padding: 9px 15px;
+            background: #fff;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+        .oet-pricing-tabs a:hover,
+        .oet-pricing-tabs a:focus {
+            color: #fff;
+            background: linear-gradient(135deg, #6542ff, #7f5cff);
+            border-color: transparent;
+        }
+        .oet-pricing-section {
+            padding: 58px 0 52px;
+            background: #fff;
+            overflow: visible;
+        }
+        .oet-pricing-section:nth-of-type(even) {
+            background: #fbfaff;
+        }
+        .oet-pricing-section-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 22px;
+            margin-bottom: 22px;
+        }
+        .oet-pricing-section-head h2 {
+            color: #191829;
+            font-size: 34px;
+            margin: 0;
+        }
+        .oet-pricing-section-head p {
+            color: #626273;
+            max-width: 760px;
+            margin: 8px 0 0;
+        }
+        .oet-pricing-note {
+            border-left: 4px solid #6542ff;
+            background: #f3efff;
+            color: #3c3565;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .oet-pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            align-items: start;
+            gap: 18px;
+            margin-bottom: 0;
+        }
+        .oet-pricing-card {
+            background: #fff;
+            border: 1px solid #ece8fb;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 14px 38px rgba(28,22,70,.07);
+            display: flex;
+            min-height: 0;
+            height: auto;
+            box-sizing: border-box;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        .oet-pricing-card.is-featured {
+            border-color: rgba(101,66,255,.48);
+            box-shadow: 0 20px 52px rgba(101,66,255,.16);
+        }
+        .oet-pricing-card.is-featured::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6542ff, #24d6a5);
+        }
+        .oet-card-kicker {
+            color: #6542ff;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 0;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        main.oet-pricing-main .oet-pricing-card h3 {
+            font-family: 'Manrope', 'Inter', Arial, sans-serif;
+            font-weight: 800;
+            color: #111827;
+            font-size: 20px;
+            line-height: 1.28;
+            letter-spacing: -0.2px;
+            margin: 0 0 14px;
+            white-space: normal;
+            overflow-wrap: break-word;
+            word-break: normal;
+            hyphens: manual;
+        }
+        .oet-pricing-price {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-bottom: 12px;
+        }
+        .oet-pricing-price strong {
+            color: #5f3df5;
+            font-size: 31px;
+            line-height: 1;
+        }
+        .oet-pricing-was {
+            color: #8b8999;
+            text-decoration: line-through;
+            font-weight: 800;
+        }
+        .oet-meta-chips,
+        .oet-pricing-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 12px;
+        }
+        .oet-meta-chips span {
+            color: #4d4867;
+            background: #f8f6ff;
+            border: 1px solid #ece8fb;
+            border-radius: 999px;
+            padding: 5px 8px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+        .oet-pricing-format,
+        .oet-pricing-desc {
+            color: #565768;
+            line-height: 1.45;
+            margin: 0 0 11px;
+        }
+        .oet-pricing-format strong {
+            color: #191829;
+        }
+        .oet-pricing-desc {
+            font-size: 14px;
+        }
+        .oet-pricing-badges span {
+            color: #5133d8;
+            background: #f0ebff;
+            border-radius: 999px;
+            padding: 5px 9px;
+            font-size: 12px;
+            font-weight: 900;
+        }
+        .oet-pricing-card ul {
+            margin: 0 0 14px;
+            padding: 0;
+            list-style: none;
+        }
+        .oet-pricing-card li {
+            position: relative;
+            color: #4f5060;
+            padding-left: 28px;
+            margin-bottom: 8px;
+            line-height: 1.36;
+            font-size: 14px;
+        }
+        .oet-pricing-card li::before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background: linear-gradient(135deg, #6542ff, #24d6a5);
+            box-shadow: 0 5px 12px rgba(101,66,255,.18);
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            font-weight: 900;
+            line-height: 1;
+        }
+        .oet-best-for {
+            color: #342f4f;
+            background: linear-gradient(135deg, #f5f1ff, #eefcf8);
+            border: 1px solid #e9e1ff;
+            border-radius: 8px;
+            padding: 10px 12px;
+            line-height: 1.35;
+            font-size: 14px;
+            margin: auto 0 14px;
+        }
+        .oet-best-for strong {
+            color: #191829;
+        }
+        .oet-pricing-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .oet-pricing-primary,
+        .oet-pricing-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            border-radius: 999px;
+            font-weight: 900;
+            padding: 9px 15px;
+        }
+        .oet-pricing-primary {
+            color: #fff;
+            background: linear-gradient(135deg, #6542ff, #7f5cff);
+            width: 100%;
+            flex: 1 1 100%;
+        }
+        .oet-pricing-secondary {
+            color: #191829;
+            background: #f6f4ff;
+            border: 1px solid #e4defc;
+        }
+        #tutor-book-addons {
+            padding-bottom: 120px;
+            margin-bottom: 0;
+        }
+        #tutor-book-addons .oet-pricing-grid {
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        .oet-pricing-main + .vl-footer-10 {
+            margin-top: 0 !important;
+            padding-top: 60px !important;
+        }
+        .vl-footer-10 {
+            position: relative;
+            z-index: 0;
+            clear: both;
+        }
+        @media (max-width: 1199px) {
+            .oet-pricing-hero { padding-top: 150px; }
+            .oet-pricing-hero-slider { max-width: 820px; }
+            .oet-pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 767px) {
+            .oet-pricing-hero { padding: 130px 0 46px; }
+            .oet-pricing-hero h1 { font-size: 34px; }
+            .oet-pricing-hero p { font-size: 16px; }
+            .oet-pricing-hero-slider {
+                margin-top: 24px;
+                padding: 10px;
+                border-radius: 22px;
+            }
+            .oet-pricing-hero-slider__topline {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 7px;
+            }
+            .oet-pricing-hero-slider__hint { font-size: 12px; }
+            .oet-pricing-hero-swiper {
+                height: min(70vh, 620px);
+                min-height: 430px;
+                border-radius: 18px;
+            }
+            .oet-pricing-hero-slide { padding: 16px 12px 58px; }
+            .oet-pricing-hero-slide img {
+                inset: 16px 12px 58px;
+                width: calc(100% - 24px);
+                height: calc(100% - 74px);
+            }
+            .oet-pricing-hero-nav {
+                width: 36px;
+                height: 36px;
+                margin-top: -18px;
+            }
+            .oet-pricing-hero-nav--prev { left: 8px; }
+            .oet-pricing-hero-nav--next { right: 8px; }
+            .oet-pricing-section { padding: 46px 0 42px; }
+            .oet-pricing-section-head { display: block; }
+            .oet-pricing-section-head h2 { font-size: 28px; }
+            .oet-pricing-grid { grid-template-columns: 1fr; }
+            main.oet-pricing-main .oet-pricing-card h3 {
+                font-size: 18px;
+                line-height: 1.3;
+            }
+            .oet-pricing-card { padding: 18px; }
+            #tutor-book-addons { padding-bottom: 90px; }
+        }
+    </style>
+
+
+    <style id="oet-offcanvas-close-fix">
+        /* OET mobile offcanvas close fix */
+        body.oet-live-site .vl-offcanvas-close .vl-offcanvas-toggle {
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(100, 74, 249, 0.16);
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffffff 0%, #f1ecff 100%);
+            color: #644af9;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 1;
+            box-shadow: 0 12px 30px rgba(100, 74, 249, 0.16);
+            cursor: pointer;
+            text-indent: 0;
+            overflow: hidden;
+        }
+        body.oet-live-site .vl-offcanvas-close .vl-offcanvas-toggle:hover,
+        body.oet-live-site .vl-offcanvas-close .vl-offcanvas-toggle:focus-visible {
+            background: #644af9;
+            color: #ffffff;
+            outline: none;
+        }
+    </style>
+</head>
+<body class="oet-live-site"> 
+   
+    <!-- preloader -->
+
+    <div class="preloader">
+        <div class="loading-container">
+          <div class="loading"></div>
+          <div id="loading-icon"><img src="assets/img/preloader/vl-preloader-1.1.png" alt=""></div>
+        </div>
+    </div>
+
+    <!--================= Header section start =================-->
+    <header>
+        <div id="vl-header-sticky" class="vl-header-area vl-transparent-header">
+            <!-- header top -->
+            <div class="vl-header-top-area vkl-blue-bg d-none d-xl-block">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="vl-header-top-text">
+                                <p>Free OET Prep for Doctors &amp; Nurses</p>
+                                <a class="oet-community-cta" href="#oet-community-popup" aria-label="Join Free Community!" aria-haspopup="dialog" aria-controls="oet-community-popup">
+                                    <span class="oet-community-cta__sizer" aria-hidden="true">Join Free Community!</span>
+                                    <span class="oet-community-cta__content" aria-hidden="true">
+                                        <span class="oet-community-cta__text">Join Free Community!</span>
+                                        <span class="oet-community-cta__cursor">|</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- header top icon list -->
+                            <div class="header-top">
+                                <ul>
+                                    <li><a href="mailto:support@oetwithdrhesham.co.uk"><span class="mr-4"><i class="fa-regular fa-envelope"></i></span>support@oetwithdrhesham.co.uk</a></li>
+                                    <li><a href="tel:+447961725989"><span class="mr-4"><i class="fa-solid fa-phone"></i></span>+44 7961 725989</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="header-border-bottom">
+                    <div class="row align-items-center">
+                        <div class="col-xl-2 col-md-6 col-6">
+                            <div class="vl-logo">
+                                <a href="/" title="OET with Dr Hesham | The Pathway to UK"><img src="assets/img/logo/platform-logo.png" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 d-none d-xl-block">
+                            <div class="vl-main-menu text-center">
+                                <nav class="vl-mobile-menu-active">
+                                    <ul>
+                                        <li class="has-dropdown"><a href="about.html">About <span class="downarrow"><i class="fa-regular fa-angle-down"></i></span></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="about.html"><span class="submenu-icon"><i class="fa-solid fa-user-doctor"></i></span><span class="submenu-text">About Dr. Hesham</span></a></li>
+                                                <li><a href="#" data-youtube-url="https://www.youtube.com/watch?v=kL91eG32Uok" data-oet-inline-video="true" class="popup-video" aria-label="Play Why OET video"><span class="submenu-icon"><i class="fa-solid fa-bullseye"></i></span><span class="submenu-text">Why OET</span></a></li>
+                                                <li><a href="teaching-approach.html"><span class="submenu-icon"><i class="fa-solid fa-chalkboard-user"></i></span><span class="submenu-text">Teaching Approach</span></a></li>
+                                                <li><a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-pen-to-square"></i></span><span class="submenu-text">Writing Corrections</span></a></li>
+                                                <li><a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-tags"></i></span><span class="submenu-text">Packages &amp; Offers</span></a></li>
+                                                <li><a href="success-stories.html"><span class="submenu-icon"><i class="fa-solid fa-star"></i></span><span class="submenu-text">Success Stories</span></a></li>
+                                                <li><a href="faq.html"><span class="submenu-icon"><i class="fa-solid fa-circle-question"></i></span><span class="submenu-text">FAQ</span></a></li>
+                                                <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-telegram"></i></span><span class="submenu-text">Telegram Materials</span></a></li>
+                                                <li class="has-dropdown"><a href="#"><span class="submenu-icon"><i class="fa-solid fa-route"></i></span><span class="submenu-text">Pathway Guidelines</span> <span class="downarrow"><i class="fa-regular fa-angle-right"></i></span></a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="uk-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-flag"></i></span><span class="submenu-text">UK Pathway Guide</span></a></li>
+                                                        <li><a href="usa-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-location-dot"></i></span><span class="submenu-text">USA Pathway Guide</span></a></li>
+                                                        <li><a href="australia-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-earth-oceania"></i></span><span class="submenu-text">Australia Pathway Guide</span></a></li>
+                                                        <li><a href="gulf-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-compass"></i></span><span class="submenu-text">Gulf Pathway Guide</span></a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a class="oet-pricing-nav-link" href="pricing.html">Pricing</a></li>
+                                        <li class="has-dropdown"><a href="#" data-youtube-url="https://www.youtube.com/watch?v=hlD1BXfijWs" data-oet-inline-video="true">OET <span class="downarrow"><i class="fa-regular fa-angle-down"></i></span></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="#" data-youtube-url="https://www.youtube.com/watch?v=hlD1BXfijWs" data-oet-inline-video="true"><span class="submenu-icon"><i class="fa-solid fa-notes-medical"></i></span><span class="submenu-text">Nursing OET</span></a></li>
+                                                <li><a href="#" data-youtube-url="https://www.youtube.com/watch?v=kL91eG32Uok" data-oet-inline-video="true"><span class="submenu-icon"><i class="fa-solid fa-stethoscope"></i></span><span class="submenu-text">Doctor OET</span></a></li>
+                                                <li><a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-pills"></i></span><span class="submenu-text">Pharmacist OET</span></a></li>
+                                                <li><a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-person-walking"></i></span><span class="submenu-text">Physiotherapy OET</span></a></li>
+                                                <li><a href="pricing.html"><span class="submenu-icon"><i class="fa-solid fa-box-open"></i></span><span class="submenu-text">OET Packages</span></a></li>
+                                            </ul>
+                                        </li>
+                                        
+                                        <li class="has-dropdown"><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">Free Resources <span class="downarrow"><i class="fa-regular fa-angle-down"></i></span></a>
+                                            <ul class="sub-menu">
+                                                <li class="has-dropdown"><a href="oet-tips.html"><span class="submenu-icon"><i class="fa-solid fa-lightbulb"></i></span><span class="submenu-text">OET Tips</span> <span class="downarrow"><i class="fa-regular fa-angle-right"></i></span></a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="oet-writing-tips.html"><span class="submenu-icon"><i class="fa-solid fa-pen-nib"></i></span><span class="submenu-text">Writing Tips</span></a></li>
+                                                                                                                <li><a href="oet-reading-tips.html"><span class="submenu-icon"><i class="fa-solid fa-book-open-reader"></i></span><span class="submenu-text">Reading Tips</span></a></li>
+                                                        <li><a href="oet-listening-tips.html"><span class="submenu-icon"><i class="fa-solid fa-headphones"></i></span><span class="submenu-text">Listening Tips</span></a></li>
+                                                        <li><a href="oet-speaking-tips.html"><span class="submenu-icon"><i class="fa-solid fa-comments"></i></span><span class="submenu-text">Speaking Tips</span></a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="has-dropdown"><a href="oet-materials-support.html"><span class="submenu-icon"><i class="fa-solid fa-folder-open"></i></span><span class="submenu-text">Materials &amp; Support</span> <span class="downarrow"><i class="fa-regular fa-angle-right"></i></span></a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-telegram"></i></span><span class="submenu-text">Telegram Materials</span></a></li>
+                                                        <li><a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-users"></i></span><span class="submenu-text">Join Free Community</span></a></li>
+                                                <li><a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-whatsapp"></i></span><span class="submenu-text">WhatsApp Support</span></a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F"><i class="fa-solid fa-right-to-bracket" style="margin-right: 8px;"></i><strong>Login / Register</strong></a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-6">
+                            <div class="vl-header-right">
+                                <!-- header btn -->
+                                <div class="vl-header-search d-none d-xl-block">
+                                    <span><img class="vl-search-toggle" src="assets/img/icon/vl-search-1.1.svg"
+                                            alt="Search OET tips, writing, speaking, UK pathway"></span>
+                                </div>
+                                <!-- header social area -->
+                                <div class="social-area social-area-headerTop d-none d-xl-block">
+                                    <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram"></i></a>
+                                    <a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+
+                            <!-- action btn -->
+                            <div class="vl-header-action-item d-block d-xl-none">
+                                <button type="button" class="vl-offcanvas-toggle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" viewBox="0 0 30 16">
+                                        <g clip-path="url(#clip0_54_1070)">
+                                            <path d="M3.625 3.45829H26.375" stroke="#000000" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M3.625 12.5416H26.375" stroke="#000000" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M6.625 8H23.375" stroke="#000000" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_54_1070">
+                                                <rect width="30" height="16" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- vl header search  -->
+    <div class="vl-header-search-bar d-flex align-items-center">
+        <button class="vl-search-close">�</button>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="vl-search-bar text-center">
+                        <h2 class="vl-search-bar-title mb-30">Search OET tips, writing, speaking, UK pathway</h2>
+                        <div class="contact-form-box contact-search-form-box">
+                            <form action="#">
+                                <input type="text" placeholder="Search OET preparation, writing, speaking...">
+                                <button type="submit"><i class="far fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- vl header search end -->
+
+    <!-- offcanvas menu start -->
+    <div class="vl-offcanvas">
+        <div class="vl-offcanvas-wrapper">
+            <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-50">
+                <div class="vl-offcanvas-logo">
+                    <a href="/" title="OET with Dr Hesham | The Pathway to UK"><img src="assets/img/logo/platform-logo.png" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                </div>
+                <div class="vl-offcanvas-close">
+                    <button class="vl-offcanvas-toggle" type="button" aria-label="Close menu"><span aria-hidden="true">&times;</span></button>
+                </div>
+            </div>
+
+            <div class="vl-offcanvas-menu d-lg-block mb-40">
+                <nav></nav>
+            </div>
+            <div class="vl-offcanvas-info mb-40">
+                <h3 class="vl-offcanvas-sm-title mb-20">Contact &amp; Community</h3>
+                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer"> <span><img src="assets/img/icon/vl-icon-1.1.svg" alt=""></span> Join Free Community</a>
+                                    <a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"> <span><img src="assets/img/icon/vl-icon-1.3.svg" alt=""></span> WhatsApp Support</a>
+                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"> <span><img src="assets/img/icon/vl-icon-1.2.svg" alt=""></span> Telegram Channel</a>
+            </div>
+
+            <div class="vl-offcanvas-social mb-40">
+                <h3 class="vl-offcanvas-sm-title mb-20">Follow the Journey</h3>
+                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fab fa-youtube"></i></a>
+                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fab fa-telegram"></i></a>
+                                    <a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="vl-offcanvas-overlay"></div>
+
+    <!-- offcanvas menu end -->
+
+    <!--================= Header section End =================-->
+
+    <main class="oet-pricing-main">
+        <section class="oet-pricing-hero text-center">
+            <div class="container">
+                <span class="oet-pricing-eyebrow"><i class="fa-solid fa-tags"></i> 2026 OET Packages</span>
+                <h1>Pricing for OET courses, assessments, AI practice, and mock exams</h1>
+                <p>Choose the preparation route that fits your exam date: full recorded courses, focused Writing and Speaking packages, AI practice credits, mock exams, and TutorBook.</p>
+                <div class="oet-pricing-hero-slider" aria-label="Current OET promotional offers">
+                    <div class="oet-pricing-hero-slider__topline">
+                        <span class="oet-pricing-hero-slider__badge"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Latest OET offers</span>
+                        <span class="oet-pricing-hero-slider__hint">Auto-scrolls every 3 seconds. Hover to pause.</span>
+                    </div>
+                    <div class="swiper oet-pricing-hero-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><div class="oet-pricing-hero-slide"><img src="assets/img/promotional-banners/promo-01-file-0000000018f471f483ccd1708d679d31.webp" alt="OET promotional banner 1" width="1597" height="985" decoding="async"></div></div>
+                            <div class="swiper-slide"><div class="oet-pricing-hero-slide"><img src="assets/img/promotional-banners/promo-02-file-0000000064687246ad98bfcbbaa05194.webp" alt="OET promotional banner 2" width="1024" height="1536" loading="eager" decoding="async"></div></div>
+                            <div class="swiper-slide"><div class="oet-pricing-hero-slide"><img src="assets/img/promotional-banners/promo-03-file-00000000c9c07246b6eac83988eecf0c.webp" alt="OET promotional banner 3" width="1024" height="1536" loading="eager" decoding="async"></div></div>
+                            <div class="swiper-slide"><div class="oet-pricing-hero-slide"><img src="assets/img/promotional-banners/promo-04-img-20260522-wa0010.webp" alt="OET promotional banner 4" width="1023" height="1537" loading="eager" decoding="async"></div></div>
+                            <div class="swiper-slide"><div class="oet-pricing-hero-slide"><img src="assets/img/promotional-banners/promo-05-img-20260623-wa0008.webp" alt="OET promotional banner 5" width="852" height="1280" loading="eager" decoding="async"></div></div>
+                            <div class="swiper-slide"><div class="oet-pricing-hero-slide"><img src="assets/img/promotional-banners/promo-06-img-20260623-wa0009.webp" alt="OET promotional banner 6" width="1032" height="1280" loading="eager" decoding="async"></div></div>
+                            <div class="swiper-slide"><div class="oet-pricing-hero-slide"><img src="assets/img/promotional-banners/promo-07-img-20260623-wa0010.webp" alt="OET promotional banner 7" width="1016" height="1280" loading="eager" decoding="async"></div></div>
+                            <div class="swiper-slide"><div class="oet-pricing-hero-slide"><img src="assets/img/promotional-banners/promo-08-picsart-26-06-18-22-34-02-588.webp" alt="OET promotional banner 8" width="1191" height="1800" loading="eager" decoding="async"></div></div>
+                            <div class="swiper-slide"><div class="oet-pricing-hero-slide"><img src="assets/img/promotional-banners/promo-09-picsart-26-06-21-01-41-41-833.webp" alt="OET promotional banner 9" width="1426" height="1800" loading="eager" decoding="async"></div></div>
+                            <div class="swiper-slide"><div class="oet-pricing-hero-slide"><img src="assets/img/promotional-banners/promo-10-picsart-26-06-21-01-43-09-802.webp" alt="OET promotional banner 10" width="1355" height="1800" loading="eager" decoding="async"></div></div>
+                            <div class="swiper-slide"><div class="oet-pricing-hero-slide"><img src="assets/img/promotional-banners/promo-11-picsart-26-06-21-01-45-35-187.webp" alt="OET promotional banner 11" width="1202" height="1800" loading="eager" decoding="async"></div></div>
+                            <div class="swiper-slide"><div class="oet-pricing-hero-slide"><img src="assets/img/promotional-banners/promo-12-picsart-26-06-21-01-46-09-227.webp" alt="OET promotional banner 12" width="1279" height="1800" loading="eager" decoding="async"></div></div>
+                            <div class="swiper-slide"><div class="oet-pricing-hero-slide"><img src="assets/img/promotional-banners/promo-13-picsart-26-06-21-01-46-42-168.webp" alt="OET promotional banner 13" width="1273" height="1800" loading="eager" decoding="async"></div></div>
+                            <div class="swiper-slide"><div class="oet-pricing-hero-slide"><img src="assets/img/promotional-banners/promo-14-picsart-26-06-21-02-34-54-686.webp" alt="OET promotional banner 14" width="1438" height="1800" loading="eager" decoding="async"></div></div>
+                            <div class="swiper-slide"><div class="oet-pricing-hero-slide"><img src="assets/img/promotional-banners/promo-15-picsart-26-06-22-00-53-29-763.webp" alt="OET promotional banner 15" width="1284" height="1800" loading="eager" decoding="async"></div></div>
+                            <div class="swiper-slide"><div class="oet-pricing-hero-slide"><img src="assets/img/promotional-banners/promo-16-picsart-26-06-22-00-54-15-072.webp" alt="OET promotional banner 16" width="1448" height="1800" loading="eager" decoding="async"></div></div>
+                            <div class="swiper-slide"><div class="oet-pricing-hero-slide"><img src="assets/img/promotional-banners/promo-17-picsart-26-06-22-00-54-52-208.webp" alt="OET promotional banner 17" width="1337" height="1800" loading="eager" decoding="async"></div></div>
+                            <div class="swiper-slide"><div class="oet-pricing-hero-slide"><img src="assets/img/promotional-banners/promo-18-picsart-26-06-22-00-55-28-608.webp" alt="OET promotional banner 18" width="1355" height="1800" loading="eager" decoding="async"></div></div>
+                            <div class="swiper-slide"><div class="oet-pricing-hero-slide"><img src="assets/img/promotional-banners/promo-19-picsart-26-06-22-00-56-00-318.webp" alt="OET promotional banner 19" width="1199" height="1800" loading="eager" decoding="async"></div></div>
+                            <div class="swiper-slide"><div class="oet-pricing-hero-slide"><img src="assets/img/promotional-banners/promo-20-picsart-26-06-22-00-58-29-199.webp" alt="OET promotional banner 20" width="1271" height="1800" loading="eager" decoding="async"></div></div>
+                        </div>
+                        <button class="oet-pricing-hero-nav oet-pricing-hero-nav--prev" type="button" aria-label="Previous promotional offer"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+                        <button class="oet-pricing-hero-nav oet-pricing-hero-nav--next" type="button" aria-label="Next promotional offer"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+                        <div class="oet-pricing-hero-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <nav class="oet-pricing-tabs" aria-label="Pricing categories">
+            <div class="container">
+                <a href="#full-recorded-courses">Full Recorded Courses</a>
+                <a href="#separate-packages">Separate Packages</a>
+                <a href="#ai-packages">AI Packages</a>
+                <a href="#mock-packages">Mock Packages</a>
+                <a href="#tutor-book-addons">TutorBook &amp; Add-ons</a>
+            </div>
+        </nav>
+
+        <section id="full-recorded-courses" class="oet-pricing-section">
+            <div class="container">
+                <div class="oet-pricing-section-head">
+                    <div>
+                        <h2>Full Recorded Courses</h2>
+                        <p>Complete recorded OET preparation routes, including profession-specific full courses, crash-course options, and foundation English support.</p>
+                    </div>
+                </div>
+                <div class="oet-pricing-grid">
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 01</div>
+                    <h3>Full Condensed Recorded OET Course - Medicine</h3>
+                    <div class="oet-pricing-price"><strong>£100</strong></div>
+                    <div class="oet-meta-chips"><span>Medicine</span><span>40+ hours</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded videos plus structured study materials</p>
+                    <p class="oet-pricing-desc">A complete, condensed and exam-focused recorded Medicine course covering Listening, Reading, Writing and Speaking. It is designed for candidates who want a structured route through all four OET sub-tests with the freedom to repeat lessons throughout the access period.</p>
+                    <div class="oet-pricing-badges"><span>TutorBook eligible</span></div>
+                    <ul><li>160+ Listening exams, including practice beyond the usual Jahshan and Benchmark resources</li><li>100+ Reading exams with answer keys and rationales</li><li>90+ Writing tasks covering the main OET letter types</li><li>100+ Speaking cards across different scenarios and card types</li><li>Recent recall updates plus older recalls from 2023 onwards</li><li>5 Writing letter assessments with personalised correction</li><li>1 private Speaking session</li><li>5 AI practice credits</li><li>Continuous Q&amp;A support during the access period</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Medicine candidates who want one comprehensive recorded course covering the full exam.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=full-condensed-recorded-oet-course-medicine">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 02</div>
+                    <h3>Full Physiotherapy OET Course</h3>
+                    <div class="oet-pricing-price"><strong>&pound;75</strong></div>
+                    <div class="oet-meta-chips"><span>Physiotherapy</span><span>40+ hours</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded videos plus structured study materials</p>
+                    <p class="oet-pricing-desc">A complete, condensed and exam-focused recorded Physiotherapy course covering Listening, Reading, Writing and Speaking. It is designed for candidates who want a structured route through all four OET sub-tests with the freedom to repeat lessons throughout the access period.</p>
+                    <div class="oet-pricing-badges"><span>TutorBook eligible</span></div>
+                    <ul><li>160+ Listening exams, including practice beyond the usual Jahshan and Benchmark resources</li><li>100+ Reading exams with answer keys and rationales</li><li>90+ Writing tasks covering the main OET letter types</li><li>100+ Speaking cards across different scenarios and card types</li><li>Recent recall updates plus older recalls from 2023 onwards</li><li>5 Writing letter assessments with personalised correction</li><li>1 private Speaking session</li><li>5 AI practice credits</li><li>Continuous Q&amp;A support during the access period</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Physiotherapy candidates who want one comprehensive recorded course covering the full exam.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=full-physiotherapy-oet-course">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 03</div>
+                    <h3>Full Allied Health Profession OET Course</h3>
+                    <div class="oet-pricing-price"><strong>&pound;75</strong></div>
+                    <div class="oet-meta-chips"><span>Allied Health Profession</span><span>40+ hours</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded videos plus structured study materials</p>
+                    <p class="oet-pricing-desc">A complete, condensed and exam-focused recorded Allied Health Profession course covering Listening, Reading, Writing and Speaking. It is designed for candidates who want a structured route through all four OET sub-tests with the freedom to repeat lessons throughout the access period.</p>
+                    <div class="oet-pricing-badges"><span>TutorBook eligible</span></div>
+                    <ul><li>160+ Listening exams, including practice beyond the usual Jahshan and Benchmark resources</li><li>100+ Reading exams with answer keys and rationales</li><li>90+ Writing tasks covering the main OET letter types</li><li>100+ Speaking cards across different scenarios and card types</li><li>Recent recall updates plus older recalls from 2023 onwards</li><li>5 Writing letter assessments with personalised correction</li><li>1 private Speaking session</li><li>5 AI practice credits</li><li>Continuous Q&amp;A support during the access period</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Allied Health Profession candidates who want one comprehensive recorded course covering the full exam.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=full-allied-health-profession-oet-course">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 04</div>
+                    <h3>Full Condensed Recorded Course + TutorBook</h3>
+                    <div class="oet-pricing-price"><strong>£135</strong></div>
+                    <div class="oet-meta-chips"><span>Medicine</span><span>40+ hours plus book</span><span>6 months for the course plus permanent TutorBook access</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded videos, structured materials and personalised watermarked PDF TutorBook</p>
+                    <p class="oet-pricing-desc">The flagship recorded course bundled with TutorBook. TutorBook is a 2026 recall-based OET preparation book built around 8 full exams covering Listening, Reading, Writing and Speaking. It brings together the main 2026 exam ideas and recall themes, with complete model answers, rationales, Listening scripts, Reading vocabulary support and additional recent recall-based exams already included as add-ons.</p>
+                    <div class="oet-pricing-badges"><span>TutorBook</span><span>TutorBook eligible</span></div>
+                    <ul><li>Everything included in the Full Condensed Recorded Medicine Course</li><li>TutorBook as a personalised watermarked PDF</li><li>8 full 2026 recall-based OET exams covering Listening, Reading, Writing and Speaking</li><li>The main exam ideas and recall themes from 2026 across all four sub-tests</li><li>New Reading dictionary including the vocabulary from the 2026 Reading recalls</li><li>Model answers for Writing and relevant practice tasks</li><li>Answer rationales and justifications to help candidates understand why each answer is correct</li><li>Listening scripts for recall-based Listening practice</li><li>Listening recall vocabulary and repeated words from recent exams</li><li>Already-included add-on exams with more recent recall-based practice</li><li>Private update channel access for new book updates and recall additions</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want the full recorded course together with complete 2026 recall-based TutorBook practice.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=full-condensed-recorded-course-plus-tutorbook">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 05</div>
+                    <h3>Full Nursing OET Course</h3>
+                    <div class="oet-pricing-price"><strong>£60</strong></div>
+                    <div class="oet-meta-chips"><span>Nursing</span><span>30+ hours</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded videos plus nursing-specific study materials</p>
+                    <p class="oet-pricing-desc">A profession-specific OET course for nurses covering Listening, Reading, Writing and Speaking with nursing-focused examples, letters and role-play scenarios.</p>
+                    <div class="oet-pricing-badges"><span>TutorBook eligible</span></div>
+                    <ul><li>Full Nursing OET preparation across Listening, Reading, Writing and Speaking</li><li>Recall-based Nursing Writing letters and model answers</li><li>Recall-based Nursing Speaking cards with expected ideas</li><li>Listening and Reading practice library</li><li>Continuous Q&amp;A support during the access period</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Nurses who need a complete recorded course without bundled assessments.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=full-nursing-oet-course">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card is-featured">
+                    <div class="oet-card-kicker">Package 06</div>
+                    <h3>Nursing Course + Assessment Package</h3>
+                    <div class="oet-pricing-price"><strong>£70</strong></div>
+                    <div class="oet-meta-chips"><span>Nursing</span><span>30+ hours</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded videos, nursing materials and Writing assessments</p>
+                    <p class="oet-pricing-desc">The full Nursing OET course bundled with personalised Writing assessment support and AI practice credits. This option is designed for nurses who want structured learning plus direct feedback on their letters.</p>
+                    <div class="oet-pricing-badges"><span>Recommended</span><span>TutorBook eligible</span></div>
+                    <ul><li>Everything included in the Full Nursing OET Course</li><li>5 Writing letter assessments</li><li>Detailed correction and voice-note feedback via WhatsApp</li><li>5 AI credits for instant practice feedback</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Nurses who want the full recorded course with personalised Writing feedback.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=nursing-course-plus-assessment-package">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 07</div>
+                    <h3>Nursing Premium Bundle</h3>
+                    <div class="oet-pricing-price"><strong>£85</strong></div>
+                    <div class="oet-meta-chips"><span>Nursing</span><span>30+ hours plus 11+ hours foundation</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded videos, nursing materials, assessments and foundation English course</p>
+                    <p class="oet-pricing-desc">The most complete Nursing package, combining the full Nursing OET course, Writing assessment support, AI practice credits and the Basic English foundation course for candidates who want to strengthen their English before or alongside OET preparation.</p>
+                    <div class="oet-pricing-badges"><span>TutorBook eligible</span></div>
+                    <ul><li>Everything included in the Nursing Course + Assessment Package</li><li>Basic English Course - Preparation for OET</li><li>11+ hours of foundation English training</li><li>Grammar, vocabulary and sentence-formation support</li><li>Course booklet for the Basic English module</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Nursing candidates who want OET preparation plus extra English foundation support.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=nursing-premium-bundle">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 08</div>
+                    <h3>Full Pharmacy OET Course</h3>
+                    <div class="oet-pricing-price"><strong>&pound;100</strong></div>
+                    <div class="oet-meta-chips"><span>Pharmacy</span><span>25+ hours</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded videos plus pharmacy-specific study materials</p>
+                    <p class="oet-pricing-desc">A profession-specific OET preparation course for pharmacists covering all four sub-tests with pharmacy-focused Writing and Speaking content. The course includes pharmacy scenarios such as complaint handling, dosage issues, drug safety, expiry-date discrepancies, interactions and counselling.</p>
+                    <div class="oet-pricing-badges"><span>TutorBook eligible</span></div>
+                    <ul><li>Full Pharmacy OET preparation across Listening, Reading, Writing and Speaking</li><li>Pharmacy-specific Writing examples and model answers</li><li>Pharmacy Speaking cards with expected ideas and useful language</li><li>Recall-based practice resources</li><li>Continuous Q&amp;A support during the access period</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Pharmacists who want profession-specific OET preparation rather than a general course.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=full-pharmacy-oet-course">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 09</div>
+                    <h3>Basic English Course - Preparation for OET</h3>
+                    <div class="oet-pricing-price"><strong>£35</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>11+ hours</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded videos plus downloadable course booklet</p>
+                    <p class="oet-pricing-desc">A preparatory English course for candidates at Beginner, A1, A2 or B1 level who need to build a stronger English base before intensive OET preparation. The course focuses on essential grammar, healthcare vocabulary, sentence formation, listening foundations and a practical study plan.</p>
+                    <div class="oet-pricing-badges"><span>TutorBook eligible</span></div>
+                    <ul><li>Fully recorded preparatory English course</li><li>Essential grammar explained from the basics and linked to OET production</li><li>Medical and healthcare vocabulary foundation</li><li>Sentence formation for OET-style communication</li><li>Conversation and listening foundations for healthcare contexts</li><li>Simplified course booklet</li><li>Full study plan</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who need stronger English foundations before starting full OET training.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=basic-english-course-preparation-for-oet">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 10</div>
+                    <h3>Full Crash Course - General OET</h3>
+                    <div class="oet-pricing-price"><strong>£60</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines with Medicine focus</span><span>20+ hours</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded videos plus selected study materials</p>
+                    <p class="oet-pricing-desc">A condensed, high-impact OET course for candidates with limited time before the exam. It covers the four sub-tests in an exam-oriented format with high-yield strategies and recall-based guidance.</p>
+                    <div class="oet-pricing-badges"><span>TutorBook eligible</span></div>
+                    <ul><li>Condensed recorded preparation across Listening, Reading, Writing and Speaking</li><li>High-yield exam strategies and practical techniques</li><li>Recall-based guidance for recent exam trends</li><li>Selected study materials and Listening recalls</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who need fast, focused preparation across all four sub-tests.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=full-crash-course-general-oet">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 11</div>
+                    <h3>Full Crash Course + 3 Writing Assessments</h3>
+                    <div class="oet-pricing-price"><strong>£70</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>20+ hours</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded videos plus 3 Writing letter assessments</p>
+                    <p class="oet-pricing-desc">The Full Crash Course bundled with assessment of 3 Writing letters. It combines condensed preparation across the exam with personalised Writing correction.</p>
+                    <div class="oet-pricing-badges"><span>Writing</span><span>TutorBook eligible</span></div>
+                    <ul><li>Everything included in the Full Crash Course</li><li>Assessment of 3 Writing letters</li><li>Estimated score, detailed correction and voice-note feedback</li><li>Letters may be candidate-chosen or recall-recommended</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Crash-course candidates who want limited but focused Writing feedback.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=full-crash-course-plus-3-writing-assessments">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 12</div>
+                    <h3>Full Crash Course + 5 Writing Assessments</h3>
+                    <div class="oet-pricing-price"><strong>£80</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>20+ hours</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded videos plus 5 Writing letter assessments</p>
+                    <p class="oet-pricing-desc">The Full Crash Course bundled with assessment of 5 Writing letters. It is the recommended crash-course bundle for candidates who want more personalised Writing feedback while studying the four subtests.</p>
+                    <div class="oet-pricing-badges"><span>Writing</span><span>TutorBook eligible</span></div>
+                    <ul><li>Everything included in the Full Crash Course</li><li>Assessment of 5 Writing letters</li><li>Estimated score, detailed correction and voice-note feedback</li><li>Letters may be candidate-chosen or recall-recommended</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Crash-course candidates who want more extensive Writing assessment support.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=full-crash-course-plus-5-writing-assessments">Join / Login</a>
+                    </div>
+                </article>
+                </div>
+            </div>
+        </section>
+        <section id="separate-packages" class="oet-pricing-section">
+            <div class="container">
+                <div class="oet-pricing-section-head">
+                    <div>
+                        <h2>Separate Packages</h2>
+                        <p>Focused Writing, Speaking, assessment, and productive-skills bundles for candidates who need targeted support.</p>
+                    </div>
+                </div>
+                <div class="oet-pricing-grid">
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 13</div>
+                    <h3>3 Writing Letter Assessments - Add-on</h3>
+                    <div class="oet-pricing-price"><strong>£30</strong></div>
+                    <div class="oet-meta-chips"><span>Doctors, Nurses and Pharmacy candidates</span><span>Writing assessment add-on</span><span>Tied to the active parent course access window</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Manual assessment with 48-72h turnaround, excluding Friday</p>
+                    <p class="oet-pricing-desc">A stackable Writing assessment add-on that gives candidates personalised feedback on 3 OET letters. It is intended for candidates already enrolled in an eligible course or package.</p>
+                    <div class="oet-pricing-badges"><span>Writing</span></div>
+                    <ul><li>3 Writing letter assessments</li><li>Estimated score for each letter</li><li>Detailed correction</li><li>Voice-note feedback via WhatsApp</li><li>Candidate-chosen or recall-recommended letters</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who need a small number of corrected letters before the exam.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=3-writing-letter-assessments-add-on">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 14</div>
+                    <h3>5 Writing Letter Assessments - Add-on</h3>
+                    <div class="oet-pricing-price"><strong>£45</strong></div>
+                    <div class="oet-meta-chips"><span>Doctors, Nurses and Pharmacy candidates</span><span>Writing assessment add-on</span><span>Tied to the active parent course access window</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Manual assessment with 48-72h turnaround, excluding Friday</p>
+                    <p class="oet-pricing-desc">A stackable Writing assessment add-on that gives candidates personalised feedback on 5 OET letters. It is intended for candidates already enrolled in an eligible course or package.</p>
+                    <div class="oet-pricing-badges"><span>Writing</span></div>
+                    <ul><li>5 Writing letter assessments</li><li>Estimated score for each letter</li><li>Detailed correction</li><li>Voice-note feedback via WhatsApp</li><li>Candidate-chosen or recall-recommended letters</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want a balanced amount of Writing correction and score estimation.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=5-writing-letter-assessments-add-on">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 15</div>
+                    <h3>7 Writing Letter Assessments - Add-on</h3>
+                    <div class="oet-pricing-price"><strong>£60</strong></div>
+                    <div class="oet-meta-chips"><span>Doctors, Nurses and Pharmacy candidates</span><span>Writing assessment add-on</span><span>Tied to the active parent course access window</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Manual assessment by Dr Ahmed</p>
+                    <p class="oet-pricing-desc">A stackable Writing assessment add-on that gives candidates personalised feedback on 7 OET letters using the same assessment format as the smaller Writing packages.</p>
+                    <div class="oet-pricing-badges"><span>Writing</span></div>
+                    <ul><li>7 Writing letter assessments</li><li>Estimated score for each letter</li><li>Detailed correction</li><li>Voice-note feedback via WhatsApp</li><li>Candidate-chosen or recall-recommended letters</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want repeated Writing practice with detailed feedback.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=7-writing-letter-assessments-add-on">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 16</div>
+                    <h3>10 Writing Letter Assessments - Add-on</h3>
+                    <div class="oet-pricing-price"><strong>£85</strong></div>
+                    <div class="oet-meta-chips"><span>Doctors, Nurses and Pharmacy candidates</span><span>Writing assessment add-on</span><span>Tied to the active parent course access window</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Manual assessment by Dr Ahmed</p>
+                    <p class="oet-pricing-desc">A stackable Writing assessment add-on that gives candidates personalised feedback on 10 OET letters. It provides the heaviest Writing correction option for candidates who want extensive practice.</p>
+                    <div class="oet-pricing-badges"><span>Writing</span></div>
+                    <ul><li>10 Writing letter assessments</li><li>Estimated score for each letter</li><li>Detailed correction</li><li>Voice-note feedback via WhatsApp</li><li>Candidate-chosen or recall-recommended letters</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want intensive Writing correction and multiple opportunities to improve.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=10-writing-letter-assessments-add-on">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 17</div>
+                    <h3>Recorded Writing Crash Course</h3>
+                    <div class="oet-pricing-price"><strong>£35</strong></div>
+                    <div class="oet-meta-chips"><span>Medicine, Nursing and Pharmacy</span><span>12-16+ hours by profession</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded videos plus Writing materials</p>
+                    <p class="oet-pricing-desc">A standalone recorded Writing course covering the OET Writing sub-test from A-Z. It explains task analysis, purpose, audience, case-note relevance, introductions, body paragraphs, closing paragraphs, all major letter types, assessment criteria and profession-specific examples.</p>
+                    <div class="oet-pricing-badges"><span>Writing</span><span>TutorBook eligible</span></div>
+                    <ul><li>Full recorded Writing explanation from A-Z</li><li>Task, purpose, audience and case-note relevance</li><li>Referral, discharge, transfer, update, complaint and profession-specific letters</li><li>Grammar, sentence structure, clarity and conciseness</li><li>Latest OET Writing assessment criteria</li><li>Profession-specific examples and recall-based ideas</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who mainly need structured Writing training.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=recorded-writing-crash-course">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 18</div>
+                    <h3>Writing Crash Course + 2 Letter Assessments</h3>
+                    <div class="oet-pricing-price"><strong>£45</strong></div>
+                    <div class="oet-meta-chips"><span>Medicine, Nursing and Pharmacy</span><span>12-16+ hours</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded videos plus 2 Writing assessments</p>
+                    <p class="oet-pricing-desc">The Recorded Writing Crash Course bundled with 2 Writing letter assessments. It gives candidates the full Writing explanation plus a small amount of personalised feedback.</p>
+                    <div class="oet-pricing-badges"><span>Writing</span><span>TutorBook eligible</span></div>
+                    <ul><li>Everything included in the Recorded Writing Crash Course</li><li>2 Writing letter assessments</li><li>Estimated score, detailed correction and voice-note feedback</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want Writing teaching plus limited correction.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=writing-crash-course-plus-2-letter-assessments">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 19</div>
+                    <h3>Writing Crash Course + 3 Letter Assessments</h3>
+                    <div class="oet-pricing-price"><strong>£55</strong></div>
+                    <div class="oet-meta-chips"><span>Medicine, Nursing and Pharmacy</span><span>12-16+ hours</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded videos plus 3 Writing assessments</p>
+                    <p class="oet-pricing-desc">The Recorded Writing Crash Course bundled with 3 Writing letter assessments. It combines the full Writing explanation with personalised assessment support.</p>
+                    <div class="oet-pricing-badges"><span>Writing</span><span>TutorBook eligible</span></div>
+                    <ul><li>Everything included in the Recorded Writing Crash Course</li><li>3 Writing letter assessments</li><li>Estimated score, detailed correction and voice-note feedback</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want a focused Writing bundle with several corrected letters.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=writing-crash-course-plus-3-letter-assessments">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card is-featured">
+                    <div class="oet-card-kicker">Package 20</div>
+                    <h3>Writing Crash Course + 5 Letter Assessments</h3>
+                    <div class="oet-pricing-price"><strong>£70</strong></div>
+                    <div class="oet-meta-chips"><span>Medicine, Nursing and Pharmacy</span><span>12-16+ hours</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded videos plus 5 Writing assessments</p>
+                    <p class="oet-pricing-desc">The Recorded Writing Crash Course bundled with 5 Writing letter assessments. It is the recommended Writing bundle for candidates who want structured lessons and a strong amount of personalised correction.</p>
+                    <div class="oet-pricing-badges"><span>Recommended</span><span>Writing</span><span>TutorBook eligible</span></div>
+                    <ul><li>Everything included in the Recorded Writing Crash Course</li><li>5 Writing letter assessments</li><li>Estimated score, detailed correction and voice-note feedback</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want the most balanced Writing course and feedback package.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=writing-crash-course-plus-5-letter-assessments">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 21</div>
+                    <h3>Writing Crash Course + 7 Letter Assessments</h3>
+                    <div class="oet-pricing-price"><strong>£90</strong></div>
+                    <div class="oet-meta-chips"><span>Medicine, Nursing and Pharmacy</span><span>12-16+ hours</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded videos plus 7 Writing assessments</p>
+                    <p class="oet-pricing-desc">The Recorded Writing Crash Course bundled with 7 Writing letter assessments. It is designed for candidates who want deeper Writing practice and repeated feedback.</p>
+                    <div class="oet-pricing-badges"><span>Writing</span><span>TutorBook eligible</span></div>
+                    <ul><li>Everything included in the Recorded Writing Crash Course</li><li>7 Writing letter assessments</li><li>Estimated score, detailed correction and voice-note feedback</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who need more intensive Writing correction before the exam.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=writing-crash-course-plus-7-letter-assessments">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 22</div>
+                    <h3>Writing Crash Course + 10 Letter Assessments</h3>
+                    <div class="oet-pricing-price"><strong>£115</strong></div>
+                    <div class="oet-meta-chips"><span>Medicine, Nursing and Pharmacy</span><span>12-16+ hours</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded videos plus 10 Writing assessments</p>
+                    <p class="oet-pricing-desc">The Recorded Writing Crash Course bundled with 10 Writing letter assessments. This is the heaviest Writing-focused option and is designed for candidates who want maximum correction practice.</p>
+                    <div class="oet-pricing-badges"><span>Writing</span><span>TutorBook eligible</span></div>
+                    <ul><li>Everything included in the Recorded Writing Crash Course</li><li>10 Writing letter assessments</li><li>Estimated score, detailed correction and voice-note feedback</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who need intensive Writing support and repeated detailed feedback.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=writing-crash-course-plus-10-letter-assessments">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 23</div>
+                    <h3>Recorded Speaking Crash Course</h3>
+                    <div class="oet-pricing-price"><strong>£30</strong></div>
+                    <div class="oet-meta-chips"><span>Medicine, Nursing and Pharmacy</span><span>8+ hours per profession</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded videos</p>
+                    <p class="oet-pricing-desc">A standalone recorded Speaking course covering OET Speaking scenarios, card types, recent recall themes and exam performance for Medicine, Nursing and Pharmacy candidates.</p>
+                    <div class="oet-pricing-badges"><span>Speaking</span><span>TutorBook eligible</span></div>
+                    <ul><li>Complete explanation of the Speaking sub-test and role-play structure</li><li>All major card types covered in detail</li><li>Recall-based focus on repeated card types</li><li>Opening, information gathering, addressing concerns and safe closing</li><li>Handling anxious, angry, confused, reluctant or non-compliant patients</li><li>Empathy, reassurance, signposting and checking understanding</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want a dedicated Speaking course without a full four-subtest package.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=recorded-speaking-crash-course">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 24</div>
+                    <h3>1 Private Speaking Assessment Session</h3>
+                    <div class="oet-pricing-price"><strong>£18</strong></div>
+                    <div class="oet-meta-chips"><span>Doctors, Nurses and Pharmacy candidates</span><span>1 live session</span><span>Scheduled within the candidate preparation window</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Live 1:1 session plus detailed feedback</p>
+                    <p class="oet-pricing-desc">A one-to-one live Speaking practice session using different OET cards with detailed performance feedback. It can be used as a top-up alongside any course or as a standalone speaking assessment session.</p>
+                    <div class="oet-pricing-badges"><span>Speaking</span><span>TutorBook eligible</span></div>
+                    <ul><li>1 live 1:1 Speaking session</li><li>Multiple cards covered</li><li>Detailed performance feedback</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want one focused live Speaking practice session.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=1-private-speaking-assessment-session">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 25</div>
+                    <h3>2 Private Speaking Assessment Sessions</h3>
+                    <div class="oet-pricing-price"><strong>£34</strong></div>
+                    <div class="oet-meta-chips"><span>Doctors, Nurses and Pharmacy candidates</span><span>2 live sessions</span><span>Scheduled within the candidate preparation window</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Live 1:1 sessions plus detailed feedback</p>
+                    <p class="oet-pricing-desc">Two one-to-one live Speaking assessment sessions using different cards with detailed feedback after each session.</p>
+                    <div class="oet-pricing-badges"><span>Speaking</span><span>TutorBook eligible</span></div>
+                    <ul><li>2 live 1:1 Speaking sessions</li><li>Different cards in each session</li><li>Detailed performance feedback for each session</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want more than one live Speaking practice opportunity.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=2-private-speaking-assessment-sessions">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 26</div>
+                    <h3>Double Special Package - Writing + Speaking</h3>
+                    <div class="oet-pricing-price"><strong>£55</strong></div>
+                    <div class="oet-meta-chips"><span>Medicine, Nursing and Pharmacy</span><span>Writing 12-16+ hours plus Speaking 8+ hours</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded Writing and Speaking video bundle</p>
+                    <p class="oet-pricing-desc">A combined productive-skills package including the full recorded Writing course and the full recorded Speaking course. It is suitable for candidates who are confident in Listening and Reading and want to focus on Writing and Speaking.</p>
+                    <div class="oet-pricing-badges"><span>Writing</span><span>Speaking</span><span>TutorBook eligible</span></div>
+                    <ul><li>Full recorded Writing course with the latest criteria</li><li>Full recorded Speaking course from A-Z</li><li>Model letters, Writing rules, Speaking cards and useful phrases</li><li>Materials for focused productive-skills preparation</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who mainly need Writing and Speaking preparation.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=double-special-package-writing-plus-speaking">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card is-featured">
+                    <div class="oet-card-kicker">Package 27</div>
+                    <h3>Mega Special Package</h3>
+                    <div class="oet-pricing-price"><strong>£80</strong></div>
+                    <div class="oet-meta-chips"><span>Medicine, Nursing and Pharmacy</span><span>18+ focused hours</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Recorded videos plus Writing assessments and 1 live Speaking session</p>
+                    <p class="oet-pricing-desc">A flagship Writing and Speaking combo package that includes the full recorded Writing course, full recorded Speaking course, one private Speaking session and 5 Writing letter assessments.</p>
+                    <div class="oet-pricing-badges"><span>Best value</span><span>TutorBook eligible</span></div>
+                    <ul><li>Full recorded Writing sessions with the latest criteria</li><li>Full recorded Speaking course from A-Z</li><li>1 private Speaking session</li><li>5 Writing letter assessments</li><li>18+ hours of focused Writing and Speaking preparation</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want the most complete package for the two productive sub-tests.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=mega-special-package">Join / Login</a>
+                    </div>
+                </article>
+                </div>
+            </div>
+        </section>
+        <section id="ai-packages" class="oet-pricing-section">
+            <div class="container">
+                <div class="oet-pricing-section-head">
+                    <div>
+                        <h2>AI Packages</h2>
+                        <p>AI-supported Writing, Speaking, Listening, Reading, and complete practice packages with clear validity windows.</p>
+                    </div>
+                </div>
+                <div class="oet-pricing-note">AI package prices are shown in GBP for this website.</div>
+                <div class="oet-pricing-grid">
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 30</div>
+                    <h3>Quick Check</h3>
+                    <div class="oet-pricing-price"><strong>£15</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>AI grading and practice starter package</span><span>30 days from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> AI feedback reports plus Listening and Reading practice exams</p>
+                    <p class="oet-pricing-desc">A targeted one-off readiness package for candidates who want instant AI feedback on Writing or Speaking together with a small Listening and Reading practice allowance. This package includes 5 flexible AI grading credits for Writing letters or Speaking cards, plus 3 Listening exams and 3 Reading exams for focused practice.</p>
+                    <div class="oet-pricing-badges"><span>AI practice</span></div>
+                    <ul><li>5 flexible AI grading credits for Writing or Speaking</li><li>3 Listening practice exams</li><li>3 Reading practice exams</li><li>AI feedback reports for graded Writing or Speaking submissions</li><li>30-day validity</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want a quick readiness check before deciding whether they need a larger package.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=quick-check">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 31</div>
+                    <h3>Exam Prep Pro</h3>
+                    <div class="oet-pricing-price"><strong>£32</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>AI grading and exam preparation package</span><span>90 days from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> AI feedback reports plus Listening and Reading practice exams</p>
+                    <p class="oet-pricing-desc">A larger one-off exam preparation package for candidates who need repeated AI grading and more Listening and Reading practice before the exam. It includes 15 flexible AI grading credits for Writing letters or Speaking cards, plus 6 Listening exams and 6 Reading exams.</p>
+                    <div class="oet-pricing-badges"><span>AI practice</span></div>
+                    <ul><li>15 flexible AI grading credits for Writing or Speaking</li><li>6 Listening practice exams</li><li>6 Reading practice exams</li><li>AI feedback reports for graded Writing or Speaking submissions</li><li>90-day validity</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want a balanced AI practice package covering Writing, Speaking, Listening and Reading.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=exam-prep-pro">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card is-featured">
+                    <div class="oet-card-kicker">Package 32</div>
+                    <h3>OET Mastery</h3>
+                    <div class="oet-pricing-price"><strong>£75</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>Unlimited AI assessment and practice package</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Unlimited AI assessment, Listening and Reading practice, and priority access</p>
+                    <p class="oet-pricing-desc">The highest AI practice package for candidates who want unlimited assessment during the access period. It includes unlimited AI assessment for Writing and Speaking, unlimited Listening and Reading practice, detailed AI feedback reports and priority queue access.</p>
+                    <div class="oet-pricing-badges"><span>Recommended</span><span>AI practice</span></div>
+                    <ul><li>Unlimited AI assessment for Writing letters and Speaking cards during the access period</li><li>Unlimited Listening practice</li><li>Unlimited Reading practice</li><li>Detailed AI feedback reports</li><li>Priority grading queue</li><li>6-month validity</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want the most complete AI-supported practice option with no fixed assessment limit during the access period.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=oet-mastery">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 36</div>
+                    <h3>Listening Starter</h3>
+                    <div class="oet-pricing-price"><strong>£4</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>Separate Listening practice package</span><span>30 days from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Listening practice exams with answer-key marking</p>
+                    <p class="oet-pricing-desc">A focused starter package for candidates who want a small set of Listening practice exams. It includes 3 Listening exams with deterministic answer-key marking.</p>
+                    <div class="oet-pricing-badges"><span>AI practice</span></div>
+                    <ul><li>3 Listening practice exams</li><li>Deterministic answer-key marking</li><li>Always free to grade - no AI credits used</li><li>30-day validity</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want a short Listening practice set before moving to a larger package.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=listening-starter">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 37</div>
+                    <h3>Listening Standard</h3>
+                    <div class="oet-pricing-price"><strong>£9</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>Separate Listening practice package</span><span>90 days from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Listening practice exams with answer-key marking</p>
+                    <p class="oet-pricing-desc">A standard Listening practice package for candidates who want more focused Listening practice. It includes 6 Listening exams with deterministic answer-key marking.</p>
+                    <div class="oet-pricing-badges"><span>AI practice</span></div>
+                    <ul><li>6 Listening practice exams</li><li>Deterministic answer-key marking</li><li>Always free to grade - no AI credits used</li><li>90-day validity</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want a medium Listening practice set with a longer access window.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=listening-standard">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 38</div>
+                    <h3>Listening Pro</h3>
+                    <div class="oet-pricing-price"><strong>£15</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>Unlimited Listening practice package</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Unlimited Listening practice with answer-key marking</p>
+                    <p class="oet-pricing-desc">An unlimited Listening practice package for candidates who want open Listening practice throughout the access period. Listening is auto-marked with deterministic answer-key marking and does not use AI credits.</p>
+                    <div class="oet-pricing-badges"><span>AI practice</span></div>
+                    <ul><li>Unlimited Listening practice</li><li>Deterministic answer-key marking</li><li>Always free to grade - no AI credits used</li><li>6-month validity</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want unlimited Listening practice during their preparation period.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=listening-pro">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 39</div>
+                    <h3>Reading Starter</h3>
+                    <div class="oet-pricing-price"><strong>£4</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>Separate Reading practice package</span><span>30 days from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Reading practice exams with answer-key marking</p>
+                    <p class="oet-pricing-desc">A focused starter package for candidates who want a small set of Reading practice exams. It includes 3 Reading exams with deterministic answer-key marking.</p>
+                    <div class="oet-pricing-badges"><span>AI practice</span></div>
+                    <ul><li>3 Reading practice exams</li><li>Deterministic answer-key marking</li><li>Always free to grade - no AI credits used</li><li>30-day validity</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want a short Reading practice set before moving to a larger package.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=reading-starter">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 40</div>
+                    <h3>Reading Standard</h3>
+                    <div class="oet-pricing-price"><strong>£9</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>Separate Reading practice package</span><span>90 days from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Reading practice exams with answer-key marking</p>
+                    <p class="oet-pricing-desc">A standard Reading practice package for candidates who want more focused Reading practice. It includes 6 Reading exams with deterministic answer-key marking.</p>
+                    <div class="oet-pricing-badges"><span>AI practice</span></div>
+                    <ul><li>6 Reading practice exams</li><li>Deterministic answer-key marking</li><li>Always free to grade - no AI credits used</li><li>90-day validity</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want a medium Reading practice set with a longer access window.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=reading-standard">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 41</div>
+                    <h3>Reading Pro</h3>
+                    <div class="oet-pricing-price"><strong>£15</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>Unlimited Reading practice package</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Unlimited Reading practice with answer-key marking</p>
+                    <p class="oet-pricing-desc">An unlimited Reading practice package for candidates who want open Reading practice throughout the access period. Reading is auto-marked with deterministic answer-key marking and does not use AI credits.</p>
+                    <div class="oet-pricing-badges"><span>AI practice</span></div>
+                    <ul><li>Unlimited Reading practice</li><li>Deterministic answer-key marking</li><li>Always free to grade - no AI credits used</li><li>6-month validity</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want unlimited Reading practice during their preparation period.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=reading-pro">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 42</div>
+                    <h3>Writing Starter</h3>
+                    <div class="oet-pricing-price"><strong>£9</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>Separate Writing AI grading package</span><span>30 days from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> AI-graded Writing letters</p>
+                    <p class="oet-pricing-desc">A starter Writing AI grading package sized for focused practice. It includes 3 AI-graded Writing letters with instant Claude feedback and detailed criterion-based comments.</p>
+                    <div class="oet-pricing-badges"><span>Writing</span><span>AI practice</span></div>
+                    <ul><li>3 AI-graded Writing letters</li><li>Instant Claude feedback on every letter</li><li>Detailed per-criterion feedback</li><li>30-day validity</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want a small number of instant Writing assessments.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=writing-starter">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 43</div>
+                    <h3>Writing Standard</h3>
+                    <div class="oet-pricing-price"><strong>£19</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>Separate Writing AI grading package</span><span>90 days from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> AI-graded Writing letters</p>
+                    <p class="oet-pricing-desc">A standard Writing AI grading package for candidates who want more letter practice. It includes 8 AI-graded Writing letters with instant Claude feedback and detailed criterion-based comments.</p>
+                    <div class="oet-pricing-badges"><span>Writing</span><span>AI practice</span></div>
+                    <ul><li>8 AI-graded Writing letters</li><li>Instant Claude feedback on every letter</li><li>Detailed per-criterion feedback</li><li>90-day validity</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want repeated Writing practice with instant feedback.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=writing-standard">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 44</div>
+                    <h3>Writing Pro</h3>
+                    <div class="oet-pricing-price"><strong>£32</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>Separate Writing AI grading package</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> AI-graded Writing letters</p>
+                    <p class="oet-pricing-desc">A larger Writing AI grading package for candidates who want intensive letter practice. It includes 15 AI-graded Writing letters with instant Claude feedback and detailed criterion-based comments.</p>
+                    <div class="oet-pricing-badges"><span>Writing</span><span>AI practice</span></div>
+                    <ul><li>15 AI-graded Writing letters</li><li>Instant Claude feedback on every letter</li><li>Detailed per-criterion feedback</li><li>6-month validity</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want an intensive Writing-only AI grading option.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=writing-pro">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 45</div>
+                    <h3>Speaking Starter</h3>
+                    <div class="oet-pricing-price"><strong>£12</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>Separate Speaking AI grading package</span><span>30 days from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> AI-graded Speaking cards with transcription</p>
+                    <p class="oet-pricing-desc">A starter Speaking AI grading package sized for focused practice. It includes 3 AI-graded Speaking cards using Whisper transcription and Claude assessment with rule-cited transcript markers.</p>
+                    <div class="oet-pricing-badges"><span>Speaking</span><span>AI practice</span></div>
+                    <ul><li>3 AI-graded Speaking cards</li><li>Whisper transcription plus Claude assessment</li><li>Rule-cited transcript markers</li><li>30-day validity</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want a small number of instant Speaking assessments.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=speaking-starter">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 46</div>
+                    <h3>Speaking Standard</h3>
+                    <div class="oet-pricing-price"><strong>£24</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>Separate Speaking AI grading package</span><span>90 days from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> AI-graded Speaking cards with transcription</p>
+                    <p class="oet-pricing-desc">A standard Speaking AI grading package for candidates who want more role-play practice. It includes 8 AI-graded Speaking cards using Whisper transcription and Claude assessment with rule-cited transcript markers.</p>
+                    <div class="oet-pricing-badges"><span>Speaking</span><span>AI practice</span></div>
+                    <ul><li>8 AI-graded Speaking cards</li><li>Whisper transcription plus Claude assessment</li><li>Rule-cited transcript markers</li><li>90-day validity</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want repeated Speaking practice with instant transcript-based feedback.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=speaking-standard">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 47</div>
+                    <h3>Speaking Pro</h3>
+                    <div class="oet-pricing-price"><strong>£42</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>Separate Speaking AI grading package</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> AI-graded Speaking cards with transcription</p>
+                    <p class="oet-pricing-desc">A larger Speaking AI grading package for candidates who want intensive role-play practice. It includes 15 AI-graded Speaking cards using Whisper transcription and Claude assessment with rule-cited transcript markers.</p>
+                    <div class="oet-pricing-badges"><span>Speaking</span><span>AI practice</span></div>
+                    <ul><li>15 AI-graded Speaking cards</li><li>Whisper transcription plus Claude assessment</li><li>Rule-cited transcript markers</li><li>6-month validity</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want an intensive Speaking-only AI grading option.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=speaking-pro">Join / Login</a>
+                    </div>
+                </article>
+                </div>
+            </div>
+        </section>
+        <section id="mock-packages" class="oet-pricing-section">
+            <div class="container">
+                <div class="oet-pricing-section-head">
+                    <div>
+                        <h2>Mock Packages</h2>
+                        <p>Full OET mock exam packages covering Listening, Reading, Writing, and Speaking in exam-style runs.</p>
+                    </div>
+                </div>
+                <div class="oet-pricing-grid">
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 48</div>
+                    <h3>1 Full Mock</h3>
+                    <div class="oet-pricing-price"><strong>£19</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>Full mock exam package</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> One full mock exam across all four sub-tests</p>
+                    <p class="oet-pricing-desc">One complete OET mock exam covering all four sub-tests. Writing and Speaking are AI-graded, while Listening and Reading are auto-marked using answer-key marking. Mock exam allowances are separate from AI grading credits.</p>
+                    <div class="oet-pricing-badges"><span>Mock exam</span></div>
+                    <ul><li>1 full mock exam covering Listening, Reading, Writing and Speaking</li><li>Writing and Speaking AI-graded</li><li>Listening and Reading auto-marked</li><li>Mock allowance separate from AI credits</li><li>6-month validity</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want one complete exam-style practice run.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=1-full-mock">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card is-featured">
+                    <div class="oet-card-kicker">Package 49</div>
+                    <h3>3 Full Mocks</h3>
+                    <div class="oet-pricing-price"><strong>£45</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>Full mock exam package</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Three full mock exams across all four sub-tests</p>
+                    <p class="oet-pricing-desc">Three complete OET mock exams covering all four sub-tests. Writing and Speaking are AI-graded, while Listening and Reading are auto-marked using answer-key marking. Mock exam allowances are separate from AI grading credits.</p>
+                    <div class="oet-pricing-badges"><span>Best value</span><span>Mock exam</span></div>
+                    <ul><li>3 full mock exams covering Listening, Reading, Writing and Speaking</li><li>Writing and Speaking AI-graded</li><li>Listening and Reading auto-marked</li><li>Mock allowance separate from AI credits</li><li>6-month validity</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want several complete practice attempts before the real exam.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=3-full-mocks">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 50</div>
+                    <h3>5 Full Mocks</h3>
+                    <div class="oet-pricing-price"><strong>£67</strong></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>Full mock exam package</span><span>6 months from purchase</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Five full mock exams across all four sub-tests</p>
+                    <p class="oet-pricing-desc">Five complete OET mock exams covering all four sub-tests. Writing and Speaking are AI-graded, while Listening and Reading are auto-marked using answer-key marking. Mock exam allowances are separate from AI grading credits.</p>
+                    <div class="oet-pricing-badges"><span>Mock exam</span></div>
+                    <ul><li>5 full mock exams covering Listening, Reading, Writing and Speaking</li><li>Writing and Speaking AI-graded</li><li>Listening and Reading auto-marked</li><li>Mock allowance separate from AI credits</li><li>6-month validity</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want repeated full exam simulation and progress tracking.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=5-full-mocks">Join / Login</a>
+                    </div>
+                </article>
+                </div>
+            </div>
+        </section>
+        <section id="tutor-book-addons" class="oet-pricing-section">
+            <div class="container">
+                <div class="oet-pricing-section-head">
+                    <div>
+                        <h2>TutorBook &amp; Add-ons</h2>
+                        <p>Recall-based TutorBook access for standalone candidates and eligible enrolled students.</p>
+                    </div>
+                </div>
+                <div class="oet-pricing-grid">
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 51</div>
+                    <h3>TutorBook - First Edition 2026</h3>
+                    <div class="oet-pricing-price"><strong>£45</strong><span class="oet-pricing-was">was £60</span></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>2026 recall-based OET book</span><span>Permanent access with content updates</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Personalised watermarked PDF plus private update channel</p>
+                    <p class="oet-pricing-desc">TutorBook is a 2026 recall-based OET preparation book built around 8 full exams covering Listening, Reading, Writing and Speaking. It brings together the main 2026 exam ideas and recall themes, with complete model answers, rationales, Listening scripts, Reading vocabulary support and additional recent recall-based exams already included as add-ons.</p>
+                    <div class="oet-pricing-badges"><span>TutorBook</span></div>
+                    <ul><li>8 full 2026 recall-based OET exams covering Listening, Reading, Writing and Speaking</li><li>The main exam ideas and recall themes from 2026 across all four sub-tests</li><li>New Reading dictionary including the vocabulary from the 2026 Reading recalls</li><li>Model answers for Writing and relevant practice tasks</li><li>Answer rationales and justifications to help candidates understand why each answer is correct</li><li>Listening scripts for recall-based Listening practice</li><li>Listening recall vocabulary and repeated words from recent exams</li><li>Already-included add-on exams with more recent recall-based practice</li><li>Private update channel access for new book updates and recall additions</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Candidates who want complete 2026 recall-based practice for Listening, Reading, Writing and Speaking in one book.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=tutorbook-first-edition-2026">Join / Login</a>
+                    </div>
+                </article>
+
+                <article class="oet-pricing-card">
+                    <div class="oet-card-kicker">Package 52</div>
+                    <h3>TutorBook - Add-on for Enrolled Students</h3>
+                    <div class="oet-pricing-price"><strong>£32</strong><span class="oet-pricing-was">was £60</span></div>
+                    <div class="oet-meta-chips"><span>All disciplines</span><span>Book add-on</span><span>Permanent access</span></div>
+                    <p class="oet-pricing-format"><strong>Format:</strong> Personalised watermarked PDF plus private update channel</p>
+                    <p class="oet-pricing-desc">A TutorBook add-on available to candidates with an eligible active enrolment. TutorBook is a 2026 recall-based OET preparation book built around 8 full exams covering Listening, Reading, Writing and Speaking. It brings together the main 2026 exam ideas and recall themes, with complete model answers, rationales, Listening scripts, Reading vocabulary support and additional recent recall-based exams already included as add-ons.</p>
+                    <div class="oet-pricing-badges"><span>TutorBook</span></div>
+                    <ul><li>8 full 2026 recall-based OET exams covering Listening, Reading, Writing and Speaking</li><li>The main exam ideas and recall themes from 2026 across all four sub-tests</li><li>New Reading dictionary including the vocabulary from the 2026 Reading recalls</li><li>Model answers for Writing and relevant practice tasks</li><li>Answer rationales and justifications to help candidates understand why each answer is correct</li><li>Listening scripts for recall-based Listening practice</li><li>Listening recall vocabulary and repeated words from recent exams</li><li>Already-included add-on exams with more recent recall-based practice</li><li>Private update channel access for new book updates and recall additions</li></ul>
+                    <div class="oet-best-for"><strong>Best for:</strong> Already enrolled candidates who want to add complete 2026 recall-based TutorBook practice to their preparation.</div>
+                    <div class="oet-pricing-actions">
+                        <a class="oet-pricing-primary" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F&package=tutorbook-add-on-for-enrolled-students">Join / Login</a>
+                    </div>
+                </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+
+    <!--================= Footer section start =================-->
+            <footer class="vl-footer-10 fix vkl-gray-bg-19 pt-60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-4 col-md-6 mb-30">
+                            <!-- footer widget 1 -->
+                            <div class="vl-footer-widget-1">
+                                <div class="vl-footer-logo">
+                                    <a href="/"><img src="assets/img/logo/footer-logo.png" alt="OET with Dr Hesham"></a>
+                                </div>
+                                <div class="vl-footer-content vl-footer-content-6">
+                                    <p class="para pt-16 pb-24">We help nurses, doctors, pharmacists, and allied health professionals prepare for OET with practical guidance, focused feedback, and clear UK pathway support.</p>
+                                </div>
+
+                                <!-- social area -->
+                                <div class="social-area-footer-10">
+                                    <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram"></i></a>
+                                    <a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-md-6 mb-30">
+                            <div class="vl-footer-widget-2 vl-footer-widget-2-10">
+                                <h3 class="vl-footer-widget-title vl-footer-widget-title-6 mb-30">Support</h3>
+                                <div class="vl-footer-menu vl-footer-menu-10">
+                                    <ul>
+                                        <li><a href="about.html">About Dr. Hesham</a></li>
+                                        <li><a href="teaching-approach.html">Teaching Approach</a></li>
+                                        <li><a href="#" data-youtube-url="https://www.youtube.com/watch?v=hlD1BXfijWs" data-oet-inline-video="true">OET Programs</a></li>
+                                        <li><a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
+                                        <li><a href="mailto:support@oetwithdrhesham.co.uk">Email Support</a></li>
+                                        <li><a href="faq.html">FAQ</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-md-6 mb-30">
+                            <div class="vl-footer-widget-3 vl-footer-widget-3-10">
+                                <h3 class="vl-footer-widget-title vl-footer-widget-title-6 mb-30">Top Links</h3>
+                                <div class="vl-footer-menu vl-footer-menu-10">
+                                    <ul>
+
+                                        <li><a href="pricing.html">Pricing</a></li>
+
+                                        <li><a href="oet-materials-support.html">Free Resources</a></li>
+
+                                        <li><a href="oet-speaking-tips.html">Speaking Tips</a></li>
+
+                                        <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">Telegram Materials</a></li>
+
+                                        <li><a href="success-stories.html">Success Stories</a></li>
+                                        <li><a href="uk-pathway-guide.html">UK Pathway Guide</a></li>
+                                        <li><a href="usa-pathway-guide.html">USA Pathway Guide</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 mb-30">
+                            <!-- footer widget 4 -->
+                            <div class="vl-footer-widget-4 vl-footer-widget-4-10">
+                                <h3 class="vl-footer-widget-title vl-footer-widget-title-6 mb-30">Subscribe for OET Updates</h3>
+                                <!-- Newslater -->
+                                <div class="vl-footer-newslate10">
+                                    <form action="#">
+                                        <input type="email" placeholder="Your Email">
+                                    </form>
+                                    <div class="neslat-btn10">
+                                        <button class="primary-btn-10">Subscribe Now <span><i
+                                                    class="fa-regular fa-arrow-right"></i></span></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="vl-copy-righ1t vl-copy-righ1t-10">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 mb-30">
+                                    <div class="vl-footer-copy-right-widget vl-footer-copy-right-widget-6">
+                                        <p class="para">&copy; Copyright 2026 - OET with Dr Hesham. All Rights Reserved</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 mb-30">
+                                    <div class="vl-copy-right-menu vl-copy-right-menu-10">
+                                        <ul aria-label="Legal">
+                                            <li><strong>Legal</strong></li>
+                                            <li><a href="/terms">Terms &amp; Conditions</a></li>
+                                            <li><a href="/privacy">Privacy Policy</a></li>
+                                            <li><a href="/refund-policy">Refund Policy</a></li>
+                                            <li><a href="/cookie-policy">Cookie Policy</a></li>
+                                            <li><a href="#" onclick="oetCookieSettings();return false;">Cookie settings</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!--================= Footer section End =================-->
+
+    <!-- js file -->
+
+       <!-- jquery js-->
+    <script src="assets/js/plugins/jquery-3.7.1.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="assets/js/plugins/bootstrap.min.js"></script>
+    <!-- gsap js-->
+    <script src="assets/js/plugins/gsap.min.js"></script>
+    <!-- scrollTrigger js-->
+    <script src="assets/js/plugins/ScrollTrigger.min.js"></script>
+    <!-- swiper js -->
+    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+    <!-- nice select js -->
+    <script src="assets/js/plugins/nice-select.js"></script>
+    <!-- fontawesome -->
+    <script src="assets/js/plugins/fontawesome.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="assets/js/plugins/magnific-popup.js"></script>
+    <!-- counter js -->
+    <script src="assets/js/plugins/jquery.counterup.min.js"></script>
+    <!-- waypoints js-->
+    <script src="assets/js/plugins/waypoints.js"></script>
+    <!-- sal js-->
+    <script src="assets/js/plugins/sal.min.js"></script>
+    <!-- ScrollSmoother js -->
+    <script src="assets/js/plugins/lenis.min.js"></script>
+    <!-- SplitText js -->
+    <script src="assets/js/plugins/SplitText.min.js"></script>
+    <script src="assets/js/plugins/jarallax.min.js"></script>
+    <!-- Custom js -->
+    <script src="assets/js/cat.js"></script>
+    <script src="assets/js/main.js?v=inline-youtube-20260619b"></script>
+
+    <div class="oet-community-popup" id="oet-community-popup" aria-hidden="true">
+        <div class="oet-community-popup__overlay" data-oet-community-close></div>
+        <div class="oet-community-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="oet-community-popup-title" aria-describedby="oet-community-popup-intro">
+            <button class="oet-community-popup__close" type="button" data-oet-community-close aria-label="Close community popup">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+            <div class="oet-community-popup__body">
+                <span class="oet-community-popup__eyebrow"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Free OET support</span>
+                <h2 class="oet-community-popup__title" id="oet-community-popup-title">Join Our Free OET Communities</h2>
+                <p class="oet-community-popup__intro" id="oet-community-popup-intro">Choose the group or resource that matches your profession, language preference, or preparation stage. Each link opens in a new tab so you can join instantly.</p>
+
+                <h3 class="oet-community-popup__section-title">WhatsApp Groups</h3>
+                <div class="oet-community-popup__grid">
+                    <a class="oet-community-popup__card" href="https://chat.whatsapp.com/LPSFtrljYdjAYGpBStpMz5" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Exam Recalls Group 1</span>
+                        <span class="oet-community-popup__hint">Recent exam recall discussions</span>
+                    </a>
+                    <a class="oet-community-popup__card" href="https://chat.whatsapp.com/CzVgwnH73Vn8PupWxPrhkz" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Exam Recalls Group 2</span>
+                        <span class="oet-community-popup__hint">Backup recalls community</span>
+                    </a>
+                    <a class="oet-community-popup__card" href="https://chat.whatsapp.com/GigAixZLivFDiGdAifYkAt" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET Nursing WhatsApp</span>
+                        <span class="oet-community-popup__hint">Nursing-focused preparation</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/GwXdSX6v38F3EjNzC4wS2F?mode=hq1tsha" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET Nursing WhatsApp - New</span>
+                        <span class="oet-community-popup__hint">Highlighted nursing community</span>
+                    </a>
+                    <a class="oet-community-popup__card" href="https://chat.whatsapp.com/J8ZE4s35pAv10bmHCrelB2" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Arabic Orientation Group</span>
+                        <span class="oet-community-popup__hint">Free sessions for Arabic speakers</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/CeJmvXO5dJA50OKBGtZcuD?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Medicine Orientation Group</span>
+                        <span class="oet-community-popup__hint">Free orientation sessions for medicine</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/IuCFuWFXFrQHtK6qICP4jg?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET English Only</span>
+                        <span class="oet-community-popup__hint">English-only practice community</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/Kz8zXv7GpoCJBAHpfDygPW?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Pharmacy WhatsApp Group</span>
+                        <span class="oet-community-popup__hint">Pharmacy OET support</span>
+                    </a>
+                </div>
+
+                <h3 class="oet-community-popup__section-title">Free Orientation &amp; Resources</h3>
+                <div class="oet-community-popup__resources">
+                    <a class="oet-community-popup__resource" href="https://t.me/OET_Nursing_DrHesham" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Telegram Nursing Channel</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="#" data-youtube-url="https://youtu.be/kL91eG32Uok?si=Q464XynULlIxpiav" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Doctors Arabic Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="#" data-youtube-url="https://youtu.be/3aBIQq_p3MQ?si=eNwqS82aYuYBaifr" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Doctors Non-Arabic Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="#" data-youtube-url="https://youtu.be/rbNsB7Olxts?si=RNoigvu5kz_bUVYI" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Course Feedback</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="#" data-youtube-url="https://youtu.be/hlD1BXfijWs?si=EQFjYcWKTBOvltPI" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Nursing Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="#" data-youtube-url="https://youtu.be/MCPZb589zdY?si=vSLShtttUOEH89rx" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET &amp; UK Nursing Live</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script id="oet-pricing-hero-slider-script">
+        (function () {
+            var slider = document.querySelector('.oet-pricing-hero-swiper');
+            if (!slider || typeof Swiper === 'undefined') return;
+
+            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            var heroSwiper = new Swiper(slider, {
+                loop: true,
+                speed: reduceMotion ? 0 : 620,
+                grabCursor: true,
+                slidesPerView: 1,
+                spaceBetween: 0,
+                effect: 'slide',
+                roundLengths: true,
+                preloadImages: true,
+                updateOnImagesReady: true,
+                observer: true,
+                observeParents: true,
+                autoplay: reduceMotion ? false : {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                },
+                pagination: {
+                    el: '.oet-pricing-hero-pagination',
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: '.oet-pricing-hero-nav--next',
+                    prevEl: '.oet-pricing-hero-nav--prev'
+                }
+            });
+
+            slider.addEventListener('mouseenter', function () {
+                if (heroSwiper.autoplay) heroSwiper.autoplay.stop();
+            });
+            slider.addEventListener('mouseleave', function () {
+                if (heroSwiper.autoplay && !reduceMotion) heroSwiper.autoplay.start();
+            });
+        })();
+    </script>
+
+    <script id="oet-community-popup-script">
+        (function () {
+            var popup = document.getElementById('oet-community-popup');
+            var triggers = document.querySelectorAll('.oet-community-cta');
+            if (!popup || !triggers.length) return;
+
+            var closeButtons = popup.querySelectorAll('[data-oet-community-close]');
+            var scrollBody = popup.querySelector('.oet-community-popup__body');
+            var focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+            var lastTrigger = null;
+            var lastTouchY = 0;
+
+            function firstFocusable() {
+                return popup.querySelector(focusableSelector);
+            }
+
+            function openPopup(trigger) {
+                lastTrigger = trigger || null;
+                popup.classList.add('is-open');
+                popup.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('oet-community-popup-lock');
+                window.setTimeout(function () {
+                    var target = firstFocusable();
+                    if (target) target.focus({ preventScroll: true });
+                }, 30);
+            }
+
+            function closePopup() {
+                popup.classList.remove('is-open');
+                popup.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('oet-community-popup-lock');
+                if (lastTrigger && typeof lastTrigger.focus === 'function') {
+                    lastTrigger.focus({ preventScroll: true });
+                }
+            }
+
+            triggers.forEach(function (trigger) {
+                trigger.setAttribute('href', '#oet-community-popup');
+                trigger.setAttribute('aria-haspopup', 'dialog');
+                trigger.setAttribute('aria-controls', 'oet-community-popup');
+                trigger.removeAttribute('target');
+                trigger.removeAttribute('rel');
+                trigger.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    openPopup(trigger);
+                });
+            });
+
+            closeButtons.forEach(function (button) {
+                button.addEventListener('click', closePopup);
+            });
+
+            if (scrollBody) {
+                scrollBody.addEventListener('wheel', function (event) {
+                    event.stopPropagation();
+                }, { passive: true });
+
+                scrollBody.addEventListener('touchstart', function (event) {
+                    if (event.touches && event.touches.length) {
+                        lastTouchY = event.touches[0].clientY;
+                    }
+                }, { passive: true });
+
+                scrollBody.addEventListener('touchmove', function (event) {
+                    if (!event.touches || !event.touches.length) return;
+                    var currentY = event.touches[0].clientY;
+                    var deltaY = lastTouchY - currentY;
+                    var atTop = scrollBody.scrollTop <= 0;
+                    var atBottom = Math.ceil(scrollBody.scrollTop + scrollBody.clientHeight) >= scrollBody.scrollHeight;
+
+                    if ((atTop && deltaY < 0) || (atBottom && deltaY > 0)) {
+                        event.preventDefault();
+                    }
+
+                    event.stopPropagation();
+                    lastTouchY = currentY;
+                }, { passive: false });
+            }
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' && popup.classList.contains('is-open')) {
+                    closePopup();
+                }
+            });
+        })();
+    </script>
+
+    <script src="/assets/js/oet-cookie-consent.js" defer></script>
+</body>
+</html>

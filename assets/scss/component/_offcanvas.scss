@@ -1,0 +1,281 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.6 Offcanvas
+/*----------------------------------------*/
+
+.vl-header-action-item {
+    float: right;
+    border: 1px solid var(--vkl-text-heading-color-1);
+    padding: 7px 11px;
+    border-radius: 8px;
+    color: var(--vkl-text-text-black);
+    &-6{
+        border: 1px solid var(--vkl-text-text-white);
+        color: var(--vkl-text-text-white);
+    }
+}
+
+.vl-offcanvas {
+    position: fixed;
+    background: #fff;
+    width: 450px;
+    z-index: 99;
+    right: 0;
+    top: 0;
+    padding: 50px 40px;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(100%);
+    transition: .3s;
+    // @include transform(translateX(100%));
+    // @include transition(.3s);
+    overflow-y: scroll;
+    overscroll-behavior-y: contain;
+    scrollbar-width: none;
+    z-index: 999;
+    @media only screen and (max-width:450px){
+        width: 100%;
+    }
+    &-open{
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+        //@include transform(translateX(0));
+    }
+    &-close-toggle{
+        font-size: 30px;
+        color: var(--vl-heading-color);
+    }
+    &-header{
+        @media #{$lg,$md,$xs}{
+            margin-bottom: 40px;
+        }
+
+    }
+   
+    &-title{
+        font-size: 35px;
+    }
+    
+    &-info {
+        & a{
+            display: block;
+            margin-bottom: 15px;
+            transition: .3s;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            & span{
+                display: inline-block;
+                border: 1px solid var(--vkl-text-heading-color-1);
+                height: 40px;
+                width: 40px;
+                line-height: 40px;
+                text-align: center;
+                border-radius: 50px;
+                margin-right: 10px;
+                transition: .3s;
+                & img{
+                    margin-top: -4px;
+                    transition: .3s;
+                }
+            }
+            &:hover{
+                color: var(--vkl-text-primary-color-1);
+                transition: .3s;
+                & span{
+                    background: var(--vkl-text-primary-color-1);
+                    border: 1px solid var(--vkl-text-primary-color-1);
+                    transition: .3s;
+                    & img{
+                        filter: brightness(0) invert(1);
+                        transition: .3s;
+                    }
+                }
+            }
+        }
+        &-4{
+            & a{
+                color: var(--vkl-bg-bg-25);
+                & span{
+                    border: 1px solid var(--vkl-bg-bg-25);
+                }
+                &:hover{
+                    color: var(--vkl-bg-bg-25);
+                    & span{
+                        background: var(--vkl-bg-bg-25);
+                        border: 1px solid var(--vkl-bg-bg-27);
+                    }
+                }
+            }
+        }
+        &-5{
+            & a{
+                color: var(--vkl-text-heading-color-6);
+                & span{
+                    border: 1px solid var(--vkl-text-heading-color-6);
+                }
+                &:hover{
+                    color: var(--vkl-text-heading-color-6);
+                    & span{
+                        background: var(--vkl-bg-bg-6);
+                        border: 1px solid var(--vkl-bg-bg-6);
+                    }
+                }
+            }
+        }
+        &-6{
+            & a{
+                color: var(--vkl-text-heading-color-6);
+                & span{
+                    border: 1px solid var(--vkl-text-heading-color-6);
+                }
+                &:hover{
+                    color: var(--vkl-text-primary-color-6);
+                    & span{
+                        background: var(--vkl-text-primary-color-6);
+                        border: 1px solid var(--vkl-text-primary-color-6);
+                    }
+                }
+            }
+        }
+
+        &-7{
+            & a{
+                color: var(--vkl-text-heading-color-7);
+                & span{
+                    border: 1px solid var(--vkl-text-heading-color-7);
+                }
+                &:hover{
+                    color: var(--vkl-text-primary-color-7);
+                    & span{
+                        background: var(--vkl-text-primary-color-7);
+                        border: 1px solid var(--vkl-text-primary-color-7);
+                    }
+                }
+            }
+        }
+
+        &-10{
+            & a{
+                color: var(--vkl-text-heading-color-10);
+                & span{
+                    border: 1px solid var(--vkl-text-heading-color-10);
+                }
+                &:hover{
+                    color: var(--vkl-text-paragrapgh-color-9);
+                    & span{
+                        background: var(--vkl-text-paragrapgh-color-9);
+                        border: 1px solid var(--vkl-text-paragrapgh-color-9);
+                    }
+                }
+            }
+        }
+    }
+    &-sm-title{
+        font-size: 25px;
+        font-weight: var(--vkl-weight-regular);
+        line-height: 25px;
+        color: var(--vkl-text-heading-color-1);
+    }
+    &-social{
+        &  a{
+            display: inline-block;
+            text-align: center;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 40px;
+            color: var(--vkl-text-heading-color-1);
+            border: 1px solid rgba(2,11,24,0.1);
+            font-size: 14px;
+            transition: .3s;
+            &:hover{
+                background: var(--vkl-text-primary-color-1);
+                color: var(--vkl-text-text-white);
+                transition: .3s;
+            }
+        }
+        &-4{
+            & .vl-offcanvas-sm-title{
+                color: var(--vkl-bg-bg-25);
+            }
+            & a{
+                color: var(--vkl-bg-bg-25);
+                &:hover{
+                    background: var(--vkl-bg-bg-27);
+                    color: var(--vkl-bg-bg-25);
+                }
+            }
+        }
+        &-5{
+            & .vl-offcanvas-sm-title{
+                color: var(--vkl-text-heading-color-6);
+            }
+            & a{
+                color: var(--vkl-text-heading-color-6);
+                &:hover{
+                    background: var(--vkl-bg-bg-6);
+                    color: var(--vkl-text-heading-color-6);
+                }
+            }
+        }
+        &-6{
+            & .vl-offcanvas-sm-title{
+                color: var(--vkl-text-heading-color-6);
+            }
+            & a{
+                color: var(--vkl-text-heading-color-6);
+                &:hover{
+                    background: var(--vkl-text-primary-color-6);
+                    color: var(--vkl-text-heading-color-6);
+                }
+            }
+        }
+        &-7{
+            & .vl-offcanvas-sm-title{
+                color: var(--vkl-text-heading-color-7);
+            }
+            & a{
+                color: var(--vkl-text-heading-color-7);
+                &:hover{
+                    background: var(--vkl-text-primary-color-7);
+                    color: var(--vkl-text-heading-color-7);
+                }
+            }
+        }
+        &-10{
+            & .vl-offcanvas-sm-title{
+                color: var(--vkl-text-heading-color-10);
+            }
+            & a{
+                color: var(--vkl-text-heading-color-10);
+                &:hover{
+                    background: var(--vkl-text-paragrapgh-color-9);
+                    color: var(--vkl-text-heading-color-10);
+                }
+            }
+        }
+    }
+
+    &-overlay{
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 50;
+        width: 100%;
+        height: 100%;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.45 easc-in-out;
+        background: rgba(24, 24, 24, 0.4);
+        &-open{
+            opacity: .7;
+            visibility: visible;
+        }
+    }
+
+}
+

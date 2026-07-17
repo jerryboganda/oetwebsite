@@ -1,0 +1,228 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  7.12 pricing css
+/*----------------------------------------*/
+
+.pricing__wrap{
+    border-radius: 8px;
+    border: 1px solid rgba(2, 7, 17, 0.10);
+    padding: 32px;
+    &-title{
+        font-size: var(--vkl-font-size-font-s32);
+        font-weight: var(--vkl-weight-regular);
+        line-height: var(--vkl-specing-height32);
+        color: var(--vkl-text-heading-color-3);
+        padding-bottom: 14px;
+    }
+    & p{
+        font-size: var(--vkl-font-size-font-s18);
+        font-weight: var(--vkl-weight-medium);
+        line-height: var(--vkl-specing-height26);
+        color: var(--vkl-text-paragrapgh-color-3);
+        padding-bottom: 24px;
+    }
+    &-list{
+        & ul{
+            & li{
+                display: flex;
+                @media #{$md}{
+                    display: flex;
+                }
+                & span{
+                    height: 20px;
+                    width: 20px;
+                    line-height: 20px;
+                    text-align: center;
+                    display: inline-block;
+                    background: var(--vkl-bg-bg-3);
+                    border-radius: 50px;
+                    color: var(--vkl-text-text-white);
+                    transition: .3s;
+                    margin-right: 4px;
+                    & img{
+                        margin-top: -4px;
+                    }
+                }
+                font-size: var(--vkl-font-size-font-s18);
+                font-weight: var(--vkl-weight-semibold);
+                line-height: 18px;
+                color: var(--vkl-text-heading-color-3);
+                transition: .3s;
+                margin-bottom: 16px;
+            }
+        }
+    }
+    &-price{
+        & .title{
+            font-size: var(--vkl-font-size-font-s44);
+            font-weight: var(--vkl-weight-regular);
+            line-height: var(--vkl-specing-height44);
+            color: var(--vkl-text-heading-color-3);
+            padding-top: 12px;
+            & span{
+                font-family: var(--vkl-family-font2);
+                font-size: var(--vkl-font-size-font-s18);
+                font-weight: var(--vkl-weight-semibold);
+                line-height: var(--vkl-specing-height18);
+                color: var(--vkl-text-heading-color-3);
+            }
+        }
+    }
+    &.active{
+        background: var(--vkl-text-primary-color-3);    
+    }
+}
+
+
+// pricing style inner page 
+
+.vl-pricing-plan-wrap{
+    border: 1px solid #DAD9E6;
+    padding: 32px;
+    border-radius: 8px;
+    @media #{$xs}{
+        padding: 20px;
+    }
+    &.active{
+        background: var(--vkl-bg-gray-bg-1);
+    }
+    & .title{
+        font-size: var(--vkl-font-size-font-s32);
+        line-height: var(--vkl-specing-height32);
+        font-weight: var(--vkl-weight-regular);
+        color: var(--vkl-text-heading-color-1);
+        transition: .3s;
+    }
+    & .para{
+        padding-top: 14px;
+        padding-bottom: 24px;
+        font-size: var(--vkl-font-size-font-s18);
+        line-height: var(--vkl-specing-height26);
+        font-weight: var(--vkl-weight-medium);
+        color: var(--vkl-text-paragrapgh-color-1);
+    }
+    &-lists{
+        & ul{
+            & li{
+                margin-bottom: 17px;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+                & span{
+                    height: 20px;
+                    width: 20px;
+                    line-height: 20px;
+                    background: var(--vkl-text-primary-color-1);
+                    text-align: center;
+                    border-radius: 50px;
+                    display: inline-block;
+                    margin-right: 4px;
+                    & img{
+                        margin-top: -2px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.vl-pricing-price{
+    & .price-title{
+        font-size: var(--vkl-font-size-font-s44);
+        line-height: var(--vkl-specing-height44);
+        color: var(--vkl-text-heading-color-1);
+        font-weight: var(--vkl-weight-regular);
+        transition: .3s;
+        padding-top: 18px;
+        padding-bottom: 24px;
+        & span{
+            font-size: var(--vkl-font-size-font-s18);
+            line-height: var(--vkl-specing-height18);
+            font-weight: var(--vkl-weight-medium);
+            color: var(--vkl-text-paragrapgh-color-1);
+        }
+    }
+}
+
+.pricing-title2{
+    font-size: var(--vkl-font-size-font-s44);
+    line-height: var(--vkl-specing-height44);
+    font-weight: var(--vkl-weight-regular);
+    color: var(--vkl-text-heading-color-1);
+}
+
+
+.table__wrap{
+    width: 100%;
+    border: 1px solid #DCDAE7;
+    border-radius: 8px;
+
+    & thead{
+        background: var(--vkl-bg-gray-bg-1);
+        & tr{
+            border-bottom: 1px solid #DCDAE7;
+            & th{
+                font-size: var(--vkl-font-size-font-s24);
+                line-height: var(--vkl-specing-height24);
+                font-weight: var(--vkl-weight-regular);
+                color: var(--vkl-text-heading-color-1);
+                font-family: var(--vkl-family-font1);
+                border-right: 1px solid #DCDAE7;
+                padding: 24px 28px;
+            }
+        }
+    }
+
+}
+
+.table__wrap{
+    & tbody tr td {
+        border-bottom: 1px solid #DCDAE7;
+    }
+    & td{
+        padding: 24px 28px;
+        border-right: 1px solid #DCDAE7;
+    }
+    td.plan-name {
+        background: var(--vkl-bg-gray-bg-1);
+        font-size:20px;
+        line-height: 28px;
+        color: var(--vkl-text-heading-color-1);
+        font-family: var(--vkl-family-font1);
+        font-weight: var(--vkl-weight-regular);
+        &.plan-price{
+            background: transparent;
+        }
+    }
+    .plan-item{
+        font-size: var(--vkl-font-size-font-s18);
+        line-height: var(--vkl-font-size-font-s26);
+        font-weight: var(--vkl-weight-medium);
+        color: var(--vkl-text-paragrapgh-color-1);
+        & span{
+            height: 20px;
+            width: 20px;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 50px;
+            margin-right: 4px;
+            background: var(--vkl-text-primary-color-1);
+            transition: .3s;
+            display: inline-block;
+            & img{
+                margin-top: -2px;
+            }
+        }
+        &.cross{
+            & span{
+                background: #FF0004;
+            }
+        }
+    }
+    & .plan-btn{
+
+    }
+}
+
+
