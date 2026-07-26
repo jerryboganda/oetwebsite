@@ -1010,18 +1010,27 @@
         }
         .oet-pricing-tabs .container {
             display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            scrollbar-width: thin;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px 12px;
+            overflow: visible;
         }
         .oet-pricing-tabs a {
-            flex: 0 0 auto;
+            display: inline-flex;
+            flex: 0 1 auto;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            max-width: 100%;
             color: #242234;
             border: 1px solid #e5ddff;
             border-radius: 999px;
             padding: 9px 15px;
             background: #fff;
             font-weight: 800;
+            line-height: 1.2;
+            text-align: center;
             white-space: nowrap;
         }
         .oet-pricing-tabs a:hover,
@@ -1296,6 +1305,18 @@
             }
             .oet-pricing-hero-nav--prev { left: 8px; }
             .oet-pricing-hero-nav--next { right: 8px; }
+            .oet-pricing-tabs {
+                padding: 10px 0;
+            }
+            .oet-pricing-tabs .container {
+                gap: 8px;
+                padding-inline: 12px;
+            }
+            .oet-pricing-tabs a {
+                min-height: 38px;
+                padding: 8px 12px;
+                font-size: 14px;
+            }
             .oet-pricing-section { padding: 46px 0 42px; }
             .oet-pricing-section-head { display: block; }
             .oet-pricing-section-head h2 { font-size: 28px; }
