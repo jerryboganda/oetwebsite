@@ -391,13 +391,31 @@
                 return;
             }
 
-            syncTimer = window.setInterval(function () {
-                if (!state.threadRef || document.visibilityState === 'hidden' || isSending) {
-                    return;
-                }
+            var scheduleNext = function (delay) {
+                syncTimer = window.setTimeout(function () {
+                    syncTimer = null;
 
-                syncThread(false);
-            }, SYNC_INTERVAL_MS);
+                    if (!isOpen) {
+                        return;
+                    }
+
+                    if (!state.threadRef || document.visibilityState === 'hidden' || isSending) {
+                        scheduleNext(delay);
+                        return;
+                    }
+
+                    var before = state.messages.length;
+                    Promise.resolve(syncThread(false)).then(function () {
+                        // idle backoff: stretch 25s -> 50s -> 100s (cap 120s) while nothing new arrives
+                        var next = state.messages.length > before
+                            ? SYNC_INTERVAL_MS
+                            : Math.min(delay * 2, 120000);
+                        scheduleNext(next);
+                    });
+                }, delay);
+            };
+
+            scheduleNext(SYNC_INTERVAL_MS);
         }
 
         function stopSyncTimer() {
@@ -405,7 +423,7 @@
                 return;
             }
 
-            window.clearInterval(syncTimer);
+            window.clearTimeout(syncTimer);
             syncTimer = null;
         }
 
@@ -801,7 +819,7 @@
             });
 
             if (state.threadRef) {
-                startSyncTimer();
+                // one catch-up sync for the unread badge; continuous polling only runs while open
                 syncThread(false);
             }
         }
