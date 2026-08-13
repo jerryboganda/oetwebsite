@@ -23,3 +23,31 @@
 .oet-search-empty{padding:16px 18px;margin:0;font-size:14.5px;color:#4a4568}
 .oet-search-empty a{color:#5f46f5;font-weight:600}
 .vl-header-search-bar{height:auto;min-height:400px;padding-bottom:40px}
+/* p3 nav-ia: breadcrumbs, toc, related */
+.oet-breadcrumbs{margin-bottom:18px}
+.oet-breadcrumbs ol{display:flex;flex-wrap:wrap;align-items:center;gap:6px;list-style:none;margin:0;padding:0;font-size:13.5px}
+.oet-breadcrumbs li{display:flex;align-items:center;gap:6px;color:#55506e}
+.oet-breadcrumbs li+li::before{content:"\203A";color:#a49ec9;font-weight:700}
+.oet-breadcrumbs a{color:#5f46f5;font-weight:600;text-decoration:none}
+.oet-breadcrumbs a:hover{text-decoration:underline}
+.oet-breadcrumbs [aria-current="page"]{color:#1f1558;font-weight:700}
+.oet-toc{background:#fff;border-top:1px solid #eee9ff;border-bottom:1px solid #eee9ff}
+.oet-toc .container{display:flex;align-items:center;gap:14px;padding-top:10px;padding-bottom:10px}
+.oet-toc-label{flex:0 0 auto;font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#6b668a}
+.oet-toc-links{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;padding:2px}
+.oet-toc-links::-webkit-scrollbar{display:none}
+.oet-toc-links a{flex:0 0 auto;background:#f5f2ff;border:1px solid #e7e3fb;border-radius:999px;color:#3f3865;font-size:13.5px;font-weight:600;line-height:1;padding:9px 16px;text-decoration:none;white-space:nowrap;transition:background .15s,color .15s,border-color .15s}
+.oet-toc-links a:hover,.oet-toc-links a:focus-visible{background:#5f46f5;border-color:#5f46f5;color:#fff;outline:none}
+.oet-related{padding:70px 0 40px}
+.oet-related-title{font-size:clamp(24px,3vw,32px);color:#1f1558;margin:0 0 26px}
+.oet-related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.oet-related-card{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e7e3fb;border-radius:16px;padding:18px 20px;text-decoration:none;box-shadow:0 10px 30px rgba(31,21,88,.06);transition:transform .18s,box-shadow .18s,border-color .18s}
+.oet-related-card:hover,.oet-related-card:focus-visible{transform:translateY(-3px);border-color:#c9bcff;box-shadow:0 18px 40px rgba(31,21,88,.12);outline:none}
+.oet-related-icon{flex:0 0 46px;height:46px;width:46px;display:flex;align-items:center;justify-content:center;background:#f0ebff;border-radius:12px;color:#5f46f5;font-size:19px}
+.oet-related-body{flex:1 1 auto;min-width:0}
+.oet-related-body strong{display:block;color:#1f1558;font-size:15.5px;line-height:1.35;margin-bottom:3px}
+.oet-related-body span{display:block;color:#6b668a;font-size:13px;line-height:1.45}
+.oet-related-arrow{flex:0 0 auto;color:#b7aef2;font-size:14px;transition:transform .18s,color .18s}
+.oet-related-card:hover .oet-related-arrow{color:#5f46f5;transform:translateX(4px)}
+@media (max-width:767px){.oet-related{padding:50px 0 24px}.oet-toc .container{gap:10px}}
+.oet-404-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:34px auto 0;max-width:860px;text-align:left}

@@ -215,13 +215,51 @@ if (typeof sal === 'function') { sal(); }
 
             event.preventDefault();
 
+            var self = this;
+            var anchorOffset = -this.getHeaderOffset() - 16;
+            // Resync Lenis if native scrolls (keyboard, focus, find-in-page)
+            // left its internal position stale; element targets are resolved
+            // against animatedScroll, so a stale value lands short.
+            if (this.lenis && Math.abs(this.lenis.animatedScroll - this.getScrollY()) > 2) {
+                this.lenis.scrollTo(this.getScrollY(), { immediate: true, force: true });
+            }
             this.scrollTo(target, {
-                offset: -this.getHeaderOffset() - 16,
+                offset: anchorOffset,
                 duration: 1.05,
                 lerp: this.isTouchDevice ? 0.16 : 0.11,
                 lock: false,
                 force: true
             });
+
+            // The tween target can be computed from a stale scroll position
+            // (native scrolls Lenis has not synced yet) or drift when layout
+            // grows mid-animation. Re-check once the scroll settles and
+            // correct silently - unless the user took over scrolling.
+            var userTookOver = false;
+            var markUserScroll = function () { userTookOver = true; };
+            window.addEventListener("wheel", markUserScroll, { passive: true, once: true });
+            window.addEventListener("touchmove", markUserScroll, { passive: true, once: true });
+            var correctLanding = function (isLast) {
+                if (isLast) {
+                    window.removeEventListener("wheel", markUserScroll);
+                    window.removeEventListener("touchmove", markUserScroll);
+                }
+                if (userTookOver || !document.contains(target)) return;
+                var scrollMargin = parseFloat(window.getComputedStyle(target).scrollMarginTop) || 0;
+                // Header height differs between its top-of-page and stuck
+                // states, so measure again now that the scroll has settled.
+                var settledOffset = -self.getHeaderOffset() - 16;
+                var desired = target.getBoundingClientRect().top + self.getScrollY() - scrollMargin + settledOffset;
+                var maxScroll = Math.max(0, (document.scrollingElement || document.documentElement).scrollHeight - window.innerHeight);
+                desired = Math.max(0, Math.min(desired, maxScroll));
+                if (Math.abs(self.getScrollY() - desired) > 24) {
+                    self.scrollTo(desired, { immediate: true, force: true });
+                }
+            };
+            window.clearTimeout(this._anchorFixTimer);
+            window.clearTimeout(this._anchorFixTimer2);
+            this._anchorFixTimer = window.setTimeout(function () { correctLanding(false); }, 1250);
+            this._anchorFixTimer2 = window.setTimeout(function () { correctLanding(true); }, 2600);
 
             if (window.history && typeof window.history.pushState === "function") {
                 window.history.pushState(null, "", destination.hash);
