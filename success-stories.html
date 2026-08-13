@@ -587,7 +587,29 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
   .success-card { opacity: 1;
                 transform: none; }
 }
-</style>
+
+        /* p3: verified band, skeletons, lightbox polish */
+        .success-verified-band { display: flex; flex-wrap: wrap; gap: 26px; align-items: center; justify-content: space-between; background: #fff; border: 1px solid #e7e3fb; border-radius: 18px; padding: 26px 30px; margin: 0 0 34px; box-shadow: 0 16px 42px rgba(35, 27, 96, 0.08); }
+        .success-verified-copy { flex: 1 1 420px; min-width: 280px; }
+        .success-verified-title { font-size: 20px; margin: 0 0 8px; color: #1f1558; display: flex; align-items: center; gap: 10px; }
+        .success-verified-title i { color: #5f46f5; }
+        .success-verified-copy p { margin: 0; color: #55506e; font-size: 15px; line-height: 1.65; }
+        .success-verified-stats { display: flex; gap: 14px; margin: 0; flex: 0 1 auto; flex-wrap: wrap; }
+        .success-verified-stat { background: #f5f2ff; border-radius: 14px; padding: 14px 20px; text-align: center; min-width: 118px; }
+        .success-verified-stat dt { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: #6b668a; margin: 0 0 4px; font-weight: 700; }
+        .success-verified-stat dd { margin: 0; font-size: 22px; font-weight: 900; color: #5f46f5; }
+        .success-verified-stat dd .oet-countup { font-variant-numeric: tabular-nums; }
+        .success-loading { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; background: transparent; box-shadow: none; padding: 0; }
+        .success-skel { display: block; border-radius: 12px; height: 230px; background: linear-gradient(100deg, #ece8fb 40%, #f7f5ff 50%, #ece8fb 60%); background-size: 200% 100%; animation: oet-skel 1.2s ease-in-out infinite; }
+        .success-loading-error { grid-column: 1 / -1; padding: 34px; border-radius: 8px; background: #fff; color: #842029; text-align: center; font-weight: 700; }
+        @keyframes oet-skel { from { background-position: 120% 0; } to { background-position: -80% 0; } }
+        @media (prefers-reduced-motion: reduce) { .success-skel { animation: none; } }
+        .success-card__media { background: linear-gradient(135deg, #ece8fb, #f7f5ff); }
+        .success-lightbox__count { font-weight: 800; color: #fff; opacity: .92; }
+        #success-lightbox-img { opacity: 0; transition: opacity .25s ease; }
+        #success-lightbox-img.is-loaded { opacity: 1; }
+        @media (max-width: 767px) { .success-verified-band { padding: 22px 20px; } .success-verified-stats { width: 100%; } .success-verified-stat { flex: 1 1 30%; min-width: 96px; padding: 12px 10px; } .success-verified-stat dd { font-size: 18px; } }
+    </style>
 
     
 
@@ -906,7 +928,18 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
                     <button class="success-tab" type="button" data-year="2021">2021 <span>8</span></button>
                 </div>
             </div>
-            <div class="success-gallery-heading">
+            <div class="success-verified-band" id="success-verified">
+                    <div class="success-verified-copy">
+                        <h2 class="success-verified-title"><i class="fa-solid fa-shield-check" aria-hidden="true"></i> Verified, unedited results</h2>
+                        <p>Every screenshot in this archive was shared by a real student after their official OET result &mdash; most arrive on WhatsApp within hours of score release. Scores are never edited: open any card and tap <strong>Original</strong> to see the untouched file.</p>
+                    </div>
+                    <dl class="success-verified-stats">
+                        <div class="success-verified-stat"><dt>Score cards</dt><dd><span class="oet-countup" data-count="1634">0</span></dd></div>
+                        <div class="success-verified-stat"><dt>Years covered</dt><dd>2021&ndash;2026</dd></div>
+                        <div class="success-verified-stat"><dt>Latest additions</dt><dd><span class="oet-countup" data-count="65">0</span> in 2026</dd></div>
+                    </dl>
+                </div>
+                <div class="success-gallery-heading">
                 <h2>Browse by year</h2>
                 <p>Filter the archive by result year, then open any screenshot to view the full testimonial in a focused lightbox.</p>
             </div>
@@ -915,7 +948,7 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
                 <span class="success-page-size"><i class="fa-solid fa-layer-group"></i> 40 per page</span>
             </div>
             <div class="success-empty" id="success-empty">No screenshots are currently assigned to this year.</div>
-            <div class="success-loading" id="success-loading">Loading the full success archive...</div>
+            <div class="success-loading" id="success-loading" role="status" aria-label="Loading the success archive"><span class="success-skel"></span><span class="success-skel"></span><span class="success-skel"></span><span class="success-skel"></span><span class="success-skel"></span><span class="success-skel"></span><span class="success-skel"></span><span class="success-skel"></span></div>
             <div class="success-masonry" id="success-gallery"></div>
             <nav class="success-pagination" id="success-pagination" aria-label="Success stories pagination"></nav>
         </div>
@@ -940,7 +973,7 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
         <div class="success-lightbox__panel" role="dialog" aria-modal="true" aria-label="Success story image viewer">
             <div class="success-lightbox__image-wrap"><img decoding="async" id="success-lightbox-img" alt=""></div>
             <div class="success-lightbox__bar">
-                <div class="success-lightbox__meta"><span id="success-lightbox-year"></span><span id="success-lightbox-platform"></span></div>
+                <div class="success-lightbox__meta"><span id="success-lightbox-count" class="success-lightbox__count"></span><span id="success-lightbox-year"></span><span id="success-lightbox-platform"></span></div>
                 <div class="success-lightbox__controls">
                     <a id="success-lightbox-original" href="#" target="_blank" rel="noopener noreferrer">Original</a>
                     <button type="button" id="success-prev" aria-label="Previous success story"><i class="fa-solid fa-chevron-left"></i></button>
@@ -1410,16 +1443,20 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
     const pagination = document.getElementById('success-pagination');
     const summary = document.getElementById('success-results-summary');
     const lightbox = document.getElementById('success-lightbox');
+    const panel = lightbox.querySelector('.success-lightbox__panel');
     const img = document.getElementById('success-lightbox-img');
+    const countLabel = document.getElementById('success-lightbox-count');
     const yearLabel = document.getElementById('success-lightbox-year');
     const platformLabel = document.getElementById('success-lightbox-platform');
     const originalLink = document.getElementById('success-lightbox-original');
     let stories = [];
     let filtered = [];
     let page = 1;
+    let pageOffset = 0;
     let currentYear = 'All';
     let currentVisible = [];
     let current = 0;
+    let lastFocus = null;
 
     function escapeHtml(value) {
         return String(value || '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
@@ -1429,17 +1466,17 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
         filtered = currentYear === 'All' ? stories.slice() : stories.filter(story => story.year === currentYear);
         const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
         if (page > totalPages) page = totalPages;
-        const start = (page - 1) * PAGE_SIZE;
-        currentVisible = filtered.slice(start, start + PAGE_SIZE);
-        renderGallery(start);
+        pageOffset = (page - 1) * PAGE_SIZE;
+        currentVisible = filtered.slice(pageOffset, pageOffset + PAGE_SIZE);
+        renderGallery();
         renderPagination(totalPages);
         empty.classList.toggle('is-visible', filtered.length === 0);
-        const from = filtered.length ? start + 1 : 0;
-        const to = Math.min(start + PAGE_SIZE, filtered.length);
+        const from = filtered.length ? pageOffset + 1 : 0;
+        const to = Math.min(pageOffset + PAGE_SIZE, filtered.length);
         summary.textContent = filtered.length ? `Showing ${from}-${to} of ${filtered.length.toLocaleString()} stories` : 'No stories found for this year';
     }
 
-    function renderGallery(offset) {
+    function renderGallery() {
         gallery.innerHTML = currentVisible.map((story, localIndex) => `
             <article class="success-card" data-visible-index="${localIndex}">
                 <button class="success-card__button" type="button" aria-label="Open ${escapeHtml(story.alt || story.filename)}">
@@ -1457,7 +1494,7 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
             requestAnimationFrame(() => card.classList.add('is-visible'));
         });
         gallery.querySelectorAll('.success-card__button').forEach((button, index) => {
-            button.addEventListener('click', () => openAt(index));
+            button.addEventListener('click', () => openAt(pageOffset + index));
         });
     }
 
@@ -1492,50 +1529,127 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
         });
     }
 
-    function openAt(localIndex) {
-        const story = currentVisible[localIndex];
+    function preloadNeighbours(globalIndex) {
+        [globalIndex - 1, globalIndex + 1].forEach(n => {
+            const neighbour = filtered[(n + filtered.length) % filtered.length];
+            if (neighbour) { const pre = new Image(); pre.src = neighbour.optimizedSrc; }
+        });
+    }
+
+    function openAt(globalIndex) {
+        const story = filtered[globalIndex];
         if (!story) return;
-        current = localIndex;
+        const wasOpen = lightbox.classList.contains('is-open');
+        current = globalIndex;
+        img.classList.remove('is-loaded');
         img.src = story.optimizedSrc;
         img.alt = story.alt || story.filename;
+        if (img.complete) { img.classList.add('is-loaded'); }
+        countLabel.textContent = `${(globalIndex + 1).toLocaleString()} of ${filtered.length.toLocaleString()}`;
         yearLabel.textContent = story.year;
         platformLabel.textContent = story.platform;
         originalLink.href = story.originalSrc || story.optimizedSrc;
-        lightbox.classList.add('is-open');
-        lightbox.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
+        if (!wasOpen) {
+            lastFocus = document.activeElement;
+            lightbox.classList.add('is-open');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            document.getElementById('success-close').focus();
+            if (window.oetAnalytics) { window.oetAnalytics.track('success_lightbox_open', { year: story.year }); }
+        }
+        preloadNeighbours(globalIndex);
     }
+
+    img.addEventListener('load', () => img.classList.add('is-loaded'));
 
     function close() {
         lightbox.classList.remove('is-open');
         lightbox.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
+        if (lastFocus && typeof lastFocus.focus === 'function') { lastFocus.focus(); }
+        lastFocus = null;
     }
 
     function step(delta) {
-        if (!currentVisible.length) return;
-        current = (current + delta + currentVisible.length) % currentVisible.length;
-        openAt(current);
+        if (!filtered.length) return;
+        openAt((current + delta + filtered.length) % filtered.length);
     }
 
-    tabs.forEach(tab => tab.addEventListener('click', () => {
-        if (tab.disabled) return;
-        currentYear = tab.dataset.year;
+    function activateYear(year, fromHash) {
+        const tab = tabs.find(item => item.dataset.year === year);
+        if (!tab || tab.disabled) return;
+        currentYear = year;
         page = 1;
         tabs.forEach(item => item.classList.toggle('is-active', item === tab));
-        filterStories();
-    }));
+        if (stories.length) filterStories();
+        if (!fromHash && window.history && window.history.replaceState) {
+            window.history.replaceState(null, '', year === 'All' ? window.location.pathname : '#year-' + year);
+        }
+    }
+
+    tabs.forEach(tab => tab.addEventListener('click', () => activateYear(tab.dataset.year, false)));
 
     document.getElementById('success-close').addEventListener('click', close);
     document.getElementById('success-prev').addEventListener('click', () => step(-1));
     document.getElementById('success-next').addEventListener('click', () => step(1));
     lightbox.addEventListener('click', event => { if (event.target === lightbox) close(); });
+
     document.addEventListener('keydown', event => {
         if (!lightbox.classList.contains('is-open')) return;
         if (event.key === 'Escape') close();
         if (event.key === 'ArrowLeft') step(-1);
         if (event.key === 'ArrowRight') step(1);
+        if (event.key === 'Tab') {
+            const focusables = panel.querySelectorAll('a[href], button:not([disabled])');
+            if (!focusables.length) return;
+            const first = focusables[0];
+            const last = focusables[focusables.length - 1];
+            if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+            else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+        }
     });
+
+    let touchX = null, touchY = null;
+    lightbox.addEventListener('touchstart', event => {
+        if (event.touches.length === 1) { touchX = event.touches[0].clientX; touchY = event.touches[0].clientY; }
+    }, { passive: true });
+    lightbox.addEventListener('touchend', event => {
+        if (touchX === null) return;
+        const dx = event.changedTouches[0].clientX - touchX;
+        const dy = event.changedTouches[0].clientY - touchY;
+        touchX = touchY = null;
+        if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.5) { step(dx < 0 ? 1 : -1); }
+    }, { passive: true });
+
+    const counters = Array.from(document.querySelectorAll('.oet-countup'));
+    if (counters.length) {
+        const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const animate = el => {
+            const target = Number(el.dataset.count) || 0;
+            if (reduced) { el.textContent = target.toLocaleString(); return; }
+            const t0 = performance.now();
+            const dur = 1200;
+            const tick = now => {
+                const p = Math.min(1, (now - t0) / dur);
+                el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString();
+                if (p < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+        };
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) { animate(entry.target); io.unobserve(entry.target); }
+                });
+            }, { threshold: 0.4 });
+            counters.forEach(el => io.observe(el));
+        } else {
+            counters.forEach(animate);
+        }
+    }
+
+    const hashYear = (window.location.hash.match(/^#year-(\d{4})$/) || [])[1];
+    if (hashYear) activateYear(hashYear, true);
 
     fetch(manifestUrl)
         .then(response => {
@@ -1548,7 +1662,7 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
             filterStories();
         })
         .catch(error => {
-            loading.textContent = 'Unable to load the success stories archive. Please refresh the page.';
+            loading.innerHTML = '<span class="success-loading-error">Unable to load the success stories archive. Please refresh the page.</span>';
             console.error(error);
         });
 })();
