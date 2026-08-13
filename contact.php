@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__ . '/oet-rate-limit.php';
+
 if (!function_exists('mb_substr')) {
     function mb_substr(string $value, int $start, ?int $length = null): string
     {
@@ -23,6 +25,11 @@ function redirect_back(string $status): void
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     redirect_back('error=method');
+}
+
+// Per-IP rate limit: 5 submissions per 10 minutes (mail-bomb guard).
+if (!oet_rl_allow('contact-ip', oet_rl_client_ip(), 5, 600)) {
+    redirect_back('error=rate');
 }
 
 // Honeypot: real visitors never fill this hidden field. Pretend success for bots.

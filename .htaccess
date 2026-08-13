@@ -4,6 +4,9 @@
 
 ErrorDocument 404 /404.html
 
+# No directory listings anywhere
+Options -Indexes
+
 # ---------------------------------------------------------------
 # Compression (brotli where available, gzip fallback)
 # ---------------------------------------------------------------
@@ -99,9 +102,36 @@ RewriteRule ^service-(left|right|single)\.html$ /service.html [R=301,L]
 
 # Template preview page -> home
 RewriteRule ^preview\.html$ / [R=301,L]
+
+# Login: single canonical server-side redirect to the app (Phase 5)
+# NB: literal %2F would be parsed as a RewriteCond backreference; NE keeps "/" raw.
+RewriteRule ^login\.html$ https://app.oetwithdrhesham.co.uk/sign-in?next=/ [R=301,L,NE]
 </IfModule>
 
 # Deny access to internal docs
 <IfModule mod_alias.c>
 RedirectMatch 404 ^/docs/
+RedirectMatch 404 ^/\.git
+RedirectMatch 404 ^/storage/
 </IfModule>
+
+# ---------------------------------------------------------------
+# Security headers (Phase 5)
+# ---------------------------------------------------------------
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+    # Browsers ignore HSTS over plain HTTP, so this is safe to send unconditionally.
+    Header always set Strict-Transport-Security "max-age=15552000; includeSubDomains"
+    # CSP: local-first site; GA4/Umami + YouTube facade allowed explicitly.
+    # 'unsafe-inline' is required by the theme's inline scripts until the Astro build (Phase 6).
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://i.ytimg.com https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://cloud.umami.is https://api-gateway.umami.dev; frame-src https://www.youtube-nocookie.com https://www.youtube.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+</IfModule>
+
+# Block web access to include-only / internal files
+<FilesMatch "^(oet-chat-lib\.php|oet-rate-limit\.php|server\.js|package(-lock)?\.json|composer\.(json|lock)|\.gitignore|\.gitattributes|.*\.(md|bundle|map))$">
+    Require all denied
+</FilesMatch>

@@ -28,3 +28,6 @@ dist/
 # Logs
 *.log
 
+
+# Rate-limit counters (runtime data)
+storage/oet-chat/ratelimit/

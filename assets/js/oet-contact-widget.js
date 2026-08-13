@@ -27,6 +27,7 @@
         function defaultState() {
             return {
                 threadRef: '',
+                accessToken: '',
                 hasOpenedWidget: false,
                 visitor: {
                     name: '',
@@ -51,6 +52,7 @@
 
                 return {
                     threadRef: typeof parsed.threadRef === 'string' ? parsed.threadRef : fallback.threadRef,
+                    accessToken: typeof parsed.accessToken === 'string' ? parsed.accessToken : fallback.accessToken,
                     hasOpenedWidget: Boolean(parsed.hasOpenedWidget),
                     visitor: {
                         name: parsed.visitor && typeof parsed.visitor.name === 'string' ? parsed.visitor.name : fallback.visitor.name,
@@ -370,6 +372,10 @@
                 state.threadRef = payload.thread_ref;
             }
 
+            if (payload.access_token) {
+                state.accessToken = payload.access_token;
+            }
+
             if (payload.visitor) {
                 setVisitorState({
                     name: payload.visitor.name || state.visitor.name,
@@ -519,6 +525,7 @@
 
             var formData = new FormData();
             formData.append('thread_ref', state.threadRef);
+            formData.append('access_token', state.accessToken || '');
 
             return fetch(SYNC_ENDPOINT, {
                 method: 'POST',
@@ -593,6 +600,7 @@
 
             var formData = new FormData();
             formData.append('thread_ref', ensureThreadRef());
+            formData.append('access_token', state.accessToken || '');
             formData.append('name', visitor.name);
             formData.append('email', visitor.email);
             formData.append('phone', '');
@@ -627,6 +635,9 @@
                 }
 
                 state.threadRef = result.payload.thread_ref || state.threadRef;
+                    if (result.payload.access_token) {
+                        state.accessToken = result.payload.access_token;
+                    }
                 setVisitorState(visitor);
                 if (result.payload.thread && Array.isArray(result.payload.thread.messages)) {
                     state.messages = result.payload.thread.messages;

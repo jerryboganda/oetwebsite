@@ -50,6 +50,17 @@ function oet_chat_normalize_text(string $text): string
     return trim($text);
 }
 
+/**
+ * Make a value safe for use inside an email header line
+ * (blocks CR/LF header injection through name/phone fields).
+ */
+function oet_chat_header_value(string $value): string
+{
+    $value = str_replace(["\r", "\n", "\0"], ' ', $value);
+    $value = preg_replace('/\s+/', ' ', $value) ?? $value;
+    return trim($value);
+}
+
 function oet_chat_storage_root(): string
 {
     return oet_chat_config()['storage_root'];
@@ -85,6 +96,20 @@ function oet_chat_generate_thread_ref(): string
     return 'OETCHAT-' . $token;
 }
 
+function oet_chat_generate_access_token(): string
+{
+    try {
+        return bin2hex(random_bytes(16));
+    } catch (Throwable $e) {
+        return sha1(uniqid('', true) . microtime());
+    }
+}
+
+function oet_chat_thread_exists(string $threadRef): bool
+{
+    return is_file(oet_chat_thread_path($threadRef));
+}
+
 function oet_chat_clean_thread_ref(?string $threadRef): string
 {
     $threadRef = strtoupper(trim((string) $threadRef));
@@ -109,6 +134,7 @@ function oet_chat_default_thread(string $threadRef): array
 
     return [
         'thread_ref' => oet_chat_clean_thread_ref($threadRef),
+        'access_token' => oet_chat_generate_access_token(),
         'created_at' => $now,
         'updated_at' => $now,
         'last_sync_at' => null,
@@ -140,6 +166,7 @@ function oet_chat_load_thread(string $threadRef): array
     }
 
     $data['thread_ref'] = oet_chat_clean_thread_ref((string) ($data['thread_ref'] ?? $threadRef));
+    $data['access_token'] = (string) ($data['access_token'] ?? '');
     $data['visitor'] = array_merge(
         ['name' => '', 'email' => '', 'phone' => ''],
         is_array($data['visitor'] ?? null) ? $data['visitor'] : []
@@ -469,8 +496,10 @@ function oet_chat_send_via_mail(array $config, string $to, string $subject, stri
 function oet_chat_send_support_email(array $thread, array $visitor, string $messageText): array
 {
     $config = oet_chat_config();
-    $threadRef = (string) ($thread['thread_ref'] ?? '');
-    $subject = sprintf('OET Live Chat [%s] - %s', $threadRef, $visitor['name'] !== '' ? $visitor['name'] : 'Website visitor');
+    $threadRef = oet_chat_header_value((string) ($thread['thread_ref'] ?? ''));
+    $safeName = oet_chat_header_value((string) $visitor['name']);
+    $safeEmail = oet_chat_header_value((string) $visitor['email']);
+    $subject = sprintf('OET Live Chat [%s] - %s', $threadRef, $safeName !== '' ? $safeName : 'Website visitor');
 
     $body = [];
     $body[] = 'A new live chat message was sent from the OET website.';
@@ -493,11 +522,11 @@ function oet_chat_send_support_email(array $thread, array $visitor, string $mess
     $headers = [
         'MIME-Version: 1.0',
         'Content-Type: text/plain; charset=UTF-8',
-        'Reply-To: ' . ($visitor['name'] !== '' ? $visitor['name'] : 'OET Visitor') . ' <' . $visitor['email'] . '>',
+        'Reply-To: ' . ($safeName !== '' ? $safeName : 'OET Visitor') . ' <' . $safeEmail . '>',
         'X-OET-Thread-Ref: ' . $threadRef,
         'X-OET-Message-Type: user',
         'X-OET-Source: website-widget',
-        'X-OET-Visitor-Email: ' . $visitor['email'],
+        'X-OET-Visitor-Email: ' . $safeEmail,
     ];
 
     $smtp = $config['smtp'];

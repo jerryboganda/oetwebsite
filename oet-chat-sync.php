@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/oet-chat-lib.php';
+require_once __DIR__ . '/oet-rate-limit.php';
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
@@ -33,11 +34,42 @@ if ($threadRef === '') {
 }
 
 $threadRef = oet_chat_clean_thread_ref($threadRef);
-$thread = oet_chat_load_thread($threadRef);
-$sync = oet_chat_sync_mailbox_for_thread($thread);
 
-if (!empty($sync['ok']) && !empty($sync['available'])) {
-    oet_chat_save_thread($thread);
+if (!oet_rl_allow('chat-sync-min', oet_rl_client_ip(), 30, 60)) {
+    oet_chat_sync_fail(429, 'rate_limited');
+}
+
+$threadExists = oet_chat_thread_exists($threadRef);
+$thread = oet_chat_load_thread($threadRef);
+
+// Thread access control: tokenized threads require the matching secret.
+$storedToken = (string) ($thread['access_token'] ?? '');
+$providedToken = trim((string) ($_POST['access_token'] ?? ''));
+if ($threadExists && $storedToken !== '' && !hash_equals($storedToken, $providedToken)) {
+    oet_chat_sync_fail(403, 'forbidden');
+}
+
+// Throttle mailbox syncs per thread: IMAP is expensive on shared hosting.
+$lastSync = (string) ($thread['last_sync_at'] ?? '');
+$throttled = false;
+if ($threadExists && $lastSync !== '') {
+    $lastTs = strtotime($lastSync);
+    if ($lastTs !== false && (time() - $lastTs) < 20) {
+        $throttled = true;
+    }
+}
+
+if ($throttled || !$threadExists) {
+    $sync = ['ok' => true, 'available' => $threadExists, 'added' => 0, 'folders' => []];
+} else {
+    $sync = oet_chat_sync_mailbox_for_thread($thread);
+}
+
+if (!$throttled && !empty($sync['ok']) && !empty($sync['available'])) {
+    if ($threadExists) {
+        $thread['last_sync_at'] = oet_chat_now();
+        oet_chat_save_thread($thread);
+    }
 }
 
 echo json_encode([
