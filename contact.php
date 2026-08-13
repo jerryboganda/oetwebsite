@@ -1,6 +1,13 @@
 <?php
 declare(strict_types=1);
 
+if (!function_exists('mb_substr')) {
+    function mb_substr(string $value, int $start, ?int $length = null): string
+    {
+        return $length === null ? substr($value, $start) : substr($value, $start, $length);
+    }
+}
+
 function clean_value(string $value): string
 {
     $value = trim($value);
@@ -18,12 +25,27 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     redirect_back('error=method');
 }
 
-$name = clean_value((string)($_POST['name'] ?? ''));
-$email_raw = clean_value((string)($_POST['email'] ?? ''));
-$phone = clean_value((string)($_POST['phone'] ?? ''));
-$profession = clean_value((string)($_POST['profession'] ?? ''));
-$support_needed = clean_value((string)($_POST['support_needed'] ?? ''));
-$message = trim((string)($_POST['message'] ?? ''));
+// Honeypot: real visitors never fill this hidden field. Pretend success for bots.
+if (trim((string)($_POST['website'] ?? '')) !== '') {
+    redirect_back('sent=1');
+}
+
+// Time-trap: JS stamps form_ts on load; instant submits are bots.
+// An empty value is allowed so no-JS visitors are not blocked.
+$form_ts = (string)($_POST['form_ts'] ?? '');
+if ($form_ts !== '' && ctype_digit($form_ts)) {
+    $elapsed_ms = (int)round(microtime(true) * 1000) - (int)$form_ts;
+    if ($elapsed_ms >= 0 && $elapsed_ms < 3000) {
+        redirect_back('sent=1');
+    }
+}
+
+$name = mb_substr(clean_value((string)($_POST['name'] ?? '')), 0, 120);
+$email_raw = mb_substr(clean_value((string)($_POST['email'] ?? '')), 0, 254);
+$phone = mb_substr(clean_value((string)($_POST['phone'] ?? '')), 0, 30);
+$profession = mb_substr(clean_value((string)($_POST['profession'] ?? '')), 0, 40);
+$support_needed = mb_substr(clean_value((string)($_POST['support_needed'] ?? '')), 0, 40);
+$message = mb_substr(trim((string)($_POST['message'] ?? '')), 0, 5000);
 
 $email = filter_var($email_raw, FILTER_VALIDATE_EMAIL);
 

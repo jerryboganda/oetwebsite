@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="assets/css/oet-icons.css?v=fb6ca9f443">
 <!-- style css -->
     <link rel="stylesheet" href="assets/css/style.min.css?v=3fa9e8fd2c">
-    <link rel="stylesheet" href="assets/css/oet-common.css?v=bca8b4e98e">
+    <link rel="stylesheet" href="assets/css/oet-common.css?v=60ec655961">
 <style>
 body.oet-live-site .hero-banner-lavender .row.align-items-center { align-items: center !important; }
 body.oet-live-site .hero-banner-lavender .col-xl-6 > .p-relative { position: relative;
@@ -810,7 +810,7 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
 
     <!-- vl header search  -->
     <div class="vl-header-search-bar d-flex align-items-center">
-        <button class="vl-search-close">ï¿½</button>
+        <button class="vl-search-close" aria-label="Close search">&times;</button>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
@@ -1014,15 +1014,15 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
                             <div class="vl-footer-widget-4 vl-footer-widget-4-10">
                                 <h3 class="vl-footer-widget-title vl-footer-widget-title-6 mb-30">Subscribe for OET Updates</h3>
                                 <!-- Newslater -->
-                                <div class="vl-footer-newslate10">
-                                    <form action="#">
-                                        <input type="email" placeholder="Your Email">
-                                    </form>
-                                    <div class="neslat-btn10">
-                                        <button class="primary-btn-10">Subscribe Now <span><i
-                                                    class="fa-regular fa-arrow-right"></i></span></button>
+                                <div class="vl-footer-newslate10 oet-footer-updates">
+                                        <p class="oet-updates-copy">Free tips, live class alerts and course updates &mdash; straight from Dr Hesham.</p>
+                                        <div class="neslat-btn10">
+                                            <a class="primary-btn-10" href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">Join Telegram Channel <span><i class="fa-brands fa-telegram"></i></span></a>
+                                        </div>
+                                        <div class="neslat-btn10 oet-updates-btn2">
+                                            <a class="primary-btn-10 oet-btn-yt" href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer">Subscribe on YouTube <span><i class="fa-brands fa-youtube"></i></span></a>
+                                        </div>
                                     </div>
-                                </div>
                             </div>
 
                         </div>
@@ -1555,5 +1555,6 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
 </script>
     <script src="/assets/js/oet-analytics.js?v=48e9b8c398" defer></script>
     <script src="/assets/js/oet-cookie-consent.js?v=136316b207" defer></script>
-</body>
+<script src="assets/js/oet-search.js?v=e0bbb3b3e8" defer></script>
+    </body>
 </html>
