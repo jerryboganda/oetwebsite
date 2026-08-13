@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="assets/css/plugins/sal.css?v=1814337af4">
 <!-- style css -->
     <link rel="stylesheet" href="assets/css/style.min.css?v=3fa9e8fd2c">
-    <link rel="stylesheet" href="assets/css/oet-common.css?v=ad4b43749d">
+    <link rel="stylesheet" href="assets/css/oet-common.css?v=ea5f4e9df1">
 <link rel="stylesheet" href="assets/css/oet-pathway.css?v=cd705d7299">
 <style>
 body.oet-live-site footer.vl-footer-10 { margin-top: 32px !important;
@@ -161,6 +161,7 @@ body.oet-live-site footer.vl-footer-10 { margin-top: 32px !important;
 </head>
 
 <body class="oet-live-site">
+    <a class="oet-skip-link" data-lenis-ignore-anchor href="#main-content">Skip to main content</a>
 
 <!--================= Header section start =================-->
     <header>
@@ -204,7 +205,7 @@ body.oet-live-site footer.vl-footer-10 { margin-top: 32px !important;
                         </div>
                         <div class="col-xl-7 d-none d-xl-block">
                             <div class="vl-main-menu text-center">
-                                <nav class="vl-mobile-menu-active">
+                                <nav class="vl-mobile-menu-active" aria-label="Main navigation">
                                     <ul>
                                         <li class="has-dropdown"><a href="about.html">About <span class="downarrow"><i class="fa-regular fa-angle-down"></i></span></a>
                                             <ul class="sub-menu">
@@ -266,8 +267,8 @@ body.oet-live-site footer.vl-footer-10 { margin-top: 32px !important;
                             <div class="vl-header-right">
                                 <!-- header btn -->
                                 <div class="vl-header-search d-none d-xl-block">
-                                    <span><img loading="lazy" decoding="async" class="vl-search-toggle" src="assets/img/icon/vl-search-1.1.svg"
-                                            alt="Search OET tips, writing, speaking, UK pathway"></span>
+                                    <button type="button" class="oet-search-btn" aria-label="Search this site" aria-controls="vl-header-search" aria-expanded="false"><img aria-hidden="true" loading="lazy" decoding="async" class="vl-search-toggle" src="assets/img/icon/vl-search-1.1.svg"
+                                            alt=""></button>
                                 </div>
                                 <!-- header social area -->
                                 <div class="social-area social-area-headerTop d-none d-xl-block">
@@ -280,7 +281,7 @@ body.oet-live-site footer.vl-footer-10 { margin-top: 32px !important;
 
                             <!-- action btn -->
                             <div class="vl-header-action-item d-block d-xl-none">
-                                <button type="button" class="vl-offcanvas-toggle">
+                                <button type="button" class="vl-offcanvas-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="vl-offcanvas-menu">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" viewBox="0 0 30 16">
                                         <g clip-path="url(#clip0_54_1070)">
                                             <path d="M3.625 3.45829H26.375" stroke="#000000" stroke-width="1.5"
@@ -306,7 +307,7 @@ body.oet-live-site footer.vl-footer-10 { margin-top: 32px !important;
     </header>
 
     <!-- vl header search  -->
-    <div class="vl-header-search-bar d-flex align-items-center">
+    <div id="vl-header-search" class="vl-header-search-bar d-flex align-items-center">
         <button class="vl-search-close" aria-label="Close search">&times;</button>
         <div class="container">
             <div class="row justify-content-center">
@@ -315,7 +316,7 @@ body.oet-live-site footer.vl-footer-10 { margin-top: 32px !important;
                         <h2 class="vl-search-bar-title mb-30">Search OET tips, writing, speaking, UK pathway</h2>
                         <div class="contact-form-box contact-search-form-box">
                             <form action="#">
-                                <input type="text" placeholder="Search OET preparation, writing, speaking...">
+                                <input type="search" aria-label="Search this site" placeholder="Search OET preparation, writing, speaking...">
                                 <button type="submit"><i class="far fa-search"></i></button>
                             </form>
                         </div>
@@ -327,7 +328,7 @@ body.oet-live-site footer.vl-footer-10 { margin-top: 32px !important;
     <!-- vl header search end -->
 
     <!-- offcanvas menu start -->
-    <div class="vl-offcanvas">
+    <div id="vl-offcanvas-menu" class="vl-offcanvas">
         <div class="vl-offcanvas-wrapper">
             <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-50">
                 <div class="vl-offcanvas-logo">
@@ -339,7 +340,7 @@ body.oet-live-site footer.vl-footer-10 { margin-top: 32px !important;
             </div>
 
             <div class="vl-offcanvas-menu d-lg-block mb-40">
-                <nav></nav>
+                <nav aria-label="Mobile navigation"></nav>
             </div>
             <div class="vl-offcanvas-info mb-40">
                 <h3 class="vl-offcanvas-sm-title mb-20">Contact &amp; Community</h3>
@@ -364,7 +365,7 @@ body.oet-live-site footer.vl-footer-10 { margin-top: 32px !important;
     <!--================= Header section End =================-->
 
 
-            <main>
+            <main id="main-content" tabindex="-1">
 <section class="pathway-hero p-relative fix"><div class="container">
                 <nav class="oet-breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Australia Pathway Guide</li></ol></nav><div class="row align-items-center"><div class="col-xl-7 mb-40"><span class="pathway-eyebrow" data-sal="slide-up" data-sal-duration="900" data-sal-delay="100" data-sal-easing="ease-in-out"><i class="fa-solid fa-earth-oceania"></i> Free Resource - Edition 2026</span><h1 class="pathway-title text-anime-style-2">Australia Pathway Guide for OET Candidates</h1><p class="pathway-lead text-anime-style-3">A practical Australia pathway guide for doctors, nurses, pharmacists and physiotherapists preparing for OET, AHPRA registration and profession-specific assessment routes.</p><div class="pathway-cta-row" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="160" data-sal-easing="ease-in-out"><a class="pathway-btn pathway-btn--primary" href="https://wa.me/447961725989?text=Hello%20Dr%20Hesham%2C%20I%20need%20pathway%20and%20OET%20guidance." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Message on WhatsApp for Pathway Guidance</a><a class="pathway-btn pathway-btn--secondary oet-community-cta" href="#oet-community-popup"><i class="fa-solid fa-users"></i> Join Free Community</a></div></div><div class="col-xl-5 mb-40"><div class="pathway-map" data-sal="slide-left" data-sal-duration="1100" data-sal-delay="180" data-sal-easing="ease-in-out"><div class="pathway-map-step"><span class="pathway-icon"><i class="fa-solid fa-id-card"></i></span> Confirm profession and regulator route</div><div class="pathway-map-step"><span class="pathway-icon"><i class="fa-solid fa-language"></i></span> Match OET scores to AHPRA date rules</div><div class="pathway-map-step"><span class="pathway-icon"><i class="fa-solid fa-file-shield"></i></span> Prepare verification and assessment evidence</div><div class="pathway-map-step"><span class="pathway-icon"><i class="fa-solid fa-clipboard-check"></i></span> Plan exams, supervised practice or OBA</div><div class="pathway-map-step"><span class="pathway-icon"><i class="fa-brands fa-whatsapp"></i></span> Get pathway-focused OET support</div></div></div></div></div></section>
         <nav class="oet-toc" aria-label="On this page"><div class="container"><span class="oet-toc-label">On this page</span><div class="oet-toc-links"><a href="#sec-australia-pathway-overview">Australia pathway overview</a><a href="#sec-ahpra-english-language-standard-at-a">AHPRA English language standard at…</a><a href="#sec-doctors-medical-board-and-amc-pathway">Doctors</a><a href="#sec-nurses-and-midwives-nmba-outcomes-based">Nurses and midwives</a><a href="#sec-pharmacists-pharmacy-board-and-apc-knowledge">Pharmacists</a><a href="#sec-physiotherapists-apep-and-physiotherapy-board-route">Physiotherapists</a><a href="#sec-candidate-checklist-before-you-start">Candidate checklist before you start</a><a href="#sec-official-sources-to-verify">Official sources to verify</a><a href="#sec-how-we-help-australia-pathway-candidates">How we help Australia pathway…</a><a href="#sec-frequently-asked-questions">Frequently asked questions</a></div></div></nav>
@@ -493,7 +494,7 @@ body.oet-live-site footer.vl-footer-10 { margin-top: 32px !important;
     <!-- ScrollSmoother js -->
     <script defer src="assets/js/plugins/lenis.min.js?v=5c22bad686"></script>
 <!-- Custom js -->
-<script defer src="assets/js/main.js?v=1ac25a1441"></script>
+<script defer src="assets/js/main.js?v=102024749a"></script>
      <script defer src="assets/js/oet-contact-widget.js?v=8630ee71c1"></script>
     <script>
         window.addEventListener('load', function () {
@@ -676,7 +677,7 @@ body.oet-live-site footer.vl-footer-10 { margin-top: 32px !important;
     </script>
 
 
-    <div class="oet-community-popup" id="oet-community-popup" aria-hidden="true">
+    <div class="oet-community-popup" id="oet-community-popup" role="dialog" aria-modal="true" aria-label="Join the free OET community" aria-hidden="true">
         <div class="oet-community-popup__overlay" data-oet-community-close></div>
         <div class="oet-community-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="oet-community-popup-title" aria-describedby="oet-community-popup-intro">
             <button class="oet-community-popup__close" type="button" data-oet-community-close aria-label="Close community popup">
@@ -833,10 +834,25 @@ body.oet-live-site footer.vl-footer-10 { margin-top: 32px !important;
             }
 
             document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape' && popup.classList.contains('is-open')) {
-                    closePopup();
-                }
+            if (event.key === 'Escape' && popup.classList.contains('is-open')) {
+                closePopup();
+                return;
+            }
+            if (event.key !== 'Tab' || !popup.classList.contains('is-open')) return;
+            var items = Array.prototype.filter.call(popup.querySelectorAll(focusableSelector), function (el) {
+                return el.offsetParent !== null;
             });
+            if (!items.length) return;
+            var first = items[0];
+            var last = items[items.length - 1];
+            if (event.shiftKey && (document.activeElement === first || !popup.contains(document.activeElement))) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && (document.activeElement === last || !popup.contains(document.activeElement))) {
+                event.preventDefault();
+                first.focus();
+            }
+        });
         })();
     </script>
 

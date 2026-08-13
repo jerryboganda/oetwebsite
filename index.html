@@ -45,7 +45,7 @@
     <link rel="stylesheet" href="assets/css/plugins/sal.css?v=1814337af4">
 <!-- style css -->
     <link rel="stylesheet" href="assets/css/style.min.css?v=3fa9e8fd2c">
-    <link rel="stylesheet" href="assets/css/oet-common.css?v=ad4b43749d">
+    <link rel="stylesheet" href="assets/css/oet-common.css?v=ea5f4e9df1">
 <style>
 body.oet-live-site .hero-banner-lavender .row.align-items-center { align-items: center !important; }
 body.oet-live-site .hero-banner-lavender .col-xl-6 > .p-relative { position: relative;
@@ -468,6 +468,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
 </head>
 
 <body class="oet-live-site">
+    <a class="oet-skip-link" data-lenis-ignore-anchor href="#main-content">Skip to main content</a>
 
 <!--================= Header section start =================-->
     <header>
@@ -511,7 +512,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                         </div>
                         <div class="col-xl-7 d-none d-xl-block">
                             <div class="vl-main-menu text-center">
-                                <nav class="vl-mobile-menu-active">
+                                <nav class="vl-mobile-menu-active" aria-label="Main navigation">
                                     <ul>
                                         <li class="has-dropdown"><a href="about.html">About <span class="downarrow"><i class="fa-regular fa-angle-down"></i></span></a>
                                             <ul class="sub-menu">
@@ -573,8 +574,8 @@ body.oet-promo-popup-lock { overflow: hidden; }
                             <div class="vl-header-right">
                                 <!-- header btn -->
                                 <div class="vl-header-search d-none d-xl-block">
-                                    <span><img loading="lazy" decoding="async" class="vl-search-toggle" src="assets/img/icon/vl-search-1.1.svg"
-                                            alt="Search OET tips, writing, speaking, UK pathway"></span>
+                                    <button type="button" class="oet-search-btn" aria-label="Search this site" aria-controls="vl-header-search" aria-expanded="false"><img aria-hidden="true" loading="lazy" decoding="async" class="vl-search-toggle" src="assets/img/icon/vl-search-1.1.svg"
+                                            alt=""></button>
                                 </div>
                                 <!-- header social area -->
                                 <div class="social-area social-area-headerTop d-none d-xl-block">
@@ -587,7 +588,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
 
                             <!-- action btn -->
                             <div class="vl-header-action-item d-block d-xl-none">
-                                <button type="button" class="vl-offcanvas-toggle">
+                                <button type="button" class="vl-offcanvas-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="vl-offcanvas-menu">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" viewBox="0 0 30 16">
                                         <g clip-path="url(#clip0_54_1070)">
                                             <path d="M3.625 3.45829H26.375" stroke="#000000" stroke-width="1.5"
@@ -613,7 +614,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
     </header>
 
     <!-- vl header search  -->
-    <div class="vl-header-search-bar d-flex align-items-center">
+    <div id="vl-header-search" class="vl-header-search-bar d-flex align-items-center">
         <button class="vl-search-close" aria-label="Close search">&times;</button>
         <div class="container">
             <div class="row justify-content-center">
@@ -622,7 +623,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                         <h2 class="vl-search-bar-title mb-30">Search OET tips, writing, speaking, UK pathway</h2>
                         <div class="contact-form-box contact-search-form-box">
                             <form action="#">
-                                <input type="text" placeholder="Search OET preparation, writing, speaking...">
+                                <input type="search" aria-label="Search this site" placeholder="Search OET preparation, writing, speaking...">
                                 <button type="submit"><i class="far fa-search"></i></button>
                             </form>
                         </div>
@@ -634,7 +635,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
     <!-- vl header search end -->
 
     <!-- offcanvas menu start -->
-    <div class="vl-offcanvas">
+    <div id="vl-offcanvas-menu" class="vl-offcanvas">
         <div class="vl-offcanvas-wrapper">
             <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-50">
                 <div class="vl-offcanvas-logo">
@@ -646,7 +647,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
             </div>
 
             <div class="vl-offcanvas-menu d-lg-block mb-40">
-                <nav></nav>
+                <nav aria-label="Mobile navigation"></nav>
             </div>
             <div class="vl-offcanvas-info mb-40">
                 <h3 class="vl-offcanvas-sm-title mb-20">Contact &amp; Community</h3>
@@ -670,7 +671,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
 
     <!--================= Header section End =================-->
 
-            <main>
+            <main id="main-content" tabindex="-1">
                 <!--================= Banner section start =================-->
                 <section class="vl-banner-area p-relative vkl-gray-bg fix hero-banner-lavender">
                     <div class="container">
@@ -1263,7 +1264,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                     <!-- video popup btn -->
                                     <div class="vl-video-pla2y">
                                         <a href="https://www.youtube.com/watch?v=hlD1BXfijWs" data-youtube-url="https://www.youtube.com/watch?v=hlD1BXfijWs" data-oet-inline-video="true"
-                                            class="video-play-btn popup-video" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-play"></i></a>
+                                            class="video-play-btn popup-video" target="_blank" rel="noopener noreferrer" aria-label="Play introduction video"><i class="fa-solid fa-play"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -1980,7 +1981,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
     <!-- ScrollSmoother js -->
     <script defer src="assets/js/plugins/lenis.min.js?v=5c22bad686"></script>
 <!-- Custom js -->
-<script defer src="assets/js/main.js?v=1ac25a1441"></script>
+<script defer src="assets/js/main.js?v=102024749a"></script>
      <script defer src="assets/js/oet-contact-widget.js?v=8630ee71c1"></script>
     <script>
         window.addEventListener('load', function () {
@@ -2307,7 +2308,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
         </div>
     </div>
 
-    <div class="oet-community-popup" id="oet-community-popup" aria-hidden="true">
+    <div class="oet-community-popup" id="oet-community-popup" role="dialog" aria-modal="true" aria-label="Join the free OET community" aria-hidden="true">
         <div class="oet-community-popup__overlay" data-oet-community-close></div>
         <div class="oet-community-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="oet-community-popup-title" aria-describedby="oet-community-popup-intro">
             <button class="oet-community-popup__close" type="button" data-oet-community-close aria-label="Close community popup">
@@ -2546,10 +2547,25 @@ body.oet-promo-popup-lock { overflow: hidden; }
             });
 
             document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape' && popup.classList.contains('is-open')) {
-                    closePopup();
-                }
+            if (event.key === 'Escape' && popup.classList.contains('is-open')) {
+                closePopup();
+                return;
+            }
+            if (event.key !== 'Tab' || !popup.classList.contains('is-open')) return;
+            var items = Array.prototype.filter.call(popup.querySelectorAll(focusableSelector), function (el) {
+                return el.offsetParent !== null;
             });
+            if (!items.length) return;
+            var first = items[0];
+            var last = items[items.length - 1];
+            if (event.shiftKey && (document.activeElement === first || !popup.contains(document.activeElement))) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && (document.activeElement === last || !popup.contains(document.activeElement))) {
+                event.preventDefault();
+                first.focus();
+            }
+        });
 
             if (swiperElement) {
                 swiperElement.addEventListener('mouseenter', function () {

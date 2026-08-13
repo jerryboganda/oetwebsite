@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="assets/css/oet-icons.css?v=fb6ca9f443">
 <!-- style css -->
     <link rel="stylesheet" href="assets/css/style.min.css?v=3fa9e8fd2c">
-    <link rel="stylesheet" href="assets/css/oet-common.css?v=ad4b43749d">
+    <link rel="stylesheet" href="assets/css/oet-common.css?v=ea5f4e9df1">
 <style>
 body.oet-live-site .hero-banner-lavender .row.align-items-center { align-items: center !important; }
 body.oet-live-site .hero-banner-lavender .col-xl-6 > .p-relative { position: relative;
@@ -686,6 +686,7 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
 </head>
 
 <body class="oet-live-site">
+    <a class="oet-skip-link" data-lenis-ignore-anchor href="#main-content">Skip to main content</a>
 
 <!--================= Header section start =================-->
     <header>
@@ -729,7 +730,7 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
                         </div>
                         <div class="col-xl-7 d-none d-xl-block">
                             <div class="vl-main-menu text-center">
-                                <nav class="vl-mobile-menu-active">
+                                <nav class="vl-mobile-menu-active" aria-label="Main navigation">
                                     <ul>
                                         <li class="has-dropdown"><a href="about.html">About <span class="downarrow"><i class="fa-regular fa-angle-down"></i></span></a>
                                             <ul class="sub-menu">
@@ -791,8 +792,8 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
                             <div class="vl-header-right">
                                 <!-- header btn -->
                                 <div class="vl-header-search d-none d-xl-block">
-                                    <span><img loading="lazy" decoding="async" class="vl-search-toggle" src="assets/img/icon/vl-search-1.1.svg"
-                                            alt="Search OET tips, writing, speaking, UK pathway"></span>
+                                    <button type="button" class="oet-search-btn" aria-label="Search this site" aria-controls="vl-header-search" aria-expanded="false"><img aria-hidden="true" loading="lazy" decoding="async" class="vl-search-toggle" src="assets/img/icon/vl-search-1.1.svg"
+                                            alt=""></button>
                                 </div>
                                 <!-- header social area -->
                                 <div class="social-area social-area-headerTop d-none d-xl-block">
@@ -805,7 +806,7 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
 
                             <!-- action btn -->
                             <div class="vl-header-action-item d-block d-xl-none">
-                                <button type="button" class="vl-offcanvas-toggle">
+                                <button type="button" class="vl-offcanvas-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="vl-offcanvas-menu">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" viewBox="0 0 30 16">
                                         <g clip-path="url(#clip0_54_1070)">
                                             <path d="M3.625 3.45829H26.375" stroke="#000000" stroke-width="1.5"
@@ -831,7 +832,7 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
     </header>
 
     <!-- vl header search  -->
-    <div class="vl-header-search-bar d-flex align-items-center">
+    <div id="vl-header-search" class="vl-header-search-bar d-flex align-items-center">
         <button class="vl-search-close" aria-label="Close search">&times;</button>
         <div class="container">
             <div class="row justify-content-center">
@@ -840,7 +841,7 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
                         <h2 class="vl-search-bar-title mb-30">Search OET tips, writing, speaking, UK pathway</h2>
                         <div class="contact-form-box contact-search-form-box">
                             <form action="#">
-                                <input type="text" placeholder="Search OET preparation, writing, speaking...">
+                                <input type="search" aria-label="Search this site" placeholder="Search OET preparation, writing, speaking...">
                                 <button type="submit"><i class="far fa-search"></i></button>
                             </form>
                         </div>
@@ -852,7 +853,7 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
     <!-- vl header search end -->
 
     <!-- offcanvas menu start -->
-    <div class="vl-offcanvas">
+    <div id="vl-offcanvas-menu" class="vl-offcanvas">
         <div class="vl-offcanvas-wrapper">
             <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-50">
                 <div class="vl-offcanvas-logo">
@@ -864,7 +865,7 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
             </div>
 
             <div class="vl-offcanvas-menu d-lg-block mb-40">
-                <nav></nav>
+                <nav aria-label="Mobile navigation"></nav>
             </div>
             <div class="vl-offcanvas-info mb-40">
                 <h3 class="vl-offcanvas-sm-title mb-20">Contact &amp; Community</h3>
@@ -890,7 +891,7 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
 
             
 
-<main class="success-page">
+<main id="main-content" tabindex="-1" class="success-page">
     <section class="success-hero">
         <div class="container">
             <div class="row align-items-center">
@@ -918,14 +919,14 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
     <section class="success-gallery-section">
         <div class="container">
             <div class="success-tabs-wrap" aria-label="Filter success stories by year">
-                <div class="success-tabs" role="tablist">
-                    <button class="success-tab is-active" type="button" data-year="All">All Stories <span>1634</span></button>
-                    <button class="success-tab" type="button" data-year="2026">2026 <span>65</span></button>
-                    <button class="success-tab" type="button" data-year="2025">2025 <span>264</span></button>
-                    <button class="success-tab" type="button" data-year="2024">2024 <span>882</span></button>
-                    <button class="success-tab" type="button" data-year="2023">2023 <span>292</span></button>
-                    <button class="success-tab" type="button" data-year="2022">2022 <span>123</span></button>
-                    <button class="success-tab" type="button" data-year="2021">2021 <span>8</span></button>
+                <div class="success-tabs" role="tablist" aria-label="Filter stories by year">
+                    <button class="success-tab is-active" type="button" data-year="All" role="tab" aria-selected="true">All Stories <span>1634</span></button>
+                    <button class="success-tab" type="button" data-year="2026" role="tab" aria-selected="false">2026 <span>65</span></button>
+                    <button class="success-tab" type="button" data-year="2025" role="tab" aria-selected="false">2025 <span>264</span></button>
+                    <button class="success-tab" type="button" data-year="2024" role="tab" aria-selected="false">2024 <span>882</span></button>
+                    <button class="success-tab" type="button" data-year="2023" role="tab" aria-selected="false">2023 <span>292</span></button>
+                    <button class="success-tab" type="button" data-year="2022" role="tab" aria-selected="false">2022 <span>123</span></button>
+                    <button class="success-tab" type="button" data-year="2021" role="tab" aria-selected="false">2021 <span>8</span></button>
                 </div>
             </div>
             <div class="success-verified-band" id="success-verified">
@@ -1105,7 +1106,7 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
 <!-- ScrollSmoother js -->
     <script defer src="assets/js/plugins/lenis.min.js?v=5c22bad686"></script>
 <!-- Custom js -->
-<script defer src="assets/js/main.js?v=1ac25a1441"></script>
+<script defer src="assets/js/main.js?v=102024749a"></script>
      <script defer src="assets/js/oet-contact-widget.js?v=8630ee71c1"></script>
     <script>
         window.addEventListener('load', function () {
@@ -1268,7 +1269,7 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
     </script>
 
 
-    <div class="oet-community-popup" id="oet-community-popup" aria-hidden="true">
+    <div class="oet-community-popup" id="oet-community-popup" role="dialog" aria-modal="true" aria-label="Join the free OET community" aria-hidden="true">
         <div class="oet-community-popup__overlay" data-oet-community-close></div>
         <div class="oet-community-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="oet-community-popup-title" aria-describedby="oet-community-popup-intro">
             <button class="oet-community-popup__close" type="button" data-oet-community-close aria-label="Close community popup">
@@ -1425,10 +1426,25 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
             }
 
             document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape' && popup.classList.contains('is-open')) {
-                    closePopup();
-                }
+            if (event.key === 'Escape' && popup.classList.contains('is-open')) {
+                closePopup();
+                return;
+            }
+            if (event.key !== 'Tab' || !popup.classList.contains('is-open')) return;
+            var items = Array.prototype.filter.call(popup.querySelectorAll(focusableSelector), function (el) {
+                return el.offsetParent !== null;
             });
+            if (!items.length) return;
+            var first = items[0];
+            var last = items[items.length - 1];
+            if (event.shiftKey && (document.activeElement === first || !popup.contains(document.activeElement))) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && (document.activeElement === last || !popup.contains(document.activeElement))) {
+                event.preventDefault();
+                first.focus();
+            }
+        });
         })();
     </script>
 
@@ -1582,7 +1598,7 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
         if (!tab || tab.disabled) return;
         currentYear = year;
         page = 1;
-        tabs.forEach(item => item.classList.toggle('is-active', item === tab));
+        tabs.forEach(item => { const on = item === tab; item.classList.toggle('is-active', on); item.setAttribute('aria-selected', on ? 'true' : 'false'); });
         if (stories.length) filterStories();
         if (!fromHash && window.history && window.history.replaceState) {
             window.history.replaceState(null, '', year === 'All' ? window.location.pathname : '#year-' + year);

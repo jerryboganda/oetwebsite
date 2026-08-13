@@ -774,21 +774,80 @@ if (typeof sal === 'function') { sal(); }
         });
     }
 
+    var offcanvasFocusableSel = 'a[href], button:not([disabled]), input:not([disabled]), select, textarea, [tabindex]:not([tabindex="-1"])';
+    var offcanvasLastTrigger = null;
+
+    function isMenuOpen() {
+        var oc = document.querySelector(".vl-offcanvas");
+        return !!(oc && oc.classList.contains("vl-offcanvas-open"));
+    }
+
+    function setMenuOpen(open, trigger) {
+        document.querySelectorAll(".vl-offcanvas").forEach(function (el) {
+            el.classList.toggle("vl-offcanvas-open", open);
+            el.setAttribute("aria-hidden", open ? "false" : "true");
+            try { el.inert = !open; } catch (e) { /* older browsers */ }
+        });
+        document.querySelectorAll(".vl-offcanvas-overlay").forEach(function (el) { el.classList.toggle("vl-offcanvas-overlay-open", open); });
+        document.querySelectorAll(".vl-offcanvas-toggle[aria-controls]").forEach(function (el) { el.setAttribute("aria-expanded", open ? "true" : "false"); });
+        document.body.classList.toggle("oet-menu-open", open);
+        if (open) {
+            offcanvasLastTrigger = trigger || null;
+            pauseSmoothScroll();
+            var oc = document.querySelector(".vl-offcanvas");
+            var first = oc ? oc.querySelector(offcanvasFocusableSel) : null;
+            if (first) window.setTimeout(function () { first.focus({ preventScroll: true }); }, 40);
+        } else {
+            document.querySelectorAll(".vl-header-search-bar").forEach(function (el) { el.classList.remove("vl-search-open"); });
+            resumeSmoothScroll();
+            if (offcanvasLastTrigger && typeof offcanvasLastTrigger.focus === "function") {
+                offcanvasLastTrigger.focus({ preventScroll: true });
+                offcanvasLastTrigger = null;
+            }
+        }
+    }
+
+    document.querySelectorAll(".vl-offcanvas, .vl-header-search-bar").forEach(function (el) {
+        el.setAttribute("aria-hidden", "true");
+        try { el.inert = true; } catch (e) { /* older browsers */ }
+    });
+
     document.querySelectorAll(".vl-offcanvas-toggle").forEach(function (btn) {
         btn.addEventListener("click", function () {
-            document.querySelectorAll(".vl-offcanvas").forEach(function (el) { el.classList.add("vl-offcanvas-open"); });
-            document.querySelectorAll(".vl-offcanvas-overlay").forEach(function (el) { el.classList.add("vl-offcanvas-overlay-open"); });
-            pauseSmoothScroll();
+            if (btn.closest(".vl-offcanvas")) {
+                setMenuOpen(false);
+            } else {
+                setMenuOpen(true, btn);
+            }
         });
     });
 
     document.querySelectorAll(".vl-offcanvas-close-toggle, .vl-offcanvas-overlay").forEach(function (btn) {
-        btn.addEventListener("click", function () {
-            document.querySelectorAll(".vl-offcanvas").forEach(function (el) { el.classList.remove("vl-offcanvas-open"); });
-            document.querySelectorAll(".vl-offcanvas-overlay").forEach(function (el) { el.classList.remove("vl-offcanvas-overlay-open"); });
-            document.querySelectorAll(".vl-header-search-bar").forEach(function (el) { el.classList.remove("vl-search-open"); });
-            resumeSmoothScroll();
+        btn.addEventListener("click", function () { setMenuOpen(false); });
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (!isMenuOpen()) return;
+        if (event.key === "Escape") {
+            setMenuOpen(false);
+            return;
+        }
+        if (event.key !== "Tab") return;
+        var oc = document.querySelector(".vl-offcanvas");
+        if (!oc) return;
+        var items = Array.prototype.filter.call(oc.querySelectorAll(offcanvasFocusableSel), function (el) {
+            return el.offsetParent !== null;
         });
+        if (!items.length) return;
+        var first = items[0];
+        var last = items[items.length - 1];
+        if (event.shiftKey && (document.activeElement === first || !oc.contains(document.activeElement))) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && (document.activeElement === last || !oc.contains(document.activeElement))) {
+            event.preventDefault();
+            first.focus();
+        }
     });
 
     /*----------------------------------------*/
@@ -801,21 +860,60 @@ if (typeof sal === 'function') { sal(); }
     /*----------------------------------------*/
     /*  header search bar
     /*----------------------------------------*/
-    document.querySelectorAll(".vl-search-toggle").forEach(function (btn) {
-        btn.addEventListener("click", function () {
-            document.querySelectorAll(".vl-header-search-bar").forEach(function (el) { el.classList.add("vl-search-open"); });
-            document.querySelectorAll(".vl-offcanvas-overlay").forEach(function (el) { el.classList.add("vl-offcanvas-overlay-open"); });
+    var searchLastTrigger = null;
+
+    function setSearchOpen(open, trigger) {
+        document.querySelectorAll(".vl-header-search-bar").forEach(function (el) {
+            el.classList.toggle("vl-search-open", open);
+            el.setAttribute("aria-hidden", open ? "false" : "true");
+            try { el.inert = !open; } catch (e) { /* older browsers */ }
+        });
+        document.querySelectorAll(".vl-offcanvas-overlay").forEach(function (el) { el.classList.toggle("vl-offcanvas-overlay-open", open); });
+        if (open) {
+            searchLastTrigger = trigger || null;
             pauseSmoothScroll();
+            var input = document.querySelector(".vl-header-search-bar form input");
+            if (input) window.setTimeout(function () { input.focus({ preventScroll: true }); }, 60);
+        } else {
+            resumeSmoothScroll();
+            if (searchLastTrigger && typeof searchLastTrigger.focus === "function") {
+                searchLastTrigger.focus({ preventScroll: true });
+                searchLastTrigger = null;
+            }
+        }
+    }
+
+    document.querySelectorAll(".vl-search-toggle").forEach(function (btn) {
+        btn.addEventListener("click", function (event) {
+            event.stopPropagation();
+            setSearchOpen(true, btn.closest("button") || btn);
         });
     });
 
     document.querySelectorAll(".vl-search-close").forEach(function (btn) {
-        btn.addEventListener("click", function () {
-            document.querySelectorAll(".vl-header-search-bar").forEach(function (el) { el.classList.remove("vl-search-open"); });
-            document.querySelectorAll(".vl-offcanvas-overlay").forEach(function (el) { el.classList.remove("vl-offcanvas-overlay-open"); });
-            resumeSmoothScroll();
-        });
+        btn.addEventListener("click", function () { setSearchOpen(false); });
     });
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key !== "Escape") return;
+        var bar = document.querySelector(".vl-header-search-bar.vl-search-open");
+        if (bar) setSearchOpen(false);
+    });
+
+    /*----------------------------------------*/
+    /*  current page highlight in menus
+    /*----------------------------------------*/
+    (function () {
+        var path = window.location.pathname.replace(/\/index\.html$/, "/").replace(/^\//, "");
+        if (path === "" || path === "index.html") path = "index.html";
+        document.querySelectorAll("header nav a[href], .vl-offcanvas nav a[href]").forEach(function (link) {
+            var href = link.getAttribute("href").split("#")[0].split("?")[0].replace(/^\//, "");
+            if (!href) return;
+            if (href === path || (path === "index.html" && (href === "/" || href === "index.html"))) {
+                link.setAttribute("aria-current", "page");
+            }
+        });
+    })();
 
     /*----------------------------------------*/
     /*  swiper sliders (live pages only)
@@ -823,6 +921,10 @@ if (typeof sal === 'function') { sal(); }
     function initSwiper(selector, options) {
         if (typeof Swiper === "undefined" || !document.querySelector(selector)) {
             return;
+        }
+        if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches && options) {
+            delete options.autoplay;
+            options.allowTouchMove = true;
         }
         new Swiper(selector, options);
     }
