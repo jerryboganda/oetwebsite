@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="oet-live-site">
 
 <head>
@@ -8,6 +8,9 @@
 
     <!-- fav logo -->
     <link rel="icon" href="assets/img/logo/fav-icon.png" type="image/png" sizes="64x64">
+
+    <!-- LCP hero preload -->
+    <link rel="preload" as="image" type="image/avif" imagesrcset="assets/img/hero/dr-hesham-480.avif 480w, assets/img/hero/dr-hesham-720.avif 720w, assets/img/hero/dr-hesham-960.avif 960w, assets/img/hero/dr-hesham-1122.avif 1122w" imagesizes="(max-width: 575px) 90vw, (max-width: 1199px) 430px, 40vw" fetchpriority="high">
 
     <!-- css files -->
 
@@ -1410,7 +1413,7 @@
     <div class="preloader">
         <div class="loading-container">
             <div class="loading"></div>
-            <div id="loading-icon"><img src="assets/img/preloader/logo.png" alt="OET with Dr Hesham"></div>
+            <div id="loading-icon"><img width="2000" height="2000" loading="lazy" decoding="async" src="assets/img/preloader/logo.png" alt="OET with Dr Hesham"></div>
         </div>
     </div>
 
@@ -1451,7 +1454,7 @@
                     <div class="row align-items-center">
                         <div class="col-xl-2 col-md-6 col-6">
                             <div class="vl-logo">
-                                <a href="/" title="OET with Dr Hesham | The Pathway to UK"><img src="assets/img/logo/platform-logo.png" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                                <a href="/" title="OET with Dr Hesham | The Pathway to UK"><img width="320" height="90" decoding="async" src="assets/img/logo/platform-logo.png" alt="OET with Dr Hesham | The Pathway to UK"></a>
                             </div>
                         </div>
                         <div class="col-xl-7 d-none d-xl-block">
@@ -1518,7 +1521,7 @@
                             <div class="vl-header-right">
                                 <!-- header btn -->
                                 <div class="vl-header-search d-none d-xl-block">
-                                    <span><img class="vl-search-toggle" src="assets/img/icon/vl-search-1.1.svg"
+                                    <span><img loading="lazy" decoding="async" class="vl-search-toggle" src="assets/img/icon/vl-search-1.1.svg"
                                             alt="Search OET tips, writing, speaking, UK pathway"></span>
                                 </div>
                                 <!-- header social area -->
@@ -1559,7 +1562,7 @@
 
     <!-- vl header search  -->
     <div class="vl-header-search-bar d-flex align-items-center">
-        <button class="vl-search-close">�</button>
+        <button class="vl-search-close">ï¿½</button>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
@@ -1583,7 +1586,7 @@
         <div class="vl-offcanvas-wrapper">
             <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-50">
                 <div class="vl-offcanvas-logo">
-                    <a href="/" title="OET with Dr Hesham | The Pathway to UK"><img src="assets/img/logo/platform-logo.png" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                    <a href="/" title="OET with Dr Hesham | The Pathway to UK"><img width="320" height="90" decoding="async" src="assets/img/logo/platform-logo.png" alt="OET with Dr Hesham | The Pathway to UK"></a>
                 </div>
                 <div class="vl-offcanvas-close">
                     <button class="vl-offcanvas-toggle" type="button" aria-label="Close menu"><span aria-hidden="true">&times;</span></button>
@@ -1595,9 +1598,9 @@
             </div>
             <div class="vl-offcanvas-info mb-40">
                 <h3 class="vl-offcanvas-sm-title mb-20">Contact &amp; Community</h3>
-                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer"> <span><img src="assets/img/icon/vl-icon-1.1.svg" alt=""></span> Join Free Community</a>
-                                    <a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"> <span><img src="assets/img/icon/vl-icon-1.3.svg" alt=""></span> WhatsApp Support</a>
-                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"> <span><img src="assets/img/icon/vl-icon-1.2.svg" alt=""></span> Telegram Channel</a>
+                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer"> <span><img loading="lazy" decoding="async" src="assets/img/icon/vl-icon-1.1.svg" alt=""></span> Join Free Community</a>
+                                    <a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"> <span><img loading="lazy" decoding="async" src="assets/img/icon/vl-icon-1.3.svg" alt=""></span> WhatsApp Support</a>
+                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"> <span><img loading="lazy" decoding="async" src="assets/img/icon/vl-icon-1.2.svg" alt=""></span> Telegram Channel</a>
             </div>
 
             <div class="vl-offcanvas-social mb-40">
@@ -1626,7 +1629,7 @@
                                     <div class="vl-section-title vl-section-title-heading">
                                         <!-- subtitle -->
                                         <h4 class="sub-title" data-sal="slide-up" data-sal-duration="800" data-sal-delay="100"
-                                    data-sal-easing="ease-in-out"> <span><img
+                                    data-sal-easing="ease-in-out"> <span><img loading="lazy" decoding="async"
                                                     src="assets/img/icon/sub-title-icon1.1.svg" alt=""></span> OET
                                             Prep For Doctors, Nurses, Pharmacists, Physiotherapist &amp; Allied Health Professionals </h4>
                                         <!-- title -->
@@ -1637,39 +1640,43 @@
                                     <div class="vl-hero-btn mt-32" data-sal="slide-up" data-sal-duration="1100"
                                         data-sal-delay="100" data-sal-easing="ease-in-out">
                                         <a href="#oet-community-popup" class="vl-primary-btn oet-community-cta" aria-label="Join Free Community!" aria-haspopup="dialog" aria-controls="oet-community-popup"> Join Free Community
-                                            <span><img src="assets/img/icon/arrow-right.svg" alt=""></span></a>
+                                            <span><img loading="lazy" decoding="async" src="assets/img/icon/arrow-right.svg" alt=""></span></a>
                                     </div>
                                     <!-- shape 1 -->
                                     <div class="vl-hero-shape-1 aniamtion-key-5 d-none d-xl-block">
-                                        <img src="assets/img/icon/vl-hero-shape-1.1.svg" alt="">
+                                        <img loading="lazy" decoding="async" src="assets/img/icon/vl-hero-shape-1.1.svg" alt="">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="p-relative">
                                     <div class="vl-banner-thumb-1">
-                                        <img class="oet-hero-doctor" src="assets/img/businessconsulting/banner/oet-hero-dr-hesham-clean.png?v=20260528c" alt="OET with Dr Hesham">
+                                        <picture>
+                                            <source type="image/avif" srcset="assets/img/hero/dr-hesham-480.avif 480w, assets/img/hero/dr-hesham-720.avif 720w, assets/img/hero/dr-hesham-960.avif 960w, assets/img/hero/dr-hesham-1122.avif 1122w" sizes="(max-width: 575px) 90vw, (max-width: 1199px) 430px, 40vw">
+                                            <source type="image/webp" srcset="assets/img/hero/dr-hesham-480.webp 480w, assets/img/hero/dr-hesham-720.webp 720w, assets/img/hero/dr-hesham-960.webp 960w, assets/img/hero/dr-hesham-1122.webp 1122w" sizes="(max-width: 575px) 90vw, (max-width: 1199px) 430px, 40vw">
+                                            <img class="oet-hero-doctor" src="assets/img/hero/dr-hesham-960.webp" width="1122" height="1402" fetchpriority="high" decoding="async" alt="Dr Hesham, OET coach">
+                                        </picture>
                                     </div>
                                     <!-- shppe 1 -->
                                     <div class="vl-banner-card-1 aniamtion-key-4">
-                                        <img src="assets/img/icon/contactzzz.png?v=5" alt="Contact us QR code">
+                                        <img width="311" height="180" decoding="async" src="assets/img/icon/contactzzz.png?v=5" alt="Contact us QR code">
                                     </div>
                                     <!-- shppe 2 -->
                                     <div class="vl-banner-card-2 aniamtion-key-4 d-none d-md-block">
-                                        <img src="assets/img/icon/rating.png" alt="Google Rating 5.0 for OET with Dr Hesham">
+                                        <img width="311" height="180" decoding="async" src="assets/img/icon/rating.png" alt="Google Rating 5.0 for OET with Dr Hesham">
                                     </div>
                                     <!-- shppe 3 -->
                                     <div class="vl-hero-shape-2">
-                                        <img class="circle" src="assets/img/icon/vl-hero-shape-1.2.svg" alt="">
+                                        <img loading="lazy" decoding="async" class="circle" src="assets/img/icon/vl-hero-shape-1.2.svg" alt="">
                                     </div>
                                     <!-- shppe 4 -->
                                     <div class="vl-hero-shape-3 aniamtion-key-5">
-                                        <img src="assets/img/icon/vl-hero-shape-1.3.svg" alt="">
+                                        <img loading="lazy" decoding="async" src="assets/img/icon/vl-hero-shape-1.3.svg" alt="">
                                     </div>
 
                                     <!-- shppe 5 -->
                                     <div class="vl-hero-shape-4">
-                                        <img src="assets/img/icon/vl-blue-shape-1.1.svg" alt="">
+                                        <img loading="lazy" decoding="async" src="assets/img/icon/vl-blue-shape-1.1.svg" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -1776,7 +1783,7 @@
                                 <div class="vl-section-title" data-sal="slide-up" data-sal-duration="1100"
                                     data-sal-delay="100" data-sal-easing="ease-in-out">
                                     <!-- subtitle -->
-                                    <h4 class="sub-title"> <span><img src="assets/img/icon/sub-title-icon1.1.svg"
+                                    <h4 class="sub-title"> <span><img loading="lazy" decoding="async" src="assets/img/icon/sub-title-icon1.1.svg"
                                                 alt=""></span> About Dr Hesham</h4>
                                 </div>
                             </div>
@@ -1788,7 +1795,7 @@
                                     <p class="para">Follow a practical learning path built for healthcare professionals through orientation sessions, speaking practice, writing feedback, mock tests, and clear UK pathway guidance designed to help you prepare with confidence.</p>
                                     <a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer" class="vl-primary-btn mt-32 mb-60" data-sal="slide-up"
                                         data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out">Message
-                                        on WhatsApp <span><img src="assets/img/icon/arrow-right.svg" alt=""></span></a>
+                                        on WhatsApp <span><img loading="lazy" decoding="async" src="assets/img/icon/arrow-right.svg" alt=""></span></a>
                                 </div>
                             </div>
                         </div>
@@ -1796,7 +1803,7 @@
                             <div class="col-xl-4 mb-30">
                                 <!-- thumb area -->
                                 <div class="vl-about-thumb-wrap reveal image-anime">
-                                    <img class="w-100" src="assets/img/businessconsulting/about/oet-coaching-banner.png" alt="OET coaching banner for healthcare professionals">
+                                    <img width="1536" height="1024" loading="lazy" decoding="async" class="w-100" src="assets/img/businessconsulting/about/oet-coaching-banner.png" alt="OET coaching banner for healthcare professionals">
                                 </div>
                             </div>
                             <div class="col-xl-8 mb-30">
@@ -1856,7 +1863,7 @@
                                 <div class="vl-section-title vl-section-title-10 mb-60">
                                     <!-- subtitle -->
                                     <h4 class="sub-title" data-sal="slide-up" data-sal-duration="1100"
-                                        data-sal-delay="100" data-sal-easing="ease-in-out"> <span><img
+                                        data-sal-delay="100" data-sal-easing="ease-in-out"> <span><img loading="lazy" decoding="async"
                                                 src="assets/img/hrconsulting/icon/sub-title10.1.svg" alt=""></span> Our
                                         Services
                                     </h4>
@@ -1881,7 +1888,7 @@
                                 <div class="service__box10">
                                     <!-- service thumb -->
                                     <div class="service__box10-thumb image-anime">
-                                        <img src="assets/img/hrconsulting/service/service-thumb-10.1.png"
+                                        <img width="514" height="300" loading="lazy" decoding="async" src="assets/img/hrconsulting/service/service-thumb-10.1.png"
                                             alt="OET diagnostic assessment">
                                     </div>
 
@@ -1902,7 +1909,7 @@
                                 <div class="service__box10">
                                     <!-- service thumb -->
                                     <div class="service__box10-thumb image-anime">
-                                        <img src="assets/img/hrconsulting/service/service-thumb-10.2.png"
+                                        <img width="514" height="300" loading="lazy" decoding="async" src="assets/img/hrconsulting/service/service-thumb-10.2.png"
                                             alt="OET speaking and writing coaching">
                                     </div>
 
@@ -1924,7 +1931,7 @@
                                 <div class="service__box10 service__box10-iconbox">
                                     <!-- service thumb -->
                                     <div class="service__box10-icon">
-                                        <span><img src="assets/img/hrconsulting/icon/service-icon-10.1.svg"
+                                        <span><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/service-icon-10.1.svg"
                                                 alt="Expert review"></span>
                                     </div>
 
@@ -1944,7 +1951,7 @@
                                 <div class="service__box10 service__box10-iconbox">
                                     <!-- service thumb -->
                                     <div class="service__box10-icon">
-                                        <span><img src="assets/img/hrconsulting/icon/service-icon-10.2.svg"
+                                        <span><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/service-icon-10.2.svg"
                                                 alt="Mock test and readiness"></span>
                                     </div>
 
@@ -1965,7 +1972,7 @@
                                 <div class="service__box10 service__box10-iconbox">
                                     <!-- service thumb -->
                                     <div class="service__box10-icon">
-                                        <span><img src="assets/img/hrconsulting/icon/service-icon-10.3.svg"
+                                        <span><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/service-icon-10.3.svg"
                                                 alt="Study planner"></span>
                                     </div>
 
@@ -1987,7 +1994,7 @@
                                 <div class="service__box10 service__box10-iconbox">
                                     <!-- service thumb -->
                                     <div class="service__box10-icon">
-                                        <span><img src="assets/img/hrconsulting/icon/service-icon-10.1.svg"
+                                        <span><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/service-icon-10.1.svg"
                                                 alt="OET writing practice"></span>
                                     </div>
 
@@ -2008,7 +2015,7 @@
                                 <div class="service__box10 service__box10-iconbox">
                                     <!-- service thumb -->
                                     <div class="service__box10-icon">
-                                        <span><img src="assets/img/hrconsulting/icon/service-icon-10.2.svg"
+                                        <span><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/service-icon-10.2.svg"
                                                 alt="OET speaking practice"></span>
                                     </div>
 
@@ -2029,7 +2036,7 @@
                                 <div class="service__box10 service__box10-iconbox">
                                     <!-- service thumb -->
                                     <div class="service__box10-icon">
-                                        <span><img src="assets/img/hrconsulting/icon/service-icon-10.3.svg"
+                                        <span><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/service-icon-10.3.svg"
                                                 alt="Vocabulary and grammar support"></span>
                                     </div>
 
@@ -2052,7 +2059,7 @@
                                 <div class="service__box10 service__box10-iconbox">
                                     <!-- service thumb -->
                                     <div class="service__box10-icon">
-                                        <span><img src="assets/img/hrconsulting/icon/service-icon-10.1.svg"
+                                        <span><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/service-icon-10.1.svg"
                                                 alt="Timed letter review"></span>
                                     </div>
 
@@ -2072,7 +2079,7 @@
                                 <div class="service__box10 service__box10-iconbox">
                                     <!-- service thumb -->
                                     <div class="service__box10-icon">
-                                        <span><img src="assets/img/hrconsulting/icon/service-icon-10.2.svg"
+                                        <span><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/service-icon-10.2.svg"
                                                 alt="Mock test analysis"></span>
                                     </div>
 
@@ -2092,7 +2099,7 @@
                                 <div class="service__box10 service__box10-iconbox">
                                     <!-- service thumb -->
                                     <div class="service__box10-icon">
-                                        <span><img src="assets/img/hrconsulting/icon/service-icon-10.3.svg"
+                                        <span><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/service-icon-10.3.svg"
                                                 alt="Recorded course access"></span>
                                     </div>
 
@@ -2121,7 +2128,7 @@
                                     <div class="vl-section-title mb-32">
                                     <!-- subtitle -->
                                         <h4 class="sub-title" data-sal="slide-up" data-sal-duration="1100"
-                                            data-sal-delay="100" data-sal-easing="ease-in-out"> <span><img
+                                            data-sal-delay="100" data-sal-easing="ease-in-out"> <span><img loading="lazy" decoding="async"
                                                     src="assets/img/icon/sub-title-icon1.1.svg" alt=""></span> Why
                                             Choose OET with Dr Hesham </h4>
                                         <!-- title -->
@@ -2133,7 +2140,7 @@
                                     </div>
                                     <!-- thumbnail -->
                                     <div class="vl-choose-thumb-1 reveal image-anime">
-                                        <img class="w-100"
+                                        <img width="550" height="462" loading="lazy" decoding="async" class="w-100"
                                             src="assets/img/businessconsulting/choose/vl-choose-thumb-1.1.png" alt="OET preparation support visual">
                                     </div>
                                 </div>
@@ -2142,7 +2149,7 @@
                                 <div class="vl-choose-wrap-content-2">
                                     <!-- thumbnail -->
                                     <div class="vl-choose-thumb-2 mb-32 reveal image-anime">
-                                        <img class="w-100"
+                                        <img width="570" height="370" loading="lazy" decoding="async" class="w-100"
                                             src="assets/img/businessconsulting/choose/vl-choose-thumb-1.2.png" alt="OET coaching and UK pathway guidance visual">
                                     </div>
                                     <!-- sec title -->
@@ -2158,16 +2165,16 @@
                                     <div class="vl-checkicon-list" data-sal="slide-up" data-sal-duration="1100"
                                         data-sal-delay="100" data-sal-easing="ease-in-out">
                                         <ul>
-                                            <li><span><img src="assets/img/icon/check.svg" alt=""></span>Practical OET
+                                            <li><span><img loading="lazy" decoding="async" src="assets/img/icon/check.svg" alt=""></span>Practical OET
                                                 preparation for busy healthcare professionals</li>
-                                            <li><span><img src="assets/img/icon/check.svg" alt=""></span>Speaking and
+                                            <li><span><img loading="lazy" decoding="async" src="assets/img/icon/check.svg" alt=""></span>Speaking and
                                                 writing support that improves exam performance</li>
-                                            <li><span><img src="assets/img/icon/check.svg" alt=""></span>Clear UK
+                                            <li><span><img loading="lazy" decoding="async" src="assets/img/icon/check.svg" alt=""></span>Clear UK
                                                 pathway guidance for nurses, doctors, and pharmacists</li>
                                         </ul>
                                     </div>
                                     <!-- btn -->
-                                    <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" class="vl-primary-btn mt-32">Subscribe Now <span><img
+                                    <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" class="vl-primary-btn mt-32">Subscribe Now <span><img loading="lazy" decoding="async"
                                                 src="assets/img/icon/arrow-right.svg" alt=""></span></a>
                                 </div>
                             </div>
@@ -2185,7 +2192,7 @@
                                 <div class="vl-section-title vl-section-title-3 mb-60">
                                     <!-- subtitle -->
                                     <h4 class="sub-title" data-sal="slide-up" data-sal-duration="1100"
-                                        data-sal-delay="100" data-sal-easing="ease-in-out"> <span><img
+                                        data-sal-delay="100" data-sal-easing="ease-in-out"> <span><img loading="lazy" decoding="async"
                                                 src="assets/img/icon/sub-title-icon3.1.svg" alt=""></span> How OET
                                         Coaching Works </h4>
                                     <!-- title -->
@@ -2198,7 +2205,7 @@
                                 <div class="work__thumb p-relative">
                                     <!-- thumb -->
                                     <div class="vl-work-thumb-three p-relative">
-                                        <img class="w-100" src="assets/img/marketingconsulting/work/vl-work-thumb-3.1.png"
+                                        <img width="1601" height="983" loading="lazy" decoding="async" class="w-100" src="assets/img/marketingconsulting/work/vl-work-thumb-3.1.png"
                                             alt="OET coaching process video thumbnail">
                                     </div>
                                     <!-- video popup btn -->
@@ -2211,15 +2218,15 @@
 
                             <!-- shape 1 -->
                             <div class="workright-arrow-right d-none d-xl-block">
-                                <img src="assets/img/marketingconsulting/work/right-arrow.png" alt="">
+                                <img width="133" height="235" loading="lazy" decoding="async" src="assets/img/marketingconsulting/work/right-arrow.png" alt="">
                             </div>
                             <!-- shape 2 -->
                             <div class="workright-arrow-left d-none d-xl-block">
-                                <img src="assets/img/marketingconsulting/work/left-arrow.png" alt="">
+                                <img width="133" height="235" loading="lazy" decoding="async" src="assets/img/marketingconsulting/work/left-arrow.png" alt="">
                             </div>
                             <!-- shape 3 -->
                             <div class="workright-arrow-down d-none d-xl-block">
-                                <img src="assets/img/marketingconsulting/work/down-arrow.png" alt="">
+                                <img width="36" height="160" loading="lazy" decoding="async" src="assets/img/marketingconsulting/work/down-arrow.png" alt="">
                             </div>
 
 
@@ -2271,7 +2278,7 @@
                                     <div class="vl-section-title vl-section-title-white mb-60">
                                         <!-- subtitle -->
                                         <h4 class="sub-title" data-sal="slide-up" data-sal-duration="1100"
-                                            data-sal-delay="100" data-sal-easing="ease-in-out"> <span><img
+                                            data-sal-delay="100" data-sal-easing="ease-in-out"> <span><img loading="lazy" decoding="async"
                                                     src="assets/img/hrconsulting/icon/sub-title10.1.svg" alt=""></span>
                                             Testimonials </h4>
                                         <!-- title -->
@@ -2296,16 +2303,16 @@
                                                     <div class="swiper-slide swiper-brand-slide-element">
                                                         <div class="testimonial__wrap10">
                                                             <div class="testimonial__wrap10-quote">
-                                                                <img src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
+                                                                <img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
                                                                     alt="">
                                                             </div>
                                                             <div class="testimonial__wrap10-review">
                                                                 <ul>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="testimonial__wrap10-content">
@@ -2313,7 +2320,7 @@
                                                             </div>
                                                             <div class="testimonial__wrap10-authbox">
                                                                 <div class="testimonial__wrap10-authbox-thumb">
-                                                                    <img src="assets/img/hrconsulting/testimonial/oet-testimonial-rh.png"
+                                                                    <img width="140" height="140" loading="lazy" decoding="async" src="assets/img/hrconsulting/testimonial/oet-testimonial-rh.png"
                                                                         alt="Dr. Rania Hassan, MBBS, MD Internal Medicine">
                                                                 </div>
                                                                 <div class="testimonial__wrap10-authbox-content">
@@ -2326,16 +2333,16 @@
                                                     <div class="swiper-slide swiper-brand-slide-element">
                                                         <div class="testimonial__wrap10">
                                                             <div class="testimonial__wrap10-quote">
-                                                                <img src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
+                                                                <img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
                                                                     alt="">
                                                             </div>
                                                             <div class="testimonial__wrap10-review">
                                                                 <ul>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="testimonial__wrap10-content">
@@ -2343,7 +2350,7 @@
                                                             </div>
                                                             <div class="testimonial__wrap10-authbox">
                                                                 <div class="testimonial__wrap10-authbox-thumb">
-                                                                    <img src="assets/img/hrconsulting/testimonial/oet-testimonial-as.png"
+                                                                    <img width="140" height="140" loading="lazy" decoding="async" src="assets/img/hrconsulting/testimonial/oet-testimonial-as.png"
                                                                         alt="Amina Saleh, BSc Nursing, RN">
                                                                 </div>
                                                                 <div class="testimonial__wrap10-authbox-content">
@@ -2356,16 +2363,16 @@
                                                     <div class="swiper-slide swiper-brand-slide-element">
                                                         <div class="testimonial__wrap10">
                                                             <div class="testimonial__wrap10-quote">
-                                                                <img src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
+                                                                <img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
                                                                     alt="">
                                                             </div>
                                                             <div class="testimonial__wrap10-review">
                                                                 <ul>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="testimonial__wrap10-content">
@@ -2373,7 +2380,7 @@
                                                             </div>
                                                             <div class="testimonial__wrap10-authbox">
                                                                 <div class="testimonial__wrap10-authbox-thumb">
-                                                                    <img src="assets/img/hrconsulting/testimonial/oet-testimonial-ok.png"
+                                                                    <img width="140" height="140" loading="lazy" decoding="async" src="assets/img/hrconsulting/testimonial/oet-testimonial-ok.png"
                                                                         alt="Omar Khaled, PharmD, MPharm">
                                                                 </div>
                                                                 <div class="testimonial__wrap10-authbox-content">
@@ -2386,16 +2393,16 @@
                                                     <div class="swiper-slide swiper-brand-slide-element">
                                                         <div class="testimonial__wrap10">
                                                             <div class="testimonial__wrap10-quote">
-                                                                <img src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
+                                                                <img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
                                                                     alt="">
                                                             </div>
                                                             <div class="testimonial__wrap10-review">
                                                                 <ul>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="testimonial__wrap10-content">
@@ -2403,7 +2410,7 @@
                                                             </div>
                                                             <div class="testimonial__wrap10-authbox">
                                                                 <div class="testimonial__wrap10-authbox-thumb">
-                                                                    <img src="assets/img/hrconsulting/testimonial/oet-testimonial-st.png"
+                                                                    <img width="140" height="140" loading="lazy" decoding="async" src="assets/img/hrconsulting/testimonial/oet-testimonial-st.png"
                                                                         alt="Sara Tarek, BPT, MSc Rehab">
                                                                 </div>
                                                                 <div class="testimonial__wrap10-authbox-content">
@@ -2424,16 +2431,16 @@
                                                     <div class="swiper-slide swiper-brand-slide-element">
                                                         <div class="testimonial__wrap10">
                                                             <div class="testimonial__wrap10-quote">
-                                                                <img src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
+                                                                <img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
                                                                     alt="">
                                                             </div>
                                                             <div class="testimonial__wrap10-review">
                                                                 <ul>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="testimonial__wrap10-content">
@@ -2441,7 +2448,7 @@
                                                             </div>
                                                             <div class="testimonial__wrap10-authbox">
                                                                 <div class="testimonial__wrap10-authbox-thumb">
-                                                                    <img src="assets/img/hrconsulting/testimonial/oet-testimonial-he.png"
+                                                                    <img width="140" height="140" loading="lazy" decoding="async" src="assets/img/hrconsulting/testimonial/oet-testimonial-he.png"
                                                                         alt="Dr. Hossam El-Sayed, MBBS, MRCP Part 1">
                                                                 </div>
                                                                 <div class="testimonial__wrap10-authbox-content">
@@ -2454,16 +2461,16 @@
                                                     <div class="swiper-slide swiper-brand-slide-element">
                                                         <div class="testimonial__wrap10">
                                                             <div class="testimonial__wrap10-quote">
-                                                                <img src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
+                                                                <img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
                                                                     alt="">
                                                             </div>
                                                             <div class="testimonial__wrap10-review">
                                                                 <ul>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="testimonial__wrap10-content">
@@ -2471,7 +2478,7 @@
                                                             </div>
                                                             <div class="testimonial__wrap10-authbox">
                                                                 <div class="testimonial__wrap10-authbox-thumb">
-                                                                    <img src="assets/img/hrconsulting/testimonial/oet-testimonial-mf.png"
+                                                                    <img width="140" height="140" loading="lazy" decoding="async" src="assets/img/hrconsulting/testimonial/oet-testimonial-mf.png"
                                                                         alt="Mona Fathy, MSc Nursing, ICU RN">
                                                                 </div>
                                                                 <div class="testimonial__wrap10-authbox-content">
@@ -2484,16 +2491,16 @@
                                                     <div class="swiper-slide swiper-brand-slide-element">
                                                         <div class="testimonial__wrap10">
                                                             <div class="testimonial__wrap10-quote">
-                                                                <img src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
+                                                                <img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
                                                                     alt="">
                                                             </div>
                                                             <div class="testimonial__wrap10-review">
                                                                 <ul>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="testimonial__wrap10-content">
@@ -2501,7 +2508,7 @@
                                                             </div>
                                                             <div class="testimonial__wrap10-authbox">
                                                                 <div class="testimonial__wrap10-authbox-thumb">
-                                                                    <img src="assets/img/hrconsulting/testimonial/oet-testimonial-kn.png"
+                                                                    <img width="140" height="140" loading="lazy" decoding="async" src="assets/img/hrconsulting/testimonial/oet-testimonial-kn.png"
                                                                         alt="Karim Nabil, PharmD, Clinical Pharmacist">
                                                                 </div>
                                                                 <div class="testimonial__wrap10-authbox-content">
@@ -2514,16 +2521,16 @@
                                                     <div class="swiper-slide swiper-brand-slide-element">
                                                         <div class="testimonial__wrap10">
                                                             <div class="testimonial__wrap10-quote">
-                                                                <img src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
+                                                                <img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-quote-10.1.svg"
                                                                     alt="">
                                                             </div>
                                                             <div class="testimonial__wrap10-review">
                                                                 <ul>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
-                                                                    <li><img src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
+                                                                    <li><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/testimonial-review-icon10.1.svg" alt=""></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="testimonial__wrap10-content">
@@ -2531,7 +2538,7 @@
                                                             </div>
                                                             <div class="testimonial__wrap10-authbox">
                                                                 <div class="testimonial__wrap10-authbox-thumb">
-                                                                    <img src="assets/img/hrconsulting/testimonial/oet-testimonial-la.png"
+                                                                    <img width="140" height="140" loading="lazy" decoding="async" src="assets/img/hrconsulting/testimonial/oet-testimonial-la.png"
                                                                         alt="Lina Adel, BSc OT, OET Candidate">
                                                                 </div>
                                                                 <div class="testimonial__wrap10-authbox-content">
@@ -2561,7 +2568,7 @@
                                 <div class="vl-section-title vl-section-title-10 mb-60">
                                     <!-- subtitle -->
                                     <h4 class="sub-title" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100"
-                                        data-sal-easing="ease-in-out"> <span><img
+                                        data-sal-easing="ease-in-out"> <span><img loading="lazy" decoding="async"
                                                 src="assets/img/hrconsulting/icon/sub-title10.1.svg" alt="Section icon"></span> Our Blog
                                     </h4>
                                     <!-- title -->
@@ -2586,7 +2593,7 @@
                                 <div class="blog__wrap10">
                                     <!-- thumb -->
                                     <div class="blog__wrap10-thumb image-anime">
-                                        <img src="assets/img/hrconsulting/blog/blog-thumb-10.1.png" alt="Healthcare professionals reviewing OET preparation material">
+                                        <img width="1433" height="1098" loading="lazy" decoding="async" src="assets/img/hrconsulting/blog/blog-thumb-10.1.png" alt="Healthcare professionals reviewing OET preparation material">
                                         <!-- tag -->
                                         <div class="tags">
                                             <a href="#">OET Preparation</a>
@@ -2595,9 +2602,9 @@
                                     <div class="blog__wrap10-content">
                                         <!-- meta -->
                                         <div class="meta">
-                                            <a href="#"> <span><img src="assets/img/hrconsulting/icon/calnender-10.1.svg"
+                                            <a href="#"> <span><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/calnender-10.1.svg"
                                                         alt="Calendar icon"></span> Mar 20, 2026 </a>
-                                            <a href="#"> <span><img src="assets/img/hrconsulting/icon/user-10.1.svg"
+                                            <a href="#"> <span><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/user-10.1.svg"
                                                         alt="Author icon"></span> Dr Hesham </a>
                                         </div>
                                         <div class="content-block">
@@ -2619,7 +2626,7 @@
                                 <div class="blog__wrap10">
                                     <!-- thumb -->
                                     <div class="blog__wrap10-thumb image-anime">
-                                        <img src="assets/img/hrconsulting/blog/blog-thumb-10.2.png" alt="Students discussing OET speaking strategy and UK pathway planning">
+                                        <img width="1433" height="1098" loading="lazy" decoding="async" src="assets/img/hrconsulting/blog/blog-thumb-10.2.png" alt="Students discussing OET speaking strategy and UK pathway planning">
                                         <!-- tag -->
                                         <div class="tags">
                                             <a href="#">UK Pathway</a>
@@ -2628,9 +2635,9 @@
                                     <div class="blog__wrap10-content">
                                         <!-- meta -->
                                         <div class="meta">
-                                            <a href="#"> <span><img src="assets/img/hrconsulting/icon/calnender-10.1.svg"
+                                            <a href="#"> <span><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/calnender-10.1.svg"
                                                         alt="Calendar icon"></span> Mar 18, 2026 </a>
-                                            <a href="#"> <span><img src="assets/img/hrconsulting/icon/user-10.1.svg"
+                                            <a href="#"> <span><img loading="lazy" decoding="async" src="assets/img/hrconsulting/icon/user-10.1.svg"
                                                         alt="Author icon"></span> Dr Hesham </a>
                                         </div>
                                         <div class="content-block">
@@ -2660,7 +2667,7 @@
                                     <div class="vl-section-title vl-section-title-7">
                                         <!-- subtitle -->
                                         <h4 class="sub-title" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100"
-                                            data-sal-easing="ease-in-out"> <span><img
+                                            data-sal-easing="ease-in-out"> <span><img loading="lazy" decoding="async"
                                                     src="assets/img/icon/sub-title-icon7.1-purple.svg" alt="FAQ icon"></span> FAQ
                                         </h4>
                                         <!-- title -->
@@ -2774,7 +2781,7 @@
                             </div>
                             <div class="col-xl-7 mb-30">
                                 <div class="cta-large-thumb-10 reveal image-anime">
-                        <img src="assets/img/hrconsulting/cta/oet-cta-banner.webp" alt="Supportive coaching call for OET learners">
+                        <img width="1774" height="887" loading="lazy" decoding="async" src="assets/img/hrconsulting/cta/oet-cta-banner.webp" alt="Supportive coaching call for OET learners">
                                 </div>
                             </div>
                         </div>
@@ -2803,7 +2810,7 @@
                             <!-- footer widget 1 -->
                             <div class="vl-footer-widget-1">
                                 <div class="vl-footer-logo">
-                                    <a href="/"><img src="assets/img/logo/footer-logo.png" alt="OET with Dr Hesham"></a>
+                                    <a href="/"><img width="320" height="90" decoding="async" src="assets/img/logo/footer-logo.png" alt="OET with Dr Hesham"></a>
                                 </div>
                                 <div class="vl-footer-content vl-footer-content-6">
                                     <p class="para pt-16 pb-24">We help nurses, doctors, pharmacists, and allied health professionals prepare for OET with practical guidance, focused feedback, and clear UK pathway support.</p>
@@ -3132,121 +3139,121 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <a class="oet-promo-popup__slide-link" href="pricing.html" aria-label="View OET promotional banner 1">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-01-file-0000000018f471f483ccd1708d679d31.webp" alt="OET promotional banner 1" width="1597" height="985" decoding="async"></span>
+                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-01-file-0000000018f471f483ccd1708d679d31.webp" alt="OET promotional banner 1" width="1597" height="985" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
                                 <a class="oet-promo-popup__slide-link" href="pricing.html" aria-label="View OET promotional banner 2">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-02-file-0000000064687246ad98bfcbbaa05194.webp" alt="OET promotional banner 2" width="1024" height="1536" loading="eager" decoding="async"></span>
+                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-02-file-0000000064687246ad98bfcbbaa05194.webp" alt="OET promotional banner 2" width="1024" height="1536" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
                                 <a class="oet-promo-popup__slide-link" href="pricing.html" aria-label="View OET promotional banner 3">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-03-file-00000000c9c07246b6eac83988eecf0c.webp" alt="OET promotional banner 3" width="1024" height="1536" loading="eager" decoding="async"></span>
+                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-03-file-00000000c9c07246b6eac83988eecf0c.webp" alt="OET promotional banner 3" width="1024" height="1536" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
                                 <a class="oet-promo-popup__slide-link" href="pricing.html" aria-label="View OET promotional banner 4">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-04-img-20260522-wa0010.webp" alt="OET promotional banner 4" width="1023" height="1537" loading="eager" decoding="async"></span>
+                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-04-img-20260522-wa0010.webp" alt="OET promotional banner 4" width="1023" height="1537" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
                                 <a class="oet-promo-popup__slide-link" href="pricing.html" aria-label="View OET promotional banner 5">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-05-img-20260623-wa0008.webp" alt="OET promotional banner 5" width="852" height="1280" loading="eager" decoding="async"></span>
+                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-05-img-20260623-wa0008.webp" alt="OET promotional banner 5" width="852" height="1280" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
                                 <a class="oet-promo-popup__slide-link" href="pricing.html" aria-label="View OET promotional banner 6">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-06-img-20260623-wa0009.webp" alt="OET promotional banner 6" width="1032" height="1280" loading="eager" decoding="async"></span>
+                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-06-img-20260623-wa0009.webp" alt="OET promotional banner 6" width="1032" height="1280" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
                                 <a class="oet-promo-popup__slide-link" href="pricing.html" aria-label="View OET promotional banner 7">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-07-img-20260623-wa0010.webp" alt="OET promotional banner 7" width="1016" height="1280" loading="eager" decoding="async"></span>
+                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-07-img-20260623-wa0010.webp" alt="OET promotional banner 7" width="1016" height="1280" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
                                 <a class="oet-promo-popup__slide-link" href="pricing.html" aria-label="View OET promotional banner 8">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-08-picsart-26-06-18-22-34-02-588.webp" alt="OET promotional banner 8" width="1191" height="1800" loading="eager" decoding="async"></span>
+                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-08-picsart-26-06-18-22-34-02-588.webp" alt="OET promotional banner 8" width="1191" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
                                 <a class="oet-promo-popup__slide-link" href="pricing.html" aria-label="View OET promotional banner 9">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-09-picsart-26-06-21-01-41-41-833.webp" alt="OET promotional banner 9" width="1426" height="1800" loading="eager" decoding="async"></span>
+                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-09-picsart-26-06-21-01-41-41-833.webp" alt="OET promotional banner 9" width="1426" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
                                 <a class="oet-promo-popup__slide-link" href="pricing.html" aria-label="View OET promotional banner 10">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-10-picsart-26-06-21-01-43-09-802.webp" alt="OET promotional banner 10" width="1355" height="1800" loading="eager" decoding="async"></span>
+                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-10-picsart-26-06-21-01-43-09-802.webp" alt="OET promotional banner 10" width="1355" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
                                 <a class="oet-promo-popup__slide-link" href="pricing.html" aria-label="View OET promotional banner 11">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-11-picsart-26-06-21-01-45-35-187.webp" alt="OET promotional banner 11" width="1202" height="1800" loading="eager" decoding="async"></span>
+                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-11-picsart-26-06-21-01-45-35-187.webp" alt="OET promotional banner 11" width="1202" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
                                 <a class="oet-promo-popup__slide-link" href="pricing.html" aria-label="View OET promotional banner 12">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-12-picsart-26-06-21-01-46-09-227.webp" alt="OET promotional banner 12" width="1279" height="1800" loading="eager" decoding="async"></span>
+                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-12-picsart-26-06-21-01-46-09-227.webp" alt="OET promotional banner 12" width="1279" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
                                 <a class="oet-promo-popup__slide-link" href="pricing.html" aria-label="View OET promotional banner 13">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-13-picsart-26-06-21-01-46-42-168.webp" alt="OET promotional banner 13" width="1273" height="1800" loading="eager" decoding="async"></span>
+                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-13-picsart-26-06-21-01-46-42-168.webp" alt="OET promotional banner 13" width="1273" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
                                 <a class="oet-promo-popup__slide-link" href="pricing.html" aria-label="View OET promotional banner 14">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-14-picsart-26-06-21-02-34-54-686.webp" alt="OET promotional banner 14" width="1438" height="1800" loading="eager" decoding="async"></span>
+                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-14-picsart-26-06-21-02-34-54-686.webp" alt="OET promotional banner 14" width="1438" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
                                 <a class="oet-promo-popup__slide-link" href="pricing.html" aria-label="View OET promotional banner 15">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-15-picsart-26-06-22-00-53-29-763.webp" alt="OET promotional banner 15" width="1284" height="1800" loading="eager" decoding="async"></span>
+                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-15-picsart-26-06-22-00-53-29-763.webp" alt="OET promotional banner 15" width="1284" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
                                 <a class="oet-promo-popup__slide-link" href="pricing.html" aria-label="View OET promotional banner 16">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-16-picsart-26-06-22-00-54-15-072.webp" alt="OET promotional banner 16" width="1448" height="1800" loading="eager" decoding="async"></span>
+                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-16-picsart-26-06-22-00-54-15-072.webp" alt="OET promotional banner 16" width="1448" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
                                 <a class="oet-promo-popup__slide-link" href="pricing.html" aria-label="View OET promotional banner 17">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-17-picsart-26-06-22-00-54-52-208.webp" alt="OET promotional banner 17" width="1337" height="1800" loading="eager" decoding="async"></span>
+                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-17-picsart-26-06-22-00-54-52-208.webp" alt="OET promotional banner 17" width="1337" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
                                 <a class="oet-promo-popup__slide-link" href="pricing.html" aria-label="View OET promotional banner 18">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-18-picsart-26-06-22-00-55-28-608.webp" alt="OET promotional banner 18" width="1355" height="1800" loading="eager" decoding="async"></span>
+                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-18-picsart-26-06-22-00-55-28-608.webp" alt="OET promotional banner 18" width="1355" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
                                 <a class="oet-promo-popup__slide-link" href="pricing.html" aria-label="View OET promotional banner 19">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-19-picsart-26-06-22-00-56-00-318.webp" alt="OET promotional banner 19" width="1199" height="1800" loading="eager" decoding="async"></span>
+                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-19-picsart-26-06-22-00-56-00-318.webp" alt="OET promotional banner 19" width="1199" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
                                 <a class="oet-promo-popup__slide-link" href="pricing.html" aria-label="View OET promotional banner 20">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-20-picsart-26-06-22-00-58-29-199.webp" alt="OET promotional banner 20" width="1271" height="1800" loading="eager" decoding="async"></span>
+                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" src="assets/img/promotional-banners/promo-20-picsart-26-06-22-00-58-29-199.webp" alt="OET promotional banner 20" width="1271" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
