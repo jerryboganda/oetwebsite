@@ -1,2 +1,30 @@
+# OS cruft
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# Secrets / environment
+.env
+.env.*
+*.pem
+*.key
+
+# Chat threads contain visitor PII — never commit
+storage/oet-chat/threads/*.json
+
+# Success-story master images — kept on server, deployed separately (291MB)
+assets/img/success-stories/originals/
+
+# Backups & editor junk — use git branches instead
+*.bak
+*.bak-*
+*~
+
+# Build tooling (Phase 6)
+node_modules/
+dist/
+.astro/
+
+# Logs
+*.log
+

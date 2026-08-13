@@ -1,0 +1,35 @@
+# OET with Dr Hesham — Apache/LiteSpeed configuration
+# Phase 0: 301 redirects for removed template pages + 404 handling
+# (Caching, compression and security headers are added in Phase 1.)
+
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# --- Removed template demo pages -> relevant live pages (301) ---
+
+# Consulting demo variants -> home
+RewriteRule ^(Accountant|Accountant-Single|BusinessConsulting|BusinessConsulting-Single|BusinessConsulting2|BusinessConsulting2-Single|CorporateConsulting|CorporateConsulting-Single|FinanceConsulting|FinanceConsulting-Single|FinancialAdvisor|FinancialAdvisor-Single|HrConsulting|HrConsulting-Single|InsuranceConsulting|InsuranceConsulting-Single|MarketingConsulting|MarketingConsulting-Single|TaxConsulting|TaxConsulting-Single)\.html$ / [R=301,L]
+
+# Blog templates -> OET tips hub
+RewriteRule ^blog-(left|right|single|style-one|style-two|style-three)\.html$ /oet-tips.html [R=301,L]
+
+# Portfolio + testimonial templates -> success stories
+RewriteRule ^portfolio(-left|-right|-single)?\.html$ /success-stories.html [R=301,L]
+RewriteRule ^testimonial\.html$ /success-stories.html [R=301,L]
+
+# Team templates -> about
+RewriteRule ^team(-details)?\.html$ /about.html [R=301,L]
+
+# Service layout templates -> courses
+RewriteRule ^service-(left|right|single)\.html$ /service.html [R=301,L]
+
+# Template preview page -> home
+RewriteRule ^preview\.html$ / [R=301,L]
+</IfModule>
+
+# Deny access to internal docs
+<IfModule mod_alias.c>
+RedirectMatch 404 ^/docs/
+</IfModule>
