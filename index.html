@@ -1208,7 +1208,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                         </ul>
                                     </div>
                                     <!-- btn -->
-                                    <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" class="vl-primary-btn mt-32">Subscribe Now <span><img loading="lazy" decoding="async"
+                                    <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" class="vl-primary-btn mt-32">Join Free Community <span><img loading="lazy" decoding="async"
                                                 src="/assets/img/icon/arrow-right.svg" alt=""></span></a>
                                 </div>
                             </div>
@@ -1630,15 +1630,15 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                         <img width="1200" height="919" loading="lazy" decoding="async" src="/assets/img/hrconsulting/blog/blog-thumb-10.1.webp" alt="Healthcare professionals reviewing OET preparation material">
                                         <!-- tag -->
                                         <div class="tags">
-                                            <a href="#">OET Preparation</a>
+                                            <a href="/oet-tips.html">OET Preparation</a>
                                         </div>
                                     </div>
                                     <div class="blog__wrap10-content">
                                         <!-- meta -->
                                         <div class="meta">
-                                            <a href="#"> <span><img loading="lazy" decoding="async" src="/assets/img/hrconsulting/icon/calnender-10.1.svg"
-                                                        alt="Calendar icon"></span> Mar 20, 2026 </a>
-                                            <a href="#"> <span><img loading="lazy" decoding="async" src="/assets/img/hrconsulting/icon/user-10.1.svg"
+                                            <span> <span><img loading="lazy" decoding="async" src="/assets/img/hrconsulting/icon/calnender-10.1.svg"
+                                                        alt="Calendar icon"></span> Mar 20, 2026 </span>
+                                            <a href="/about.html"> <span><img loading="lazy" decoding="async" src="/assets/img/hrconsulting/icon/user-10.1.svg"
                                                         alt="Author icon"></span> Dr Hesham </a>
                                         </div>
                                         <div class="content-block">
@@ -1663,15 +1663,15 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                         <img width="1200" height="919" loading="lazy" decoding="async" src="/assets/img/hrconsulting/blog/blog-thumb-10.2.webp" alt="Students discussing OET speaking strategy and UK pathway planning">
                                         <!-- tag -->
                                         <div class="tags">
-                                            <a href="#">UK Pathway</a>
+                                            <a href="/uk-pathway-guide.html">UK Pathway</a>
                                         </div>
                                     </div>
                                     <div class="blog__wrap10-content">
                                         <!-- meta -->
                                         <div class="meta">
-                                            <a href="#"> <span><img loading="lazy" decoding="async" src="/assets/img/hrconsulting/icon/calnender-10.1.svg"
-                                                        alt="Calendar icon"></span> Mar 18, 2026 </a>
-                                            <a href="#"> <span><img loading="lazy" decoding="async" src="/assets/img/hrconsulting/icon/user-10.1.svg"
+                                            <span> <span><img loading="lazy" decoding="async" src="/assets/img/hrconsulting/icon/calnender-10.1.svg"
+                                                        alt="Calendar icon"></span> Mar 18, 2026 </span>
+                                            <a href="/about.html"> <span><img loading="lazy" decoding="async" src="/assets/img/hrconsulting/icon/user-10.1.svg"
                                                         alt="Author icon"></span> Dr Hesham </a>
                                         </div>
                                         <div class="content-block">
@@ -1803,7 +1803,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                         <div class="row">
                             <div class="col-xl-5 mb-30">
                                 <div class="cta-content-wrap10">
-                                    <h3 class="title text-effect pb-32">Struggling <span>With OET</span> You Don&rsquo;t Have To Do
+                                    <h3 class="title text-effect pb-32">Struggling <span>with OET?</span> You Don&rsquo;t Have to Do
                                         It Alone</h3>
                                     <!-- btn -->
                                     <div class="cta-btn-10" data-sal="slide-right" data-sal-duration="1100" data-sal-delay="100"
@@ -2446,23 +2446,6 @@ body.oet-promo-popup-lock { overflow: hidden; }
                 button.addEventListener('click', closePopup);
             });
 
-            popup.addEventListener('keydown', function (event) {
-                if (event.key !== 'Tab') return;
-                var focusable = Array.from(popup.querySelectorAll(focusableSelector)).filter(function (element) {
-                    return element.offsetParent !== null;
-                });
-                if (!focusable.length) return;
-                var first = focusable[0];
-                var last = focusable[focusable.length - 1];
-                if (event.shiftKey && document.activeElement === first) {
-                    event.preventDefault();
-                    last.focus();
-                } else if (!event.shiftKey && document.activeElement === last) {
-                    event.preventDefault();
-                    first.focus();
-                }
-            });
-
             document.addEventListener('keydown', function (event) {
             if (event.key === 'Escape' && popup.classList.contains('is-open')) {
                 closePopup();
@@ -2537,7 +2520,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
 
     
 
-    <div class="oet-community-popup" id="oet-community-popup" role="dialog" aria-modal="true" aria-label="Join the free OET community" aria-hidden="true">
+    <div class="oet-community-popup" id="oet-community-popup" aria-hidden="true">
         <div class="oet-community-popup__overlay" data-oet-community-close></div>
         <div class="oet-community-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="oet-community-popup-title" aria-describedby="oet-community-popup-intro">
             <button class="oet-community-popup__close" type="button" data-oet-community-close aria-label="Close community popup">

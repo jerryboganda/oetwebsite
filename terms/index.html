@@ -16,178 +16,6 @@
     <link rel="stylesheet" href="/assets/css/style.min.css?v=3fa9e8fd2c">
     <link rel="stylesheet" href="/assets/css/oet-common.css?v=2be66a2473">
     <link rel="stylesheet" href="/assets/css/oet-cookie-consent.css?v=9b27efcc3c">
-    <style>
-.cta-large-thumb-10 { height: 342px;
-            overflow: visible;
-            border-radius: 16px;
-            background: linear-gradient(135deg, #6c4df6 0%, #5536e8 100%); }
-.cta-large-thumb-10 img { width: 100%;
-            height: 342px;
-            object-fit: contain;
-            object-position: center center;
-            border-radius: 16px;
-            background: linear-gradient(135deg, #6c4df6 0%, #5536e8 100%); }
-.brand-badge__icon { width: 68px;
-            height: 68px;
-            border-radius: 18px;
-            background: rgba(100, 74, 249, 0.08);
-            color: #644af9;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 31px;
-            flex: 0 0 68px;
-            box-shadow: 0 8px 18px rgba(100, 74, 249, 0.07);
-            transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease; }
-.vl-main-menu ul > li .sub-menu li a, .vl-offcanvas-menu ul li .sub-menu li a { color: var(--vkl-text-heading-color-1);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 17px;
-            line-height: 1.25;
-            white-space: nowrap;
-            width: calc(100% - 24px);
-            box-sizing: border-box;
-            margin: 0 12px;
-            padding: 11px 36px 11px 14px;
-            position: relative;
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
-            border-radius: 10px;
-            line-height: 1.25;
-            transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
-.work__thumb, .vl-work-box-grid-three { position: relative;
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
-            z-index: 1; }
-.skill-progress-grid { display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 16px;
-            align-items: start; }
-.skill-progress-card { background: transparent;
-            border: 0;
-            border-radius: 0;
-            padding: 0;
-            box-shadow: none;
-            text-align: center; }
-.skill-progress-ring { --progress: 0;
-            --ring-size: 116px;
-            width: var(--ring-size);
-            height: var(--ring-size);
-            margin: 0 auto 14px;
-            box-shadow: 0 14px 28px rgba(100, 74, 249, 0.08);
-            border-radius: 50%;
-            background:
-                radial-gradient(closest-side, #ffffff 88%, transparent 89% 100%),
-                conic-gradient(#644af9 calc(var(--progress) * 1%), rgba(100, 74, 249, 0.16) 0);
-            display: grid;
-            place-items: center;
-            position: relative;
-            transition: transform 0.35s ease, box-shadow 0.35s ease; }
-.skill-progress-ring::after { content: "";
-            position: absolute;
-            inset: 5px;
-            border-radius: 50%;
-            border: 1px solid rgba(100, 74, 249, 0.08); }
-.skill-progress-value { position: relative;
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
-            z-index: 1;
-            font-size: 31px;
-            font-weight: 900;
-            line-height: 1;
-            color: #10162f;
-            letter-spacing: -0.03em; }
-.skill-progress-value span { font-size: 13px;
-            font-weight: 800; }
-.skill-progress-card .title { margin-bottom: 2px;
-            font-size: 19px;
-            line-height: 1.0; }
-.skill-progress-card:hover .skill-progress-ring { transform: translateY(-2px) scale(1.015);
-            box-shadow: 0 18px 34px rgba(100, 74, 249, 0.16); }
-.skill-progress-card p { margin: 0;
-            font-size: 14px;
-            line-height: 1.34; }
-@media only screen and (max-width: 1199px) {
-  .skill-progress-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media only screen and (max-width: 575px) {
-  .skill-progress-grid { grid-template-columns: 1fr;
-                gap: 20px; }
-  .skill-progress-ring { --ring-size: 102px; }
-}
-.oet-skill-grid { display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 18px;
-            align-items: start; }
-.oet-skill-item { text-align: center; }
-.oet-skill-ring { width: 132px;
-            height: 132px;
-            margin: 0 auto 14px;
-            position: relative;
-            display: grid;
-            place-items: center; }
-.oet-skill-ring svg { width: 132px;
-            height: 132px;
-            transform: rotate(-90deg);
-            overflow: visible; }
-.oet-skill-ring-track { fill: none;
-            stroke: rgba(100, 74, 249, 0.18);
-            stroke-width: 8; }
-.oet-skill-ring-bar { fill: none;
-            stroke: #644af9;
-            stroke-width: 8;
-            stroke-linecap: round;
-            stroke-dasharray: 339.292;
-            stroke-dashoffset: 339.292;
-            filter: drop-shadow(0 8px 18px rgba(100, 74, 249, 0.18)); }
-.oet-skill-value { position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 38px;
-            font-weight: 900;
-            line-height: 1;
-            color: #0f1730;
-            letter-spacing: -0.04em; }
-.oet-skill-value small { font-size: 16px;
-            font-weight: 800;
-            margin-left: 1px; }
-.oet-skill-item h4 { margin: 0 0 4px;
-            font-size: 20px;
-            line-height: 1; }
-.oet-skill-item p { margin: 0;
-            font-size: 14px;
-            line-height: 1.3; }
-@media only screen and (max-width: 1199px) {
-  .oet-skill-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media only screen and (max-width: 575px) {
-  .oet-skill-grid { grid-template-columns: 1fr; }
-  .oet-skill-ring, .oet-skill-ring svg { width: 118px;
-                height: 118px; }
-  .oet-skill-value { font-size: 34px; }
-}
-.vl-history-thumb { position: relative;
-            overflow: visible;
-            border-radius: 24px;
-            transform: translateZ(0);
-            box-shadow: 0 18px 44px rgba(17, 24, 39, 0.08);
-            will-change: transform, box-shadow; }
-.vl-history-thumb::after { content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(100, 74, 249, 0.08) 100%);
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.35s ease; }
-.vl-history-thumb.is-history-hovered::after { opacity: 1; }
-.vl-history-thumb img { display: block;
-            width: 100%;
-            height: auto;
-            transform: scale(1.01);
-            transform-origin: center center;
-            will-change: transform;
-            backface-visibility: hidden; }
-</style>
     <link rel="stylesheet" href="/assets/css/oet-legal-pages.css?v=b5ca6ea63d">
 
 </head>
@@ -368,7 +196,7 @@
                     <a href="/" title="OET with Dr Hesham | The Pathway to UK"><img width="320" height="90" decoding="async" src="/assets/img/logo/platform-logo.png" alt="OET with Dr Hesham | The Pathway to UK"></a>
                 </div>
                 <div class="vl-offcanvas-close">
-                    <button class="vl-offcanvas-toggle">ï¿½</button>
+                    <button class="vl-offcanvas-toggle" type="button" aria-label="Close menu"><span aria-hidden="true">&times;</span></button>
                 </div>
             </div>
 
@@ -427,7 +255,7 @@
     <p>To protect our work, <strong>materials may carry individual watermarks or identifiers linked to your account</strong>, and we may monitor usage and investigate suspected breaches. By using the Platform you consent to these protections.</p></section><section class="oet-legal-section" id="suspension-termination-and-enforcement"><div class="oet-legal-heading"><span class="oet-legal-number">09</span><h2>9. Suspension, Termination, and Enforcement</h2></div><p>If we reasonably believe you have breached Section 8, we may — at our discretion and <strong>without refund</strong> — issue a warning, suspend your access, or permanently terminate your account. Serious or repeated breaches, such as redistributing our materials, may also lead us to pursue recovery of losses, injunctive relief, reports to the relevant platforms or authorities, and any other remedy available to us in law.</p></section><section class="oet-legal-section" id="no-guarantee-of-results"><div class="oet-legal-heading"><span class="oet-legal-number">10</span><h2>10. No Guarantee of Results</h2></div><p>We are committed to high-quality preparation, but your result depends on your own study, effort, and performance on the day. We therefore <strong>do not guarantee any particular score or outcome</strong> in the OET or any other examination.</p></section><section class="oet-legal-section" id="limitation-of-liability"><div class="oet-legal-heading"><span class="oet-legal-number">11</span><h2>11. Limitation of Liability</h2></div><p>To the fullest extent permitted by law, we are not liable for indirect or consequential loss arising from your use of the Platform. Nothing in these Terms limits any liability that cannot lawfully be excluded, including your statutory rights as a consumer.</p></section><section class="oet-legal-section" id="governing-law-and-jurisdiction"><div class="oet-legal-heading"><span class="oet-legal-number">12</span><h2>12. Governing Law and Jurisdiction</h2></div><p>These Terms are governed by the laws of <strong>England and Wales</strong>, and the courts of that jurisdiction have exclusive jurisdiction over any dispute.</p></section><section class="oet-legal-section" id="platform-specific-services-and-processors"><div class="oet-legal-heading"><span class="oet-legal-number">13</span><h2>Platform-specific services and processors</h2></div><p>Where you use our learner platform, payments are processed by Stripe. We may use vetted providers including Brevo for communications, Sentry for error monitoring, and selected AI, speech-recognition, and text-to-speech providers to deliver learning features. AI feedback and predicted scores are educational guidance only and do not guarantee an official OET result.</p></section><section class="oet-legal-section" id="changes-to-these-terms"><div class="oet-legal-heading"><span class="oet-legal-number">14</span><h2>13. Changes to These Terms</h2></div><p>We may update these Terms from time to time. The "Last updated" date reflects the current version, and continued use of the Platform after a change constitutes acceptance of the revised Terms.</p></section><section class="oet-legal-section oet-legal-contact" id="contact-us"><div class="oet-legal-heading"><span class="oet-legal-number">15</span><h2>14. Contact Us</h2></div><p><strong>Email:</strong> support@oetwithdrhesham.co.uk
     <strong>Website:</strong> https://www.oetwithdrhesham.co.uk</p>
     <hr />
-    <p><em>[Registered company name, if applicable] · [Company number, if applicable] · [Registered office address, if applicable] · [Business address, if applicable]</em></p></section></div></div></div></section>
+    <p><em>OET with Dr Hesham · United Kingdom · support@oetwithdrhesham.co.uk</em></p></section></div></div></div></section>
     </main>
 
 <!--================= Footer section start =================-->
@@ -761,7 +589,7 @@
 
     
 
-    <div class="oet-community-popup" id="oet-community-popup" role="dialog" aria-modal="true" aria-label="Join the free OET community" aria-hidden="true">
+    <div class="oet-community-popup" id="oet-community-popup" aria-hidden="true">
         <div class="oet-community-popup__overlay" data-oet-community-close></div>
         <div class="oet-community-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="oet-community-popup-title" aria-describedby="oet-community-popup-intro">
             <button class="oet-community-popup__close" type="button" data-oet-community-close aria-label="Close community popup">

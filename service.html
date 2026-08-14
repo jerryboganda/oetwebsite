@@ -33,7 +33,52 @@
     <link rel="stylesheet" href="/assets/css/style.min.css?v=3fa9e8fd2c">
     <link rel="stylesheet" href="/assets/css/oet-common.css?v=2be66a2473">
     <link rel="stylesheet" href="/assets/css/oet-cookie-consent.css?v=9b27efcc3c">
-    <script type="application/ld+json">
+    <style>
+.vl-service-10-wrap {
+    background: #ffffff;
+    border: 1px solid rgba(100, 74, 249, 0.12);
+    border-radius: 20px;
+    padding: 32px 28px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(100, 74, 249, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.vl-service-10-wrap:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(100, 74, 249, 0.12);
+    border-color: rgba(100, 74, 249, 0.3);
+}
+.vl-service-10-wrap h3 {
+    color: #0c0b1a;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.vl-service-10-wrap p {
+    color: #55536e;
+    font-size: 15px;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+.vl-service-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #644af9;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: gap 0.2s ease, color 0.2s ease;
+}
+.vl-service-btn:hover {
+    color: #4f36db;
+    gap: 12px;
+}
+</style>
+<script type="application/ld+json">
 {
  "@context": "https://schema.org",
  "@graph": [
@@ -423,36 +468,42 @@
                     <div class="vl-service-10-wrap">
                         <h3>Nursing OET Track</h3>
                         <p>Task-based speaking role-plays, writing templates, and weekly review sessions built for nursing communication.</p>
+                        <a href="/pricing.html#nursing" class="vl-service-btn">View Nursing Packages <i class="fa-regular fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6">
                     <div class="vl-service-10-wrap">
                         <h3>Doctor OET Track</h3>
                         <p>Clinical case responses, patient communication practice, and report-writing coaching with exam format precision.</p>
+                        <a href="/pricing.html#medicine" class="vl-service-btn">View Medicine Packages <i class="fa-regular fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6">
                     <div class="vl-service-10-wrap">
                         <h3>Pharmacist OET Track</h3>
                         <p>Medication counseling scenarios, concise documentation practice, and role-play for patient interactions.</p>
+                        <a href="/pricing.html#pharmacy" class="vl-service-btn">View Pharmacy Packages <i class="fa-regular fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6">
                     <div class="vl-service-10-wrap">
                         <h3>Express Writing Support</h3>
                         <p>Short-cycle writing correction plan with error tracking and score-oriented rewrites every week.</p>
+                        <a href="/pricing.html#ai-packages" class="vl-service-btn">View AI &amp; Writing Plans <i class="fa-regular fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6">
                     <div class="vl-service-10-wrap">
                         <h3>Interview Readiness</h3>
                         <p>Professional interview coaching for UK job readiness, from speaking rhythm to clinical confidence.</p>
+                        <a href="/uk-pathway-guide.html" class="vl-service-btn">Explore Pathway Guide <i class="fa-regular fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6">
                     <div class="vl-service-10-wrap">
                         <h3>Community Support</h3>
                         <p>Private support channels for question sharing, peer motivation, resource drops, and direct coaching updates.</p>
+                        <a href="#oet-community-popup" class="vl-service-btn oet-community-cta">Join Free Community <i class="fa-regular fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -601,7 +652,7 @@
 
     
 
-    <div class="oet-community-popup" id="oet-community-popup" role="dialog" aria-modal="true" aria-label="Join the free OET community" aria-hidden="true">
+    <div class="oet-community-popup" id="oet-community-popup" aria-hidden="true">
         <div class="oet-community-popup__overlay" data-oet-community-close></div>
         <div class="oet-community-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="oet-community-popup-title" aria-describedby="oet-community-popup-intro">
             <button class="oet-community-popup__close" type="button" data-oet-community-close aria-label="Close community popup">
