@@ -108,9 +108,10 @@ RewriteRule ^preview\.html$ / [R=301,L]
 RewriteRule ^login\.html$ https://app.oetwithdrhesham.co.uk/sign-in?next=/ [R=301,L,NE]
 </IfModule>
 
-# Deny access to internal docs
+# Deny access to internal docs & build sources
 <IfModule mod_alias.c>
 RedirectMatch 404 ^/docs/
+RedirectMatch 404 ^/site/
 RedirectMatch 404 ^/\.git
 RedirectMatch 404 ^/storage/
 </IfModule>
