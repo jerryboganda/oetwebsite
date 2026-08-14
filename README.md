@@ -78,7 +78,41 @@ every push/PR.
 > from any client with workflow permission:
 > `git add .github/workflows/build.yml && git commit -m "ci: add build workflow" && git push`.
 
-## Deployment (Hostinger Business / LiteSpeed)
+## Deployment (current production: VPS 185.252.233.186)
+
+The live site is served from a Docker container on the VPS behind Nginx Proxy
+Manager (TLS, HSTS). Layout:
+
+- **Docroot**: `/opt/docker/oetwebsite` — a git checkout of this repo (`main`).
+- **Container**: `oetwebsite` (`php:8.3-apache`), compose project
+  `oetwebsite-landing` at `/opt/docker/oetwebsite-stack/docker-compose.yml`.
+  The compose enables `mod_rewrite`/`headers`/`expires` and mounts
+  `htaccess-support.conf` (`AllowOverride All`) so the repo's `.htaccess`
+  (caching, compression, security headers, 301s, 404 page) is honoured, plus
+  `security.conf` denying `.git`/dotfiles.
+- **Kept out of git, live on disk only**: `assets/img/success-stories/originals/`
+  (lightbox originals) and `storage/` (chat threads — PII). **Never delete these
+  during a deploy.**
+
+Deploy procedure (SSH as root):
+
+```sh
+cd /opt/docker/oetwebsite
+git fetch origin && git reset --hard origin/main
+chown -R www-data:www-data storage
+```
+
+If history was rewritten (force-push), first move `assets/img/success-stories/originals`
+and `storage` outside the repo, reset, then move them back — files tracked by the
+old history get deleted from the worktree on reset.
+
+Container config changes: edit the compose/conf under
+`/opt/docker/oetwebsite-stack/`, then `docker compose up -d` from that dir.
+SMTP/IMAP env vars (see below) belong in an `environment:` block there —
+without them the chat/contact email relay is off and chat send fails
+(`mail_transport_failed`).
+
+## Deployment (future: Hostinger Business / LiteSpeed)
 
 1. Build locally (or in CI) and commit the regenerated root pages.
 2. Upload the repo root to the webroot **excluding**: `site/`, `server.js`,
