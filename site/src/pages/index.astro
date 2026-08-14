@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import meta from '../partials/index/meta.html?raw';
+import headExtra from '../partials/index/head-extra.html?raw';
+import main from '../partials/index/main.html?raw';
+import tail from '../partials/index/tail.html?raw';
+---
+<Base
+  meta={meta}
+  headExtra={headExtra}
+  main={main}
+  tail={tail}
+  swiperCss={true}
+  salCss={true}
+/>

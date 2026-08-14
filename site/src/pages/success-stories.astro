@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import metaRaw from '../partials/success-stories/meta.html?raw';
+import headExtraRaw from '../partials/success-stories/head-extra.html?raw';
+import mainRaw from '../partials/success-stories/main.html?raw';
+import tailRaw from '../partials/success-stories/tail.html?raw';
+import stories from '../../../assets/img/success-stories/success-stories.json';
+import { applyStoryCounts } from '../lib/inject.mjs';
+
+// Year-tab counts are computed from success-stories.json at build time
+// (they were hand-edited HTML before the Astro migration).
+const parts = applyStoryCounts(
+  { meta: metaRaw, headExtra: headExtraRaw, main: mainRaw, tail: tailRaw },
+  stories,
+);
+---
+<Base
+  meta={parts.meta}
+  headExtra={parts.headExtra}
+  main={parts.main}
+  tail={parts.tail}
+/>

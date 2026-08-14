@@ -1,0 +1,406 @@
+
+
+
+    <div class="oet-form-popup" id="oet-form-popup" aria-hidden="true">
+        <div class="oet-form-popup__card" role="alert" aria-live="polite" aria-modal="true">
+            <button type="button" class="oet-form-popup__close" id="oet-form-popup-close" aria-label="Close popup">&times;</button>
+            <div class="oet-form-popup__icon oet-form-popup__icon--success" id="oet-form-popup-icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 class="oet-form-popup__title" id="oet-form-popup-title">Enquiry Sent Successfully</h3>
+            <p class="oet-form-popup__text" id="oet-form-popup-text">Thanks for reaching out. Your enquiry has been sent to our support team and we’ll get back to you as soon as possible.</p>
+            <a href="/contact.html" class="oet-form-popup__button" id="oet-form-popup-button">Continue</a>
+        </div>
+    </div>
+
+    <!-- js file -->
+
+    <!-- jquery js-->
+<!-- gsap js-->
+    <script defer src="/assets/js/plugins/gsap.min.js"></script>
+    <!-- scrollTrigger js-->
+<!-- fontawesome -->
+<!-- counter js -->
+<!-- waypoints js-->
+<!-- sal js-->
+    <script defer src="/assets/js/plugins/sal.min.js"></script>
+    <!-- ScrollSmoother js -->
+    <script defer src="/assets/js/plugins/lenis.min.js"></script>
+<!-- Custom js -->
+<script defer src="/assets/js/main.js"></script>
+     <script defer src="/assets/js/oet-contact-widget.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            var cta = document.querySelector('.oet-community-cta');
+            var fullText = 'Join Free Community!';
+
+            if (!cta || typeof gsap === 'undefined') return;
+            var contentEl = cta.querySelector('.oet-community-cta__content');
+            var textEl = contentEl ? contentEl.querySelector('.oet-community-cta__text') : null;
+            var cursorEl = contentEl ? contentEl.querySelector('.oet-community-cta__cursor') : null;
+            cta.setAttribute('aria-label', fullText);
+
+            if (!textEl || !cursorEl) {
+                cta.textContent = fullText;
+                return;
+            }
+
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                textEl.textContent = fullText;
+                cursorEl.style.display = 'none';
+                return;
+            }
+
+            function startTypingLoop() {
+                var state = { progress: 0 };
+                gsap.killTweensOf([textEl, cursorEl]);
+                textEl.textContent = '';
+                gsap.set(cursorEl, { opacity: 1 });
+
+                gsap.to(state, {
+                    progress: fullText.length,
+                    duration: 2.8,
+                    ease: 'none',
+                    onUpdate: function () {
+                        textEl.textContent = fullText.slice(0, Math.floor(state.progress));
+                    },
+                    onComplete: function () {
+                        gsap.delayedCall(0.5, function () {
+                            var blinkTl = gsap.timeline({
+                                onComplete: function () {
+                                    textEl.textContent = '';
+                                    gsap.delayedCall(0.7, startTypingLoop);
+                                }
+                            });
+
+                            for (var i = 0; i < 3; i++) {
+                                blinkTl.to(cursorEl, { opacity: 0, duration: 0.16, ease: 'none' })
+                                    .to(cursorEl, { opacity: 1, duration: 0.16, ease: 'none' });
+                            }
+                        });
+                    }
+                });
+            }
+
+            startTypingLoop();
+        });
+    </script>
+    <script>
+        (function () {
+            var popup = document.getElementById('oet-form-popup');
+            var popupCard = popup ? popup.querySelector('.oet-form-popup__card') : null;
+            var popupClose = document.getElementById('oet-form-popup-close');
+            var popupIcon = document.getElementById('oet-form-popup-icon');
+            var popupTitle = document.getElementById('oet-form-popup-title');
+            var popupText = document.getElementById('oet-form-popup-text');
+            var popupButton = document.getElementById('oet-form-popup-button');
+            var params = new URLSearchParams(window.location.search);
+            var state = null;
+            var popupTimer = null;
+
+            function showPopup(nextState) {
+                if (!popup || !popupIcon || !popupTitle || !popupText || !popupButton) {
+                    return;
+                }
+
+                state = nextState;
+                if (popupTimer) {
+                    clearTimeout(popupTimer);
+                    popupTimer = null;
+                }
+                popup.classList.add('is-visible');
+                popup.setAttribute('aria-hidden', 'false');
+
+                if (state === 'success') {
+                    popupIcon.classList.remove('oet-form-popup__icon--error');
+                    popupIcon.classList.add('oet-form-popup__icon--success');
+                    popupIcon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+                    popupTitle.textContent = 'Enquiry Sent Successfully';
+                    popupText.textContent = 'Thanks for reaching out. Your enquiry has been sent to our support team and we’ll get back to you as soon as possible.';
+                    popupButton.textContent = 'Great, Thanks';
+                    popupButton.classList.remove('error-state');
+                } else {
+                    popupIcon.classList.remove('oet-form-popup__icon--success');
+                    popupIcon.classList.add('oet-form-popup__icon--error');
+                    popupIcon.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
+                    popupTitle.textContent = 'Something Went Wrong';
+                    popupText.textContent = 'Your enquiry could not be sent right now. Please try again, or use the email and WhatsApp options in the footer.';
+                    popupButton.textContent = 'Try Again';
+                    popupButton.classList.add('error-state');
+                }
+
+                popupTimer = window.setTimeout(function () {
+                    closePopup();
+                }, 7000);
+
+                window.setTimeout(function () {
+                    if (popup && popup.classList.contains('is-visible')) {
+                        popup.classList.add('is-fading');
+                    }
+                }, 6000);
+            }
+
+            function closePopup() {
+                if (!popup) {
+                    return;
+                }
+
+                if (popupTimer) {
+                    clearTimeout(popupTimer);
+                    popupTimer = null;
+                }
+                popup.classList.remove('is-fading');
+                popup.classList.remove('is-visible');
+                popup.setAttribute('aria-hidden', 'true');
+                if (window.history && window.history.replaceState) {
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }
+            }
+
+            if (params.get('sent') === '1') {
+                showPopup('success');
+            } else if (params.get('error')) {
+                showPopup('error');
+            }
+
+            if (popupClose) {
+                popupClose.addEventListener('click', closePopup);
+            }
+
+            if (popup) {
+                popup.addEventListener('click', function (event) {
+                    if (event.target === popup || (popupCard && !popupCard.contains(event.target))) {
+                        closePopup();
+                    }
+                });
+            }
+
+            if (typeof gsap === 'undefined') {
+                return;
+            }
+
+            if (!window.matchMedia || !window.matchMedia('(min-width: 1200px)').matches) {
+                return;
+            }
+
+            var menuRoot = document.querySelector('.vl-main-menu');
+            if (!menuRoot) {
+                return;
+            }
+
+            var dropdownItems = menuRoot.querySelectorAll('li.has-dropdown');
+            dropdownItems.forEach(function (item) {
+                var submenu = Array.from(item.children).find(function (child) {
+                    return child.classList && child.classList.contains('sub-menu');
+                });
+                if (!submenu) {
+                    return;
+                }
+
+                var submenuItems = Array.from(submenu.children).filter(function (child) {
+                    return child.tagName === 'LI';
+                });
+                var closeTimer = null;
+                var openTimeline = null;
+                var closeTimeline = null;
+
+                function clearTimers() {
+                    if (closeTimer) {
+                        clearTimeout(closeTimer);
+                        closeTimer = null;
+                    }
+                }
+
+                function killActiveTweens() {
+                    gsap.killTweensOf([submenu].concat(submenuItems));
+                    if (openTimeline) {
+                        openTimeline.kill();
+                        openTimeline = null;
+                    }
+                    if (closeTimeline) {
+                        closeTimeline.kill();
+                        closeTimeline = null;
+                    }
+                }
+
+                function openDropdown() {
+                    clearTimers();
+                    killActiveTweens();
+                    gsap.set(submenu, { transformOrigin: 'top center' });
+
+                    openTimeline = gsap.timeline({
+                        defaults: { overwrite: 'auto' },
+                        onComplete: function () {
+                            openTimeline = null;
+                        }
+                    });
+
+                    openTimeline.fromTo(submenu, {
+                        autoAlpha: 0,
+                        y: 12,
+                        scale: 0.98
+                    }, {
+                        autoAlpha: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 0.3,
+                        ease: 'power3.out'
+                    }, 0).fromTo(submenuItems, {
+                        autoAlpha: 0,
+                        y: 8
+                    }, {
+                        autoAlpha: 1,
+                        y: 0,
+                        duration: 0.24,
+                        ease: 'power2.out',
+                        stagger: 0.03
+                    }, 0.04);
+                }
+
+                function closeDropdown() {
+                    clearTimers();
+                    closeTimer = window.setTimeout(function () {
+                        closeTimer = null;
+                        killActiveTweens();
+
+                        closeTimeline = gsap.timeline({
+                            defaults: { overwrite: 'auto' },
+                            onComplete: function () {
+                                gsap.set(submenu, { clearProps: 'opacity,visibility,transform' });
+                                gsap.set(submenuItems, { clearProps: 'opacity,transform' });
+                                closeTimeline = null;
+                            }
+                        });
+
+                        closeTimeline.to(submenuItems, {
+                            autoAlpha: 0,
+                            y: 6,
+                            duration: 0.16,
+                            ease: 'power2.in',
+                            stagger: {
+                                each: 0.015,
+                                from: 'end'
+                            }
+                        }, 0).to(submenu, {
+                            autoAlpha: 0,
+                            y: 10,
+                            scale: 0.98,
+                            duration: 0.2,
+                            ease: 'power3.in'
+                        }, 0.02);
+                    }, 90);
+                }
+
+                item.addEventListener('mouseenter', openDropdown);
+                item.addEventListener('mouseleave', closeDropdown);
+            });
+        })();
+    </script>
+
+
+    
+
+
+    
+
+
+
+
+<script>
+(function () {
+    "use strict";
+    var form = document.getElementById("oet-contact-form");
+    var status = document.getElementById("oet-form-status");
+    if (!form || !status) { return; }
+
+    var ts = document.getElementById("oet-form-ts");
+    if (ts) { ts.value = String(Date.now()); }
+
+    function showStatus(kind, html) {
+        status.hidden = false;
+        status.className = "oet-status oet-status--" + kind;
+        status.innerHTML = html;
+        status.focus({ preventScroll: true });
+        status.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    var params = new URLSearchParams(window.location.search);
+    if (params.get("sent") === "1") {
+        showStatus("ok", "<strong>Thank you &mdash; your enquiry has been sent.</strong> We usually reply within 24 hours. For anything urgent, message us on <a href=\"https://wa.me/447961725989\" target=\"_blank\" rel=\"noopener noreferrer\">WhatsApp</a>.");
+        if (window.oetAnalytics) { window.oetAnalytics.track("contact_form_sent"); }
+    } else if (params.get("error")) {
+        var err = params.get("error");
+        var msg = "<strong>Something went wrong.</strong> Please try again, or contact us on <a href=\"https://wa.me/447961725989\" target=\"_blank\" rel=\"noopener noreferrer\">WhatsApp</a>.";
+        if (err === "missing") { msg = "<strong>Some details were missing or invalid.</strong> Please complete every field marked * and send again."; }
+        if (err === "mail") { msg = "<strong>Your message could not be delivered right now.</strong> Please try again in a few minutes, or reach us directly on <a href=\"https://wa.me/447961725989\" target=\"_blank\" rel=\"noopener noreferrer\">WhatsApp</a> or <a href=\"mailto:support@oetwithdrhesham.co.uk\">support@oetwithdrhesham.co.uk</a>."; }
+        showStatus("err", msg);
+    }
+    if (params.has("sent") || params.has("error")) {
+        window.history.replaceState(null, "", window.location.pathname);
+    }
+
+    var LABELS = {
+        name: "Please enter your full name (at least 2 characters).",
+        email: "Please enter a valid email address.",
+        phone: "Please enter your WhatsApp number (digits, +, spaces).",
+        profession: "Please choose your profession.",
+        support_needed: "Please choose the support you need.",
+        message: "Please tell us a little more (at least 10 characters)."
+    };
+
+    function fieldError(field, text) {
+        var wrap = field.closest("div");
+        var note = wrap.querySelector(".oet-field-err");
+        if (text) {
+            if (!note) {
+                note = document.createElement("p");
+                note.className = "oet-field-err";
+                note.id = "err-" + field.name;
+                wrap.appendChild(note);
+            }
+            note.textContent = text;
+            field.setAttribute("aria-invalid", "true");
+            field.setAttribute("aria-describedby", note.id);
+        } else if (note) {
+            note.remove();
+            field.removeAttribute("aria-invalid");
+            field.removeAttribute("aria-describedby");
+        }
+    }
+
+    var fields = Array.prototype.slice.call(form.querySelectorAll("[name][required]"));
+
+    fields.forEach(function (field) {
+        field.addEventListener("input", function () {
+            if (field.checkValidity()) { fieldError(field, null); }
+        });
+        field.addEventListener("change", function () {
+            if (field.checkValidity()) { fieldError(field, null); }
+        });
+    });
+
+    form.addEventListener("submit", function (event) {
+        var firstBad = null;
+        fields.forEach(function (field) {
+            if (!field.checkValidity()) {
+                fieldError(field, LABELS[field.name] || "Please complete this field.");
+                if (!firstBad) { firstBad = field; }
+            } else {
+                fieldError(field, null);
+            }
+        });
+        if (firstBad) {
+            event.preventDefault();
+            firstBad.focus();
+            return;
+        }
+        var btn = document.getElementById("oet-contact-submit");
+        if (btn) {
+            btn.disabled = true;
+            btn.setAttribute("aria-busy", "true");
+            btn.innerHTML = "Sending&hellip;";
+        }
+    });
+})();
+</script>
+    

@@ -1,0 +1,1522 @@
+<style id="oet-pricing-catalogue-css">
+        .oet-pricing-main {
+            position: relative;
+            z-index: 1;
+            background: #fff;
+            overflow: visible;
+        }
+        .oet-pricing-hero {
+            background: linear-gradient(135deg, #f2edff 0%, #ffffff 42%, #e9fff7 100%);
+            padding: 175px 0 68px;
+            position: relative;
+            overflow: hidden;
+        }
+        .oet-pricing-hero::after {
+            content: "";
+            position: absolute;
+            right: -80px;
+            bottom: -90px;
+            width: 360px;
+            height: 360px;
+            background: url("/assets/img/logo/platform-logo.png") center / contain no-repeat;
+            opacity: .07;
+            pointer-events: none;
+        }
+        .oet-pricing-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #5f3df5;
+            background: #ffffff;
+            border: 1px solid rgba(95,61,245,.16);
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-weight: 800;
+            margin-bottom: 18px;
+        }
+        .oet-pricing-hero h1 {
+            color: #191829;
+            font-size: 52px;
+            line-height: 1.04;
+            max-width: 1140px;
+            margin: 0 auto 18px;
+        }
+        .oet-pricing-hero p {
+            color: #4f5060;
+            font-size: 18px;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+        .oet-pricing-hero-slider {
+            position: relative;
+            z-index: 2;
+            max-width: 920px;
+            margin: 30px auto 0;
+            padding: 14px;
+            border-radius: 26px;
+            background: rgba(255, 255, 255, 0.78);
+            border: 1px solid rgba(101, 66, 255, 0.16);
+            box-shadow: 0 24px 68px rgba(44, 34, 110, 0.16);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            overflow: hidden;
+        }
+        .oet-pricing-hero-slider::before {
+            content: "";
+            position: absolute;
+            inset: 12px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, rgba(101, 66, 255, 0.08), rgba(36, 214, 165, 0.06));
+            pointer-events: none;
+        }
+        .oet-pricing-hero-slider__topline {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 10px;
+            padding: 2px 4px;
+        }
+        .oet-pricing-hero-slider__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #5f3df5;
+            background: #f0ebff;
+            border-radius: 999px;
+            padding: 8px 13px;
+            font-size: 13px;
+            font-weight: 900;
+            line-height: 1;
+        }
+        .oet-pricing-hero-slider__hint {
+            color: #5f5d76;
+            font-size: 13px;
+            font-weight: 800;
+        }
+        .oet-pricing-hero-swiper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: min(68vh, 650px);
+            min-height: 500px;
+            border-radius: 22px;
+            overflow: hidden;
+            background: linear-gradient(145deg, #ffffff, #f8f6ff);
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            will-change: transform;
+        }
+        .oet-pricing-hero-swiper .swiper-wrapper {
+            align-items: stretch;
+            height: 100%;
+        }
+        .oet-pricing-hero-swiper .swiper-slide {
+            width: 100% !important;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .oet-pricing-hero-slide {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-width: 0;
+            padding: 28px 28px 58px;
+            box-sizing: border-box;
+        }
+        .oet-pricing-hero-slide img {
+            position: absolute;
+            inset: 28px 28px 58px;
+            display: block;
+            width: calc(100% - 56px);
+            height: calc(100% - 86px);
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 16px;
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            will-change: transform;
+        }
+        .oet-pricing-hero-nav {
+            position: absolute;
+            top: 50%;
+            z-index: 5;
+            width: 40px;
+            height: 40px;
+            margin-top: -20px;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.94);
+            color: #191829;
+            box-shadow: 0 12px 28px rgba(28, 22, 70, 0.14);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform .2s ease, background .2s ease, color .2s ease;
+        }
+        .oet-pricing-hero-nav:hover,
+        .oet-pricing-hero-nav:focus-visible {
+            transform: scale(1.06);
+            background: #6542ff;
+            color: #fff;
+            outline: none;
+        }
+        .oet-pricing-hero-nav--prev { left: 16px; }
+        .oet-pricing-hero-nav--next { right: 16px; }
+        .oet-pricing-hero-pagination {
+            position: absolute;
+            left: 50% !important;
+            bottom: 16px !important;
+            z-index: 6;
+            width: auto !important;
+            transform: translateX(-50%);
+            display: inline-flex;
+            gap: 7px;
+            align-items: center;
+            border-radius: 999px;
+            padding: 8px 10px;
+            background: rgba(255, 255, 255, 0.82);
+            box-shadow: 0 10px 24px rgba(28, 22, 70, 0.1);
+        }
+        .oet-pricing-hero-pagination .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            margin: 0 8px !important;
+            background: #6542ff;
+            opacity: .32;
+            transition: width .22s ease, opacity .22s ease;
+        }
+        .oet-pricing-hero-pagination .swiper-pagination-bullet-active {
+            width: 24px;
+            border-radius: 999px;
+            opacity: 1;
+        }
+        .oet-pricing-tabs {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(255,255,255,.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #ece8fb;
+            padding: 12px 0;
+        }
+        .oet-pricing-tabs .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px 12px;
+            overflow: visible;
+        }
+        .oet-pricing-tabs a {
+            display: inline-flex;
+            flex: 0 1 auto;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            max-width: 100%;
+            color: #242234;
+            border: 1px solid #e5ddff;
+            border-radius: 999px;
+            padding: 9px 15px;
+            background: #fff;
+            font-weight: 800;
+            line-height: 1.2;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .oet-pricing-tabs a:hover,
+        .oet-pricing-tabs a:focus {
+            color: #fff;
+            background: linear-gradient(135deg, #6542ff, #7f5cff);
+            border-color: transparent;
+        }
+        .oet-pricing-section {
+            padding: 58px 0 52px;
+            background: #fff;
+            overflow: visible;
+        }
+        .oet-pricing-section:nth-of-type(even) {
+            background: #fbfaff;
+        }
+        .oet-pricing-section-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 22px;
+            margin-bottom: 22px;
+        }
+        .oet-pricing-section-head h2 {
+            color: #191829;
+            font-size: 34px;
+            margin: 0;
+        }
+        .oet-pricing-section-head p {
+            color: #626273;
+            max-width: 760px;
+            margin: 8px 0 0;
+        }
+        .oet-pricing-note {
+            border-left: 4px solid #6542ff;
+            background: #f3efff;
+            color: #3c3565;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .oet-pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            align-items: start;
+            gap: 18px;
+            margin-bottom: 0;
+        }
+        .oet-pricing-card {
+            background: #fff;
+            border: 1px solid #ece8fb;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 14px 38px rgba(28,22,70,.07);
+            display: flex;
+            min-height: 0;
+            height: auto;
+            box-sizing: border-box;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        .oet-pricing-card.is-featured {
+            border-color: rgba(101,66,255,.48);
+            box-shadow: 0 20px 52px rgba(101,66,255,.16);
+        }
+        .oet-pricing-card.is-featured::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6542ff, #24d6a5);
+        }
+        .oet-card-kicker {
+            color: #6542ff;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 0;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        main.oet-pricing-main .oet-pricing-card h3 {
+            font-family: 'Manrope', 'Inter', Arial, sans-serif;
+            font-weight: 800;
+            color: #111827;
+            font-size: 20px;
+            line-height: 1.28;
+            letter-spacing: -0.2px;
+            margin: 0 0 14px;
+            white-space: normal;
+            overflow-wrap: break-word;
+            word-break: normal;
+            hyphens: manual;
+        }
+        .oet-pricing-price {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-bottom: 12px;
+        }
+        .oet-pricing-price strong {
+            color: #5f3df5;
+            font-size: 31px;
+            line-height: 1;
+        }
+        .oet-pricing-was {
+            color: #6d6a7c;
+            text-decoration: line-through;
+            font-weight: 800;
+        }
+        .oet-meta-chips,
+        .oet-pricing-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 12px;
+        }
+        .oet-meta-chips span {
+            color: #4d4867;
+            background: #f8f6ff;
+            border: 1px solid #ece8fb;
+            border-radius: 999px;
+            padding: 5px 8px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+        .oet-pricing-format,
+        .oet-pricing-desc {
+            color: #565768;
+            line-height: 1.45;
+            margin: 0 0 11px;
+        }
+        .oet-pricing-format strong {
+            color: #191829;
+        }
+        .oet-pricing-desc {
+            font-size: 14px;
+        }
+        .oet-pricing-badges span {
+            color: #5133d8;
+            background: #f0ebff;
+            border-radius: 999px;
+            padding: 5px 9px;
+            font-size: 12px;
+            font-weight: 900;
+        }
+        .oet-pricing-card ul {
+            margin: 0 0 14px;
+            padding: 0;
+            list-style: none;
+        }
+        .oet-pricing-card li {
+            position: relative;
+            color: #4f5060;
+            padding-left: 28px;
+            margin-bottom: 8px;
+            line-height: 1.36;
+            font-size: 14px;
+        }
+        .oet-pricing-card li::before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background: linear-gradient(135deg, #6542ff, #24d6a5);
+            box-shadow: 0 5px 12px rgba(101,66,255,.18);
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            font-weight: 900;
+            line-height: 1;
+        }
+        .oet-best-for {
+            color: #342f4f;
+            background: linear-gradient(135deg, #f5f1ff, #eefcf8);
+            border: 1px solid #e9e1ff;
+            border-radius: 8px;
+            padding: 10px 12px;
+            line-height: 1.35;
+            font-size: 14px;
+            margin: auto 0 14px;
+        }
+        .oet-best-for strong {
+            color: #191829;
+        }
+        .oet-pricing-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .oet-pricing-primary,
+        .oet-pricing-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            border-radius: 999px;
+            font-weight: 900;
+            padding: 9px 15px;
+        }
+        .oet-pricing-primary {
+            color: #fff;
+            background: linear-gradient(135deg, #6542ff, #7f5cff);
+            width: 100%;
+            flex: 1 1 100%;
+        }
+        .oet-pricing-secondary {
+            color: #191829;
+            background: #f6f4ff;
+            border: 1px solid #e4defc;
+        }
+        #speaking-packages {
+            padding-bottom: 120px;
+            margin-bottom: 0;
+        }
+        #speaking-packages .oet-pricing-grid {
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        .oet-pricing-main + .vl-footer-10 {
+            margin-top: 0 !important;
+            padding-top: 60px !important;
+        }
+        .vl-footer-10 {
+            position: relative;
+            z-index: 0;
+            clear: both;
+        }
+        @media (max-width: 1199px) {
+            .oet-pricing-hero { padding-top: 150px; }
+            .oet-pricing-hero-slider { max-width: 820px; }
+            .oet-pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 767px) {
+            .oet-pricing-hero { padding: 130px 0 46px; }
+            .oet-pricing-hero h1 { font-size: 34px; }
+            .oet-pricing-hero p { font-size: 16px; }
+            .oet-pricing-hero-slider {
+                margin-top: 24px;
+                padding: 10px;
+                border-radius: 22px;
+            }
+            .oet-pricing-hero-slider__topline {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 7px;
+            }
+            .oet-pricing-hero-slider__hint { font-size: 12px; }
+            .oet-pricing-hero-swiper {
+                height: min(70vh, 620px);
+                min-height: 430px;
+                border-radius: 18px;
+            }
+            .oet-pricing-hero-slide { padding: 16px 12px 58px; }
+            .oet-pricing-hero-slide img {
+                inset: 16px 12px 58px;
+                width: calc(100% - 24px);
+                height: calc(100% - 74px);
+            }
+            .oet-pricing-hero-nav {
+                width: 36px;
+                height: 36px;
+                margin-top: -18px;
+            }
+            .oet-pricing-hero-nav--prev { left: 8px; }
+            .oet-pricing-hero-nav--next { right: 8px; }
+            .oet-pricing-tabs {
+                padding: 10px 0;
+            }
+            .oet-pricing-tabs .container {
+                gap: 8px;
+                padding-inline: 12px;
+            }
+            .oet-pricing-tabs a {
+                min-height: 38px;
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+            .oet-pricing-section { padding: 46px 0 42px; }
+            .oet-pricing-section-head { display: block; }
+            .oet-pricing-section-head h2 { font-size: 28px; }
+            .oet-pricing-grid { grid-template-columns: 1fr; }
+            main.oet-pricing-main .oet-pricing-card h3 {
+                font-size: 18px;
+                line-height: 1.3;
+            }
+            .oet-pricing-card { padding: 18px; }
+            #speaking-packages { padding-bottom: 90px; }
+        }
+    </style>
+    <style id="oet-public-app-downloads-css">
+        .oet-public-apps {
+            background: linear-gradient(135deg, #f2edff 0%, #ffffff 48%, #e9fff7 100%);
+            padding: 76px 0 84px;
+        }
+        .oet-public-apps__inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+            text-align: center;
+        }
+        .oet-public-apps h2 {
+            margin: 0;
+            color: #191829;
+            font-size: clamp(30px, 4vw, 46px);
+            line-height: 1.08;
+        }
+        .oet-public-apps p {
+            max-width: 660px;
+            margin: 14px auto 0;
+            color: #5f6370;
+            font-size: 16px;
+            line-height: 1.65;
+        }
+        .oet-public-apps__grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 30px;
+        }
+        .oet-public-app-badge {
+            display: inline-flex;
+            min-height: 64px;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            border: 1px solid rgba(0, 0, 0, .4);
+            border-radius: 16px;
+            background: #000;
+            color: #fff;
+            padding: 16px 22px;
+            box-shadow: 0 8px 18px rgba(15, 23, 42, .12);
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1;
+            text-decoration: none;
+            transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+        }
+        .oet-public-app-badge:hover,
+        .oet-public-app-badge:focus-visible {
+            border-color: rgba(0, 0, 0, .75);
+            background: #171717;
+            color: #fff;
+            transform: translateY(-1px);
+        }
+        .oet-public-app-badge:focus-visible {
+            outline: 3px solid #7c3aed;
+            outline-offset: 3px;
+        }
+        .oet-public-app-badge svg {
+            width: 28px;
+            height: 28px;
+            flex: 0 0 28px;
+        }
+        @media (max-width: 575.98px) {
+            .oet-public-apps { padding: 58px 0 64px; }
+            .oet-public-apps__inner { padding: 0 16px; }
+            .oet-public-apps__grid { grid-template-columns: 1fr; gap: 12px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .oet-public-app-badge { transition: none; }
+            .oet-public-app-badge:hover,
+            .oet-public-app-badge:focus-visible { transform: none; }
+        }
+    </style>
+    <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://oetwithdrhesham.co.uk/pricing.html#webpage",
+   "url": "https://oetwithdrhesham.co.uk/pricing.html",
+   "name": "OET Course Pricing & Packages",
+   "isPartOf": {
+    "@id": "https://oetwithdrhesham.co.uk/#website"
+   }
+  },
+  {
+   "@type": "ItemList",
+   "name": "OET course packages",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "item": {
+      "@type": "Product",
+      "name": "Full Condensed Recorded OET Course - Medicine",
+      "description": "A complete, condensed and exam-focused recorded Medicine course covering Listening, Reading, Writing and Speaking. It is designed for candidates who want a structured route through all four OET sub-tests with the freedom to repeat lessons throughout the access period.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "100",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "item": {
+      "@type": "Product",
+      "name": "Full Physiotherapy OET Course",
+      "description": "A complete, condensed and exam-focused recorded Physiotherapy course covering Listening, Reading, Writing and Speaking. It is designed for candidates who want a structured route through all four OET sub-tests with the freedom to repeat lessons throughout the access period.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "75",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "item": {
+      "@type": "Product",
+      "name": "Full Allied Health Profession OET Course",
+      "description": "A complete, condensed and exam-focused recorded Allied Health Profession course covering Listening, Reading, Writing and Speaking. It is designed for candidates who want a structured route through all four OET sub-tests with the freedom to repeat lessons throughout the access period.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "75",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "item": {
+      "@type": "Product",
+      "name": "Full Nursing OET Course",
+      "description": "A profession-specific OET course for nurses covering Listening, Reading, Writing and Speaking with nursing-focused examples, letters and role-play scenarios.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "60",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "item": {
+      "@type": "Product",
+      "name": "Nursing Course + Assessment Package",
+      "description": "The full Nursing OET course bundled with personalised Writing assessment support and AI practice credits. This option is designed for nurses who want structured learning plus direct feedback on their letters.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "70",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "item": {
+      "@type": "Product",
+      "name": "Full Pharmacy OET Course",
+      "description": "A profession-specific OET preparation course for pharmacists covering all four sub-tests with pharmacy-focused Writing and Speaking content. The course includes pharmacy scenarios such as complaint handling, dosage issues, drug safety, expiry-date discrepancies, interactions and counselling.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "100",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 7,
+     "item": {
+      "@type": "Product",
+      "name": "Basic English Course - Preparation for OET",
+      "description": "A preparatory English course for candidates at Beginner, A1, A2 or B1 level who need to build a stronger English base before intensive OET preparation. The course focuses on essential grammar, healthcare vocabulary, sentence formation, listening foundations and a practical study plan.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "35",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 8,
+     "item": {
+      "@type": "Product",
+      "name": "Full Crash Course - General OET",
+      "description": "A condensed, high-impact OET course for candidates with limited time before the exam. It covers the four sub-tests in an exam-oriented format with high-yield strategies and recall-based guidance.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "60",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 9,
+     "item": {
+      "@type": "Product",
+      "name": "Full Crash Course + 3 Writing Assessments",
+      "description": "The Full Crash Course bundled with assessment of 3 Writing letters. It combines condensed preparation across the exam with personalised Writing correction.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "70",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 10,
+     "item": {
+      "@type": "Product",
+      "name": "Full Crash Course + 5 Writing Assessments",
+      "description": "The Full Crash Course bundled with assessment of 5 Writing letters. It is the recommended crash-course bundle for candidates who want more personalised Writing feedback while studying the four sub-tests.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "80",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 11,
+     "item": {
+      "@type": "Product",
+      "name": "3 Writing Letter Assessments - Add-on",
+      "description": "A stackable Writing assessment add-on that gives candidates personalised feedback on 3 OET letters. It is intended for candidates already enrolled in an eligible course or package.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "30",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 12,
+     "item": {
+      "@type": "Product",
+      "name": "5 Writing Letter Assessments - Add-on",
+      "description": "A stackable Writing assessment add-on that gives candidates personalised feedback on 5 OET letters. It is intended for candidates already enrolled in an eligible course or package.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "45",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 13,
+     "item": {
+      "@type": "Product",
+      "name": "7 Writing Letter Assessments - Add-on",
+      "description": "A stackable Writing assessment add-on that gives candidates personalised feedback on 7 OET letters using the same assessment format as the smaller Writing packages.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "60",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 14,
+     "item": {
+      "@type": "Product",
+      "name": "10 Writing Letter Assessments - Add-on",
+      "description": "A stackable Writing assessment add-on that gives candidates personalised feedback on 10 OET letters. It provides the heaviest Writing correction option for candidates who want extensive practice.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "85",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 15,
+     "item": {
+      "@type": "Product",
+      "name": "Recorded Writing Crash Course",
+      "description": "A standalone recorded Writing course covering the OET Writing sub-test from A-Z. It explains task analysis, purpose, audience, case-note relevance, introductions, body paragraphs, closing paragraphs, all major letter types, assessment criteria and profession-specific examples.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "35",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 16,
+     "item": {
+      "@type": "Product",
+      "name": "Writing Crash Course + 2 Letter Assessments",
+      "description": "The Recorded Writing Crash Course bundled with 2 Writing letter assessments. It gives candidates the full Writing explanation plus a small amount of personalised feedback.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "45",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 17,
+     "item": {
+      "@type": "Product",
+      "name": "Writing Crash Course + 3 Letter Assessments",
+      "description": "The Recorded Writing Crash Course bundled with 3 Writing letter assessments. It combines the full Writing explanation with personalised assessment support.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "55",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 18,
+     "item": {
+      "@type": "Product",
+      "name": "Writing Crash Course + 7 Letter Assessments",
+      "description": "The Recorded Writing Crash Course bundled with 7 Writing letter assessments. It is designed for candidates who want deeper Writing practice and repeated feedback.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "90",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 19,
+     "item": {
+      "@type": "Product",
+      "name": "Writing Crash Course + 10 Letter Assessments",
+      "description": "The Recorded Writing Crash Course bundled with 10 Writing letter assessments. This is the heaviest Writing-focused option and is designed for candidates who want maximum correction practice.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "115",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 20,
+     "item": {
+      "@type": "Product",
+      "name": "Recorded Speaking Crash Course",
+      "description": "A standalone recorded Speaking course covering OET Speaking scenarios, card types, recent recall themes and exam performance for Medicine, Nursing and Pharmacy candidates.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "30",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 21,
+     "item": {
+      "@type": "Product",
+      "name": "1 Private Speaking Assessment Session",
+      "description": "A one-to-one live Speaking practice session using different OET cards with detailed performance feedback. It can be used as a top-up alongside any course or as a standalone speaking assessment session.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "18",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 22,
+     "item": {
+      "@type": "Product",
+      "name": "2 Private Speaking Assessment Sessions",
+      "description": "Two one-to-one live Speaking assessment sessions using different cards with detailed feedback after each session.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "34",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 23,
+     "item": {
+      "@type": "Product",
+      "name": "Double Special Package - Writing + Speaking",
+      "description": "A combined productive-skills package including the full recorded Writing course and the full recorded Speaking course. It is suitable for candidates who are confident in Listening and Reading and want to focus on Writing and Speaking.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "55",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 24,
+     "item": {
+      "@type": "Product",
+      "name": "TutorBook - First Edition 2026",
+      "description": "TutorBook is a 2026 recall-based OET preparation book built around 8 full exams covering Listening, Reading, Writing and Speaking. It brings together the main 2026 exam ideas and recall themes, with complete model answers, rationales, Listening scripts, Reading vocabulary support and additional rece",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "45",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 25,
+     "item": {
+      "@type": "Product",
+      "name": "TutorBook - Add-on for Enrolled Students",
+      "description": "A TutorBook add-on available to candidates with an eligible active enrolment. TutorBook is a 2026 recall-based OET preparation book built around 8 full exams covering Listening, Reading, Writing and Speaking. It brings together the main 2026 exam ideas and recall themes, with complete model answers,",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "32",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 26,
+     "item": {
+      "@type": "Product",
+      "name": "Quick Check",
+      "description": "A targeted one-off readiness package for candidates who want instant AI feedback on Writing or Speaking together with a small Listening and Reading practice allowance. This package includes 5 flexible AI grading credits for Writing letters or Speaking cards, plus 3 Listening exams and 3 Reading exam",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "15",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 27,
+     "item": {
+      "@type": "Product",
+      "name": "Exam Prep Pro",
+      "description": "A larger one-off exam preparation package for candidates who need repeated AI grading and more Listening and Reading practice before the exam. It includes 15 flexible AI grading credits for Writing letters or Speaking cards, plus 6 Listening exams and 6 Reading exams.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "32",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 28,
+     "item": {
+      "@type": "Product",
+      "name": "1 Full Mock",
+      "description": "One complete OET mock exam covering all four sub-tests. Writing and Speaking are AI-graded, while Listening and Reading are auto-marked using answer-key marking. Mock exam allowances are separate from AI grading credits.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "25",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 29,
+     "item": {
+      "@type": "Product",
+      "name": "5 Full Mocks",
+      "description": "Five complete OET mock exams covering all four sub-tests. Writing and Speaking are AI-graded, while Listening and Reading are auto-marked using answer-key marking. Mock exam allowances are separate from AI grading credits.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "110",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 30,
+     "item": {
+      "@type": "Product",
+      "name": "Listening Starter",
+      "description": "A focused starter package for candidates who want a small set of Listening practice exams. It includes 3 Listening exams with deterministic answer-key marking.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "4",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 31,
+     "item": {
+      "@type": "Product",
+      "name": "Listening Standard",
+      "description": "A standard Listening practice package for candidates who want more focused Listening practice. It includes 6 Listening exams with deterministic answer-key marking.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "9",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 32,
+     "item": {
+      "@type": "Product",
+      "name": "Listening Pro",
+      "description": "An unlimited Listening practice package for candidates who want open Listening practice throughout the access period. Listening is auto-marked with deterministic answer-key marking and does not use AI credits.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "15",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 33,
+     "item": {
+      "@type": "Product",
+      "name": "Listening Recalls",
+      "description": "Master your OET Listening with more than 2,500 essential words, including the latest additions and commonly tested spellings. Listen, repeat, and memorise each word to improve your accuracy and confidence.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "17",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 34,
+     "item": {
+      "@type": "Product",
+      "name": "Reading Starter",
+      "description": "A focused starter package for candidates who want a small set of Reading practice exams. It includes 3 Reading exams with deterministic answer-key marking.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "4",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 35,
+     "item": {
+      "@type": "Product",
+      "name": "Reading Standard",
+      "description": "A standard Reading practice package for candidates who want more focused Reading practice. It includes 6 Reading exams with deterministic answer-key marking.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "9",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 36,
+     "item": {
+      "@type": "Product",
+      "name": "Reading Pro",
+      "description": "An unlimited Reading practice package for candidates who want open Reading practice throughout the access period. Reading is auto-marked with deterministic answer-key marking and does not use AI credits.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "15",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 37,
+     "item": {
+      "@type": "Product",
+      "name": "Writing Starter",
+      "description": "A starter Writing AI grading package sized for focused practice. It includes 3 AI-graded Writing letters with instant Claude feedback and detailed criterion-based comments.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "9",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 38,
+     "item": {
+      "@type": "Product",
+      "name": "Writing Standard",
+      "description": "A standard Writing AI grading package for candidates who want more letter practice. It includes 8 AI-graded Writing letters with instant Claude feedback and detailed criterion-based comments.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "19",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 39,
+     "item": {
+      "@type": "Product",
+      "name": "Writing Pro",
+      "description": "A larger Writing AI grading package for candidates who want intensive letter practice. It includes 15 AI-graded Writing letters with instant Claude feedback and detailed criterion-based comments.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "32",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 40,
+     "item": {
+      "@type": "Product",
+      "name": "Speaking Starter",
+      "description": "A starter Speaking AI grading package sized for focused practice. It includes 3 AI-graded Speaking cards using Whisper transcription and Claude assessment with rule-cited transcript markers.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "12",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 41,
+     "item": {
+      "@type": "Product",
+      "name": "Speaking Standard",
+      "description": "A standard Speaking AI grading package for candidates who want more role-play practice. It includes 8 AI-graded Speaking cards using Whisper transcription and Claude assessment with rule-cited transcript markers.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "24",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 42,
+     "item": {
+      "@type": "Product",
+      "name": "Speaking Pro",
+      "description": "A larger Speaking AI grading package for candidates who want intensive role-play practice. It includes 15 AI-graded Speaking cards using Whisper transcription and Claude assessment with rule-cited transcript markers.",
+      "brand": {
+       "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "42",
+       "priceCurrency": "GBP",
+       "availability": "https://schema.org/InStock",
+       "url": "https://oetwithdrhesham.co.uk/pricing.html"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "@type": "EducationalOrganization",
+   "@id": "https://oetwithdrhesham.co.uk/#organization",
+   "name": "OET with Dr Hesham",
+   "url": "https://oetwithdrhesham.co.uk/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://oetwithdrhesham.co.uk/assets/img/logo/platform-logo.png",
+    "width": 320,
+    "height": 90
+   },
+   "email": "support@oetwithdrhesham.co.uk",
+   "founder": {
+    "@id": "https://oetwithdrhesham.co.uk/#drhesham"
+   },
+   "sameAs": [
+    "https://www.youtube.com/@drhesham222",
+    "https://t.me/Oet_with_Hesham",
+    "https://t.me/OET_Nursing_DrHesham",
+    "https://www.facebook.com/groups/649430742699879"
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://oetwithdrhesham.co.uk/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Pricing",
+     "item": "https://oetwithdrhesham.co.uk/pricing.html"
+    }
+   ]
+  }
+ ]
+}
+    </script>
+    <style id="oet-pricing-conversion-css">
+        .oet-enroll-band { background: linear-gradient(160deg, #f4f0ff 0%, #ffffff 60%, #eefcf7 100%); border-block: 1px solid rgba(101, 66, 255, .1); padding: 56px 0 48px; }
+        .oet-enroll-head { text-align: center; max-width: 720px; margin: 0 auto 34px; }
+        .oet-enroll-head h2 { color: #191829; font-size: clamp(26px, 3.2vw, 38px); margin: 0 0 10px; }
+        .oet-enroll-head p { color: #4f5060; margin: 0; }
+        .oet-enroll-steps { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; padding: 0; margin: 0 0 30px; }
+        .oet-enroll-steps li { position: relative; background: #fff; border: 1px solid rgba(101, 66, 255, .14); border-radius: 18px; padding: 24px 22px 22px; box-shadow: 0 14px 34px rgba(44, 34, 110, .07); }
+        .oet-step-num { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 999px; background: linear-gradient(135deg, #6542ff, #7b61ff); color: #fff; font-weight: 900; font-size: 17px; margin-bottom: 14px; }
+        .oet-enroll-steps h3 { font-size: 19px; color: #191829; margin: 0 0 8px; }
+        .oet-enroll-steps p { color: #4f5060; font-size: 15px; line-height: 1.6; margin: 0; }
+        .oet-enroll-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+        .oet-enroll-ctas .oet-pricing-primary, .oet-enroll-ctas .oet-pricing-secondary { min-height: 48px; padding: 12px 26px; font-size: 16px; gap: 9px; }
+        .oet-enroll-note { text-align: center; color: #6a6c80; font-size: 14px; margin: 16px 0 0; }
+        .oet-trust-row { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 26px; padding: 18px 0 0; margin: 18px 0 0; border-top: 1px dashed rgba(101, 66, 255, .18); }
+        .oet-trust-row li { display: inline-flex; align-items: center; gap: 9px; color: #33344a; font-weight: 700; font-size: 14.5px; }
+        .oet-trust-row i { color: #5f46f5; font-size: 17px; }
+        .oet-trust-row a { color: #5f46f5; text-decoration: underline; text-underline-offset: 3px; }
+        .oet-price-nav { position: sticky; top: 0; z-index: 40; background: rgba(255, 255, 255, .94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(101, 66, 255, .12); box-shadow: 0 8px 26px rgba(44, 34, 110, .06); }
+        .oet-price-nav ul { list-style: none; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding: 10px 0; margin: 0; -webkit-overflow-scrolling: touch; }
+        .oet-price-nav ul::-webkit-scrollbar { display: none; }
+        .oet-price-nav a { display: inline-block; white-space: nowrap; padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(101, 66, 255, .18); color: #33344a; font-weight: 700; font-size: 14px; background: #fff; transition: background .18s ease, color .18s ease, border-color .18s ease; }
+        .oet-price-nav a:hover, .oet-price-nav a:focus-visible { background: #5f46f5; border-color: #5f46f5; color: #fff; }
+        .oet-pricing-section, .oet-pricing-faq { scroll-margin-top: 84px; }
+        .oet-proof-strip { background: linear-gradient(135deg, #2d1d7a 0%, #5f46f5 58%, #7b61ff 100%); color: #fff; padding: 52px 0; overflow: hidden; }
+        .oet-proof-strip .container { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 34px; align-items: center; }
+        .oet-proof-copy h2 { color: #fff; font-size: clamp(26px, 3.2vw, 40px); margin: 0 0 12px; }
+        .oet-proof-copy p { color: rgba(255, 255, 255, .82); font-size: 16.5px; line-height: 1.65; margin: 0 0 22px; max-width: 520px; }
+        .oet-proof-copy .oet-pricing-primary { background: #fff; color: #2d1d7a; min-height: 48px; padding: 12px 26px; gap: 9px; }
+        .oet-proof-copy .oet-pricing-primary:hover { background: #efeaff; color: #2d1d7a; }
+        .oet-proof-thumbs { display: flex; align-items: flex-start; gap: 14px; justify-content: flex-end; }
+        .oet-proof-thumbs img { width: 24%; max-width: 150px; height: auto; aspect-ratio: 3 / 4; object-fit: cover; object-position: top center; border-radius: 14px; border: 3px solid rgba(255, 255, 255, .85); box-shadow: 0 18px 40px rgba(10, 6, 40, .35); transform: rotate(-2deg); background: #fff; }
+        .oet-proof-thumbs img:nth-child(2n) { transform: rotate(2.2deg) translateY(10px); }
+        .oet-pricing-faq { background: #fff; padding: 64px 0 70px; }
+        .oet-pricing-faq .oet-pricing-section-head { margin-bottom: 26px; }
+        .oet-pfaq { max-width: 860px; margin: 0 auto; display: grid; gap: 12px; }
+        .oet-pfaq details { background: #fbfaff; border: 1px solid rgba(101, 66, 255, .14); border-radius: 16px; overflow: hidden; }
+        .oet-pfaq details[open] { background: #fff; box-shadow: 0 14px 34px rgba(44, 34, 110, .08); }
+        .oet-pfaq summary { display: flex; align-items: center; gap: 12px; cursor: pointer; list-style: none; padding: 18px 20px; font-weight: 800; color: #191829; font-size: 16.5px; }
+        .oet-pfaq summary::-webkit-details-marker { display: none; }
+        .oet-pfaq summary i { color: #5f46f5; transition: transform .2s ease; margin-left: auto; flex: 0 0 auto; }
+        .oet-pfaq details[open] summary i { transform: rotate(180deg); }
+        .oet-pfaq .oet-pfaq-body { padding: 0 20px 18px 20px; color: #4f5060; line-height: 1.7; font-size: 15.5px; }
+        .oet-pfaq .oet-pfaq-body a { color: #5f46f5; text-decoration: underline; text-underline-offset: 3px; }
+        .oet-mobile-ctabar { display: none; }
+        @media (max-width: 991px) { .oet-enroll-steps { grid-template-columns: 1fr; } .oet-proof-strip .container { grid-template-columns: 1fr; } .oet-proof-thumbs { justify-content: center; } }
+        @media (max-width: 767px) {
+            .oet-mobile-ctabar { position: fixed; inset: auto 0 0 0; z-index: 950; display: flex; background: rgba(255, 255, 255, .96); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid rgba(101, 66, 255, .16); box-shadow: 0 -10px 30px rgba(44, 34, 110, .12); padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); }
+            .oet-mobile-ctabar a { flex: 1 1 0; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; border-radius: 999px; font-weight: 900; font-size: 15px; }
+            .oet-mcta-wa { background: #e9fbf2; color: #0f7a4d; border: 1px solid rgba(15, 122, 77, .25); }
+            .oet-mcta-app { background: linear-gradient(135deg, #6542ff, #7b61ff); color: #fff; margin-left: 8px; }
+            .oet-mcta-app:hover, .oet-mcta-wa:hover { filter: brightness(1.04); }
+            body.oet-live-site { padding-bottom: 78px; }
+            .oet-contact-widget { bottom: 92px !important; }
+            .oet-pricing-section, .oet-pricing-faq { scroll-margin-top: 66px; }
+        }
+        @media (prefers-reduced-motion: reduce) { .oet-price-nav a, .oet-pfaq summary i { transition: none; } }
+    </style>

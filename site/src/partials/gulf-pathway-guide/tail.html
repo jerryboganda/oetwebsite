@@ -1,0 +1,209 @@
+
+
+
+    <!-- js file -->
+
+    <!-- jquery js-->
+<!-- gsap js-->
+    <script defer src="/assets/js/plugins/gsap.min.js"></script>
+    <!-- scrollTrigger js-->
+<!-- fontawesome -->
+<!-- counter js -->
+<!-- waypoints js-->
+<!-- sal js-->
+    <script defer src="/assets/js/plugins/sal.min.js"></script>
+    <!-- ScrollSmoother js -->
+    <script defer src="/assets/js/plugins/lenis.min.js"></script>
+<!-- Custom js -->
+<script defer src="/assets/js/main.js"></script>
+     <script defer src="/assets/js/oet-contact-widget.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            var cta = document.querySelector('.oet-community-cta');
+            var fullText = 'Join Free Community!';
+
+            if (!cta || typeof gsap === 'undefined') return;
+            var contentEl = cta.querySelector('.oet-community-cta__content');
+            var textEl = contentEl ? contentEl.querySelector('.oet-community-cta__text') : null;
+            var cursorEl = contentEl ? contentEl.querySelector('.oet-community-cta__cursor') : null;
+            cta.setAttribute('aria-label', fullText);
+
+            if (!textEl || !cursorEl) {
+                cta.textContent = fullText;
+                return;
+            }
+
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                textEl.textContent = fullText;
+                cursorEl.style.display = 'none';
+                return;
+            }
+
+            function startTypingLoop() {
+                var state = { progress: 0 };
+                gsap.killTweensOf([textEl, cursorEl]);
+                textEl.textContent = '';
+                gsap.set(cursorEl, { opacity: 1 });
+
+                gsap.to(state, {
+                    progress: fullText.length,
+                    duration: 2.8,
+                    ease: 'none',
+                    onUpdate: function () {
+                        textEl.textContent = fullText.slice(0, Math.floor(state.progress));
+                    },
+                    onComplete: function () {
+                        gsap.delayedCall(0.5, function () {
+                            var blinkTl = gsap.timeline({
+                                onComplete: function () {
+                                    textEl.textContent = '';
+                                    gsap.delayedCall(0.7, startTypingLoop);
+                                }
+                            });
+
+                            for (var i = 0; i < 3; i++) {
+                                blinkTl.to(cursorEl, { opacity: 0, duration: 0.16, ease: 'none' })
+                                    .to(cursorEl, { opacity: 1, duration: 0.16, ease: 'none' });
+                            }
+                        });
+                    }
+                });
+            }
+
+            startTypingLoop();
+        });
+    </script>
+    <script>
+        (function () {
+            if (typeof gsap === 'undefined') {
+                return;
+            }
+
+            if (!window.matchMedia || !window.matchMedia('(min-width: 1200px)').matches) {
+                return;
+            }
+
+            var menuRoot = document.querySelector('.vl-main-menu');
+            if (!menuRoot) {
+                return;
+            }
+
+            var dropdownItems = menuRoot.querySelectorAll('li.has-dropdown');
+            dropdownItems.forEach(function (item) {
+                var submenu = Array.from(item.children).find(function (child) {
+                    return child.classList && child.classList.contains('sub-menu');
+                });
+                if (!submenu) {
+                    return;
+                }
+
+                var submenuItems = Array.from(submenu.children).filter(function (child) {
+                    return child.tagName === 'LI';
+                });
+                var closeTimer = null;
+                var openTimeline = null;
+                var closeTimeline = null;
+
+                function clearTimers() {
+                    if (closeTimer) {
+                        clearTimeout(closeTimer);
+                        closeTimer = null;
+                    }
+                }
+
+                function killActiveTweens() {
+                    gsap.killTweensOf([submenu].concat(submenuItems));
+                    if (openTimeline) {
+                        openTimeline.kill();
+                        openTimeline = null;
+                    }
+                    if (closeTimeline) {
+                        closeTimeline.kill();
+                        closeTimeline = null;
+                    }
+                }
+
+                function openDropdown() {
+                    clearTimers();
+                    killActiveTweens();
+                    gsap.set(submenu, { transformOrigin: 'top center' });
+
+                    openTimeline = gsap.timeline({
+                        defaults: { overwrite: 'auto' },
+                        onComplete: function () {
+                            openTimeline = null;
+                        }
+                    });
+
+                    openTimeline.fromTo(submenu, {
+                        autoAlpha: 0,
+                        y: 12,
+                        scale: 0.98
+                    }, {
+                        autoAlpha: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 0.3,
+                        ease: 'power3.out'
+                    }, 0).fromTo(submenuItems, {
+                        autoAlpha: 0,
+                        y: 8
+                    }, {
+                        autoAlpha: 1,
+                        y: 0,
+                        duration: 0.24,
+                        ease: 'power2.out',
+                        stagger: 0.03
+                    }, 0.04);
+                }
+
+                function closeDropdown() {
+                    clearTimers();
+                    closeTimer = window.setTimeout(function () {
+                        closeTimer = null;
+                        killActiveTweens();
+
+                        closeTimeline = gsap.timeline({
+                            defaults: { overwrite: 'auto' },
+                            onComplete: function () {
+                                gsap.set(submenu, { clearProps: 'opacity,visibility,transform' });
+                                gsap.set(submenuItems, { clearProps: 'opacity,transform' });
+                                closeTimeline = null;
+                            }
+                        });
+
+                        closeTimeline.to(submenuItems, {
+                            autoAlpha: 0,
+                            y: 6,
+                            duration: 0.16,
+                            ease: 'power2.in',
+                            stagger: {
+                                each: 0.015,
+                                from: 'end'
+                            }
+                        }, 0).to(submenu, {
+                            autoAlpha: 0,
+                            y: 10,
+                            scale: 0.98,
+                            duration: 0.2,
+                            ease: 'power3.in'
+                        }, 0.02);
+                    }, 90);
+                }
+
+                item.addEventListener('mouseenter', openDropdown);
+                item.addEventListener('mouseleave', closeDropdown);
+            });
+        })();
+    </script>
+
+
+    
+
+
+    
+
+
+
+
+    

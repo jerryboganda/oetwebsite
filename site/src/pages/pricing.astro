@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import metaRaw from '../partials/pricing/meta.html?raw';
+import headExtraRaw from '../partials/pricing/head-extra.html?raw';
+import mainRaw from '../partials/pricing/main.html?raw';
+import tailRaw from '../partials/pricing/tail.html?raw';
+import pricing from '../data/pricing.json';
+import { applyPricing } from '../lib/inject.mjs';
+
+// src/data/pricing.json is the single source of truth for package prices:
+// visible &pound; amounts AND JSON-LD Offer prices are rewritten at build.
+const parts = applyPricing(
+  { meta: metaRaw, headExtra: headExtraRaw, main: mainRaw, tail: tailRaw },
+  pricing,
+);
+---
+<Base
+  meta={parts.meta}
+  headExtra={parts.headExtra}
+  main={parts.main}
+  tail={parts.tail}
+  swiperCss={true}
+  showApps={true}
+/>

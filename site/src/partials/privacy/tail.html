@@ -1,0 +1,216 @@
+
+
+    <!-- js file -->
+
+    <!-- jquery js-->
+<!-- gsap js-->
+<!-- scrollTrigger js-->
+<!-- fontawesome -->
+<!-- counter js -->
+<!-- waypoints js-->
+<!-- sal js-->
+<!-- ScrollSmoother js -->
+    <script defer src="/assets/js/plugins/lenis.min.js"></script>
+<!-- Custom js -->
+<script defer src="/assets/js/main.js"></script>
+            <script>
+        (function () {
+            var items = document.querySelectorAll('.oet-skill-item');
+            var skillGrid = document.querySelector('.oet-skill-grid');
+            var missionWrap = document.querySelector('.vl-mission-wrap-about');
+            var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (!items.length) return;
+
+            function animateItem(item) {
+                if (item.dataset.animated === 'true') return;
+                item.dataset.animated = 'true';
+
+                var target = parseInt(item.getAttribute('data-oet-skill') || '100', 10);
+                var bar = item.querySelector('.oet-skill-ring-bar');
+                var number = item.querySelector('.oet-skill-value span');
+                var radius = 54;
+                var circumference = 2 * Math.PI * radius;
+                var start = null;
+                var duration = 1600;
+
+                bar.style.strokeDasharray = circumference;
+                bar.style.strokeDashoffset = circumference;
+
+                function tick(ts) {
+                    if (!start) start = ts;
+                    var progress = Math.min((ts - start) / duration, 1);
+                    var eased = 1 - Math.pow(1 - progress, 3);
+                    var current = Math.round(target * eased);
+                    var offset = circumference - (circumference * current / 100);
+                    bar.style.strokeDashoffset = offset;
+                    number.textContent = current;
+                    if (progress < 1) window.requestAnimationFrame(tick);
+                }
+
+                window.requestAnimationFrame(tick);
+            }
+
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        animateItem(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.35 });
+
+            items.forEach(function (item) {
+                observer.observe(item);
+            });
+
+            if (prefersReducedMotion || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+                return;
+            }
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            if (missionWrap) {
+                gsap.from(missionWrap.querySelector('.MissionSwiper'), {
+                    scrollTrigger: {
+                        trigger: missionWrap,
+                        start: 'top 82%',
+                        once: true
+                    },
+                    y: 48,
+                    opacity: 0,
+                    duration: 0.95,
+                    ease: 'power3.out'
+                });
+
+                gsap.from(missionWrap.querySelectorAll('.vlmission-button'), {
+                    scrollTrigger: {
+                        trigger: missionWrap,
+                        start: 'top 82%',
+                        once: true
+                    },
+                    y: 22,
+                    opacity: 0,
+                    duration: 0.55,
+                    stagger: 0.08,
+                    delay: 0.18,
+                    ease: 'power2.out'
+                });
+            }
+
+            if (skillGrid) {
+                gsap.from(items, {
+                    scrollTrigger: {
+                        trigger: skillGrid,
+                        start: 'top 84%',
+                        once: true
+                    },
+                    y: 44,
+                    opacity: 0,
+                    scale: 0.92,
+                    duration: 0.82,
+                    stagger: 0.12,
+                    ease: 'back.out(1.35)'
+                });
+
+                gsap.from(skillGrid.querySelectorAll('.oet-skill-ring'), {
+                    scrollTrigger: {
+                        trigger: skillGrid,
+                        start: 'top 84%',
+                        once: true
+                    },
+                    rotation: -16,
+                    duration: 1,
+                    stagger: 0.12,
+                    ease: 'power3.out'
+                });
+            }
+        })();
+    </script>
+    <script>
+        (function () {
+            var historyThumbs = document.querySelectorAll('.vl-history-thumb');
+            var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (!historyThumbs.length || prefersReducedMotion || typeof gsap === 'undefined') return;
+
+            historyThumbs.forEach(function (thumb) {
+                var image = thumb.querySelector('img');
+                if (!image) return;
+
+                gsap.set(thumb, { transformPerspective: 900, transformOrigin: 'center center' });
+                gsap.set(image, { scale: 1.01, x: 0, y: 0 });
+
+                thumb.addEventListener('mouseenter', function () {
+                    gsap.killTweensOf([thumb, image]);
+                    gsap.to(thumb, {
+                        y: -10,
+                        scale: 1.015,
+                        boxShadow: '0 28px 60px rgba(100, 74, 249, 0.18)',
+                        duration: 0.42,
+                        ease: 'power3.out'
+                    });
+                    gsap.to(image, {
+                        scale: 1.075,
+                        duration: 0.6,
+                        ease: 'power3.out'
+                    });
+                    thumb.classList.add('is-history-hovered');
+                });
+
+                thumb.addEventListener('mousemove', function (event) {
+                    var rect = thumb.getBoundingClientRect();
+                    var relX = (event.clientX - rect.left) / rect.width - 0.5;
+                    var relY = (event.clientY - rect.top) / rect.height - 0.5;
+
+                    gsap.to(thumb, {
+                        rotationY: relX * 4,
+                        rotationX: relY * -4,
+                        x: relX * 5,
+                        y: -10 + relY * 4,
+                        duration: 0.45,
+                        ease: 'power2.out',
+                        overwrite: true
+                    });
+
+                    gsap.to(image, {
+                        x: relX * -12,
+                        y: relY * -10,
+                        duration: 0.55,
+                        ease: 'power2.out',
+                        overwrite: true
+                    });
+                });
+
+                thumb.addEventListener('mouseleave', function () {
+                    gsap.to(thumb, {
+                        x: 0,
+                        y: 0,
+                        scale: 1,
+                        rotationX: 0,
+                        rotationY: 0,
+                        boxShadow: '0 18px 44px rgba(17, 24, 39, 0.08)',
+                        duration: 0.55,
+                        ease: 'power3.out'
+                    });
+                    gsap.to(image, {
+                        x: 0,
+                        y: 0,
+                        scale: 1.01,
+                        duration: 0.55,
+                        ease: 'power3.out'
+                    });
+                    thumb.classList.remove('is-history-hovered');
+                });
+            });
+        })();
+    </script>
+
+    
+
+
+    
+
+
+
+    <script defer src="/assets/js/oet-legal-pages.js"></script>
+
+    

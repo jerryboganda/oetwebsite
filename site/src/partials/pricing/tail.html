@@ -1,0 +1,76 @@
+
+
+    <!-- js file -->
+
+       <!-- jquery js-->
+<!-- gsap js-->
+<!-- scrollTrigger js-->
+<!-- swiper js -->
+    <script defer src="/assets/js/plugins/swiper-bundle.min.js"></script>
+<!-- fontawesome -->
+<!-- counter js -->
+<!-- waypoints js-->
+<!-- sal js-->
+<!-- ScrollSmoother js -->
+    <script defer src="/assets/js/plugins/lenis.min.js"></script>
+<!-- Custom js -->
+<script defer src="/assets/js/main.js"></script>
+
+    
+
+
+    <script id="oet-pricing-hero-slider-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            var slider = document.querySelector('.oet-pricing-hero-swiper');
+            if (!slider || typeof Swiper === 'undefined') return;
+
+            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            var heroSwiper = new Swiper(slider, {
+                loop: true,
+                speed: reduceMotion ? 0 : 620,
+                grabCursor: true,
+                slidesPerView: 1,
+                spaceBetween: 0,
+                effect: 'slide',
+                roundLengths: true,
+                preloadImages: true,
+                updateOnImagesReady: true,
+                observer: true,
+                observeParents: true,
+                autoplay: reduceMotion ? false : {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                },
+                pagination: {
+                    el: '.oet-pricing-hero-pagination',
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: '.oet-pricing-hero-nav--next',
+                    prevEl: '.oet-pricing-hero-nav--prev'
+                }
+            });
+
+            slider.addEventListener('mouseenter', function () {
+                if (heroSwiper.autoplay) heroSwiper.autoplay.stop();
+            });
+            slider.addEventListener('mouseleave', function () {
+                if (heroSwiper.autoplay && !reduceMotion) heroSwiper.autoplay.start();
+            });
+        });
+    </script>
+
+    
+
+
+
+
+    <!-- Sticky mobile CTA bar -->
+    <div class="oet-mobile-ctabar" role="group" aria-label="Quick actions">
+        <a class="oet-mcta-wa" href="https://wa.me/447961725989?text=Hi%2C%20I%20need%20help%20choosing%20an%20OET%20package" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+        <a class="oet-mcta-app" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i> Enrol now</a>
+    </div>
+
+    

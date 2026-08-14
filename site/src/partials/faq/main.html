@@ -1,0 +1,615 @@
+
+
+    <!-- vl header search  -->
+    <div id="vl-header-search" class="vl-header-search-bar d-flex align-items-center">
+        <button class="vl-search-close" aria-label="Close search">&times;</button>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="vl-search-bar text-center">
+                        <h2 class="vl-search-bar-title mb-30">Search OET tips, writing, speaking, UK pathway</h2>
+                        <div class="contact-form-box contact-search-form-box">
+                            <form action="#">
+                                <input type="search" aria-label="Search this site" placeholder="Search OET preparation, writing, speaking...">
+                                <button type="submit"><i class="far fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- vl header search end -->
+
+    <!-- offcanvas menu start -->
+    <div id="vl-offcanvas-menu" class="vl-offcanvas">
+        <div class="vl-offcanvas-wrapper">
+            <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-50">
+                <div class="vl-offcanvas-logo">
+                    <a href="/" title="OET with Dr Hesham | The Pathway to UK"><img width="320" height="90" decoding="async" src="/assets/img/logo/platform-logo.png" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                </div>
+                <div class="vl-offcanvas-close">
+                    <button class="vl-offcanvas-toggle" type="button" aria-label="Close menu"><span aria-hidden="true">&times;</span></button>
+                </div>
+            </div>
+
+            <div class="vl-offcanvas-menu d-lg-block mb-40">
+                <nav aria-label="Mobile navigation"></nav>
+            </div>
+            <div class="vl-offcanvas-info mb-40">
+                <h3 class="vl-offcanvas-sm-title mb-20">Contact &amp; Community</h3>
+                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.1.svg" alt=""></span> Join Free Community</a>
+                                    <a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.3.svg" alt=""></span> WhatsApp Support</a>
+                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.2.svg" alt=""></span> Telegram Channel</a>
+            </div>
+
+            <div class="vl-offcanvas-social mb-40">
+                <h3 class="vl-offcanvas-sm-title mb-20">Follow the Journey</h3>
+                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fab fa-youtube"></i></a>
+                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fab fa-telegram"></i></a>
+                                    <a href="https://wa.me/447961725989" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="vl-offcanvas-overlay"></div>
+
+    <!-- offcanvas menu end -->
+
+    <!--================= Header section End =================-->
+
+    <main id="main-content" tabindex="-1">
+    <!--================= FAQ page start =================-->
+    <style>
+        .oet-faq-page { background: linear-gradient(180deg, #fbf9ff 0%, #f3efff 100%); padding-top: 185px !important; padding-bottom: 170px !important; position: relative; z-index: 1; }
+        .oet-faq-hero { text-align: center; max-width: 920px; margin: 0 auto 42px; }
+        .oet-faq-hero .sub-title { color: #654cf5; font-weight: 700; letter-spacing: .02em; }
+        .oet-faq-hero .title { color: #070b34; font-size: clamp(38px, 5vw, 68px); line-height: 1.05; margin-top: 14px; }
+        .oet-faq-hero .para { color: #41446b; font-size: 18px; line-height: 1.75; margin-top: 18px; }
+        .oet-faq-categories { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-bottom: 38px; }
+        .oet-faq-category { display: flex; align-items: center; gap: 14px; padding: 18px; border: 1px solid rgba(101, 76, 245, .18); border-radius: 18px; background: rgba(255,255,255,.82); color: #070b34; box-shadow: 0 16px 36px rgba(83, 57, 214, .08); }
+        .oet-faq-category:hover { color: #5f46f5; transform: translateY(-2px); }
+        .oet-faq-category__count { flex: 0 0 auto; border-radius: 999px; padding: 8px 11px; background: #f0ebff; color: #5f46f5; font-weight: 800; font-size: 13px; }
+        .oet-faq-category__title { font-weight: 800; line-height: 1.25; }
+        .oet-faq-section { scroll-margin-top: 120px; margin-bottom: 34px; }
+        .oet-faq-section__head { display: flex; gap: 18px; align-items: flex-start; margin-bottom: 18px; padding: 22px 24px; border-radius: 24px; background: rgba(255,255,255,.68); border: 1px solid rgba(101, 76, 245, .14); }
+        .oet-faq-section__badge { flex: 0 0 auto; padding: 9px 13px; border-radius: 999px; color: #fff; background: linear-gradient(135deg, #654cf5 0%, #7b61ff 100%); font-weight: 800; }
+        .oet-faq-section__head h2 { margin: 0 0 8px; color: #070b34; font-size: clamp(24px, 3vw, 34px); }
+        .oet-faq-section__head p { margin: 0; color: #515477; line-height: 1.65; }
+        .oet-faq-item .vl-accordion-button { gap: 12px; text-align: left; }
+        .oet-faq-number { display: inline-flex; align-items: center; justify-content: center; min-width: 42px; height: 32px; border-radius: 999px; color: #5f46f5; background: #f0ebff; font-size: 14px; font-weight: 800; }
+        .oet-faq-recommendation { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(101, 76, 245, .12); }
+        @media (max-width: 991px) { .oet-faq-page { padding-top: 150px !important; padding-bottom: 130px !important; } .oet-faq-categories { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 575px) { .oet-faq-page { padding-top: 125px !important; padding-bottom: 110px !important; } .oet-faq-categories { grid-template-columns: 1fr; } .oet-faq-section__head { flex-direction: column; } .oet-faq-item .vl-accordion-button { align-items: flex-start; } }
+    </style>
+    <section class="vl-faq-area pt-120 pb-120 oet-faq-page">
+        <div class="container">
+            <div class="oet-faq-hero">
+                <h4 class="sub-title">Frequently Asked Questions</h4>
+                <h1 class="title">OET Platform FAQs</h1>
+                <p class="para">A complete candidate reference guide with 32 frequently asked questions, organised by topic for healthcare professionals preparing for OET.</p>
+            </div>
+            <nav class="oet-faq-categories" aria-label="FAQ categories">
+                    <a class="oet-faq-category" href="#before-starting-oet">
+                        <span class="oet-faq-category__count">Q1&ndash;Q3</span>
+                        <span class="oet-faq-category__title">Before Starting OET</span>
+                    </a>
+                    <a class="oet-faq-category" href="#exam-format">
+                        <span class="oet-faq-category__count">Q4&ndash;Q8</span>
+                        <span class="oet-faq-category__title">Exam Format</span>
+                    </a>
+                    <a class="oet-faq-category" href="#scores-requirements-and-retake-rules">
+                        <span class="oet-faq-category__count">Q9&ndash;Q16</span>
+                        <span class="oet-faq-category__title">Scores, Requirements and Retake Rules</span>
+                    </a>
+                    <a class="oet-faq-category" href="#sub-test-details">
+                        <span class="oet-faq-category__count">Q17&ndash;Q21</span>
+                        <span class="oet-faq-category__title">Sub-test Details</span>
+                    </a>
+                    <a class="oet-faq-category" href="#booking-test-modes-and-exam-day">
+                        <span class="oet-faq-category__count">Q22&ndash;Q26</span>
+                        <span class="oet-faq-category__title">Booking, Test Modes and Exam Day</span>
+                    </a>
+                    <a class="oet-faq-category" href="#preparation-results-and-review">
+                        <span class="oet-faq-category__count">Q27&ndash;Q32</span>
+                        <span class="oet-faq-category__title">Preparation, Results and Review</span>
+                    </a>
+            </nav>
+                <section class="oet-faq-section" id="before-starting-oet">
+                    <div class="oet-faq-section__head">
+                        <span class="oet-faq-section__badge">Q1&ndash;Q3</span>
+                        <div>
+                            <h2>Before Starting OET</h2>
+                            <p>Start with the right English foundation before serious exam preparation.</p>
+                        </div>
+                    </div>
+                    <div class="vl-faqs2 oet-faq-accordion">
+                        <div class="accordion" id="accordion-before-starting-oet">
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-before-starting-oet-1">
+                                <button class="vl-accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-before-starting-oet-1" aria-expanded="true" aria-controls="collapse-faq-before-starting-oet-1">
+                                    <span class="oet-faq-number">Q1</span> Can I take OET if my English level is B1? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-before-starting-oet-1" class="accordion-collapse collapse show" aria-labelledby="heading-faq-before-starting-oet-1" data-bs-parent="#accordion-before-starting-oet">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> You can technically start preparing, but you are usually not ready for the real OET exam at B1 level.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Start with a Basic English Course first, then move to OET preparation when your English is closer to B2 level.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-before-starting-oet-2">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-before-starting-oet-2" aria-expanded="false" aria-controls="collapse-faq-before-starting-oet-2">
+                                    <span class="oet-faq-number">Q2</span> What English level do I need before starting OET? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-before-starting-oet-2" class="accordion-collapse collapse" aria-labelledby="heading-faq-before-starting-oet-2" data-bs-parent="#accordion-before-starting-oet">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> Most candidates need at least a strong B1+/B2 foundation before serious OET preparation.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> If your grammar, vocabulary, listening or sentence structure is weak, start with Foundation English and Medical English before full OET training.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-before-starting-oet-3">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-before-starting-oet-3" aria-expanded="false" aria-controls="collapse-faq-before-starting-oet-3">
+                                    <span class="oet-faq-number">Q3</span> Is OET easier than IELTS? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-before-starting-oet-3" class="accordion-collapse collapse" aria-labelledby="heading-faq-before-starting-oet-3" data-bs-parent="#accordion-before-starting-oet">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> OET may feel easier for healthcare professionals because the topics are medical and healthcare-related, but it is still a high-level English exam.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Choose OET if you are a doctor, nurse, pharmacist, dentist, physiotherapist or another healthcare professional.</p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="oet-faq-section" id="exam-format">
+                    <div class="oet-faq-section__head">
+                        <span class="oet-faq-section__badge">Q4&ndash;Q8</span>
+                        <div>
+                            <h2>Exam Format</h2>
+                            <p>Understand the structure, profession-specific tasks, and preparation timeline.</p>
+                        </div>
+                    </div>
+                    <div class="vl-faqs2 oet-faq-accordion">
+                        <div class="accordion" id="accordion-exam-format">
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-exam-format-4">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-exam-format-4" aria-expanded="false" aria-controls="collapse-faq-exam-format-4">
+                                    <span class="oet-faq-number">Q4</span> What are the four OET sub-tests? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-exam-format-4" class="accordion-collapse collapse" aria-labelledby="heading-faq-exam-format-4" data-bs-parent="#accordion-exam-format">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> OET has four sub-tests: Listening, Reading, Writing and Speaking.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Prepare for all four skills because most regulators require scores in each sub-test, not just an overall result.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-exam-format-5">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-exam-format-5" aria-expanded="false" aria-controls="collapse-faq-exam-format-5">
+                                    <span class="oet-faq-number">Q5</span> Which professions can take OET? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-exam-format-5" class="accordion-collapse collapse" aria-labelledby="heading-faq-exam-format-5" data-bs-parent="#accordion-exam-format">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> OET is designed for healthcare professionals, including doctors, nurses, pharmacists, dentists, physiotherapists and other healthcare-related professions.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Choose the correct profession when booking because Writing and Speaking are profession-specific.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-exam-format-6">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-exam-format-6" aria-expanded="false" aria-controls="collapse-faq-exam-format-6">
+                                    <span class="oet-faq-number">Q6</span> Is OET Writing the same for all professions? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-exam-format-6" class="accordion-collapse collapse" aria-labelledby="heading-faq-exam-format-6" data-bs-parent="#accordion-exam-format">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> No. Writing is profession-specific. For example, Medicine candidates receive medical case notes, while Nursing candidates receive nursing-related case notes.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Study writing letters specific to your profession, not generic OET letters.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-exam-format-7">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-exam-format-7" aria-expanded="false" aria-controls="collapse-faq-exam-format-7">
+                                    <span class="oet-faq-number">Q7</span> Is OET Speaking the same for all professions? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-exam-format-7" class="accordion-collapse collapse" aria-labelledby="heading-faq-exam-format-7" data-bs-parent="#accordion-exam-format">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> No. Speaking role-plays are profession-specific and based on realistic healthcare situations.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Practise role-plays related to your profession, common patient concerns and real clinical communication.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-exam-format-8">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-exam-format-8" aria-expanded="false" aria-controls="collapse-faq-exam-format-8">
+                                    <span class="oet-faq-number">Q8</span> Can I prepare for OET in one month? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-exam-format-8" class="accordion-collapse collapse" aria-labelledby="heading-faq-exam-format-8" data-bs-parent="#accordion-exam-format">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> It depends on your current English level. Strong candidates may improve quickly, but weaker candidates usually need more time.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Take a level assessment first. If your basics are weak, do not rush to book the exam.</p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="oet-faq-section" id="scores-requirements-and-retake-rules">
+                    <div class="oet-faq-section__head">
+                        <span class="oet-faq-section__badge">Q9&ndash;Q16</span>
+                        <div>
+                            <h2>Scores, Requirements and Retake Rules</h2>
+                            <p>Clarify score requirements, validity, clubbing, resits, and regulator rules.</p>
+                        </div>
+                    </div>
+                    <div class="vl-faqs2 oet-faq-accordion">
+                        <div class="accordion" id="accordion-scores-requirements-and-retake-rules">
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-scores-requirements-and-retake-rules-9">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-scores-requirements-and-retake-rules-9" aria-expanded="false" aria-controls="collapse-faq-scores-requirements-and-retake-rules-9">
+                                    <span class="oet-faq-number">Q9</span> Can I pass OET without a course? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-scores-requirements-and-retake-rules-9" class="accordion-collapse collapse" aria-labelledby="heading-faq-scores-requirements-and-retake-rules-9" data-bs-parent="#accordion-scores-requirements-and-retake-rules">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> Some candidates can, especially if their English is already strong and they understand the exam format.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> A structured course is better if you struggle with Writing, Speaking, time management or exam strategy.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-scores-requirements-and-retake-rules-10">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-scores-requirements-and-retake-rules-10" aria-expanded="false" aria-controls="collapse-faq-scores-requirements-and-retake-rules-10">
+                                    <span class="oet-faq-number">Q10</span> What score do I need to pass OET? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-scores-requirements-and-retake-rules-10" class="accordion-collapse collapse" aria-labelledby="heading-faq-scores-requirements-and-retake-rules-10" data-bs-parent="#accordion-scores-requirements-and-retake-rules">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> There is no single pass score for everyone. Required scores depend on the regulator, country and profession. For example, some organisations require Grade B (350) in specific sub-tests, while Australia (AHPRA) now uses a numeric scoring system with separate minimums for each sub-test.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Check the exact requirement for your target regulator before booking the exam. Do not assume a generic Grade B will be enough.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-scores-requirements-and-retake-rules-11">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-scores-requirements-and-retake-rules-11" aria-expanded="false" aria-controls="collapse-faq-scores-requirements-and-retake-rules-11">
+                                    <span class="oet-faq-number">Q11</span> What is Grade B in OET? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-scores-requirements-and-retake-rules-11" class="accordion-collapse collapse" aria-labelledby="heading-faq-scores-requirements-and-retake-rules-11" data-bs-parent="#accordion-scores-requirements-and-retake-rules">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> Grade B usually corresponds to a score of 350 or above on the OET scale (0&ndash;500). Letter grades range from A (highest) to E (lowest).</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Aim higher than the minimum because small mistakes can affect your final score.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-scores-requirements-and-retake-rules-12">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-scores-requirements-and-retake-rules-12" aria-expanded="false" aria-controls="collapse-faq-scores-requirements-and-retake-rules-12">
+                                    <span class="oet-faq-number">Q12</span> How long is my OET score valid? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-scores-requirements-and-retake-rules-12" class="accordion-collapse collapse" aria-labelledby="heading-faq-scores-requirements-and-retake-rules-12" data-bs-parent="#accordion-scores-requirements-and-retake-rules">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> OET scores are generally valid for two years from the test date for most regulators and organisations.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> If your registration or application process may take longer than two years, plan to retake OET before your current score expires. Always confirm the validity rule with your specific regulator.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-scores-requirements-and-retake-rules-13">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-scores-requirements-and-retake-rules-13" aria-expanded="false" aria-controls="collapse-faq-scores-requirements-and-retake-rules-13">
+                                    <span class="oet-faq-number">Q13</span> Is OET accepted for visa or immigration purposes? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-scores-requirements-and-retake-rules-13" class="accordion-collapse collapse" aria-labelledby="heading-faq-scores-requirements-and-retake-rules-13" data-bs-parent="#accordion-scores-requirements-and-retake-rules">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> OET is primarily used for professional registration of healthcare workers. Some countries also accept OET for healthcare-related visa categories, but acceptance for general immigration purposes is limited and depends on the country.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> If you need English for a visa, confirm directly with the immigration authority or your registered advisor before booking &mdash; do not assume acceptance based on professional registration alone.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-scores-requirements-and-retake-rules-14">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-scores-requirements-and-retake-rules-14" aria-expanded="false" aria-controls="collapse-faq-scores-requirements-and-retake-rules-14">
+                                    <span class="oet-faq-number">Q14</span> Can I retake only one sub-test (Single Sub-Test Resit)? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-scores-requirements-and-retake-rules-14" class="accordion-collapse collapse" aria-labelledby="heading-faq-scores-requirements-and-retake-rules-14" data-bs-parent="#accordion-scores-requirements-and-retake-rules">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> OET offers a Single Sub-Test Resit booking option, but only on OET Test on Paper and only at venues outside the USA. Acceptance is decided by your regulator, not by OET. The major regulators that do NOT accept single sub-test resits include: the UK NMC (nurses), the UK GMC (doctors), the UK Foundation Programme (UKFPO), Australia (AHPRA), and the USA (where single sub-test resits cannot be booked at USA venues at all). Some other regulators may accept it, but this is the exception, not the rule.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Before booking a single sub-test resit, confirm in writing with your regulator that they accept it. If you are applying to the UK, USA or Australia, do not rely on a single sub-test resit &mdash; plan a full retake or use clubbing where the regulator allows it.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-scores-requirements-and-retake-rules-15">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-scores-requirements-and-retake-rules-15" aria-expanded="false" aria-controls="collapse-faq-scores-requirements-and-retake-rules-15">
+                                    <span class="oet-faq-number">Q15</span> What is OET score clubbing, and which regulators accept it? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-scores-requirements-and-retake-rules-15" class="accordion-collapse collapse" aria-labelledby="heading-faq-scores-requirements-and-retake-rules-15" data-bs-parent="#accordion-scores-requirements-and-retake-rules">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> Clubbing means combining results from two FULL OET sittings (not single sub-test resits) to meet the required scores. Each sitting must include all four sub-tests, and strict conditions apply on minimum scores per sub-test and the time window between sittings. Regulators that DO accept clubbing include: the UK NMC (two sittings within 6 months, with no sub-test more than half a grade below the required score), Australia's AHPRA (two sittings within 12 months), Ireland's NMBI, and New Zealand's Nursing Council. Regulators that do NOT accept clubbing include the UK GMC, the UK Foundation Programme, and most US pathways &mdash; these require all four scores from one sitting.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Clubbing is your main safety net if you miss one or two sub-tests by a small margin. Before booking the second sitting, check your regulator's exact rules &mdash; time window, minimum sub-test scores and allowed combinations &mdash; and plan strategically. Do not assume clubbing is available; it is regulator-specific.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-scores-requirements-and-retake-rules-16">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-scores-requirements-and-retake-rules-16" aria-expanded="false" aria-controls="collapse-faq-scores-requirements-and-retake-rules-16">
+                                    <span class="oet-faq-number">Q16</span> What OET score do I need for AHPRA registration in Australia? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-scores-requirements-and-retake-rules-16" class="accordion-collapse collapse" aria-labelledby="heading-faq-scores-requirements-and-retake-rules-16" data-bs-parent="#accordion-scores-requirements-and-retake-rules">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> AHPRA (Australian Health Practitioner Regulation Agency) updated its OET requirements on 23 April 2026 to align with new score concordance research. The required English proficiency level has NOT changed &mdash; only the scoring format has changed. Your test date determines which rules apply. For tests taken on or before 22 April 2026: the old letter-grade requirements apply &mdash; Grade B (350) in Listening, Reading and Speaking, and Grade C+ (300) in Writing. For tests taken on or after 23 April 2026: numeric requirements apply &mdash; Listening 350, Reading 360, Writing 350, Speaking 360. The letter-grade system no longer applies to AHPRA assessments from this date. AHPRA accepts results from one sitting or from clubbing two sittings within a 12-month period (where the first sitting is assessed against the old standard and the second against the new). AHPRA does NOT accept OET@Home and does NOT accept single sub-test resits.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Check your test date carefully. If you are still preparing for the test, aim for the new numeric thresholds &mdash; Listening 350, Reading 360, Writing 350, Speaking 360 &mdash; because these are now the standard for any test taken from 23 April 2026 onwards.</p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="oet-faq-section" id="sub-test-details">
+                    <div class="oet-faq-section__head">
+                        <span class="oet-faq-section__badge">Q17&ndash;Q21</span>
+                        <div>
+                            <h2>Sub-test Details</h2>
+                            <p>Review marks, timings, grading criteria, and smart exam technique.</p>
+                        </div>
+                    </div>
+                    <div class="vl-faqs2 oet-faq-accordion">
+                        <div class="accordion" id="accordion-sub-test-details">
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-sub-test-details-17">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-sub-test-details-17" aria-expanded="false" aria-controls="collapse-faq-sub-test-details-17">
+                                    <span class="oet-faq-number">Q17</span> How many marks are there in OET Listening? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-sub-test-details-17" class="accordion-collapse collapse" aria-labelledby="heading-faq-sub-test-details-17" data-bs-parent="#accordion-sub-test-details">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> OET Listening has 42 marks in total. Part A has 24 marks, Part B has 6 marks, and Part C has 12 marks.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Do not focus only on Part A. Parts B and C are very important for reaching Grade B.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-sub-test-details-18">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-sub-test-details-18" aria-expanded="false" aria-controls="collapse-faq-sub-test-details-18">
+                                    <span class="oet-faq-number">Q18</span> How many questions are there in OET Reading? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-sub-test-details-18" class="accordion-collapse collapse" aria-labelledby="heading-faq-sub-test-details-18" data-bs-parent="#accordion-sub-test-details">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> OET Reading has 42 questions, and each correct answer gives one mark before conversion to the OET score scale.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Practise Reading Part A under strict timing because it is often the most stressful part.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-sub-test-details-19">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-sub-test-details-19" aria-expanded="false" aria-controls="collapse-faq-sub-test-details-19">
+                                    <span class="oet-faq-number">Q19</span> Is there negative marking in OET? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-sub-test-details-19" class="accordion-collapse collapse" aria-labelledby="heading-faq-sub-test-details-19" data-bs-parent="#accordion-sub-test-details">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> No. There is no penalty for wrong answers in Listening or Reading, so it is better to attempt every question than to leave it blank.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> If you are not certain, make your best informed guess. An empty answer cannot earn marks; a guess might.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-sub-test-details-20">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-sub-test-details-20" aria-expanded="false" aria-controls="collapse-faq-sub-test-details-20">
+                                    <span class="oet-faq-number">Q20</span> How long does each OET sub-test take? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-sub-test-details-20" class="accordion-collapse collapse" aria-labelledby="heading-faq-sub-test-details-20" data-bs-parent="#accordion-sub-test-details">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> Listening takes approximately 40 to 45 minutes, Reading takes 60 minutes, Writing takes 45 minutes, and Speaking takes around 20 minutes. Listening, Reading and Writing are usually delivered back-to-back; Speaking may be scheduled separately.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Train your stamina with full-length timed mocks, not just isolated practice tasks. Exam-day fatigue is real.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-sub-test-details-21">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-sub-test-details-21" aria-expanded="false" aria-controls="collapse-faq-sub-test-details-21">
+                                    <span class="oet-faq-number">Q21</span> How are OET Writing and Speaking graded? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-sub-test-details-21" class="accordion-collapse collapse" aria-labelledby="heading-faq-sub-test-details-21" data-bs-parent="#accordion-sub-test-details">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> OET Writing is marked by trained assessors against criteria including purpose, content, conciseness and clarity, genre and style, organisation and layout, language, and overall structure. OET Speaking is marked against criteria including intelligibility, fluency, appropriateness of language, resources of grammar and expression, and clinical communication skills. Raw marks are then converted to the 0&ndash;500 OET scale.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Do not just write or speak more &mdash; match the assessment criteria. Knowing what the assessors look for is more important than producing extra content.</p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="oet-faq-section" id="booking-test-modes-and-exam-day">
+                    <div class="oet-faq-section__head">
+                        <span class="oet-faq-section__badge">Q22&ndash;Q26</span>
+                        <div>
+                            <h2>Booking, Test Modes and Exam Day</h2>
+                            <p>Choose the right test mode and avoid booking or ID mistakes.</p>
+                        </div>
+                    </div>
+                    <div class="vl-faqs2 oet-faq-accordion">
+                        <div class="accordion" id="accordion-booking-test-modes-and-exam-day">
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-booking-test-modes-and-exam-day-22">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-booking-test-modes-and-exam-day-22" aria-expanded="false" aria-controls="collapse-faq-booking-test-modes-and-exam-day-22">
+                                    <span class="oet-faq-number">Q22</span> Can I take OET on computer? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-booking-test-modes-and-exam-day-22" class="accordion-collapse collapse" aria-labelledby="heading-faq-booking-test-modes-and-exam-day-22" data-bs-parent="#accordion-booking-test-modes-and-exam-day">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> Yes. OET can be taken on computer in available locations. The Listening, Reading and Writing sections are completed on computer.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> If you type faster than you write, computer-based OET may be the better choice for you.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-booking-test-modes-and-exam-day-23">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-booking-test-modes-and-exam-day-23" aria-expanded="false" aria-controls="collapse-faq-booking-test-modes-and-exam-day-23">
+                                    <span class="oet-faq-number">Q23</span> Can I take OET on paper? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-booking-test-modes-and-exam-day-23" class="accordion-collapse collapse" aria-labelledby="heading-faq-booking-test-modes-and-exam-day-23" data-bs-parent="#accordion-booking-test-modes-and-exam-day">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> Yes. OET Test on Paper is available in selected locations and includes the four sub-tests: Listening, Reading, Writing and Speaking.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Choose paper-based OET if you are more comfortable handwriting your Writing letter.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-booking-test-modes-and-exam-day-24">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-booking-test-modes-and-exam-day-24" aria-expanded="false" aria-controls="collapse-faq-booking-test-modes-and-exam-day-24">
+                                    <span class="oet-faq-number">Q24</span> Is OET@Home accepted everywhere? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-booking-test-modes-and-exam-day-24" class="accordion-collapse collapse" aria-labelledby="heading-faq-booking-test-modes-and-exam-day-24" data-bs-parent="#accordion-booking-test-modes-and-exam-day">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> Not necessarily. Acceptance depends on the regulator or organisation you are applying to. Major regulators such as Australia's AHPRA do not accept OET@Home for registration.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Before booking OET@Home, confirm in writing that your target regulator accepts it.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-booking-test-modes-and-exam-day-25">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-booking-test-modes-and-exam-day-25" aria-expanded="false" aria-controls="collapse-faq-booking-test-modes-and-exam-day-25">
+                                    <span class="oet-faq-number">Q25</span> What ID do I need on exam day? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-booking-test-modes-and-exam-day-25" class="accordion-collapse collapse" aria-labelledby="heading-faq-booking-test-modes-and-exam-day-25" data-bs-parent="#accordion-booking-test-modes-and-exam-day">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> You must bring the same valid, government-issued photo ID (usually a passport) that you used when booking the test. Expired IDs are not accepted, and the name on your booking must match the ID exactly.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Check your passport expiry well before the test date and book in the exact name on your passport &mdash; no nicknames, shortened forms or different spellings.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-booking-test-modes-and-exam-day-26">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-booking-test-modes-and-exam-day-26" aria-expanded="false" aria-controls="collapse-faq-booking-test-modes-and-exam-day-26">
+                                    <span class="oet-faq-number">Q26</span> Can I cancel or reschedule my OET booking? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-booking-test-modes-and-exam-day-26" class="accordion-collapse collapse" aria-labelledby="heading-faq-booking-test-modes-and-exam-day-26" data-bs-parent="#accordion-booking-test-modes-and-exam-day">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> Yes. OET allows candidates to withdraw or transfer their booking before the cut-off date stated in the official OET terms. Cancellations close to the test date usually receive only a partial refund or no refund at all.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> If you are not confident you will be ready, postpone before the cut-off date. Do not waste a booking on a date you are not prepared for.</p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="oet-faq-section" id="preparation-results-and-review">
+                    <div class="oet-faq-section__head">
+                        <span class="oet-faq-section__badge">Q27&ndash;Q32</span>
+                        <div>
+                            <h2>Preparation, Results and Review</h2>
+                            <p>Prepare strategically, check readiness, and understand results or reviews.</p>
+                        </div>
+                    </div>
+                    <div class="vl-faqs2 oet-faq-accordion">
+                        <div class="accordion" id="accordion-preparation-results-and-review">
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-preparation-results-and-review-27">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-preparation-results-and-review-27" aria-expanded="false" aria-controls="collapse-faq-preparation-results-and-review-27">
+                                    <span class="oet-faq-number">Q27</span> What is the hardest OET sub-test? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-preparation-results-and-review-27" class="accordion-collapse collapse" aria-labelledby="heading-faq-preparation-results-and-review-27" data-bs-parent="#accordion-preparation-results-and-review">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> It depends on the candidate. Many candidates find Writing and Listening Part C difficult, while others struggle with Reading Part A timing.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Take a mock test first to identify your weakest sub-test, then focus your preparation accordingly.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-preparation-results-and-review-28">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-preparation-results-and-review-28" aria-expanded="false" aria-controls="collapse-faq-preparation-results-and-review-28">
+                                    <span class="oet-faq-number">Q28</span> How can I know if I am ready for OET? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-preparation-results-and-review-28" class="accordion-collapse collapse" aria-labelledby="heading-faq-preparation-results-and-review-28" data-bs-parent="#accordion-preparation-results-and-review">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> You are ready when you can consistently achieve your target score in timed mock tests across all four sub-tests.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Do not rely on one good practice test. You need repeated, stable performance before booking.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-preparation-results-and-review-29">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-preparation-results-and-review-29" aria-expanded="false" aria-controls="collapse-faq-preparation-results-and-review-29">
+                                    <span class="oet-faq-number">Q29</span> Should I memorise OET letters? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-preparation-results-and-review-29" class="accordion-collapse collapse" aria-labelledby="heading-faq-preparation-results-and-review-29" data-bs-parent="#accordion-preparation-results-and-review">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> No. Memorising full letters is risky because case notes change in every exam.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Learn structure, selection of relevant information, professional tone and common letter types instead.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-preparation-results-and-review-30">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-preparation-results-and-review-30" aria-expanded="false" aria-controls="collapse-faq-preparation-results-and-review-30">
+                                    <span class="oet-faq-number">Q30</span> What should I do if I failed OET before? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-preparation-results-and-review-30" class="accordion-collapse collapse" aria-labelledby="heading-faq-preparation-results-and-review-30" data-bs-parent="#accordion-preparation-results-and-review">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> Do not repeat the exam immediately without analysing why you failed.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Check your score breakdown, identify the weak sub-test, take targeted training, then book again when your mock scores are stable.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-preparation-results-and-review-31">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-preparation-results-and-review-31" aria-expanded="false" aria-controls="collapse-faq-preparation-results-and-review-31">
+                                    <span class="oet-faq-number">Q31</span> When will I receive my OET results? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-preparation-results-and-review-31" class="accordion-collapse collapse" aria-labelledby="heading-faq-preparation-results-and-review-31" data-bs-parent="#accordion-preparation-results-and-review">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> Official OET results are typically released about 16 to 17 business days after the test date and published on your OET candidate account.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Use the waiting period productively &mdash; plan your next step (registration, application or further preparation) rather than refreshing the results page.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vl-accordion-item oet-faq-item">
+                            <h3 class="accordion-header" id="heading-faq-preparation-results-and-review-32">
+                                <button class="vl-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-preparation-results-and-review-32" aria-expanded="false" aria-controls="collapse-faq-preparation-results-and-review-32">
+                                    <span class="oet-faq-number">Q32</span> Can I request a review of marking if I disagree with my score? <span class="vl-faqarrow"><i class="fa-regular fa-angle-down"></i></span>
+                                </button>
+                            </h3>
+                            <div id="collapse-faq-preparation-results-and-review-32" class="accordion-collapse collapse" aria-labelledby="heading-faq-preparation-results-and-review-32" data-bs-parent="#accordion-preparation-results-and-review">
+                                <div class="vl-accordion-body">
+                                    <p class="para"><strong>Answer:</strong> Yes. OET offers a Review of Marking service for candidates who believe their score is lower than expected. The service is usually available for Writing and Speaking within a limited time window after results are released, and a separate fee applies.</p>
+                                    <p class="para oet-faq-recommendation"><strong>Recommendation:</strong> Request a review only if your sub-test score is much lower than your consistent mock test performance &mdash; not just because you hoped for a higher grade.</p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </section>
+        </div>
+    </section>
+    <!--================= FAQ page end =================-->
+</main>

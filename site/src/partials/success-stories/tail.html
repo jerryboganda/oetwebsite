@@ -1,0 +1,425 @@
+
+
+
+    <!-- js file -->
+
+    <!-- jquery js-->
+<!-- gsap js-->
+    <script defer src="/assets/js/plugins/gsap.min.js"></script>
+    <!-- scrollTrigger js-->
+<!-- fontawesome -->
+<!-- counter js -->
+<!-- waypoints js-->
+<!-- sal js-->
+<!-- ScrollSmoother js -->
+    <script defer src="/assets/js/plugins/lenis.min.js"></script>
+<!-- Custom js -->
+<script defer src="/assets/js/main.js"></script>
+     <script defer src="/assets/js/oet-contact-widget.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            var fullText = 'Join Free Community!';
+            var ctas = document.querySelectorAll('.oet-community-cta');
+
+            ctas.forEach(function (cta) {
+                var contentEl = cta.querySelector('.oet-community-cta__content');
+                var textEl = contentEl ? contentEl.querySelector('.oet-community-cta__text') : null;
+                var cursorEl = contentEl ? contentEl.querySelector('.oet-community-cta__cursor') : null;
+                cta.setAttribute('aria-label', fullText);
+
+                if (!textEl || !cursorEl) {
+                    cta.textContent = fullText;
+                    return;
+                }
+
+                textEl.textContent = fullText;
+
+                if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    cursorEl.style.display = 'none';
+                    return;
+                }
+
+                if (typeof gsap !== 'undefined') {
+                    gsap.killTweensOf(cursorEl);
+                    gsap.to(cursorEl, {
+                        opacity: 0,
+                        duration: 0.55,
+                        ease: 'none',
+                        repeat: -1,
+                        yoyo: true
+                    });
+                }
+            });
+        });
+    </script>
+    <script>
+        (function () {
+            if (typeof gsap === 'undefined') {
+                return;
+            }
+
+            if (!window.matchMedia || !window.matchMedia('(min-width: 1200px)').matches) {
+                return;
+            }
+
+            var menuRoot = document.querySelector('.vl-main-menu');
+            if (!menuRoot) {
+                return;
+            }
+
+            var dropdownItems = menuRoot.querySelectorAll('li.has-dropdown');
+            dropdownItems.forEach(function (item) {
+                var submenu = Array.from(item.children).find(function (child) {
+                    return child.classList && child.classList.contains('sub-menu');
+                });
+                if (!submenu) {
+                    return;
+                }
+
+                var submenuItems = Array.from(submenu.children).filter(function (child) {
+                    return child.tagName === 'LI';
+                });
+                var closeTimer = null;
+                var openTimeline = null;
+                var closeTimeline = null;
+
+                function clearTimers() {
+                    if (closeTimer) {
+                        clearTimeout(closeTimer);
+                        closeTimer = null;
+                    }
+                }
+
+                function killActiveTweens() {
+                    gsap.killTweensOf([submenu].concat(submenuItems));
+                    if (openTimeline) {
+                        openTimeline.kill();
+                        openTimeline = null;
+                    }
+                    if (closeTimeline) {
+                        closeTimeline.kill();
+                        closeTimeline = null;
+                    }
+                }
+
+                function openDropdown() {
+                    clearTimers();
+                    killActiveTweens();
+                    gsap.set(submenu, { transformOrigin: 'top center' });
+
+                    openTimeline = gsap.timeline({
+                        defaults: { overwrite: 'auto' },
+                        onComplete: function () {
+                            openTimeline = null;
+                        }
+                    });
+
+                    openTimeline.fromTo(submenu, {
+                        autoAlpha: 0,
+                        y: 12,
+                        scale: 0.98
+                    }, {
+                        autoAlpha: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 0.3,
+                        ease: 'power3.out'
+                    }, 0).fromTo(submenuItems, {
+                        autoAlpha: 0,
+                        y: 8
+                    }, {
+                        autoAlpha: 1,
+                        y: 0,
+                        duration: 0.24,
+                        ease: 'power2.out',
+                        stagger: 0.03
+                    }, 0.04);
+                }
+
+                function closeDropdown() {
+                    clearTimers();
+                    closeTimer = window.setTimeout(function () {
+                        closeTimer = null;
+                        killActiveTweens();
+
+                        closeTimeline = gsap.timeline({
+                            defaults: { overwrite: 'auto' },
+                            onComplete: function () {
+                                gsap.set(submenu, { clearProps: 'opacity,visibility,transform' });
+                                gsap.set(submenuItems, { clearProps: 'opacity,transform' });
+                                closeTimeline = null;
+                            }
+                        });
+
+                        closeTimeline.to(submenuItems, {
+                            autoAlpha: 0,
+                            y: 6,
+                            duration: 0.16,
+                            ease: 'power2.in',
+                            stagger: {
+                                each: 0.015,
+                                from: 'end'
+                            }
+                        }, 0).to(submenu, {
+                            autoAlpha: 0,
+                            y: 10,
+                            scale: 0.98,
+                            duration: 0.2,
+                            ease: 'power3.in'
+                        }, 0.02);
+                    }, 90);
+                }
+
+                item.addEventListener('mouseenter', openDropdown);
+                item.addEventListener('mouseleave', closeDropdown);
+            });
+        })();
+    </script>
+
+
+    
+
+
+    
+
+
+
+<script>
+(function () {
+    const PAGE_SIZE = 40;
+    const manifestUrl = '/assets/img/success-stories/success-stories.json?v=watermarked-20260630';
+    const tabs = Array.from(document.querySelectorAll('.success-tab'));
+    const gallery = document.getElementById('success-gallery');
+    const empty = document.getElementById('success-empty');
+    const loading = document.getElementById('success-loading');
+    const pagination = document.getElementById('success-pagination');
+    const summary = document.getElementById('success-results-summary');
+    const lightbox = document.getElementById('success-lightbox');
+    const panel = lightbox.querySelector('.success-lightbox__panel');
+    const img = document.getElementById('success-lightbox-img');
+    const countLabel = document.getElementById('success-lightbox-count');
+    const yearLabel = document.getElementById('success-lightbox-year');
+    const platformLabel = document.getElementById('success-lightbox-platform');
+    const originalLink = document.getElementById('success-lightbox-original');
+    let stories = [];
+    let filtered = [];
+    let page = 1;
+    let pageOffset = 0;
+    let currentYear = 'All';
+    let currentVisible = [];
+    let current = 0;
+    let lastFocus = null;
+
+    function escapeHtml(value) {
+        return String(value || '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
+    }
+
+    function filterStories() {
+        filtered = currentYear === 'All' ? stories.slice() : stories.filter(story => story.year === currentYear);
+        const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+        if (page > totalPages) page = totalPages;
+        pageOffset = (page - 1) * PAGE_SIZE;
+        currentVisible = filtered.slice(pageOffset, pageOffset + PAGE_SIZE);
+        renderGallery();
+        renderPagination(totalPages);
+        empty.classList.toggle('is-visible', filtered.length === 0);
+        const from = filtered.length ? pageOffset + 1 : 0;
+        const to = Math.min(pageOffset + PAGE_SIZE, filtered.length);
+        summary.textContent = filtered.length ? `Showing ${from}-${to} of ${filtered.length.toLocaleString()} stories` : 'No stories found for this year';
+    }
+
+    function renderGallery() {
+        gallery.innerHTML = currentVisible.map((story, localIndex) => `
+            <article class="success-card" data-visible-index="${localIndex}">
+                <button class="success-card__button" type="button" aria-label="Open ${escapeHtml(story.alt || story.filename)}">
+                    <span class="success-card__media">
+                        <img src="${escapeHtml(story.thumbSrc || story.optimizedSrc)}" alt="${escapeHtml(story.alt || story.filename)}"${(story.thumbWidth || story.width) && (story.thumbHeight || story.height) ? ` width="${story.thumbWidth || story.width}" height="${story.thumbHeight || story.height}"` : ''} loading="lazy" decoding="async">
+                    </span>
+                    <span class="success-card__meta">
+                        <span><i class="fa-solid fa-calendar-check"></i> ${escapeHtml(story.year)}</span>
+                        <span><i class="fa-solid fa-share-nodes"></i> ${escapeHtml(story.platform)}</span>
+                    </span>
+                </button>
+            </article>`).join('');
+        gallery.querySelectorAll('.success-card').forEach((card, index) => {
+            card.style.animationDelay = `${Math.min(index, 11) * 35}ms`;
+            requestAnimationFrame(() => card.classList.add('is-visible'));
+        });
+        gallery.querySelectorAll('.success-card__button').forEach((button, index) => {
+            button.addEventListener('click', () => openAt(pageOffset + index));
+        });
+    }
+
+    function pageButton(label, target, active, disabled) {
+        return `<button class="success-page-btn${active ? ' is-active' : ''}" type="button" data-page="${target}"${disabled ? ' disabled' : ''}>${label}</button>`;
+    }
+
+    function renderPagination(totalPages) {
+        if (filtered.length <= PAGE_SIZE) {
+            pagination.innerHTML = '';
+            return;
+        }
+        const pages = new Set([1, totalPages, page, page - 1, page + 1, page - 2, page + 2]);
+        const list = Array.from(pages).filter(n => n >= 1 && n <= totalPages).sort((a, b) => a - b);
+        let html = pageButton('Prev', page - 1, false, page === 1);
+        let prev = 0;
+        for (const n of list) {
+            if (prev && n - prev > 1) html += '<span class="success-page-btn" aria-hidden="true">...</span>';
+            html += pageButton(n, n, n === page, false);
+            prev = n;
+        }
+        html += pageButton('Next', page + 1, false, page === totalPages);
+        pagination.innerHTML = html;
+        pagination.querySelectorAll('button[data-page]').forEach(button => {
+            button.addEventListener('click', () => {
+                const next = Number(button.dataset.page);
+                if (!next || next === page || button.disabled) return;
+                page = next;
+                filterStories();
+                document.querySelector('.success-gallery-section').scrollIntoView({behavior: 'smooth', block: 'start'});
+            });
+        });
+    }
+
+    function preloadNeighbours(globalIndex) {
+        [globalIndex - 1, globalIndex + 1].forEach(n => {
+            const neighbour = filtered[(n + filtered.length) % filtered.length];
+            if (neighbour) { const pre = new Image(); pre.src = neighbour.optimizedSrc; }
+        });
+    }
+
+    function openAt(globalIndex) {
+        const story = filtered[globalIndex];
+        if (!story) return;
+        const wasOpen = lightbox.classList.contains('is-open');
+        current = globalIndex;
+        img.classList.remove('is-loaded');
+        img.src = story.optimizedSrc;
+        img.alt = story.alt || story.filename;
+        if (img.complete) { img.classList.add('is-loaded'); }
+        countLabel.textContent = `${(globalIndex + 1).toLocaleString()} of ${filtered.length.toLocaleString()}`;
+        yearLabel.textContent = story.year;
+        platformLabel.textContent = story.platform;
+        originalLink.href = story.originalSrc || story.optimizedSrc;
+        if (!wasOpen) {
+            lastFocus = document.activeElement;
+            lightbox.classList.add('is-open');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            document.getElementById('success-close').focus();
+            if (window.oetAnalytics) { window.oetAnalytics.track('success_lightbox_open', { year: story.year }); }
+        }
+        preloadNeighbours(globalIndex);
+    }
+
+    img.addEventListener('load', () => img.classList.add('is-loaded'));
+
+    function close() {
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (lastFocus && typeof lastFocus.focus === 'function') { lastFocus.focus(); }
+        lastFocus = null;
+    }
+
+    function step(delta) {
+        if (!filtered.length) return;
+        openAt((current + delta + filtered.length) % filtered.length);
+    }
+
+    function activateYear(year, fromHash) {
+        const tab = tabs.find(item => item.dataset.year === year);
+        if (!tab || tab.disabled) return;
+        currentYear = year;
+        page = 1;
+        tabs.forEach(item => { const on = item === tab; item.classList.toggle('is-active', on); item.setAttribute('aria-selected', on ? 'true' : 'false'); });
+        if (stories.length) filterStories();
+        if (!fromHash && window.history && window.history.replaceState) {
+            window.history.replaceState(null, '', year === 'All' ? window.location.pathname : '#year-' + year);
+        }
+    }
+
+    tabs.forEach(tab => tab.addEventListener('click', () => activateYear(tab.dataset.year, false)));
+
+    document.getElementById('success-close').addEventListener('click', close);
+    document.getElementById('success-prev').addEventListener('click', () => step(-1));
+    document.getElementById('success-next').addEventListener('click', () => step(1));
+    lightbox.addEventListener('click', event => { if (event.target === lightbox) close(); });
+
+    document.addEventListener('keydown', event => {
+        if (!lightbox.classList.contains('is-open')) return;
+        if (event.key === 'Escape') close();
+        if (event.key === 'ArrowLeft') step(-1);
+        if (event.key === 'ArrowRight') step(1);
+        if (event.key === 'Tab') {
+            const focusables = panel.querySelectorAll('a[href], button:not([disabled])');
+            if (!focusables.length) return;
+            const first = focusables[0];
+            const last = focusables[focusables.length - 1];
+            if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+            else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+        }
+    });
+
+    let touchX = null, touchY = null;
+    lightbox.addEventListener('touchstart', event => {
+        if (event.touches.length === 1) { touchX = event.touches[0].clientX; touchY = event.touches[0].clientY; }
+    }, { passive: true });
+    lightbox.addEventListener('touchend', event => {
+        if (touchX === null) return;
+        const dx = event.changedTouches[0].clientX - touchX;
+        const dy = event.changedTouches[0].clientY - touchY;
+        touchX = touchY = null;
+        if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.5) { step(dx < 0 ? 1 : -1); }
+    }, { passive: true });
+
+    const counters = Array.from(document.querySelectorAll('.oet-countup'));
+    if (counters.length) {
+        const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const animate = el => {
+            const target = Number(el.dataset.count) || 0;
+            if (reduced) { el.textContent = target.toLocaleString(); return; }
+            const t0 = performance.now();
+            const dur = 1200;
+            const tick = now => {
+                const p = Math.min(1, (now - t0) / dur);
+                el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString();
+                if (p < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+        };
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) { animate(entry.target); io.unobserve(entry.target); }
+                });
+            }, { threshold: 0.4 });
+            counters.forEach(el => io.observe(el));
+        } else {
+            counters.forEach(animate);
+        }
+    }
+
+    const hashYear = (window.location.hash.match(/^#year-(\d{4})$/) || [])[1];
+    if (hashYear) activateYear(hashYear, true);
+
+    fetch(manifestUrl)
+        .then(response => {
+            if (!response.ok) throw new Error('Unable to load success stories manifest');
+            return response.json();
+        })
+        .then(data => {
+            stories = data;
+            loading.style.display = 'none';
+            filterStories();
+        })
+        .catch(error => {
+            loading.innerHTML = '<span class="success-loading-error">Unable to load the success stories archive. Please refresh the page.</span>';
+            console.error(error);
+        });
+})();
+</script>
+
+
+
+    

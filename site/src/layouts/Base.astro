@@ -1,0 +1,63 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CommunityPopup from '../components/CommunityPopup.astro';
+
+interface Props {
+  meta: string;
+  headExtra: string;
+  main: string;
+  tail: string;
+  bodyClass?: string;
+  swiperCss?: boolean;
+  salCss?: boolean;
+  styleCss?: boolean;
+  showApps?: boolean;
+}
+
+const {
+  meta,
+  headExtra,
+  main,
+  tail,
+  bodyClass = 'oet-live-site',
+  swiperCss = false,
+  salCss = false,
+  styleCss = true,
+  showApps = false,
+} = Astro.props;
+---
+<html lang="en" class="oet-live-site">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <Fragment set:html={meta} />
+    <link rel="icon" href="/assets/img/logo/fav-icon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/assets/img/logo/fav-icon.png" type="image/png" sizes="64x64" />
+    {styleCss && <link rel="preload" href="/assets/fonts/mulish-latin-var.woff2" as="font" type="font/woff2" crossorigin />}
+    {styleCss && <link rel="preload" href="/assets/fonts/cal-sans-latin.woff2" as="font" type="font/woff2" crossorigin />}
+    <link rel="stylesheet" href="/assets/css/plugins/bootstrap.purged.min.css" />
+    {swiperCss && <link rel="stylesheet" href="/assets/css/plugins/swiper-bundle.min.css" />}
+    <link rel="stylesheet" href="/assets/css/oet-icons.css" />
+    {salCss && <link rel="stylesheet" href="/assets/css/plugins/sal.css" />}
+    {styleCss && <link rel="stylesheet" href="/assets/css/style.min.css" />}
+    <link rel="stylesheet" href="/assets/css/oet-common.css" />
+    <link rel="stylesheet" href="/assets/css/oet-cookie-consent.css" />
+    <Fragment set:html={headExtra} />
+</head>
+<body class={bodyClass || undefined}>
+    <a class="oet-skip-link" data-lenis-ignore-anchor href="#main-content">Skip to main content</a>
+<!--================= Header section start =================-->
+    <Header showApps={showApps} />
+<!--================= Header section End =================-->
+<Fragment set:html={main} />
+<!--================= Footer section start =================-->
+    <Footer showApps={showApps} />
+<!--================= Footer section End =================-->
+<Fragment set:html={tail} />
+    <CommunityPopup />
+    <script src="/assets/js/oet-analytics.js" defer is:inline></script>
+    <script src="/assets/js/oet-cookie-consent.js" defer is:inline></script>
+    <script src="/assets/js/oet-search.js" defer is:inline></script>
+</body>
+</html>

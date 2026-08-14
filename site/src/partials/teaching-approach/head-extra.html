@@ -1,0 +1,437 @@
+<style id="teaching-approach-css">
+        .teaching-hero {
+            background: linear-gradient(135deg, #eee9ff 0%, #f7f4ff 48%, #ffffff 100%);
+            padding: 170px 0 86px;
+            overflow: hidden;
+        }
+
+        .teaching-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #5f46f5;
+            font-weight: 800;
+            box-shadow: 0 12px 26px rgba(95, 70, 245, 0.12);
+        }
+
+        .teaching-title {
+            color: #10134f;
+            font-size: clamp(40px, 5vw, 72px);
+            line-height: 1.02;
+            margin: 20px 0 18px;
+        }
+
+        .teaching-lead {
+            color: #4f4b7b;
+            font-size: 19px;
+            line-height: 1.65;
+            max-width: 690px;
+        }
+
+        .teaching-cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .teaching-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 52px;
+            padding: 14px 22px;
+            border-radius: 999px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .teaching-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .teaching-btn--primary {
+            color: #ffffff;
+            background: linear-gradient(135deg, #5f46f5 0%, #7c67ff 100%);
+            box-shadow: 0 18px 34px rgba(95, 70, 245, 0.24);
+        }
+
+        .teaching-btn--secondary {
+            color: #10134f;
+            background: #ffffff;
+            border: 1px solid rgba(95, 70, 245, 0.18);
+        }
+
+        .teaching-section {
+            padding: 86px 0;
+        }
+
+        .teaching-section--soft {
+            background: #fbf9ff;
+        }
+
+        .teaching-section-title {
+            color: #10134f;
+            font-size: clamp(30px, 3.4vw, 46px);
+            line-height: 1.14;
+            margin-bottom: 14px;
+        }
+
+        .teaching-muted {
+            color: #5f5a82;
+            line-height: 1.65;
+        }
+
+        .teaching-card,
+        .teaching-video-card,
+        .teaching-step,
+        .teaching-faq details {
+            background: #ffffff;
+            border: 1px solid rgba(95, 70, 245, 0.13);
+            border-radius: 16px;
+            box-shadow: 0 18px 36px rgba(16, 19, 79, 0.06);
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+        }
+
+        .teaching-card:hover,
+        .teaching-video-card:hover,
+        .teaching-step:hover,
+        .teaching-faq details:hover {
+            transform: translateY(-6px);
+            border-color: rgba(95, 70, 245, 0.26);
+            box-shadow: 0 24px 46px rgba(95, 70, 245, 0.13);
+        }
+
+        .teaching-card {
+            height: 100%;
+            padding: 24px;
+        }
+
+        .teaching-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            background: #5f46f5;
+            margin-bottom: 16px;
+        }
+
+        .teaching-proof {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            padding: 24px;
+            border-radius: 22px;
+            background: #ffffff;
+            box-shadow: 0 24px 50px rgba(74, 51, 190, 0.16);
+            position: relative;
+            z-index: 1;
+        }
+
+        .teaching-proof::before {
+            content: "";
+            position: absolute;
+            inset: -18px;
+            border-radius: 30px;
+            background: radial-gradient(circle at 30% 20%, rgba(95, 70, 245, 0.18), transparent 58%);
+            z-index: -1;
+            animation: teachingGlowPulse 4.6s ease-in-out infinite;
+        }
+
+        .teaching-proof-item {
+            padding: 18px;
+            border-radius: 16px;
+            background: #f7f4ff;
+            color: #10134f;
+            font-weight: 800;
+        }
+
+        .teaching-proof-item strong {
+            display: block;
+            font-size: 28px;
+            line-height: 1;
+            margin-bottom: 8px;
+            color: #5f46f5;
+        }
+
+        .teaching-video-card {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .teaching-video-thumb {
+            position: relative;
+            display: block;
+            min-height: 210px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .teaching-video-thumb::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(16, 19, 79, 0.02), rgba(16, 19, 79, 0.55));
+        }
+
+        .teaching-play {
+            position: absolute;
+            left: 22px;
+            bottom: 20px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #ffffff;
+            color: #5f46f5;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            box-shadow: 0 14px 30px rgba(16, 19, 79, 0.22);
+        }
+
+        .teaching-video-tag {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            z-index: 1;
+            background: #ffffff;
+            color: #5f46f5;
+            border-radius: 999px;
+            padding: 8px 12px;
+            font-weight: 800;
+            font-size: 13px;
+        }
+
+        .teaching-video-body {
+            padding: 22px;
+        }
+
+        .teaching-video-body h3,
+        .teaching-card h3,
+        .teaching-step h3 {
+            color: #10134f;
+            font-size: 22px;
+            line-height: 1.25;
+            margin-bottom: 10px;
+        }
+
+        .teaching-step {
+            height: 100%;
+            padding: 24px;
+        }
+
+        .teaching-step-number {
+            color: #5f46f5;
+            font-size: 42px;
+            line-height: 1;
+            font-weight: 900;
+            margin-bottom: 14px;
+        }
+
+        .teaching-faq details {
+            padding: 18px 20px;
+            margin-bottom: 14px;
+        }
+
+        .teaching-faq summary {
+            cursor: pointer;
+            color: #10134f;
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .teaching-faq p {
+            color: #5f5a82;
+            line-height: 1.65;
+            margin: 12px 0 0;
+        }
+
+        .teaching-final-section {
+            padding-bottom: 112px;
+            background: #ffffff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .teaching-final-cta {
+            min-height: 260px;
+            overflow: visible;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            border-radius: 22px;
+            padding: 44px;
+            background: linear-gradient(135deg, #5f46f5 0%, #7c67ff 100%);
+            color: #ffffff;
+            box-shadow: 0 26px 54px rgba(95, 70, 245, 0.22);
+        }
+
+        .teaching-final-cta h2,
+        .teaching-final-cta p {
+            color: #ffffff;
+        }
+
+        .teaching-final-cta h2 {
+            font-size: clamp(30px, 3.2vw, 48px);
+            line-height: 1.12;
+            margin-bottom: 16px;
+        }
+
+        .teaching-final-cta p {
+            max-width: 760px;
+            margin: 0;
+            line-height: 1.65;
+        }
+
+        body.oet-live-site footer.vl-footer-10 {
+            margin-top: 32px !important;
+            padding-top: 100px !important;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes teachingGlowPulse {
+            0%, 100% { opacity: 0.55; transform: scale(0.98); }
+            50% { opacity: 1; transform: scale(1.02); }
+        }
+
+        @media (max-width: 767px) {
+            .teaching-hero {
+                padding: 130px 0 58px;
+            }
+
+            .teaching-proof {
+                grid-template-columns: 1fr;
+            }
+
+            .teaching-final-cta {
+                min-height: auto;
+                padding: 28px;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://oetwithdrhesham.co.uk/teaching-approach.html",
+      "url": "https://oetwithdrhesham.co.uk/teaching-approach.html",
+      "name": "OET Teaching Approach by Dr Ahmed Hesham | Method, Videos & Coaching",
+      "description": "Discover Dr Ahmed Hesham's conversion-focused OET teaching approach with orientation sessions, 2026 OET trends, case-note lessons, writing correction and speaking practice.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "OET with Dr Hesham",
+        "url": "https://oetwithdrhesham.co.uk"
+      }
+    },
+    {
+      "@type": "Course",
+      "name": "Dr Ahmed Hesham OET Teaching Approach",
+      "description": "An OET preparation approach built around orientation, case-note analysis, writing correction, speaking practice, feedback and readiness planning.",
+      "provider": {
+        "@type": "Organization",
+        "name": "OET with Dr Hesham",
+        "sameAs": "https://oetwithdrhesham.co.uk"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://oetwithdrhesham.co.uk"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Teaching Approach",
+          "item": "https://oetwithdrhesham.co.uk/teaching-approach.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What makes Dr Ahmed Hesham's OET teaching approach different?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The approach starts with orientation, then builds profession-specific writing, speaking, case-note reading and feedback-led exam readiness instead of generic English practice."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which OET videos should I start with?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start with the orientation video that matches your background, then watch the 2026 trends session and the routine referral case-note lessons if writing is a priority."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get direct help after watching the videos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The page links to WhatsApp, Telegram and the free community so candidates can ask about their current OET stage and next preparation step."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "VideoObject",
+      "name": "Non Arabic Speakers' OET Orientation Session - General Guidelines",
+      "description": "A clear orientation for candidates who need general OET direction, exam expectations and preparation structure.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/3aBIQq_p3MQ/hqdefault.jpg",
+      "embedUrl": "https://www.youtube.com/embed/3aBIQq_p3MQ",
+      "url": "https://youtu.be/3aBIQq_p3MQ?si=sxWJIwQK64T-55dz"
+    },
+    {
+      "@type": "VideoObject",
+      "name": "OET Orientation Session for Doctors By Dr. Ahmed Hesham",
+      "description": "A doctor-focused OET orientation covering the clinical communication mindset and preparation route.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/kL91eG32Uok/hqdefault.jpg",
+      "embedUrl": "https://www.youtube.com/embed/kL91eG32Uok",
+      "url": "https://youtu.be/kL91eG32Uok?si=8hsPZoupBjEHw3ha"
+    },
+    {
+      "@type": "VideoObject",
+      "name": "New OET Trends 2026 + Intro to the New OET Course",
+      "description": "A strategic update on newer OET preparation trends and the structure of the updated course.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/XyI70C2-w-k/hqdefault.jpg",
+      "embedUrl": "https://www.youtube.com/embed/XyI70C2-w-k",
+      "url": "https://youtu.be/XyI70C2-w-k?si=7AjIeR_ccs4HYNgz"
+    },
+    {
+      "@type": "VideoObject",
+      "name": "Routine Referral 1 (How to approach the Case Notes)",
+      "description": "A practical writing lesson on reading routine referral case notes and selecting relevant information.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/k7Lnrq55yso/hqdefault.jpg",
+      "embedUrl": "https://www.youtube.com/embed/k7Lnrq55yso",
+      "url": "https://youtu.be/k7Lnrq55yso?si=9ExPh2VlQvPB3Qqd"
+    },
+    {
+      "@type": "VideoObject",
+      "name": "Routine Referral 2 (How to approach the case notes 2 & Start of Layout)",
+      "description": "A continuation lesson that moves from case-note selection into layout and letter organisation.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/RMrJ0zFVCu0/hqdefault.jpg",
+      "embedUrl": "https://www.youtube.com/embed/RMrJ0zFVCu0",
+      "url": "https://youtu.be/RMrJ0zFVCu0?si=RfmzqlWvi14D7vjU"
+    }
+  ]
+}
+    </script>

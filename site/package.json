@@ -1,0 +1,18 @@
+{
+  "name": "oet-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Astro build for oetwithdrhesham.co.uk static pages",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/postbuild.mjs",
+    "build:ci": "astro build && node scripts/postbuild.mjs --no-copy",
+    "verify": "node scripts/verify.mjs",
+    "preview": "node scripts/preview.mjs",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "astro": "^5.7.0"
+  }
+}

@@ -1,0 +1,5 @@
+# Generated partials mirror the live pages byte-for-byte — never reformat.
+src/partials/
+dist/
+node_modules/
+.astro/

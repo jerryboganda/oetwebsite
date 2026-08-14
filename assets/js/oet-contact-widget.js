@@ -11,8 +11,8 @@
         }
 
         var STORAGE_KEY = 'oetContactWidgetState';
-        var SEND_ENDPOINT = 'oet-chat-send.php';
-        var SYNC_ENDPOINT = 'oet-chat-sync.php';
+        var SEND_ENDPOINT = '/oet-chat-send.php';
+        var SYNC_ENDPOINT = '/oet-chat-sync.php';
         var SYNC_INTERVAL_MS = 25000;
         var AUTO_HIDE_TOAST_MS = 6000;
         var SUPPORT = {

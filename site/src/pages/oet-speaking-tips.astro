@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import meta from '../partials/oet-speaking-tips/meta.html?raw';
+import headExtra from '../partials/oet-speaking-tips/head-extra.html?raw';
+import main from '../partials/oet-speaking-tips/main.html?raw';
+import tail from '../partials/oet-speaking-tips/tail.html?raw';
+---
+<Base
+  meta={meta}
+  headExtra={headExtra}
+  main={main}
+  tail={tail}
+  bodyClass="oet-live-site oet-resource-page"
+  salCss={true}
+/>

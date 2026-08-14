@@ -1,0 +1,284 @@
+[
+  {
+    "kicker": "Package 01",
+    "title": "Full Condensed Recorded OET Course - Medicine",
+    "price": 100,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 02",
+    "title": "Full Physiotherapy OET Course",
+    "price": 75,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 03",
+    "title": "Full Allied Health Profession OET Course",
+    "price": 75,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 04",
+    "title": "Full Condensed Recorded Course + TutorBook",
+    "price": 135
+  },
+  {
+    "kicker": "Package 05",
+    "title": "Full Nursing OET Course",
+    "price": 60,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 06",
+    "title": "Nursing Course + Assessment Package",
+    "price": 70,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 07",
+    "title": "Nursing Premium Bundle",
+    "price": 85
+  },
+  {
+    "kicker": "Package 08",
+    "title": "Full Pharmacy OET Course",
+    "price": 100,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 09",
+    "title": "Basic English Course - Preparation for OET",
+    "price": 35,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 10",
+    "title": "Full Crash Course - General OET",
+    "price": 60,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 11",
+    "title": "Full Crash Course + 3 Writing Assessments",
+    "price": 70,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 12",
+    "title": "Full Crash Course + 5 Writing Assessments",
+    "price": 80,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 13",
+    "title": "3 Writing Letter Assessments - Add-on",
+    "price": 30,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 14",
+    "title": "5 Writing Letter Assessments - Add-on",
+    "price": 45,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 15",
+    "title": "7 Writing Letter Assessments - Add-on",
+    "price": 60,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 16",
+    "title": "10 Writing Letter Assessments - Add-on",
+    "price": 85,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 17",
+    "title": "Recorded Writing Crash Course",
+    "price": 35,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 18",
+    "title": "Writing Crash Course + 2 Letter Assessments",
+    "price": 45,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 19",
+    "title": "Writing Crash Course + 3 Letter Assessments",
+    "price": 55,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 20",
+    "title": "Writing Crash Course + 5 Letter Assessments",
+    "price": 70
+  },
+  {
+    "kicker": "Package 21",
+    "title": "Writing Crash Course + 7 Letter Assessments",
+    "price": 90,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 22",
+    "title": "Writing Crash Course + 10 Letter Assessments",
+    "price": 115,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 23",
+    "title": "Recorded Speaking Crash Course",
+    "price": 30,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 24",
+    "title": "1 Private Speaking Assessment Session",
+    "price": 18,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 25",
+    "title": "2 Private Speaking Assessment Sessions",
+    "price": 34,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 26",
+    "title": "Double Special Package - Writing + Speaking",
+    "price": 55,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 27",
+    "title": "Mega Special Package",
+    "price": 80
+  },
+  {
+    "kicker": "Package 28",
+    "title": "TutorBook - First Edition 2026",
+    "price": 45,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 29",
+    "title": "TutorBook - Add-on for Enrolled Students",
+    "price": 32,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 30",
+    "title": "Quick Check",
+    "price": 15,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 31",
+    "title": "Exam Prep Pro",
+    "price": 32,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 32",
+    "title": "OET Mastery",
+    "price": 75
+  },
+  {
+    "kicker": "Package 33",
+    "title": "1 Full Mock",
+    "price": 25,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 34",
+    "title": "3 Full Mocks",
+    "price": 60
+  },
+  {
+    "kicker": "Package 35",
+    "title": "5 Full Mocks",
+    "price": 110,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 36",
+    "title": "Listening Starter",
+    "price": 4,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 37",
+    "title": "Listening Standard",
+    "price": 9,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 38",
+    "title": "Listening Pro",
+    "price": 15,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 48",
+    "title": "Listening Recalls",
+    "price": 17,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 39",
+    "title": "Reading Starter",
+    "price": 4,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 40",
+    "title": "Reading Standard",
+    "price": 9,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 41",
+    "title": "Reading Pro",
+    "price": 15,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 42",
+    "title": "Writing Starter",
+    "price": 9,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 43",
+    "title": "Writing Standard",
+    "price": 19,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 44",
+    "title": "Writing Pro",
+    "price": 32,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 45",
+    "title": "Speaking Starter",
+    "price": 12,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 46",
+    "title": "Speaking Standard",
+    "price": 24,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 47",
+    "title": "Speaking Pro",
+    "price": 42,
+    "structuredData": true
+  }
+]
