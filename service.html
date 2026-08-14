@@ -24,14 +24,14 @@
 
     <link rel="icon" href="/assets/img/logo/fav-icon.svg" type="image/svg+xml">
     <link rel="icon" href="/assets/img/logo/fav-icon.png" type="image/png" sizes="64x64">
-    
-    
+    <link rel="preload" href="/assets/fonts/mulish-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/cal-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/assets/css/plugins/bootstrap.purged.min.css?v=36dfc4501d">
     
     <link rel="stylesheet" href="/assets/css/oet-icons.css?v=fb6ca9f443">
     
-    
-    <link rel="stylesheet" href="/assets/css/oet-common.css?v=f3be648a97">
+    <link rel="stylesheet" href="/assets/css/style.min.css?v=3fa9e8fd2c">
+    <link rel="stylesheet" href="/assets/css/oet-common.css?v=c169efc46c">
     <link rel="stylesheet" href="/assets/css/oet-cookie-consent.css?v=9b27efcc3c">
     <script type="application/ld+json">
 {
@@ -387,12 +387,34 @@
     <!--================= Header section End =================-->
 
     <main id="main-content" tabindex="-1">
+    <!--================= Breadcrumb section start =================-->
+    <section class="breadcrumb-wrapper fix hero-banner-lavender">
+        <div class="container">
+            <div class="breadcrumb-shape">
+                <img width="852" height="450" loading="lazy" decoding="async" src="/assets/img/shape/breadcrumb-shape.png" alt="">
+            </div>
+            <div class="row">
+                <div class="col-xl-8 mx-auto text-center">
+                    <div class="breadcrumb-text">
+                        <h1 class="title">OET Courses &amp; Coaching Services</h1>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><img loading="lazy" decoding="async" src="/assets/img/icon/breadcrumb-arrow.svg" alt=""></li>
+                            <li><a class="active" href="/service.html">Courses</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================= Breadcrumb section End =================-->
+
     <!--================= Services page start =================-->
-    <section class="vl-service-area pt-120 pb-120">
+    <section class="vl-service-area pt-100 pb-120">
         <div class="container">
             <div class="vl-section-title vl-section-title-6 text-center mb-50">
                 <h4 class="sub-title">Coaching Services</h4>
-                <h1 class="title">Choose your OET preparation pathway</h1>
+                <h2 class="title">Choose your OET preparation pathway</h2>
                 <p>Flexible coaching for nurses, doctors, and pharmacists with focused outcomes for each profile.</p>
             </div>
             <div class="row gy-4">
