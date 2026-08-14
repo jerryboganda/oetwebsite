@@ -25,23 +25,23 @@
   --oet-shadow-lg:0 18px 44px rgba(95,70,245,.28);
 }
 
-.vl-header-top-text{display:flex;align-items:center;flex-wrap:nowrap;gap:12px}
-.vl-header-top-badge{display:inline-flex;align-items:center;gap:7px;font-size:14.5px;font-weight:700;color:#fff;letter-spacing:-.01em;white-space:nowrap}
-.vl-header-top-badge i{color:#ffd54d;font-size:15px}
-.vl-header-top-text a.oet-community-cta{align-items:center;background:#fff;border-radius:999px;box-shadow:0 6px 18px rgba(16,24,40,.18);color:var(--oet-purple);display:inline-grid;font-size:13.5px;font-weight:700;justify-items:start;line-height:1;margin-left:8px;padding:7px 15px;text-decoration:none;white-space:nowrap;transition:transform .22s ease,box-shadow .22s ease,background .22s ease,color .22s ease}
-.vl-header-top-text a.oet-community-cta:hover{background:#fff;color:var(--oet-purple-deep);transform:translateY(-1px);box-shadow:0 8px 22px rgba(16,24,40,.24)}
+.vl-header-top-text{display:flex;align-items:center;flex-wrap:nowrap;gap:10px}
+.vl-header-top-badge{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:#fff;letter-spacing:-.01em;white-space:nowrap;line-height:1}
+.vl-header-top-badge i{color:#ffd54d;font-size:13px}
+.vl-header-top-text a.oet-community-cta{align-items:center;background:#fff;border-radius:999px;box-shadow:0 3px 10px rgba(16,24,40,.14);color:var(--oet-purple);display:inline-grid;font-size:12px;font-weight:700;justify-items:start;line-height:1;margin-left:6px;padding:4px 11px;text-decoration:none;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease}
+.vl-header-top-text a.oet-community-cta:hover{background:#fff;color:var(--oet-purple-deep);transform:translateY(-1px);box-shadow:0 5px 14px rgba(16,24,40,.2)}
 .oet-community-cta__content,.oet-community-cta__sizer{grid-area:1/1}
 .oet-community-cta__sizer{pointer-events:none;visibility:hidden;white-space:nowrap}
-.oet-community-cta__content{align-items:center;display:inline-flex;gap:4px;white-space:nowrap}
+.oet-community-cta__content{align-items:center;display:inline-flex;gap:3px;white-space:nowrap}
 .oet-community-cta__text{display:inline-block;white-space:nowrap}
-.oet-community-cta__text i{color:var(--oet-whatsapp);margin-right:4px;font-size:14px}
+.oet-community-cta__text i{color:var(--oet-whatsapp);margin-right:3px;font-size:12px}
 .oet-community-cta__cursor{display:inline-block;min-width:.65ch;opacity:1}
 
-.vl-header-top-area{background:linear-gradient(135deg,var(--oet-purple) 0%,var(--oet-purple-deep) 100%)!important;padding:8px 0;position:relative;z-index:501}
-.vl-header-top-area .header-top ul{display:flex;align-items:center;justify-content:flex-end;gap:18px;list-style:none;margin:0;padding:0}
-.vl-header-top-area .header-top ul li a{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.94);font-size:13.5px;font-weight:600;text-decoration:none;transition:color .2s ease,transform .2s ease}
+.vl-header-top-area{background:linear-gradient(135deg,var(--oet-purple) 0%,var(--oet-purple-deep) 100%)!important;padding:4px 0;position:relative;z-index:501;line-height:1}
+.vl-header-top-area .header-top ul{display:flex;align-items:center;justify-content:flex-end;gap:16px;list-style:none;margin:0;padding:0}
+.vl-header-top-area .header-top ul li a{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,.94);font-size:12px;font-weight:600;text-decoration:none;transition:color .2s ease,transform .2s ease;line-height:1}
 .vl-header-top-area .header-top ul li a:hover{color:#fff;transform:translateY(-1px)}
-.vl-header-top-area .header-top-icon{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;font-size:12px;transition:background .2s ease,transform .2s ease}
+.vl-header-top-area .header-top-icon{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;font-size:10.5px;transition:background .2s ease,transform .2s ease}
 .vl-header-top-area .header-top ul li a:hover .header-top-icon{background:rgba(255,255,255,.32);transform:scale(1.08)}
 
 .hero-banner-lavender{background:var(--oet-lav-300)!important}
@@ -146,8 +146,10 @@ header nav a[aria-current="page"],.vl-offcanvas nav a[aria-current="page"]{color
 /* =====================================================================
    Header Architecture & Styling Overhaul (2026)
    - Eliminates top padding gap above the purple top bar
+   - Half-height sleek ribbon top bar
+   - Edge-to-edge full-width white navbar area
    - Crisp, centered logo display
-   - Refined navigation items and floating glass dropdown cards
+   - Refined navigation items (increased font size +2-3px) & glass dropdowns
    - Prominent Login / Register CTA button
    - Modern circular search and social action buttons
    - Smooth compact sticky header and polished mobile navbar
@@ -161,12 +163,20 @@ header nav a[aria-current="page"],.vl-offcanvas nav a[aria-current="page"]{color
   transition:all .3s ease;
 }
 
+/* Full-width white navbar area extending 100% edge-to-edge */
+.vl-header-main-area{
+  background:#ffffff;
+  width:100%;
+  border-bottom:1px solid rgba(95,70,245,.08);
+  box-shadow:0 4px 20px rgba(31,21,88,.04);
+  transition:background .25s ease,box-shadow .25s ease,border-color .25s ease;
+}
+
 /* Nav row wrapper inside container */
 #vl-header-sticky .header-border-bottom{
-  background:#fff;
-  border-bottom:1px solid rgba(95,70,245,.08);
-  padding:12px 0;
-  transition:box-shadow .25s ease,background .25s ease;
+  background:transparent;
+  border-bottom:none;
+  padding:14px 0;
 }
 
 /* Logo container & crisp sizing */
@@ -181,10 +191,10 @@ header nav a[aria-current="page"],.vl-offcanvas nav a[aria-current="page"]{color
 }
 #vl-header-sticky .vl-logo img{
   display:block;
-  height:46px;
-  max-height:48px;
+  height:48px;
+  max-height:50px;
   width:auto;
-  max-width:175px;
+  max-width:180px;
   object-fit:contain;
   image-rendering:-webkit-optimize-contrast;
   transition:transform .2s ease;
@@ -200,7 +210,8 @@ header nav a[aria-current="page"],.vl-offcanvas nav a[aria-current="page"]{color
     display:flex;
     flex-wrap:nowrap;
     align-items:center;
-    column-gap:clamp(12px,1.4vw,26px);
+    justify-content:space-between;
+    column-gap:clamp(16px,1.8vw,36px);
   }
   #vl-header-sticky .header-border-bottom>.row>[class*="col-"]{
     flex:0 0 auto;
@@ -218,7 +229,7 @@ header nav a[aria-current="page"],.vl-offcanvas nav a[aria-current="page"]{color
     flex-wrap:nowrap;
     align-items:center;
     justify-content:center;
-    column-gap:clamp(8px,0.75vw,18px);
+    column-gap:clamp(10px,1.1vw,24px);
     margin:0;
     padding:0;
     list-style:none;
@@ -232,17 +243,17 @@ header nav a[aria-current="page"],.vl-offcanvas nav a[aria-current="page"]{color
   #vl-header-sticky .vl-main-menu nav>ul>li>a{
     display:inline-flex;
     align-items:center;
-    gap:5px;
+    gap:6px;
     font-family:"Mulish",sans-serif;
-    font-size:clamp(14px,0.25vw + 11.5px,15.5px);
+    font-size:clamp(16px,0.25vw + 13px,17.5px);
     font-weight:700;
     color:var(--oet-ink);
-    padding:8px 9px;
+    padding:8px 10px;
     border-radius:8px;
     text-decoration:none;
     white-space:nowrap;
     transition:color .2s ease,background .2s ease;
-    letter-spacing:-.01em;
+    letter-spacing:-.015em;
   }
   #vl-header-sticky .vl-main-menu nav>ul>li>a:hover,
   #vl-header-sticky .vl-main-menu nav>ul>li:hover>a{
@@ -252,7 +263,7 @@ header nav a[aria-current="page"],.vl-offcanvas nav a[aria-current="page"]{color
   #vl-header-sticky .vl-main-menu nav>ul>li>a .downarrow{
     display:inline-flex;
     align-items:center;
-    font-size:11px;
+    font-size:12px;
     margin-left:2px;
     color:var(--oet-muted);
     transition:transform .22s ease,color .22s ease;
@@ -264,30 +275,31 @@ header nav a[aria-current="page"],.vl-offcanvas nav a[aria-current="page"]{color
 
   /* Login / Register CTA Pill */
   #vl-header-sticky .vl-main-menu nav>ul>li.oet-nav-cta-item{
-    margin-left:4px;
+    margin-left:8px;
   }
   #vl-header-sticky .vl-main-menu nav>ul>li>a.oet-header-cta-btn{
     display:inline-flex!important;
     align-items:center!important;
-    gap:7px!important;
+    gap:8px!important;
     background:linear-gradient(135deg,var(--oet-purple) 0%,var(--oet-purple-2) 100%)!important;
     color:#fff!important;
-    font-size:13.5px!important;
+    font-size:15px!important;
     font-weight:700!important;
-    padding:8px 16px!important;
+    padding:9px 20px!important;
     border-radius:999px!important;
     box-shadow:0 4px 14px rgba(95,70,245,.28)!important;
     text-decoration:none!important;
     transition:transform .22s ease,box-shadow .22s ease,background .22s ease!important;
+    letter-spacing:-.01em;
   }
   #vl-header-sticky .vl-main-menu nav>ul>li>a.oet-header-cta-btn:hover{
     background:linear-gradient(135deg,var(--oet-purple-deep) 0%,var(--oet-purple) 100%)!important;
     color:#fff!important;
     transform:translateY(-1px);
-    box-shadow:0 8px 20px rgba(95,70,245,.4)!important;
+    box-shadow:0 8px 22px rgba(95,70,245,.4)!important;
   }
   #vl-header-sticky .vl-main-menu nav>ul>li>a.oet-header-cta-btn i{
-    font-size:13px;
+    font-size:14px;
   }
 
   /* Right Action Zone: Search & Socials */
@@ -296,14 +308,14 @@ header nav a[aria-current="page"],.vl-offcanvas nav a[aria-current="page"]{color
     align-items:center;
     justify-content:flex-end;
     flex-wrap:nowrap;
-    gap:10px;
+    gap:12px;
   }
   #vl-header-sticky .oet-search-btn{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    width:36px;
-    height:36px;
+    width:38px;
+    height:38px;
     border-radius:50%;
     background:var(--oet-lav-50);
     border:1px solid rgba(95,70,245,.14);
@@ -317,27 +329,27 @@ header nav a[aria-current="page"],.vl-offcanvas nav a[aria-current="page"]{color
     transform:translateY(-1px);
   }
   #vl-header-sticky .vl-search-toggle{
-    width:15px;
-    height:15px;
+    width:16px;
+    height:16px;
   }
   #vl-header-sticky .social-area-headerTop{
     display:flex;
     align-items:center;
     white-space:nowrap;
-    gap:5px;
+    gap:6px;
   }
   #vl-header-sticky .social-area-headerTop a{
     display:inline-flex!important;
     align-items:center!important;
     justify-content:center!important;
-    width:32px!important;
-    height:32px!important;
-    line-height:32px!important;
+    width:34px!important;
+    height:34px!important;
+    line-height:34px!important;
     border-radius:50%!important;
     background:var(--oet-lav-50)!important;
     border:1px solid rgba(95,70,245,.12)!important;
     color:var(--oet-ink)!important;
-    font-size:13px!important;
+    font-size:14px!important;
     margin-left:0!important;
     transition:all .2s ease!important;
     text-decoration:none!important;
@@ -353,11 +365,11 @@ header nav a[aria-current="page"],.vl-offcanvas nav a[aria-current="page"]{color
 
 /* Small laptops (1200px - 1359px) compact adjustments */
 @media (min-width:1200px) and (max-width:1359.98px){
-  #vl-header-sticky .vl-main-menu nav>ul{column-gap:6px}
-  #vl-header-sticky .vl-main-menu nav>ul>li>a{font-size:13.5px;padding:7px 6px}
-  #vl-header-sticky .vl-main-menu nav>ul>li>a.oet-header-cta-btn{font-size:12.5px!important;padding:7px 12px!important}
-  #vl-header-sticky .social-area-headerTop a{width:28px!important;height:28px!important;line-height:28px!important;font-size:12px!important}
-  #vl-header-sticky .vl-logo img{height:40px}
+  #vl-header-sticky .vl-main-menu nav>ul{column-gap:8px}
+  #vl-header-sticky .vl-main-menu nav>ul>li>a{font-size:15px;padding:7px 7px}
+  #vl-header-sticky .vl-main-menu nav>ul>li>a.oet-header-cta-btn{font-size:14px!important;padding:7px 14px!important}
+  #vl-header-sticky .social-area-headerTop a{width:30px!important;height:30px!important;line-height:30px!important;font-size:12.5px!important}
+  #vl-header-sticky .vl-logo img{height:42px}
 }
 
 /* ---- Sticky Header State ---- */
@@ -365,15 +377,17 @@ header nav a[aria-current="page"],.vl-offcanvas nav a[aria-current="page"]{color
   background:transparent;
   box-shadow:0 8px 28px rgba(31,21,88,.09);
 }
-#vl-header-sticky.sticky .header-border-bottom{
-  padding:7px 0;
+#vl-header-sticky.sticky .vl-header-main-area{
   background:rgba(255,255,255,.97);
   backdrop-filter:blur(14px);
   -webkit-backdrop-filter:blur(14px);
   border-bottom:1px solid rgba(95,70,245,.14);
 }
+#vl-header-sticky.sticky .header-border-bottom{
+  padding:8px 0;
+}
 #vl-header-sticky.sticky .vl-logo img{
-  height:40px;
+  height:42px;
 }
 
 /* ---- Mobile / Tablet (<1200px) ---- */
