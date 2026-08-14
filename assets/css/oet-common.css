@@ -25,23 +25,23 @@
   --oet-shadow-lg:0 18px 44px rgba(95,70,245,.28);
 }
 
-.vl-header-top-text{display:flex;align-items:center;flex-wrap:nowrap;gap:10px}
-.vl-header-top-badge{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:#fff;letter-spacing:-.01em;white-space:nowrap;line-height:1}
-.vl-header-top-badge i{color:#ffd54d;font-size:13px}
-.vl-header-top-text a.oet-community-cta{align-items:center;background:#fff;border-radius:999px;box-shadow:0 3px 10px rgba(16,24,40,.14);color:var(--oet-purple);display:inline-grid;font-size:12px;font-weight:700;justify-items:start;line-height:1;margin-left:6px;padding:4px 11px;text-decoration:none;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease}
-.vl-header-top-text a.oet-community-cta:hover{background:#fff;color:var(--oet-purple-deep);transform:translateY(-1px);box-shadow:0 5px 14px rgba(16,24,40,.2)}
+.vl-header-top-text{display:flex;align-items:center;flex-wrap:nowrap;gap:12px}
+.vl-header-top-badge{display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:700;color:#fff;letter-spacing:-.01em;white-space:nowrap;line-height:1}
+.vl-header-top-badge i{color:#ffd54d;font-size:15px}
+.vl-header-top-text a.oet-community-cta{align-items:center;background:#fff;border-radius:999px;box-shadow:0 4px 12px rgba(16,24,40,.15);color:var(--oet-purple);display:inline-grid;font-size:13.5px;font-weight:700;justify-items:start;line-height:1;margin-left:8px;padding:6px 14px;text-decoration:none;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease}
+.vl-header-top-text a.oet-community-cta:hover{background:#fff;color:var(--oet-purple-deep);transform:translateY(-1px);box-shadow:0 6px 16px rgba(16,24,40,.22)}
 .oet-community-cta__content,.oet-community-cta__sizer{grid-area:1/1}
 .oet-community-cta__sizer{pointer-events:none;visibility:hidden;white-space:nowrap}
-.oet-community-cta__content{align-items:center;display:inline-flex;gap:3px;white-space:nowrap}
+.oet-community-cta__content{align-items:center;display:inline-flex;gap:4px;white-space:nowrap}
 .oet-community-cta__text{display:inline-block;white-space:nowrap}
-.oet-community-cta__text i{color:var(--oet-whatsapp);margin-right:3px;font-size:12px}
+.oet-community-cta__text i{color:var(--oet-whatsapp);margin-right:4px;font-size:14px}
 .oet-community-cta__cursor{display:inline-block;min-width:.65ch;opacity:1}
 
-.vl-header-top-area{background:linear-gradient(135deg,var(--oet-purple) 0%,var(--oet-purple-deep) 100%)!important;padding:4px 0;position:relative;z-index:501;line-height:1}
-.vl-header-top-area .header-top ul{display:flex;align-items:center;justify-content:flex-end;gap:16px;list-style:none;margin:0;padding:0}
-.vl-header-top-area .header-top ul li a{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,.94);font-size:12px;font-weight:600;text-decoration:none;transition:color .2s ease,transform .2s ease;line-height:1}
+.vl-header-top-area{background:linear-gradient(135deg,var(--oet-purple) 0%,var(--oet-purple-deep) 100%)!important;padding:7px 0;position:relative;z-index:501;line-height:1}
+.vl-header-top-area .header-top ul{display:flex;align-items:center;justify-content:flex-end;gap:20px;list-style:none;margin:0;padding:0}
+.vl-header-top-area .header-top ul li a{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.95);font-size:14px;font-weight:600;text-decoration:none;transition:color .2s ease,transform .2s ease;line-height:1}
 .vl-header-top-area .header-top ul li a:hover{color:#fff;transform:translateY(-1px)}
-.vl-header-top-area .header-top-icon{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;font-size:10.5px;transition:background .2s ease,transform .2s ease}
+.vl-header-top-area .header-top-icon{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;font-size:12px;transition:background .2s ease,transform .2s ease}
 .vl-header-top-area .header-top ul li a:hover .header-top-icon{background:rgba(255,255,255,.32);transform:scale(1.08)}
 
 .hero-banner-lavender{background:var(--oet-lav-300)!important}
