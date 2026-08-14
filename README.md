@@ -73,6 +73,11 @@ npm run verify     # assert 23 pages, hashed assets, valid JSON-LD, sitemap
 CI (`.github/workflows/build.yml`) runs build + verify + a root-drift check on
 every push/PR.
 
+> Note: the workflow file exists locally but could not be pushed by the
+> automation credential (OAuth token lacks the `workflow` scope). Push it once
+> from any client with workflow permission:
+> `git add .github/workflows/build.yml && git commit -m "ci: add build workflow" && git push`.
+
 ## Deployment (Hostinger Business / LiteSpeed)
 
 1. Build locally (or in CI) and commit the regenerated root pages.
