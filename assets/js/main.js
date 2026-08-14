@@ -1025,3 +1025,49 @@ if (typeof sal === 'function') { sal(); }
         scrollManager.markPreventElements(document);
     }
 })();
+
+/*----------------------------------------*/
+/*   reveal animation (.reveal image wipe)
+/*   CSS ships .reveal{visibility:hidden}; this must always
+/*   make the containers visible again, animated or not.
+/*----------------------------------------*/
+(function () {
+    "use strict";
+
+    var containers = document.querySelectorAll(".reveal");
+    if (!containers.length) return;
+
+    function showAll() {
+        containers.forEach(function (container) {
+            container.style.visibility = "visible";
+        });
+    }
+
+    var reduceMotion = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduceMotion || typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
+        showAll();
+        return;
+    }
+
+    try {
+        gsap.registerPlugin(ScrollTrigger);
+        containers.forEach(function (container) {
+            var image = container.querySelector("img");
+            var tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: container,
+                    toggleActions: "play none none none"
+                }
+            });
+            tl.set(container, { autoAlpha: 1 });
+            tl.from(container, { xPercent: -100, duration: 1.5, ease: "power2.out" });
+            if (image) {
+                tl.from(image, { xPercent: 100, scale: 1.3, duration: 1.5, ease: "power2.out" }, "<");
+            }
+        });
+    } catch (err) {
+        showAll();
+    }
+})();
