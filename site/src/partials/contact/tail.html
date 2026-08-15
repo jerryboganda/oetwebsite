@@ -52,38 +52,28 @@
                 return;
             }
 
-            function startTypingLoop() {
-                var state = { progress: 0 };
-                gsap.killTweensOf([textEl, cursorEl]);
-                textEl.textContent = '';
-                gsap.set(cursorEl, { opacity: 1 });
+            // Types once and then settles. The previous version looped forever,
+            // rewriting text every frame inside the sticky header, so the
+            // browser re-laid-out and repainted the header for the entire
+            // session - main-thread work that competed with scrolling.
+            var state = { progress: 0 };
+            cursorEl.style.display = 'none';
+            textEl.textContent = '';
 
-                gsap.to(state, {
-                    progress: fullText.length,
-                    duration: 2.8,
-                    ease: 'none',
-                    onUpdate: function () {
-                        textEl.textContent = fullText.slice(0, Math.floor(state.progress));
-                    },
-                    onComplete: function () {
-                        gsap.delayedCall(0.5, function () {
-                            var blinkTl = gsap.timeline({
-                                onComplete: function () {
-                                    textEl.textContent = '';
-                                    gsap.delayedCall(0.7, startTypingLoop);
-                                }
-                            });
-
-                            for (var i = 0; i < 3; i++) {
-                                blinkTl.to(cursorEl, { opacity: 0, duration: 0.16, ease: 'none' })
-                                    .to(cursorEl, { opacity: 1, duration: 0.16, ease: 'none' });
-                            }
-                        });
+            gsap.to(state, {
+                progress: fullText.length,
+                duration: 1.6,
+                ease: 'none',
+                onUpdate: function () {
+                    var next = fullText.slice(0, Math.floor(state.progress));
+                    if (next !== textEl.textContent) {
+                        textEl.textContent = next;
                     }
-                });
-            }
-
-            startTypingLoop();
+                },
+                onComplete: function () {
+                    textEl.textContent = fullText;
+                }
+            });
         });
     </script>
     <script>

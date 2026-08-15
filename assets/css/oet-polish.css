@@ -1,0 +1,336 @@
+/* ==========================================================================
+   oet-polish.css - UI/UX polish + scroll-performance layer
+   Loaded last so it can correct the vendor theme (style.min.css) without
+   forking it. Keep this file additive: no new components, only fixes.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Scroll lock for native-scroll mode
+   Lenis only runs on pointer:fine devices now, so touch devices need a real
+   lock when a dialog/offcanvas opens. position:fixed is the only reliable
+   cross-browser lock on iOS; main.js restores the offset on unlock.
+   -------------------------------------------------------------------------- */
+body.oet-scroll-locked {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   2. Typography scale
+   The theme shipped fixed 70px/44px headings, so a 67-character H1 filled the
+   entire viewport on a laptop and pushed every CTA below the fold. Fluid
+   clamps keep the same visual weight while staying proportional.
+   -------------------------------------------------------------------------- */
+.vl-banner-area h1.title,
+.vl-banner-area .title.text-anime-style-2 {
+    font-size: clamp(2rem, 1.6rem + 2.1vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+}
+
+.vl-section-title .title,
+.vl-section-title-heading .title {
+    font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.75rem);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+}
+
+/* Eyebrow shipped with line-height:18px at font-size:18px, so wrapped lines
+   collided. Keep inline flow so the icon stays on the first text line. */
+.vl-section-title .sub-title,
+h4.sub-title {
+    line-height: 1.45;
+    margin-bottom: 14px;
+}
+
+.vl-section-title .sub-title > span,
+h4.sub-title > span {
+    display: inline;
+}
+
+.vl-section-title .sub-title > span img,
+h4.sub-title > span img {
+    display: inline-block;
+    vertical-align: -0.15em;
+    margin-right: 6px;
+}
+
+.vl-section-title p,
+.vl-banner-area p.text-anime-style-3 {
+    max-width: 62ch;
+    line-height: 1.65;
+    text-wrap: pretty;
+}
+
+/* Long lead paragraphs stay readable instead of running the full grid width. */
+.vl-section-title-heading p {
+    max-width: 68ch;
+}
+
+/* --------------------------------------------------------------------------
+   3. Section rhythm
+   188px of hero top padding was tuned for the tall desktop header; on smaller
+   headers it just created dead space above the fold.
+   -------------------------------------------------------------------------- */
+@media (max-width: 1199px) {
+    .vl-banner-area {
+        padding-top: 132px;
+        padding-bottom: 48px;
+    }
+}
+
+@media (max-width: 767px) {
+    .vl-banner-area {
+        padding-top: 104px;
+        padding-bottom: 40px;
+    }
+}
+
+/* One section shipped 285px of bottom padding, which read as a broken gap
+   between it and the next band. */
+.blog-padding-bottom10 {
+    padding-bottom: 100px;
+}
+
+/* The 100px/70px desktop spacing scale is far too tall once the viewport is
+   phone-sized - it turns every section break into a screen of empty colour. */
+@media (max-width: 991px) {
+    main .pt-100 { padding-top: 72px; }
+    main .pb-100 { padding-bottom: 72px; }
+    main .pb-70 { padding-bottom: 52px; }
+    main .blog-padding-bottom10 { padding-bottom: 72px; }
+}
+
+@media (max-width: 575px) {
+    main .pt-100 { padding-top: 56px; }
+    main .pb-100 { padding-bottom: 56px; }
+    main .pb-70 { padding-bottom: 40px; }
+    main .blog-padding-bottom10 { padding-bottom: 56px; }
+}
+
+/* --------------------------------------------------------------------------
+   4. Equal-height cards
+   Bootstrap columns stretch, but the cards inside them did not, so "Read More"
+   links sat at different heights across a row.
+   -------------------------------------------------------------------------- */
+.row > [class*="col-"] > .vl-service-box-1,
+.row > [class*="col-"] > .vl-service-box-2,
+.row > [class*="col-"] > .vl-service-box-3,
+.row > [class*="col-"] > .vl-choose-box-1,
+.row > [class*="col-"] > .vl-blog-box-1,
+.row > [class*="col-"] > .service__box10,
+.row > [class*="col-"] > .oet-card,
+.row > [class*="col-"] > .oet-resource-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.row > [class*="col-"] > .vl-service-box-1 > .vl-service-content,
+.row > [class*="col-"] > .vl-service-box-2 > .vl-service-content,
+.row > [class*="col-"] > .vl-service-box-3 > .vl-service-content,
+.row > [class*="col-"] > .service__box10 > .service__box10-content,
+.row > [class*="col-"] > .oet-card > .oet-card__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+/* Push the trailing link/CTA of a card to the bottom so rows align. */
+.vl-service-content > .vl-service-btn,
+.vl-service-content > a:last-child,
+.service__box10-content > .readmore:last-child,
+.oet-card__body > .oet-card__link:last-child {
+    margin-top: auto;
+}
+
+/* --------------------------------------------------------------------------
+   5. Floating UI stacking
+   The back-to-top progress ring sat at bottom:112px/right:24px, directly in
+   the path of the contact widget's expanded "Contact us" label. Moving the
+   ring to the opposite corner removes the collision on every breakpoint.
+   -------------------------------------------------------------------------- */
+.progress-wrap {
+    right: auto !important;
+    left: 24px;
+    bottom: 24px !important;
+    z-index: 990;
+}
+
+@media (max-width: 767px) {
+    .progress-wrap {
+        left: 16px;
+        bottom: 16px !important;
+        transform: scale(0.85);
+        transform-origin: left bottom;
+    }
+}
+
+/* Keep the cookie banner clear of the contact widget and of the hero CTA. */
+.oet-cc {
+    z-index: 10000;
+}
+
+@media (min-width: 992px) {
+    .oet-cc {
+        max-width: 720px;
+        margin-inline: auto;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   6. Header announcement CTA
+   The typewriter pill rendered as a white rounded box with a blinking caret,
+   which read as a broken text input. Make it look like the link it is and
+   stop the caret from repainting the sticky header forever.
+   -------------------------------------------------------------------------- */
+.oet-community-cta__cursor {
+    display: none !important;
+}
+
+.vl-header-top-text .oet-community-cta {
+    border-radius: 999px;
+    padding: 4px 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.vl-header-top-text .oet-community-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(15, 12, 60, 0.18);
+}
+
+/* --------------------------------------------------------------------------
+   7. Marquee legibility
+   At 2 slides per 390px viewport the platform cards were sliced mid-word at
+   both edges, which read as a broken layout rather than a marquee. Showing
+   fewer, wider slides keeps each card readable while it passes.
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+    .marquee-swiper .swiper-slide {
+        min-width: 0;
+    }
+
+    .marquee-swiper .swiper-brand-slide-element {
+        padding-inline: 14px;
+    }
+
+    /* Fade the cut edges so partial cards look intentional. */
+    .marquee-swiper {
+        -webkit-mask-image: linear-gradient(to right, transparent 0, #000 32px, #000 calc(100% - 32px), transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0, #000 32px, #000 calc(100% - 32px), transparent 100%);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   8. Service card icons
+   The theme shipped three generic SVGs reused across nine cards, so "Expert
+   Review" and "OET Writing Practice" carried the same picture. These are now
+   distinct FontAwesome glyphs, styled to occupy the same box as the old art.
+   -------------------------------------------------------------------------- */
+.service__box10-icon .oet-svc-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.12), rgba(168, 85, 247, 0.16));
+    color: #6d28d9;
+    font-size: 26px;
+    line-height: 1;
+    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.service__box10:hover .service__box10-icon .oet-svc-icon {
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   9. Motion / paint cost
+   will-change on permanently-mounted elements keeps a compositor layer alive
+   for the whole session. Restrict it to the moment it is needed.
+   -------------------------------------------------------------------------- */
+.vl-hero-shape-1,
+.vl-hero-shape-2,
+.aniamtion-key-1,
+.aniamtion-key-2,
+.aniamtion-key-3,
+.aniamtion-key-4,
+.aniamtion-key-5 {
+    will-change: auto;
+}
+
+/* Decorative shapes never need to drive layout or hit-testing. */
+.vl-hero-shape-1,
+.vl-hero-shape-2 {
+    pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   10. Interaction polish
+   -------------------------------------------------------------------------- */
+.vl-primary-btn,
+.vl-secondary-btn,
+.oet-btn {
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.vl-primary-btn:hover,
+.vl-secondary-btn:hover,
+.oet-btn:hover {
+    transform: translateY(-2px);
+}
+
+.vl-primary-btn:active,
+.vl-secondary-btn:active,
+.oet-btn:active {
+    transform: translateY(0);
+}
+
+.vl-service-box-1,
+.vl-service-box-2,
+.vl-service-box-3,
+.oet-card {
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.vl-service-box-1:hover,
+.vl-service-box-2:hover,
+.vl-service-box-3:hover,
+.oet-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(15, 12, 60, 0.1);
+}
+
+/* Images should never be the reason a card reflows mid-scroll. */
+.vl-service-box-1 img,
+.vl-service-box-2 img,
+.vl-service-box-3 img,
+.oet-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --------------------------------------------------------------------------
+   11. Reduced motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .vl-primary-btn:hover,
+    .vl-secondary-btn:hover,
+    .oet-btn:hover,
+    .vl-service-box-1:hover,
+    .vl-service-box-2:hover,
+    .vl-service-box-3:hover,
+    .oet-card:hover {
+        transform: none;
+    }
+}

@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="/assets/css/style.min.css?v=3fa9e8fd2c">
     <link rel="stylesheet" href="/assets/css/oet-common.css?v=2be66a2473">
     <link rel="stylesheet" href="/assets/css/oet-cookie-consent.css?v=9b27efcc3c">
+    <link rel="stylesheet" href="/assets/css/oet-polish.css?v=cfc13d0500">
     <style>
 body.oet-live-site .hero-banner-lavender .row.align-items-center { align-items: center !important; }
 body.oet-live-site .hero-banner-lavender .col-xl-6 > .p-relative { position: relative;
@@ -129,9 +130,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
             background:
                 radial-gradient(circle at 18% 18%, rgba(100, 74, 249, 0.38), transparent 28%),
                 radial-gradient(circle at 86% 82%, rgba(35, 211, 102, 0.18), transparent 30%),
-                rgba(8, 10, 35, 0.72);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px); }
+                rgba(8, 10, 35, 0.82); }
 .oet-promo-popup__dialog { position: relative;
             width: min(1040px, calc(100vw - 40px));
             max-height: min(88vh, 860px);
@@ -141,13 +140,12 @@ body.oet-promo-popup-lock { overflow: hidden; }
             border: 1px solid rgba(255, 255, 255, 0.82);
             overflow: hidden;
             transform: translateY(22px) scale(0.96);
-            opacity: 0;
-            will-change: transform, opacity; }
+            opacity: 0; }
+.oet-promo-popup.is-open .oet-promo-popup__dialog { will-change: transform, opacity; }
 .oet-promo-popup__dialog::before, .oet-promo-popup__dialog::after { content: '';
             position: absolute;
             pointer-events: none;
             border-radius: 999px;
-            filter: blur(3px);
             opacity: 0.9; }
 .oet-promo-popup__dialog::before { width: 260px;
             height: 260px;
@@ -174,7 +172,6 @@ body.oet-promo-popup-lock { overflow: hidden; }
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            animation: oetPromoClosePulse 2.4s ease-in-out infinite;
             transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease; }
 .oet-promo-popup__close i, .oet-promo-popup__nav i { display: none; }
 .oet-promo-popup__close::before, .oet-promo-popup__close::after { content: '';
@@ -293,7 +290,6 @@ body.oet-promo-popup-lock { overflow: hidden; }
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            animation: oetPromoNavPulse 3s ease-in-out infinite;
             transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease; }
 .oet-promo-popup__nav::before { content: '';
             display: block;
@@ -327,8 +323,8 @@ body.oet-promo-popup-lock { overflow: hidden; }
             padding: 8px 10px;
             background: rgba(255, 255, 255, 0.78);
             box-shadow: 0 12px 28px rgba(17, 24, 39, 0.12);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px); }
+            background-color: rgba(255, 255, 255, 0.94);
+            contain: layout style; }
 .oet-promo-popup__pagination .swiper-pagination-bullet { width: 8px;
             height: 8px;
             margin: 0 !important;
@@ -338,18 +334,6 @@ body.oet-promo-popup-lock { overflow: hidden; }
 .oet-promo-popup__pagination .swiper-pagination-bullet-active { width: 24px;
             border-radius: 999px;
             opacity: 1; }
-@keyframes oetPromoClosePulse { 0%, 100% {
-                box-shadow: 0 14px 34px rgba(17, 24, 39, 0.18), 0 0 0 0 rgba(100, 74, 249, 0.22);
-            }
-            50% {
-                box-shadow: 0 18px 38px rgba(17, 24, 39, 0.2), 0 0 0 8px rgba(100, 74, 249, 0);
-            } }
-@keyframes oetPromoNavPulse { 0%, 100% {
-                box-shadow: 0 14px 34px rgba(17, 24, 39, 0.16), 0 0 0 0 rgba(100, 74, 249, 0.18);
-            }
-            50% {
-                box-shadow: 0 18px 38px rgba(17, 24, 39, 0.2), 0 0 0 9px rgba(100, 74, 249, 0);
-            } }
 @keyframes oetPromoCtaFloat { 0%, 100% {
                 transform: translateY(0);
             }
@@ -965,8 +949,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                 <div class="service__box10 service__box10-iconbox">
                                     <!-- service thumb -->
                                     <div class="service__box10-icon">
-                                        <span><img loading="lazy" decoding="async" src="/assets/img/hrconsulting/icon/service-icon-10.1.svg"
-                                                alt="Expert review"></span>
+                                        <span class="oet-svc-icon"><i class="fa-solid fa-user-check" role="img" aria-label="Expert review"></i></span>
                                     </div>
 
                                     <div class="service__box10-content">
@@ -985,8 +968,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                 <div class="service__box10 service__box10-iconbox">
                                     <!-- service thumb -->
                                     <div class="service__box10-icon">
-                                        <span><img loading="lazy" decoding="async" src="/assets/img/hrconsulting/icon/service-icon-10.2.svg"
-                                                alt="Mock test and readiness"></span>
+                                        <span class="oet-svc-icon"><i class="fa-solid fa-stopwatch" role="img" aria-label="Mock test and readiness"></i></span>
                                     </div>
 
                                     <div class="service__box10-content">
@@ -1006,8 +988,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                 <div class="service__box10 service__box10-iconbox">
                                     <!-- service thumb -->
                                     <div class="service__box10-icon">
-                                        <span><img loading="lazy" decoding="async" src="/assets/img/hrconsulting/icon/service-icon-10.3.svg"
-                                                alt="Study planner"></span>
+                                        <span class="oet-svc-icon"><i class="fa-solid fa-calendar-check" role="img" aria-label="Study planner"></i></span>
                                     </div>
 
                                     <div class="service__box10-content">
@@ -1028,8 +1009,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                 <div class="service__box10 service__box10-iconbox">
                                     <!-- service thumb -->
                                     <div class="service__box10-icon">
-                                        <span><img loading="lazy" decoding="async" src="/assets/img/hrconsulting/icon/service-icon-10.1.svg"
-                                                alt="OET writing practice"></span>
+                                        <span class="oet-svc-icon"><i class="fa-solid fa-pen-to-square" role="img" aria-label="OET writing practice"></i></span>
                                     </div>
 
                                     <div class="service__box10-content">
@@ -1049,8 +1029,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                 <div class="service__box10 service__box10-iconbox">
                                     <!-- service thumb -->
                                     <div class="service__box10-icon">
-                                        <span><img loading="lazy" decoding="async" src="/assets/img/hrconsulting/icon/service-icon-10.2.svg"
-                                                alt="OET speaking practice"></span>
+                                        <span class="oet-svc-icon"><i class="fa-solid fa-microphone-lines" role="img" aria-label="OET speaking practice"></i></span>
                                     </div>
 
                                     <div class="service__box10-content">
@@ -1070,8 +1049,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                 <div class="service__box10 service__box10-iconbox">
                                     <!-- service thumb -->
                                     <div class="service__box10-icon">
-                                        <span><img loading="lazy" decoding="async" src="/assets/img/hrconsulting/icon/service-icon-10.3.svg"
-                                                alt="Vocabulary and grammar support"></span>
+                                        <span class="oet-svc-icon"><i class="fa-solid fa-language" role="img" aria-label="Vocabulary and grammar support"></i></span>
                                     </div>
 
                                     <div class="service__box10-content">
@@ -1093,8 +1071,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                 <div class="service__box10 service__box10-iconbox">
                                     <!-- service thumb -->
                                     <div class="service__box10-icon">
-                                        <span><img loading="lazy" decoding="async" src="/assets/img/hrconsulting/icon/service-icon-10.1.svg"
-                                                alt="Timed letter review"></span>
+                                        <span class="oet-svc-icon"><i class="fa-solid fa-envelope" role="img" aria-label="Timed letter review"></i></span>
                                     </div>
 
                                     <div class="service__box10-content">
@@ -1113,8 +1090,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                 <div class="service__box10 service__box10-iconbox">
                                     <!-- service thumb -->
                                     <div class="service__box10-icon">
-                                        <span><img loading="lazy" decoding="async" src="/assets/img/hrconsulting/icon/service-icon-10.2.svg"
-                                                alt="Mock test analysis"></span>
+                                        <span class="oet-svc-icon"><i class="fa-solid fa-chart-line" role="img" aria-label="Mock test analysis"></i></span>
                                     </div>
 
                                     <div class="service__box10-content">
@@ -1133,8 +1109,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                 <div class="service__box10 service__box10-iconbox">
                                     <!-- service thumb -->
                                     <div class="service__box10-icon">
-                                        <span><img loading="lazy" decoding="async" src="/assets/img/hrconsulting/icon/service-icon-10.3.svg"
-                                                alt="Recorded course access"></span>
+                                        <span class="oet-svc-icon"><i class="fa-solid fa-graduation-cap" role="img" aria-label="Recorded course access"></i></span>
                                     </div>
 
                                     <div class="service__box10-content">
@@ -1972,7 +1947,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
     <!-- ScrollSmoother js -->
     <script defer src="/assets/js/plugins/lenis.min.js?v=5c22bad686"></script>
 <!-- Custom js -->
-<script defer src="/assets/js/main.js?v=22e56862ad"></script>
+<script defer src="/assets/js/main.js?v=1fa21dd395"></script>
      <script defer src="/assets/js/oet-contact-widget.js?v=c5bf92e31c"></script>
     <script>
         window.addEventListener('load', function () {
@@ -1996,38 +1971,28 @@ body.oet-promo-popup-lock { overflow: hidden; }
                 return;
             }
 
-            function startTypingLoop() {
-                var state = { progress: 0 };
-                gsap.killTweensOf([textEl, cursorEl]);
-                textEl.textContent = '';
-                gsap.set(cursorEl, { opacity: 1 });
+            // Types once and then settles. The previous version looped forever,
+            // rewriting text every frame inside the sticky header, so the
+            // browser re-laid-out and repainted the header for the entire
+            // session - main-thread work that competed with scrolling.
+            var state = { progress: 0 };
+            cursorEl.style.display = 'none';
+            textEl.textContent = '';
 
-                gsap.to(state, {
-                    progress: fullText.length,
-                    duration: 2.8,
-                    ease: 'none',
-                    onUpdate: function () {
-                        textEl.textContent = fullText.slice(0, Math.floor(state.progress));
-                    },
-                    onComplete: function () {
-                        gsap.delayedCall(0.5, function () {
-                            var blinkTl = gsap.timeline({
-                                onComplete: function () {
-                                    textEl.textContent = '';
-                                    gsap.delayedCall(0.7, startTypingLoop);
-                                }
-                            });
-
-                            for (var i = 0; i < 3; i++) {
-                                blinkTl.to(cursorEl, { opacity: 0, duration: 0.16, ease: 'none' })
-                                    .to(cursorEl, { opacity: 1, duration: 0.16, ease: 'none' });
-                            }
-                        });
+            gsap.to(state, {
+                progress: fullText.length,
+                duration: 1.6,
+                ease: 'none',
+                onUpdate: function () {
+                    var next = fullText.slice(0, Math.floor(state.progress));
+                    if (next !== textEl.textContent) {
+                        textEl.textContent = next;
                     }
-                });
-            }
-
-            startTypingLoop();
+                },
+                onComplete: function () {
+                    textEl.textContent = fullText;
+                }
+            });
         });
     </script>
     <script>
