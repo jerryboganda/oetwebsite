@@ -2,7 +2,22 @@
 <html lang="en" class="oet-live-site">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <script>
+      (function () {
+        try {
+          var m = window.matchMedia;
+          if (m && (
+            m('(max-width:1023.98px)').matches ||
+            m('(pointer:coarse)').matches ||
+            m('(hover:none)').matches ||
+            m('(prefers-reduced-motion:reduce)').matches
+          )) {
+            document.documentElement.classList.add('oet-lite-motion');
+          }
+        } catch (e) {}
+      })();
+    </script>
     <title>Free OET Materials & Support Groups | Dr Hesham</title>
     <meta name="description" content="Access free OET materials, WhatsApp groups, Telegram resources, exam recalls, nursing and pharmacy communities, medicine orientation and support from Dr Hesham.">
     <link rel="canonical" href="https://oetwithdrhesham.co.uk/oet-materials-support.html">
@@ -37,7 +52,8 @@
     
     <link rel="stylesheet" href="/assets/css/style.min.css?v=3fa9e8fd2c">
     <link rel="stylesheet" href="/assets/css/oet-common.css?v=2be66a2473">
-    <link rel="stylesheet" href="/assets/css/oet-cookie-consent.css?v=9b27efcc3c">
+    <link rel="stylesheet" href="/assets/css/oet-mobile.css?v=75da7e072c">
+    <link rel="stylesheet" href="/assets/css/oet-cookie-consent.css?v=a6dd8c981d">
     <style id="oet-resource-page-styles">
         .oet-resource-hero { position: relative; overflow: visible; background: linear-gradient(135deg, #f5f2ff 0%, #fdfcff 46%, #e8f5ff 100%); padding: 168px 0 92px; border-bottom: 1px solid rgba(100, 74, 249, 0.09); }
         .oet-resource-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 78% 24%, rgba(100, 74, 249, 0.2), transparent 31%), radial-gradient(circle at 18% 86%, rgba(35, 211, 102, 0.13), transparent 30%); pointer-events: none; }
@@ -265,20 +281,10 @@
                             <!-- action btn -->
                             <div class="vl-header-action-item d-block d-xl-none">
                                 <button type="button" class="vl-offcanvas-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="vl-offcanvas-menu">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" viewBox="0 0 30 16">
-                                        <g clip-path="url(#clip0_54_1070)">
-                                            <path d="M3.625 3.45829H26.375" stroke="#000000" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M3.625 12.5416H26.375" stroke="#000000" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M6.625 8H23.375" stroke="#000000" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip0_54_1070">
-                                                <rect width="30" height="16" fill="white" />
-                                            </clipPath>
-                                        </defs>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" viewBox="0 0 30 16" aria-hidden="true" focusable="false">
+                                        <path d="M3.625 3.458H26.375" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M3.625 12.542H26.375" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M6.625 8H23.375" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
                                     </svg>
                                 </button>
                             </div>
@@ -546,7 +552,7 @@
 <!-- ScrollSmoother js -->
     <script defer src="/assets/js/plugins/lenis.min.js?v=5c22bad686"></script>
 <!-- Custom js -->
-<script defer src="/assets/js/main.js?v=22e56862ad"></script>
+<script defer src="/assets/js/main.js?v=0bd8d9ea18"></script>
 
     
 

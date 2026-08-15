@@ -58,7 +58,20 @@
 /*----------------------------------------*/
 
 
-if (typeof sal === 'function') { sal(); }
+if (typeof sal === 'function') {
+    var oetDisableSal = !!(window.matchMedia && (
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+        window.matchMedia('(max-width: 1023.98px)').matches ||
+        window.matchMedia('(pointer: coarse)').matches ||
+        window.matchMedia('(hover: none)').matches
+    ));
+    if (oetDisableSal) {
+        document.documentElement.classList.add('oet-lite-motion');
+        if (document.body) document.body.classList.add('sal-disabled');
+    } else {
+        sal();
+    }
+}
 
 
 
@@ -278,7 +291,15 @@ if (typeof sal === 'function') { sal(); }
                 self.handleAnchorClick(event);
             }, false);
 
-            if (this.prefersReducedMotion || typeof window.Lenis === "undefined") {
+            var skipSmoothScroll = this.prefersReducedMotion ||
+                this.isTouchDevice ||
+                typeof window.Lenis === "undefined" ||
+                !!(window.matchMedia && (
+                    window.matchMedia("(max-width: 1023.98px)").matches ||
+                    window.matchMedia("(hover: none)").matches
+                ));
+
+            if (skipSmoothScroll) {
                 this.isReady = true;
                 return;
             }
@@ -286,7 +307,7 @@ if (typeof sal === 'function') { sal(); }
             this.lenis = new window.Lenis({
                 lerp: this.isTouchDevice ? 0.14 : 0.095,
                 smoothWheel: true,
-                syncTouch: this.isTouchDevice,
+                syncTouch: false,
                 syncTouchLerp: this.isTouchDevice ? 0.13 : 0.08,
                 touchInertiaExponent: this.isTouchDevice ? 1.35 : 1.45,
                 touchMultiplier: 1,
@@ -1043,8 +1064,11 @@ if (typeof sal === 'function') { sal(); }
         });
     }
 
-    var reduceMotion = window.matchMedia &&
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var reduceMotion = window.matchMedia && (
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+        window.matchMedia("(max-width: 1023.98px)").matches ||
+        window.matchMedia("(pointer: coarse)").matches
+    );
 
     if (reduceMotion || typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
         showAll();
