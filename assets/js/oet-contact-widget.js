@@ -219,7 +219,12 @@
         }
 
         function startAttentionAnimation() {
-            if (!window.gsap || !launcherButton || !launcherLabel || isOpen) {
+            var reduceMotion = !!(window.matchMedia && (
+                window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+                window.matchMedia('(max-width: 1023.98px)').matches ||
+                window.matchMedia('(pointer: coarse)').matches
+            ));
+            if (reduceMotion || !window.gsap || !launcherButton || !launcherLabel || isOpen) {
                 return;
             }
 

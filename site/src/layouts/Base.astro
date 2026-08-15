@@ -30,7 +30,22 @@ const {
 <html lang="en" class="oet-live-site">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <script is:inline>
+      (function () {
+        try {
+          var m = window.matchMedia;
+          if (m && (
+            m('(max-width:1023.98px)').matches ||
+            m('(pointer:coarse)').matches ||
+            m('(hover:none)').matches ||
+            m('(prefers-reduced-motion:reduce)').matches
+          )) {
+            document.documentElement.classList.add('oet-lite-motion');
+          }
+        } catch (e) {}
+      })();
+    </script>
     <Fragment set:html={meta} />
     <link rel="icon" href="/assets/img/logo/fav-icon.svg" type="image/svg+xml" />
     <link rel="icon" href="/assets/img/logo/fav-icon.png" type="image/png" sizes="64x64" />
@@ -42,6 +57,7 @@ const {
     {salCss && <link rel="stylesheet" href="/assets/css/plugins/sal.css" />}
     {styleCss && <link rel="stylesheet" href="/assets/css/style.min.css" />}
     <link rel="stylesheet" href="/assets/css/oet-common.css" />
+    <link rel="stylesheet" href="/assets/css/oet-mobile.css" />
     <link rel="stylesheet" href="/assets/css/oet-cookie-consent.css" />
     <link rel="stylesheet" href="/assets/css/oet-polish.css" />
     <Fragment set:html={headExtra} />

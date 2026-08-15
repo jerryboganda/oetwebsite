@@ -158,18 +158,6 @@
     "price": 80
   },
   {
-    "kicker": "Package 28",
-    "title": "TutorBook - First Edition 2026",
-    "price": 45,
-    "structuredData": true
-  },
-  {
-    "kicker": "Package 29",
-    "title": "TutorBook - Add-on for Enrolled Students",
-    "price": 32,
-    "structuredData": true
-  },
-  {
     "kicker": "Package 30",
     "title": "Quick Check",
     "price": 15,
@@ -188,97 +176,109 @@
   },
   {
     "kicker": "Package 33",
-    "title": "1 Full Mock",
-    "price": 25,
-    "structuredData": true
-  },
-  {
-    "kicker": "Package 34",
-    "title": "3 Full Mocks",
-    "price": 60
-  },
-  {
-    "kicker": "Package 35",
-    "title": "5 Full Mocks",
-    "price": 110,
-    "structuredData": true
-  },
-  {
-    "kicker": "Package 36",
     "title": "Listening Starter",
     "price": 4,
     "structuredData": true
   },
   {
-    "kicker": "Package 37",
+    "kicker": "Package 34",
     "title": "Listening Standard",
     "price": 9,
     "structuredData": true
   },
   {
-    "kicker": "Package 38",
+    "kicker": "Package 35",
     "title": "Listening Pro",
     "price": 15,
     "structuredData": true
   },
   {
-    "kicker": "Package 48",
-    "title": "Listening Recalls",
-    "price": 17,
-    "structuredData": true
-  },
-  {
-    "kicker": "Package 39",
+    "kicker": "Package 36",
     "title": "Reading Starter",
     "price": 4,
     "structuredData": true
   },
   {
-    "kicker": "Package 40",
+    "kicker": "Package 37",
     "title": "Reading Standard",
     "price": 9,
     "structuredData": true
   },
   {
-    "kicker": "Package 41",
+    "kicker": "Package 38",
     "title": "Reading Pro",
     "price": 15,
     "structuredData": true
   },
   {
-    "kicker": "Package 42",
+    "kicker": "Package 39",
     "title": "Writing Starter",
     "price": 9,
     "structuredData": true
   },
   {
-    "kicker": "Package 43",
+    "kicker": "Package 40",
     "title": "Writing Standard",
     "price": 19,
     "structuredData": true
   },
   {
-    "kicker": "Package 44",
+    "kicker": "Package 41",
     "title": "Writing Pro",
     "price": 32,
     "structuredData": true
   },
   {
-    "kicker": "Package 45",
+    "kicker": "Package 42",
     "title": "Speaking Starter",
     "price": 12,
     "structuredData": true
   },
   {
-    "kicker": "Package 46",
+    "kicker": "Package 43",
     "title": "Speaking Standard",
     "price": 24,
     "structuredData": true
   },
   {
-    "kicker": "Package 47",
+    "kicker": "Package 44",
     "title": "Speaking Pro",
     "price": 42,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 45",
+    "title": "Listening Recalls",
+    "price": 17,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 46",
+    "title": "TutorBook - First Edition 2026",
+    "price": 45,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 47",
+    "title": "TutorBook - Add-on for Enrolled Students",
+    "price": 32,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 48",
+    "title": "1 Full Mock",
+    "price": 25,
+    "structuredData": true
+  },
+  {
+    "kicker": "Package 49",
+    "title": "3 Full Mocks",
+    "price": 60
+  },
+  {
+    "kicker": "Package 50",
+    "title": "5 Full Mocks",
+    "price": 110,
     "structuredData": true
   }
 ]

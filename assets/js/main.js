@@ -58,7 +58,20 @@
 /*----------------------------------------*/
 
 
-if (typeof sal === 'function') { sal(); }
+if (typeof sal === 'function') {
+    var oetDisableSal = !!(window.matchMedia && (
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+        window.matchMedia('(max-width: 1023.98px)').matches ||
+        window.matchMedia('(pointer: coarse)').matches ||
+        window.matchMedia('(hover: none)').matches
+    ));
+    if (oetDisableSal) {
+        document.documentElement.classList.add('oet-lite-motion');
+        if (document.body) document.body.classList.add('sal-disabled');
+    } else {
+        sal();
+    }
+}
 
 
 
@@ -72,9 +85,6 @@ if (typeof sal === 'function') { sal(); }
         listeners: [],
         observer: null,
         ticker: null,
-        // Starts optimistic so ScrollTrigger-driven sections never miss updates
-        // before the first refresh(); narrowed to the real count on refresh.
-        hasScrollTriggers: true,
         excludedSelector: [
             "[data-lenis-prevent]",
             "[data-scroll-island]",
@@ -139,39 +149,16 @@ if (typeof sal === 'function') { sal(); }
             });
         },
         start: function () {
-            if (!this.isStopped) return;
-            this.isStopped = false;
-
-            if (this.lenis) {
+            if (this.lenis && this.isStopped) {
                 this.lenis.start();
-                return;
+                this.isStopped = false;
             }
-
-            // Native-scroll mode (touch / reduced motion): release the lock and
-            // restore the scroll position the browser drops when position:fixed
-            // is removed from <body>.
-            var body = document.body;
-            if (!body.classList.contains("oet-scroll-locked")) return;
-            var locked = parseFloat(body.dataset.oetLockedScroll || "0") || 0;
-            body.classList.remove("oet-scroll-locked");
-            body.style.removeProperty("top");
-            delete body.dataset.oetLockedScroll;
-            window.scrollTo(0, locked);
         },
         stop: function () {
-            if (this.isStopped) return;
-            this.isStopped = true;
-
-            if (this.lenis) {
+            if (this.lenis && !this.isStopped) {
                 this.lenis.stop();
-                return;
+                this.isStopped = true;
             }
-
-            var body = document.body;
-            if (body.classList.contains("oet-scroll-locked")) return;
-            body.dataset.oetLockedScroll = String(this.getScrollY());
-            body.style.top = "-" + Math.round(this.getScrollY()) + "px";
-            body.classList.add("oet-scroll-locked");
         },
         refresh: function () {
             if (this.lenis && typeof this.lenis.resize === "function") {
@@ -180,20 +167,9 @@ if (typeof sal === 'function') { sal(); }
 
             if (window.ScrollTrigger && typeof window.ScrollTrigger.refresh === "function") {
                 window.ScrollTrigger.refresh();
-                this.hasScrollTriggers = typeof window.ScrollTrigger.getAll === "function" &&
-                    window.ScrollTrigger.getAll().length > 0;
             }
 
             this.emitScroll();
-        },
-        // ScrollTrigger.refresh() re-measures every trigger and forces a full
-        // layout pass, so it must never run per resize event / per rAF.
-        scheduleRefresh: function () {
-            var self = this;
-            window.clearTimeout(this._refreshTimer);
-            this._refreshTimer = window.setTimeout(function () {
-                self.refresh();
-            }, 180);
         },
         scrollTo: function (target, options) {
             var settings = options || {};
@@ -315,23 +291,27 @@ if (typeof sal === 'function') { sal(); }
                 self.handleAnchorClick(event);
             }, false);
 
-            // Touch devices keep NATIVE scrolling. Lenis' syncTouch hijacks the
-            // compositor-driven touch scroll and re-drives it from JS, which is
-            // the single biggest cause of laggy scrolling on phones/tablets.
-            if (this.prefersReducedMotion || this.isTouchDevice || typeof window.Lenis === "undefined") {
+            var skipSmoothScroll = this.prefersReducedMotion ||
+                this.isTouchDevice ||
+                typeof window.Lenis === "undefined" ||
+                !!(window.matchMedia && (
+                    window.matchMedia("(max-width: 1023.98px)").matches ||
+                    window.matchMedia("(hover: none)").matches
+                ));
+
+            if (skipSmoothScroll) {
                 this.isReady = true;
                 return;
             }
 
             this.lenis = new window.Lenis({
-                // 0.095 made the viewport chase the wheel for ~half a second,
-                // which reads as lag. 0.2 still smooths, but stays under the
-                // ~100ms threshold where motion feels attached to the input.
-                lerp: 0.2,
+                lerp: this.isTouchDevice ? 0.14 : 0.095,
                 smoothWheel: true,
                 syncTouch: false,
+                syncTouchLerp: this.isTouchDevice ? 0.13 : 0.08,
+                touchInertiaExponent: this.isTouchDevice ? 1.35 : 1.45,
                 touchMultiplier: 1,
-                wheelMultiplier: 1,
+                wheelMultiplier: this.isTouchDevice ? 1 : 0.95,
                 gestureOrientation: "vertical",
                 autoResize: true,
                 overscroll: true,
@@ -346,7 +326,7 @@ if (typeof sal === 'function') { sal(); }
 
             this.lenis.on("scroll", function () {
                 self.emitScroll();
-                if (self.hasScrollTriggers && window.ScrollTrigger && typeof window.ScrollTrigger.update === "function") {
+                if (window.ScrollTrigger && typeof window.ScrollTrigger.update === "function") {
                     window.ScrollTrigger.update();
                 }
             });
@@ -381,33 +361,14 @@ if (typeof sal === 'function') { sal(); }
             }
 
             if (typeof MutationObserver !== "undefined") {
-                // Coalesce bursts (swiper clones, widget mounts) into one pass
-                // per frame instead of a querySelectorAll per inserted node.
-                var pendingNodes = [];
-                var flushScheduled = false;
-                var flush = function () {
-                    flushScheduled = false;
-                    var nodes = pendingNodes;
-                    pendingNodes = [];
-                    for (var i = 0; i < nodes.length; i++) {
-                        self.markPreventElements(nodes[i]);
-                    }
-                };
-
                 this.observer = new MutationObserver(function (mutations) {
-                    for (var i = 0; i < mutations.length; i++) {
-                        var added = mutations[i].addedNodes;
-                        for (var j = 0; j < added.length; j++) {
-                            if (added[j].nodeType === 1) {
-                                pendingNodes.push(added[j]);
+                    mutations.forEach(function (mutation) {
+                        mutation.addedNodes.forEach(function (node) {
+                            if (node.nodeType === 1) {
+                                self.markPreventElements(node);
                             }
-                        }
-                    }
-
-                    if (pendingNodes.length && !flushScheduled) {
-                        flushScheduled = true;
-                        window.requestAnimationFrame(flush);
-                    }
+                        });
+                    });
                 });
 
                 this.observer.observe(document.body, {
@@ -424,8 +385,8 @@ if (typeof sal === 'function') { sal(); }
             });
 
             window.addEventListener("resize", function () {
-                self.scheduleRefresh();
-            }, { passive: true });
+                self.refresh();
+            });
 
             this.isReady = true;
         }
@@ -689,20 +650,9 @@ if (typeof sal === 'function') { sal(); }
 
     function bindScrollEvent(callback) {
         if (scrollManager && scrollManager.lenis && typeof scrollManager.onScroll === "function") {
-            // Lenis already emits once per animation frame.
             scrollManager.onScroll(callback);
         } else {
-            // Native scroll fires faster than the compositor paints, so collapse
-            // bursts into one callback per frame.
-            var ticking = false;
-            window.addEventListener("scroll", function () {
-                if (ticking) return;
-                ticking = true;
-                window.requestAnimationFrame(function () {
-                    ticking = false;
-                    callback();
-                });
-            }, { passive: true });
+            window.addEventListener("scroll", callback, { passive: true });
         }
         callback();
     }
@@ -775,40 +725,14 @@ if (typeof sal === 'function') { sal(); }
         progressPath.getBoundingClientRect();
         progressPath.style.transition = progressPath.style.WebkitTransition = "stroke-dashoffset 10ms linear";
         var offset = 50;
-
-        // Reading scrollHeight forces a synchronous layout. Doing that on every
-        // scroll tick made the whole page janky, so the document height is
-        // cached and only re-measured when the layout can actually change.
-        var cachedDocHeight = 1;
-        var measureDocHeight = function () {
+        bindScrollEvent(function () {
+            var scroll = getScrollTop();
             var docHeight = Math.max(
                 document.body.scrollHeight,
                 document.documentElement.scrollHeight
             ) - window.innerHeight;
-            cachedDocHeight = Math.max(docHeight, 1);
-        };
-
-        measureDocHeight();
-        window.addEventListener("load", measureDocHeight);
-        window.addEventListener("resize", function () {
-            window.clearTimeout(window.__oetDocHeightTimer);
-            window.__oetDocHeightTimer = window.setTimeout(measureDocHeight, 180);
-        }, { passive: true });
-
-        if (typeof ResizeObserver !== "undefined") {
-            var docHeightRaf = 0;
-            new ResizeObserver(function () {
-                if (docHeightRaf) return;
-                docHeightRaf = window.requestAnimationFrame(function () {
-                    docHeightRaf = 0;
-                    measureDocHeight();
-                });
-            }).observe(document.body);
-        }
-
-        bindScrollEvent(function () {
-            var scroll = getScrollTop();
-            progressPath.style.strokeDashoffset = pathLength - (scroll * pathLength) / cachedDocHeight;
+            var height = Math.max(docHeight, 1);
+            progressPath.style.strokeDashoffset = pathLength - (scroll * pathLength) / height;
             if (progressWrap) {
                 progressWrap.classList.toggle("active-progress", scroll > offset);
             }
@@ -819,6 +743,7 @@ if (typeof sal === 'function') { sal(); }
                 if (scrollManager && typeof scrollManager.scrollTo === "function") {
                     scrollManager.scrollTo(0, {
                         duration: 1.05,
+                        lerp: scrollManager.isTouchDevice ? 0.16 : 0.11,
                         force: true
                     });
                 } else {
@@ -1022,37 +947,7 @@ if (typeof sal === 'function') { sal(); }
             delete options.autoplay;
             options.allowTouchMove = true;
         }
-
-        // Swiper resolves a string selector to the first match only; keep that
-        // exact behaviour and just hold on to the instance.
-        var instance = new Swiper(selector, options);
-
-        if (!options || !options.autoplay) return;
-        if (!instance || !instance.autoplay || !instance.el) return;
-
-        // These marquees use delay:1, i.e. they animate continuously. Left
-        // unmanaged they keep compositing while parked far off-screen or in a
-        // background tab, stealing frames from whatever the user is doing.
-        var shouldRunOnScreen = true;
-
-        var sync = function () {
-            if (!instance.autoplay) return;
-            var run = shouldRunOnScreen && !document.hidden;
-            if (run && !instance.autoplay.running) {
-                instance.autoplay.start();
-            } else if (!run && instance.autoplay.running) {
-                instance.autoplay.stop();
-            }
-        };
-
-        if (typeof IntersectionObserver !== "undefined") {
-            new IntersectionObserver(function (entries) {
-                shouldRunOnScreen = entries[0].isIntersecting;
-                sync();
-            }, { rootMargin: "150px 0px" }).observe(instance.el);
-        }
-
-        document.addEventListener("visibilitychange", sync);
+        new Swiper(selector, options);
     }
 
     // homepage platform marquee
@@ -1169,8 +1064,11 @@ if (typeof sal === 'function') { sal(); }
         });
     }
 
-    var reduceMotion = window.matchMedia &&
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var reduceMotion = window.matchMedia && (
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+        window.matchMedia("(max-width: 1023.98px)").matches ||
+        window.matchMedia("(pointer: coarse)").matches
+    );
 
     if (reduceMotion || typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
         showAll();
