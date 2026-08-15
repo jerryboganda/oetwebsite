@@ -3,6 +3,4 @@ import part1 from '../partials/chrome/header-1.html?raw';
 import part2 from '../partials/chrome/header-2.html?raw';
 const { showApps = false } = Astro.props;
 ---
-<Fragment set:html={part1} />{showApps && (
-    <li><a class="oet-pricing-nav-link" href="#apps">Apps</a></li>
-)}<Fragment set:html={part2} />
+<Fragment set:html={part1} /><li><a class="oet-pricing-nav-link" href={showApps ? "#download-app" : "/pricing.html#download-app"}>Download App</a></li><Fragment set:html={part2} />

@@ -62,6 +62,88 @@
         });
     </script>
 
+    <script id="oet-candidates-app-detection-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            var section = document.getElementById('download-app');
+            if (!section) return;
+
+            var cards = section.querySelectorAll('.oet-app-card');
+            var primaryBtn = document.getElementById('oet-download-cta-btn');
+            var primaryText = document.getElementById('oet-download-cta-text');
+
+            var platformMap = {
+                android: {
+                    name: 'Android',
+                    url: 'https://app.oetwithdrhesham.co.uk/get-app/android-install'
+                },
+                ios: {
+                    name: 'iPhone / iPad',
+                    url: 'https://app.oetwithdrhesham.co.uk/api/download/ios'
+                },
+                windows: {
+                    name: 'Windows',
+                    url: 'https://app.oetwithdrhesham.co.uk/api/download/windows'
+                },
+                mac: {
+                    name: 'macOS',
+                    url: 'https://app.oetwithdrhesham.co.uk/api/download/mac'
+                }
+            };
+
+            function detectPlatform() {
+                var ua = navigator.userAgent || '';
+                var platform = navigator.platform || '';
+                var maxTouchPoints = navigator.maxTouchPoints || 0;
+
+                if (/Android/i.test(ua)) return 'android';
+                if (/iPad|iPhone|iPod/i.test(ua) || (/Macintosh/i.test(platform) && maxTouchPoints > 1)) return 'ios';
+                if (/Macintosh|Mac OS X/i.test(ua)) return 'mac';
+                if (/Win/i.test(platform) || /Windows/i.test(ua)) return 'windows';
+                return 'windows'; // default fallback
+            }
+
+            function selectPlatform(targetPlatform, isUserClick) {
+                var data = platformMap[targetPlatform];
+                if (!data) return;
+
+                cards.forEach(function (card) {
+                    var p = card.getAttribute('data-platform');
+                    if (p === targetPlatform) {
+                        card.classList.add('is-active');
+                        if (!isUserClick) {
+                            card.classList.add('is-recommended');
+                        }
+                    } else {
+                        card.classList.remove('is-active');
+                        if (isUserClick) {
+                            // keep recommended badge on the original detected OS if user clicked another
+                        }
+                    }
+                });
+
+                if (primaryBtn) {
+                    primaryBtn.href = data.url;
+                    primaryBtn.setAttribute('aria-label', 'Download the Candidates App for ' + data.name);
+                }
+                if (primaryText) {
+                    primaryText.textContent = 'Download the Candidates App';
+                }
+            }
+
+            var detected = detectPlatform();
+            selectPlatform(detected, false);
+
+            cards.forEach(function (card) {
+                card.addEventListener('click', function (e) {
+                    var p = card.getAttribute('data-platform');
+                    if (p) {
+                        selectPlatform(p, true);
+                    }
+                });
+            });
+        });
+    </script>
+
     
 
 

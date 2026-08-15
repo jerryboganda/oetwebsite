@@ -494,78 +494,218 @@
         }
     </style>
     <style id="oet-public-app-downloads-css">
-        .oet-public-apps {
-            background: linear-gradient(135deg, #f2edff 0%, #ffffff 48%, #e9fff7 100%);
-            padding: 76px 0 84px;
+        .oet-candidates-apps {
+            background: linear-gradient(135deg, #f3effe 0%, #ffffff 50%, #eefbf7 100%);
+            padding: 80px 0 90px;
+            scroll-margin-top: 100px;
+            border-top: 1px solid rgba(124, 58, 237, 0.08);
         }
-        .oet-public-apps__inner {
-            max-width: 900px;
+        .oet-candidates-apps__inner {
+            max-width: 960px;
             margin: 0 auto;
             padding: 0 24px;
             text-align: center;
         }
-        .oet-public-apps h2 {
+        .oet-candidates-apps__tag-row {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .oet-candidates-apps__tag {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #6366f1;
+            color: #fff;
+        }
+        .oet-candidates-apps h2 {
             margin: 0;
             color: #191829;
-            font-size: clamp(30px, 4vw, 46px);
-            line-height: 1.08;
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
         }
-        .oet-public-apps p {
-            max-width: 660px;
+        .oet-candidates-apps p.oet-candidates-apps__subtitle {
+            max-width: 680px;
             margin: 14px auto 0;
-            color: #5f6370;
+            color: #55596b;
             font-size: 16px;
-            line-height: 1.65;
+            line-height: 1.6;
         }
-        .oet-public-apps__grid {
+        .oet-candidates-apps__grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 16px;
-            margin-top: 30px;
+            gap: 18px;
+            margin-top: 36px;
+            text-align: left;
         }
-        .oet-public-app-badge {
-            display: inline-flex;
-            min-height: 64px;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            border: 1px solid rgba(0, 0, 0, .4);
-            border-radius: 16px;
-            background: #000;
-            color: #fff;
-            padding: 16px 22px;
-            box-shadow: 0 8px 18px rgba(15, 23, 42, .12);
-            font-size: 16px;
-            font-weight: 700;
-            line-height: 1;
+        .oet-app-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 24px;
+            background: #ffffff;
+            border: 2px solid #e5e7eb;
+            border-radius: 20px;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
             text-decoration: none;
-            transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+            color: inherit;
+            cursor: pointer;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
         }
-        .oet-public-app-badge:hover,
-        .oet-public-app-badge:focus-visible {
-            border-color: rgba(0, 0, 0, .75);
-            background: #171717;
-            color: #fff;
-            transform: translateY(-1px);
+        .oet-app-card:hover {
+            border-color: #a5b4fc;
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.12);
+            transform: translateY(-2px);
+            color: inherit;
         }
-        .oet-public-app-badge:focus-visible {
-            outline: 3px solid #7c3aed;
+        .oet-app-card:focus-visible {
+            outline: 3px solid #6366f1;
             outline-offset: 3px;
         }
-        .oet-public-app-badge svg {
-            width: 28px;
-            height: 28px;
-            flex: 0 0 28px;
+        .oet-app-card.is-active,
+        .oet-app-card.is-recommended {
+            border-color: #6366f1;
+            background: linear-gradient(180deg, #faf9ff 0%, #ffffff 100%);
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.14);
         }
-        @media (max-width: 575.98px) {
-            .oet-public-apps { padding: 58px 0 64px; }
-            .oet-public-apps__inner { padding: 0 16px; }
-            .oet-public-apps__grid { grid-template-columns: 1fr; gap: 12px; }
+        .oet-app-card__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        .oet-app-card__identity {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .oet-app-card__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: #f3f4f8;
+            color: #1e1b4b;
+            flex-shrink: 0;
+            transition: background 0.2s ease;
+        }
+        .oet-app-card.is-active .oet-app-card__icon,
+        .oet-app-card.is-recommended .oet-app-card__icon {
+            background: #e0e7ff;
+            color: #4338ca;
+        }
+        .oet-app-card__icon svg {
+            width: 24px;
+            height: 24px;
+        }
+        .oet-app-card__title {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+            line-height: 1.2;
+        }
+        .oet-app-card__badge {
+            display: none;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #e0e7ff;
+            color: #4338ca;
+        }
+        .oet-app-card.is-recommended .oet-app-card__badge {
+            display: inline-block;
+        }
+        .oet-app-card__desc {
+            margin: 0;
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+        .oet-candidates-apps__actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 36px;
+            flex-wrap: wrap;
+        }
+        .oet-btn-download-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 52px;
+            padding: 14px 28px;
+            border-radius: 999px;
+            background: #6366f1;
+            color: #ffffff !important;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.28);
+            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .oet-btn-download-primary:hover {
+            background: #4f46e5;
+            transform: translateY(-1px);
+            box-shadow: 0 10px 24px rgba(99, 102, 241, 0.35);
+        }
+        .oet-btn-download-primary:focus-visible {
+            outline: 3px solid #6366f1;
+            outline-offset: 3px;
+        }
+        .oet-btn-open-app {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 52px;
+            padding: 14px 28px;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #1e1b4b !important;
+            border: 2px solid #e2e8f0;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+            transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+        }
+        .oet-btn-open-app:hover {
+            border-color: #cbd5e1;
+            background: #f8fafc;
+            transform: translateY(-1px);
+        }
+        .oet-btn-open-app:focus-visible {
+            outline: 3px solid #6366f1;
+            outline-offset: 3px;
+        }
+        @media (max-width: 767.98px) {
+            .oet-candidates-apps { padding: 60px 0 70px; }
+            .oet-candidates-apps__inner { padding: 0 16px; }
+            .oet-candidates-apps__grid { grid-template-columns: 1fr; gap: 14px; margin-top: 24px; }
+            .oet-app-card { padding: 18px 20px; }
+            .oet-candidates-apps__actions { flex-direction: column; width: 100%; gap: 12px; }
+            .oet-btn-download-primary, .oet-btn-open-app { width: 100%; }
         }
         @media (prefers-reduced-motion: reduce) {
-            .oet-public-app-badge { transition: none; }
-            .oet-public-app-badge:hover,
-            .oet-public-app-badge:focus-visible { transform: none; }
+            .oet-app-card, .oet-btn-download-primary, .oet-btn-open-app { transition: none; }
+            .oet-app-card:hover, .oet-btn-download-primary:hover, .oet-btn-open-app:hover { transform: none; }
         }
     </style>
     <script type="application/ld+json">
