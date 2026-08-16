@@ -1,0 +1,1004 @@
+/* ==========================================================================
+   OET homepage hero — single source of truth.
+
+   Supersedes the hero rules that used to be split across
+   site/src/partials/index/head-extra.html, oet-mobile.css and oet-polish.css.
+   Those three fought over the same elements with !important and magic pixels
+   (top:350px, left:-50px, bottom:-112px), which is why every mobile fix
+   regressed a neighbour. Everything hero-related now lives here.
+
+   Loaded last, so it wins without needing !important.
+
+   Breakpoints: <768 phone | 768-991 tablet | 992-1199 laptop | 1200+ desktop
+   ========================================================================== */
+
+.oet-hero {
+    /* Local tokens. --hero-body is a darker muted than --oet-muted because
+       #6b668a only reaches 4.23:1 on the lavender field; this hits 5.4:1. */
+    --hero-ink: var(--oet-ink, #1f1558);
+    --hero-body: #544e7c;
+    --hero-line: rgba(95, 70, 245, .16);
+    --hero-card: rgba(255, 255, 255, .86);
+    --hero-card-line: rgba(255, 255, 255, .9);
+    --hero-shadow: 0 18px 44px rgba(31, 21, 88, .13);
+    --hero-shadow-sm: 0 10px 26px rgba(31, 21, 88, .1);
+    --hero-pt: 200px;
+    --hero-pb: 72px;
+    --hero-gap: clamp(28px, 3.4vw, 64px);
+
+    position: relative;
+    z-index: 1;
+    isolation: isolate;
+    padding-top: var(--hero-pt);
+    padding-bottom: var(--hero-pb);
+    overflow: hidden;
+    overflow: clip;
+    background: var(--oet-lav-300, #e6e0ff);
+    color: var(--hero-ink);
+}
+
+/* --------------------------------------------------------------------------
+   Background field
+   The section shipped as flat #e6e0ff. Layered blooms plus a hairline dot grid
+   give it depth without introducing a colour outside the brand family, and the
+   bottom fade hands off cleanly to the brand marquee underneath.
+   -------------------------------------------------------------------------- */
+.oet-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    overflow: clip;
+    background:
+        linear-gradient(168deg, var(--oet-lav-100, #f5f2ff) 0%, var(--oet-lav-200, #eee9ff) 38%, var(--oet-lav-300, #e6e0ff) 100%);
+}
+
+.oet-hero__bg::before {
+    /* Directional light from the top-left, the same angle the portrait is lit
+       from. Replaces a tiled dot grid, which read as generic texture. */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(80% 60% at 8% 0%, rgba(255, 255, 255, .75) 0%, rgba(255, 255, 255, 0) 62%);
+}
+
+.oet-hero__bg::after {
+    /* Hand-off to the next band so the hero does not end on a hard edge. */
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 130px;
+    background: linear-gradient(to bottom, rgba(245, 242, 255, 0), var(--oet-lav-50, #fbf9ff));
+}
+
+.oet-hero__bloom {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(2px);
+}
+
+.oet-hero__bloom--a {
+    width: clamp(380px, 42vw, 720px);
+    aspect-ratio: 1;
+    top: -18%;
+    right: -8%;
+    background: radial-gradient(circle, rgba(124, 103, 255, .30) 0%, rgba(124, 103, 255, .10) 42%, rgba(124, 103, 255, 0) 70%);
+}
+
+.oet-hero__bloom--b {
+    width: clamp(300px, 34vw, 560px);
+    aspect-ratio: 1;
+    bottom: -22%;
+    left: -12%;
+    background: radial-gradient(circle, rgba(35, 211, 102, .16) 0%, rgba(35, 211, 102, .05) 45%, rgba(35, 211, 102, 0) 70%);
+}
+
+/* --------------------------------------------------------------------------
+   Grid
+   One composition, four breakpoints. All offsets are container-relative.
+   -------------------------------------------------------------------------- */
+.oet-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.oet-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--hero-gap);
+    align-items: center;
+}
+
+.oet-hero__copy {
+    min-width: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Eyebrow
+   Was a 92-character sentence in an h4 that wrapped to three lines on a phone
+   and restated the H1. Now a short pill that names the audience and nothing else.
+   -------------------------------------------------------------------------- */
+.oet-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 18px;
+    padding: 8px 16px 8px 12px;
+    border: 1px solid var(--hero-line);
+    border-radius: 999px;
+    background: var(--hero-card);
+    box-shadow: var(--hero-shadow-sm);
+    color: var(--oet-purple-deep, #4b37d3);
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: .01em;
+    line-height: 1.2;
+    text-transform: none;
+}
+
+.oet-hero__eyebrow-dot {
+    position: relative;
+    flex: 0 0 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--oet-whatsapp, #23d366);
+}
+
+.oet-hero__eyebrow-dot::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid rgba(35, 211, 102, .45);
+}
+
+/* --------------------------------------------------------------------------
+   Headline
+   -------------------------------------------------------------------------- */
+.oet-hero__title {
+    margin: 0 0 18px;
+    color: var(--hero-ink);
+    font-size: clamp(2.05rem, 1.35rem + 2.6vw, 3.6rem);
+    line-height: 1.08;
+    letter-spacing: -.025em;
+    text-wrap: balance;
+}
+
+.oet-hero__accent {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    color: var(--oet-purple, #5f46f5);
+}
+
+.oet-hero__underline {
+    position: absolute;
+    left: -1%;
+    bottom: -.16em;
+    width: 102%;
+    height: .3em;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.oet-hero__underline path {
+    fill: none;
+    stroke: var(--oet-purple, #5f46f5);
+    stroke-width: 5;
+    stroke-linecap: round;
+    opacity: .42;
+}
+
+.oet-hero__lead {
+    max-width: 54ch;
+    margin: 0 0 28px;
+    color: var(--hero-body);
+    font-size: clamp(1rem, .96rem + .2vw, 1.125rem);
+    line-height: 1.65;
+    text-wrap: pretty;
+}
+
+/* --------------------------------------------------------------------------
+   CTA ladder
+   Primary (community popup) / secondary (pricing) / tertiary (talk to a human).
+   The hero previously shipped one button and no second path.
+   -------------------------------------------------------------------------- */
+.oet-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0 0 26px;
+}
+
+.oet-hero__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 13px 26px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.oet-hero__cta:focus-visible {
+    outline: 3px solid var(--oet-purple-deep, #4b37d3);
+    outline-offset: 3px;
+}
+
+.oet-hero__cta--primary {
+    position: relative;
+    overflow: hidden;
+    border: 0;
+    background: linear-gradient(135deg, var(--oet-purple, #5f46f5) 0%, var(--oet-purple-deep, #4b37d3) 100%);
+    color: #fff;
+    box-shadow: 0 14px 30px rgba(95, 70, 245, .32);
+}
+
+.oet-hero__cta--primary::after {
+    /* Light sweep on hover. Transform-only, so it never repaints on idle. */
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -60%;
+    width: 45%;
+    background: linear-gradient(100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .32), rgba(255, 255, 255, 0));
+    transform: translateX(0);
+    pointer-events: none;
+}
+
+.oet-hero__cta--primary:hover,
+.oet-hero__cta--primary:focus-visible {
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 18px 38px rgba(95, 70, 245, .42);
+}
+
+.oet-hero__cta--ghost {
+    border: 1.5px solid rgba(95, 70, 245, .32);
+    background: rgba(255, 255, 255, .72);
+    color: var(--oet-purple-deep, #4b37d3);
+}
+
+.oet-hero__cta--ghost:hover,
+.oet-hero__cta--ghost:focus-visible {
+    border-color: var(--oet-purple, #5f46f5);
+    background: #fff;
+    color: var(--oet-purple-deep, #4b37d3);
+    transform: translateY(-2px);
+    box-shadow: var(--hero-shadow-sm);
+}
+
+.oet-hero__cta svg {
+    flex: 0 0 auto;
+    transition: transform .2s ease;
+}
+
+.oet-hero__cta:hover svg {
+    transform: translateX(3px);
+}
+
+/* Tertiary: talk to a human. Reads as a labelled row, not two loose circles. */
+.oet-hero__reach {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 30px;
+}
+
+.oet-hero__reach-label {
+    color: var(--hero-body);
+    font-size: 13.5px;
+    font-weight: 600;
+}
+
+.oet-hero__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 8px 15px 8px 11px;
+    border: 1px solid var(--hero-line);
+    border-radius: 999px;
+    background: var(--hero-card);
+    box-shadow: var(--hero-shadow-sm);
+    color: var(--hero-ink);
+    font-size: 13.5px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.oet-hero__chip i {
+    font-size: 17px;
+    line-height: 1;
+}
+
+.oet-hero__chip--wa i {
+    color: var(--oet-whatsapp, #23d366);
+}
+
+.oet-hero__chip--tg i {
+    color: #2aaeef;
+}
+
+.oet-hero__chip:hover,
+.oet-hero__chip:focus-visible {
+    color: var(--hero-ink);
+    border-color: rgba(95, 70, 245, .34);
+    transform: translateY(-2px);
+    box-shadow: var(--hero-shadow);
+}
+
+.oet-hero__chip:focus-visible {
+    outline: 3px solid var(--oet-purple-deep, #4b37d3);
+    outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Trust rail
+   The real numbers used to live two screens down in the About section. These
+   reuse .counter so they count up on entry through the existing observer.
+   -------------------------------------------------------------------------- */
+.oet-hero__stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(10px, 1.6vw, 26px);
+    margin: 0;
+    padding: 20px 0 0;
+    border-top: 1px solid var(--hero-line);
+    list-style: none;
+}
+
+.oet-hero__stat {
+    min-width: 0;
+}
+
+.oet-hero__stat-num {
+    display: block;
+    color: var(--hero-ink);
+    font-size: clamp(1.5rem, 1.1rem + 1.3vw, 2.1rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -.03em;
+    font-variant-numeric: tabular-nums;
+}
+
+.oet-hero__stat-num span {
+    color: var(--oet-purple, #5f46f5);
+}
+
+.oet-hero__stat-label {
+    display: block;
+    margin-top: 5px;
+    color: var(--hero-body);
+    font-size: clamp(11.5px, .5vw + 10px, 13.5px);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+/* --------------------------------------------------------------------------
+   Portrait stage
+   The cutout used to float on flat lavender and get scissored by
+   .fix{overflow:hidden}. A bloom, an arc and a bottom mask fade let it dissolve
+   into the band instead, which removes that whole class of clipping bug.
+   -------------------------------------------------------------------------- */
+.oet-hero__stage {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    min-width: 0;
+}
+
+.oet-hero__glow {
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    width: min(108%, 620px);
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, .92) 0%, rgba(255, 255, 255, .45) 38%, rgba(230, 224, 255, 0) 68%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.oet-hero__ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: min(100%, 560px);
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+    overflow: visible;
+}
+
+.oet-hero__ring circle {
+    fill: none;
+    stroke: rgba(95, 70, 245, .22);
+    stroke-width: 1.25;
+    stroke-dasharray: 5 9;
+    stroke-linecap: round;
+    transform-origin: 50% 50%;
+}
+
+.oet-hero__ring circle:nth-child(2) {
+    stroke: rgba(95, 70, 245, .12);
+    stroke-dasharray: none;
+}
+
+.oet-hero__portrait {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    max-width: 520px;
+    line-height: 0;
+}
+
+.oet-hero__portrait img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    /* Dissolve the cutout's lower edge into the field instead of cutting it. */
+    -webkit-mask-image: linear-gradient(to bottom, #000 84%, rgba(0, 0, 0, .55) 94%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to bottom, #000 84%, rgba(0, 0, 0, .55) 94%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* --------------------------------------------------------------------------
+   Floating proof
+   rating.png and contactzzz.png were images of text: unreadable to screen
+   readers, soft on retina, and the reason the mobile layout kept breaking.
+   These are real DOM cards that reflow and scale.
+   -------------------------------------------------------------------------- */
+.oet-hero__badge {
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 15px;
+    border: 1px solid var(--hero-card-line);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, .9);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    box-shadow: var(--hero-shadow);
+    line-height: 1.2;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.oet-hero__badge-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    background: rgba(95, 70, 245, .1);
+    color: var(--oet-purple, #5f46f5);
+    font-size: 17px;
+}
+
+.oet-hero__badge--rating .oet-hero__badge-icon {
+    background: rgba(255, 176, 32, .16);
+    color: #e08c00;
+}
+
+.oet-hero__badge-body {
+    min-width: 0;
+}
+
+.oet-hero__badge-top {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--hero-ink);
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -.01em;
+    white-space: nowrap;
+}
+
+.oet-hero__badge-sub {
+    display: block;
+    margin-top: 2px;
+    color: var(--hero-body);
+    font-size: 11.5px;
+    font-weight: 600;
+    line-height: 1.25;
+    white-space: nowrap;
+}
+
+.oet-hero__stars {
+    display: inline-flex;
+    gap: 1.5px;
+    color: #ffb020;
+    font-size: 11px;
+    line-height: 1;
+}
+
+/* Offsets are percentages of the portrait box, so the badges keep the same
+   relationship to the photograph at every width instead of drifting onto his
+   face as the column gets wider. */
+.oet-hero__badge--rating {
+    top: 3%;
+    right: -17%;
+}
+
+.oet-hero__badge--community {
+    bottom: 19%;
+    left: -19%;
+}
+
+.oet-hero__avatars {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+}
+
+.oet-hero__avatars span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 27px;
+    height: 27px;
+    margin-right: -9px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--oet-purple-soft, #7c67ff), var(--oet-purple-deep, #4b37d3));
+    color: #fff;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: -.02em;
+}
+
+.oet-hero__avatars span:last-child {
+    margin-right: 0;
+    background: linear-gradient(135deg, #34d399, #059669);
+}
+
+/* --------------------------------------------------------------------------
+   1200px and up
+   -------------------------------------------------------------------------- */
+@media (min-width: 1200px) {
+    .oet-hero__inner {
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    }
+
+    .oet-hero__portrait {
+        max-width: none;
+        width: clamp(430px, 34vw, 560px);
+    }
+
+    .oet-hero__stage {
+        /* Let the portrait sit on the section's bottom edge without the old
+           bottom:-112px hack, which needed overflow:hidden to look right. */
+        margin-bottom: calc(var(--hero-pb) * -1);
+        align-self: end;
+    }
+}
+
+@media (min-width: 1200px) and (max-height: 900px) {
+    .oet-hero {
+        --hero-pt: 172px;
+        --hero-pb: 56px;
+    }
+
+    .oet-hero__portrait {
+        width: clamp(400px, 31vw, 505px);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   992-1199 laptop / small desktop
+   -------------------------------------------------------------------------- */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .oet-hero {
+        --hero-pt: 150px;
+        --hero-pb: 56px;
+    }
+
+    .oet-hero__inner {
+        grid-template-columns: minmax(0, 1fr) minmax(0, .85fr);
+    }
+
+    .oet-hero__portrait {
+        max-width: 400px;
+    }
+
+    /* At 1024 the portrait sits only ~51px from the viewport edge and the copy
+       column ends ~42px from the portrait, so the hang has to stay modest here
+       or the rating badge clips and the community badge lands on the CTA row. */
+    .oet-hero__badge--rating {
+        top: 1%;
+        right: -4%;
+    }
+
+    .oet-hero__badge--community {
+        bottom: 2%;
+        left: 0;
+    }
+}
+
+/* iPad-class landscape: the viewport is wide but short, so the trust rail fell
+   below the fold. Buy it back from the top padding, not from the type. */
+@media (min-width: 992px) and (max-width: 1199.98px) and (max-height: 880px) {
+    .oet-hero {
+        --hero-pt: 106px;
+        --hero-pb: 40px;
+    }
+
+    .oet-hero__lead {
+        margin-bottom: 22px;
+    }
+
+    .oet-hero__stats {
+        padding-top: 18px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   768-991 tablet
+   This band used to fall through to the phone stack, so an iPad rendered one
+   narrow column with huge dead gutters. It gets a real two-column composition.
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .oet-hero {
+        --hero-pt: 124px;
+        --hero-pb: 48px;
+        --hero-gap: 26px;
+    }
+
+    .oet-hero__inner {
+        grid-template-columns: minmax(0, 1.18fr) minmax(0, .82fr);
+        align-items: center;
+    }
+
+    .oet-hero__title {
+        font-size: clamp(1.95rem, 1.1rem + 3.3vw, 2.6rem);
+    }
+
+    .oet-hero__lead {
+        max-width: 46ch;
+        margin-bottom: 22px;
+        font-size: 15.5px;
+    }
+
+    .oet-hero__cta {
+        min-height: 48px;
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+
+    .oet-hero__portrait {
+        max-width: 320px;
+    }
+
+    .oet-hero__badge {
+        padding: 9px 12px;
+        gap: 8px;
+    }
+
+    .oet-hero__badge-icon {
+        flex-basis: 32px;
+        width: 32px;
+        height: 32px;
+        font-size: 15px;
+    }
+
+    .oet-hero__badge-top {
+        font-size: 13.5px;
+    }
+
+    .oet-hero__badge-sub {
+        font-size: 10.5px;
+    }
+
+    /* Below his face line: the head occupies roughly the top 30% of the cutout. */
+    .oet-hero__badge--rating {
+        top: 33%;
+        right: -8%;
+    }
+
+    .oet-hero__badge--community {
+        bottom: 7%;
+        left: -6%;
+    }
+
+    .oet-hero__stats {
+        padding-top: 18px;
+    }
+
+    .oet-hero__stat-label {
+        font-size: 11px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Below 768 — phone
+   Order: eyebrow, headline, lead, CTAs, reach, portrait + floating proof, stats.
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+    .oet-hero {
+        --hero-pt: 92px;
+        --hero-pb: 28px;
+        --hero-gap: 22px;
+    }
+
+    .oet-hero__eyebrow {
+        margin-bottom: 14px;
+        padding: 7px 13px 7px 10px;
+        font-size: 12.5px;
+    }
+
+    .oet-hero__title {
+        margin-bottom: 14px;
+        font-size: clamp(1.7rem, 6.6vw, 2.25rem);
+        line-height: 1.14;
+    }
+
+    .oet-hero__accent {
+        white-space: normal;
+    }
+
+    .oet-hero__lead {
+        margin-bottom: 20px;
+        font-size: 15.5px;
+        line-height: 1.6;
+    }
+
+    .oet-hero__actions {
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+
+    .oet-hero__cta {
+        flex: 1 1 100%;
+        min-height: 50px;
+        padding: 13px 20px;
+        font-size: 15.5px;
+    }
+
+    .oet-hero__reach {
+        margin-bottom: 22px;
+    }
+
+    .oet-hero__reach-label {
+        flex: 1 1 100%;
+        margin-bottom: 2px;
+        font-size: 12.5px;
+    }
+
+    .oet-hero__stats {
+        gap: 8px;
+        padding-top: 16px;
+    }
+
+    .oet-hero__stat-num {
+        font-size: 1.45rem;
+    }
+
+    .oet-hero__stat-label {
+        font-size: 11px;
+    }
+
+    /* Portrait keeps room on both flanks so the floating proof never overlaps
+       the face or runs off the viewport. */
+    .oet-hero__stage {
+        padding: 6px 0 4px;
+    }
+
+    .oet-hero__portrait {
+        width: min(58vw, 248px);
+    }
+
+    .oet-hero__glow {
+        width: min(96vw, 400px);
+    }
+
+    .oet-hero__ring {
+        width: min(84vw, 336px);
+    }
+
+    .oet-hero__badge {
+        gap: 7px;
+        padding: 8px 11px;
+        border-radius: 12px;
+    }
+
+    .oet-hero__badge-icon {
+        flex-basis: 28px;
+        width: 28px;
+        height: 28px;
+        border-radius: 9px;
+        font-size: 13px;
+    }
+
+    .oet-hero__badge-top {
+        font-size: 12.5px;
+    }
+
+    .oet-hero__badge-sub {
+        font-size: 10px;
+    }
+
+    .oet-hero__stars {
+        font-size: 9px;
+    }
+
+    .oet-hero__avatars span {
+        width: 22px;
+        height: 22px;
+        margin-right: -8px;
+        font-size: 9px;
+    }
+
+    .oet-hero__badge--rating {
+        top: 33%;
+        right: -26%;
+    }
+
+    .oet-hero__badge--community {
+        bottom: 6%;
+        left: -26%;
+    }
+}
+
+@media (max-width: 359.98px) {
+    .oet-hero__badge-sub {
+        display: none;
+    }
+
+    .oet-hero__portrait {
+        width: min(58vw, 200px);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Motion
+
+   html.oet-lite-motion force-disables every [data-sal] animation on touch and
+   narrow viewports, so none of this uses data-sal. The entrance is a one-shot
+   CSS stagger on transform/opacity, which is cheap enough to keep on phones —
+   that is where the hero matters most. Only the ambient loops back off there.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+    .oet-hero__anim {
+        animation: oet-hero-rise .72s cubic-bezier(.22, .61, .36, 1) both;
+        animation-delay: var(--d, 0ms);
+    }
+
+    .oet-hero__underline path {
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+        animation: oet-hero-draw .8s cubic-bezier(.65, 0, .35, 1) 480ms forwards;
+    }
+
+    .oet-hero__badge {
+        animation: oet-hero-float 3.6s ease-in-out infinite alternate;
+    }
+
+    .oet-hero__badge--community {
+        animation-duration: 4.4s;
+        animation-delay: .6s;
+    }
+
+    .oet-hero__ring circle {
+        animation: oet-hero-spin 44s linear infinite;
+    }
+
+    .oet-hero__ring circle:nth-child(2) {
+        animation-duration: 62s;
+        animation-direction: reverse;
+    }
+
+    .oet-hero__bloom--a {
+        animation: oet-hero-drift 14s ease-in-out infinite alternate;
+    }
+
+    .oet-hero__bloom--b {
+        animation: oet-hero-drift 18s ease-in-out infinite alternate-reverse;
+    }
+
+    .oet-hero__cta--primary::after {
+        transition: transform .62s ease;
+    }
+
+    .oet-hero__cta--primary:hover::after,
+    .oet-hero__cta--primary:focus-visible::after {
+        transform: translateX(340%);
+    }
+
+    .oet-hero__eyebrow-dot::after {
+        animation: oet-hero-pulse 2.4s ease-out infinite;
+    }
+}
+
+@keyframes oet-hero-rise {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 18px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes oet-hero-draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes oet-hero-float {
+    from {
+        transform: translate3d(0, -5px, 0);
+    }
+
+    to {
+        transform: translate3d(0, 5px, 0);
+    }
+}
+
+@keyframes oet-hero-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes oet-hero-drift {
+    from {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    to {
+        transform: translate3d(0, 26px, 0) scale(1.06);
+    }
+}
+
+@keyframes oet-hero-pulse {
+    0% {
+        opacity: .9;
+        transform: scale(.85);
+    }
+
+    70%,
+    100% {
+        opacity: 0;
+        transform: scale(1.7);
+    }
+}
+
+/* Ambient loops are the expensive part on a phone; the entrance is not. */
+html.oet-lite-motion .oet-hero__ring circle,
+html.oet-lite-motion .oet-hero__bloom {
+    animation: none;
+}
+
+@media (max-width: 767.98px) {
+    .oet-hero__badge {
+        animation-duration: 4.2s;
+    }
+}

@@ -12,6 +12,7 @@ interface Props {
   swiperCss?: boolean;
   salCss?: boolean;
   styleCss?: boolean;
+  heroCss?: boolean;
   showApps?: boolean;
 }
 
@@ -24,6 +25,7 @@ const {
   swiperCss = false,
   salCss = false,
   styleCss = true,
+  heroCss = false,
   showApps = false,
 } = Astro.props;
 ---
@@ -60,6 +62,7 @@ const {
     <link rel="stylesheet" href="/assets/css/oet-mobile.css" />
     <link rel="stylesheet" href="/assets/css/oet-cookie-consent.css" />
     <link rel="stylesheet" href="/assets/css/oet-polish.css" />
+    {heroCss && <link rel="stylesheet" href="/assets/css/oet-hero.css" />}
     <Fragment set:html={headExtra} />
 </head>
 <body class={bodyClass || undefined}>

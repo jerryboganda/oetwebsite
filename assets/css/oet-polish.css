@@ -23,15 +23,8 @@ body.oet-scroll-locked {
    The theme shipped fixed 70px/44px headings, so a 67-character H1 filled the
    entire viewport on a laptop and pushed every CTA below the fold. Fluid
    clamps keep the same visual weight while staying proportional.
+   (The homepage hero moved to oet-hero.css and no longer uses .vl-banner-area.)
    -------------------------------------------------------------------------- */
-.vl-banner-area h1.title,
-.vl-banner-area .title.text-anime-style-2 {
-    font-size: clamp(2rem, 1.6rem + 2.1vw, 3.5rem);
-    line-height: 1.1;
-    letter-spacing: -0.015em;
-    text-wrap: balance;
-}
-
 .vl-section-title .title,
 .vl-section-title-heading .title {
     font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.75rem);
@@ -60,8 +53,7 @@ h4.sub-title > span img {
     margin-right: 6px;
 }
 
-.vl-section-title p,
-.vl-banner-area p.text-anime-style-3 {
+.vl-section-title p {
     max-width: 62ch;
     line-height: 1.65;
     text-wrap: pretty;
@@ -74,22 +66,7 @@ h4.sub-title > span img {
 
 /* --------------------------------------------------------------------------
    3. Section rhythm
-   188px of hero top padding was tuned for the tall desktop header; on smaller
-   headers it just created dead space above the fold.
    -------------------------------------------------------------------------- */
-@media (max-width: 1199px) {
-    .vl-banner-area {
-        padding-top: 132px;
-        padding-bottom: 48px;
-    }
-}
-
-@media (max-width: 767px) {
-    .vl-banner-area {
-        padding-top: 104px;
-        padding-bottom: 40px;
-    }
-}
 
 /* One section shipped 285px of bottom padding, which read as a broken gap
    between it and the next band. */

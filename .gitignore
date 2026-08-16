@@ -25,6 +25,9 @@ node_modules/
 dist/
 .astro/
 
+# Local design-tool cache — never deployed
+site/.impeccable/
+
 # Logs
 *.log
 

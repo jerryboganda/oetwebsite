@@ -777,7 +777,7 @@ if (typeof sal === 'function') {
         }
 
         function groupDelay(el) {
-            var group = el.closest(".counterbox__grid, .success-verified-stat, .success-verified-stats");
+            var group = el.closest(".counterbox__grid, .success-verified-stat, .success-verified-stats, .oet-hero__stats");
             if (!group) return 0;
             var scope = group.classList.contains("success-verified-stat")
                 ? (group.parentElement || group)
