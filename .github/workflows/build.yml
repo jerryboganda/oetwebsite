@@ -1,0 +1,36 @@
+name: Build & Verify
+
+on:
+  push:
+    branches: [main, master, 'overhaul/**']
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install
+        working-directory: site
+        run: npm ci
+
+      - name: Build (dist only, no root copy)
+        working-directory: site
+        run: npm run build:ci
+
+      - name: Verify build output
+        working-directory: site
+        run: npm run verify
+
+      - name: Check committed root pages match build output
+        working-directory: site
+        # The repo root is the deployable webroot; committed pages must equal
+        # what the current sources build. Guards against hand-editing root HTML.
+        run: node scripts/postbuild.mjs --check-root

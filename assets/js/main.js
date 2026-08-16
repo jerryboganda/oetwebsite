@@ -850,7 +850,7 @@ if (typeof sal === 'function') {
             toggleBtn.className = "vl-menu-close";
             toggleBtn.setAttribute("aria-label", "Toggle submenu");
             toggleBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
-            submenu.parentElement.appendChild(toggleBtn);
+            submenu.parentElement.insertBefore(toggleBtn, submenu);
             submenu.style.display = "none";
         });
         sideMenuNav.addEventListener("click", function (event) {
