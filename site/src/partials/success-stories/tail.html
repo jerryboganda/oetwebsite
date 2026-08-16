@@ -373,33 +373,6 @@
         if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.5) { step(dx < 0 ? 1 : -1); }
     }, { passive: true });
 
-    const counters = Array.from(document.querySelectorAll('.oet-countup'));
-    if (counters.length) {
-        const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const animate = el => {
-            const target = Number(el.dataset.count) || 0;
-            if (reduced) { el.textContent = target.toLocaleString(); return; }
-            const t0 = performance.now();
-            const dur = 1200;
-            const tick = now => {
-                const p = Math.min(1, (now - t0) / dur);
-                el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString();
-                if (p < 1) requestAnimationFrame(tick);
-            };
-            requestAnimationFrame(tick);
-        };
-        if ('IntersectionObserver' in window) {
-            const io = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) { animate(entry.target); io.unobserve(entry.target); }
-                });
-            }, { threshold: 0.4 });
-            counters.forEach(el => io.observe(el));
-        } else {
-            counters.forEach(animate);
-        }
-    }
-
     const hashYear = (window.location.hash.match(/^#year-(\d{4})$/) || [])[1];
     if (hashYear) activateYear(hashYear, true);
 

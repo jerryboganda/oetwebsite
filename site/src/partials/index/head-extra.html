@@ -38,6 +38,28 @@ body.oet-live-site .hero-banner-lavender .vl-banner-card-2 { top: 190px;
 body.oet-live-site .hero-banner-lavender .vl-hero-shape-2, body.oet-live-site .hero-banner-lavender .vl-hero-shape-3, body.oet-live-site .hero-banner-lavender .vl-hero-shape-4 { z-index: 1; }
 body.oet-live-site .hero-banner-lavender .vl-hero-shape-2 img { top: 170px;
             left: 112px; }
+body.oet-live-site .hero-banner-lavender .oet-hero-float { position: absolute;
+            z-index: 7;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 12px 26px rgba(31,21,88,.18);
+            animation: oet-hero-icon-float 2.2s ease-in-out infinite alternate; }
+body.oet-live-site .hero-banner-lavender .oet-hero-float--wa { background: #23d366;
+            left: -8px;
+            top: 58%; }
+body.oet-live-site .hero-banner-lavender .oet-hero-float--tg { background: #2aaeef;
+            right: 18px;
+            top: 36%; }
+@keyframes oet-hero-icon-float {
+  from { transform: translateY(0); }
+  to { transform: translateY(10px); }
 }
 @media only screen and (min-width: 1200px) and (max-height: 900px) {
   body.oet-live-site .hero-banner-lavender .col-xl-6 > .p-relative { min-height: 675px; }
@@ -51,10 +73,13 @@ body.oet-live-site .hero-banner-lavender .vl-hero-shape-2 img { top: 170px;
                 left: auto; }
 }
 @media only screen and (max-width: 1199px) {
-  body.oet-live-site .hero-banner-lavender { overflow: hidden; }
+  body.oet-live-site .hero-banner-lavender { overflow: visible; }
+  body.oet-live-site .hero-banner-lavender .container,
+  body.oet-live-site .hero-banner-lavender .row,
+  body.oet-live-site .hero-banner-lavender .col-xl-6 { overflow: visible; }
   body.oet-live-site .hero-banner-lavender .col-xl-6 > .p-relative { min-height: auto !important;
                 height: auto !important;
-                padding-top: 12px;
+                padding: 28px 8px 32px;
                 overflow: visible; }
   body.oet-live-site .hero-banner-lavender .vl-banner-thumb-1 { position: relative !important;
                 inset: auto !important;
@@ -73,14 +98,78 @@ body.oet-live-site .hero-banner-lavender .vl-hero-shape-2 img { top: 170px;
                 max-width: 100% !important;
                 height: auto !important;
                 margin: 0 auto; }
-  body.oet-live-site .hero-banner-lavender .vl-banner-card-1,
-  body.oet-live-site .hero-banner-lavender .vl-banner-card-2,
   body.oet-live-site .hero-banner-lavender .vl-hero-shape-2,
   body.oet-live-site .hero-banner-lavender .vl-hero-shape-3,
   body.oet-live-site .hero-banner-lavender .vl-hero-shape-4 { display: none !important; }
+  body.oet-live-site .hero-banner-lavender .vl-banner-card-1,
+  body.oet-live-site .hero-banner-lavender .vl-banner-card-2 { display: block !important;
+                z-index: 6;
+                pointer-events: auto; }
+  body.oet-live-site .hero-banner-lavender .vl-banner-card-1 img,
+  body.oet-live-site .hero-banner-lavender .vl-banner-card-2 img { width: 100%;
+                max-width: 100%;
+                height: auto; }
+  body.oet-live-site .hero-banner-lavender .vl-banner-card-1 { top: auto;
+                right: auto;
+                bottom: 8px;
+                left: 2%;
+                width: min(46vw, 210px); }
+  body.oet-live-site .hero-banner-lavender .vl-banner-card-2 { top: 8px;
+                right: 2%;
+                left: auto;
+                width: min(46vw, 210px); }
+  body.oet-live-site .hero-banner-lavender .aniamtion-key-4 { animation-duration: 2.4s; }
+  body.oet-live-site .hero-banner-lavender .oet-hero-float { width: 44px;
+                height: 44px;
+                font-size: 22px; }
+  body.oet-live-site .hero-banner-lavender .oet-hero-float--wa { left: 4px;
+                top: 46%; }
+  body.oet-live-site .hero-banner-lavender .oet-hero-float--tg { right: 4px;
+                top: 28%; }
 }
 @media (max-width: 575px) {
   body.oet-live-site .hero-banner-lavender .vl-banner-thumb-1 img.oet-hero-doctor { width: min(78vw, 300px); }
+  body.oet-live-site .hero-banner-lavender .vl-banner-card-1,
+  body.oet-live-site .hero-banner-lavender .vl-banner-card-2 { width: min(52vw, 168px); }
+  body.oet-live-site .hero-banner-lavender .oet-hero-float { width: 40px;
+                height: 40px;
+                font-size: 20px; }
+}
+body.oet-live-site .oet-services-tone .oet-service-icon-grid { display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-left: 0;
+            margin-right: 0;
+            --bs-gutter-x: 0;
+            --bs-gutter-y: 0;
+            align-items: start; }
+body.oet-live-site .oet-services-tone .oet-service-icon-grid > [class*="col-"] { width: 100%;
+            max-width: 100%;
+            flex: none;
+            padding: 0;
+            margin: 0; }
+body.oet-live-site .oet-services-tone .oet-service-icon-grid > [class*="col-"]:last-child { grid-column: 1 / -1; }
+body.oet-live-site .oet-services-tone .oet-service-icon-grid .service__box10 { height: auto;
+            padding: 16px 14px 14px; }
+body.oet-live-site .oet-services-tone .oet-service-icon-grid .service__box10-icon span { width: 52px;
+            height: 52px;
+            line-height: 52px;
+            margin-bottom: 12px; }
+body.oet-live-site .oet-services-tone .oet-service-icon-grid .service__box10-content .title { font-size: 17px;
+            line-height: 1.25; }
+body.oet-live-site .oet-services-tone .oet-service-icon-grid .service__box10-content .para { padding-bottom: 10px;
+            margin-bottom: 0; }
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  body.oet-live-site .oet-services-tone .oet-service-icon-grid { gap: 18px; }
+  body.oet-live-site .oet-services-tone .oet-service-icon-grid .service__box10 { padding: 20px 18px 16px; }
+}
+@media (min-width: 1200px) {
+  body.oet-live-site .oet-services-tone .oet-service-icon-grid { grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 24px;
+                align-items: stretch; }
+  body.oet-live-site .oet-services-tone .oet-service-icon-grid > [class*="col-"]:last-child { grid-column: auto; }
+  body.oet-live-site .oet-services-tone .oet-service-icon-grid .service__box10 { height: 100%;
+                padding: 24px; }
 }
 body.oet-promo-popup-lock { overflow: hidden; }
 .oet-promo-popup { position: fixed;
