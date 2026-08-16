@@ -246,7 +246,7 @@ header nav a[aria-current="page"],.vl-offcanvas nav a[aria-current="page"]{color
     flex-wrap:nowrap;
     align-items:center;
     justify-content:space-between;
-    column-gap:clamp(16px,1.8vw,36px);
+    column-gap:clamp(24px,2.4vw,44px);
   }
   #vl-header-sticky .header-border-bottom>.row>[class*="col-"]{
     flex:0 0 auto;
@@ -256,8 +256,22 @@ header nav a[aria-current="page"],.vl-offcanvas nav a[aria-current="page"]{color
     padding-left:0;
     padding-right:0;
   }
+  #vl-header-sticky .header-border-bottom>.row>.col-xl-2{
+    flex:0 0 auto;
+    padding-right:8px;
+  }
   #vl-header-sticky .header-border-bottom>.row>.col-xl-7{
     flex:1 1 auto;
+    min-width:0;
+    padding-left:clamp(8px,1vw,18px);
+    padding-right:clamp(12px,1.4vw,24px);
+  }
+  #vl-header-sticky .header-border-bottom>.row>.col-xl-3{
+    flex:0 0 auto;
+    padding-left:4px;
+  }
+  #vl-header-sticky .vl-main-menu{
+    padding-left:4px;
   }
   #vl-header-sticky .vl-main-menu nav>ul{
     display:flex;
@@ -309,8 +323,12 @@ header nav a[aria-current="page"],.vl-offcanvas nav a[aria-current="page"]{color
   }
 
   /* Login / Register CTA Pill */
+  #vl-header-sticky .vl-main-menu nav>ul>li:first-child{
+    margin-left:2px;
+  }
   #vl-header-sticky .vl-main-menu nav>ul>li.oet-nav-cta-item{
-    margin-left:8px;
+    margin-left:14px;
+    margin-right:6px;
   }
   #vl-header-sticky .vl-main-menu nav>ul>li>a.oet-header-cta-btn{
     display:inline-flex!important;
@@ -344,6 +362,12 @@ header nav a[aria-current="page"],.vl-offcanvas nav a[aria-current="page"]{color
     justify-content:flex-end;
     flex-wrap:nowrap;
     gap:12px;
+  }
+  #vl-header-sticky .vl-header-search{
+    margin-left:2px;
+    margin-right:16px;
+    padding-right:16px;
+    border-right:1px solid rgba(95,70,245,.16);
   }
   #vl-header-sticky .oet-search-btn{
     display:inline-flex;
@@ -400,9 +424,12 @@ header nav a[aria-current="page"],.vl-offcanvas nav a[aria-current="page"]{color
 
 /* Small laptops (1200px - 1359px) compact adjustments */
 @media (min-width:1200px) and (max-width:1359.98px){
+  #vl-header-sticky .header-border-bottom>.row{column-gap:28px}
+  #vl-header-sticky .header-border-bottom>.row>.col-xl-7{padding-left:14px;padding-right:18px}
   #vl-header-sticky .vl-main-menu nav>ul{column-gap:8px}
   #vl-header-sticky .vl-main-menu nav>ul>li>a{font-size:15px;padding:7px 7px}
-  #vl-header-sticky .vl-main-menu nav>ul>li>a.oet-header-cta-btn{font-size:14px!important;padding:7px 14px!important}
+  #vl-header-sticky .vl-main-menu nav>ul>li>a.oet-header-cta-btn{font-size:14px!important;padding:7px 14px!important;margin-right:2px}
+  #vl-header-sticky .vl-header-search{margin-right:14px;padding-right:14px}
   #vl-header-sticky .social-area-headerTop a{width:30px!important;height:30px!important;line-height:30px!important;font-size:12.5px!important}
   #vl-header-sticky .vl-logo img{height:42px}
 }
@@ -580,6 +607,20 @@ footer.vl-footer-10{padding-top:215px}
     .vl-footer-10 .vl-footer-widget-2{margin-left:clamp(12px,3vw,56px)}
 }
 .counter,.oet-countup{font-variant-numeric:tabular-nums}
+body.oet-live-site .blog-padding-bottom10{
+  margin-bottom:0;
+  padding-bottom:100px;
+  overflow:hidden;
+}
+body.oet-live-site .blog-padding-bottom10 .blog__wrap10{
+  overflow:hidden;
+}
+@media (max-width:1199.98px){
+  body.oet-live-site .blog-padding-bottom10{padding-bottom:80px}
+}
+@media (max-width:767.98px){
+  body.oet-live-site .blog-padding-bottom10{padding-bottom:64px}
+}
 @media (max-width:767.98px){
     footer.vl-footer-10{padding-top:200px}
     .vl-footer-10 .vl-copy-right-menu{text-align:left}
