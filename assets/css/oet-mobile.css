@@ -230,9 +230,20 @@ body.sal-disabled [data-sal|=slide]{
     background:transparent!important;
   }
 
+  .vl-offcanvas-menu ul li.has-dropdown{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 36px;
+    align-items:center;
+    column-gap:8px;
+  }
   .vl-offcanvas-menu .vl-menu-close{
-    min-width:44px;
-    min-height:44px;
+    position:static;
+    top:auto;
+    transform:none;
+    width:36px;
+    height:36px;
+    min-width:36px;
+    min-height:36px;
   }
 
   .vl-banner-area,

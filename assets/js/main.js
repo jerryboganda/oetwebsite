@@ -846,26 +846,33 @@ if (typeof sal === 'function') {
     if (desktopMenu && sideMenuNav) {
         sideMenuNav.appendChild(desktopMenu.cloneNode(true));
         sideMenuNav.querySelectorAll(".sub-menu, .vl-mega-menu").forEach(function (submenu) {
+            var item = submenu.parentElement;
+            if (!item || item.querySelector(":scope > button.vl-menu-close")) return;
             var toggleBtn = document.createElement("button");
+            toggleBtn.type = "button";
             toggleBtn.className = "vl-menu-close";
             toggleBtn.setAttribute("aria-label", "Toggle submenu");
-            toggleBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
-            submenu.parentElement.insertBefore(toggleBtn, submenu);
+            toggleBtn.setAttribute("aria-expanded", "false");
+            toggleBtn.innerHTML = '<i class="fas fa-chevron-right" aria-hidden="true"></i>';
+            item.insertBefore(toggleBtn, submenu);
             submenu.style.display = "none";
         });
         sideMenuNav.addEventListener("click", function (event) {
             var trigger = event.target.closest("button.vl-menu-close, li.has-dropdown > a");
             if (!trigger || !sideMenuNav.contains(trigger)) return;
-            var item = trigger.parentElement;
+            var item = trigger.closest("li.has-dropdown");
+            if (!item || !sideMenuNav.contains(item)) return;
             var submenu = item.querySelector(":scope > .sub-menu, :scope > .vl-mega-menu");
             if (!submenu) return;
             event.preventDefault();
-            if (item.classList.contains("active")) {
-                item.classList.remove("active");
-                slideUp(submenu, 300);
-            } else {
-                item.classList.add("active");
+            var open = !item.classList.contains("active");
+            item.classList.toggle("active", open);
+            var btn = item.querySelector(":scope > button.vl-menu-close");
+            if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
+            if (open) {
                 slideDown(submenu, 300);
+            } else {
+                slideUp(submenu, 300);
             }
         });
     }
