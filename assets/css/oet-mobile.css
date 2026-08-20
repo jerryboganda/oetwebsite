@@ -294,8 +294,22 @@ body.sal-disabled [data-sal|=slide]{
     justify-content:center;
   }
 
+  .cta-wrap7{
+    padding-bottom:32px!important;
+    overflow:hidden;
+  }
+
+  .cta-wrap7 .cta-large-thumb-10 img{
+    display:block;
+    width:100%;
+    height:auto!important;
+    max-height:260px;
+    object-fit:cover;
+    object-position:center top;
+  }
+
   footer.vl-footer-10{
-    padding-top:88px;
+    padding-top:40px;
   }
 
   .pathway-hero{
@@ -549,8 +563,29 @@ body.sal-disabled [data-sal|=slide]{
     padding:8px!important;
   }
 
+  .cta-wrap7{
+    padding-bottom:28px!important;
+    overflow:hidden;
+  }
+
+  .cta-wrap7 .cta-large-thumb-10{
+    height:auto!important;
+    overflow:hidden;
+    border-radius:16px;
+    margin-bottom:0;
+  }
+
+  .cta-wrap7 .cta-large-thumb-10 img{
+    display:block;
+    width:100%;
+    height:auto!important;
+    max-height:220px;
+    object-fit:cover;
+    object-position:center top;
+  }
+
   footer.vl-footer-10{
-    padding-top:64px;
+    padding-top:36px;
     padding-bottom:24px;
   }
 
