@@ -350,7 +350,7 @@
             var closeButton = popup.querySelector('.oet-promo-popup__close');
             var swiperElement = popup.querySelector('.oet-promo-popup__swiper');
             var focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
-            var storageKey = 'oetPromoPopupDismissedSessionV2';
+            var storageKey = 'oetPromoPopupDismissedSession';
             var lastFocused = null;
             var promoSwiper = null;
             var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -359,7 +359,7 @@
             function storageGet() {
             try {
                 if (window.sessionStorage.getItem(storageKey) === '1') return '1';
-                var closedAt = Number(window.localStorage.getItem('oetPromoClosedAtV2') || 0);
+                var closedAt = Number(window.localStorage.getItem('oetPromoClosedAt') || 0);
                 if (closedAt && (Date.now() - closedAt) < 7 * 24 * 60 * 60 * 1000) return '1';
                 return null;
             } catch (error) { return null; }
@@ -367,7 +367,7 @@
         function storageSet() {
             try {
                 window.sessionStorage.setItem(storageKey, '1');
-                window.localStorage.setItem('oetPromoClosedAtV2', String(Date.now()));
+                window.localStorage.setItem('oetPromoClosedAt', String(Date.now()));
             } catch (error) {}
         }
 
@@ -520,11 +520,35 @@
                 }
             });
 
+            function isMobileViewport() {
+                return !!(window.matchMedia && (
+                    window.matchMedia('(max-width: 1023.98px)').matches ||
+                    window.matchMedia('(pointer: coarse)').matches ||
+                    window.matchMedia('(hover: none)').matches
+                ));
+            }
             function scheduleAutoOpen() {
             if (autoOpenScheduled) return;
             autoOpenScheduled = true;
+            if (isMobileViewport()) return;
             if (storageGet() === '1') return;
-            window.setTimeout(openPopup, 800);
+            var opened = false;
+            var timer = null;
+            function fire() {
+                if (opened) return;
+                opened = true;
+                if (timer) { window.clearTimeout(timer); }
+                window.removeEventListener('scroll', onScroll);
+                window.removeEventListener('pointerdown', onEngage);
+                window.removeEventListener('keydown', onEngage);
+                openPopup();
+            }
+            function onScroll() { if ((window.pageYOffset || document.documentElement.scrollTop) > 320) fire(); }
+            function onEngage() { window.setTimeout(fire, 900); }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('pointerdown', onEngage, { once: true });
+            window.addEventListener('keydown', onEngage, { once: true });
+            timer = window.setTimeout(fire, 8000);
         }
 
             if (document.readyState === 'loading') {
