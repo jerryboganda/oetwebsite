@@ -357,19 +357,23 @@
             var autoOpenScheduled = false;
 
             function storageGet() {
-            try {
-                if (window.sessionStorage.getItem(storageKey) === '1') return '1';
-                var closedAt = Number(window.localStorage.getItem('oetPromoClosedAt') || 0);
-                if (closedAt && (Date.now() - closedAt) < 7 * 24 * 60 * 60 * 1000) return '1';
-                return null;
-            } catch (error) { return null; }
-        }
-        function storageSet() {
-            try {
-                window.sessionStorage.setItem(storageKey, '1');
-                window.localStorage.setItem('oetPromoClosedAt', String(Date.now()));
-            } catch (error) {}
-        }
+                try {
+                    if (window.sessionStorage.getItem(storageKey) === '1') return '1';
+
+                    // Clear stale legacy dismissals so the package slider can reappear even if
+                    // a browser previously stored a long-lived lock from an earlier build.
+                    if (window.localStorage.getItem('oetPromoClosedAt')) {
+                        window.localStorage.removeItem('oetPromoClosedAt');
+                    }
+                    return null;
+                } catch (error) { return null; }
+            }
+            function storageSet() {
+                try {
+                    window.sessionStorage.setItem(storageKey, '1');
+                    window.localStorage.removeItem('oetPromoClosedAt');
+                } catch (error) {}
+            }
 
             function initSwiper() {
                 if (promoSwiper || !swiperElement || typeof Swiper === 'undefined') return;
