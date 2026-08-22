@@ -2447,7 +2447,6 @@ body.oet-promo-popup-lock { overflow: hidden; }
             function scheduleAutoOpen() {
             if (autoOpenScheduled) return;
             autoOpenScheduled = true;
-            if (isMobileViewport()) return;
             if (storageGet() === '1') return;
             var opened = false;
             var timer = null;
