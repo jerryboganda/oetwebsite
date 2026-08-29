@@ -47,6 +47,16 @@ returns `mail_transport_failed` (known, pre-existing; needs user's creds).
 Chat expects **form-encoded POST**, not JSON. Threads stored in
 `storage/oet-chat/threads/` (PII — gitignored, never commit or delete).
 
+## Critical debug memory: raw HTML + missing styles
+
+This issue happened on 2026-08-22 and must not recur:
+
+- Symptom: homepage loads as raw unstyled HTML despite the source CSS looking correct.
+- Root cause: Astro dev/proxy is configured to serve `/assets` from the legacy local static server at `http://localhost:8000` (see `site/astro.config.mjs`). If `Website/server.js` is not running, CSS/JS requests fail with 500 and the browser renders plain HTML.
+- Immediate check: before changing CSS again, confirm the asset server is live and that `/assets/css/oet-mobile.css` responds with HTTP 200.
+- Correct local workflow: run the legacy server, then run `astro dev` on the site. Do not assume a visual CSS bug when the asset pipeline is broken.
+- Reminder: if the site looks blank or raw, validate the network path and asset delivery before editing any layout rules.
+
 ## Production deployment (VPS 185.252.233.186)
 
 Live since 2026-08-14 at commit `0608979` (branch `main`). SSH: `ssh

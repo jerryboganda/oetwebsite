@@ -82,15 +82,23 @@ function oet_chat_ensure_storage(): void
         if (!is_dir($dir)) {
             @mkdir($dir, 0775, true);
         }
+        $htaccess = $dir . '/.htaccess';
+        if (!is_file($htaccess)) {
+            @file_put_contents($htaccess, "Deny from all\nRequire all denied\n");
+        }
+        $index = $dir . '/index.html';
+        if (!is_file($index)) {
+            @file_put_contents($index, "<!DOCTYPE html><title>403 Forbidden</title><h1>Access Denied</h1>");
+        }
     }
 }
 
 function oet_chat_generate_thread_ref(): string
 {
     try {
-        $token = strtoupper(bin2hex(random_bytes(4)));
+        $token = strtoupper(bin2hex(random_bytes(16)));
     } catch (Throwable $e) {
-        $token = strtoupper(substr(sha1(uniqid('', true)), 0, 8));
+        $token = strtoupper(substr(sha1(uniqid('', true) . microtime()), 0, 32));
     }
 
     return 'OETCHAT-' . $token;

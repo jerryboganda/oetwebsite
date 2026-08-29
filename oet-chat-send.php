@@ -28,6 +28,16 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     oet_chat_fail(405, 'method_not_allowed');
 }
 
+$origin = (string) ($_SERVER['HTTP_ORIGIN'] ?? $_SERVER['HTTP_REFERER'] ?? '');
+if ($origin !== '') {
+    $parsedHost = (string) parse_url($origin, PHP_URL_HOST);
+    $serverHost = (string) ($_SERVER['HTTP_HOST'] ?? $_SERVER['SERVER_NAME'] ?? '');
+    $serverHostClean = explode(':', $serverHost)[0];
+    if ($parsedHost !== '' && $serverHostClean !== '' && !str_ends_with(strtolower($parsedHost), strtolower($serverHostClean)) && !in_array($parsedHost, ['localhost', '127.0.0.1'], true)) {
+        oet_chat_fail(403, 'origin_forbidden');
+    }
+}
+
 $honeypot = trim((string) ($_POST['company'] ?? ''));
 if ($honeypot !== '') {
     oet_chat_fail(400, 'invalid_request');
