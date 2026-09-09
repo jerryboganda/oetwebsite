@@ -566,6 +566,19 @@ body.sal-disabled [data-sal|=slide]{
     padding-bottom:24px;
   }
 
+  /* "Get OET-Ready" CTA banner, immediately above the footer on the home/about/
+     contact pages: the desktop 342px crop height is far taller than a 2:1 image
+     needs at phone widths, crowding the footer below it. Let it scale by its
+     real aspect ratio instead, and add clear breathing room before the footer. */
+  .cta-wrap7{
+    padding-bottom:48px;
+  }
+
+  .cta-large-thumb-10 img{
+    height:auto;
+    aspect-ratio:2/1;
+  }
+
   .vl-footer-10 .social-area-footer-10 a{
     width:44px;
     height:44px;
