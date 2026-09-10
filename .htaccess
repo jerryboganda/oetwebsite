@@ -129,7 +129,7 @@ RedirectMatch 404 ^/storage/
     Header always set Strict-Transport-Security "max-age=15552000; includeSubDomains"
     # CSP: local-first site; GA4/Umami + YouTube facade allowed explicitly.
     # 'unsafe-inline' is required by the theme's inline scripts until the Astro build (Phase 6).
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://i.ytimg.com https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://cloud.umami.is https://api-gateway.umami.dev; frame-src https://www.youtube-nocookie.com https://www.youtube.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://i.ytimg.com https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self' data:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://cloud.umami.is https://api-gateway.umami.dev; frame-src https://www.youtube-nocookie.com https://www.youtube.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
 </IfModule>
 
 # Block web access to include-only / internal files

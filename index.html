@@ -306,18 +306,24 @@ body.oet-promo-popup-lock { overflow: hidden; }
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 7px;
+            gap: 0;
             border-radius: 999px;
-            padding: 8px 10px;
+            padding: 8px 2px;
             background: rgba(255, 255, 255, 0.78);
             box-shadow: 0 12px 28px rgba(17, 24, 39, 0.12);
             background-color: rgba(255, 255, 255, 0.94);
             contain: layout style; }
 .oet-promo-popup__pagination .swiper-pagination-bullet { width: 8px;
             height: 8px;
+            /* 8px padding on all sides grows the tap target to a WCAG-sized
+               24x24 box without enlarging the visible dot (background-clip
+               keeps the paint inside the original 8x8 content area). */
+            padding: 8px;
+            background-clip: content-box;
+            box-sizing: content-box;
             margin: 0 !important;
             opacity: 0.34;
-            background: #644af9;
+            background-color: #644af9;
             transition: width 0.22s ease, opacity 0.22s ease; }
 .oet-promo-popup__pagination .swiper-pagination-bullet-active { width: 24px;
             border-radius: 999px;
@@ -712,7 +718,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                 <div class="brand__thumb">
                                     <div class="brand-badge">
                                         <span class="brand-badge__icon"><i class="fa-solid fa-magnifying-glass"></i></span>
-                                        <h3 class="brand-badge__title">OET Diagnostic</h3>
+                                        <p class="brand-badge__title">OET Diagnostic</p>
                                         <p class="brand-badge__sub">Assess writing, speaking &amp; grammar</p>
                                     </div>
                                 </div>
@@ -721,7 +727,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                 <div class="brand__thumb">
                                     <div class="brand-badge">
                                         <span class="brand-badge__icon"><i class="fa-solid fa-pen-to-square"></i></span>
-                                        <h3 class="brand-badge__title">OET Writing Practice</h3>
+                                        <p class="brand-badge__title">OET Writing Practice</p>
                                         <p class="brand-badge__sub">Timed letters with fast feedback</p>
                                     </div>
                                 </div>
@@ -730,7 +736,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                 <div class="brand__thumb">
                                     <div class="brand-badge">
                                         <span class="brand-badge__icon"><i class="fa-solid fa-microphone-lines"></i></span>
-                                        <h3 class="brand-badge__title">OET Speaking Practice</h3>
+                                        <p class="brand-badge__title">OET Speaking Practice</p>
                                         <p class="brand-badge__sub">Recorded role plays for confidence</p>
                                     </div>
                                 </div>
@@ -739,7 +745,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                 <div class="brand__thumb">
                                     <div class="brand-badge">
                                         <span class="brand-badge__icon"><i class="fa-solid fa-user-check"></i></span>
-                                        <h3 class="brand-badge__title">Expert Review</h3>
+                                        <p class="brand-badge__title">Expert Review</p>
                                         <p class="brand-badge__sub">Human correction for faster progress</p>
                                     </div>
                                 </div>
@@ -748,7 +754,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                 <div class="brand__thumb">
                                     <div class="brand-badge">
                                         <span class="brand-badge__icon"><i class="fa-solid fa-calendar-check"></i></span>
-                                        <h3 class="brand-badge__title">Study Planner</h3>
+                                        <p class="brand-badge__title">Study Planner</p>
                                         <p class="brand-badge__sub">Weekly roadmap to stay on track</p>
                                     </div>
                                 </div>
@@ -757,7 +763,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                 <div class="brand__thumb">
                                     <div class="brand-badge">
                                         <span class="brand-badge__icon"><i class="fa-solid fa-chart-line"></i></span>
-                                        <h3 class="brand-badge__title">Progress Tracker</h3>
+                                        <p class="brand-badge__title">Progress Tracker</p>
                                         <p class="brand-badge__sub">Track writing, speaking &amp; grammar</p>
                                     </div>
                                 </div>
@@ -766,7 +772,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                 <div class="brand__thumb">
                                     <div class="brand-badge">
                                         <span class="brand-badge__icon"><i class="fa-solid fa-window-restore"></i></span>
-                                        <h3 class="brand-badge__title">OET Mock Center</h3>
+                                        <p class="brand-badge__title">OET Mock Center</p>
                                         <p class="brand-badge__sub">Full exam simulation</p>
                                     </div>
                                 </div>
@@ -775,7 +781,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                 <div class="brand__thumb">
                                     <div class="brand-badge">
                                         <span class="brand-badge__icon"><i class="fa-solid fa-gauge-high"></i></span>
-                                        <h3 class="brand-badge__title">OET Readiness Score</h3>
+                                        <p class="brand-badge__title">OET Readiness Score</p>
                                         <p class="brand-badge__sub">See how close you are to exam day</p>
                                     </div>
                                 </div>
@@ -784,7 +790,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                 <div class="brand__thumb">
                                     <div class="brand-badge">
                                         <span class="brand-badge__icon"><i class="fa-solid fa-layer-group"></i></span>
-                                        <h3 class="brand-badge__title">Pathway Tracks</h3>
+                                        <p class="brand-badge__title">Pathway Tracks</p>
                                         <p class="brand-badge__sub">Nursing, medicine &amp; pharmacy support</p>
                                     </div>
                                 </div>
@@ -916,7 +922,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                         </h3>
                                         <p class="para">See your starting point fast. Identify speaking, writing,
                                             grammar, and readiness gaps before you book your exam.</p>
-                                        <a href="/service.html" class="readmore">Read More <span><i
+                                        <a href="/service.html" class="readmore" aria-label="Read more about OET Diagnostic Assessment">Read More <span><i
                                                     class="fa-regular fa-arrow-right"></i></span></a>
                                     </div>
                                 </div>
@@ -938,7 +944,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                         <p class="para">Build confidence with focused practice. Work through role
                                             plays, timed letters, and correction-led feedback that improves task
                                             control.</p>
-                                        <a href="/service.html" class="readmore">Read More <span><i
+                                        <a href="/service.html" class="readmore" aria-label="Read more about OET Speaking &amp; Writing Coaching">Read More <span><i
                                                     class="fa-regular fa-arrow-right"></i></span></a>
                                     </div>
                                 </div>
@@ -959,7 +965,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                         <h3 class="title"><a href="/service.html">Expert Review</a></h3>
                                         <p class="para">Human feedback for faster progress. Get clear next steps on
                                             what to fix, refine, and repeat.</p>
-                                        <a href="/service.html" class="readmore">Read More <span><i
+                                        <a href="/service.html" class="readmore" aria-label="Read more about Expert Review">Read More <span><i
                                                     class="fa-regular fa-arrow-right"></i></span></a>
                                     </div>
                                 </div>
@@ -979,7 +985,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                         </h3>
                                         <p class="para">Train timing and stamina before test day. Practice under
                                             exam conditions and know when you're ready to sit OET.</p>
-                                        <a href="/service.html" class="readmore">Read More <span><i
+                                        <a href="/service.html" class="readmore" aria-label="Read more about Mock Test &amp; Readiness">Read More <span><i
                                                     class="fa-regular fa-arrow-right"></i></span></a>
                                     </div>
                                 </div>
@@ -998,7 +1004,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                         <h3 class="title"><a href="/service.html">Study Planner</a></h3>
                                         <p class="para">Stay on track with a clear weekly plan. Follow a structured
                                             pathway built for busy healthcare professionals.</p>
-                                        <a href="/service.html" class="readmore">Read More <span><i
+                                        <a href="/service.html" class="readmore" aria-label="Read more about Study Planner">Read More <span><i
                                                     class="fa-regular fa-arrow-right"></i></span></a>
                                     </div>
                                 </div>
@@ -1018,7 +1024,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                         </h3>
                                         <p class="para">Timed letters with guided correction. Build structure, tone,
                                             and task control.</p>
-                                        <a href="/service.html" class="readmore">Read More <span><i
+                                        <a href="/service.html" class="readmore" aria-label="Read more about OET Writing Practice">Read More <span><i
                                                     class="fa-regular fa-arrow-right"></i></span></a>
                                     </div>
                                 </div>
@@ -1038,7 +1044,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                         </h3>
                                         <p class="para">Role plays that build exam confidence. Improve fluency,
                                             response timing, and clarity.</p>
-                                        <a href="/service.html" class="readmore">Read More <span><i
+                                        <a href="/service.html" class="readmore" aria-label="Read more about OET Speaking Practice">Read More <span><i
                                                     class="fa-regular fa-arrow-right"></i></span></a>
                                     </div>
                                 </div>
@@ -1058,7 +1064,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                                 Support</a></h3>
                                         <p class="para">Fix the language issues that lower scores. Strengthen sentence
                                             control and accuracy.</p>
-                                        <a href="/service.html" class="readmore">Read More <span><i
+                                        <a href="/service.html" class="readmore" aria-label="Read more about Vocabulary &amp; Grammar Support">Read More <span><i
                                                     class="fa-regular fa-arrow-right"></i></span></a>
                                     </div>
                                 </div>
@@ -1077,7 +1083,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                         <h3 class="title"><a href="/service.html">Timed Letter Review</a></h3>
                                         <p class="para">Review letters quickly and act on feedback. Learn what to
                                             change before the next draft.</p>
-                                        <a href="/service.html" class="readmore">Read More <span><i
+                                        <a href="/service.html" class="readmore" aria-label="Read more about Timed Letter Review">Read More <span><i
                                                     class="fa-regular fa-arrow-right"></i></span></a>
                                     </div>
                                 </div>
@@ -1096,7 +1102,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                         <h3 class="title"><a href="/service.html">Mock Test Analysis</a></h3>
                                         <p class="para">Learn from mock results and improve weak areas. Turn test
                                             performance into a clear plan.</p>
-                                        <a href="/service.html" class="readmore">Read More <span><i
+                                        <a href="/service.html" class="readmore" aria-label="Read more about Mock Test Analysis">Read More <span><i
                                                     class="fa-regular fa-arrow-right"></i></span></a>
                                     </div>
                                 </div>
@@ -1116,7 +1122,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                         </h3>
                                         <p class="para">Study anytime with structured video lessons. Review the
                                             material at your own pace.</p>
-                                        <a href="/service.html" class="readmore">Read More <span><i
+                                        <a href="/service.html" class="readmore" aria-label="Read more about Recorded Course Access">Read More <span><i
                                                     class="fa-regular fa-arrow-right"></i></span></a>
                                     </div>
                                 </div>
@@ -1620,7 +1626,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                                     Wasting Time on the Wrong Practice</a></h3>
                                             <!-- btn -->
                                             <div class="blg-btn10 mt-32">
-                                                <a href="/oet-writing-tips.html" class="primary-btn-10">Read More <span><i
+                                                <a href="/oet-writing-tips.html" class="primary-btn-10" aria-label="Read more: How to Prepare for OET Writing Without Wasting Time on the Wrong Practice">Read More <span><i
                                                             class="fa-regular fa-arrow-right"></i></span></a>
                                             </div>
                                         </div>
@@ -1653,7 +1659,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                                     and Pharmacists Planning the UK Pathway</a></h3>
                                             <!-- btn -->
                                             <div class="blg-btn10 mt-32">
-                                                <a href="/oet-speaking-tips.html" class="primary-btn-10">Read More <span><i
+                                                <a href="/oet-speaking-tips.html" class="primary-btn-10" aria-label="Read more: OET Speaking Tips for Nurses, Doctors and Pharmacists Planning the UK Pathway">Read More <span><i
                                                             class="fa-regular fa-arrow-right"></i></span></a>
                                             </div>
                                         </div>
@@ -1948,7 +1954,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
     <script defer src="/assets/js/plugins/lenis.min.js?v=5c22bad686"></script>
 <!-- Custom js -->
 <script defer src="/assets/js/main.js?v=8634201d66"></script>
-     <script defer src="/assets/js/oet-contact-widget.js?v=614022bfcd"></script>
+     <script defer src="/assets/js/oet-contact-widget.js?v=01be5a13d0"></script>
     <script>
         window.addEventListener('load', function () {
             var cta = document.querySelector('.oet-community-cta');
@@ -2135,121 +2141,121 @@ body.oet-promo-popup-lock { overflow: hidden; }
                     <div class="swiper oet-promo-popup__swiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View OET promotional banner 1">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 1">
                                     <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-01-file-0000000018f471f483ccd1708d679d31.webp" alt="OET promotional banner 1" width="1597" height="985" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View OET promotional banner 2">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 2">
                                     <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-02-file-0000000064687246ad98bfcbbaa05194.webp" alt="OET promotional banner 2" width="1024" height="1536" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View OET promotional banner 3">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 3">
                                     <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-03-file-00000000c9c07246b6eac83988eecf0c.webp" alt="OET promotional banner 3" width="1024" height="1536" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View OET promotional banner 4">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 4">
                                     <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-04-img-20260522-wa0010.webp" alt="OET promotional banner 4" width="1023" height="1537" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View OET promotional banner 5">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 5">
                                     <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-05-img-20260623-wa0008.webp" alt="OET promotional banner 5" width="852" height="1280" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View OET promotional banner 6">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 6">
                                     <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-06-img-20260623-wa0009.webp" alt="OET promotional banner 6" width="1032" height="1280" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View OET promotional banner 7">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 7">
                                     <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-07-img-20260623-wa0010.webp" alt="OET promotional banner 7" width="1016" height="1280" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View OET promotional banner 8">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 8">
                                     <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-08-picsart-26-06-18-22-34-02-588.webp" alt="OET promotional banner 8" width="1191" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View OET promotional banner 9">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 9">
                                     <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-09-picsart-26-06-21-01-41-41-833.webp" alt="OET promotional banner 9" width="1426" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View OET promotional banner 10">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 10">
                                     <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-10-picsart-26-06-21-01-43-09-802.webp" alt="OET promotional banner 10" width="1355" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View OET promotional banner 11">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 11">
                                     <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-11-picsart-26-06-21-01-45-35-187.webp" alt="OET promotional banner 11" width="1202" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View OET promotional banner 12">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 12">
                                     <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-12-picsart-26-06-21-01-46-09-227.webp" alt="OET promotional banner 12" width="1279" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View OET promotional banner 13">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 13">
                                     <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-13-picsart-26-06-21-01-46-42-168.webp" alt="OET promotional banner 13" width="1273" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View OET promotional banner 14">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 14">
                                     <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-14-picsart-26-06-21-02-34-54-686.webp" alt="OET promotional banner 14" width="1438" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View OET promotional banner 15">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 15">
                                     <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-15-picsart-26-06-22-00-53-29-763.webp" alt="OET promotional banner 15" width="1284" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View OET promotional banner 16">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 16">
                                     <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-16-picsart-26-06-22-00-54-15-072.webp" alt="OET promotional banner 16" width="1448" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View OET promotional banner 17">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 17">
                                     <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-17-picsart-26-06-22-00-54-52-208.webp" alt="OET promotional banner 17" width="1337" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View OET promotional banner 18">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 18">
                                     <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-18-picsart-26-06-22-00-55-28-608.webp" alt="OET promotional banner 18" width="1355" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View OET promotional banner 19">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 19">
                                     <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-19-picsart-26-06-22-00-56-00-318.webp" alt="OET promotional banner 19" width="1199" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View OET promotional banner 20">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 20">
                                     <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-20-picsart-26-06-22-00-58-29-199.webp" alt="OET promotional banner 20" width="1271" height="1800" loading="lazy" decoding="async"></span>
                                     <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>

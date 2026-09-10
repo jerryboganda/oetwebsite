@@ -249,18 +249,24 @@ body.oet-promo-popup-lock { overflow: hidden; }
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 7px;
+            gap: 0;
             border-radius: 999px;
-            padding: 8px 10px;
+            padding: 8px 2px;
             background: rgba(255, 255, 255, 0.78);
             box-shadow: 0 12px 28px rgba(17, 24, 39, 0.12);
             background-color: rgba(255, 255, 255, 0.94);
             contain: layout style; }
 .oet-promo-popup__pagination .swiper-pagination-bullet { width: 8px;
             height: 8px;
+            /* 8px padding on all sides grows the tap target to a WCAG-sized
+               24x24 box without enlarging the visible dot (background-clip
+               keeps the paint inside the original 8x8 content area). */
+            padding: 8px;
+            background-clip: content-box;
+            box-sizing: content-box;
             margin: 0 !important;
             opacity: 0.34;
-            background: #644af9;
+            background-color: #644af9;
             transition: width 0.22s ease, opacity 0.22s ease; }
 .oet-promo-popup__pagination .swiper-pagination-bullet-active { width: 24px;
             border-radius: 999px;

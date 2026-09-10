@@ -701,7 +701,7 @@
             root.id = 'oet-contact-widget';
             root.className = 'oet-contact-widget';
             root.innerHTML = ''
-                + '<button type="button" class="oet-contact-widget__launcher" aria-expanded="false" aria-controls="oet-contact-widget-panel">'
+                + '<button type="button" class="oet-contact-widget__launcher" aria-expanded="false" aria-controls="oet-contact-widget-panel" aria-label="Contact us">'
                 + '  <span class="oet-contact-widget__label">Contact us</span>'
                 + '  <span class="oet-contact-widget__button" aria-hidden="true">'
                 + '    <i class="fa-solid fa-comments" data-oet-widget-icon></i>'
