@@ -1,0 +1,57 @@
+name: One-shot — add @playwright/test to site
+
+# TEMPORARY BOOTSTRAP — delete this file once site/package.json and
+# site/package-lock.json both contain @playwright/test.
+#
+# Why this exists: adding a devDependency requires npm to resolve the dependency
+# tree and rewrite site/package-lock.json. That is a dependency operation, and
+# project policy is that ALL compute — including dependency resolution — runs on
+# GitHub Actions, never on the local development machine. So the resolution runs
+# here and the result is committed back by the runner.
+#
+# Trigger is a push to the dedicated branch only, so it cannot fire from main.
+
+on:
+  push:
+    branches: ['chore/cta-overlap-ci']
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: site-add-playwright-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  add-playwright:
+    name: Resolve @playwright/test and commit the lockfile
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Add @playwright/test as a devDependency
+        working-directory: site
+        run: npm install --save-dev @playwright/test@1.58.2
+
+      - name: Show what changed
+        run: git --no-pager diff --stat
+
+      - name: Commit the updated manifest and lockfile
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/package.json site/package-lock.json
+          if git diff --cached --quiet; then
+            echo "Nothing to commit — the dependency is already present."
+            exit 0
+          fi
+          git commit -m "chore(site): add @playwright/test for the CTA-overlap CI check [skip ci]"
+          git push origin "HEAD:${{ github.ref_name }}"

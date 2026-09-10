@@ -34,3 +34,32 @@ jobs:
         # The repo root is the deployable webroot; committed pages must equal
         # what the current sources build. Guards against hand-editing root HTML.
         run: node scripts/postbuild.mjs --check-root
+
+  # §1 acceptance: the promotional CTA image/card must never cover the footer or
+  # any content below it. Runs the real pages in both engines (chromium covers
+  # Chrome + Edge; webkit covers Safari) across phone → desktop widths, and both
+  # orientations at phone widths. See site/scripts/check-cta-overlap.mjs.
+  cta-overlap:
+    name: CTA/footer overlap (chromium + webkit, 320→1920px)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install
+        working-directory: site
+        run: npm ci
+
+      - name: Install Playwright browsers
+        working-directory: site
+        run: npx playwright install --with-deps chromium webkit
+
+      - name: Check the CTA banner never overlaps the footer
+        working-directory: site
+        run: node scripts/check-cta-overlap.mjs
