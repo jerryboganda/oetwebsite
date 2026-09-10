@@ -1,3 +1,10 @@
+/* Visually hidden but still readable by screen readers / present in the DOM
+   text content (WebAIM standard pattern) - used to give repeated generic
+   link text like "Read More" a real descriptive suffix without a visual
+   change. Bootstrap ships .visually-hidden but the CSS purge step strips
+   unused classes, so this is a small local copy instead of relying on it. */
+.oet-visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
 /* ==========================================================================
    OET design tokens ? single source of truth for brand color/radius/shadow/z
    z-scale: base<10 | sticky 100 | header 500 | drawer 900 | overlay 1000

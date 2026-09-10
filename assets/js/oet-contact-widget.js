@@ -174,12 +174,26 @@
                 badgeEl.hidden = true;
                 badgeEl.textContent = '';
                 badgeEl.classList.remove('is-teaser');
+                if (launcherButton) {
+                    launcherButton.setAttribute('aria-label', 'Contact us');
+                }
                 return;
             }
 
             badgeEl.hidden = false;
             badgeEl.classList.toggle('is-teaser', showTeaser);
-            badgeEl.textContent = showTeaser ? '1' : (unread > 9 ? '9+' : String(unread));
+            var badgeText = showTeaser ? '1' : (unread > 9 ? '9+' : String(unread));
+            badgeEl.textContent = badgeText;
+            // Keep the accessible name in sync with what's visually shown -
+            // the badge sits in an aria-hidden wrapper (decorative for
+            // screen readers), but it's still visible on screen, so a
+            // sighted voice-control user needs it reflected in the name too.
+            if (launcherButton) {
+                launcherButton.setAttribute(
+                    'aria-label',
+                    'Contact us, ' + badgeText + (showTeaser ? ' new message' : ' unread message' + (unread === 1 ? '' : 's'))
+                );
+            }
         }
 
         function renderMessages() {

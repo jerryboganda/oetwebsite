@@ -36,18 +36,21 @@ body.oet-scroll-locked {
 /* Eyebrow shipped with line-height:18px at font-size:18px, so wrapped lines
    collided. Keep inline flow so the icon stays on the first text line. */
 .vl-section-title .sub-title,
-h4.sub-title {
+h4.sub-title,
+p.sub-title {
     line-height: 1.45;
     margin-bottom: 14px;
 }
 
 .vl-section-title .sub-title > span,
-h4.sub-title > span {
+h4.sub-title > span,
+p.sub-title > span {
     display: inline;
 }
 
 .vl-section-title .sub-title > span img,
-h4.sub-title > span img {
+h4.sub-title > span img,
+p.sub-title > span img {
     display: inline-block;
     vertical-align: -0.15em;
     margin-right: 6px;
