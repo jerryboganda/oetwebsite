@@ -67,7 +67,19 @@ jobs:
         run: npx playwright install --with-deps chromium webkit
 
       - name: Check the CTA banner never overlaps the footer
+        id: cta
         working-directory: site
         # --root dist: the §1 fix lives in src/ -> dist; the committed root pages
         # are a known-stale mirror and must not be the acceptance target.
-        run: node scripts/check-cta-overlap.mjs --root dist
+        run: |
+          set -o pipefail
+          node scripts/check-cta-overlap.mjs --root dist 2>&1 | tee -a "$RUNNER_TEMP/cta-overlap.log"
+
+      - name: Upload CTA overlap report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cta-overlap-report
+          path: ${{ runner.temp }}/cta-overlap.log
+          if-no-files-found: warn
+          retention-days: 3
