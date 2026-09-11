@@ -56,10 +56,18 @@ jobs:
         working-directory: site
         run: npm ci
 
+      - name: Build site (dist only)
+        working-directory: site
+        # Validate the real deployable artifact (built from src/), not the stale
+        # committed root mirror that postbuild --check-root already flags as drift.
+        run: npm run build:ci
+
       - name: Install Playwright browsers
         working-directory: site
         run: npx playwright install --with-deps chromium webkit
 
       - name: Check the CTA banner never overlaps the footer
         working-directory: site
-        run: node scripts/check-cta-overlap.mjs
+        # --root dist: the §1 fix lives in src/ -> dist; the committed root pages
+        # are a known-stale mirror and must not be the acceptance target.
+        run: node scripts/check-cta-overlap.mjs --root dist
