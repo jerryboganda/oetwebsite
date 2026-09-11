@@ -306,6 +306,9 @@ body.sal-disabled [data-sal|=slide]{
   }
 
   footer.vl-footer-10{
+    /* desktop pulls the footer -175px up under the CTA banner and compensates
+       with 255px padding-top; at phone padding the pull overlaps the banner. */
+    margin-top:0;
     padding-top:88px;
   }
 
