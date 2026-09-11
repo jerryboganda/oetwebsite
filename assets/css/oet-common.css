@@ -635,8 +635,27 @@ body.oet-live-site .progress-wrap-7 svg.progress-circle path{
   stroke:var(--oet-purple);
 }
 
-/* ---- footer: high-density spacing ---- */
-footer.vl-footer-10{padding-top:215px}
+/* ---- footer: high-density spacing ----
+   The vendor theme (style.min.css) pulls this footer up over whatever sits
+   above it via margin-top:-175px, then pads back down (215px desktop /
+   200px mobile) so only ~40px/25px of "high density" overlap actually
+   shows. That's safe only when the section above reserves >=175px of empty
+   bottom space. The "Get OET-Ready" CTA banner (about/contact/home, see
+   .cta-wrap7) does not, at ANY width — so the footer's own background
+   was painting over the bottom of the CTA image site-wide, not just on
+   mobile (2026-09-11 §1 regression check). Fixed at the root: cancel the
+   pull entirely and keep the same visible 40px/25px offset via padding-top
+   alone, so the footer can never again overlap content placed above it,
+   regardless of what that content is or how tall it is. */
+footer.vl-footer-10{margin-top:0;padding-top:40px}
+
+/* Tablet/desktop clearance for the same "Get OET-Ready" CTA banner (see the
+   footer comment above): the vendor's own 20-70px bottom padding on
+   .cta-wrap7 left a few px of real overlap at several widths once the
+   footer's overlap trick was removed. One generous, width-independent
+   buffer replaces every vendor breakpoint value at once. */
+.cta-wrap7{padding-bottom:220px}
+
 .vl-footer-10 .row>.mb-30{margin-bottom:18px}
 .vl-footer-10 .vl-footer-widget-title{font-size:18px;margin-bottom:16px}
 .vl-footer-10 .vl-footer-menu ul li a{font-size:15.5px;margin-bottom:13px}
@@ -668,7 +687,7 @@ body.oet-live-site .blog-padding-bottom10 .blog__wrap10{
   body.oet-live-site .blog-padding-bottom10{padding-bottom:64px}
 }
 @media (max-width:767.98px){
-    footer.vl-footer-10{padding-top:200px}
+    footer.vl-footer-10{padding-top:25px}
     .vl-footer-10 .vl-copy-right-menu{text-align:left}
     .vl-footer-10 .vl-copy-right-menu-10 ul{padding-right:0}
 }
