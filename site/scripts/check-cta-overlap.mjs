@@ -10,8 +10,9 @@
  * site's phone breakpoint is checked in BOTH portrait and landscape, because
  * orientation changes the layout independently of width.
  *
- * Serves the repository root (the deployable webroot — the same files that ship)
- * over a throwaway local HTTP server, so this needs no running stack.
+ * Serves a static root over a throwaway local HTTP server, so this needs no
+ * running stack. CI passes `--root dist` so the freshly built artifact is the
+ * acceptance target (the committed root mirror is tracked by postbuild).
  *
  * Usage:  node scripts/check-cta-overlap.mjs [--root <dir>]
  */
@@ -60,8 +61,13 @@ const ENGINES = [
  * that clips (overflow !== visible). style.min.css gives the CTA image a fixed
  * height inside an `overflow:hidden` wrapper, so the raw layout rect is taller
  * than what a user can actually see — comparing raw rects yields false positives.
+ *
+ * NOTE: this must be a real function, NOT a string. Playwright derives
+ * `isFunction: typeof pageFunction === 'function'`; a string arrow-function is
+ * evaluated as a *plain expression*, so it yields a function object that
+ * serialises to `undefined` and every measurement silently reads "not found".
  */
-const MEASURE = `(selector) => {
+function measureVisibleRect(selector) {
   const el = document.querySelector(selector);
   if (!el) return null;
   let rect = el.getBoundingClientRect();
@@ -80,7 +86,7 @@ const MEASURE = `(selector) => {
     node = node.parentElement;
   }
   return { top: rect.top, bottom: rect.bottom, left: rect.left, right: rect.right, height: rect.height, width: rect.width };
-}`;
+}
 
 const server = createServer(async (req, res) => {
   try {
@@ -147,9 +153,9 @@ try {
           let image;
           let ctaWrap;
           try {
-            footer = await tab.evaluate(MEASURE, 'footer.vl-footer-10');
-            image = await tab.evaluate(MEASURE, '.cta-wrap7 .cta-large-thumb-10 img');
-            ctaWrap = await tab.evaluate(MEASURE, '.cta-wrap7');
+            footer = await tab.evaluate(measureVisibleRect, 'footer.vl-footer-10');
+            image = await tab.evaluate(measureVisibleRect, '.cta-wrap7 .cta-large-thumb-10 img');
+            ctaWrap = await tab.evaluate(measureVisibleRect, '.cta-wrap7');
           } catch (err) {
             failures.push(
               `${engine.name} ${page} ${width}px/${orientation}: measurement failed — ${err.message.split('\n')[0]}`,
