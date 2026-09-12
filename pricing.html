@@ -3406,8 +3406,10 @@
                         <p class="oet-app-card__desc">Official Android app/store download.</p>
                     </a>
 
-                    <!-- iPhone / iPad — direct IPA until App Store listing is live -->
-                    <a class="oet-app-card" data-platform="ios" href="https://app.oetwithdrhesham.co.uk/api/download/ios" aria-label="Download Candidates App for iPhone and iPad - Temporary direct IPA download" role="listitem">
+                    <!-- iPhone / iPad — Apple-approved install path (TestFlight now, App Store once live).
+                         Never a raw .ipa: iOS has no sideloading, so an ordinary candidate cannot
+                         install one. The web app's /get-app page resolves the current approved link. -->
+                    <a class="oet-app-card" data-platform="ios" href="https://app.oetwithdrhesham.co.uk/get-app" aria-label="Get the Candidates App for iPhone and iPad - TestFlight or App Store install" role="listitem">
                         <div class="oet-app-card__header">
                             <div class="oet-app-card__identity">
                                 <span class="oet-app-card__icon" aria-hidden="true">
@@ -3417,7 +3419,7 @@
                             </div>
                             <span class="oet-app-card__badge" data-badge="ios">Recommended</span>
                         </div>
-                        <p class="oet-app-card__desc">Temporary direct IPA download — until the App Store listing is live. Tap to download the .ipa file directly.</p>
+                        <p class="oet-app-card__desc">Install via TestFlight (public beta) or the App Store &mdash; the current approved link is on the app page.</p>
                     </a>
 
                     <!-- Windows -->
@@ -3659,7 +3661,7 @@
                 },
                 ios: {
                     name: 'iPhone / iPad',
-                    url: 'https://app.oetwithdrhesham.co.uk/api/download/ios'
+                    url: 'https://app.oetwithdrhesham.co.uk/get-app'
                 },
                 windows: {
                     name: 'Windows',
