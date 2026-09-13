@@ -24,7 +24,12 @@ http
     let reqPath = decodeURIComponent(req.url.split('?')[0]);
     if (reqPath === '/') reqPath = '/index.html';
     if (reqPath.endsWith('/')) reqPath += 'index.html';
-    const filePath = path.join(root, reqPath);
+    const filePath = path.normalize(path.join(root, reqPath));
+    if (filePath !== root && !filePath.startsWith(root + path.sep)) {
+      res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
+      res.end('Forbidden');
+      return;
+    }
 
     fs.stat(filePath, (err, stat) => {
       if (err || !stat.isFile()) {
