@@ -48,7 +48,11 @@ function assetHash(assetPath) {
   if (!hashCache.has(assetPath)) {
     const file = path.join(ROOT, assetPath.replace(/^\//, ''));
     if (!fs.existsSync(file)) throw new Error(`hash: missing asset ${assetPath}`);
-    hashCache.set(assetPath, createHash('md5').update(fs.readFileSync(file)).digest('hex').slice(0, 10));
+    // Hash EOL-normalized content: assets are stored LF in git but Windows
+    // working copies are CRLF (core.autocrlf), so raw bytes would yield a
+    // platform-dependent hash and fail --check-root on the runner.
+    const content = fs.readFileSync(file, 'utf8').replace(/\r\n?/g, '\n');
+    hashCache.set(assetPath, createHash('md5').update(content).digest('hex').slice(0, 10));
   }
   return hashCache.get(assetPath);
 }
