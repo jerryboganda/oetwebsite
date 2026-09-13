@@ -102,8 +102,13 @@ for (const [rel] of PAGES) {
     fs.writeFileSync(path.join(ROOT, rel), html);
     written += 1;
   } else if (checkRoot) {
+    // Compare content modulo line endings: sources carry CRLF (committed from
+    // Windows) so dist picks it up, while root blobs were normalized to LF by
+    // core.autocrlf on commit. Raw byte comparison fails on CI for every page;
+    // the gate exists to catch content drift, not EOL noise.
+    const norm = (s) => s.replace(/\r\n?/g, '\n');
     const rootFile = path.join(ROOT, rel);
-    if (!fs.existsSync(rootFile) || fs.readFileSync(rootFile, 'utf8') !== html) drifted.push(rel);
+    if (!fs.existsSync(rootFile) || norm(fs.readFileSync(rootFile, 'utf8')) !== norm(html)) drifted.push(rel);
   }
 }
 
