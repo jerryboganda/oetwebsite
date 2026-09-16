@@ -3440,8 +3440,11 @@
                         <p class="oet-app-card__desc">Laptop/desktop installer or official Windows destination.</p>
                     </a>
 
-                    <!-- macOS — Universal (Intel + Apple Silicon) -->
-                    <a class="oet-app-card" data-platform="mac" href="https://app.oetwithdrhesham.co.uk/api/download/mac" aria-label="Download Candidates App for macOS - Universal installer for Intel and Apple Silicon" role="listitem">
+                    <!-- macOS — temporarily unavailable (17 Sep 2026): the public
+                         download is disabled until the signed, notarized build passes
+                         protected-playback QA on a real Mac. Candidates are directed to
+                         the Web App. /get-app is the source of truth for status. -->
+                    <a class="oet-app-card" data-platform="mac" href="https://app.oetwithdrhesham.co.uk/get-app" aria-label="Candidates App for macOS - temporarily unavailable, use the Web App" role="listitem">
                         <div class="oet-app-card__header">
                             <div class="oet-app-card__identity">
                                 <span class="oet-app-card__icon" aria-hidden="true">
@@ -3449,9 +3452,9 @@
                                 </span>
                                 <h3 class="oet-app-card__title">macOS</h3>
                             </div>
-                            <span class="oet-app-card__badge" data-badge="mac">Recommended</span>
+                            <span class="oet-app-card__badge" data-badge="mac">Use Web App</span>
                         </div>
-                        <p class="oet-app-card__desc">Universal .dmg — works on Intel &amp; Apple Silicon (M1/M2/M3/M4) — auto-updates.</p>
+                        <p class="oet-app-card__desc">Temporarily unavailable &mdash; the Web App has everything in the meantime. Status on the app page.</p>
                     </a>
                 </div>
 
@@ -3675,7 +3678,10 @@
                 },
                 mac: {
                     name: 'macOS',
-                    url: 'https://app.oetwithdrhesham.co.uk/api/download/mac'
+                    // 17 Sep 2026: Mac download temporarily disabled (release QA) —
+                    // route Mac visitors to /get-app, which shows the Web-App
+                    // direction, instead of the disabled resolver.
+                    url: 'https://app.oetwithdrhesham.co.uk/get-app'
                 }
             };
 

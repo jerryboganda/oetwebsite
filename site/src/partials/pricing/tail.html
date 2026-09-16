@@ -86,7 +86,10 @@
                 },
                 mac: {
                     name: 'macOS',
-                    url: 'https://app.oetwithdrhesham.co.uk/api/download/mac'
+                    // 17 Sep 2026: Mac download temporarily disabled (release QA) —
+                    // route Mac visitors to /get-app, which shows the Web-App
+                    // direction, instead of the disabled resolver.
+                    url: 'https://app.oetwithdrhesham.co.uk/get-app'
                 }
             };
 
