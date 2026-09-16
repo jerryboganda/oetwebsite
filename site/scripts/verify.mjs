@@ -153,8 +153,8 @@ for (const page of ['pricing.html', 'teaching-approach.html', 'success-stories.h
 const structuredCount = pricing.filter((p) => p.structuredData).length;
 if (distHtml['pricing.html'] && nodesOfType(ldBlocks(distHtml['pricing.html']), 'Product').length !== structuredCount)
   fail(`pricing: JSON-LD Product count drifted from pricing.json structuredData entries (${structuredCount})`);
-if (distHtml['teaching-approach.html'] && nodesOfType(ldBlocks(distHtml['teaching-approach.html']), 'VideoObject').length !== 5)
-  fail('teaching-approach: expected 5 VideoObject entries');
+if (distHtml['teaching-approach.html'] && nodesOfType(ldBlocks(distHtml['teaching-approach.html']), 'VideoObject').length !== 8)
+  fail('teaching-approach: expected 8 VideoObject entries');
 if (distHtml['success-stories.html'] && nodesOfType(ldBlocks(distHtml['success-stories.html']), 'VideoObject').length !== 3)
   fail('success-stories: expected 3 VideoObject entries');
 // pricing offers must reference the genuine refund policy page

@@ -335,6 +335,10 @@
     color: #2aaeef;
 }
 
+.oet-hero__chip--fb i {
+    color: #1877f2;
+}
+
 .oet-hero__chip:hover,
 .oet-hero__chip:focus-visible {
     color: var(--hero-ink);
