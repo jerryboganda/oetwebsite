@@ -33,6 +33,7 @@ const PAGES = [
   ['australia-pathway-guide.html', '/australia-pathway-guide.html', 'monthly', '0.7'],
   ['gulf-pathway-guide.html', '/gulf-pathway-guide.html', 'monthly', '0.7'],
   ['teaching-approach.html', '/teaching-approach.html', 'monthly', '0.7'],
+  ['english-placement-test.html', '/english-placement-test', 'weekly', '0.8'],
   ['privacy/index.html', '/privacy/', 'yearly', '0.3'],
   ['terms/index.html', '/terms/', 'yearly', '0.3'],
   ['refund-policy/index.html', '/refund-policy/', 'yearly', '0.3'],

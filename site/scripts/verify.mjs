@@ -9,7 +9,7 @@ const DIST = path.join(SITE, 'dist');
 
 const PAGES = [
   '404.html', 'about.html', 'australia-pathway-guide.html', 'contact.html',
-  'faq.html', 'gulf-pathway-guide.html', 'index.html', 'oet-listening-tips.html',
+  'english-placement-test.html', 'faq.html', 'gulf-pathway-guide.html', 'index.html', 'oet-listening-tips.html',
   'oet-materials-support.html', 'oet-reading-tips.html', 'oet-speaking-tips.html',
   'oet-tips.html', 'oet-writing-tips.html', 'pricing.html', 'service.html',
   'success-stories.html', 'teaching-approach.html', 'uk-pathway-guide.html',
@@ -53,10 +53,13 @@ if (!existsSync(sitemapFile)) fail('sitemap.xml missing from dist');
 else {
   const sm = readFileSync(sitemapFile, 'utf8');
   const urls = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  if (urls.length !== 22) fail(`sitemap has ${urls.length} URLs, expected 22`);
+  if (urls.length !== 23) fail(`sitemap has ${urls.length} URLs, expected 23`);
+  // Clean URLs served via .htaccess rewrites map to their built .html file.
+  const CLEAN_URL_ALIASES = { 'english-placement-test': 'english-placement-test.html' };
   for (const u of urls) {
     const rel = u.replace('https://oetwithdrhesham.co.uk/', '');
-    const target = rel === '' ? 'index.html' : rel.endsWith('/') ? rel + 'index.html' : rel;
+    const target = CLEAN_URL_ALIASES[rel]
+      ?? (rel === '' ? 'index.html' : rel.endsWith('/') ? rel + 'index.html' : rel);
     if (!existsSync(path.join(DIST, target))) fail(`sitemap URL has no built page: ${u}`);
   }
 }

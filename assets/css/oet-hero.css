@@ -1006,3 +1006,76 @@ html.oet-lite-motion .oet-hero__bloom {
         animation-duration: 4.2s;
     }
 }
+
+/* --------------------------------------------------------------------------
+   Placement test feature
+   The free General-English placement card sits between the contact rail and
+   the trust stats on every breakpoint. Reads as a quiet upgrade card — not a
+   second hero — so the primary CTAs stay primary.
+   -------------------------------------------------------------------------- */
+.oet-hero__placement {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px 22px;
+    margin: 0 0 26px;
+    padding: 18px 20px;
+    border: 1px solid var(--hero-line);
+    border-radius: 20px;
+    background: var(--hero-card);
+    box-shadow: var(--hero-shadow-sm);
+}
+
+.oet-hero__placement-body {
+    min-width: 0;
+    flex: 1 1 260px;
+}
+
+.oet-hero__placement-kicker {
+    margin: 0 0 4px;
+    color: var(--hero-body);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.oet-hero__placement-title {
+    margin: 0 0 6px;
+    color: var(--hero-ink);
+    font-size: clamp(17px, 1.6vw, 20px);
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.oet-hero__placement-copy {
+    margin: 0;
+    color: var(--hero-body);
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+
+.oet-hero__placement-note {
+    margin: 6px 0 0;
+    color: var(--hero-body);
+    font-size: 12.5px;
+    font-style: italic;
+}
+
+.oet-hero__placement-cta {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+@media (max-width: 575px) {
+    .oet-hero__placement {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .oet-hero__placement-cta {
+        justify-content: center;
+        width: 100%;
+    }
+}

@@ -106,6 +106,8 @@ RewriteRule ^preview\.html$ / [R=301,L]
 # Login: single canonical server-side redirect to the app (Phase 5)
 # NB: literal %2F would be parsed as a RewriteCond backreference; NE keeps "/" raw.
 RewriteRule ^login\.html$ https://app.oetwithdrhesham.co.uk/sign-in?next=/ [R=301,L,NE]
+# Clean URL for the free placement test landing page.
+RewriteRule ^english-placement-test/?$ /english-placement-test.html [L]
 </IfModule>
 
 # Deny access to internal docs & build sources
