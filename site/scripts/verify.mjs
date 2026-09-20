@@ -168,6 +168,15 @@ if (distHtml['pricing.html']) {
       const rp = o.hasMerchantReturnPolicy;
       if (!rp || rp.merchantReturnLink !== 'https://oetwithdrhesham.co.uk/refund-policy/')
         fail(`pricing product "${String(p.name || '').slice(0, 50)}": offer must link the real refund policy`);
+      // Google's merchant listings accept only these returnMethod enum values.
+      // returnMethod is recommended (not required), so omitting it is valid;
+      // this guards against reintroducing an invented value like KeepProduct.
+      const VALID_RETURN_METHODS = ['https://schema.org/ReturnByMail', 'https://schema.org/ReturnInStore', 'https://schema.org/ReturnAtKiosk'];
+      if (rp && Object.prototype.hasOwnProperty.call(rp, 'returnMethod')) {
+        const methods = Array.isArray(rp.returnMethod) ? rp.returnMethod : [rp.returnMethod];
+        if (!methods.every((m) => VALID_RETURN_METHODS.includes(m)))
+          fail(`pricing product "${String(p.name || '').slice(0, 50)}": returnMethod must be a Google-accepted enum or omitted`);
+      }
     }
   }
   const pricingImage = path.join(ROOT, 'assets/img/og/og-pricing.png');
