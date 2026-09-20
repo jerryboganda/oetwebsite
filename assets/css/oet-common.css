@@ -699,3 +699,175 @@ body.oet-live-site .blog-padding-bottom10 .blog__wrap10{
     font-size:13px;
     color:hsla(0,0%,100%,.65);
 }
+
+/* =====================================================================
+   Header responsive overhaul (2026-09-21)
+   Measured failure (Playwright, pre-fix): the nowrap centered nav UL
+   spilled symmetrically out of its column at EVERY desktop width
+   (first item painted 141px under the logo at 1920w; worst -190px at
+   1366w) because the Bootstrap container caps at 1320px/1140px while
+   the 8-item menu + CTA alone need ~1117px. body{overflow-x:clip}
+   hid the spill instead of preventing it.
+
+   Fix strategy:
+   - Header rows use a fluid container (up to 1820px) so wide screens
+     get real space instead of a capped box.
+   - 1200-1499px: the full 8-item menu genuinely cannot fit without
+     unreadable type, so the header switches to the hamburger/offcanvas
+     pattern (same as <1200px, where it already works). The offcanvas
+     nav is a JS clone of the desktop menu, so items stay in sync.
+   - >=1500px: inline menu with tiered type/gaps (~925px of content in
+     ~1137px of space at 1500w — verified fit).
+   - Right action zone: search button at >=1500px; the 6 social circles
+     only from 1750px up (they duplicate topbar/footer links).
+   - A final Playwright probe asserts first-item-left >= logo-right and
+     zero horizontal scroll at every width.
+   ===================================================================== */
+
+/* Fluid container for the two header rows only (scoped, not global) */
+#vl-header-sticky .vl-header-top-area .container,
+#vl-header-sticky .vl-header-main-area .container{
+  width:100%;
+  max-width:1820px;
+  padding-left:clamp(16px,2vw,32px);
+  padding-right:clamp(16px,2vw,32px);
+}
+
+/* Hamburger/offcanvas across the whole 992-1499 band (replaces inline menu) */
+@media (min-width:992px) and (max-width:1499.98px){
+  #vl-header-sticky .vl-header-action-item{
+    display:flex!important;
+    align-items:center;
+    justify-content:flex-end;
+    padding:0;
+    border:0;
+    background:transparent;
+    float:none;
+  }
+  #vl-header-sticky .vl-offcanvas-toggle{
+    appearance:none;
+    -webkit-appearance:none;
+    box-sizing:border-box;
+    width:44px;
+    height:44px;
+    margin:0;
+    padding:0;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    line-height:0;
+    overflow:hidden;
+    background:var(--oet-lav-50);
+    border:1px solid rgba(95,70,245,.15);
+    border-radius:12px;
+    color:var(--oet-ink-2);
+    cursor:pointer;
+    transition:background .2s ease,border-color .2s ease,color .2s ease;
+  }
+  #vl-header-sticky .vl-offcanvas-toggle svg{
+    display:block;
+    width:24px;
+    height:18px;
+    flex:0 0 auto;
+  }
+  #vl-header-sticky .vl-offcanvas-toggle:hover{
+    background:var(--oet-lav-100);
+    border-color:var(--oet-purple);
+    color:var(--oet-purple);
+  }
+  #vl-header-sticky .vl-main-menu{display:none!important}
+  #vl-header-sticky .vl-header-right{display:none!important}
+}
+
+/* Inline menu from 1500px up: tiered, verified-fit type scale */
+@media (min-width:1500px){
+  #vl-header-sticky .header-border-bottom>.row>[class*="col-"]{
+    flex:0 0 auto;
+    width:auto;
+    max-width:none;
+    min-width:0;
+    padding-left:0;
+    padding-right:0;
+  }
+  #vl-header-sticky .header-border-bottom>.row>.col-xl-7{
+    flex:1 1 auto;
+    min-width:0;
+    padding-left:clamp(8px,1vw,18px);
+    padding-right:clamp(12px,1.4vw,24px);
+  }
+  #vl-header-sticky .vl-main-menu nav>ul{
+    display:flex;
+    flex-wrap:nowrap;
+    align-items:center;
+    justify-content:flex-start;
+    column-gap:clamp(6px,0.55vw,16px);
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  #vl-header-sticky .vl-main-menu nav>ul>li{
+    margin-right:0;
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+  }
+  #vl-header-sticky .vl-main-menu nav>ul>li>a{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:"Mulish",sans-serif;
+    font-size:clamp(14.5px,0.22vw + 11px,16.5px);
+    font-weight:700;
+    color:var(--oet-ink);
+    padding:8px 9px;
+    border-radius:8px;
+    text-decoration:none;
+    white-space:nowrap;
+    transition:color .2s ease,background .2s ease;
+    letter-spacing:-.015em;
+  }
+  #vl-header-sticky .vl-main-menu nav>ul>li>a:hover,
+  #vl-header-sticky .vl-main-menu nav>ul>li:hover>a{
+    color:var(--oet-purple);
+    background:var(--oet-lav-100);
+  }
+  #vl-header-sticky .vl-main-menu nav>ul>li.oet-nav-cta-item{
+    margin-left:10px;
+    margin-right:2px;
+  }
+  #vl-header-sticky .vl-main-menu nav>ul>li>a.oet-header-cta-btn{
+    font-size:14px!important;
+    padding:8px 16px!important;
+  }
+  #vl-header-sticky .vl-header-right{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    flex-wrap:nowrap;
+    gap:10px;
+  }
+  #vl-header-sticky .vl-header-search{
+    margin-right:2px;
+    padding-right:10px;
+  }
+  /* Socials only where they truly fit; duplicate of topbar/footer links */
+  #vl-header-sticky .social-area-headerTop{display:none!important}
+}
+@media (min-width:1750px){
+  #vl-header-sticky .social-area-headerTop{display:flex!important;gap:5px}
+  #vl-header-sticky .social-area-headerTop a{
+    width:30px!important;
+    height:30px!important;
+    line-height:30px!important;
+    font-size:12.5px!important;
+  }
+  #vl-header-sticky .vl-main-menu nav>ul{column-gap:clamp(10px,0.7vw,20px)}
+  #vl-header-sticky .vl-main-menu nav>ul>li>a{font-size:16.5px;padding:8px 10px}
+  #vl-header-sticky .vl-main-menu nav>ul>li>a.oet-header-cta-btn{font-size:14.5px!important;padding:9px 18px!important}
+}
+
+/* Compact topbar contacts so email/phone never collide at mid widths */
+@media (min-width:1200px) and (max-width:1499.98px){
+  #vl-header-sticky .vl-header-top-area .header-top ul li a{font-size:12.5px}
+  #vl-header-sticky .vl-header-top-area .vl-header-top-text{font-size:12.5px}
+}
