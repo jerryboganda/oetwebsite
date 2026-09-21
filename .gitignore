@@ -34,3 +34,6 @@ site/.impeccable/
 
 # Rate-limit counters (runtime data)
 storage/oet-chat/ratelimit/
+
+# Per-machine tool state (project identifier) — never commit
+.freebuff/
