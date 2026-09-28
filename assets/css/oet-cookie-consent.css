@@ -2,7 +2,7 @@
   --oet-ink: #16213e;
   --oet-muted: #667085;
   --oet-lav: #eeeaff;
-  --oet-purple: #5f46f5;
+  --oet-purple: #7c3aed;
   --oet-line: #ded8fb;
 }
 
@@ -57,7 +57,7 @@
   border-radius: 50%;
   right: -80px;
   top: -150px;
-  background: rgba(95, 70, 245, 0.12);
+  background: rgba(124, 58, 237, 0.12);
 }
 .oet-legal-hero-inner {
   max-width: 980px;
@@ -183,7 +183,7 @@
   background: transparent !important;
   box-shadow: none !important;
   color: #101828 !important;
-  font-family: 'Plus Jakarta Sans', Manrope, Inter, system-ui, -apple-system, sans-serif !important;
+  font-family: "Mulish", sans-serif !important;
   animation: oetCcFadeUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
   box-sizing: border-box !important;
 }
@@ -245,12 +245,12 @@
   height: 32px;
   min-width: 32px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #5f46f5 0%, #7c5cff 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #7c5cff 100%);
   color: #ffffff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(95, 70, 245, 0.28);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.28);
   flex-shrink: 0;
 }
 
@@ -258,7 +258,7 @@
   width: 28px;
   height: 28px;
   min-width: 28px;
-  box-shadow: 0 3px 8px rgba(95, 70, 245, 0.22);
+  box-shadow: 0 3px 8px rgba(124, 58, 237, 0.22);
 }
 
 .oet-cc-badge svg {
@@ -276,7 +276,7 @@
 
 .oet-cc-text a,
 .oet-cc-policy-link {
-  color: #5f46f5 !important;
+  color: #7c3aed !important;
   font-weight: 700 !important;
   text-decoration: underline !important;
   text-underline-offset: 2.5px !important;
@@ -320,7 +320,7 @@
 }
 
 .oet-cc-btn:focus-visible {
-  outline: 2px solid #5f46f5 !important;
+  outline: 2px solid #7c3aed !important;
   outline-offset: 2px !important;
 }
 
@@ -330,29 +330,29 @@
 
 /* Primary Button (Accept all) */
 .oet-cc-btn-primary {
-  background: linear-gradient(135deg, #5f46f5 0%, #7656fa 100%) !important;
+  background: linear-gradient(135deg, #7c3aed 0%, #7656fa 100%) !important;
   color: #ffffff !important;
-  border-color: #5f46f5 !important;
-  box-shadow: 0 4px 14px rgba(95, 70, 245, 0.28) !important;
+  border-color: #7c3aed !important;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.28) !important;
 }
 
 .oet-cc-btn-primary:hover {
   background: linear-gradient(135deg, #5237eb 0%, #6846f7 100%) !important;
-  box-shadow: 0 6px 18px rgba(95, 70, 245, 0.38) !important;
+  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.38) !important;
   transform: translateY(-1px) !important;
 }
 
 /* Secondary Button (Reject optional) */
 .oet-cc-btn-secondary {
-  background: rgba(95, 70, 245, 0.08) !important;
+  background: rgba(124, 58, 237, 0.08) !important;
   color: #4338ca !important;
-  border-color: rgba(95, 70, 245, 0.18) !important;
+  border-color: rgba(124, 58, 237, 0.18) !important;
 }
 
 .oet-cc-btn-secondary:hover {
-  background: rgba(95, 70, 245, 0.14) !important;
+  background: rgba(124, 58, 237, 0.14) !important;
   color: #3730a3 !important;
-  border-color: rgba(95, 70, 245, 0.28) !important;
+  border-color: rgba(124, 58, 237, 0.28) !important;
   transform: translateY(-1px) !important;
 }
 
@@ -419,7 +419,7 @@
   height: 30px;
   min-width: 30px;
   border-radius: 50% !important;
-  border: 1px solid rgba(100, 74, 249, 0.15) !important;
+  border: 1px solid rgba(124, 58, 237, 0.15) !important;
   background: #f4f3ff !important;
   color: #4338ca !important;
   font-size: 13px !important;
@@ -464,7 +464,7 @@
 
 .oet-cc-pref-card.is-interactive:hover {
   background: #f4f0ff;
-  border-color: rgba(100, 74, 249, 0.4);
+  border-color: rgba(124, 58, 237, 0.4);
 }
 
 .oet-cc-pref-meta {
@@ -488,8 +488,8 @@
 .oet-cc-pill-tag {
   font-size: 11px;
   font-weight: 800;
-  color: #5f46f5;
-  background: rgba(95, 70, 245, 0.1);
+  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.1);
   padding: 4px 9px;
   border-radius: 999px;
   white-space: nowrap;
@@ -534,11 +534,11 @@
 }
 
 .oet-cc-switch:checked + .oet-cc-toggle-track {
-  background-color: #5f46f5;
+  background-color: #7c3aed;
 }
 
 .oet-cc-switch:focus-visible + .oet-cc-toggle-track {
-  outline: 2px solid #5f46f5;
+  outline: 2px solid #7c3aed;
   outline-offset: 2px;
 }
 

@@ -1,0 +1,52 @@
+name: Regenerate root pages
+
+# Builds site/src with the real pipeline (astro build + postbuild: prices,
+# ?v= asset hashes, sitemap, root copy) and commits the regenerated root
+# HTML back to the branch. Lets source-only changes become deployable without
+# building on a local machine (owner rule: compute runs in GitHub Actions).
+# Runs on website feature branches when sources change; the bot's own push
+# (GITHUB_TOKEN) does not retrigger workflows, so there is no loop.
+on:
+  workflow_dispatch:
+  push:
+    branches: ['feat/website-**']
+    paths: ['site/src/**', 'assets/css/**', 'site/scripts/**']
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install
+        working-directory: site
+        run: npm ci
+
+      - name: Build and copy to root
+        working-directory: site
+        run: npm run build
+
+      - name: Verify
+        working-directory: site
+        run: npm run verify && node scripts/postbuild.mjs --check-root
+
+      - name: Commit regenerated root pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- '*.html' sitemap.xml
+          if git diff --cached --quiet; then
+            echo "Root pages already up to date."
+          else
+            git commit -m "build(website): regenerate root pages from site/src"
+            git push
+          fi

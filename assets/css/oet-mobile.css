@@ -170,7 +170,7 @@ body.sal-disabled [data-sal|=slide]{
     justify-content:center;
     color:#111329;
     background:#fff!important;
-    border:1px solid rgba(95,70,245,.18)!important;
+    border:1px solid rgba(124,58,237,.18)!important;
     border-radius:10px;
     box-shadow:none;
   }
@@ -459,7 +459,7 @@ body.sal-disabled [data-sal|=slide]{
   body.oet-live-site .oet-contact-widget__button{
     width:56px;
     height:56px;
-    box-shadow:0 10px 24px rgba(95,70,245,.32);
+    box-shadow:0 10px 24px rgba(124,58,237,.32);
   }
 
   body.oet-live-site .oet-contact-widget__button i{
