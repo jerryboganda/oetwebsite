@@ -83,6 +83,15 @@ export function applyStoryCounts(parts, stories) {
     1,
     'Score cards countup',
   );
+  // "Latest additions" counter = newest year's story count.
+  const latest = Math.max(...Object.keys(byYear).map(Number));
+  out = replaceAcross(
+    out,
+    /(<dt>Latest additions<\/dt><dd><span class="oet-countup" data-count=")\d+("[^>]*>0<\/span> in )\d{4}/,
+    `$1${byYear[latest]}$2${latest}`,
+    1,
+    'Latest additions countup',
+  );
   // JSON-LD ItemList numberOfItems.
   out = replaceAcross(
     out,
