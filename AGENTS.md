@@ -47,6 +47,31 @@ returns `mail_transport_failed` (known, pre-existing; needs user's creds).
 Chat expects **form-encoded POST**, not JSON. Threads stored in
 `storage/oet-chat/threads/` (PII — gitignored, never commit or delete).
 
+### Header Login / Register CTA and the `oet_signed_in` hint cookie
+
+The header carries one call to action in two places, both in
+`site/src/partials/chrome/header-2.html`: the nav pill `li.oet-nav-cta-item`
+(visible from 1500px; `assets/js/main.js` also clones it into the hamburger
+drawer) and `a.oet-header-login` inside `.vl-header-action-item` (logo, CTA,
+hamburger order below 1500px). Each link has two label spans
+(`.oet-auth-cta__guest` / `.oet-auth-cta__user`) plus `data-dashboard-href`,
+and **must never get an `id`** (the nav is cloned, ids would duplicate). Styles
+are at the end of `assets/css/oet-common.css`. `site/scripts/verify.mjs` fails
+the build if a link, the no-id rule or the head script is dropped.
+
+The static site cannot see the app's session (different origin, HttpOnly
+cookies). The web app (`lib/auth-storage.ts`) sets a **presentation-only hint
+cookie** next to its own `oet_auth` and clears it on sign-out:
+`oet_signed_in=1`, `Domain=.oetwithdrhesham.co.uk`, `Path=/`, `SameSite=Lax`,
+`Secure`, 30 days. The value is always the constant `1` (never a token, id or
+PII). The inline script in `site/src/layouts/Base.astro` reads it: when
+present it adds `html.oet-signed-in` (label becomes "My Dashboard") and on
+`DOMContentLoaded` (after `main.js` built the drawer) points every
+`a[data-dashboard-href]` at `https://app.oetwithdrhesham.co.uk/`. No cookie or
+JS off means "Login / Register" to `.../sign-in?next=%2F`. It can be up to 30
+days stale; never gate anything on it, and never read `oet_device_id` as a
+sign-in signal (it exists for anonymous visitors too).
+
 ## Critical debug memory: raw HTML + missing styles
 
 This issue happened on 2026-08-22 and must not recur:

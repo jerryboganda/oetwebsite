@@ -33,6 +33,16 @@ for (const page of PAGES) {
     fail(`${page}: literal $n backreference leaked into markup`);
   if (html.includes('<base ')) fail(`${page}: <base> tag present (root-absolute policy)`);
 
+  // header Login / Register CTA: the nav pill (>=1500px) and the action-item link (below 1500px) both
+  // carry the signed-in swap target; neither may carry an id (the drawer clones the nav); the action-item
+  // link sits before the hamburger; the oet_signed_in hint script ships in <head>
+  const ctaLinks = html.match(/<a\b[^>]*\bdata-dashboard-href="https:\/\/app\.oetwithdrhesham\.co\.uk\/"[^>]*>/g) || [];
+  if (ctaLinks.length !== 2) fail(`${page}: expected 2 header Login/Dashboard CTA links (nav pill + action item), found ${ctaLinks.length}`);
+  if (ctaLinks.some((tag) => /\sid=/.test(tag))) fail(`${page}: header Login/Dashboard CTA link must not carry an id (nav is cloned into the drawer)`);
+  if (!/vl-header-action-item[^"]*">\s*<a class="oet-header-login"[^>]*>[\s\S]*?<button[^>]*vl-offcanvas-toggle/.test(html))
+    fail(`${page}: header CTA must sit before the hamburger inside .vl-header-action-item`);
+  if (!html.includes('oet_signed_in=1')) fail(`${page}: signed-in hint head script missing`);
+
   // every hashed local asset must exist on disk
   for (const m of html.matchAll(/(?:href|src)="(\/assets\/(?:css|js)\/[^"?]+)\?v=[0-9a-f]{10}"/g)) {
     if (!existsSync(path.join(ROOT, m[1].slice(1)))) fail(`${page}: hashed asset missing on disk: ${m[1]}`);
