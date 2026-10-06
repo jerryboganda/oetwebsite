@@ -18,6 +18,31 @@
         } catch (e) {}
       })();
     </script>
+    <script>
+      // Signed-in hint set by the learner app (shared-domain cookie oet_signed_in=1, no token or PII).
+      // Presentation only: swaps the header Login / Register CTA to My Dashboard, never gates anything.
+      // sync() is idempotent and runs: now (class before first paint), on DOMContentLoaded (the nav
+      // anchors exist and the deferred main.js has already cloned the nav into the mobile drawer; a
+      // clone copies whatever href it finds, and this pass fixes it), and on a bfcache restore
+      // (pageshow persisted) so Back after sign-in or sign-out never shows a stale CTA.
+      // The guest href is remembered in data-login-href the first time an anchor is seen.
+      (function () {
+        var d = document;
+        function sync() {
+          try {
+            var on = /(?:^|;\s*)oet_signed_in=1(?:;|$)/.test(d.cookie);
+            d.documentElement.classList.toggle('oet-signed-in', on);
+            d.querySelectorAll('a[data-dashboard-href]').forEach(function (a) {
+              if (!a.hasAttribute('data-login-href')) a.setAttribute('data-login-href', a.getAttribute('href'));
+              a.setAttribute('href', a.getAttribute(on ? 'data-dashboard-href' : 'data-login-href'));
+            });
+          } catch (e) {}
+        }
+        sync();
+        d.addEventListener('DOMContentLoaded', sync);
+        window.addEventListener('pageshow', function (e) { if (e.persisted) sync(); });
+      })();
+    </script>
     <title>OET Listening Tips 2026 | 10 Expert Strategies by Dr Ahmed Hesham</title>
     <meta name="description" content="OET Listening tips 2026 for doctors, nurses and healthcare professionals. Learn Part A, B and C strategies, accent training, note-taking, distractors and smart practice.">
     <link rel="canonical" href="https://oetwithdrhesham.co.uk/oet-listening-tips.html">
@@ -143,7 +168,7 @@
     <link rel="stylesheet" href="/assets/css/oet-icons.css?v=fb6ca9f443">
     <link rel="stylesheet" href="/assets/css/plugins/sal.css?v=52a59aec6a">
     <link rel="stylesheet" href="/assets/css/style.min.css?v=46ff65fd86">
-    <link rel="stylesheet" href="/assets/css/oet-common.css?v=4e862b451a">
+    <link rel="stylesheet" href="/assets/css/oet-common.css?v=1ec4091855">
     <link rel="stylesheet" href="/assets/css/oet-mobile.css?v=001ef98c95">
     <link rel="stylesheet" href="/assets/css/oet-cookie-consent.css?v=3db5a4831a">
     <link rel="stylesheet" href="/assets/css/oet-polish.css?v=6043093a82">
@@ -259,7 +284,7 @@
                                         </li>
                                         <li><a href="/english-placement-test.html">Free Placement Test</a></li>
                                         <li><a href="/contact.html">Contact</a></li>
-                                        <li class="oet-nav-cta-item"><a class="oet-header-cta-btn" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span>Login / Register</span></a></li>
+                                        <li class="oet-nav-cta-item"><a class="oet-header-cta-btn" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F" data-dashboard-href="https://app.oetwithdrhesham.co.uk/"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span class="oet-auth-cta__guest">Login / Register</span><span class="oet-auth-cta__user">My Dashboard</span></a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -283,6 +308,7 @@
 
                             <!-- action btn -->
                             <div class="vl-header-action-item d-block d-xl-none">
+                                <a class="oet-header-login" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F" data-dashboard-href="https://app.oetwithdrhesham.co.uk/"><span class="oet-auth-cta__guest">Login / Register</span><span class="oet-auth-cta__user">My Dashboard</span></a>
                                 <button type="button" class="vl-offcanvas-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="vl-offcanvas-menu">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" aria-hidden="true" focusable="false">
                                         <path d="M1.5 2.5h21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
