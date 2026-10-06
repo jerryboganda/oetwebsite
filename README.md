@@ -44,6 +44,20 @@ Everything else at the root deploys as-is: `assets/`, PHP endpoints,
   stories to that manifest (+ images in `optimized/`, originals stay out of
   git) and rebuild.
 
+### Header Login / Register CTA and the `oet_signed_in` hint cookie
+
+`header-2.html` has a Login / Register link in the inline nav (pill, from
+1500px, also cloned into the hamburger drawer) and `a.oet-header-login` next to
+the hamburger (below 1500px). Both switch to "My Dashboard"
+(`https://app.oetwithdrhesham.co.uk/`) when the learner app's hint cookie is
+present: `oet_signed_in=1` on `Domain=.oetwithdrhesham.co.uk` (constant value
+`1`, no token or PII, 30 days, set and cleared by the app together with its
+`oet_auth`). The inline script in `site/src/layouts/Base.astro` reads it, adds
+`html.oet-signed-in` and swaps `href` on every `a[data-dashboard-href]`.
+Presentation only: never gate anything on it, never add an `id` to these links
+(the nav is cloned into the drawer). Without the cookie, or with JS off, the
+link is "Login / Register" to `https://app.oetwithdrhesham.co.uk/sign-in?next=%2F`.
+
 ## Local development
 
 ```bash

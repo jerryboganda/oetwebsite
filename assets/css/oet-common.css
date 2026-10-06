@@ -871,3 +871,69 @@ body.oet-live-site .blog-padding-bottom10 .blog__wrap10{
   #vl-header-sticky .vl-header-top-area .header-top ul li a{font-size:12.5px}
   #vl-header-sticky .vl-header-top-area .vl-header-top-text{font-size:12.5px}
 }
+
+/* Header Login / Register CTA (2026-10-06).
+   Two labels live in the same link; the inline head script in Base.astro adds
+   html.oet-signed-in when the learner app's shared-domain hint cookie exists, which
+   swaps the label to My Dashboard (and its href). Default (JS off, no cookie) = Login / Register.
+   Below 1500px the inline nav is hidden (rules above), so this CTA sits in the action
+   item next to the hamburger; from 1500px up the action item is hidden (d-xl-none)
+   and the nav pill below takes over, so exactly one CTA is ever visible. */
+.oet-auth-cta__user{display:none}
+html.oet-signed-in .oet-auth-cta__guest{display:none}
+html.oet-signed-in .oet-auth-cta__user{display:inline}
+/* The login icon only belongs to the guest label; this class is used by the nav pill (and its drawer clone) alone */
+html.oet-signed-in a.oet-header-cta-btn i{display:none}
+#vl-header-sticky .vl-header-action-item{gap:8px}
+#vl-header-sticky a.oet-header-login{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+  box-sizing:border-box;
+  min-height:44px;
+  padding:0 14px;
+  border-radius:999px;
+  text-align:center;
+  white-space:nowrap;
+  font-family:"Mulish",sans-serif;
+  font-size:13px;
+  font-weight:600;
+  line-height:1.1;
+  letter-spacing:-.01em;
+  color:#fff;
+  text-decoration:none;
+  background:linear-gradient(135deg,var(--oet-purple) 0%,var(--oet-purple-2) 100%);
+  box-shadow:0 4px 14px rgba(124,58,237,.28);
+  transition:transform .22s ease,box-shadow .22s ease,background .22s ease;
+}
+#vl-header-sticky a.oet-header-login:visited,
+#vl-header-sticky a.oet-header-login:focus-visible{color:#fff}
+#vl-header-sticky a.oet-header-login:hover{
+  color:#fff;
+  background:linear-gradient(135deg,var(--oet-purple-deep) 0%,var(--oet-purple) 100%);
+  transform:translateY(-1px);
+  box-shadow:0 8px 22px rgba(124,58,237,.4);
+}
+@media (min-width:576px){
+  #vl-header-sticky a.oet-header-login{font-size:14px;padding:0 18px}
+}
+/* Narrow phones: one line at 320px (logo 118px + CTA + 44px hamburger inside 304px) */
+@media (max-width:339.98px){
+  #vl-header-sticky a.oet-header-login{font-size:12px;padding:0 12px}
+  #vl-header-sticky .vl-header-action-item{gap:6px}
+}
+/* Foldable cover screens (about 280px): shrink the logo a little so the CTA still fits */
+@media (max-width:299.98px){
+  #vl-header-sticky a.oet-header-login{font-size:11px;padding:0 9px}
+  #vl-header-sticky .vl-header-action-item{gap:4px}
+  #vl-header-sticky .vl-logo a img{max-width:100px}
+}
+/* 1500px and up: the nav pill is the CTA; 44px tap target, label centred
+   (same specificity and !important as the existing pill rules above, later in the file) */
+#vl-header-sticky .vl-main-menu nav>ul>li>a.oet-header-cta-btn{
+  min-height:44px!important;
+  box-sizing:border-box!important;
+  justify-content:center!important;
+  text-align:center;
+}
