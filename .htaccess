@@ -97,23 +97,23 @@ RewriteRule ^favicon\.ico$ /assets/img/logo/fav-icon.png [L]
 # --- Removed template demo pages -> relevant live pages (301) ---
 
 # Consulting demo variants -> home
-RewriteRule ^(Accountant|Accountant-Single|BusinessConsulting|BusinessConsulting-Single|BusinessConsulting2|BusinessConsulting2-Single|CorporateConsulting|CorporateConsulting-Single|FinanceConsulting|FinanceConsulting-Single|FinancialAdvisor|FinancialAdvisor-Single|HrConsulting|HrConsulting-Single|InsuranceConsulting|InsuranceConsulting-Single|MarketingConsulting|MarketingConsulting-Single|TaxConsulting|TaxConsulting-Single)\.html$ / [R=301,L]
+RewriteRule ^(Accountant|Accountant-Single|BusinessConsulting|BusinessConsulting-Single|BusinessConsulting2|BusinessConsulting2-Single|CorporateConsulting|CorporateConsulting-Single|FinanceConsulting|FinanceConsulting-Single|FinancialAdvisor|FinancialAdvisor-Single|HrConsulting|HrConsulting-Single|InsuranceConsulting|InsuranceConsulting-Single|MarketingConsulting|MarketingConsulting-Single|TaxConsulting|TaxConsulting-Single)\.html$ https://%{HTTP_HOST}/ [R=301,L]
 
 # Blog templates -> OET tips hub
-RewriteRule ^blog-(left|right|single|style-one|style-two|style-three)\.html$ /oet-tips.html [R=301,L]
+RewriteRule ^blog-(left|right|single|style-one|style-two|style-three)\.html$ https://%{HTTP_HOST}/oet-tips.html [R=301,L]
 
 # Portfolio + testimonial templates -> success stories
-RewriteRule ^portfolio(-left|-right|-single)?\.html$ /success-stories.html [R=301,L]
-RewriteRule ^testimonial\.html$ /success-stories.html [R=301,L]
+RewriteRule ^portfolio(-left|-right|-single)?\.html$ https://%{HTTP_HOST}/success-stories.html [R=301,L]
+RewriteRule ^testimonial\.html$ https://%{HTTP_HOST}/success-stories.html [R=301,L]
 
 # Team templates -> about
-RewriteRule ^team(-details)?\.html$ /about.html [R=301,L]
+RewriteRule ^team(-details)?\.html$ https://%{HTTP_HOST}/about.html [R=301,L]
 
 # Service layout templates -> courses
-RewriteRule ^service-(left|right|single)\.html$ /service.html [R=301,L]
+RewriteRule ^service-(left|right|single)\.html$ https://%{HTTP_HOST}/service.html [R=301,L]
 
 # Template preview page -> home
-RewriteRule ^preview\.html$ / [R=301,L]
+RewriteRule ^preview\.html$ https://%{HTTP_HOST}/ [R=301,L]
 
 # Login: single canonical server-side redirect to the app (Phase 5)
 # NB: literal %2F would be parsed as a RewriteCond backreference; NE keeps "/" raw.
