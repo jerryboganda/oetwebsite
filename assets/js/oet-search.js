@@ -5,7 +5,7 @@
     var bar = document.querySelector(".vl-header-search-bar");
     if (!bar) { return; }
     var form = bar.querySelector("form");
-    var input = form && form.querySelector('input[type="text"]');
+    var input = form && form.querySelector('input[type="search"], input[type="text"]');
     if (!form || !input) { return; }
 
     var INDEX_URL = "/assets/search-index.json";

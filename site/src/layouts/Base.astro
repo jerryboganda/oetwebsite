@@ -14,6 +14,7 @@ interface Props {
   styleCss?: boolean;
   heroCss?: boolean;
   showApps?: boolean;
+  lang?: string;
 }
 
 const {
@@ -27,9 +28,10 @@ const {
   styleCss = true,
   heroCss = false,
   showApps = false,
+  lang = 'en',
 } = Astro.props;
 ---
-<html lang="en" class="oet-live-site">
+<html lang={lang} class="oet-live-site">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />

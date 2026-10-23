@@ -19,6 +19,19 @@
 .oet-pt-levels p { margin: 0; color: #515477; line-height: 1.65; }
 @media (max-width: 991px) { .oet-pt-page { padding-top: 150px !important; padding-bottom: 110px !important; } .oet-pt-skills { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 575px) { .oet-pt-page { padding-top: 125px !important; padding-bottom: 96px !important; } .oet-pt-skills { grid-template-columns: 1fr; } }
+.oet-pt-section { max-width: 920px; margin: 48px auto 0; }
+.oet-pt-section h2 { color: #070b34; font-size: clamp(24px, 3vw, 32px); line-height: 1.2; margin: 0 0 14px; }
+.oet-pt-section p, .oet-pt-section li { color: #41446b; font-size: 16px; line-height: 1.7; }
+.oet-pt-steps, .oet-pt-list { margin: 0; padding-left: 22px; }
+.oet-pt-steps li, .oet-pt-list li { margin-bottom: 10px; }
+.oet-pt-paths { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+.oet-pt-path, .oet-pt-faq-item { padding: 20px; border: 1px solid rgba(101, 76, 245, .16); border-radius: 18px; background: rgba(255,255,255,.82); }
+.oet-pt-path h3, .oet-pt-faq-item h3 { color: #070b34; font-size: 18px; margin: 0 0 8px; }
+.oet-pt-path p, .oet-pt-faq-item p { font-size: 15px; margin: 0 0 10px; }
+.oet-pt-faq-item { margin-bottom: 12px; }
+.oet-pt-section a, .oet-pt-cta--end a:not(.oet-pt-btn) { color: #5b3ff1; font-weight: 700; }
+.oet-pt-cta--end { margin: 48px 0 0; }
+@media (max-width: 991px) { .oet-pt-paths { grid-template-columns: 1fr; } }
 </style>
 <script type="application/ld+json">
 {
@@ -29,14 +42,63 @@
    "@id": "https://oetwithdrhesham.co.uk/english-placement-test#webpage",
    "url": "https://oetwithdrhesham.co.uk/english-placement-test",
    "name": "Free General English Placement Test",
-   "description": "Listening, Reading, Writing and Speaking — CEFR Pre-A1 to C2. Suitable for OET, IELTS, PTE, TOEFL and General English. Free account required. Results saved to your profile.",
-   "isPartOf": { "@id": "https://oetwithdrhesham.co.uk/#website" }
+   "description": "Free General English placement test: Listening, Reading, Writing and Speaking with an indicative CEFR level from Pre-A1 to C2. Free account required.",
+   "isPartOf": {
+    "@id": "https://oetwithdrhesham.co.uk/#website"
+   }
   },
   {
    "@type": "BreadcrumbList",
    "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://oetwithdrhesham.co.uk/" },
-    { "@type": "ListItem", "position": 2, "name": "Free Placement Test", "item": "https://oetwithdrhesham.co.uk/english-placement-test" }
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://oetwithdrhesham.co.uk/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Free Placement Test",
+     "item": "https://oetwithdrhesham.co.uk/english-placement-test"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is the placement test really free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. The test is free. You need a free account so your answers save as you go and your results stay in your profile."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How long does the placement test take?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Approximately 60 to 85 minutes. The exact time varies because the assessment adapts to your responses, and you can pause and continue later."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is this an official OET or IELTS test?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. It is a free General English placement test from OET with Dr Hesham. It gives an indicative CEFR estimate for each skill to guide your preparation; it does not replace an official OET, IELTS, PTE or TOEFL result."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Which level should I reach before starting OET preparation?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "As a rough guide, if your estimate is B1 or below in most skills, build your general English first; if you are around B2 or above, move straight into profession-specific OET preparation."
+     }
+    }
    ]
   }
  ]

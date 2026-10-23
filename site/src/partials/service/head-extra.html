@@ -1,46 +1,23 @@
 <style>
-.vl-service-10-wrap {
-    background: #ffffff;
-    border: 1px solid rgba(124,58,237, 0.12);
-    border-radius: 20px;
-    padding: 32px 28px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 10px 30px rgba(124,58,237, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+@media (max-width: 767px) {
+  .oet-resource-hero .oet-tips-hero-copy[data-sal], .oet-resource-hero .oet-tips-hero-copy [data-sal], .oet-resource-hero .oet-tips-hero-panel[data-sal] { opacity: 1 !important;
+                transform: none !important; }
 }
-.vl-service-10-wrap:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(124,58,237, 0.12);
-    border-color: rgba(124,58,237, 0.3);
-}
-.vl-service-10-wrap h3 {
-    color: #0c0b1a;
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-.vl-service-10-wrap p {
-    color: #55536e;
-    font-size: 15px;
-    line-height: 1.6;
-    flex-grow: 1;
-    margin-bottom: 20px;
-}
-.vl-service-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: #7c3aed;
-    font-weight: 700;
-    font-size: 15px;
-    text-decoration: none;
-    transition: gap 0.2s ease, color 0.2s ease;
-}
-.vl-service-btn:hover {
-    color: #4f36db;
-    gap: 12px;
+</style>
+    <style>
+.oet-final-cta-icon { display: grid !important;
+            place-items: center !important;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px !important;
+            font-weight: 900;
+            line-height: 1 !important;
+            color: #ffffff !important; }
+</style>
+    <link rel="stylesheet" href="/assets/css/oet-resource.css">
+    <link rel="stylesheet" href="/assets/css/oet-pathway.css">
+    <style>
+@media (min-width: 1200px) {
+  .oet-skill-hero { padding-top: 240px !important; }
 }
 </style>
 <script type="application/ld+json">
@@ -51,26 +28,32 @@
    "@type": "WebPage",
    "@id": "https://oetwithdrhesham.co.uk/service.html#webpage",
    "url": "https://oetwithdrhesham.co.uk/service.html",
-   "name": "OET Courses & Coaching Services",
+   "name": "Online OET Courses for Doctors, Nurses & Pharmacists",
+   "description": "Recorded OET courses for nurses, doctors, pharmacists and allied health, with letter correction, private 1:1 Speaking sessions and full mock exams.",
+   "inLanguage": "en-GB",
    "isPartOf": {
     "@id": "https://oetwithdrhesham.co.uk/#website"
-   }
+   },
+   "author": {
+    "@id": "https://oetwithdrhesham.co.uk/#drhesham"
+   },
+   "dateModified": "2026-10-24"
   },
   {
    "@type": "ItemList",
-   "name": "OET preparation pathways",
+   "name": "Online OET courses by profession",
    "itemListElement": [
     {
      "@type": "ListItem",
      "position": 1,
      "item": {
       "@type": "Course",
-      "name": "Nursing OET Track",
-      "description": "Complete OET preparation pathway for nurses: live classes, recorded lessons, writing correction and speaking practice.",
+      "name": "OET Course for Nurses",
+      "description": "Recorded Nursing OET course covering Listening, Reading, Writing and Speaking with recall-based nursing letters, model answers and Speaking cards.",
       "provider": {
        "@id": "https://oetwithdrhesham.co.uk/#organization"
       },
-      "url": "https://oetwithdrhesham.co.uk/service.html",
+      "url": "https://oetwithdrhesham.co.uk/oet-course-for-nurses.html",
       "hasCourseInstance": {
        "@type": "CourseInstance",
        "courseMode": "online"
@@ -82,12 +65,12 @@
      "position": 2,
      "item": {
       "@type": "Course",
-      "name": "Doctor OET Track",
-      "description": "Complete OET preparation pathway for doctors: recorded courses, writing letter assessments, speaking sessions and mock exams.",
+      "name": "OET Course for Doctors",
+      "description": "Full condensed recorded Medicine OET course covering all four sub-tests, with Writing letter assessments and a private Speaking session.",
       "provider": {
        "@id": "https://oetwithdrhesham.co.uk/#organization"
       },
-      "url": "https://oetwithdrhesham.co.uk/service.html",
+      "url": "https://oetwithdrhesham.co.uk/oet-course-for-doctors.html",
       "hasCourseInstance": {
        "@type": "CourseInstance",
        "courseMode": "online"
@@ -99,12 +82,12 @@
      "position": 3,
      "item": {
       "@type": "Course",
-      "name": "Pharmacist OET Track",
-      "description": "OET preparation designed for pharmacists, covering all four sub-tests with profession-specific materials.",
+      "name": "OET Course for Pharmacists",
+      "description": "Pharmacy-specific OET course covering all four sub-tests, with Writing and Speaking built on pharmacy scenarios.",
       "provider": {
        "@id": "https://oetwithdrhesham.co.uk/#organization"
       },
-      "url": "https://oetwithdrhesham.co.uk/service.html",
+      "url": "https://oetwithdrhesham.co.uk/pricing.html#full-recorded-courses",
       "hasCourseInstance": {
        "@type": "CourseInstance",
        "courseMode": "online"
@@ -116,12 +99,12 @@
      "position": 4,
      "item": {
       "@type": "Course",
-      "name": "Express Writing Support",
-      "description": "Focused OET writing packages: crash course plus individual letter assessments with detailed correction.",
+      "name": "OET Course for Physiotherapists",
+      "description": "Recorded Physiotherapy OET course covering Listening, Reading, Writing and Speaking, with Writing letter assessments and a private Speaking session.",
       "provider": {
        "@id": "https://oetwithdrhesham.co.uk/#organization"
       },
-      "url": "https://oetwithdrhesham.co.uk/service.html",
+      "url": "https://oetwithdrhesham.co.uk/pricing.html#full-recorded-courses",
       "hasCourseInstance": {
        "@type": "CourseInstance",
        "courseMode": "online"
@@ -133,12 +116,12 @@
      "position": 5,
      "item": {
       "@type": "Course",
-      "name": "Interview Readiness",
-      "description": "Preparation for healthcare job interviews and communication after passing OET.",
+      "name": "OET Course for Allied Health Professionals",
+      "description": "Recorded Allied Health OET course covering all four sub-tests, with Writing letter assessments and a private Speaking session.",
       "provider": {
        "@id": "https://oetwithdrhesham.co.uk/#organization"
       },
-      "url": "https://oetwithdrhesham.co.uk/service.html",
+      "url": "https://oetwithdrhesham.co.uk/pricing.html#full-recorded-courses",
       "hasCourseInstance": {
        "@type": "CourseInstance",
        "courseMode": "online"
@@ -183,6 +166,51 @@
      "position": 2,
      "name": "Courses",
      "item": "https://oetwithdrhesham.co.uk/service.html"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Are the OET courses live or recorded?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The full courses are recorded video lessons with structured study materials, so you can repeat any lesson during your access period. The personalised parts are Writing letter assessments, private one-to-one live Speaking sessions and Q&A support."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How long do I have access to a course?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Full recorded courses give you 6 months of access from purchase. TutorBook is a personalised PDF with permanent access and content updates."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Which OET course is best for nurses?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Most nurses start with the Nursing Course + Assessment Package, which adds 5 Writing letter assessments and a private Speaking session to the Full Nursing OET Course. The Nursing Premium Bundle also adds the Basic English foundation course and TutorBook."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do the courses include writing correction?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The full Medicine, Physiotherapy and Allied Health courses include 5 Writing letter assessments and 1 private Speaking session, and so does the Nursing Course + Assessment Package. You can add more letter assessments to an eligible course at any time."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What if my English is not ready for OET yet?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Take the free placement test to see your CEFR level. Candidates at Beginner to B1 level can start with the Basic English Course, which covers grammar, healthcare vocabulary and sentence formation before full OET preparation."
+     }
     }
    ]
   }

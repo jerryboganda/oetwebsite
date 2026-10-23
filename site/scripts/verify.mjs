@@ -2,6 +2,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import vm from 'node:vm';
 
 const SITE = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const ROOT = path.dirname(SITE);
@@ -12,6 +13,10 @@ const PAGES = [
   'english-placement-test.html', 'faq.html', 'gulf-pathway-guide.html', 'index.html', 'oet-listening-tips.html',
   'oet-materials-support.html', 'oet-reading-tips.html', 'oet-speaking-tips.html',
   'oet-tips.html', 'oet-writing-tips.html', 'pricing.html', 'service.html',
+  'oet-course-for-nurses.html', 'oet-course-for-doctors.html', 'oet-writing-correction.html',
+  'oet-score-calculator.html', 'oet-score-requirements.html', 'oet-test-dates-and-fees.html', 'oet-vs-ielts.html', 'oet-for-ecfmg.html', 'oet-writing-sample-nursing.html', 'oet-writing-sample-medicine.html',
+  'oet-writing-sample-pharmacy.html', 'oet-writing-sample-physiotherapy.html', 'oet-writing-sample-nursing-transfer.html', 'oet-speaking-role-play-nursing.html', 'oet-speaking-role-play-medicine.html',
+  'ar/index.html', 'ar/oet-course-for-nurses.html', 'ar/oet-course-for-doctors.html',
   'success-stories.html', 'teaching-approach.html', 'uk-pathway-guide.html',
   'usa-pathway-guide.html', 'cookie-policy/index.html', 'privacy/index.html',
   'refund-policy/index.html', 'terms/index.html',
@@ -74,7 +79,7 @@ if (!existsSync(sitemapFile)) fail('sitemap.xml missing from dist');
 else {
   const sm = readFileSync(sitemapFile, 'utf8');
   const urls = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  if (urls.length !== 23) fail(`sitemap has ${urls.length} URLs, expected 23`);
+  if (urls.length !== 41) fail(`sitemap has ${urls.length} URLs, expected 41`);
   // Clean URLs served via .htaccess rewrites map to their built .html file.
   const CLEAN_URL_ALIASES = { 'english-placement-test': 'english-placement-test.html' };
   for (const u of urls) {
@@ -166,6 +171,60 @@ for (const [page, html] of Object.entries(distHtml)) {
       if (seen) fail(`${label}: ${forbidden} must not be fabricated`);
     }
   }
+}
+
+// systemic: FAQPage questions/answers must match visible page text (Google policy)
+const NAMED = { amp: '&', nbsp: ' ', ndash: '–', mdash: '—', rsquo: "'", lsquo: "'", ldquo: '"', rdquo: '"', quot: '"', hellip: '…', pound: '£', middot: '·', lt: '<', gt: '>' };
+const visibleText = (s) => s.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ')
+  .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+  .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number(d)))
+  .replace(/&([a-z]+);/gi, (m, e) => NAMED[e] ?? ' ')
+  .replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, ' ').trim().toLowerCase();
+for (const [page, html] of Object.entries(distHtml)) {
+  const vis = visibleText((html.match(/<main[\s\S]*<\/main>/) || [''])[0]);
+  for (const q of nodesOfType(ldBlocks(html), 'Question')) {
+    if (!vis.includes(visibleText(q.name || '')) || !vis.includes(visibleText(q.acceptedAnswer?.text || '')))
+      fail(`${page}: FAQ JSON-LD not visible verbatim on the page: "${String(q.name).slice(0, 60)}"`);
+  }
+}
+
+// icons: the icon font is subset, so every fa-* class used must be mapped in oet-icons.css
+{
+  const mapped = new Set([...readFileSync(path.join(ROOT, 'assets/css/oet-icons.css'), 'utf8').matchAll(/\.(fa-[a-z0-9-]+):+before/g)].map((m) => m[1]));
+  const STYLE = new Set(['fa-solid', 'fa-regular', 'fa-brands', 'fa-fw', 'fa-spin', 'fa-lg', 'fa-xs', 'fa-sm', 'fa-2x']);
+  for (const [page, html] of Object.entries(distHtml)) {
+    for (const cls of new Set([...html.matchAll(/class="([^"]*\bfa-[^"]*)"/g)].flatMap((m) => m[1].match(/\bfa-[a-z0-9-]+/g)))) {
+      if (!STYLE.has(cls) && !mapped.has(cls)) fail(`${page}: icon ${cls} is not in the subset icon font (assets/css/oet-icons.css)`);
+    }
+  }
+}
+
+// hreflang: every alternate exists and links back; Arabic pages declare lang="ar"
+{
+  const toPage = (u) => { const rel = u.replace('https://oetwithdrhesham.co.uk/', ''); return rel === '' ? 'index.html' : rel.endsWith('/') ? rel + 'index.html' : rel; };
+  const alts = (html) => [...html.matchAll(/<link rel="alternate" hreflang="([a-zA-Z-]+)" href="([^"]+)"/g)].map((m) => ({ lang: m[1], href: m[2] }));
+  for (const [page, html] of Object.entries(distHtml)) {
+    if (page.startsWith('ar/') && !/<html lang="ar"/.test(html)) fail(`${page}: Arabic page must declare <html lang="ar">`);
+    for (const a of alts(html)) {
+      const target = distHtml[toPage(a.href)];
+      if (!target) fail(`${page}: hreflang ${a.lang} points to a page that is not built: ${a.href}`);
+      else if (!alts(target).some((b) => toPage(b.href) === page)) fail(`${page}: hreflang ${a.lang} target ${a.href} does not link back`);
+    }
+  }
+}
+
+// score calculator logic (assets/js/oet-score-calculator.js) — grade bands and regulator checks
+{
+  const sandbox = {};
+  sandbox.globalThis = sandbox;
+  vm.runInNewContext(readFileSync(path.join(ROOT, 'assets/js/oet-score-calculator.js'), 'utf8'), sandbox);
+  const calc = sandbox.OetScoreCalc;
+  const bands = [[500, 'A'], [450, 'A'], [440, 'B'], [350, 'B'], [340, 'C+'], [300, 'C+'], [290, 'C'], [200, 'C'], [190, 'D'], [100, 'D'], [90, 'E'], [0, 'E']];
+  for (const [s, g] of bands) if (calc.grade(s) !== g) fail(`score calculator: grade(${s}) should be ${g}, got ${calc.grade(s)}`);
+  const byName = (res, prefix) => res.find((r) => r.rule.name.startsWith(prefix));
+  const nurse = calc.check({ L: 350, R: 350, W: 300, S: 350 });
+  if (!byName(nurse, 'NMC').ok || byName(nurse, 'GMC').short.join() !== 'W') fail('score calculator: NMC/GMC check for L350 R350 W300 S350 is wrong');
+  if (byName(nurse, 'Ahpra').short.join() !== 'R,W,S') fail('score calculator: Ahpra 2026 minimums (L350 R360 W350 S360) not applied');
 }
 
 // page-level: exactly one JSON-LD block on schema-heavy pages (no duplicates)

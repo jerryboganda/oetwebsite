@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en" class="oet-live-site">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <script>
+      (function () {
+        try {
+          var m = window.matchMedia;
+          if (m && (
+            m('(max-width:1023.98px)').matches ||
+            m('(pointer:coarse)').matches ||
+            m('(hover:none)').matches ||
+            m('(prefers-reduced-motion:reduce)').matches
+          )) {
+            document.documentElement.classList.add('oet-lite-motion');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <script>
+      // Signed-in hint set by the learner app (shared-domain cookie oet_signed_in=1, no token or PII).
+      // Presentation only: swaps the header Login / Register CTA to My Dashboard, never gates anything.
+      // sync() is idempotent and runs: now (class before first paint), on DOMContentLoaded (the nav
+      // anchors exist and the deferred main.js has already cloned the nav into the mobile drawer; a
+      // clone copies whatever href it finds, and this pass fixes it), and on a bfcache restore
+      // (pageshow persisted) so Back after sign-in or sign-out never shows a stale CTA.
+      // The guest href is remembered in data-login-href the first time an anchor is seen.
+      (function () {
+        var d = document;
+        function sync() {
+          try {
+            var on = /(?:^|;\s*)oet_signed_in=1(?:;|$)/.test(d.cookie);
+            d.documentElement.classList.toggle('oet-signed-in', on);
+            d.querySelectorAll('a[data-dashboard-href]').forEach(function (a) {
+              if (!a.hasAttribute('data-login-href')) a.setAttribute('data-login-href', a.getAttribute('href'));
+              a.setAttribute('href', a.getAttribute(on ? 'data-dashboard-href' : 'data-login-href'));
+            });
+          } catch (e) {}
+        }
+        sync();
+        d.addEventListener('DOMContentLoaded', sync);
+        window.addEventListener('pageshow', function (e) { if (e.persisted) sync(); });
+      })();
+    </script>
+    <title>OET Test Dates 2026, Fees and Results Timeline | Dr Hesham</title>
+    <meta name="description" content="OET test dates 2026 for paper and computer, the full fee (AU$587), re-sit and rescheduling costs, booking deadlines and how fast results arrive.">
+    <link rel="canonical" href="https://oetwithdrhesham.co.uk/oet-test-dates-and-fees.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="OET with Dr Hesham">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:url" content="https://oetwithdrhesham.co.uk/oet-test-dates-and-fees.html">
+    <meta property="og:title" content="OET Test Dates 2026, Fees and Results Timeline | Dr Hesham">
+    <meta property="og:description" content="OET test dates 2026 for paper and computer, the full fee (AU$587), re-sit and rescheduling costs, booking deadlines and how fast results arrive.">
+    <meta property="og:image" content="https://oetwithdrhesham.co.uk/assets/img/og/og-tips.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="OET Test Dates 2026, Fees and Results">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OET Test Dates 2026, Fees and Results Timeline | Dr Hesham">
+    <meta name="twitter:description" content="OET test dates 2026 for paper and computer, the full fee (AU$587), re-sit and rescheduling costs, booking deadlines and how fast results arrive.">
+    <meta name="twitter:image" content="https://oetwithdrhesham.co.uk/assets/img/og/og-tips.png">
+
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="/assets/img/logo/fav-icon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/img/logo/fav-icon.png" type="image/png" sizes="256x256">
+    <link rel="shortcut icon" href="/assets/img/logo/fav-icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/img/logo/fav-icon.png" sizes="180x180">
+    <link rel="preload" href="/assets/fonts/mulish-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/cal-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/css/plugins/bootstrap.purged.min.css?v=611df7f04b">
+    
+    <link rel="stylesheet" href="/assets/css/oet-icons.css?v=fb6ca9f443">
+    <link rel="stylesheet" href="/assets/css/plugins/sal.css?v=52a59aec6a">
+    <link rel="stylesheet" href="/assets/css/style.min.css?v=46ff65fd86">
+    <link rel="stylesheet" href="/assets/css/oet-common.css?v=1ec4091855">
+    <link rel="stylesheet" href="/assets/css/oet-mobile.css?v=001ef98c95">
+    <link rel="stylesheet" href="/assets/css/oet-cookie-consent.css?v=3db5a4831a">
+    <link rel="stylesheet" href="/assets/css/oet-polish.css?v=6043093a82">
+    
+    <link rel="stylesheet" href="/assets/css/oet-pathway.css?v=ff5d90a514">
+<style>
+@media (max-width: 767px) {
+  .oet-resource-hero .oet-tips-hero-copy[data-sal], .oet-resource-hero .oet-tips-hero-copy [data-sal], .oet-resource-hero .oet-tips-hero-panel[data-sal] { opacity: 1 !important;
+                transform: none !important; }
+}
+</style>
+    <style>
+.oet-final-cta-icon { display: grid !important;
+            place-items: center !important;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px !important;
+            font-weight: 900;
+            line-height: 1 !important;
+            color: #ffffff !important; }
+</style>
+    <link rel="stylesheet" href="/assets/css/oet-resource.css?v=25be2015b5">
+    <style>
+@media (min-width: 1200px) {
+  .oet-skill-hero { padding-top: 240px !important; }
+}
+</style>
+
+<style>
+.oet-resource-section .pathway-table-wrap { overflow-x: auto; }
+.oet-resource-section .pathway-table a, .oet-resource-section .oet-resource-heading a, .oet-dates-note a { color: #5b3ff1; font-weight: 700; }
+.oet-dates-note { background: #fff8e6; border: 1px solid #f4d48a; border-radius: 14px; color: #5c4a14; font-size: 14px; line-height: 1.6; margin-top: 18px; padding: 12px 16px; }
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://oetwithdrhesham.co.uk/oet-test-dates-and-fees.html#webpage",
+   "url": "https://oetwithdrhesham.co.uk/oet-test-dates-and-fees.html",
+   "name": "OET Test Dates 2026, Fees and Results Timeline | Dr Hesham",
+   "description": "OET test dates 2026 for paper and computer, the full fee (AU$587), re-sit and rescheduling costs, booking deadlines and how fast results arrive.",
+   "inLanguage": "en-GB",
+   "isPartOf": {
+    "@id": "https://oetwithdrhesham.co.uk/#website"
+   },
+   "dateModified": "2026-10-24",
+   "author": {
+    "@id": "https://oetwithdrhesham.co.uk/#drhesham"
+   }
+  },
+  {
+   "@type": "Article",
+   "headline": "OET Test Dates 2026, Fees and Results",
+   "description": "OET test dates 2026 for paper and computer, the full fee (AU$587), re-sit and rescheduling costs, booking deadlines and how fast results arrive.",
+   "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-tips.png",
+   "datePublished": "2026-10-24",
+   "dateModified": "2026-10-24",
+   "inLanguage": "en-GB",
+   "author": {
+    "@type": "Person",
+    "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+    "name": "Dr Ahmed Hesham",
+    "url": "https://oetwithdrhesham.co.uk/about.html"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "@id": "https://oetwithdrhesham.co.uk/#organization",
+    "name": "OET with Dr Hesham",
+    "logo": {
+     "@type": "ImageObject",
+     "url": "https://oetwithdrhesham.co.uk/assets/img/logo/platform-logo.png"
+    }
+   },
+   "mainEntityOfPage": "https://oetwithdrhesham.co.uk/oet-test-dates-and-fees.html"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://oetwithdrhesham.co.uk/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "OET Tips",
+     "item": "https://oetwithdrhesham.co.uk/oet-tips.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "OET Test Dates and Fees",
+     "item": "https://oetwithdrhesham.co.uk/oet-test-dates-and-fees.html"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "When are the OET test dates in 2026?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "OET on paper runs on fixed Saturdays roughly every two weeks, with an Americas session on the Friday before each one. OET on Computer runs on many more dates, often Monday to Saturday in most weeks, depending on your country. The last 2026 paper sessions are Friday 18 December (Americas) and Saturday 19 December (Global)."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How much does the OET exam cost?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The full OET test costs AU$587 in every mode. In the USA, OET on Computer and OET@Home cost US$455. A paper re-sit of one, two or three sub-tests costs AU$315, AU$415 or AU$515 after a full test, but not in the USA."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How long do OET results take?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Computer and OET@Home results can arrive in as little as 48 hours, and 95% are released within 6 calendar days. Paper results arrive from 13 days after the test, or from 5 days in India and the Philippines. OET describes these timeframes as indicative."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Are the 2027 OET test dates available?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not yet. As of 24 October 2026, OET has not published any 2027 test dates. Check the official booking page, which lists each date with its booking deadline and results date."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I retake only one OET sub-test?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Only on paper, only after a full OET test, and not in the USA. Many regulators will not accept it: the NMC, Ahpra, the Medical Council of New Zealand and ECFMG all need all four sub-tests in each sitting."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+
+</head>
+<body class="oet-live-site oet-resource-page">
+    <a class="oet-skip-link" data-lenis-ignore-anchor href="#main-content">Skip to main content</a>
+<!--================= Header section start =================-->
+    <header>
+        <div id="vl-header-sticky" class="vl-header-area vl-transparent-header">
+            <!-- header top ribbon -->
+            <div class="vl-header-top-area d-none d-xl-block">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="vl-header-top-text">
+                                <span class="vl-header-top-badge"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Free OET Prep for Doctors &amp; Nurses</span>
+                                <a class="oet-community-cta" href="#oet-community-popup" aria-label="Join Free Community!" aria-haspopup="dialog" aria-controls="oet-community-popup">
+                                    <span class="oet-community-cta__sizer" aria-hidden="true"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Join Free Community!</span>
+                                    <span class="oet-community-cta__content" aria-hidden="true">
+                                        <span class="oet-community-cta__text"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Join Free Community!</span>
+                                        <span class="oet-community-cta__cursor">|</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- header top icon list -->
+                            <div class="header-top">
+                                <ul>
+                                    <li><a href="mailto:support@oetwithdrhesham.co.uk"><span class="header-top-icon"><i class="fa-regular fa-envelope" aria-hidden="true"></i></span><span>support@oetwithdrhesham.co.uk</span></a></li>
+                                    <li><a href="tel:+447961725989"><span class="header-top-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span><span>+44 7961 725989</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vl-header-main-area">
+                <div class="container">
+                    <div class="header-border-bottom">
+                        <div class="row align-items-center">
+                            <div class="col-xl-2 col-md-6 col-6">
+                                <div class="vl-logo">
+                                    <a href="/" title="OET with Dr Hesham | The Pathway to UK" aria-label="OET with Dr Hesham Homepage"><img width="320" height="90" decoding="async" src="/assets/img/logo/platform-logo.webp" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-7 d-none d-xl-block">
+                                <div class="vl-main-menu text-center">
+                                    <nav class="vl-mobile-menu-active" aria-label="Main navigation">
+                                        <ul>
+                                            <li class="has-dropdown"><a href="/about.html">About <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="/about.html"><span class="submenu-icon"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></span><span class="submenu-text">About Dr. Hesham</span></a></li>
+                                                    <li><a href="https://www.youtube.com/watch?v=kL91eG32Uok" data-youtube-url="https://www.youtube.com/watch?v=kL91eG32Uok" data-oet-inline-video="true" class="popup-video" aria-label="Play Why OET video" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span><span class="submenu-text">Why OET</span></a></li>
+                                                    <li><a href="/teaching-approach.html"><span class="submenu-icon"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i></span><span class="submenu-text">Teaching Approach</span></a></li>
+                                                    <li><a href="/oet-writing-correction.html"><span class="submenu-icon"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i></span><span class="submenu-text">Writing Corrections</span></a></li>
+                                                    <li><a href="/pricing.html"><span class="submenu-icon"><i class="fa-solid fa-tags" aria-hidden="true"></i></span><span class="submenu-text">Packages &amp; Offers</span></a></li>
+                                                    <li><a href="/success-stories.html"><span class="submenu-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span><span class="submenu-text">Success Stories</span></a></li>
+                                                    <li><a href="/faq.html"><span class="submenu-icon"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span><span class="submenu-text">FAQ</span></a></li>
+                                                    <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span><span class="submenu-text">Telegram Materials</span></a></li>
+                                                    <li class="has-dropdown"><a href="#"><span class="submenu-icon"><i class="fa-solid fa-route" aria-hidden="true"></i></span><span class="submenu-text">Pathway Guidelines</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                        <ul class="sub-menu">
+                                                            <li><a href="/uk-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-flag" aria-hidden="true"></i></span><span class="submenu-text">UK Pathway Guide</span></a></li>
+                                                            <li><a href="/usa-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span><span class="submenu-text">USA Pathway Guide</span></a></li>
+                                                            <li><a href="/australia-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-earth-oceania" aria-hidden="true"></i></span><span class="submenu-text">Australia Pathway Guide</span></a></li>
+                                                            <li><a href="/gulf-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-compass" aria-hidden="true"></i></span><span class="submenu-text">Gulf Pathway Guide</span></a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><a class="oet-pricing-nav-link" href="/pricing.html">Pricing</a></li><li><a class="oet-pricing-nav-link" href="/pricing.html#download-app">Download App</a></li>
+                                        <li class="has-dropdown"><a href="/service.html">OET Courses <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                            <ul class="sub-menu">
+                                               <li><a href="/oet-course-for-nurses.html"><span class="submenu-icon"><i class="fa-solid fa-notes-medical" aria-hidden="true"></i></span><span class="submenu-text">OET for Nurses</span></a></li>
+                                               <li><a href="/oet-course-for-doctors.html"><span class="submenu-icon"><i class="fa-solid fa-stethoscope" aria-hidden="true"></i></span><span class="submenu-text">OET for Doctors</span></a></li>
+                                               <li><a href="/oet-writing-correction.html"><span class="submenu-icon"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i></span><span class="submenu-text">Writing Correction</span></a></li>
+                                               <li><a href="/ar/" lang="ar"><span class="submenu-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span><span class="submenu-text">OET بالعربية</span></a></li>
+                                               <li><a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation.%20%5Bpage%3A%20oet-test-dates-and-fees%5D" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-pills" aria-hidden="true"></i></span><span class="submenu-text">Pharmacist OET</span></a></li>
+                                               <li><a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation.%20%5Bpage%3A%20oet-test-dates-and-fees%5D" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-person-walking" aria-hidden="true"></i></span><span class="submenu-text">Physiotherapy OET</span></a></li>
+                                               <li><a href="/pricing.html"><span class="submenu-icon"><i class="fa-solid fa-box-open" aria-hidden="true"></i></span><span class="submenu-text">OET Packages</span></a></li>
+                                            </ul>
+                                        </li>
+                                        
+                                        <li class="has-dropdown"><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">Free Resources <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                            <ul class="sub-menu">
+                                               <li class="has-dropdown"><a href="/oet-tips.html"><span class="submenu-icon"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></span><span class="submenu-text">OET Tips</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                   <ul class="sub-menu">
+                                                       <li><a href="/oet-writing-tips.html"><span class="submenu-icon"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></span><span class="submenu-text">Writing Tips</span></a></li>
+                                                       <li><a href="/oet-reading-tips.html"><span class="submenu-icon"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i></span><span class="submenu-text">Reading Tips</span></a></li>
+                                                       <li><a href="/oet-listening-tips.html"><span class="submenu-icon"><i class="fa-solid fa-headphones" aria-hidden="true"></i></span><span class="submenu-text">Listening Tips</span></a></li>
+                                                       <li><a href="/oet-speaking-tips.html"><span class="submenu-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span><span class="submenu-text">Speaking Tips</span></a></li>
+                                                   </ul>
+                                               </li>
+                                               <li class="has-dropdown"><a href="/oet-score-requirements.html"><span class="submenu-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><span class="submenu-text">OET Exam Guide</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                   <ul class="sub-menu">
+                                                       <li><a href="/oet-score-calculator.html"><span class="submenu-icon"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></span><span class="submenu-text">OET Score Calculator</span></a></li>
+                                                       <li><a href="/oet-score-requirements.html"><span class="submenu-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><span class="submenu-text">Score Requirements</span></a></li>
+                                                       <li><a href="/oet-test-dates-and-fees.html"><span class="submenu-icon"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></span><span class="submenu-text">Test Dates &amp; Fees</span></a></li>
+                                                       <li><a href="/oet-vs-ielts.html"><span class="submenu-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span><span class="submenu-text">OET vs IELTS</span></a></li>
+                                                       <li><a href="/oet-for-ecfmg.html"><span class="submenu-icon"><i class="fa-solid fa-flag" aria-hidden="true"></i></span><span class="submenu-text">OET for ECFMG</span></a></li>
+                                                       <li><a href="/oet-writing-sample-nursing.html"><span class="submenu-icon"><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i></span><span class="submenu-text">Writing Sample: Nursing</span></a></li>
+                                                       <li><a href="/oet-writing-sample-medicine.html"><span class="submenu-icon"><i class="fa-solid fa-file-waveform" aria-hidden="true"></i></span><span class="submenu-text">Writing Sample: Medicine</span></a></li>
+                                                       <li><a href="/oet-speaking-role-play-nursing.html"><span class="submenu-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span><span class="submenu-text">Speaking Role-Plays: Nursing</span></a></li>
+                                                       <li><a href="/oet-speaking-role-play-medicine.html"><span class="submenu-icon"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i></span><span class="submenu-text">Speaking Role-Plays: Medicine</span></a></li>
+                                                   </ul>
+                                               </li>
+                                               <li class="has-dropdown"><a href="/oet-materials-support.html"><span class="submenu-icon"><i class="fa-solid fa-folder-open" aria-hidden="true"></i></span><span class="submenu-text">Materials &amp; Support</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                   <ul class="sub-menu">
+                                                       <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span><span class="submenu-text">Telegram Materials</span></a></li>
+                                                       <li><a href="#oet-community-popup" class="oet-community-cta"><span class="submenu-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span><span class="submenu-text">Join Free Community</span></a></li>
+                                                       <li><a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation.%20%5Bpage%3A%20oet-test-dates-and-fees%5D" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><span class="submenu-text">WhatsApp Support</span></a></li>
+                                                   </ul>
+                                               </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="/english-placement-test">Free Placement Test</a></li>
+                                        <li><a href="/contact.html">Contact</a></li>
+                                        <li class="oet-nav-cta-item"><a class="oet-header-cta-btn" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F" data-dashboard-href="https://app.oetwithdrhesham.co.uk/"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span class="oet-auth-cta__guest">Login / Register</span><span class="oet-auth-cta__user">My Dashboard</span></a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-6">
+                            <div class="vl-header-right">
+                                <!-- header btn -->
+                                <div class="vl-header-search d-none d-xl-block">
+                                    <button type="button" class="oet-search-btn" aria-label="Search this site" aria-controls="vl-header-search" aria-expanded="false"><img aria-hidden="true" loading="lazy" decoding="async" class="vl-search-toggle" src="/assets/img/icon/vl-search-1.1.svg" alt=""></button>
+                                </div>
+                                <!-- header social area -->
+                                <div class="social-area social-area-headerTop d-none d-xl-block">
+                                    <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                                    <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                                    <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
+                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation.%20%5Bpage%3A%20oet-test-dates-and-fees%5D" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+                                    <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                                    <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+                                </div>
+                            </div>
+
+                            <!-- action btn -->
+                            <div class="vl-header-action-item d-block d-xl-none">
+                                <a class="oet-header-login" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F" data-dashboard-href="https://app.oetwithdrhesham.co.uk/"><span class="oet-auth-cta__guest">Login / Register</span><span class="oet-auth-cta__user">My Dashboard</span></a>
+                                <button type="button" class="vl-offcanvas-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="vl-offcanvas-menu">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" aria-hidden="true" focusable="false">
+                                        <path d="M1.5 2.5h21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M1.5 9h21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M1.5 15.5h21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!--================= Header section End =================-->
+
+
+    <!-- vl header search  -->
+    <div id="vl-header-search" class="vl-header-search-bar d-flex align-items-center">
+        <button class="vl-search-close" aria-label="Close search">&times;</button>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="vl-search-bar text-center">
+                        <h2 class="vl-search-bar-title mb-30">Search OET tips, writing, speaking, UK pathway</h2>
+                        <div class="contact-form-box contact-search-form-box">
+                            <form action="#">
+                                <input type="search" aria-label="Search this site" placeholder="Search OET preparation, writing, speaking...">
+                                <button type="submit"><i class="far fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- vl header search end -->
+
+    <!-- offcanvas menu start -->
+    <div id="vl-offcanvas-menu" class="vl-offcanvas">
+        <div class="vl-offcanvas-wrapper">
+            <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-50">
+                <div class="vl-offcanvas-logo">
+                    <a href="/" title="OET with Dr Hesham | The Pathway to UK"><img width="320" height="90" decoding="async" src="/assets/img/logo/platform-logo.webp" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                </div>
+                <div class="vl-offcanvas-close">
+                    <button class="vl-offcanvas-toggle" type="button" aria-label="Close menu"><span aria-hidden="true">&times;</span></button>
+                </div>
+            </div>
+
+            <div class="vl-offcanvas-menu d-lg-block mb-40">
+                <nav aria-label="Mobile navigation"></nav>
+            </div>
+            <div class="vl-offcanvas-info mb-40">
+                <h3 class="vl-offcanvas-sm-title mb-20">Contact &amp; Community</h3>
+                <a href="#oet-community-popup" class="oet-community-cta"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.1.svg" width="24" height="24" alt=""></span> Join Free Community</a>
+                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation.%20%5Bpage%3A%20oet-test-dates-and-fees%5D" target="_blank" rel="noopener noreferrer"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.3.svg" width="24" height="24" alt=""></span> WhatsApp Support</a>
+                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.2.svg" width="24" height="24" alt=""></span> Telegram Channel</a>
+            </div>
+
+            <div class="vl-offcanvas-social mb-40">
+                <h3 class="vl-offcanvas-sm-title mb-20">Follow the Journey</h3>
+                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fab fa-youtube"></i></a>
+                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fab fa-telegram"></i></a>
+                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation.%20%5Bpage%3A%20oet-test-dates-and-fees%5D" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+            </div>
+        </div>
+    </div>
+    <div class="vl-offcanvas-overlay"></div>
+
+    <!-- offcanvas menu end -->
+
+    <!--================= Header section End =================-->
+
+    
+    <main id="main-content" tabindex="-1">
+
+        <section class="oet-resource-hero oet-skill-hero">
+            <div class="container">
+                <nav class="oet-breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/oet-tips.html">OET Tips</a></li><li aria-current="page">OET Test Dates and Fees</li></ol></nav>
+                <div class="oet-tips-hero-grid">
+                    <div class="oet-tips-hero-copy" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out">
+                        <span class="oet-resource-eyebrow"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> OET exam guide</span>
+                        <h1 class="oet-resource-title text-effect">OET Test Dates 2026, Fees and Results</h1>
+                        <p class="oet-resource-lead">OET on paper runs on fixed Saturdays roughly every two weeks in 2026, with Americas sessions on the Friday before, and the last paper sessions are on 18 and 19 December. The full test costs AU$587 (US$455 for computer and OET@Home tests in the USA). Computer results can arrive in 48 hours; paper results take from 13 days.</p>
+                        <p class="oet-guide-meta">By <a href="/about.html">Dr Ahmed Hesham</a>, medical doctor and founder of OET with Dr Hesham &middot; Updated 24 October 2026</p>
+                        <div class="oet-resource-actions"><a class="oet-resource-btn" href="/english-placement-test">Start the free placement test <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><a class="oet-resource-btn oet-resource-btn--light" href="https://oet.com/test/book-a-test" target="_blank" rel="noopener noreferrer">Official date finder <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a><a class="oet-resource-btn oet-resource-btn--light" href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I%20need%20help%20choosing%20my%20OET%20test%20date.%20%5Bpage%3A%20oet-test-dates-and-fees%5D" target="_blank" rel="noopener noreferrer">Ask on WhatsApp <i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a></div>
+                    </div>
+                    <aside class="oet-tips-hero-panel" aria-label="OET 2026 key facts" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><span class="oet-tips-panel-kicker"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> 2026 at a glance</span><h2>Key dates and costs</h2><p>Checked against oet.com on 24 October 2026.</p><div class="oet-tips-roadmap"><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">AU$</span><div><strong>AU$587 full test</strong><span>US$455 for computer and OET@Home in the USA.</span></div></div><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">24</span><div><strong>Paper booking closes 24 days before</strong><span>Computer and OET@Home close 7 days before.</span></div></div><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">19</span><div><strong>Last paper date: 19 December</strong><span>Nursing and Medicine only; booking closes 25 November.</span></div></div></div></aside>
+                </div>
+            </div>
+        </section>
+        <nav class="oet-toc" aria-label="On this page"><div class="container"><span class="oet-toc-label">On this page</span><div class="oet-toc-links"><a href="#sec-modes">Test modes</a><a href="#sec-paper-dates">2026 dates</a><a href="#sec-remaining">Remaining dates</a><a href="#sec-fees">Fees</a><a href="#sec-changes">Changes</a><a href="#sec-results">Results</a><a href="#sec-plan">Choosing a date</a><a href="#sec-faq">FAQ</a></div></div></nav>
+        <section class="oet-resource-section" id="modes"><div class="container"><div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h2 id="sec-modes">Which OET test mode should you book?</h2><p>OET is delivered in three ways. The mode changes which professions you can book, how Speaking works, when bookings close and how fast results arrive.</p></div><div data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><div class="pathway-table-wrap"><table class="pathway-table"><thead><tr><th></th><th>OET on Paper</th><th>OET on Computer (venue)</th><th>OET@Home</th></tr></thead><tbody><tr><td>Professions</td><td>7: Medicine, Nursing, Dentistry, Pharmacy, Physiotherapy, Radiography, Veterinary Science</td><td>All 12 professions</td><td>All 12 professions</td></tr><tr><td>How it runs</td><td>All four sub-tests on the same day at the same venue</td><td>Listening, Reading and Writing at a venue on one day; Speaking usually online from home on a different day (at the venue in some countries)</td><td>Fully remote, proctored test; offered where venue testing is not yet available</td></tr><tr><td>Booking closes</td><td>24 days before the test</td><td>7 days before, at 11:59 pm UTC</td><td>7 days before, at 11:59 pm UTC</td></tr><tr><td>Results</td><td>From 13 days after the test (from 5 days in India and the Philippines)</td><td>In as little as 48 hours; 95% within 6 calendar days</td><td>In as little as 48 hours; 95% within 6 calendar days</td></tr><tr><td>Single sub-test re-sit</td><td>Yes, after a full test (not in the USA)</td><td>No</td><td>No</td></tr></tbody></table></div><p>Before you book OET@Home, check that your regulator accepts it. The <a href="https://www.nmc.org.uk/registration/joining-the-register/english-language-requirements/accepted-english-language-tests/oet/" target="_blank" rel="noopener noreferrer">NMC</a> and the <a href="https://www.gmc-uk.org/registration-and-licensing/join-our-registers/before-you-apply-guide-for-doctors/evidence-of-your-knowledge-of-english/using-your-oet-certificate" target="_blank" rel="noopener noreferrer">GMC</a> accept OET@Home. <a href="https://www.ahpra.gov.au/Registration/Registration-Standards/English-language-skills/Accepted-English-language-tests" target="_blank" rel="noopener noreferrer">Ahpra</a>, the <a href="https://www.hcpc-uk.org/registration/getting-on-the-register/international-applications/english-language-proficiency/" target="_blank" rel="noopener noreferrer">HCPC</a>, the <a href="https://assets.pharmacyregulation.org/files/2025-06/gphc-guidance-on-evidence-of-english-language-skills-june-2025_0.pdf" target="_blank" rel="noopener noreferrer">GPhC</a>, <a href="https://www.nmbi.ie/Registration/Qualified-outside-the-EU/Application-Process/English-Language-Requirements" target="_blank" rel="noopener noreferrer">NMBI</a>, the <a href="https://www.medicalcouncil.ie/registration-applications/first-time-applicants/english-language.html" target="_blank" rel="noopener noreferrer">Medical Council of Ireland</a>, the <a href="https://nursingcouncil.org.nz/IQN/IQN/H5.aspx" target="_blank" rel="noopener noreferrer">Nursing Council of New Zealand</a> and <a href="https://www.cgfns.org/faq/visascreen/applying-for-visascreen-visascreen-credentials-assessment/" target="_blank" rel="noopener noreferrer">CGFNS VisaScreen</a> do not. <a href="https://www.ecfmg.org/certification-pathways/oet.html" target="_blank" rel="noopener noreferrer">ECFMG</a> allows OET@Home only if there is no physical test venue in your country.</p><p>Sources: <a href="https://oet.com/test/oet-test-on-paper" target="_blank" rel="noopener noreferrer">OET on Paper</a>, <a href="https://oet.com/test/oet-test-on-computer" target="_blank" rel="noopener noreferrer">OET on Computer</a>, <a href="https://oet.com/test/oet-test-at-home" target="_blank" rel="noopener noreferrer">OET@Home</a>, <a href="https://oet.com/test/book-a-test" target="_blank" rel="noopener noreferrer">OET booking page</a>.</p></div></div></section>
+        <section class="oet-resource-section oet-resource-section--soft" id="paper-dates"><div class="container"><div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h2 id="sec-paper-dates">OET paper test dates 2026</h2><p>OET on paper runs on fixed dates. Global sessions are on Saturdays, about two a month, and Americas sessions are on the Friday before each Global date. Paper bookings close 24 days before the test, which falls on a Wednesday for Global sessions and a Tuesday for Americas sessions.</p></div><div data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><div class="pathway-table-wrap"><table class="pathway-table"><thead><tr><th>Month</th><th>Global sessions (Saturday)</th><th>Americas sessions (Friday)</th></tr></thead><tbody><tr><td>January</td><td>Sat 10 Jan and Sat 24 Jan</td><td>Fri 9 Jan and Fri 23 Jan</td></tr><tr><td>February</td><td>Sat 7 Feb and Sat 21 Feb</td><td>Fri 6 Feb and Fri 20 Feb</td></tr><tr><td>March</td><td>Sat 7 Mar and Sat 28 Mar</td><td>Fri 6 Mar and Fri 27 Mar</td></tr><tr><td>April</td><td>Sat 11 Apr and Sat 25 Apr</td><td>Fri 10 Apr and Fri 24 Apr</td></tr><tr><td>May</td><td>Sat 9 May and Sat 23 May</td><td>Fri 8 May and Fri 22 May</td></tr><tr><td>June</td><td>Sat 13 Jun and Sat 27 Jun</td><td>Fri 12 Jun and Fri 26 Jun</td></tr><tr><td>July</td><td>Sat 11 Jul and Sat 25 Jul</td><td>Fri 10 Jul and Fri 24 Jul</td></tr><tr><td>August</td><td>Sat 8 Aug and Sat 22 Aug</td><td>Fri 7 Aug and Fri 21 Aug</td></tr><tr><td>September</td><td>Sat 5 Sep and Sat 19 Sep</td><td>Fri 4 Sep and Fri 18 Sep</td></tr><tr><td>October</td><td>Sat 3 Oct and Sat 17 Oct</td><td>Fri 2 Oct and Fri 16 Oct</td></tr><tr><td>November</td><td>Sat 7 Nov and Sat 21 Nov</td><td>Fri 6 Nov and Fri 20 Nov</td></tr><tr><td>December</td><td>Sat 5 Dec and Sat 19 Dec</td><td>Fri 4 Dec and Fri 18 Dec</td></tr></tbody></table></div><p>Sessions alternate between dates open to all seven paper professions and dates for Nursing and Medicine only. The 19 December 2026 session is Nursing and Medicine only. Check each date in the <a href="https://oet.com/test/book-a-test" target="_blank" rel="noopener noreferrer">official date finder</a> before you plan around it.</p><div class="oet-dates-note"><strong>Checked against oet.com on 24 October 2026.</strong> Dates and fees can change — confirm on the <a href="https://oet.com/test/book-a-test" target="_blank" rel="noopener noreferrer">official booking page</a>.</div></div></div></section>
+        <section class="oet-resource-section" id="remaining"><div class="container"><div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h2 id="sec-remaining">Remaining OET paper dates in 2026</h2><p>These are the last Global paper sessions of 2026, with booking deadlines worked out from OET's 24-day closing rule.</p></div><div data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><div class="pathway-table-wrap"><table class="pathway-table"><thead><tr><th>Global session</th><th>Booking closes</th><th>Notes</th></tr></thead><tbody><tr><td>Sat 7 Nov 2026</td><td>Wed 14 Oct (already closed)</td><td>Check professions in the official finder</td></tr><tr><td>Sat 21 Nov 2026</td><td>Wed 28 Oct</td><td>Check professions in the official finder</td></tr><tr><td>Sat 5 Dec 2026</td><td>Wed 11 Nov</td><td>Check professions in the official finder</td></tr><tr><td>Sat 19 Dec 2026</td><td>Wed 25 Nov</td><td>Nursing and Medicine only; results Tue 5 Jan 2027</td></tr></tbody></table></div><p>The matching Americas session is the day before each date. The last one is Friday 18 December 2026: bookings close on Tuesday 24 November and results are due on 5 January 2027. Both December sessions are the final chance in 2026 to sit OET on paper.</p></div></div></section>
+        <section class="oet-resource-section oet-resource-section--soft" id="computer-dates"><div class="container"><div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h2 id="sec-computer-dates">OET on Computer and OET@Home dates</h2></div><div data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><p>OET on Computer does not follow the paper calendar. In the computer dates we checked on OET's booking page (March to July 2026), Global computer sessions ran from Monday to Saturday in most weeks, with a few weeks that had none. All 12 professions were available, and each date showed a results date, usually the Friday of the following week.</p><p>Computer and OET@Home bookings close 7 days before the test at 11:59 pm UTC, so you can book much closer to your exam than on paper. Dates and venues vary by country. Use the <a href="https://oet.com/test/book-a-test" target="_blank" rel="noopener noreferrer">official OET date finder</a> to see what is available where you live.</p></div></div></section>
+        <section class="oet-resource-section" id="dates-2027"><div class="container"><div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h2 id="sec-2027">OET test dates 2027</h2></div><div data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><p>As of 24 October 2026, OET has not published any 2027 test dates or a 2027 date pattern. We will not guess them. When OET releases them, they will appear on the <a href="https://oet.com/test/book-a-test" target="_blank" rel="noopener noreferrer">official booking page</a> with their booking deadlines and results dates. If you are applying for the 2027 Match, see <a href="/oet-for-ecfmg.html">OET for ECFMG</a>: ECFMG asks candidates to sit OET Medicine on or before the last scheduled date in December 2026.</p></div></div></section>
+        <section class="oet-resource-section oet-resource-section--soft" id="fees"><div class="container"><div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h2 id="sec-fees">How much does OET cost in 2026?</h2><p>The full OET test costs AU$587 in every mode. Candidates in the USA pay US$455 for OET on Computer at a venue or OET@Home.</p></div><div data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><div class="pathway-table-wrap"><table class="pathway-table"><thead><tr><th>Item</th><th>Fee</th><th>Conditions</th></tr></thead><tbody><tr><td>Full OET test (all four sub-tests)</td><td>AU$587</td><td>Paper, computer and OET@Home</td></tr><tr><td>Full test in the USA (computer or OET@Home)</td><td>US$455</td><td>OET on Computer at a venue and OET@Home in the US</td></tr><tr><td>Re-sit 1 sub-test</td><td>AU$315</td><td>Paper only, after a full test, not in the USA; includes the online booking fee</td></tr><tr><td>Re-sit 2 sub-tests</td><td>AU$415</td><td>Same conditions</td></tr><tr><td>Re-sit 3 sub-tests</td><td>AU$515</td><td>Same conditions</td></tr><tr><td>Re-marking (per sub-test)</td><td>AU$120 (US$95 in the US)</td><td>Request within 72 hours of results; refunded if your grade changes</td></tr></tbody></table></div><p>A single sub-test re-sit is cheaper, but it only helps if your regulator accepts it. The <a href="https://www.nmc.org.uk/registration/joining-the-register/english-language-requirements/accepted-english-language-tests/" target="_blank" rel="noopener noreferrer">NMC</a>, <a href="https://www.ahpra.gov.au/Registration/Registration-Standards/English-language-skills/Accepted-English-language-tests" target="_blank" rel="noopener noreferrer">Ahpra</a>, the <a href="https://www.mcnz.org.nz/assets/Policies/English-language-policy.pdf" target="_blank" rel="noopener noreferrer">Medical Council of New Zealand</a> and <a href="https://www.ecfmg.org/certification-pathways/oet.html" target="_blank" rel="noopener noreferrer">ECFMG</a> all require all four sub-tests in each sitting. Sources: <a href="https://support.oet.com/articles/Knowledge/How-much-does-OET-cost" target="_blank" rel="noopener noreferrer">OET fees</a>, <a href="https://oet.com/remarking-policy" target="_blank" rel="noopener noreferrer">OET re-marking policy</a>.</p></div></div></section>
+        <section class="oet-resource-section" id="changes"><div class="container"><div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h2 id="sec-changes">Rescheduling and cancellation fees</h2><p>Changing your booking costs less the earlier you do it. These are the fees in OET's test regulations.</p></div><div data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><div class="pathway-table-wrap"><table class="pathway-table"><thead><tr><th>Change</th><th>Fee</th><th>Rules</th></tr></thead><tbody><tr><td>Reschedule (paper)</td><td>AU$120 / AU$200</td><td>AU$120 up to the booking closing date; AU$200 after it, up to the day before the test. No rescheduling after 11:59 pm local time on the day before.</td></tr><tr><td>Reschedule (computer or OET@Home)</td><td>AU$120 / AU$200</td><td>AU$120 up to booking close; AU$200 after booking close. In the US: US$95 up to 7 days before, US$155 later.</td></tr><tr><td>Reschedule Speaking only (computer or OET@Home)</td><td>AU$30 / AU$100</td><td>AU$30 within the same test administration; AU$100 later, including a missed Speaking reported within 24 hours. Once only. US$25 in the US.</td></tr><tr><td>Cancel (computer or OET@Home)</td><td>AU$120 / AU$200</td><td>AU$120 before booking close; AU$200 after, up to 48 hours before the start. No cancellation once any sub-test has been taken.</td></tr><tr><td>Cancel (paper)</td><td>AU$120 / AU$200</td><td>AU$120 before booking close; AU$200 after. Allowed up to one week before the test day; no partial cancellation.</td></tr></tbody></table></div><p>Sources: <a href="https://oet.com/test-regulations" target="_blank" rel="noopener noreferrer">OET Test Regulations</a>, <a href="https://oet.com/test/book-a-test/manage-your-booking" target="_blank" rel="noopener noreferrer">Manage your booking</a>.</p></div></div></section>
+        <section class="oet-resource-section oet-resource-section--soft" id="results"><div class="container"><div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h2 id="sec-results">When do OET results come out?</h2><p>OET reports each sub-test separately on a scale from 0 to 500. There is no overall OET score or grade.</p></div><div data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><ul><li><strong>Computer and OET@Home:</strong> results in as little as 48 hours after you finish all four sub-tests, and 95% within 6 calendar days.</li><li><strong>Paper:</strong> from 13 days after the test date, or from 5 days in India and the Philippines.</li><li><strong>Doctors applying to ECFMG:</strong> ECFMG says OET Medicine results are typically released 10 business days after the test.</li></ul><p>OET describes all timeframes as indicative. OET itself sets no validity period for results: each regulator decides how long it accepts them, so check the <a href="/oet-score-requirements.html">OET score requirements</a> for your destination. To see which grade each score gives, use the <a href="/oet-score-calculator.html">OET score calculator</a>.</p></div></div></section>
+        <section class="oet-resource-section" id="plan"><div class="container"><div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h2 id="sec-plan">How to choose your OET test date</h2><p>Work backwards from the date your regulator or employer needs your result, then add time for preparation and a possible re-sit.</p></div><div data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><div class="oet-resource-grid"><div class="oet-resource-card"><div class="oet-resource-icon"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i></div><h3>Start from your deadline</h3><p>Find the date your regulator, employer or ECFMG must receive your scores, then count back the results time for your mode.</p></div><div class="oet-resource-card"><div class="oet-resource-icon"><i class="fa-solid fa-stopwatch" aria-hidden="true"></i></div><h3>Book 6 to 10 weeks ahead</h3><p>Our advice: this gives you a firm target for preparation and protects you from paper booking closing 24 days before the test.</p></div><div class="oet-resource-card"><div class="oet-resource-icon"><i class="fa-solid fa-desktop" aria-hidden="true"></i></div><h3>Need results fast?</h3><p>OET on Computer gives the quickest results and closes bookings only 7 days before, which helps when a deadline is close.</p></div><div class="oet-resource-card"><div class="oet-resource-icon"><i class="fa-solid fa-shield-check" aria-hidden="true"></i></div><h3>Check the mode is accepted</h3><p>Do not book OET@Home unless your regulator accepts it. Ahpra, NMBI, the GPhC and the HCPC do not.</p></div><div class="oet-resource-card"><div class="oet-resource-icon"><i class="fa-solid fa-repeat" aria-hidden="true"></i></div><h3>Leave room for a re-sit</h3><p>If your regulator needs all four sub-tests in one sitting, plan a second full test date in case one sub-test falls short.</p></div><div class="oet-resource-card"><div class="oet-resource-icon"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></div><h3>Applying for the 2027 Match?</h3><p>Sit OET Medicine by the last December 2026 date. ECFMG must receive your scores by 31 January 2027. <a href="/oet-for-ecfmg.html">OET for ECFMG</a>.</p></div></div><p>Not sure you are ready for the date you want? Take the <a href="/english-placement-test">free placement test</a>, then follow the <a href="/oet-course-for-nurses.html">OET course for nurses</a> or the <a href="/oet-course-for-doctors.html">OET course for doctors</a>.</p></div></div></section>
+        <section class="oet-resource-section" id="faq"><div class="container"><div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h2 id="sec-faq">OET test dates and fees FAQ</h2><p>Short answers to the questions candidates ask before booking. More exam questions are on the <a href="/faq.html">full OET FAQ page</a>.</p></div><div class="oet-faq-item" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h3>When are the OET test dates in 2026?</h3><p>OET on paper runs on fixed Saturdays roughly every two weeks, with an Americas session on the Friday before each one. OET on Computer runs on many more dates, often Monday to Saturday in most weeks, depending on your country. The last 2026 paper sessions are Friday 18 December (Americas) and Saturday 19 December (Global).</p></div><div class="oet-faq-item" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h3>How much does the OET exam cost?</h3><p>The full OET test costs AU$587 in every mode. In the USA, OET on Computer and OET@Home cost US$455. A paper re-sit of one, two or three sub-tests costs AU$315, AU$415 or AU$515 after a full test, but not in the USA.</p></div><div class="oet-faq-item" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h3>How long do OET results take?</h3><p>Computer and OET@Home results can arrive in as little as 48 hours, and 95% are released within 6 calendar days. Paper results arrive from 13 days after the test, or from 5 days in India and the Philippines. OET describes these timeframes as indicative.</p></div><div class="oet-faq-item" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h3>Are the 2027 OET test dates available?</h3><p>Not yet. As of 24 October 2026, OET has not published any 2027 test dates. Check the official booking page, which lists each date with its booking deadline and results date.</p></div><div class="oet-faq-item" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h3>Can I retake only one OET sub-test?</h3><p>Only on paper, only after a full OET test, and not in the USA. Many regulators will not accept it: the NMC, Ahpra, the Medical Council of New Zealand and ECFMG all need all four sub-tests in each sitting.</p></div></div></section>
+        <section class="oet-resource-cta oet-skill-final-cta"><div class="container"><div class="oet-final-cta-grid" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><div class="oet-final-cta-copy"><span class="oet-final-cta-badge"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Before you book</span><h2>Book the date you can actually pass on</h2><p>Check your level with the free placement test, then plan your preparation backwards from your OET date.</p><div class="oet-resource-actions"><a class="oet-resource-btn oet-resource-btn--light" href="/english-placement-test">Start the free placement test <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><a class="oet-resource-btn oet-resource-btn--light" href="/service.html">See OET courses <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></a></div></div><aside class="oet-final-cta-panel" aria-label="Recommended next steps"><h3>Recommended next steps</h3><div class="oet-final-cta-list"><div class="oet-final-cta-item"><span class="oet-final-cta-icon">01</span><div><strong>Check your level</strong><span>Free placement test across all four skills.</span></div></div><div class="oet-final-cta-item"><span class="oet-final-cta-icon">02</span><div><strong>Pick your date</strong><span>Use the official finder and your regulator's deadline.</span></div></div><div class="oet-final-cta-item"><span class="oet-final-cta-icon">03</span><div><strong>Prepare with feedback</strong><span>Letters and role-plays corrected before exam day.</span></div></div></div><p class="oet-final-cta-note">Educational guidance only. Always confirm dates, fees and score rules on the official OET and regulator pages.</p></aside></div></div></section>
+        <section class="oet-related" aria-label="Related guides"><div class="container"><h2 class="oet-related-title">Keep exploring</h2><div class="oet-related-grid"><a class="oet-related-card" href="/oet-score-requirements.html"><span class="oet-related-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Score Requirements</strong><span>The score each regulator asks for, with official links.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-score-calculator.html"><span class="oet-related-icon"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Score Calculator</strong><span>Check your grades against NMC, GMC and ECFMG minimums.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-for-ecfmg.html"><span class="oet-related-icon"><i class="fa-solid fa-flag" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET for ECFMG</strong><span>Scores and deadlines for the 2027 Match.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-course-for-nurses.html"><span class="oet-related-icon"><i class="fa-solid fa-notes-medical" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Course for Nurses</strong><span>Recorded nursing course, letter correction and 1:1 Speaking.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a></div></div></section>
+</main>
+
+<!--================= Footer section start =================-->
+    <footer class="vl-footer-10 fix vkl-gray-bg-19 pt-60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-4 col-md-6 mb-30">
+                            <!-- footer widget 1 -->
+                            <div class="vl-footer-widget-1">
+                                <div class="vl-footer-logo">
+                                    <a href="/"><img width="320" height="90" loading="lazy" decoding="async" src="/assets/img/logo/footer-logo.webp" alt="OET with Dr Hesham"></a>
+                                </div>
+                                <div class="vl-footer-content vl-footer-content-6">
+                                    <p class="para pt-16 pb-24">We help nurses, doctors, pharmacists, and allied health professionals prepare for OET with practical guidance, focused feedback, and clear UK pathway support.</p>
+                                </div>
+
+                                <!-- social area -->
+                                <div class="social-area-footer-10">
+                                    <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram"></i></a>
+                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation.%20%5Bpage%3A%20oet-test-dates-and-fees%5D" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp"></i></a>
+                                    <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                                    <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-md-6 mb-30">
+                            <div class="vl-footer-widget-2 vl-footer-widget-2-10">
+                                <h3 class="vl-footer-widget-title vl-footer-widget-title-6 mb-30">Support</h3>
+                                <div class="vl-footer-menu vl-footer-menu-10">
+                                    <ul>
+                                        <li><a href="/about.html">About Dr. Hesham</a></li>
+                                        <li><a href="/teaching-approach.html">Teaching Approach</a></li>
+                                        <li><a href="https://www.youtube.com/watch?v=hlD1BXfijWs" data-youtube-url="https://www.youtube.com/watch?v=hlD1BXfijWs" data-oet-inline-video="true" target="_blank" rel="noopener noreferrer">OET Programs</a></li>
+                                        <li><a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation.%20%5Bpage%3A%20oet-test-dates-and-fees%5D" target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
+                                        <li><a href="mailto:support@oetwithdrhesham.co.uk">Email Support</a></li>
+                                        <li><a href="/faq.html">FAQ</a></li>
+                                        <li><a href="/contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-md-6 mb-30">
+                            <div class="vl-footer-widget-3 vl-footer-widget-3-10">
+                                <h3 class="vl-footer-widget-title vl-footer-widget-title-6 mb-30">Top Links</h3>
+                                <div class="vl-footer-menu vl-footer-menu-10">
+                                    <ul>
+
+                                        <li><a href="/service.html">OET Courses</a></li>
+                                        <li><a href="/oet-course-for-nurses.html">OET Course for Nurses</a></li>
+                                        <li><a href="/oet-course-for-doctors.html">OET Course for Doctors</a></li>
+                                        <li><a href="/oet-writing-correction.html">OET Writing Correction</a></li>
+                                        <li><a href="/oet-score-calculator.html">OET Score Calculator</a></li>
+                                        <li><a href="/oet-score-requirements.html">OET Score Requirements</a></li>
+                                        <li><a href="/ar/" lang="ar">كورس OET بالعربية</a></li>
+                                        <li><a href="/pricing.html">Pricing</a></li><li><a href="/pricing.html#download-app">Download Candidates App</a></li>
+
+                                        <li><a href="/oet-materials-support.html">Free Resources</a></li>
+
+                                        <li><a href="/oet-speaking-tips.html">Speaking Tips</a></li>
+
+                                        <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">Telegram Materials</a></li>
+
+                                        <li><a href="/success-stories.html">Success Stories</a></li>
+                                        <li><a href="/uk-pathway-guide.html">UK Pathway Guide</a></li>
+                                        <li><a href="/usa-pathway-guide.html">USA Pathway Guide</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 mb-30">
+                            <!-- footer widget 4 -->
+                            <div class="vl-footer-widget-4 vl-footer-widget-4-10">
+                                <h3 class="vl-footer-widget-title vl-footer-widget-title-6 mb-30">Subscribe for OET Updates</h3>
+                                <!-- Newslater -->
+                                <div class="vl-footer-newslate10 oet-footer-updates">
+                                        <p class="oet-updates-copy">Free tips, live class alerts and course updates &mdash; straight from Dr Hesham.</p>
+                                        <div class="oet-footer-subscribe-buttons">
+                                            <a class="oet-footer-btn oet-footer-btn--telegram" href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">
+                                                <span class="oet-footer-btn__icon"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span>
+                                                <span class="oet-footer-btn__text">Join Telegram Channel</span>
+                                            </a>
+                                            <a class="oet-footer-btn oet-footer-btn--youtube" href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer">
+                                                <span class="oet-footer-btn__icon"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                                                <span class="oet-footer-btn__text">Subscribe on YouTube</span>
+                                            </a>
+                                            <a class="oet-footer-btn oet-footer-btn--facebook" href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer">
+                                                <span class="oet-footer-btn__icon"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span>
+                                                <span class="oet-footer-btn__text">Join Facebook Community</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="vl-copy-righ1t vl-copy-righ1t-10">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 mb-30">
+                                    <div class="vl-footer-copy-right-widget vl-footer-copy-right-widget-6">
+                                        <p class="para">&copy; Copyright 2026 - OET with Dr Hesham. All Rights Reserved</p>
+                                        <p class="para oet-footer-company-support">OET with Dr Hesham is a digital education platform supported by ProHealth Digital LLC, Wyoming, USA.</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 mb-30">
+                                    <div class="vl-copy-right-menu vl-copy-right-menu-10">
+                                        <ul aria-label="Legal">
+                                            <li><strong>Legal</strong></li>
+                                            <li><a href="/terms/">Terms &amp; Conditions</a></li>
+                                            <li><a href="/privacy/">Privacy Policy</a></li>
+                                            <li><a href="/refund-policy/">Refund Policy</a></li>
+                                            <li><a href="/cookie-policy/">Cookie Policy</a></li>
+                                            <li><a href="#" onclick="oetCookieSettings();return false;">Cookie settings</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+<!--================= Footer section End =================-->
+
+
+    <!-- js file -->
+
+    <!-- jquery js-->
+<!-- gsap js-->
+<!-- scrollTrigger js-->
+<!-- fontawesome -->
+<!-- counter js -->
+<!-- waypoints js-->
+<!-- sal js-->
+    <script defer src="/assets/js/plugins/sal.min.js?v=3ff9a5f201"></script>
+    <!-- ScrollSmoother js -->
+    <script defer src="/assets/js/plugins/lenis.min.js?v=98598577bb"></script>
+<!-- Custom js -->
+<script defer src="/assets/js/main.js?v=29bce9557d"></script>
+
+    
+
+
+    
+
+
+
+
+    
+
+    <div class="oet-community-popup" id="oet-community-popup" aria-hidden="true">
+        <div class="oet-community-popup__overlay" data-oet-community-close></div>
+        <div class="oet-community-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="oet-community-popup-title" aria-describedby="oet-community-popup-intro">
+            <button class="oet-community-popup__close" type="button" data-oet-community-close aria-label="Close community popup">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+            <div class="oet-community-popup__body">
+                <span class="oet-community-popup__eyebrow"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Free OET support</span>
+                <h2 class="oet-community-popup__title" id="oet-community-popup-title">Join Our Free OET Communities</h2>
+                <p class="oet-community-popup__intro" id="oet-community-popup-intro">Choose the group or resource that matches your profession, language preference, or preparation stage. Each link opens in a new tab so you can join instantly.</p>
+
+                <h3 class="oet-community-popup__section-title">WhatsApp Groups</h3>
+                <div class="oet-community-popup__grid">
+                    <a class="oet-community-popup__card" href="https://chat.whatsapp.com/LPSFtrljYdjAYGpBStpMz5" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Exam Recalls Group 1</span>
+                        <span class="oet-community-popup__hint">Recent exam recall discussions</span>
+                    </a>
+                    <a class="oet-community-popup__card" href="https://chat.whatsapp.com/CzVgwnH73Vn8PupWxPrhkz" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Exam Recalls Group 2</span>
+                        <span class="oet-community-popup__hint">Backup recalls community</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/GwXdSX6v38F3EjNzC4wS2F?mode=hq1tsha" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET Nursing Free Community-New</span>
+                        <span class="oet-community-popup__hint">Highlighted nursing community</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/CeJmvXO5dJA50OKBGtZcuD?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET Medicine Free Community</span>
+                        <span class="oet-community-popup__hint">Free orientation sessions for medicine</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/IuCFuWFXFrQHtK6qICP4jg?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET English Only-Non-Arabic Speakers</span>
+                        <span class="oet-community-popup__hint">English-only practice community</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/Kz8zXv7GpoCJBAHpfDygPW?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET Pharmacy Free Community</span>
+                        <span class="oet-community-popup__hint">Pharmacy OET support</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/E6AkDZhctn95XP7Do1RYgc?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET Physiotherapy Free Community</span>
+                        <span class="oet-community-popup__hint">Free OET community for physiotherapy</span>
+                    </a>
+                </div>
+
+                <h3 class="oet-community-popup__section-title">Free Orientation &amp; Resources</h3>
+                <div class="oet-community-popup__resources">
+                    <a class="oet-community-popup__resource" href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET with Dr Ahmed Hesham-Official Telegram Channel</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://t.me/OET_Nursing_DrHesham" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Telegram Nursing Channel</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET with Dr Ahmed Hesham - Main Facebook Group</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://www.facebook.com/share/1EMpS7pDau/" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET with Dr Ahmed Hesham-Official Facebook Page</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></span>
+                        <span class="oet-community-popup__name">Instagram</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--linkedin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></span>
+                        <span class="oet-community-popup__name">LinkedIn</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/kL91eG32Uok?si=Q464XynULlIxpiav" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/kL91eG32Uok?si=Q464XynULlIxpiav" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Doctors Arabic Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/3aBIQq_p3MQ?si=eNwqS82aYuYBaifr" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/3aBIQq_p3MQ?si=eNwqS82aYuYBaifr" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Doctors Non-Arabic Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/rbNsB7Olxts?si=RNoigvu5kz_bUVYI" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/rbNsB7Olxts?si=RNoigvu5kz_bUVYI" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Course Feedback</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/hlD1BXfijWs?si=EQFjYcWKTBOvltPI" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/hlD1BXfijWs?si=EQFjYcWKTBOvltPI" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Nursing Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/MCPZb589zdY?si=vSLShtttUOEH89rx" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/MCPZb589zdY?si=vSLShtttUOEH89rx" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET &amp; UK Nursing Live</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script id="oet-community-popup-script">
+        (function () {
+            var popup = document.getElementById('oet-community-popup');
+            var triggers = document.querySelectorAll('.oet-community-cta');
+            if (!popup || !triggers.length) return;
+
+            var closeButtons = popup.querySelectorAll('[data-oet-community-close]');
+            var scrollBody = popup.querySelector('.oet-community-popup__body');
+            var focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+            var lastTrigger = null;
+            var lastTouchY = 0;
+
+            function firstFocusable() {
+                return popup.querySelector(focusableSelector);
+            }
+
+            function openPopup(trigger) {
+                lastTrigger = trigger || null;
+                popup.classList.add('is-open');
+                popup.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('oet-community-popup-lock');
+                window.setTimeout(function () {
+                    var target = firstFocusable();
+                    if (target) target.focus({ preventScroll: true });
+                }, 30);
+            }
+
+            function closePopup() {
+                popup.classList.remove('is-open');
+                popup.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('oet-community-popup-lock');
+                if (lastTrigger && typeof lastTrigger.focus === 'function') {
+                    lastTrigger.focus({ preventScroll: true });
+                }
+            }
+
+            triggers.forEach(function (trigger) {
+                trigger.setAttribute('href', '#oet-community-popup');
+                trigger.setAttribute('aria-haspopup', 'dialog');
+                trigger.setAttribute('aria-controls', 'oet-community-popup');
+                trigger.removeAttribute('target');
+                trigger.removeAttribute('rel');
+                trigger.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    openPopup(trigger);
+                });
+            });
+
+            closeButtons.forEach(function (button) {
+                button.addEventListener('click', closePopup);
+            });
+
+            if (scrollBody) {
+                scrollBody.addEventListener('wheel', function (event) {
+                    event.stopPropagation();
+                }, { passive: true });
+
+                scrollBody.addEventListener('touchstart', function (event) {
+                    if (event.touches && event.touches.length) {
+                        lastTouchY = event.touches[0].clientY;
+                    }
+                }, { passive: true });
+
+                scrollBody.addEventListener('touchmove', function (event) {
+                    if (!event.touches || !event.touches.length) return;
+                    var currentY = event.touches[0].clientY;
+                    var deltaY = lastTouchY - currentY;
+                    var atTop = scrollBody.scrollTop <= 0;
+                    var atBottom = Math.ceil(scrollBody.scrollTop + scrollBody.clientHeight) >= scrollBody.scrollHeight;
+
+                    if ((atTop && deltaY < 0) || (atBottom && deltaY > 0)) {
+                        event.preventDefault();
+                    }
+
+                    event.stopPropagation();
+                    lastTouchY = currentY;
+                }, { passive: false });
+            }
+
+            document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && popup.classList.contains('is-open')) {
+                closePopup();
+                return;
+            }
+            if (event.key !== 'Tab' || !popup.classList.contains('is-open')) return;
+            var items = Array.prototype.filter.call(popup.querySelectorAll(focusableSelector), function (el) {
+                return el.offsetParent !== null;
+            });
+            if (!items.length) return;
+            var first = items[0];
+            var last = items[items.length - 1];
+            if (event.shiftKey && (document.activeElement === first || !popup.contains(document.activeElement))) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && (document.activeElement === last || !popup.contains(document.activeElement))) {
+                event.preventDefault();
+                first.focus();
+            }
+        });
+        })();
+    </script>
+    <script src="/assets/js/oet-analytics.js?v=fddcebddcc" defer></script>
+    <script src="/assets/js/oet-cookie-consent.js?v=ca33957f48" defer></script>
+    <script src="/assets/js/oet-search.js?v=ddf57f5228" defer></script>
+</body>
+</html>

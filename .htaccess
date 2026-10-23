@@ -85,7 +85,7 @@ RewriteEngine On
 # --- Canonical URLs (301, one hop, always https) ---
 # Behind the TLS proxy Apache sees plain http, so mod_dir's own trailing-slash
 # redirect would point at http:// and chain through a second redirect.
-RewriteRule ^(privacy|terms|refund-policy|cookie-policy)$ https://%{HTTP_HOST}/$1/ [R=301,L]
+RewriteRule ^(privacy|terms|refund-policy|cookie-policy|ar)$ https://%{HTTP_HOST}/$1/ [R=301,L]
 # THE_REQUEST guards stop these firing on DirectoryIndex / clean-URL internal rewrites.
 RewriteCond %{THE_REQUEST} \s/index\.html[\s?]
 RewriteRule ^index\.html$ https://%{HTTP_HOST}/ [R=301,L]

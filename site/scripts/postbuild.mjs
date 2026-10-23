@@ -18,7 +18,25 @@ const PAGES = [
   ['index.html', '/', 'weekly', '1.0'],
   ['pricing.html', '/pricing.html', 'weekly', '0.9'],
   ['success-stories.html', '/success-stories.html', 'weekly', '0.9'],
-  ['service.html', '/service.html', 'weekly', '0.8'],
+  ['service.html', '/service.html', 'weekly', '0.9'],
+  ['oet-course-for-nurses.html', '/oet-course-for-nurses.html', 'monthly', '0.9'],
+  ['oet-course-for-doctors.html', '/oet-course-for-doctors.html', 'monthly', '0.9'],
+  ['oet-writing-correction.html', '/oet-writing-correction.html', 'monthly', '0.9'],
+  ['oet-score-calculator.html', '/oet-score-calculator.html', 'monthly', '0.8'],
+  ['oet-score-requirements.html', '/oet-score-requirements.html', 'monthly', '0.8'],
+  ['oet-test-dates-and-fees.html', '/oet-test-dates-and-fees.html', 'monthly', '0.8'],
+  ['oet-vs-ielts.html', '/oet-vs-ielts.html', 'monthly', '0.8'],
+  ['oet-for-ecfmg.html', '/oet-for-ecfmg.html', 'monthly', '0.8'],
+  ['oet-writing-sample-nursing.html', '/oet-writing-sample-nursing.html', 'monthly', '0.8'],
+  ['oet-writing-sample-medicine.html', '/oet-writing-sample-medicine.html', 'monthly', '0.8'],
+  ['oet-writing-sample-pharmacy.html', '/oet-writing-sample-pharmacy.html', 'monthly', '0.8'],
+  ['oet-writing-sample-physiotherapy.html', '/oet-writing-sample-physiotherapy.html', 'monthly', '0.8'],
+  ['oet-writing-sample-nursing-transfer.html', '/oet-writing-sample-nursing-transfer.html', 'monthly', '0.8'],
+  ['oet-speaking-role-play-nursing.html', '/oet-speaking-role-play-nursing.html', 'monthly', '0.8'],
+  ['oet-speaking-role-play-medicine.html', '/oet-speaking-role-play-medicine.html', 'monthly', '0.8'],
+  ['ar/index.html', '/ar/', 'monthly', '0.8'],
+  ['ar/oet-course-for-nurses.html', '/ar/oet-course-for-nurses.html', 'monthly', '0.8'],
+  ['ar/oet-course-for-doctors.html', '/ar/oet-course-for-doctors.html', 'monthly', '0.8'],
   ['about.html', '/about.html', 'monthly', '0.8'],
   ['contact.html', '/contact.html', 'monthly', '0.8'],
   ['faq.html', '/faq.html', 'monthly', '0.8'],
@@ -112,6 +130,27 @@ function buildSitemap() {
     `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows.join('\n')}\n</urlset>\n`;
 }
 
+// --- 2b. site search index (assets/search-index.json, read by oet-search.js) ---
+const ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', mdash: '—', ndash: '–', rsquo: '’', lsquo: '‘', middot: '·', pound: '£' };
+const plain = (s) => s.replace(/<[^>]+>/g, ' ')
+  .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+  .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number(d)))
+  .replace(/&([a-z]+);/gi, (m, e) => ENTITIES[e] ?? m)
+  .replace(/\s+/g, ' ').trim();
+
+function buildSearchIndex() {
+  return PAGES.filter(([, url]) => url).map(([rel, url]) => {
+    const html = fs.readFileSync(path.join(DIST, rel), 'utf8');
+    const main = (html.match(/<main[\s\S]*<\/main>/) || [''])[0];
+    return {
+      u: url,
+      t: plain((html.match(/<title>([\s\S]*?)<\/title>/) || [, ''])[1]),
+      d: plain((html.match(/<meta name="description" content="([^"]*)"/) || [, ''])[1]),
+      h: [...main.matchAll(/<h[23]\b[^>]*>([\s\S]*?)<\/h[23]>/g)].map((m) => plain(m[1])).filter(Boolean).slice(0, 14),
+    };
+  });
+}
+
 // --- 3. run -------------------------------------------------------------------
 const checkRoot = process.argv.includes('--check-root');
 const copyToRoot = !checkRoot && !process.argv.includes('--no-copy');
@@ -123,6 +162,7 @@ for (const [rel] of PAGES) {
   const html = tagWhatsApp(addHashes(fs.readFileSync(distFile, 'utf8'), rel), rel);
   fs.writeFileSync(distFile, html);
   if (copyToRoot) {
+    fs.mkdirSync(path.dirname(path.join(ROOT, rel)), { recursive: true }); // e.g. ar/ on first build
     fs.writeFileSync(path.join(ROOT, rel), html);
     written += 1;
   } else if (checkRoot) {
@@ -146,7 +186,10 @@ if (checkRoot) {
 } else {
   const sitemap = buildSitemap();
   fs.writeFileSync(path.join(DIST, 'sitemap.xml'), sitemap);
-  if (copyToRoot) fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);
+  if (copyToRoot) {
+    fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);
+    fs.writeFileSync(path.join(ROOT, 'assets', 'search-index.json'), JSON.stringify(buildSearchIndex()));
+  }
 
   console.log(`postbuild: hashed ${PAGES.length} pages, sitemap generated` +
     (copyToRoot ? `, ${written} pages + sitemap copied to repo root` : ' (dist only)'));

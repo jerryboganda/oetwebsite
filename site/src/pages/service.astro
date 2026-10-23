@@ -4,10 +4,12 @@ import meta from '../partials/service/meta.html?raw';
 import headExtra from '../partials/service/head-extra.html?raw';
 import main from '../partials/service/main.html?raw';
 import tail from '../partials/service/tail.html?raw';
+// No salCss: service tail.html does not load sal.js, so sal.css would keep [data-sal] content hidden.
 ---
 <Base
   meta={meta}
   headExtra={headExtra}
   main={main}
   tail={tail}
+  bodyClass="oet-live-site oet-resource-page"
 />

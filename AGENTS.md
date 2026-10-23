@@ -11,7 +11,7 @@ enrollment **web app** lives at app./api.oetwithdrhesham.co.uk (repo
 OUTPUT, committed for parity/deploy. Never hand-edit root HTML — edit the
 partials/data and rebuild.**
 
-- `site/src/pages/*.astro` — 23 thin wrappers (one per page), each importing
+- `site/src/pages/*.astro` — 41 thin wrappers (one per page; `ar/` = Arabic, `lang="ar"`), each importing
   its page partials `?raw` and rendering through `site/src/layouts/Base.astro`.
 - `site/src/partials/<page>/{meta,head-extra,main,tail}.html` — byte-preserved
   page bodies. This is where page content/CSS edits happen.
@@ -22,9 +22,18 @@ partials/data and rebuild.**
   by `site/src/lib/inject.mjs` (`applyPricing`). To reprice: edit this file,
   rebuild.
 - `site/scripts/postbuild.mjs` — after `astro build`: appends content-hash
-  `?v=` to asset URLs, generates `sitemap.xml`, copies the 23 built pages +
-  sitemap to the repo root. `--check-root` asserts root == dist (CI parity).
-- `site/scripts/verify.mjs` — asserts pages/assets/JSON-LD/sitemap/pricing.
+  `?v=` to asset URLs, tags every `wa.me` link with `[page: …]`, generates
+  `sitemap.xml` (per-page git dates) and `assets/search-index.json`, copies the
+  41 built pages + sitemap to the repo root. `--check-root` asserts root ==
+  dist (CI parity). New page = add it to `PAGES` here and in `verify.mjs`.
+- `site/scripts/verify.mjs` — asserts pages/assets/JSON-LD/sitemap/pricing, one
+  H1 per page, tagged WhatsApp links, FAQ JSON-LD visible verbatim on the page.
+  Also: every `fa-*` icon must exist in `assets/css/oet-icons.css` (the icon font is
+  subset — unknown icons render blank), and the score-calculator logic in
+  `assets/js/oet-score-calculator.js` (regulator minimums — keep in sync with
+  `oet-score-requirements.html` when a regulator changes its rules).
+  hreflang alternates must exist and link back (Arabic `ar/*` ↔ English
+  `service.html`, `oet-course-for-nurses.html`, `oet-course-for-doctors.html`).
 
 ### Build & verify (always run after editing site/src)
 
