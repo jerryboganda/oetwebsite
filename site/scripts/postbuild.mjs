@@ -71,12 +71,31 @@ function addHashes(html, name) {
   return out;
 }
 
+// --- 1b. WhatsApp lead attribution -------------------------------------------
+// Prefill every wa.me link with the page it sits on, so each chat names its source page.
+// Idempotent (an existing [page: …] tag is replaced): --check-root re-runs this on dist.
+const WA_DEFAULT_TEXT = "Hi Dr Hesham, I'm interested in OET preparation.";
+function tagWhatsApp(html, rel) {
+  const page = rel === 'index.html' ? 'home' : rel.replace(/\/index\.html$|\.html$/, '');
+  return html.replace(/href="https:\/\/wa\.me\/447961725989(?:\?text=([^"]*))?"/g, (_, text) => {
+    const base = text ? decodeURIComponent(text).replace(/ \[page: [^\]]*\]$/, '') : WA_DEFAULT_TEXT;
+    return `href="https://wa.me/447961725989?text=${encodeURIComponent(`${base} [page: ${page}]`)}"`;
+  });
+}
+
 // --- 2. sitemap --------------------------------------------------------------
 function lastmodFor(distRel) {
   const key = distRel === '404.html' ? '404' : distRel.replace(/\/index\.html$|\.html$/, '');
   const partials = path.join(SITE, 'src', 'partials', key);
+  // Visible prices on pricing.html come from the data file, not the partials.
+  const sources = [partials, ...(key === 'pricing' ? [path.join(SITE, 'src', 'data', 'pricing.json')] : [])]
+    .map((p) => `"${path.relative(ROOT, p)}"`).join(' ');
   try {
-    const out = execSync(`git log -1 --format=%cs -- "${path.relative(ROOT, partials)}"`, {
+    // Uncommitted source edits ship with this build, so the page changes today.
+    if (execSync(`git status --porcelain -- ${sources}`, { cwd: ROOT, encoding: 'utf8' }).trim()) {
+      return new Date().toLocaleDateString('en-CA'); // local YYYY-MM-DD, like git's %cs
+    }
+    const out = execSync(`git log -1 --format=%cs -- ${sources}`, {
       cwd: ROOT, encoding: 'utf8',
     }).trim();
     if (/^\d{4}-\d{2}-\d{2}$/.test(out)) return out;
@@ -101,7 +120,7 @@ const drifted = [];
 for (const [rel] of PAGES) {
   const distFile = path.join(DIST, rel);
   if (!fs.existsSync(distFile)) throw new Error(`postbuild: missing ${rel} in dist/`);
-  const html = addHashes(fs.readFileSync(distFile, 'utf8'), rel);
+  const html = tagWhatsApp(addHashes(fs.readFileSync(distFile, 'utf8'), rel), rel);
   fs.writeFileSync(distFile, html);
   if (copyToRoot) {
     fs.writeFileSync(path.join(ROOT, rel), html);

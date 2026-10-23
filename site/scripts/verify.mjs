@@ -55,6 +55,17 @@ for (const page of PAGES) {
   for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     try { JSON.parse(m[1]); } catch { fail(`${page}: invalid JSON-LD`); }
   }
+
+  // SEO: one H1 per page; links use the canonical placement-test URL
+  const h1s = html.match(/<h1\b/g) || [];
+  if (h1s.length !== 1) fail(`${page}: expected exactly 1 <h1>, found ${h1s.length}`);
+  if (html.includes('href="/english-placement-test.html"')) fail(`${page}: link /english-placement-test (canonical), not .html`);
+  // every WhatsApp link carries exactly one [page: …] tag naming this page (postbuild tagWhatsApp)
+  const tag = encodeURIComponent(`[page: ${page === 'index.html' ? 'home' : page.replace(/\/index\.html$|\.html$/, '')}]`);
+  for (const m of html.matchAll(/href="(https:\/\/wa\.me\/[^"]*)"/g)) {
+    if (!m[1].includes('?text=') || m[1].split('%5Bpage%3A').length !== 2 || !m[1].endsWith(tag))
+      fail(`${page}: WhatsApp link not tagged with ${decodeURIComponent(tag)}: ${m[1].slice(0, 90)}`);
+  }
 }
 
 // sitemap: well-formed, all URLs map to built pages

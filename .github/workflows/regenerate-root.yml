@@ -20,6 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history: postbuild dates each sitemap <lastmod> from git log;
+          # a shallow clone gives every page the same (latest) commit date.
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:

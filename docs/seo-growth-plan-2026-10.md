@@ -1,0 +1,380 @@
+# SEO and lead-growth plan, October 2026
+
+Audit date: 24 Oct 2026. What it covers: production (`origin/main` @ `62883da`, which is
+byte-identical to the live site), local Lighthouse runs against the live site, and fresh web
+research on keywords, competitors and Google's 2025–2026 changes.
+
+The site is technically clean (SEO 100, HTTPS, canonicals, sitemap, schema). It still won't
+get much traffic, because it has **~19 indexable pages, the money pages barely use the words
+people search, and there's no analytics to measure leads.** Most of the upside is in content
+and keyword targeting, not technical fixes.
+
+Where it stands in Google today (checked live on 24 Oct 2026):
+- **Branded search is strong.** "OET with Dr Hesham" shows #1 with 5 sitelinks, a YouTube
+  video carousel and an AI Overview.
+- **It isn't in the top ~9 for any money term:** "OET course", "OET preparation online",
+  "best OET course for doctors", "OET writing correction", "OET writing/speaking tips".
+- **21 of the 23 sitemap URLs are indexed. `service.html` and
+  `australia-pathway-guide.html` are not.**
+- **About 8 `app.` pages are indexed** (sign-in, register ×3, forgot-password, "Install the
+  Android update"). That's the web-app repo, so it needs `noindex` there, not here.
+
+---
+
+## 0. Sync status (laptop ↔ GitHub ↔ production)
+
+| Where | Commit | State |
+|---|---|---|
+| Production VPS `/opt/docker/oetwebsite` | `62883da` (14 Oct 2026) | Clean. Only untracked files are `storage/` chat data (expected). Live HTML byte-identical to GitHub (6 files hash-checked). |
+| GitHub `origin/main` | `62883da` | Same as production. |
+| This laptop `main` | `0eba7af` | **44 commits behind**, and 5 tracked files deleted but not committed: `.github/copilot-instructions.md`, `site/scripts/{extract.py,parity.py,postbuild.mjs,preview.mjs}`. `npm run build` is broken until they're restored. |
+
+Local-only branches: `backup-local-main` has 1 commit, but that patch is already upstream.
+All `manwara575-star-*` branches are fully contained in remote history. Nothing will be lost
+by syncing.
+
+To sync the laptop (restores the 5 files, then fast-forwards):
+
+```sh
+git restore .github site/scripts
+git pull --ff-only origin main
+```
+
+Also: the `automation/` Search Console API toolkit and PageSpeed API key used in the
+September audit are **not on this laptop**, so this audit couldn't pull real GSC query data.
+
+---
+
+## 1. Fix this week: measurement and leaks (highest ROI, little code)
+
+1. **Time-critical. Get into OET's Preparation Partner programme now.** Completing OET's
+   free preliminary training (3 modules plus quizzes at 100%) earns the "OET Knowledge"
+   badge, and per OET's brochure, completers get listed on oet.com. That's the most
+   authoritative backlink and trust signal in this niche. **The current training platform
+   closes on 30 Oct 2026**, and then there's a gap while it moves.
+   ([oet.com/access/preparation-partners](https://oet.com/access/preparation-partners))
+   Longer term, aim for **Premium** Preparation Provider status, which SLC holds and uses
+   on its #1-ranking pages.
+2. **In Search Console, "Request indexing"** for `service.html` and
+   `australia-pathway-guide.html`. Neither is indexed. Do it again after the §3 rewrite of
+   `service.html`.
+3. **Check the possible impersonation.** A Facebook "OET Fighters" post advertises
+   "Dr Hesham's Writing Crash Course" with a "100 percent pass rate" and a +92 number. If
+   it isn't yours, report it. It hurts trust and steals branded leads.
+4. **Turn on analytics. Right now nothing is measured.** `assets/js/oet-analytics.js`
+   ships with `ga4: ""` and `umami: ""`. With zero tracking you can't tell which page or
+   keyword produces leads. Create a GA4 property, paste the ID, and mark these as key events
+   (the event helper already exists in the file): WhatsApp click (`wa.me`), Telegram click,
+   placement-test click, app register/sign-in click, contact form submit, pricing package
+   click.
+5. **Link Search Console to GA4**, and check the GSC Performance report weekly. Queries at
+   positions 5–20 with impressions are the fastest traffic wins (rewrite title/H1/intro
+   around them).
+6. **Attribute WhatsApp leads by page.** Replace bare `https://wa.me/447961725989` with a
+   per-page prefilled text, e.g. `?text=Hi Dr Hesham, I'm a nurse interested in OET (from: writing tips page)`.
+   Every WhatsApp chat then tells you its source page.
+7. **Redirect chain through HTTP:** `/privacy`, `/terms`, `/refund-policy`, `/cookie-policy`
+   (no trailing slash) 301 → `http://…/privacy/` → https. Add explicit https redirects in
+   `.htaccess`, e.g.
+   `RewriteRule ^(privacy|terms|refund-policy|cookie-policy)$ https://oetwithdrhesham.co.uk/$1/ [R=301,L]`.
+8. **`/index.html` returns 200** (duplicate of `/`). Add a 301 to `/`.
+9. **`/favicon.ico` 404s.** Google and browsers still request it. Copy `fav-icon.png` →
+   `/favicon.ico` (or rewrite).
+10. **Placement-test links point at the non-canonical URL.** The header/footer link to
+   `/english-placement-test.html`, but the canonical and sitemap say
+   `/english-placement-test`. Link to the canonical.
+11. **Tips-page H1s read as garbage to Google.** The H1 has a desktop span and a mobile span
+   with `<br>`, so the extracted text is
+   `OET Writing Tips 2026: 11 Expert Strategies…ProfessionalsOET Writing Tips2026: 11 ExpertStrategies…`
+   (all 4 skill pages). Use one text node and handle line breaks with CSS
+   (`text-wrap: balance`).
+12. **The FAQ meta says "90+ questions"; the page has ~34.** Make the claim match.
+13. **Sitemap `lastmod` is the build date for every page** (all `2026-10-14`). Google
+    learns to ignore lastmod when it's always "today". Root cause: the CI
+    `regenerate-root` job used a shallow clone, so `git log` returned one date for every
+    page.
+
+> **Status (24 Oct 2026):** items 6–11 and 13 are implemented locally (12, the FAQ count
+> claim, is still open), built and verified, but not
+> committed or deployed yet. That covers: `.htaccess` redirects and favicon (tested on a
+> throwaway php:8.3-apache container), WhatsApp `[page: …]` tags (static links + chat
+> widget), the tips H1s, canonical placement-test links, and per-page `lastmod`
+> (`fetch-depth: 0` + pricing.json + uncommitted edits). Items 1–5 need the owner (OET
+> training, Search Console, Facebook check, GA4 ID).
+
+---
+
+## 2. Core Web Vitals (mobile, local Lighthouse, Moto G throttled)
+
+| Page | Perf | LCP | TBT | Weight | LCP element |
+|---|---|---|---|---|---|
+| Home | 80 | **3.6 s** | 340 ms | 1.24 MB | the 320×90 **logo PNG** |
+| Pricing | 85 | **3.8 s** | 170 ms | 481 KB | promo banner 1597×985 |
+| Writing tips | 97 | 2.3 s | 50 ms | 231 KB | H1 text |
+
+(PageSpeed Insights' public quota was exhausted, so no CrUX field data. Re-check in PSI.)
+
+- **Home LCP is the logo, which means the hero H1 is hidden while it animates in**
+  (`oet-hero__anim` with delays). Animate the H1 with `transform` only, not `opacity: 0`,
+  so it paints at FCP (~1.8 s). Give the logo `fetchpriority="high"` or serve it as SVG.
+- **421 KB of oversized images on home, 119 KB on pricing.** Add `srcset`/`sizes` (or
+  Astro `<Image>`), and lazy-load anything below the fold. Give the pricing banner a
+  mobile-sized variant.
+- 340 ms TBT on home: defer the swiper/animation JS until after load or interaction.
+- TTFB is ~0.3 s from the Lighthouse run, ~0.7 s from here (Pakistan). Optional: put
+  Cloudflare (free) in front, with HTML caching, for Gulf/Asia/Africa users. Weigh this
+  against the current NPM/HSTS setup before doing it.
+
+---
+
+## 3. On-page keyword targeting (the biggest quick win)
+
+Exact-phrase counts in `<main>`:
+
+| Page | "OET course" | "OET for nurses" | "OET for doctors" | "online OET" | words |
+|---|---|---|---|---|---|
+| Home | **0** | **0** | **0** | **0** | 1,129 |
+| Services (`service.html`) | 1 | 0 | 0 | 0 | **137** |
+| Pricing | 10 | 0 | 0 | 0 | 6,673 |
+
+- **Homepage H1** is "OET success starts here — trusted by thousands…", with no money
+  keyword. Suggested:
+  **"Online OET Course for Doctors, Nurses & Pharmacists — Coached by Dr Hesham"**, keeping
+  "trusted by thousands" as the lead line. Title:
+  `Online OET Course & Coaching for Nurses and Doctors | Dr Hesham`.
+- **`service.html` is 137 words and isn't in the header or footer nav.** It should be the
+  main "OET course online" page. Expand it to 1,200–1,800 words (who it's for, what's
+  included per skill, how live classes and correction work, timelines, outcomes, FAQs,
+  testimonials, price-from), and add it to the nav as "OET Courses".
+- **Homepage FAQ questions are H2s.** Use one H2 ("OET coaching FAQs") with H3 questions.
+- **Weak internal linking.** Pathway guides link only to each other and to success
+  stories (5 links each). They never link to the skill tips or to pricing. The FAQ page has
+  0 in-content links, and so does success-stories. Add contextual links, e.g. the UK guide →
+  "NMC OET score requirements" → writing tips → nursing package.
+- **Success stories are invisible to Google.** The 1,600+ score cards load from JSON with
+  `alt=""`, and only 9 `<img>` tags are in the HTML. Render a crawlable subset per
+  profession/year, with descriptive alt text ("OET Nursing score card — Writing B 380,
+  2026") and short text quotes. These pages then work as profession-level proof pages
+  (see §4).
+
+---
+
+## 4. Content to build (where the traffic is)
+
+Detailed keyword clusters and competitor evidence are in §6. Build in this order, one page
+per search intent. Each page gets Dr Hesham as visible author with credentials and an
+updated date, an embedded YouTube video, a 3–5 question FAQ, and a CTA to the free
+placement test plus WhatsApp.
+
+**A. Money pages (transactional, build first)**
+1. `/oet-course-for-nurses` — NMC/AHPRA/DHP nursing focus, nursing package, nurse score cards
+2. `/oet-course-for-doctors` — GMC/AMC/ECFMG/Qatar, medicine package, doctor score cards
+3. `/oet-for-pharmacists`, `/oet-for-physiotherapists` (later: dentists, others)
+4. Expanded `/service.html` as the "Online OET course" hub
+5. `/oet-writing-correction` — the service on its own page (strong commercial intent)
+6. `/oet-speaking-practice-online` — 1:1 role-play service page
+7. `/oet-mock-test` — mock exam packages as a landing page
+
+**B. Evergreen, high-volume informational pages (traffic, links and AI Overview citations)**
+- OET score requirements by regulator (NMC, GMC, AHPRA, ECFMG, DHP/DHA/SCFHS), as one table
+  page plus a section per regulator
+- OET score calculator / grade converter (OET ↔ IELTS ↔ CEFR). A tool gets linked and
+  bookmarked.
+- OET test dates 2026 & 2027, OET fees by country, OET results date
+- OET vs IELTS for nurses / doctors (UK and Australia)
+- OET on computer vs paper vs OET@Home: which to choose
+- OET writing sample letters by profession and letter type (referral, discharge, transfer,
+  advice), each with a band-scored model answer and examiner-style comments. This is the
+  largest informational cluster in OET.
+- OET speaking role-play cards with model answers, by profession
+- OET listening and reading practice tests (free, scored), as lead magnets that ask for
+  email or app sign-up for full results
+- "How to get B in OET writing", "OET writing criteria explained", "OET re-sit / one
+  sitting rules", "How long to prepare for OET"
+
+**C. Arabic-language pages (low competition, core audience)**
+Mirror the top 5–10 pages in Arabic under `/ar/` with `hreflang="ar"`/`"en"` pairs. Use
+real Arabic copy, not machine translation left as-is, and Arabic-language video embeds.
+
+**D. Country pages, only where you can make them genuinely unique**
+Egypt, Pakistan, India/Kerala, Nigeria, Saudi/UAE: local test centres, fees in local
+currency, payment methods, local success stories, local WhatsApp groups. Without unique
+content these become doorway pages and get penalised. Skip any country you can't make
+unique.
+
+**Cadence:** 2 pages per week. Refresh every guide's numbers each quarter, update
+`dateModified`, and show a visible "Last reviewed by Dr Ahmed Hesham, <date>".
+
+---
+
+## 5. E-E-A-T and structured data
+
+- **Author box on every tips/guide page**: photo, "Dr Ahmed Hesham, medical doctor
+  (degree, university, registration if any), OET coach since 2020, 1,600+ verified
+  results", plus links to LinkedIn and YouTube. Today the pages have none.
+- **`Person` schema** is missing `image`, `sameAs` (LinkedIn
+  `ahmed-hesham-ibrahim-3b44281b3`, YouTube `@drhesham222`, Instagram), `alumniOf` and
+  `hasCredential`.
+- **`Organization.sameAs`** is missing Instagram and LinkedIn, which are linked in the
+  header but not in the schema.
+- Add **`VideoObject`** wherever a YouTube video is embedded (tips pages, home), so the
+  pages can appear in video results.
+- `Article` dates are May 2026 on every guide. Update `dateModified` only when content
+  actually changes.
+- Reviews: self-serving reviews on your own site don't earn stars for an Organization. Put
+  effort into **Trustpilot reviews** (see §7), and quote those on the site.
+- **Stop investing in Course and FAQ markup for rich results.** Google retired Course Info
+  rich results in June 2025, and FAQ rich results stopped showing on 7 May 2026. Keep the
+  markup, since it still helps machines understand the page, but it earns no visual
+  result.
+  ([Google, June 2025](https://developers.google.com/search/blog/2025/06/simplifying-search-results),
+  [FAQPage](https://developers.google.com/search/docs/appearance/structured-data/faqpage))
+- **What still earns visual results:** a **Course list carousel** (≥3 courses + `ItemList`
+  on one summary page; course names with no prices or promo words), which
+  `service.html` is almost set up for. Also **Video**, **Product/Review snippet** (stars on
+  a product are allowed when the reviews are genuine and visible), **Breadcrumb** (already
+  working), **Organization** and **Profile page** (use it for the About/author page).
+
+---
+
+## 6. Keywords, competitors, SERP features (fresh research)
+
+Google UK and Egypt results, Trends and autocomplete were checked live on 24 Oct 2026. No
+paid keyword tool was available, so the volumes below are **relative** (Google Trends, last
+12 months): "oet sample test" **60** · "oet course" **43** · "oet exam dates" **37** ·
+"oet vs ielts" **13** · "oet writing sample" **11**. Rising searches: "oet ultimacy"
+(Breakout), **"oet exam dates 2026" (+1,000%)**, "fsmb", "myintealth login" (ECFMG).
+
+| Cluster | Intent | Example queries | Who wins today | Your page |
+|---|---|---|---|---|
+| Free samples (largest) | Info | oet sample test, writing sample for nurses/doctors pdf, listening/reading practice test, speaking role-play cards | oet.com, edubenchmark, OET Ultimacy, Scribd + video carousels | **none** → build §4B |
+| Courses | Transactional | oet course online / for nurses / for doctors / fees / duration, best oet course reddit | oet.com, E2, edubenchmark (★4.9), SLC, Reddit | home + service (weak) → §3, §4A |
+| Writing correction | Transactional | oet writing correction (online/free), writing check, mock test | SLC (#1), edubenchmark, AI checkers, Reddit | **none** → §4A-5 |
+| Scores & requirements | Info | oet score chart/calculator, score for UK/NMC/GMC/ECFMG/AHPRA | NMC, GMC, oet.com, edubenchmark, tool sites; AI Overview | partly in pathway guides → own page + calculator |
+| Logistics | Nav/Info | oet exam dates 2026/2027, fees, results, fees in egypt/pakistan/nigeria | oet.com, colleges, edubenchmark | **none** → dates/fees pages |
+| Comparison | Info | oet vs ielts (easier, nurses, doctors), vs pte | Reddit #1, Mind the Bleep, IMG Connect, IDP | **none** |
+| Recalls | Info | oet recalls (nurses), listening recalls | OET Ultimacy #1, YouTube Shorts, Studocu copies | you sell recalls but have no page (see risk note) |
+| USA/ECFMG | Mixed | oet for ecfmg, oet usmle, myintealth | rising, thin competition | USA guide → dedicated ECFMG page |
+| Arabic | Transactional | كورس oet، كورس oet في مصر، امتحان oet للاطباء / للتمريض / السعودية / قطر | **video carousel first**, then OET Ultimacy's Arabic page, Facebook groups, Udemy | **none** → §4C + Arabic YouTube titles |
+
+**Competitors to beat:**
+- **edubenchmark:** a big blog (calculator, dates, role-play cards, referral-letter
+  samples), review stars and a price range in the results, free mock test.
+- **E2Language:** free course and trial, a calculator, 360 Trustpilot reviews.
+- **SLC:** Premium Preparation Provider, #1 for writing correction, a test-date calendar.
+- **oet.com:** official samples and a free intro course.
+- **OET Ultimacy (Dr Ahmed Elgendy):** your **direct Arab-focused rival**, now Breakout on
+  Trends. It has a recalls library, 100+ speaking cards with a calculator, a study
+  planner and an Arabic course page, and it ranks on page 1 for *your* brand query.
+
+**What the results pages look like:**
+- **Reddit is #1 or #2** for vs-IELTS, "how to pass first attempt", "best course for
+  doctors", writing correction and recalls.
+- **Video carousels** appear on most informational queries and lead the Arabic ones.
+- **AI Overviews** appear on calculator, sample, practice-test and fees queries. On those,
+  answer in the first 100 words, use question headings, give definite figures with dates,
+  and name the author's credentials.
+- There are **no map packs** (online-only businesses can't get a Google Business Profile)
+  and no classic featured snippets.
+
+**Official facts to build evergreen pages on** (verify before publishing, and date-stamp):
+- **GMC:** B in all four sub-tests in one sitting. Accepts paper, computer and @Home.
+  Results valid 2 years.
+  ([GMC](https://www.gmc-uk.org/registration-and-licensing/join-our-registers/before-you-apply-guide-for-doctors/evidence-of-your-knowledge-of-english/using-your-oet-certificate))
+- **NMC:** B (350) in Listening, Reading and Speaking, and C+ (300) in Writing. Two
+  sittings can be combined under rules.
+  ([NMC](https://www.nmc.org.uk/registration/joining-the-register/english-language-requirements/accepted-english-language-tests/oet/))
+- **ECFMG, 2027 pathways:** 350 in Listening, Reading and Speaking and 300 in Writing, in
+  one sitting on or after 1 Jan 2025. A MyIntealth ID is needed from 14 May 2026, and the
+  last December 2026 test date is the cut-off for the 2027 Match.
+  ([ECFMG](https://www.ecfmg.org/certification-pathways/oet.html))
+  → **"OET for ECFMG 2027" is a timely page to publish now.**
+- **AHPRA:** new numeric minimums were reported from 23 Apr 2026 (L350/R360/W350/S360).
+  This comes from secondary sources and is **unverified**. Check the official page first.
+- **OET logistics:** paper bookings close 24 days before the test, computer and @Home 7
+  days before. Computer results come in about 48 h to 6 days. The full test is AU$587.
+  New Zealand immigration stops accepting @Home from 13 Jul 2026.
+  ([OET](https://oet.com/test/book-a-test))
+
+**Recalls risk:** competitors rank by publishing post-exam "recalls". Check OET's test
+regulations on sharing test content before building a recalls page. It could put your
+Preparation Partner application at risk.
+
+---
+
+## 7. Off-page and lead channels
+
+1. **OET Preparation Partner listing** (§1, item 1). Deadline 30 Oct 2026.
+2. **Trustpilot:** you have 0 reviews, edubenchmark has 31 and E2 has 360. Send every
+   student who passes a review link alongside the score-card request (you already collect
+   1,600+ score cards, so the habit exists). Target 50+ reviews in 90 days. Embed the
+   TrustBox and quote the reviews on pricing.
+3. **YouTube** (7.5k subscribers, vs SLC ~115k and Swoosh ~73k): carousels lead most
+   informational and all Arabic results.
+   - Retitle and describe videos around the §6 queries ("OET Writing Sample for Nurses —
+     Discharge Letter (Band B)", "كورس OET للتمريض").
+   - Add chapters, which become key moments in results.
+   - Link from each description to the matching site page.
+   - Embed each video on that page with `VideoObject` markup.
+4. **Reddit and Facebook groups:** Reddit wins "best course" and "vs IELTS" queries.
+   - Answer helpful threads as Dr Hesham (r/OETforECFMG has 8.4k members, also
+     r/IMGreddit, r/NursingUK) and link to guides, not to pricing.
+   - In your own Facebook groups, pin posts that link to the tips pages and placement test.
+5. **Directories that already rank** for your keywords: Laimoon (Egypt/Arabic), Edarabia
+   (UAE), Careers360 and Collegedunia (India), Udemy (a short paid course as a funnel),
+   Preply. List the business, with a link, on each.
+6. **Linkable assets and digital PR:**
+   - The score calculator (§4B).
+   - A data study: "What 1,600 OET score cards tell us: the sub-test that fails most
+     nurses", pitched to nursing and IMG blogs, recruitment agencies and IMG Connect.
+   - A partner page for UK nursing and doctor recruitment agencies.
+7. **Leads:**
+   - Make the **free placement test** (it already registers users in the app) the primary
+     CTA on every content page.
+   - Add a per-page **free PDF** (writing checklist, NMC/GMC score sheet) that asks for an
+     email or WhatsApp number.
+   - Use page-tagged WhatsApp links (§1).
+   - Today the hero's primary CTA sends people to a community chat you can't remarket to.
+8. **Not useful:** Google Business Profile. Online-only businesses aren't eligible, so
+   don't create a fake address.
+
+---
+
+## 8. 90-day roadmap
+
+**Week 1 (≈1 day of work)**
+- OET Knowledge training (before 30 Oct).
+- GA4 + key events.
+- Request indexing for the 2 unindexed pages.
+- Redirect, favicon and `index.html` fixes.
+- Tips H1 fix.
+- Canonical placement-test links.
+- Per-page WhatsApp text.
+- Check the impersonation post.
+
+**Weeks 2–4**
+- Rewrite home H1, title and intro around "online OET course for nurses/doctors".
+- Expand `service.html` into the course hub and add it to the nav.
+- Ship the nurses and doctors course pages and the writing-correction page.
+- Fix home LCP (hero animation, image `srcset`).
+- Add author boxes and fill out the `Person` schema.
+- Launch Trustpilot.
+
+**Month 2**
+- Publish "OET for ECFMG 2027", "OET exam dates 2026/2027", "OET score requirements
+  (NMC/GMC/AHPRA/ECFMG)", "OET vs IELTS" and the score calculator.
+- Start 2 pages a week of writing sample letters by profession.
+- Retitle the top 20 YouTube videos.
+
+**Month 3**
+- Arabic `/ar/` versions of the top pages, with `hreflang`.
+- Speaking role-play cards and free practice tests as lead magnets.
+- Make success stories crawlable by profession.
+- Pitch the data study.
+- Apply for Premium Preparation Provider status.
+
+**Track weekly** (GSC + GA4):
+- Impressions and clicks for non-brand queries.
+- Number of pages ranking top 10.
+- WhatsApp/placement-test/register events by landing page.
+- Trustpilot review count.

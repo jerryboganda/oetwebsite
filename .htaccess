@@ -82,6 +82,18 @@ Options -Indexes
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
+# --- Canonical URLs (301, one hop, always https) ---
+# Behind the TLS proxy Apache sees plain http, so mod_dir's own trailing-slash
+# redirect would point at http:// and chain through a second redirect.
+RewriteRule ^(privacy|terms|refund-policy|cookie-policy)$ https://%{HTTP_HOST}/$1/ [R=301,L]
+# THE_REQUEST guards stop these firing on DirectoryIndex / clean-URL internal rewrites.
+RewriteCond %{THE_REQUEST} \s/index\.html[\s?]
+RewriteRule ^index\.html$ https://%{HTTP_HOST}/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/english-placement-test\.html[\s?]
+RewriteRule ^english-placement-test\.html$ https://%{HTTP_HOST}/english-placement-test [R=301,L]
+# Browsers and crawlers still request /favicon.ico; serve the real icon.
+RewriteRule ^favicon\.ico$ /assets/img/logo/fav-icon.png [L]
+
 # --- Removed template demo pages -> relevant live pages (301) ---
 
 # Consulting demo variants -> home

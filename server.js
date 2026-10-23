@@ -24,6 +24,8 @@ http
     let reqPath = decodeURIComponent(req.url.split('?')[0]);
     if (reqPath === '/') reqPath = '/index.html';
     if (reqPath.endsWith('/')) reqPath += 'index.html';
+    // Mirror the .htaccess clean-URL rewrite (e.g. /english-placement-test).
+    if (!path.extname(reqPath) && fs.existsSync(path.join(root, reqPath + '.html'))) reqPath += '.html';
     const filePath = path.normalize(path.join(root, reqPath));
     if (filePath !== root && !filePath.startsWith(root + path.sep)) {
       res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
