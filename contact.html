@@ -79,7 +79,10 @@
     <link rel="stylesheet" href="/assets/css/oet-cookie-consent.css?v=3db5a4831a">
     <link rel="stylesheet" href="/assets/css/oet-polish.css?v=6043093a82">
     
-    <script type="application/ld+json">
+    <style>
+.oet-contact-links a { color: #5b3ff1; font-weight: 700; }
+</style>
+<script type="application/ld+json">
 {
  "@context": "https://schema.org",
  "@graph": [
@@ -227,7 +230,7 @@
                                             </ul>
                                         </li>
                                         
-                                        <li class="has-dropdown"><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">Free Resources <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                        <li class="has-dropdown"><a href="/oet-tips.html">Free Resources <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
                                             <ul class="sub-menu">
                                                <li class="has-dropdown"><a href="/oet-tips.html"><span class="submenu-icon"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></span><span class="submenu-text">OET Tips</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
                                                    <ul class="sub-menu">
@@ -390,8 +393,9 @@
             <div class="row align-items-center">
                 <div class="col-xl-6 mb-30">
                     <div class="contactform__wpar-5 contactform__wpar-5-inner">
-                        <h4 class="title">Book OET Support</h4>
+                        <h2 class="title">Book OET Support</h2>
                         <p class="para">Tell us your profession, your target test date, and the skills you want to improve. We'll guide you with speaking, writing, reading, listening, and UK pathway support.</p>
+                            <p class="para oet-contact-links">Prefer to start on your own? Take the <a href="/english-placement-test">free placement test</a>, compare the <a href="/oet-course-for-nurses.html">OET course for nurses</a> and the <a href="/oet-course-for-doctors.html">OET course for doctors</a>, check the <a href="/oet-score-requirements.html">score your regulator needs</a>, or see <a href="/teaching-approach.html">how Dr Hesham teaches</a>. Most questions are answered in the <a href="/faq.html">OET FAQs</a>.</p>
 
                         <div class="form-area-5 form-area-5-inner">
                             <div id="oet-form-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
@@ -668,9 +672,8 @@
 
     <!-- jquery js-->
 <!-- gsap js-->
-    <script defer src="/assets/js/plugins/gsap.min.js?v=47da594cbe"></script>
+    <script>/* GSAP drives desktop motion only; lite-motion devices never use it. */if (!document.documentElement.classList.contains('oet-lite-motion')) document.write('<script defer src="/assets/js/plugins/gsap.min.js?v=47da594cbe"><\/script><script defer src="/assets/js/plugins/ScrollTrigger.min.js?v=ba1fa78eb4"><\/script>');</script>
     <!-- scrollTrigger js-->
-    <script defer src="/assets/js/plugins/ScrollTrigger.min.js?v=ba1fa78eb4"></script>
 <!-- fontawesome -->
 <!-- counter js -->
 <!-- waypoints js-->

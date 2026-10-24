@@ -7,9 +7,8 @@
 <!-- bootstrap js -->
     <script defer src="/assets/js/plugins/bootstrap.min.js"></script>
     <!-- gsap js-->
-    <script defer src="/assets/js/plugins/gsap.min.js"></script>
+    <script>/* GSAP drives desktop motion only; lite-motion devices never use it. */if (!document.documentElement.classList.contains('oet-lite-motion')) document.write('<script defer src="/assets/js/plugins/gsap.min.js"><\/script><script defer src="/assets/js/plugins/ScrollTrigger.min.js"><\/script>');</script>
     <!-- scrollTrigger js-->
-    <script defer src="/assets/js/plugins/ScrollTrigger.min.js"></script>
 <!-- swiper js -->
     <script defer src="/assets/js/plugins/swiper-bundle.min.js"></script>
 <!-- fontawesome -->

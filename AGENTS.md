@@ -55,6 +55,12 @@ Commit the regenerated root pages together with the source change.
 returns `mail_transport_failed` (known, pre-existing; needs user's creds).
 Chat expects **form-encoded POST**, not JSON. Threads stored in
 `storage/oet-chat/threads/` (PII — gitignored, never commit or delete).
+Contact-form enquiries are saved **before** emailing to
+`storage/contact/YYYY-MM.jsonl` (PII — gitignored, never commit or delete), so
+no lead is lost while SMTP is missing. Read them with
+`ssh root@185.252.233.186 'cat /opt/docker/oetwebsite/storage/contact/*.jsonl'`.
+The container has no `sendmail` binary, and the domain's mail is Microsoft 365
+with SPF `-all`, so only `OET_SMTP_*` (M365 SMTP AUTH) will deliver email.
 
 ### Header Login / Register CTA and the `oet_signed_in` hint cookie
 

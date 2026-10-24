@@ -5,7 +5,7 @@
 
     <!-- jquery js-->
 <!-- gsap js-->
-    <script defer src="/assets/js/plugins/gsap.min.js"></script>
+    <script>/* GSAP drives desktop motion only; lite-motion devices never use it. */if (!document.documentElement.classList.contains('oet-lite-motion')) document.write('<script defer src="/assets/js/plugins/gsap.min.js"><\/script>');</script>
     <!-- scrollTrigger js-->
 <!-- fontawesome -->
 <!-- counter js -->

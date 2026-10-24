@@ -85,16 +85,49 @@ $body[] = 'Submitted at: ' . date('Y-m-d H:i:s');
 $body[] = 'IP Address: ' . ($_SERVER['REMOTE_ADDR'] ?? 'Unknown');
 $body = implode("\r\n", $body);
 
+// Save every enquiry before trying to email it: production has no mail transport
+// until OET_SMTP_* is set, and a failed send must never lose a lead.
+// Read them on the server: storage/contact/YYYY-MM.jsonl (one JSON object per line).
+function save_enquiry(array $record): bool
+{
+    $dir = __DIR__ . '/storage/contact';
+    if (!is_dir($dir) && !@mkdir($dir, 0775, true)) {
+        return false;
+    }
+    if (!is_file($dir . '/.htaccess')) {
+        @file_put_contents($dir . '/.htaccess', "Deny from all\nRequire all denied\n");
+    }
+    $line = json_encode($record, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . "\n";
+    return @file_put_contents($dir . '/' . gmdate('Y-m') . '.jsonl', $line, FILE_APPEND | LOCK_EX) !== false;
+}
+
+$saved = save_enquiry([
+    'submitted_at' => gmdate('c'),
+    'name' => $name,
+    'email' => $email,
+    'whatsapp' => $phone,
+    'profession' => $profession,
+    'support_needed' => $support_needed,
+    'message' => $message,
+    'ip' => $_SERVER['REMOTE_ADDR'] ?? '',
+]);
+
 $headers = [];
 $headers[] = 'MIME-Version: 1.0';
 $headers[] = 'Content-Type: text/plain; charset=UTF-8';
-$headers[] = 'From: OET Website <support@oetwithdrhesham.co.uk>';
 $headers[] = 'Reply-To: ' . $name . ' <' . $email . '>';
-$headers[] = 'X-Mailer: PHP/' . phpversion();
 
-$sent = mail($to, $subject, $body, implode("\r\n", $headers));
+// SMTP (same OET_SMTP_* settings as the chat relay) when configured, else PHP mail().
+require_once __DIR__ . '/oet-chat-lib.php';
+$smtp = oet_chat_config()['smtp'];
+if ($smtp['host'] !== '') {
+    $sent = oet_chat_send_via_smtp($smtp, $to, $subject, $body, $headers)['ok'];
+} else {
+    $headers[] = 'From: OET Website <support@oetwithdrhesham.co.uk>';
+    $sent = @mail($to, $subject, $body, implode("\r\n", $headers));
+}
 
-if ($sent) {
+if ($saved || $sent) {
     redirect_back('sent=1');
 }
 

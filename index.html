@@ -61,7 +61,7 @@
     <meta name="twitter:title" content="Online OET Course for Nurses &amp; Doctors | OET with Dr Hesham">
     <meta name="twitter:description" content="Online OET course for nurses, doctors &amp; pharmacists: recorded lessons, personal writing correction, 1:1 speaking practice and 1,600+ verified score cards.">
     <meta name="twitter:image" content="https://oetwithdrhesham.co.uk/assets/img/og/og-home.png">
-    <link rel="preload" as="image" type="image/avif" imagesrcset="/assets/img/hero/dr-hesham-480.avif 480w, /assets/img/hero/dr-hesham-720.avif 720w, /assets/img/hero/dr-hesham-960.avif 960w, /assets/img/hero/dr-hesham-1122.avif 1122w" imagesizes="(max-width: 575px) 90vw, (max-width: 1199px) 430px, 40vw" fetchpriority="high">
+    <link rel="preload" as="image" type="image/avif" imagesrcset="/assets/img/hero/dr-hesham-480.avif 480w, /assets/img/hero/dr-hesham-720.avif 720w, /assets/img/hero/dr-hesham-960.avif 960w, /assets/img/hero/dr-hesham-1122.avif 1122w" imagesizes="(max-width: 575px) 62vw, (max-width: 767px) 260px, (max-width: 991px) 320px, (max-width: 1199px) 400px, 34vw" fetchpriority="high">
 
     <meta name="theme-color" content="#ffffff">
     <link rel="icon" href="/assets/img/logo/fav-icon.svg" type="image/svg+xml">
@@ -556,7 +556,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                                             </ul>
                                         </li>
                                         
-                                        <li class="has-dropdown"><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">Free Resources <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                        <li class="has-dropdown"><a href="/oet-tips.html">Free Resources <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
                                             <ul class="sub-menu">
                                                <li class="has-dropdown"><a href="/oet-tips.html"><span class="submenu-icon"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></span><span class="submenu-text">OET Tips</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
                                                    <ul class="sub-menu">
@@ -2031,9 +2031,8 @@ body.oet-promo-popup-lock { overflow: hidden; }
 <!-- bootstrap js -->
     <script defer src="/assets/js/plugins/bootstrap.min.js?v=6dae88aba8"></script>
     <!-- gsap js-->
-    <script defer src="/assets/js/plugins/gsap.min.js?v=47da594cbe"></script>
+    <script>/* GSAP drives desktop motion only; lite-motion devices never use it. */if (!document.documentElement.classList.contains('oet-lite-motion')) document.write('<script defer src="/assets/js/plugins/gsap.min.js?v=47da594cbe"><\/script><script defer src="/assets/js/plugins/ScrollTrigger.min.js?v=ba1fa78eb4"><\/script>');</script>
     <!-- scrollTrigger js-->
-    <script defer src="/assets/js/plugins/ScrollTrigger.min.js?v=ba1fa78eb4"></script>
 <!-- swiper js -->
     <script defer src="/assets/js/plugins/swiper-bundle.min.js?v=21bb0bba64"></script>
 <!-- fontawesome -->
