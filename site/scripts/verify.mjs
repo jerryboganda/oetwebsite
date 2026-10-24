@@ -18,7 +18,8 @@ const PAGES = [
   'oet-writing-sample-pharmacy.html', 'oet-writing-sample-physiotherapy.html', 'oet-writing-sample-nursing-transfer.html', 'oet-speaking-role-play-nursing.html', 'oet-speaking-role-play-medicine.html',
   'ar/index.html', 'ar/oet-course-for-nurses.html', 'ar/oet-course-for-doctors.html',
   'ar/oet-score-requirements.html', 'ar/oet-test-dates-and-fees.html', 'ar/oet-vs-ielts.html', 'ar/oet-writing-tips.html',
-  'oet-sample-tests.html', 'oet-for-allied-health.html',
+  'oet-sample-tests.html', 'oet-for-allied-health.html', 'ar/oet-speaking-tips.html', 'ar/oet-sample-tests.html',
+  'oet-writing-sample-nursing-referral.html', 'oet-writing-sample-medicine-discharge.html', 'oet-writing-sample-occupational-therapy.html',
   'oet-course-for-pharmacists.html', 'oet-course-for-physiotherapists.html', 'oet-speaking-role-play-pharmacy.html', 'oet-speaking-role-play-physiotherapy.html',
   'success-stories.html', 'teaching-approach.html', 'uk-pathway-guide.html',
   'usa-pathway-guide.html', 'cookie-policy/index.html', 'privacy/index.html',
@@ -82,7 +83,7 @@ if (!existsSync(sitemapFile)) fail('sitemap.xml missing from dist');
 else {
   const sm = readFileSync(sitemapFile, 'utf8');
   const urls = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  if (urls.length !== 51) fail(`sitemap has ${urls.length} URLs, expected 51`);
+  if (urls.length !== 56) fail(`sitemap has ${urls.length} URLs, expected 56`);
   // Clean URLs served via .htaccess rewrites map to their built .html file.
   const CLEAN_URL_ALIASES = { 'english-placement-test': 'english-placement-test.html' };
   for (const u of urls) {

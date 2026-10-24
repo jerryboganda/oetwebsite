@@ -1,0 +1,16 @@
+---
+import Base from '../../layouts/Base.astro';
+import meta from '../../partials/ar/oet-sample-tests/meta.html?raw';
+import headExtra from '../../partials/ar/oet-sample-tests/head-extra.html?raw';
+import main from '../../partials/ar/oet-sample-tests/main.html?raw';
+import tail from '../../partials/ar/oet-sample-tests/tail.html?raw';
+---
+<Base
+  meta={meta}
+  headExtra={headExtra}
+  main={main}
+  tail={tail}
+  bodyClass="oet-live-site oet-resource-page"
+  salCss={true}
+  lang="ar"
+/>

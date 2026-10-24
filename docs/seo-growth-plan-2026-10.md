@@ -529,6 +529,24 @@ Preparation Partner application at risk.
 > **Next batch:** Arabic Speaking tips and Arabic sample hub; more profession
 > samples (dentistry/OT/radiography letters); measure in GSC once data arrives.
 
+> **Status (24 Oct 2026, week 7 batch)**
+>
+> **New pages**
+> - Model letters: `/oet-writing-sample-nursing-referral.html`,
+>   `/oet-writing-sample-medicine-discharge.html` and
+>   `/oet-writing-sample-occupational-therapy.html`.
+> - Arabic `/ar/oet-speaking-tips.html` (شرح Speaking OET) and
+>   `/ar/oet-sample-tests.html` (نماذج امتحان OET), with reciprocal hreflang to
+>   the English pages.
+>
+> **Course list:** the Services hub's Course list `ItemList` now points
+> pharmacists, physiotherapists and allied health at their own course pages
+> (previously `pricing.html`), as Google's Course list summary-page pattern
+> expects.
+>
+> **Totals:** 56 indexable pages (9 Arabic). Every page checked scores 100 on SEO,
+> accessibility and best practices.
+
 > **YouTube retitles (owner action in YouTube Studio).** Recent uploads from Sept
 > 2026 are already well titled. These older ones waste search demand:
 >
