@@ -506,6 +506,29 @@ Preparation Partner application at risk.
 > other allied professions, an Egypt/Pakistan page only with verified local
 > facts, and a GSC review once data arrives.
 
+> **Status (24 Oct 2026, week 6 batch)**
+>
+> **New pages**
+> - `/oet-sample-tests.html`: the hub for the largest search cluster ("oet sample
+>   test"). It links all 23 official OET sample-test pages (checked live) and all
+>   of our model letters, role-plays and tools.
+> - `/oet-for-allied-health.html`: OT, radiography, dietetics, podiatry and
+>   speech therapy, covering the HCPC 1400/1800 rules, Ahpra and VisaScreen, and
+>   noting that the GDC does not list OET.
+> - Arabic `/ar/oet-vs-ielts.html` (OET أم IELTS) and `/ar/oet-writing-tips.html`
+>   (شرح كتابة رسالة OET), each with reciprocal hreflang to its English page.
+>
+> **Navigation:** "Free Sample Tests" added to the Exam Guide menu and footer;
+> "OET for Allied Health" added to the Courses menu.
+>
+> **Fixes**
+> - "Supplied PDF" leftovers removed from the tips pages.
+> - Phone overflow fixed: the legal pages' intro box and the contact email box.
+> - A 51-page sweep at phone width shows no overflow.
+>
+> **Next batch:** Arabic Speaking tips and Arabic sample hub; more profession
+> samples (dentistry/OT/radiography letters); measure in GSC once data arrives.
+
 > **YouTube retitles (owner action in YouTube Studio).** Recent uploads from Sept
 > 2026 are already well titled. These older ones waste search demand:
 >

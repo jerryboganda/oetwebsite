@@ -11,7 +11,7 @@ enrollment **web app** lives at app./api.oetwithdrhesham.co.uk (repo
 OUTPUT, committed for parity/deploy. Never hand-edit root HTML — edit the
 partials/data and rebuild.**
 
-- `site/src/pages/*.astro` — 47 thin wrappers (one per page; `ar/` = Arabic, `lang="ar"`), each importing
+- `site/src/pages/*.astro` — 51 thin wrappers (one per page; `ar/` = Arabic, `lang="ar"`), each importing
   its page partials `?raw` and rendering through `site/src/layouts/Base.astro`.
 - `site/src/partials/<page>/{meta,head-extra,main,tail}.html` — byte-preserved
   page bodies. This is where page content/CSS edits happen.
@@ -24,7 +24,7 @@ partials/data and rebuild.**
 - `site/scripts/postbuild.mjs` — after `astro build`: appends content-hash
   `?v=` to asset URLs, tags every `wa.me` link with `[page: …]`, generates
   `sitemap.xml` (per-page git dates) and `assets/search-index.json`, copies the
-  47 built pages + sitemap to the repo root. `--check-root` asserts root ==
+  51 built pages + sitemap to the repo root. `--check-root` asserts root ==
   dist (CI parity). New page = add it to `PAGES` here and in `verify.mjs`.
 - `site/scripts/verify.mjs` — asserts pages/assets/JSON-LD/sitemap/pricing, one
   H1 per page, tagged WhatsApp links, FAQ JSON-LD visible verbatim on the page.
@@ -34,7 +34,8 @@ partials/data and rebuild.**
   `oet-score-requirements.html` when a regulator changes its rules).
   hreflang alternates must exist and link back (Arabic `ar/*` ↔ English
   `service.html`, `oet-course-for-nurses.html`, `oet-course-for-doctors.html`,
-  `oet-score-requirements.html`, `oet-test-dates-and-fees.html`).
+  `oet-score-requirements.html`, `oet-test-dates-and-fees.html`, `oet-vs-ielts.html`,
+  `oet-writing-tips.html`).
 
 ### Build & verify (always run after editing site/src)
 
