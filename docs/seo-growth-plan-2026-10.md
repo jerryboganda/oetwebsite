@@ -455,6 +455,31 @@ Preparation Partner application at risk.
 > - Measure what's working in GSC once deployed: double down on pages getting
 >   impressions, and rewrite titles where CTR is low.
 
+> **Status (24 Oct 2026, A–Z fix pass, deployed `1af1e60`)**
+>
+> - **Contact-form leads were being lost.** The container has no `sendmail`, so
+>   every enquiry hit `error=mail`. Enquiries are now saved to
+>   `storage/contact/*.jsonl` first. This was verified live with a test
+>   enquiry, which was then deleted, and the folder returns 403 on the web. Email
+>   still needs `OET_SMTP_*`: the domain uses Microsoft 365 with SPF `-all`, so
+>   VPS mail can't deliver.
+> - **GSAP:** phones, touch devices and reduced-motion users no longer load GSAP
+>   or ScrollTrigger (about 115 KB). The hero portrait is no longer downloaded
+>   twice (the preload `sizes` mismatched the `<picture>`).
+> - **Lab LCP:** Lighthouse's raw trace shows the homepage H1 paints at first
+>   paint (about 1.9 s). The ~3.3 s lab figure is the throttling simulation
+>   adding 10 separate CSS requests. CSS bundling is the next speed lever if
+>   field data ever shows slow LCP.
+> - **Pathway guides:** "The PDF highlights…" leftovers are rewritten.
+>   Unverified Qatar rules are attributed to DHP, with a prompt to confirm.
+> - **Lighthouse:** About and success-stories issues fixed (About now
+>   100/100/100). The contact page uses an H2. Sampled pages score 100 on SEO,
+>   accessibility and best practices.
+> - **Navigation:** "Free Resources" opens the OET Tips hub, and the teaching
+>   approach page has more inbound links.
+> - **Kept unchanged at the owner's request:** the homepage "Rated 5.0 on
+>   Google" badge and the other trust badges.
+
 > **YouTube retitles (owner action in YouTube Studio).** Recent uploads from Sept
 > 2026 are already well titled. These older ones waste search demand:
 >
