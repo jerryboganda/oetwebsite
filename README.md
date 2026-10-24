@@ -1,7 +1,7 @@
 # OET with Dr Hesham — Website
 
 Static marketing site for [oetwithdrhesham.co.uk](https://oetwithdrhesham.co.uk)
-(OET coaching by Dr Hesham). 41 static pages built with
+(OET coaching by Dr Hesham). 47 static pages built with
 [Astro](https://astro.build), plus small PHP endpoints for the contact form and
 support-chat widget. Enrollment happens in the separate web app at
 `app.oetwithdrhesham.co.uk`.
@@ -11,7 +11,7 @@ support-chat widget. Enrollment happens in the separate web app at
 **`site/src` is the source of truth. The repo root is the deployable webroot.**
 
 ```
-site/src/pages/*.astro      one per page (41) — thin wrappers
+site/src/pages/*.astro      one per page (47) — thin wrappers
 site/src/layouts/Base.astro shared document shell (head, chrome, body flags)
 site/src/components/        Header / Footer / CommunityPopup (shared chrome)
 site/src/partials/<page>/   raw HTML for each page: meta, head-extra, main, tail
@@ -81,7 +81,7 @@ php -S 127.0.0.1:8000 -t .
 ```bash
 cd site
 npm run build      # astro build → postbuild (hash, sitemap, copy to root)
-npm run verify     # assert 41 pages, hashed assets, valid JSON-LD, sitemap
+npm run verify     # assert 47 pages, hashed assets, valid JSON-LD, sitemap
 ```
 
 CI (`.github/workflows/build.yml`) runs build + verify + a root-drift check on

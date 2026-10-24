@@ -937,3 +937,4 @@ html.oet-signed-in a.oet-header-cta-btn i{display:none}
   justify-content:center!important;
   text-align:center;
 }
+.breadcrumb-shape img{object-fit:contain}

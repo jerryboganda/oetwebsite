@@ -480,6 +480,32 @@ Preparation Partner application at risk.
 > - **Kept unchanged at the owner's request:** the homepage "Rated 5.0 on
 >   Google" badge and the other trust badges.
 
+> **Status (24 Oct 2026, week 5 batch)**
+>
+> **New pages**
+> - `/oet-course-for-pharmacists.html`: GPhC and Ahpra.
+> - `/oet-course-for-physiotherapists.html`: HCPC 1400 rule, Ahpra and
+>   VisaScreen.
+> - Speaking role-plays: `/oet-speaking-role-play-pharmacy.html` and
+>   `/oet-speaking-role-play-physiotherapy.html`.
+> - Arabic `/ar/oet-score-requirements.html` (درجات OET المطلوبة) and
+>   `/ar/oet-test-dates-and-fees.html` (مواعيد ورسوم امتحان OET). Both link to
+>   their English pages with reciprocal hreflang.
+>
+> **Navigation:** "Pharmacist OET" and "Physiotherapy OET" now open the new
+> course pages instead of WhatsApp.
+>
+> **Shared CSS fixes**
+> - `.oet-resource-grid` and `.oet-legal-grid` items can now shrink, which fixes
+>   card and table overflow on phones.
+> - The About email box no longer clips on phones.
+> - The breadcrumb shape keeps its aspect ratio on all pages, so best practices
+>   is 100.
+>
+> **Next batch:** more Arabic pages (OET vs IELTS, Arabic tips), dentist and
+> other allied professions, an Egypt/Pakistan page only with verified local
+> facts, and a GSC review once data arrives.
+
 > **YouTube retitles (owner action in YouTube Studio).** Recent uploads from Sept
 > 2026 are already well titled. These older ones waste search demand:
 >

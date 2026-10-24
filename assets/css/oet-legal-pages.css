@@ -12,7 +12,7 @@
 .oet-legal-intro p{max-width:720px;margin:0 auto;color:#515477;font-size:18px;line-height:1.75}
 .oet-legal-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:23px 0 0}
 .oet-legal-pill{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border:1px solid rgba(101,76,245,.16);border-radius:999px;background:rgba(255,255,255,.84);color:#4f477a;font-size:13px;font-weight:700;box-shadow:0 10px 24px rgba(83,57,214,.06)}
-.oet-legal-grid{display:grid;grid-template-columns:260px minmax(0,1fr);gap:26px;align-items:start;margin-top:35px}
+.oet-legal-grid>*{min-width:0}.oet-legal-grid{display:grid;grid-template-columns:260px minmax(0,1fr);gap:26px;align-items:start;margin-top:35px}
 .oet-legal-toc{position:sticky;top:112px;padding:20px;border:1px solid rgba(101,76,245,.15);border-radius:22px;background:rgba(255,255,255,.82);box-shadow:0 16px 38px rgba(83,57,214,.08);backdrop-filter:blur(14px)}
 .oet-legal-toc h2{margin:0 0 12px;color:#070b34;font-size:16px;font-weight:800}
 .oet-legal-toc a{display:flex;align-items:center;gap:9px;padding:8px 0;color:#555878;font-size:13px;line-height:1.35;text-decoration:none;border-top:1px solid rgba(101,76,245,.08)}
@@ -34,6 +34,6 @@
 .oet-legal-page th,.oet-legal-page td{padding:11px 13px;text-align:left;border-bottom:1px solid rgba(101,76,245,.12);min-width:180px}.oet-legal-page th{background:#f4f0ff;color:#292359}.oet-legal-page tr:last-child td{border-bottom:0}
 .oet-legal-company{padding:20px 24px;border-style:dashed;background:rgba(255,255,255,.74)}
 .oet-legal-company p{font-size:13px}.oet-legal-contact{border-left:4px solid #654cf5}
-@media(max-width:991px){.oet-legal-wrap{padding:84px 0 95px}.oet-legal-grid{grid-template-columns:1fr}.oet-legal-toc{position:relative;top:auto}.oet-legal-toc nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}}
+@media(max-width:991px){.oet-legal-wrap{padding:84px 0 95px}.oet-legal-grid{grid-template-columns:minmax(0,1fr)}.oet-legal-toc{position:relative;top:auto}.oet-legal-toc nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}}
 @media(max-width:575px){.oet-legal-wrap{padding:66px 0 76px}.oet-legal-intro{text-align:center}.oet-legal-meta{justify-content:center}.oet-legal-intro p{font-size:16px}.oet-legal-grid{margin-top:24px;gap:18px}.oet-legal-toc{padding:16px;border-radius:18px}.oet-legal-toc nav{grid-template-columns:1fr}.oet-legal-lead,.oet-legal-section{padding:20px 18px;border-radius:18px}.oet-legal-heading{gap:10px}.oet-legal-number{flex-basis:31px;height:31px;border-radius:10px}.oet-legal-section h2{margin-top:2px;font-size:20px}}
 @media(prefers-reduced-motion:reduce){.oet-legal-section{transition:none}.oet-legal-section:hover{transform:none}}
