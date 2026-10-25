@@ -151,6 +151,6 @@ without them the chat/contact email relay is off and chat send fails
 
 ## Analytics (pending IDs)
 
-`assets/js/oet-analytics.js` ships dormant until real IDs are set in its
-`CONFIG` block: GA4 measurement ID (loads behind cookie-consent, Consent Mode
-v2) and Umami website ID (cookieless, always on). Set both, rebuild, deploy.
+`assets/js/oet-analytics.js` loads GA4 (`G-PM9X3G8S3S`, set in its `CONFIG`
+block) behind cookie consent, Consent Mode v2. Change the ID there, rebuild,
+deploy.

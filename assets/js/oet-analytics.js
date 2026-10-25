@@ -1,11 +1,10 @@
-/* OET Analytics — GA4 (consent-gated, Consent Mode v2) + Umami (cookieless) + event tracking.
- * Config: fill in the IDs below when available. Empty ID = that provider stays off (no requests). */
+/* OET Analytics — GA4 (consent-gated, Consent Mode v2) + event tracking.
+ * Config: empty ID = GA4 stays off (no requests). */
 (function () {
   "use strict";
 
   var CONFIG = {
-    ga4: "",   /* e.g. "G-XXXXXXXXXX" */
-    umami: ""  /* e.g. "abcd1234-..." (Umami Cloud website ID) */
+    ga4: "G-PM9X3G8S3S"
   };
 
   /* ---------- GA4 with Consent Mode v2 (basic: script loads only after consent) ---------- */
@@ -41,18 +40,6 @@
     });
   }
 
-  /* ---------- Umami (cookieless, no PII — loads regardless of cookie consent) ---------- */
-  function loadUmami() {
-    if (!CONFIG.umami || document.getElementById("oet-umami")) return;
-    var s = document.createElement("script");
-    s.id = "oet-umami";
-    s.defer = true;
-    s.src = "https://cloud.umami.is/script.js";
-    s.setAttribute("data-website-id", CONFIG.umami);
-    s.setAttribute("data-auto-track", "true");
-    document.head.appendChild(s);
-  }
-
   /* ---------- Consent wiring: read banner cookie now, expose hooks for the banner ---------- */
   function readConsent() {
     var m = document.cookie.match(/(?:^|; )oet_cookie_consent=([^;]*)/);
@@ -66,13 +53,11 @@
   var consent = readConsent();
   if (consent && consent.analytics) loadGA4();
   if (consent && consent.marketing) grantMarketing();
-  loadUmami();
 
-  /* ---------- Event tracking (fires to whichever providers are active) ---------- */
+  /* ---------- Event tracking ---------- */
   function track(name, params) {
     try {
       if (ga4Loaded) gtag("event", name, params || {});
-      if (window.umami && window.umami.track) window.umami.track(name, params || {});
     } catch (e) { /* never break the page for analytics */ }
   }
 

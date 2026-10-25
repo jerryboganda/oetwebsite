@@ -151,7 +151,7 @@ them outside the repo before `git reset --hard`, then move back.
 
 1. **SMTP/IMAP env vars** in the compose `environment:` block — enables
    chat/contact email relay (vars listed in README).
-2. **GA4 + Umami IDs** in `assets/js/oet-analytics.js` `CONFIG` (ships dormant).
+2. ~~GA4 ID~~ done: `G-PM9X3G8S3S` set in `assets/js/oet-analytics.js` (Umami dropped).
 3. `.github/workflows/build.yml` (CI build+verify+root-drift check) exists in
    the repo tree but pushing it requires a token with `workflow` scope — the
    current OAuth token lacks it; user must push it manually.
