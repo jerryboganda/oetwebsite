@@ -149,16 +149,16 @@ them outside the repo before `git reset --hard`, then move back.
 
 ## Known pending items
 
-1. **Email relay via Microsoft Graph** (tenant disallows SMTP app passwords).
-   Code is in `oet-chat-lib.php` (used by chat + `contact.php`), inactive until
-   these compose env vars are set: `OET_GRAPH_TENANT_ID`, `OET_GRAPH_CLIENT_ID`,
-   `OET_GRAPH_CLIENT_SECRET`, optional `OET_GRAPH_MAILBOX` (default
-   support@oetwithdrhesham.co.uk). Entra app **"OET Website Mailer"** is registered
-   (client `33680ea1-c5e9-4722-b3a7-af05000da4ed`, tenant
-   `6a760231-a5f2-432c-bd6b-cb8b84dad3b8`); still TODO: add Graph *application*
-   permissions Mail.Send + Mail.Read, grant admin consent, create a client
-   secret, and restrict the app to the support mailbox (Exchange RBAC for
-   Applications / ApplicationAccessPolicy) so it can't send as everyone.
+1. **Email relay via Microsoft Graph — LIVE (2026-10-26).** Entra app
+   "OET Website Mailer" (client `33680ea1-c5e9-4722-b3a7-af05000da4ed`, tenant
+   `6a760231-a5f2-432c-bd6b-cb8b84dad3b8`) has Mail.Send + Mail.Read
+   *application* permissions with admin consent; `OET_GRAPH_*` env vars (incl.
+   the client secret `website-vps`, expires per Entra default ~6 months) live in
+   `/opt/docker/oetwebsite-stack/docker-compose.yml` on the VPS only (backup
+   `.bak-20261026`). Code: `oet-chat-lib.php` (chat + `contact.php`).
+   **TODO: restrict the app to the support mailbox** (Exchange RBAC for
+   Applications / ApplicationAccessPolicy) — currently it can send/read ANY
+   mailbox in the tenant. Rotate the secret before it expires.
 2. ~~GA4 ID~~ done: `G-PM9X3G8S3S` set in `assets/js/oet-analytics.js` (Umami dropped).
 3. `.github/workflows/build.yml` (CI build+verify+root-drift check) exists in
    the repo tree but pushing it requires a token with `workflow` scope — the
