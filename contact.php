@@ -119,8 +119,15 @@ $headers[] = 'Reply-To: ' . $name . ' <' . $email . '>';
 
 // SMTP (same OET_SMTP_* settings as the chat relay) when configured, else PHP mail().
 require_once __DIR__ . '/oet-chat-lib.php';
-$smtp = oet_chat_config()['smtp'];
-if ($smtp['host'] !== '') {
+$mailConfig = oet_chat_config();
+$smtp = $mailConfig['smtp'];
+$sent = false;
+if (oet_chat_graph_configured($mailConfig['graph'])) {
+    $sent = oet_chat_send_via_graph($mailConfig['graph'], $to, $subject, $body, $headers)['ok'];
+}
+if ($sent) {
+    // delivered via Microsoft Graph
+} elseif ($smtp['host'] !== '') {
     $sent = oet_chat_send_via_smtp($smtp, $to, $subject, $body, $headers)['ok'];
 } else {
     $headers[] = 'From: OET Website <support@oetwithdrhesham.co.uk>';

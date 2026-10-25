@@ -15,6 +15,12 @@ function oet_chat_config(): array
         'support_email' => $supportEmail !== '' ? $supportEmail : 'support@oetwithdrhesham.co.uk',
         'support_name' => $supportName !== '' ? $supportName : 'OET Support',
         'storage_root' => __DIR__ . '/storage/oet-chat',
+        'graph' => [
+            'tenant_id' => trim((string) (getenv('OET_GRAPH_TENANT_ID') ?: '')),
+            'client_id' => trim((string) (getenv('OET_GRAPH_CLIENT_ID') ?: '')),
+            'client_secret' => trim((string) (getenv('OET_GRAPH_CLIENT_SECRET') ?: '')),
+            'mailbox' => trim((string) (getenv('OET_GRAPH_MAILBOX') ?: $supportEmail)),
+        ],
         'smtp' => [
             'host' => trim((string) (getenv('OET_SMTP_HOST') ?: '')),
             'port' => (int) (getenv('OET_SMTP_PORT') ?: 587),
@@ -481,6 +487,195 @@ function oet_chat_send_via_smtp(array $smtp, string $to, string $subject, string
     }
 }
 
+/* ---------- Microsoft Graph (client credentials) — used when OET_GRAPH_* are set ---------- */
+
+function oet_chat_graph_configured(array $graph): bool
+{
+    return $graph['tenant_id'] !== '' && $graph['client_id'] !== '' && $graph['client_secret'] !== '' && $graph['mailbox'] !== '';
+}
+
+function oet_chat_graph_request(string $method, string $url, array $headers, ?string $body = null): array
+{
+    if (!function_exists('curl_init')) {
+        return ['status' => 0, 'body' => '', 'error' => 'curl_missing'];
+    }
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_CUSTOMREQUEST => $method,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT => 15,
+        CURLOPT_HTTPHEADER => $headers,
+    ]);
+    if ($body !== null) {
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
+    }
+    $response = curl_exec($ch);
+    $status = (int) curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
+    $error = $response === false ? curl_error($ch) : '';
+    curl_close($ch);
+
+    return ['status' => $status, 'body' => is_string($response) ? $response : '', 'error' => $error];
+}
+
+function oet_chat_graph_token(array $graph): string
+{
+    $cacheFile = oet_chat_storage_root() . '/graph-token.json';
+    $cached = is_file($cacheFile) ? json_decode((string) @file_get_contents($cacheFile), true) : null;
+    if (is_array($cached) && ($cached['expires_at'] ?? 0) > time() + 60 && !empty($cached['access_token'])) {
+        return (string) $cached['access_token'];
+    }
+
+    $res = oet_chat_graph_request(
+        'POST',
+        'https://login.microsoftonline.com/' . rawurlencode($graph['tenant_id']) . '/oauth2/v2.0/token',
+        ['Content-Type: application/x-www-form-urlencoded'],
+        http_build_query([
+            'client_id' => $graph['client_id'],
+            'client_secret' => $graph['client_secret'],
+            'scope' => 'https://graph.microsoft.com/.default',
+            'grant_type' => 'client_credentials',
+        ])
+    );
+    $data = json_decode($res['body'], true);
+    if ($res['status'] !== 200 || !is_array($data) || empty($data['access_token'])) {
+        return '';
+    }
+
+    oet_chat_ensure_storage();
+    @file_put_contents($cacheFile, json_encode([
+        'access_token' => $data['access_token'],
+        'expires_at' => time() + (int) ($data['expires_in'] ?? 3000),
+    ]), LOCK_EX);
+    @chmod($cacheFile, 0600);
+
+    return (string) $data['access_token'];
+}
+
+/** Sends a plain-text email from the support mailbox. $headers are "Name: value" lines; Reply-To and X-* are honoured. */
+function oet_chat_send_via_graph(array $graph, string $to, string $subject, string $body, array $headers): array
+{
+    if (!oet_chat_graph_configured($graph)) {
+        return ['ok' => false, 'error' => 'graph_not_configured'];
+    }
+    $token = oet_chat_graph_token($graph);
+    if ($token === '') {
+        return ['ok' => false, 'error' => 'graph_token_failed'];
+    }
+
+    $message = [
+        'subject' => $subject,
+        'body' => ['contentType' => 'Text', 'content' => $body],
+        'toRecipients' => [['emailAddress' => ['address' => $to]]],
+    ];
+    $custom = [];
+    foreach ($headers as $line) {
+        if (!preg_match('/^([A-Za-z0-9-]+):\s*(.*)$/', (string) $line, $m)) {
+            continue;
+        }
+        if (strcasecmp($m[1], 'Reply-To') === 0 && preg_match('/^(.*)<([^>]+)>$/', $m[2], $r)) {
+            $message['replyTo'] = [['emailAddress' => ['name' => trim($r[1], " \t\""), 'address' => trim($r[2])]]];
+        } elseif (stripos($m[1], 'X-') === 0 && count($custom) < 5) {
+            $custom[] = ['name' => $m[1], 'value' => $m[2]];
+        }
+    }
+    if ($custom !== []) {
+        $message['internetMessageHeaders'] = $custom;
+    }
+
+    $res = oet_chat_graph_request(
+        'POST',
+        'https://graph.microsoft.com/v1.0/users/' . rawurlencode($graph['mailbox']) . '/sendMail',
+        ['Authorization: Bearer ' . $token, 'Content-Type: application/json'],
+        json_encode(['message' => $message, 'saveToSentItems' => true], JSON_UNESCAPED_UNICODE)
+    );
+
+    return $res['status'] === 202
+        ? ['ok' => true, 'mode' => 'graph']
+        : ['ok' => false, 'error' => 'graph_send_failed: HTTP ' . $res['status'] . ' ' . $res['error']];
+}
+
+/** Pulls replies for a chat thread from Inbox + Sent Items via Graph (subject contains the thread ref). */
+function oet_chat_sync_via_graph(array $graph, array &$thread): array
+{
+    $token = oet_chat_graph_token($graph);
+    if ($token === '') {
+        return ['ok' => false, 'available' => false, 'reason' => 'graph_token_failed', 'added' => 0];
+    }
+
+    $threadRef = (string) ($thread['thread_ref'] ?? '');
+    $seen = array_fill_keys(is_array($thread['message_signatures'] ?? null) ? $thread['message_signatures'] : [], true);
+    $added = 0;
+    $visited = [];
+
+    foreach (['inbox', 'sentitems'] as $folder) {
+        $url = 'https://graph.microsoft.com/v1.0/users/' . rawurlencode($graph['mailbox'])
+            . '/mailFolders/' . $folder . '/messages?$top=50'
+            . '&$select=internetMessageId,subject,from,receivedDateTime,body,internetMessageHeaders'
+            . '&$search=' . rawurlencode('"subject:' . str_replace('"', '', $threadRef) . '"');
+        $res = oet_chat_graph_request('GET', $url, [
+            'Authorization: Bearer ' . $token,
+            'Prefer: outlook.body-content-type="text"',
+            'ConsistencyLevel: eventual',
+        ]);
+        $data = json_decode($res['body'], true);
+        if ($res['status'] !== 200 || !is_array($data) || !isset($data['value'])) {
+            continue;
+        }
+        $visited[] = $folder;
+
+        $items = $data['value'];
+        usort($items, static fn ($a, $b) => strcmp((string) ($a['receivedDateTime'] ?? ''), (string) ($b['receivedDateTime'] ?? '')));
+        foreach ($items as $item) {
+            $isUserMessage = false;
+            foreach (($item['internetMessageHeaders'] ?? []) as $h) {
+                if (strcasecmp((string) ($h['name'] ?? ''), 'X-OET-Message-Type') === 0 && strcasecmp(trim((string) ($h['value'] ?? '')), 'user') === 0) {
+                    $isUserMessage = true;
+                }
+            }
+            if ($isUserMessage) {
+                continue;
+            }
+
+            $text = (string) ($item['body']['content'] ?? '');
+            $text = html_entity_decode(strip_tags($text), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+            $text = oet_chat_strip_quoted_sections(preg_replace('/\s+/', ' ', trim($text)) ?? trim($text));
+            if ($text === '') {
+                continue;
+            }
+
+            $signature = trim((string) ($item['internetMessageId'] ?? ''));
+            if ($signature === '') {
+                $signature = sha1(($item['receivedDateTime'] ?? '') . '|' . $text);
+            }
+            if (isset($seen[$signature])) {
+                continue;
+            }
+
+            $thread['messages'][] = [
+                'id' => oet_chat_next_message_id($thread),
+                'role' => 'agent',
+                'name' => (string) ($item['from']['emailAddress']['name'] ?? 'OET Support') ?: 'OET Support',
+                'email' => (string) ($item['from']['emailAddress']['address'] ?? ''),
+                'phone' => '',
+                'text' => $text,
+                'source' => 'email',
+                'created_at' => (string) ($item['receivedDateTime'] ?? oet_chat_now()),
+                'signature' => $signature,
+            ];
+            $seen[$signature] = true;
+            $thread['message_signatures'][] = $signature;
+            $added++;
+        }
+    }
+
+    if ($added > 0) {
+        $thread['last_sync_at'] = oet_chat_now();
+        $thread['updated_at'] = oet_chat_now();
+    }
+
+    return ['ok' => true, 'available' => true, 'added' => $added, 'folders' => $visited];
+}
+
 function oet_chat_send_via_mail(array $config, string $to, string $subject, string $body, array $headers): array
 {
     $headerLines = $headers;
@@ -537,6 +732,13 @@ function oet_chat_send_support_email(array $thread, array $visitor, string $mess
         'X-OET-Visitor-Email: ' . $safeEmail,
     ];
 
+    if (oet_chat_graph_configured($config['graph'])) {
+        $sent = oet_chat_send_via_graph($config['graph'], $config['support_email'], $subject, $body, $headers);
+        if ($sent['ok']) {
+            return $sent;
+        }
+    }
+
     $smtp = $config['smtp'];
     if ($smtp['host'] !== '' && $smtp['username'] !== '' && $smtp['password'] !== '') {
         $sent = oet_chat_send_via_smtp($smtp, $config['support_email'], $subject, $body, $headers);
@@ -552,6 +754,10 @@ function oet_chat_sync_mailbox_for_thread(array &$thread): array
 {
     $config = oet_chat_config();
     $imap = $config['imap'];
+
+    if (oet_chat_graph_configured($config['graph'])) {
+        return oet_chat_sync_via_graph($config['graph'], $thread);
+    }
 
     if (!function_exists('imap_open')) {
         return ['ok' => false, 'available' => false, 'reason' => 'imap_extension_missing', 'added' => 0];
