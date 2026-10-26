@@ -52,17 +52,18 @@ Commit the regenerated root pages together with the source change.
 
 `oet-chat-send.php`, `oet-chat-poll.php`, `contact.php`, `oet-chat-lib.php`
 (direct web access to lib is 403), `oet-rate-limit.php`. Config via env vars
-(`OET_SMTP_*`, `OET_IMAP_*`, …) with graceful `getenv(...) ?: ''` fallbacks —
-**SMTP env vars are NOT yet set in production**, so chat/contact email relay
-returns `mail_transport_failed` (known, pre-existing; needs user's creds).
+with graceful `getenv(...) ?: ''` fallbacks. Production sends and syncs mail
+through **Microsoft Graph** (`OET_GRAPH_*`, see Known pending items #1);
+`OET_SMTP_*` / `OET_IMAP_*` remain as unused fallbacks (the M365 tenant offers
+no app passwords, so SMTP AUTH is not an option).
 Chat expects **form-encoded POST**, not JSON. Threads stored in
 `storage/oet-chat/threads/` (PII — gitignored, never commit or delete).
 Contact-form enquiries are saved **before** emailing to
 `storage/contact/YYYY-MM.jsonl` (PII — gitignored, never commit or delete), so
-no lead is lost while SMTP is missing. Read them with
+no lead is lost if mail delivery fails. Read them with
 `ssh root@185.252.233.186 'cat /opt/docker/oetwebsite/storage/contact/*.jsonl'`.
 The container has no `sendmail` binary, and the domain's mail is Microsoft 365
-with SPF `-all`, so only `OET_SMTP_*` (M365 SMTP AUTH) will deliver email.
+with SPF `-all`, so only Graph (sending as the M365 mailbox) delivers email.
 
 ### Header Login / Register CTA and the `oet_signed_in` hint cookie
 
