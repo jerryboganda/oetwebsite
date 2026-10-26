@@ -712,13 +712,10 @@ body.oet-live-site .blog-padding-bottom10 .blog__wrap10{
    Fix strategy:
    - Header rows use a fluid container (up to 1820px) so wide screens
      get real space instead of a capped box.
-   - 1200-1499px: the full 8-item menu genuinely cannot fit without
-     unreadable type, so the header switches to the hamburger/offcanvas
-     pattern (same as <1200px, where it already works). The offcanvas
-     nav is a JS clone of the desktop menu, so items stay in sync.
-   - >=1500px: inline menu with tiered type/gaps (~925px of content in
-     ~1137px of space at 1500w — verified fit).
-   - Right action zone: search button at >=1500px; the 6 social circles
+   - 2026-10 nav redesign: the menu is now 6 short top-level items + CTA,
+     so the inline menu returns at >=1200px; 992-1199px keeps the
+     hamburger/offcanvas (the offcanvas nav is a JS clone of the desktop menu).
+   - Right action zone: search button at >=1200px; the 6 social circles
      only from 1750px up (they duplicate topbar/footer links).
    - A final Playwright probe asserts first-item-left >= logo-right and
      zero horizontal scroll at every width.
@@ -733,8 +730,8 @@ body.oet-live-site .blog-padding-bottom10 .blog__wrap10{
   padding-right:clamp(16px,2vw,32px);
 }
 
-/* Hamburger/offcanvas across the whole 992-1499 band (replaces inline menu) */
-@media (min-width:992px) and (max-width:1499.98px){
+/* Hamburger/offcanvas across the whole 992-1199 band (replaces inline menu) */
+@media (min-width:992px) and (max-width:1199.98px){
   #vl-header-sticky .vl-header-action-item{
     display:flex!important;
     align-items:center;
@@ -779,8 +776,8 @@ body.oet-live-site .blog-padding-bottom10 .blog__wrap10{
   #vl-header-sticky .vl-header-right{display:none!important}
 }
 
-/* Inline menu from 1500px up: tiered, verified-fit type scale */
-@media (min-width:1500px){
+/* Inline menu from 1200px up (6 top-level items fit since the 2026-10 nav redesign): tiered, verified-fit type scale */
+@media (min-width:1200px){
   #vl-header-sticky .header-border-bottom>.row>[class*="col-"]{
     flex:0 0 auto;
     width:auto;
@@ -876,8 +873,8 @@ body.oet-live-site .blog-padding-bottom10 .blog__wrap10{
    Two labels live in the same link; the inline head script in Base.astro adds
    html.oet-signed-in when the learner app's shared-domain hint cookie exists, which
    swaps the label to My Dashboard (and its href). Default (JS off, no cookie) = Login / Register.
-   Below 1500px the inline nav is hidden (rules above), so this CTA sits in the action
-   item next to the hamburger; from 1500px up the action item is hidden (d-xl-none)
+   Below 1200px the inline nav is hidden (rules above), so this CTA sits in the action
+   item next to the hamburger; from 1200px up the action item is hidden (d-xl-none)
    and the nav pill below takes over, so exactly one CTA is ever visible. */
 .oet-auth-cta__user{display:none}
 html.oet-signed-in .oet-auth-cta__guest{display:none}
@@ -929,7 +926,7 @@ html.oet-signed-in a.oet-header-cta-btn i{display:none}
   #vl-header-sticky .vl-header-action-item{gap:4px}
   #vl-header-sticky .vl-logo a img{max-width:100px}
 }
-/* 1500px and up: the nav pill is the CTA; 44px tap target, label centred
+/* 1200px and up: the nav pill is the CTA; 44px tap target, label centred
    (same specificity and !important as the existing pill rules above, later in the file) */
 #vl-header-sticky .vl-main-menu nav>ul>li>a.oet-header-cta-btn{
   min-height:44px!important;

@@ -4,12 +4,16 @@ import meta from '../partials/index/meta.html?raw';
 import headExtra from '../partials/index/head-extra.html?raw';
 import main from '../partials/index/main.html?raw';
 import tail from '../partials/index/tail.html?raw';
+import { loadBlog, applyLatestPosts } from '../lib/blog.mjs';
+
+// "Latest from the OET Blog" cards come from src/data/blog.json
+const parts = applyLatestPosts({ meta, headExtra, main, tail }, loadBlog().posts);
 ---
 <Base
-  meta={meta}
-  headExtra={headExtra}
-  main={main}
-  tail={tail}
+  meta={parts.meta}
+  headExtra={parts.headExtra}
+  main={parts.main}
+  tail={parts.tail}
   swiperCss={true}
   salCss={true}
   heroCss={true}

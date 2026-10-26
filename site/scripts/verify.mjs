@@ -24,6 +24,10 @@ const PAGES = [
   'success-stories.html', 'teaching-approach.html', 'uk-pathway-guide.html',
   'usa-pathway-guide.html', 'cookie-policy/index.html', 'privacy/index.html',
   'refund-policy/index.html', 'terms/index.html',
+  'blog/index.html', 'oet-practice.html',
+  'oet-writing-referral-letter-structure.html', 'oet-writing-physiotherapy-referral-vs-discharge.html',
+  'oet-reading-part-a-scanning.html', 'oet-reading-part-c-inference.html', 'oet-listening-part-a-note-taking.html',
+  'oet-speaking-empathy-signposting.html', 'oet-computer-vs-paper.html',
 ];
 
 let failures = 0;
@@ -42,7 +46,7 @@ for (const page of PAGES) {
     fail(`${page}: literal $n backreference leaked into markup`);
   if (html.includes('<base ')) fail(`${page}: <base> tag present (root-absolute policy)`);
 
-  // header Login / Register CTA: the nav pill (>=1500px) and the action-item link (below 1500px) both
+  // header Login / Register CTA: the nav pill (>=1200px) and the action-item link (below 1200px) both
   // carry the signed-in swap target; neither may carry an id (the drawer clones the nav); the action-item
   // link sits before the hamburger; the oet_signed_in hint script ships in <head>
   const ctaLinks = html.match(/<a\b[^>]*\bdata-dashboard-href="https:\/\/app\.oetwithdrhesham\.co\.uk\/"[^>]*>/g) || [];
@@ -83,7 +87,7 @@ if (!existsSync(sitemapFile)) fail('sitemap.xml missing from dist');
 else {
   const sm = readFileSync(sitemapFile, 'utf8');
   const urls = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  if (urls.length !== 56) fail(`sitemap has ${urls.length} URLs, expected 56`);
+  if (urls.length !== 65) fail(`sitemap has ${urls.length} URLs, expected 65`);
   // Clean URLs served via .htaccess rewrites map to their built .html file.
   const CLEAN_URL_ALIASES = { 'english-placement-test': 'english-placement-test.html' };
   for (const u of urls) {
@@ -265,6 +269,102 @@ if (distHtml['pricing.html']) {
   }
   const pricingImage = path.join(ROOT, 'assets/img/og/og-pricing.png');
   if (!existsSync(pricingImage)) fail('pricing: schema image asset missing on disk: assets/img/og/og-pricing.png');
+}
+
+// 2026-10 redesign brief: navigation, footer, OET Blog and SEO quality gates
+{
+  const ORIGIN = 'https://oetwithdrhesham.co.uk';
+  const urlOf = (page) => (page === 'index.html' ? '/' : page.endsWith('/index.html') ? `/${page.slice(0, -10)}`
+    : page === 'english-placement-test.html' ? '/english-placement-test' : `/${page}`);
+  const pageOf = (p) => (p === '/' ? 'index.html' : p.endsWith('/') ? `${p.slice(1)}index.html`
+    : p === '/english-placement-test' ? 'english-placement-test.html' : p.slice(1));
+  const idsOf = new Map(Object.entries(distHtml).map(([page, html]) => [page, new Set([...html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]))]));
+
+  // no dead ends: every internal link resolves to a built page / file, and every #fragment to an element
+  for (const [page, html] of Object.entries(distHtml)) {
+    for (const m of html.matchAll(/<a\b[^>]*\bhref="([^"]*)"/g)) {
+      const href = m[1].replace(/&amp;/g, '&');
+      if (href === '' || href === '#') { fail(`${page}: empty or "#" link`); continue; }
+      if (/^javascript:/i.test(href)) { fail(`${page}: javascript: link`); continue; }
+      if (/^(https?:|mailto:|tel:|\/\/)/i.test(href)) continue;
+      const [pathPart, frag] = href.split('#');
+      const clean = pathPart.split('?')[0];
+      let target = page;
+      if (clean) {
+        if (!clean.startsWith('/')) { fail(`${page}: relative link ${href} (site links are root-absolute)`); continue; }
+        target = pageOf(clean);
+        if (!distHtml[target]) {
+          if (!existsSync(path.join(ROOT, clean.slice(1))) || /\.html$/.test(clean)) { fail(`${page}: broken internal link ${href}`); continue; }
+          target = null; // a real non-page file (asset, php)
+        }
+      }
+      if (frag && target && !idsOf.get(target).has(frag)) fail(`${page}: link ${href} points at a missing #${frag}`);
+    }
+  }
+
+  // unique <title> and meta description; self-referencing canonical on the apex https origin
+  const seenTitle = new Map();
+  const seenDesc = new Map();
+  for (const [page, html] of Object.entries(distHtml)) {
+    if (page === '404.html') continue;
+    const title = (html.match(/<title>([\s\S]*?)<\/title>/) || [])[1];
+    const desc = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1];
+    const canon = (html.match(/<link rel="canonical" href="([^"]+)"/) || [])[1];
+    if (!title) fail(`${page}: no <title>`);
+    else if (seenTitle.has(title)) fail(`${page}: <title> duplicates ${seenTitle.get(title)}`);
+    else seenTitle.set(title, page);
+    if (!desc) fail(`${page}: no meta description`);
+    else if (seenDesc.has(desc)) fail(`${page}: meta description duplicates ${seenDesc.get(desc)}`);
+    else seenDesc.set(desc, page);
+    if (canon !== ORIGIN + urlOf(page)) fail(`${page}: canonical ${canon} should be ${ORIGIN + urlOf(page)}`);
+  }
+
+  // chrome: one drawer, 6-item nav with the OET Blog, no community/social links inside the menus,
+  // 4 footer groups with working accordion buttons, OET Blog in the footer, no "#" legal link
+  const TOP = ['Courses', 'OET Practice', 'Free Resources', 'OET Blog', 'About', 'Pricing'];
+  for (const [page, html] of Object.entries(distHtml)) {
+    if ((html.match(/id="vl-offcanvas-menu"/g) || []).length !== 1) fail(`${page}: expected exactly one offcanvas drawer`);
+    const nav = (html.match(/<nav class="vl-mobile-menu-active"[\s\S]*?<\/nav>/) || [''])[0];
+    const tops = [...nav.matchAll(/<li(?: class="[^"]*")?><a (?:class="[^"]*" )?href="[^"]*">([^<]+?)\s*(?:<span class="downarrow">|<\/a>)/g)]
+      .map((m) => m[1].trim()).filter((t) => TOP.includes(t));
+    if (TOP.some((t) => !tops.includes(t))) fail(`${page}: main nav must show ${TOP.join(' / ')} (found ${tops.join(' / ')})`);
+    if (!nav.includes('href="/blog/"')) fail(`${page}: main nav must link the OET Blog (/blog/)`);
+    if (/t\.me\/|facebook\.com|youtube\.com/.test(nav)) fail(`${page}: social/community links belong outside the main nav menus`);
+    const footer = (html.match(/<footer\b[\s\S]*?<\/footer>/) || [''])[0];
+    const toggles = [...footer.matchAll(/<button type="button" class="oet-footer-group-toggle" aria-expanded="true" aria-controls="([^"]+)"/g)];
+    if (toggles.length !== 4) fail(`${page}: footer must have 4 accordion groups, found ${toggles.length}`);
+    for (const t of toggles) if (!footer.includes(`id="${t[1]}"`)) fail(`${page}: footer toggle controls missing #${t[1]}`);
+    if (!/<a href="\/blog\/">OET Blog<\/a>/.test(footer)) fail(`${page}: footer must link "OET Blog"`);
+  }
+  if (!/<main[\s\S]*href="\/blog\/"[\s\S]*<\/main>/.test(distHtml['index.html'] || '')) fail('index.html: homepage must link the OET Blog (/blog/)');
+  if ((distHtml['index.html'] || '').includes('7+ OET Skills')) fail('index.html: OET has 4 core skills, not "7+"');
+
+  // OET Blog: every listed post is built, linked from /blog/, links back to /blog/, has a thumbnail,
+  // valid Article/BlogPosting data and a BreadcrumbList that matches the visible breadcrumb
+  const { loadBlog } = await import('../src/lib/blog.mjs');
+  const { posts } = loadBlog();
+  const blogHtml = distHtml['blog/index.html'] || '';
+  for (const post of posts) {
+    const page = post.url.slice(1);
+    const html = distHtml[page];
+    if (!html) { fail(`blog: ${post.url} is listed in blog.json but not built/verified`); continue; }
+    if (!blogHtml.includes(`href="${post.url}"`)) fail(`blog: /blog/ does not link ${post.url}`);
+    if (!existsSync(path.join(ROOT, post.image.slice(1)))) fail(`blog: thumbnail missing ${post.image} (npm run thumbs)`);
+    if (!html.includes('href="/blog/"')) fail(`${page}: article must link back to /blog/`);
+    const article = [...nodesOfType(ldBlocks(html), 'Article'), ...nodesOfType(ldBlocks(html), 'BlogPosting')][0];
+    if (!article) fail(`${page}: no Article/BlogPosting JSON-LD`);
+    else for (const k of ['headline', 'datePublished', 'author', 'image']) if (!article[k]) fail(`${page}: Article JSON-LD missing ${k}`);
+    const crumbs = nodesOfType(ldBlocks(html), 'BreadcrumbList')[0];
+    const visible = (html.match(/<nav class="oet-breadcrumbs" aria-label="Breadcrumb"><ol>([\s\S]*?)<\/ol><\/nav>/) || [])[1];
+    if (!crumbs || !visible) { fail(`${page}: needs a visible breadcrumb and BreadcrumbList JSON-LD`); continue; }
+    const names = [...visible.matchAll(/<li[^>]*>([\s\S]*?)<\/li>/g)].map((m) => visibleText(m[1]));
+    const ldNames = crumbs.itemListElement.map((i) => visibleText(i.name));
+    if (names.join(' > ') !== ldNames.join(' > ')) fail(`${page}: breadcrumb "${names.join(' > ')}" != JSON-LD "${ldNames.join(' > ')}"`);
+    if (ldNames[1] !== 'oet blog') fail(`${page}: breadcrumb must go Home > OET Blog > ${post.categoryLabel}`);
+  }
+  if (!nodesOfType(ldBlocks(blogHtml), 'Blog').length) fail('blog/index.html: Blog JSON-LD missing');
+  const cards = (blogHtml.match(/class="oet-blog-card"/g) || []).length;
+  if (cards < posts.length) fail(`blog/index.html: ${cards} cards for ${posts.length} posts`);
 }
 
 if (failures) {

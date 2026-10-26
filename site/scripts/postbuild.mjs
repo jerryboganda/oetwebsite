@@ -71,6 +71,15 @@ const PAGES = [
   ['terms/index.html', '/terms/', 'yearly', '0.3'],
   ['refund-policy/index.html', '/refund-policy/', 'yearly', '0.3'],
   ['cookie-policy/index.html', '/cookie-policy/', 'yearly', '0.3'],
+  ['blog/index.html', '/blog/', 'weekly', '0.9'],
+  ['oet-practice.html', '/oet-practice.html', 'monthly', '0.9'],
+  ['oet-writing-referral-letter-structure.html', '/oet-writing-referral-letter-structure.html', 'monthly', '0.7'],
+  ['oet-writing-physiotherapy-referral-vs-discharge.html', '/oet-writing-physiotherapy-referral-vs-discharge.html', 'monthly', '0.7'],
+  ['oet-reading-part-a-scanning.html', '/oet-reading-part-a-scanning.html', 'monthly', '0.7'],
+  ['oet-reading-part-c-inference.html', '/oet-reading-part-c-inference.html', 'monthly', '0.7'],
+  ['oet-listening-part-a-note-taking.html', '/oet-listening-part-a-note-taking.html', 'monthly', '0.7'],
+  ['oet-speaking-empathy-signposting.html', '/oet-speaking-empathy-signposting.html', 'monthly', '0.7'],
+  ['oet-computer-vs-paper.html', '/oet-computer-vs-paper.html', 'monthly', '0.7'],
   ['404.html', null, null, null],
 ];
 
@@ -119,9 +128,18 @@ function tagWhatsApp(html, rel) {
 // --- 2. sitemap --------------------------------------------------------------
 function lastmodFor(distRel) {
   const key = distRel === '404.html' ? '404' : distRel.replace(/\/index\.html$|\.html$/, '');
-  const partials = path.join(SITE, 'src', 'partials', key);
-  // Visible prices on pricing.html come from the data file, not the partials.
-  const sources = [partials, ...(key === 'pricing' ? [path.join(SITE, 'src', 'data', 'pricing.json')] : [])]
+  // The blog index has no partials: pages/blog/index.astro generates it from blog.json.
+  const partials = key === 'blog'
+    ? path.join(SITE, 'src', 'pages', 'blog')
+    : path.join(SITE, 'src', 'partials', key);
+  // Visible prices on pricing.html come from the data file, not the partials;
+  // the blog index and the homepage "Latest from the OET Blog" cards come from blog.json.
+  const extra = {
+    pricing: [path.join(SITE, 'src', 'data', 'pricing.json')],
+    blog: [path.join(SITE, 'src', 'data', 'blog.json')],
+    index: [path.join(SITE, 'src', 'data', 'blog.json')],
+  }[key] || [];
+  const sources = [partials, ...extra]
     .map((p) => `"${path.relative(ROOT, p)}"`).join(' ');
   try {
     // Uncommitted source edits ship with this build, so the page changes today.

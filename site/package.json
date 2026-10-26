@@ -10,7 +10,8 @@
     "build:ci": "astro build && node scripts/postbuild.mjs --no-copy",
     "verify": "node scripts/verify.mjs",
     "preview": "node scripts/preview.mjs",
-    "check": "astro check"
+    "check": "astro check",
+    "thumbs": "node scripts/blog-thumbs.mjs"
   },
   "dependencies": {
     "astro": "^5.7.0"

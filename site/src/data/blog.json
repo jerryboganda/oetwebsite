@@ -1,0 +1,194 @@
+{
+  "categories": [
+    {
+      "id": "writing",
+      "label": "Writing",
+      "intro": "Letter structure, case-note selection, model letters and profession-specific Writing tasks."
+    },
+    {
+      "id": "speaking",
+      "label": "Speaking",
+      "intro": "Patient-centred role-plays, clinical communication and model answers by profession."
+    },
+    {
+      "id": "reading",
+      "label": "Reading",
+      "intro": "Part A scanning, Part B workplace texts and Part C inference under time pressure."
+    },
+    {
+      "id": "listening",
+      "label": "Listening",
+      "intro": "Note-taking, prediction and spelling accuracy for Parts A, B and C."
+    },
+    {
+      "id": "exam-format",
+      "label": "Exam Format",
+      "intro": "Computer vs paper, test dates and fees, and how OET compares with IELTS."
+    },
+    {
+      "id": "pathways",
+      "label": "Pathway Guides",
+      "intro": "Score requirements and registration steps for the UK, USA, Australia and the Gulf."
+    }
+  ],
+  "posts": [
+    {
+      "slug": "oet-writing-referral-letter-structure",
+      "category": "writing",
+      "featured": true,
+      "summary": "Organise a referral letter around the reader's next step: sort case notes into keep, summarise or omit, plan the paragraphs, and see a worked practice case."
+    },
+    {
+      "slug": "oet-speaking-empathy-signposting",
+      "category": "speaking",
+      "featured": true,
+      "summary": "Make empathy sound genuine and signpost every topic change in OET role-plays, mapped to the clinical communication criteria, with weak vs stronger examples."
+    },
+    {
+      "slug": "oet-computer-vs-paper",
+      "category": "exam-format",
+      "featured": true,
+      "summary": "How paper, computer and OET@Home differ for Writing, Reading and Speaking, how to choose a mode, and a two-week practice plan for each format."
+    },
+    {
+      "slug": "oet-writing-physiotherapy-referral-vs-discharge",
+      "category": "writing",
+      "summary": "How physiotherapy referral and discharge letters differ in reader, purpose and emphasis, with one practice patient written up both ways."
+    },
+    {
+      "slug": "oet-reading-part-a-scanning",
+      "category": "reading",
+      "summary": "A minute-by-minute plan for Reading Part A, with a worked scan path through four practice texts and the copying rules that cost easy marks."
+    },
+    {
+      "slug": "oet-reading-part-c-inference",
+      "category": "reading",
+      "summary": "A six-step elimination method for Reading Part C, with a practice paragraph showing why each wrong option fails."
+    },
+    {
+      "slug": "oet-listening-part-a-note-taking",
+      "category": "listening",
+      "summary": "Turn a consultation into accurate Part A notes: prediction, exact wording, spelling and abbreviations, with a worked practice extract."
+    },
+    {
+      "slug": "oet-writing-tips",
+      "category": "writing",
+      "summary": "Eleven strategies for letter type, reader, case-note selection, structure, tone and the final check before time."
+    },
+    {
+      "slug": "oet-writing-sample-nursing",
+      "category": "writing",
+      "summary": "Discharge case notes, a model letter to the district nurse and a criterion-by-criterion explanation."
+    },
+    {
+      "slug": "oet-writing-sample-nursing-referral",
+      "category": "writing",
+      "summary": "Practice nurse case notes, a model referral to a diabetes specialist nurse and marking notes."
+    },
+    {
+      "slug": "oet-writing-sample-nursing-transfer",
+      "category": "writing",
+      "summary": "Post-stroke case notes, a model transfer letter to a care home nurse and marking notes."
+    },
+    {
+      "slug": "oet-writing-sample-medicine",
+      "category": "writing",
+      "summary": "GP case notes, a model referral letter to a cardiologist and an explanation of every selection decision."
+    },
+    {
+      "slug": "oet-writing-sample-medicine-discharge",
+      "category": "writing",
+      "summary": "Pneumonia case notes and a model discharge letter from hospital to the GP, decision by decision."
+    },
+    {
+      "slug": "oet-writing-sample-pharmacy",
+      "category": "writing",
+      "summary": "Medication review case notes, a model letter to a GP and an explanation of every selection decision."
+    },
+    {
+      "slug": "oet-writing-sample-physiotherapy",
+      "category": "writing",
+      "summary": "Knee replacement case notes, a model letter to a community physiotherapist and marking notes."
+    },
+    {
+      "slug": "oet-writing-sample-occupational-therapy",
+      "category": "writing",
+      "summary": "Home assessment case notes after a fall, a model referral letter and marking notes."
+    },
+    {
+      "slug": "oet-speaking-tips",
+      "category": "speaking",
+      "summary": "Patient-friendly language, empathy, structure, signposting and time control in OET role-plays."
+    },
+    {
+      "slug": "oet-speaking-role-play-nursing",
+      "category": "speaking",
+      "summary": "Two nursing practice cards and a model role-play with marking notes, useful phrases and common mistakes."
+    },
+    {
+      "slug": "oet-speaking-role-play-medicine",
+      "category": "speaking",
+      "summary": "Two medicine practice cards and a model consultation with marking notes and useful phrases."
+    },
+    {
+      "slug": "oet-speaking-role-play-pharmacy",
+      "category": "speaking",
+      "summary": "Two pharmacy practice cards and a model role-play with marking notes and useful phrases."
+    },
+    {
+      "slug": "oet-speaking-role-play-physiotherapy",
+      "category": "speaking",
+      "summary": "Two physiotherapy practice cards and a model role-play with marking notes and useful phrases."
+    },
+    {
+      "slug": "oet-reading-tips",
+      "category": "reading",
+      "summary": "Part A scanning, Part B and C distractors, inference and a weekly mock strategy."
+    },
+    {
+      "slug": "oet-listening-tips",
+      "category": "listening",
+      "summary": "Strategies for Parts A, B and C: note-taking, accents, distractors and answer accuracy."
+    },
+    {
+      "slug": "oet-vs-ielts",
+      "category": "exam-format",
+      "summary": "OET's official IELTS comparison, format differences, which regulators accept each test and how to choose."
+    },
+    {
+      "slug": "oet-test-dates-and-fees",
+      "category": "exam-format",
+      "summary": "Paper and computer test dates, fees, re-sit and rescheduling costs, booking deadlines and results timing."
+    },
+    {
+      "slug": "oet-score-requirements",
+      "category": "pathways",
+      "summary": "Minimum scores, sittings, OET@Home rules and validity for the NMC, GMC, Ahpra, NMBI, ECFMG and more."
+    },
+    {
+      "slug": "uk-pathway-guide",
+      "category": "pathways",
+      "summary": "NMC, GMC, GPhC and HCPC score requirements, steps, documents and common mistakes."
+    },
+    {
+      "slug": "usa-pathway-guide",
+      "category": "pathways",
+      "summary": "ECFMG, USMLE, NCLEX, FPGEC and NPTE routes, English test rules and state boards."
+    },
+    {
+      "slug": "oet-for-ecfmg",
+      "category": "pathways",
+      "summary": "Required OET Medicine scores for the 2027 ECFMG Pathways, the one-sitting rule and key deadlines."
+    },
+    {
+      "slug": "australia-pathway-guide",
+      "category": "pathways",
+      "summary": "Ahpra, AMC, NMBA and APC steps for doctors, nurses, pharmacists and physiotherapists."
+    },
+    {
+      "slug": "gulf-pathway-guide",
+      "category": "pathways",
+      "summary": "Qatar DHP, Sheryan, DataFlow and Prometric steps for doctors, nurses, pharmacists and physiotherapists."
+    }
+  ]
+}

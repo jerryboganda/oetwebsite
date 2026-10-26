@@ -11,12 +11,27 @@ enrollment **web app** lives at app./api.oetwithdrhesham.co.uk (repo
 OUTPUT, committed for parity/deploy. Never hand-edit root HTML — edit the
 partials/data and rebuild.**
 
-- `site/src/pages/*.astro` — 56 thin wrappers (one per page; `ar/` = Arabic, `lang="ar"`), each importing
+- `site/src/pages/*.astro` — 66 thin wrappers incl. 404 (one per page; `ar/` = Arabic, `lang="ar"`), each importing
   its page partials `?raw` and rendering through `site/src/layouts/Base.astro`.
 - `site/src/partials/<page>/{meta,head-extra,main,tail}.html` — byte-preserved
   page bodies. This is where page content/CSS edits happen.
-- `site/src/partials/chrome/` — shared header/footer/community-popup
-  (`Header.astro`, `Footer.astro`, `CommunityPopup.astro` in `components/`).
+- `site/src/partials/chrome/` — shared header (`header-1/2.html`), drawer +
+  search overlay (`offcanvas.html`, rendered by `Header.astro`; page partials
+  no longer carry a copy), footer (`footer.html`) and community popup.
+  Redesign styles (nav, drawer, footer, blog, practice hub, homepage) live in
+  `assets/css/oet-redesign.css`, loaded site-wide after `oet-polish.css`.
+- **OET Blog**: `site/src/pages/blog/index.astro` (→ `/blog/`) and the homepage
+  "Latest from the OET Blog" cards (marker `<!--oet:latest-posts-->` in
+  `partials/index/main.html`) are generated from `site/src/data/blog.json` via
+  `site/src/lib/blog.mjs`; titles, dates and reading time come from each
+  article's own partials. New article: page + partials (breadcrumb Home › OET
+  Blog › Category, BlogPosting + BreadcrumbList + visible-verbatim FAQ JSON-LD),
+  add it to `blog.json`, `PAGES` in postbuild + verify, `npm run thumbs`,
+  rebuild. Rules: `docs/editorial-plan.md` (no thin filler, verify OET facts on oet.com).
+- `oet-practice.html` is the on-site practice hub; menu/footer practice links
+  point at its anchors (`#free-practice`, `#computer-based`, `#writing`,
+  `#speaking`, `#listening-reading`), which deep-link into the learner app via
+  `sign-in?next=` / `register?next=` (all app practice routes are auth-walled).
 - `site/src/data/pricing.json` — **single source of truth for all 48 package
   prices**. Visible £ amounts AND JSON-LD Offer prices are rewritten at build
   by `site/src/lib/inject.mjs` (`applyPricing`). To reprice: edit this file,
@@ -24,7 +39,7 @@ partials/data and rebuild.**
 - `site/scripts/postbuild.mjs` — after `astro build`: appends content-hash
   `?v=` to asset URLs, tags every `wa.me` link with `[page: …]`, generates
   `sitemap.xml` (per-page git dates) and `assets/search-index.json`, copies the
-  56 built pages + sitemap to the repo root. `--check-root` asserts root ==
+  66 built pages + sitemap to the repo root. `--check-root` asserts root ==
   dist (CI parity). New page = add it to `PAGES` here and in `verify.mjs`.
 - `site/scripts/verify.mjs` — asserts pages/assets/JSON-LD/sitemap/pricing, one
   H1 per page, tagged WhatsApp links, FAQ JSON-LD visible verbatim on the page.
@@ -32,6 +47,12 @@ partials/data and rebuild.**
   subset — unknown icons render blank), and the score-calculator logic in
   `assets/js/oet-score-calculator.js` (regulator minimums — keep in sync with
   `oet-score-requirements.html` when a regulator changes its rules).
+  Since the 2026-10 redesign it also audits every internal link (no `#`,
+  no dead pages, `#fragment` targets exist), unique titles/descriptions,
+  self-canonicals, the 6-item nav (Courses / OET Practice / Free Resources /
+  OET Blog / About / Pricing, no social links inside menus), 4 footer accordion
+  groups, and every `blog.json` article (built, linked from `/blog/`, links
+  back, thumbnail, Article data, breadcrumb == BreadcrumbList).
   hreflang alternates must exist and link back (Arabic `ar/*` ↔ English
   `service.html`, `oet-course-for-nurses.html`, `oet-course-for-doctors.html`,
   `oet-score-requirements.html`, `oet-test-dates-and-fees.html`, `oet-vs-ielts.html`,
@@ -44,6 +65,7 @@ cd site
 npm run build            # astro build + postbuild (copies to repo root)
 node scripts/verify.mjs
 node scripts/postbuild.mjs --check-root
+node scripts/qa-redesign.mjs   # browser QA at 320–1440px; needs `node server.js` (:8000) + Chrome
 ```
 
 Commit the regenerated root pages together with the source change.
@@ -69,9 +91,10 @@ with SPF `-all`, so only Graph (sending as the M365 mailbox) delivers email.
 
 The header carries one call to action in two places, both in
 `site/src/partials/chrome/header-2.html`: the nav pill `li.oet-nav-cta-item`
-(visible from 1500px; `assets/js/main.js` also clones it into the hamburger
+(visible from 1200px; `assets/js/main.js` also clones it into the hamburger
 drawer) and `a.oet-header-login` inside `.vl-header-action-item` (logo, CTA,
-hamburger order below 1500px). Each link has two label spans
+hamburger order below 1200px; the label shortens to "Log in" under 576px via
+`.oet-auth-cta__long`). Each link has two label spans
 (`.oet-auth-cta__guest` / `.oet-auth-cta__user`) plus `data-dashboard-href`,
 and **must never get an `id`** (the nav is cloned, ids would duplicate). Styles
 are at the end of `assets/css/oet-common.css`. `site/scripts/verify.mjs` fails
@@ -89,6 +112,17 @@ present it adds `html.oet-signed-in` (label becomes "My Dashboard") and on
 JS off means "Login / Register" to `.../sign-in?next=%2F`. It can be up to 30
 days stale; never gate anything on it, and never read `oet_device_id` as a
 sign-in signal (it exists for anonymous visitors too).
+
+## UI + SEO redesign (2026-10-27)
+
+Implemented the developer brief of 26 Oct 2026: 6-item nav with a visible
+OET Blog, compact mobile header, drawer with Start Free Practice, grouped
+footer (accordions below 992px, columns above), homepage journey (hero → trust →
+professions → 6 pillars → 4 skills → 3 routes → process → reviews → latest
+OET Blog → FAQ → CTA), `/blog/` library (31 articles incl. 7 new),
+`/oet-practice.html`, and the verify/QA gates above. Sign-off evidence:
+`docs/qa/redesign-2026-10-qa.md` (+ screenshots in `docs/qa/2026-10-redesign/`).
+Inline desktop nav now starts at 1200px (was 1500px).
 
 ## Critical debug memory: raw HTML + missing styles
 

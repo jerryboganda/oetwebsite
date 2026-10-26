@@ -85,7 +85,7 @@ RewriteEngine On
 # --- Canonical URLs (301, one hop, always https) ---
 # Behind the TLS proxy Apache sees plain http, so mod_dir's own trailing-slash
 # redirect would point at http:// and chain through a second redirect.
-RewriteRule ^(privacy|terms|refund-policy|cookie-policy|ar)$ https://%{HTTP_HOST}/$1/ [R=301,L]
+RewriteRule ^(privacy|terms|refund-policy|cookie-policy|ar|blog)$ https://%{HTTP_HOST}/$1/ [R=301,L]
 # THE_REQUEST guards stop these firing on DirectoryIndex / clean-URL internal rewrites.
 RewriteCond %{THE_REQUEST} \s/index\.html[\s?]
 RewriteRule ^index\.html$ https://%{HTTP_HOST}/ [R=301,L]
@@ -99,8 +99,8 @@ RewriteRule ^favicon\.ico$ /assets/img/logo/fav-icon.png [L]
 # Consulting demo variants -> home
 RewriteRule ^(Accountant|Accountant-Single|BusinessConsulting|BusinessConsulting-Single|BusinessConsulting2|BusinessConsulting2-Single|CorporateConsulting|CorporateConsulting-Single|FinanceConsulting|FinanceConsulting-Single|FinancialAdvisor|FinancialAdvisor-Single|HrConsulting|HrConsulting-Single|InsuranceConsulting|InsuranceConsulting-Single|MarketingConsulting|MarketingConsulting-Single|TaxConsulting|TaxConsulting-Single)\.html$ https://%{HTTP_HOST}/ [R=301,L]
 
-# Blog templates -> OET tips hub
-RewriteRule ^blog-(left|right|single|style-one|style-two|style-three)\.html$ https://%{HTTP_HOST}/oet-tips.html [R=301,L]
+# Blog templates -> OET Blog index (the real article library since 2026-10)
+RewriteRule ^blog-(left|right|single|style-one|style-two|style-three)\.html$ https://%{HTTP_HOST}/blog/ [R=301,L]
 
 # Portfolio + testimonial templates -> success stories
 RewriteRule ^portfolio(-left|-right|-single)?\.html$ https://%{HTTP_HOST}/success-stories.html [R=301,L]

@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en" class="oet-live-site">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <script>
+      (function () {
+        try {
+          var m = window.matchMedia;
+          if (m && (
+            m('(max-width:1023.98px)').matches ||
+            m('(pointer:coarse)').matches ||
+            m('(hover:none)').matches ||
+            m('(prefers-reduced-motion:reduce)').matches
+          )) {
+            document.documentElement.classList.add('oet-lite-motion');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <script>
+      // Signed-in hint set by the learner app (shared-domain cookie oet_signed_in=1, no token or PII).
+      // Presentation only: swaps the header Login / Register CTA to My Dashboard, never gates anything.
+      // sync() is idempotent and runs: now (class before first paint), on DOMContentLoaded (the nav
+      // anchors exist and the deferred main.js has already cloned the nav into the mobile drawer; a
+      // clone copies whatever href it finds, and this pass fixes it), and on a bfcache restore
+      // (pageshow persisted) so Back after sign-in or sign-out never shows a stale CTA.
+      // The guest href is remembered in data-login-href the first time an anchor is seen.
+      (function () {
+        var d = document;
+        function sync() {
+          try {
+            var on = /(?:^|;\s*)oet_signed_in=1(?:;|$)/.test(d.cookie);
+            d.documentElement.classList.toggle('oet-signed-in', on);
+            d.querySelectorAll('a[data-dashboard-href]').forEach(function (a) {
+              if (!a.hasAttribute('data-login-href')) a.setAttribute('data-login-href', a.getAttribute('href'));
+              a.setAttribute('href', a.getAttribute(on ? 'data-dashboard-href' : 'data-login-href'));
+            });
+          } catch (e) {}
+        }
+        sync();
+        d.addEventListener('DOMContentLoaded', sync);
+        window.addEventListener('pageshow', function (e) { if (e.persisted) sync(); });
+      })();
+    </script>
+    <title>OET Reading Part A: Scanning Under Time Pressure | Dr Hesham</title>
+    <meta name="description" content="A 15-minute plan for OET Reading Part A: skim four texts, answer matching first, scan for anchor words and copy answers exactly, with a worked practice set.">
+    <link rel="canonical" href="https://oetwithdrhesham.co.uk/oet-reading-part-a-scanning.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="OET with Dr Hesham">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:url" content="https://oetwithdrhesham.co.uk/oet-reading-part-a-scanning.html">
+    <meta property="og:title" content="OET Reading Part A: scanning under time pressure">
+    <meta property="og:description" content="A 15-minute plan for OET Reading Part A: skim four texts, answer matching first, scan for anchor words and copy answers exactly, with a worked practice set.">
+    <meta property="og:image" content="https://oetwithdrhesham.co.uk/assets/img/blog/oet-reading-part-a-scanning.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-10-27">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OET Reading Part A: scanning under time pressure">
+    <meta name="twitter:description" content="A 15-minute plan for OET Reading Part A: skim four texts, answer matching first, scan for anchor words and copy answers exactly, with a worked practice set.">
+    <meta name="twitter:image" content="https://oetwithdrhesham.co.uk/assets/img/blog/oet-reading-part-a-scanning.webp">
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "OET Reading Part A: scanning under time pressure",
+    "description": "A 15-minute plan for OET Reading Part A: skim four texts, answer matching first, scan for anchor words and copy answers exactly, with a worked practice set.",
+    "image": "https://oetwithdrhesham.co.uk/assets/img/blog/oet-reading-part-a-scanning.webp",
+    "datePublished": "2026-10-27",
+    "dateModified": "2026-10-27",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://oetwithdrhesham.co.uk/oet-reading-part-a-scanning.html"
+    },
+    "articleSection": "Reading",
+    "inLanguage": "en-GB",
+    "author": {
+      "@type": "Person",
+      "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+      "name": "Dr Ahmed Hesham",
+      "url": "https://oetwithdrhesham.co.uk/about.html",
+      "jobTitle": "Medical Doctor & OET Educator",
+      "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2020.",
+      "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+      "sameAs": [
+        "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+        "https://www.youtube.com/@drhesham222"
+      ]
+    },
+    "publisher": {
+      "@type": "Organization",
+      "@id": "https://oetwithdrhesham.co.uk/#organization",
+      "name": "OET with Dr Hesham",
+      "url": "https://oetwithdrhesham.co.uk/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://oetwithdrhesham.co.uk/assets/img/logo/platform-logo.png"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://oetwithdrhesham.co.uk/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "OET Blog",
+        "item": "https://oetwithdrhesham.co.uk/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Reading",
+        "item": "https://oetwithdrhesham.co.uk/blog/#reading"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Part A scanning",
+        "item": "https://oetwithdrhesham.co.uk/oet-reading-part-a-scanning.html"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long do I have for OET Reading Part A?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Part A is strictly timed at 15 minutes for 20 questions. It is separate from the 45 minutes for Parts B and C, and you cannot return to Part A once it has been collected or submitted."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use abbreviations in Reading Part A answers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Only if the abbreviation appears in the texts. OET states that abbreviations are not accepted in the Reading sub-test unless they are in the texts, so copy the words exactly as written."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does spelling matter in Reading Part A?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. A response with even one incorrect letter scores zero, because you are copying the answer from the text. British and American spelling variants are both accepted."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I answer the matching questions first?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. OET advises doing the questions in order. The matching questions are quick and show you what each text is about, which makes the later questions faster to locate."
+        }
+      }
+    ]
+  }
+]
+    </script>
+
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="/assets/img/logo/fav-icon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/img/logo/fav-icon.png" type="image/png" sizes="256x256">
+    <link rel="shortcut icon" href="/assets/img/logo/fav-icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/img/logo/fav-icon.png" sizes="180x180">
+    <link rel="preload" href="/assets/fonts/mulish-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/cal-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/css/plugins/bootstrap.purged.min.css?v=611df7f04b">
+    
+    <link rel="stylesheet" href="/assets/css/oet-icons.css?v=fb6ca9f443">
+    <link rel="stylesheet" href="/assets/css/plugins/sal.css?v=52a59aec6a">
+    <link rel="stylesheet" href="/assets/css/style.min.css?v=46ff65fd86">
+    <link rel="stylesheet" href="/assets/css/oet-common.css?v=bf7f30e568">
+    <link rel="stylesheet" href="/assets/css/oet-mobile.css?v=001ef98c95">
+    <link rel="stylesheet" href="/assets/css/oet-cookie-consent.css?v=3db5a4831a">
+    <link rel="stylesheet" href="/assets/css/oet-polish.css?v=6043093a82">
+    <link rel="stylesheet" href="/assets/css/oet-redesign.css?v=5aa20fd7ad">
+    
+    <style>
+@media (max-width: 767px) {
+  .oet-resource-hero .oet-tips-hero-copy[data-sal], .oet-resource-hero .oet-tips-hero-copy [data-sal], .oet-resource-hero .oet-tips-hero-panel[data-sal] { opacity: 1 !important;
+                transform: none !important; }
+}
+</style>
+    <style>
+.oet-final-cta-icon { display: grid !important;
+            place-items: center !important;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px !important;
+            font-weight: 900;
+            line-height: 1 !important;
+            color: #ffffff !important; }
+</style>
+    <link rel="stylesheet" href="/assets/css/oet-resource.css?v=7ea8e71ca5">
+    <style>
+@media (min-width: 1200px) {
+  .oet-skill-hero { padding-top: 240px !important; }
+}
+</style>
+
+</head>
+<body class="oet-live-site oet-resource-page">
+    <a class="oet-skip-link" data-lenis-ignore-anchor href="#main-content">Skip to main content</a>
+<!--================= Header section start =================-->
+    <header>
+        <div id="vl-header-sticky" class="vl-header-area vl-transparent-header">
+            <!-- header top ribbon -->
+            <div class="vl-header-top-area d-none d-xl-block">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="vl-header-top-text">
+                                <span class="vl-header-top-badge"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Free OET Prep for Doctors &amp; Nurses</span>
+                                <a class="oet-community-cta" href="#oet-community-popup" aria-label="Join Free Community!" aria-haspopup="dialog" aria-controls="oet-community-popup">
+                                    <span class="oet-community-cta__sizer" aria-hidden="true"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Join Free Community!</span>
+                                    <span class="oet-community-cta__content" aria-hidden="true">
+                                        <span class="oet-community-cta__text"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Join Free Community!</span>
+                                        <span class="oet-community-cta__cursor">|</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- header top icon list -->
+                            <div class="header-top">
+                                <ul>
+                                    <li><a href="mailto:support@oetwithdrhesham.co.uk"><span class="header-top-icon"><i class="fa-regular fa-envelope" aria-hidden="true"></i></span><span>support@oetwithdrhesham.co.uk</span></a></li>
+                                    <li><a href="tel:+447961725989"><span class="header-top-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span><span>+44 7961 725989</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vl-header-main-area">
+                <div class="container">
+                    <div class="header-border-bottom">
+                        <div class="row align-items-center">
+                            <div class="col-xl-2 col-md-6 col-6">
+                                <div class="vl-logo">
+                                    <a href="/" title="OET with Dr Hesham | The Pathway to UK" aria-label="OET with Dr Hesham Homepage"><img width="320" height="90" decoding="async" src="/assets/img/logo/platform-logo.webp" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-7 d-none d-xl-block">
+                                <div class="vl-main-menu text-center">
+                                    <nav class="vl-mobile-menu-active" aria-label="Main navigation">
+                                        <ul>
+                                            <li class="has-dropdown"><a href="/service.html">Courses <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="/service.html"><span class="submenu-icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span><span class="submenu-text">All OET Courses</span></a></li>
+                                                    <li><a href="/oet-course-for-doctors.html"><span class="submenu-icon"><i class="fa-solid fa-stethoscope" aria-hidden="true"></i></span><span class="submenu-text">OET for Doctors</span></a></li>
+                                                    <li><a href="/oet-course-for-nurses.html"><span class="submenu-icon"><i class="fa-solid fa-notes-medical" aria-hidden="true"></i></span><span class="submenu-text">OET for Nurses</span></a></li>
+                                                    <li><a href="/oet-course-for-pharmacists.html"><span class="submenu-icon"><i class="fa-solid fa-pills" aria-hidden="true"></i></span><span class="submenu-text">OET for Pharmacists</span></a></li>
+                                                    <li><a href="/oet-course-for-physiotherapists.html"><span class="submenu-icon"><i class="fa-solid fa-person-walking" aria-hidden="true"></i></span><span class="submenu-text">OET for Physiotherapists</span></a></li>
+                                                    <li><a href="/oet-for-allied-health.html"><span class="submenu-icon"><i class="fa-solid fa-briefcase-medical" aria-hidden="true"></i></span><span class="submenu-text">Other Healthcare Professions</span></a></li>
+                                                    <li><a href="/ar/" lang="ar"><span class="submenu-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span><span class="submenu-text">OET بالعربية</span></a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="has-dropdown"><a href="/oet-practice.html">OET Practice <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="/oet-practice.html"><span class="submenu-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span><span class="submenu-text">Practice Overview</span></a></li>
+                                                    <li><a href="/oet-practice.html#computer-based"><span class="submenu-icon"><i class="fa-solid fa-desktop" aria-hidden="true"></i></span><span class="submenu-text">Computer-Based Practice</span></a></li>
+                                                    <li><a href="/oet-writing-correction.html"><span class="submenu-icon"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i></span><span class="submenu-text">Writing Assessment</span></a></li>
+                                                    <li><a href="/oet-practice.html#speaking"><span class="submenu-icon"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i></span><span class="submenu-text">Speaking Practice</span></a></li>
+                                                    <li><a href="/oet-practice.html#listening-reading"><span class="submenu-icon"><i class="fa-solid fa-headphones" aria-hidden="true"></i></span><span class="submenu-text">Listening &amp; Reading</span></a></li>
+                                                    <li><a href="/english-placement-test"><span class="submenu-icon"><i class="fa-solid fa-clipboard-question" aria-hidden="true"></i></span><span class="submenu-text">Free Placement Test</span></a></li>
+<li><a href="/pricing.html#download-app"><span class="submenu-icon"><i class="fa-solid fa-laptop-medical" aria-hidden="true"></i></span><span class="submenu-text">Download the App</span></a></li>                                                </ul>
+                                            </li>
+                                            <li class="has-dropdown"><a href="/oet-sample-tests.html">Free Resources <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="/oet-sample-tests.html"><span class="submenu-icon"><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i></span><span class="submenu-text">Free Sample Tests</span></a></li>
+                                                    <li><a href="/oet-score-calculator.html"><span class="submenu-icon"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></span><span class="submenu-text">OET Score Calculator</span></a></li>
+                                                    <li><a href="/oet-score-requirements.html"><span class="submenu-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><span class="submenu-text">OET Score Requirements</span></a></li>
+                                                    <li><a href="/oet-test-dates-and-fees.html"><span class="submenu-icon"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></span><span class="submenu-text">Test Dates &amp; Fees</span></a></li>
+                                                    <li><a href="/oet-tips.html"><span class="submenu-icon"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></span><span class="submenu-text">OET Tips Hub</span></a></li>
+                                                    <li><a href="/oet-materials-support.html"><span class="submenu-icon"><i class="fa-solid fa-folder-open" aria-hidden="true"></i></span><span class="submenu-text">Free Materials &amp; Community</span></a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="has-dropdown"><a href="/blog/">OET Blog <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="/blog/"><span class="submenu-icon"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i></span><span class="submenu-text">All Articles</span></a></li>
+                                                    <li><a href="/blog/#writing"><span class="submenu-icon"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></span><span class="submenu-text">Writing</span></a></li>
+                                                    <li><a href="/blog/#speaking"><span class="submenu-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span><span class="submenu-text">Speaking</span></a></li>
+                                                    <li><a href="/blog/#reading"><span class="submenu-icon"><i class="fa-solid fa-book-medical" aria-hidden="true"></i></span><span class="submenu-text">Reading</span></a></li>
+                                                    <li><a href="/blog/#listening"><span class="submenu-icon"><i class="fa-solid fa-headphones" aria-hidden="true"></i></span><span class="submenu-text">Listening</span></a></li>
+                                                    <li><a href="/blog/#exam-format"><span class="submenu-icon"><i class="fa-solid fa-desktop" aria-hidden="true"></i></span><span class="submenu-text">Exam Format</span></a></li>
+                                                    <li><a href="/blog/#pathways"><span class="submenu-icon"><i class="fa-solid fa-route" aria-hidden="true"></i></span><span class="submenu-text">Pathway Guides</span></a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="has-dropdown"><a href="/about.html">About <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="/about.html"><span class="submenu-icon"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></span><span class="submenu-text">About Dr Hesham</span></a></li>
+                                                    <li><a href="/teaching-approach.html"><span class="submenu-icon"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i></span><span class="submenu-text">Teaching Approach</span></a></li>
+                                                    <li><a href="/success-stories.html"><span class="submenu-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span><span class="submenu-text">Success Stories</span></a></li>
+                                                    <li><a href="/faq.html"><span class="submenu-icon"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span><span class="submenu-text">FAQ</span></a></li>
+                                                    <li><a href="/contact.html"><span class="submenu-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span><span class="submenu-text">Contact</span></a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a class="oet-pricing-nav-link" href="/pricing.html">Pricing</a></li>
+                                            <li class="oet-nav-cta-item"><a class="oet-header-cta-btn" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F" data-dashboard-href="https://app.oetwithdrhesham.co.uk/"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span class="oet-auth-cta__guest">Log in / Register</span><span class="oet-auth-cta__user">My Dashboard</span></a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-6">
+                            <div class="vl-header-right">
+                                <!-- header btn -->
+                                <div class="vl-header-search d-none d-xl-block">
+                                    <button type="button" class="oet-search-btn" aria-label="Search this site" aria-controls="vl-header-search" aria-expanded="false"><img aria-hidden="true" loading="lazy" decoding="async" class="vl-search-toggle" src="/assets/img/icon/vl-search-1.1.svg" alt=""></button>
+                                </div>
+                                <!-- header social area -->
+                                <div class="social-area social-area-headerTop d-none d-xl-block">
+                                    <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                                    <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                                    <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
+                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation.%20%5Bpage%3A%20oet-reading-part-a-scanning%5D" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+                                    <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                                    <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+                                </div>
+                            </div>
+
+                            <!-- action btn -->
+                            <div class="vl-header-action-item d-block d-xl-none">
+                                <a class="oet-header-login" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F" data-dashboard-href="https://app.oetwithdrhesham.co.uk/"><span class="oet-auth-cta__guest">Log in<span class="oet-auth-cta__long"> / Register</span></span><span class="oet-auth-cta__user">My Dashboard</span></a>
+                                <button type="button" class="vl-offcanvas-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="vl-offcanvas-menu">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" aria-hidden="true" focusable="false">
+                                        <path d="M1.5 2.5h21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M1.5 9h21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M1.5 15.5h21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>    <!-- vl header search  -->
+    <div id="vl-header-search" class="vl-header-search-bar d-flex align-items-center">
+        <button class="vl-search-close" aria-label="Close search">&times;</button>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="vl-search-bar text-center">
+                        <h2 class="vl-search-bar-title mb-30">Search OET tips, writing, speaking, UK pathway</h2>
+                        <div class="contact-form-box contact-search-form-box">
+                            <form action="#">
+                                <input type="search" aria-label="Search this site" placeholder="Search OET preparation, writing, speaking...">
+                                <button type="submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- vl header search end -->
+
+    <!-- offcanvas menu start -->
+    <div id="vl-offcanvas-menu" class="vl-offcanvas">
+        <div class="vl-offcanvas-wrapper">
+            <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-50">
+                <div class="vl-offcanvas-logo">
+                    <a href="/" title="OET with Dr Hesham | The Pathway to UK"><img width="320" height="90" decoding="async" src="/assets/img/logo/platform-logo.webp" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                </div>
+                <div class="vl-offcanvas-close">
+                    <button class="vl-offcanvas-toggle" type="button" aria-label="Close menu"><span aria-hidden="true">&times;</span></button>
+                </div>
+            </div>
+
+            <div class="vl-offcanvas-menu d-lg-block mb-40">
+                <nav aria-label="Mobile navigation"></nav>
+            </div>
+            <div class="oet-drawer-actions mb-40">
+                <a class="oet-drawer-btn oet-drawer-btn--primary" href="/oet-practice.html#free-practice"><i class="fa-solid fa-play" aria-hidden="true"></i> Start Free Practice</a>
+                <p class="oet-drawer-support"><a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation.%20%5Bpage%3A%20oet-reading-part-a-scanning%5D" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp Support</a><span aria-hidden="true"> &middot; </span><a href="/contact.html"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact</a></p>
+            </div>
+
+            <div class="vl-offcanvas-social mb-40">
+                <h3 class="vl-offcanvas-sm-title mb-20">Stay connected</h3>
+                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation.%20%5Bpage%3A%20oet-reading-part-a-scanning%5D" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+            </div>
+        </div>
+    </div>
+    <div class="vl-offcanvas-overlay"></div>
+
+    <!-- offcanvas menu end -->
+
+<!--================= Header section End =================-->
+<main id="main-content" tabindex="-1">
+
+        <section class="oet-resource-hero oet-skill-hero">
+            <div class="container">
+                <nav class="oet-breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/blog/">OET Blog</a></li><li><a href="/blog/#reading">Reading</a></li><li aria-current="page">Part A scanning</li></ol></nav>
+                <div class="oet-tips-hero-grid">
+                    <div class="oet-tips-hero-copy" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out">
+                        <span class="oet-resource-eyebrow"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Reading Part A</span>
+                        <h1 class="oet-resource-title text-effect">OET Reading Part A: scanning under time pressure</h1>
+                        <p class="oet-resource-lead">Part A gives you 15 minutes, four short texts and 20 questions. This guide turns that into a minute-by-minute plan, shows the exact scan path on an invented practice set, and explains the copying rules that cost candidates easy marks.</p>
+                        <p class="oet-guide-meta">By <a href="/about.html">Dr Ahmed Hesham</a>, medical doctor and OET educator &middot; Published 27 October 2026</p>
+                    </div>
+                    <aside class="oet-tips-hero-panel" aria-label="Part A plan at a glance" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="140" data-sal-easing="ease-in-out">
+                        <span class="oet-tips-panel-kicker"><i class="fa-solid fa-route" aria-hidden="true"></i> The 15-minute route</span>
+                        <h2>Locate first, read second, copy exactly.</h2>
+                        <p>Part A tests expeditious reading: finding information fast and recording it accurately. You are not meant to read the four texts from top to bottom.</p>
+                        <div class="oet-tips-roadmap"><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">01</span><div><strong>Skim the four texts</strong><span>Titles, headings, table labels and visuals only.</span></div></div><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">02</span><div><strong>Answer matching first</strong><span>Build a map of which text holds what.</span></div></div><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">03</span><div><strong>Scan, then copy</strong><span>Go to one text, find the anchor, copy the exact words.</span></div></div></div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+        <nav class="oet-toc" aria-label="In this guide"><div class="container"><span class="oet-toc-label">In this guide</span><div class="oet-toc-links"><a href="#what-part-a-tests">What Part A tests</a><a href="#fifteen-minute-plan">The 15-minute plan</a><a href="#practice-example">Practice example</a><a href="#common-mistakes">Common mistakes</a><a href="#takeaway">Practice routine</a><a href="#sources">Official sources</a><a href="#faq">FAQ</a></div></div></nav>
+
+        <section class="oet-resource-section"><div class="container"><div class="oet-resource-heading"><h2 id="what-part-a-tests">What OET Reading Part A actually asks you to do</h2><p>The question most candidates bring to Part A is simple: how do I answer 20 questions on four texts in 15 minutes without panicking? The answer starts with knowing exactly what the task is, because it is not a comprehension test in the usual sense.</p></div><div class="oet-resource-grid oet-resource-grid--two"><article class="oet-resource-card"><h3>The format, from OET</h3><p>According to OET, Part A has four texts on a single healthcare topic, labelled A to D, taken from the kind of reference material you use when caring for patients: dosage charts, treatment pathways, guidelines and patient information. At least one text may be visual, such as a table, flowchart or diagram. There are 20 questions in three types: matching, short answer and sentence completion.</p></article><article class="oet-resource-card"><h3>The clock, from OET</h3><p>The Reading sub-test lasts 60 minutes, split into two separate periods: 15 minutes for Part A and 45 minutes for Parts B and C. Part A is strictly timed. On paper, the Part A materials are collected after 15 minutes; on computer you submit Part A before Parts B and C begin. You cannot go back to Part A later, so there is no hidden checking time.</p></article><article class="oet-resource-card"><h3>Why speed matters</h3><p>Part A carries 20 of the 42 Reading marks. Fifteen minutes for 20 questions works out at 45 seconds per question on average, including finding the place, reading it carefully and writing the answer. That is only possible if you never read a text in full.</p></article><article class="oet-resource-card"><h3>How answers are marked</h3><p>Each answer is one word or a short phrase, usually one to three words, copied from the texts. OET states that you must use exactly the same form of the word or phrase as the text, that abbreviations are not accepted unless they appear in the texts, and that a response with even one wrong letter scores zero. There are no half marks.</p></article></div></div></section>
+        <section class="oet-resource-section oet-resource-section--soft"><div class="container"><div class="oet-resource-heading"><h2 id="fifteen-minute-plan">A 15-minute plan you can repeat every time</h2><p>The timings below are a coaching guide, not an official rule. They follow OET advice to answer the questions in order, starting with matching. Practise with the plan until it feels automatic, then adjust it to your own speed.</p></div><div class="oet-resource-card"><ul><li><strong>Minute 0 to 1: skim, do not read.</strong> Look only at each text title, the headings, table column labels, bullet points and flowchart boxes. Give each text a two-word label in your head: for example, <em>A = symptoms</em>, <em>B = treatment steps</em>.</li><li><strong>Minutes 1 to 4: matching questions.</strong> OET says the first set is always matching, usually five to seven questions, each answered with one letter. Decide from text purpose and audience, not detail. A letter can be the answer to more than one question.</li><li><strong>Minutes 4 to 13: short answer and sentence completion.</strong> For each question, underline one anchor word (a drug name, a number, an age group, a unit), decide which text it belongs to using your matching map, and scan only that text.</li><li><strong>Minutes 13 to 15: protect your marks.</strong> Check spelling letter by letter against the text, confirm units and decimal points, and guess any blanks. A blank always scores zero.</li><li><strong>The one-minute rule.</strong> If one question has taken more than about a minute, write your best guess, mark it, and move on. OET itself advises not to spend too long on one question.</li></ul></div></div></section>
+        <section class="oet-resource-section"><div class="container"><div class="oet-resource-heading"><h2 id="practice-example">Practice example: following the scan path</h2><p>Practice example only. The four short texts and questions below were invented for teaching. They are not real OET material and are not clinical guidance. Real Part A texts are longer; the point here is to watch where your eyes should go.</p></div><div class="row"><div class="col-xl-6"><div class="oet-snippet"><strong>Text A: Recognising hypoglycaemia</strong><p>Hypoglycaemia is a blood glucose level below 4.0 mmol/L. Autonomic symptoms: sweating, tremor, palpitations, hunger. Neuroglycopenic symptoms: confusion, drowsiness, slurred speech, unusual behaviour.</p></div><div class="oet-snippet"><strong>Text B: Treatment pathway (adults)</strong><p>Conscious and able to swallow: give 15 to 20 g of fast-acting carbohydrate, for example 150 to 200 ml of pure fruit juice. Recheck capillary glucose after 10 to 15 minutes; repeat up to three times. Unable to swallow: follow the emergency pathway and call the medical team.</p></div></div><div class="col-xl-6"><div class="oet-snippet"><strong>Text C: Patient leaflet, driving safely</strong><p>Check your glucose before you drive. If you have had a hypo, wait 45 minutes after your glucose has returned to normal before driving.</p></div><div class="oet-snippet"><strong>Text D: Ward reporting policy</strong><p>Record every episode on the glucose monitoring chart. Two or more episodes within 24 hours must be reported to the diabetes specialist nurse.</p></div></div></div>
+<div class="oet-resource-card"><h3>Practice questions</h3><ul><li><strong>Matching.</strong> Which text tells you: (1) what to do if the patient cannot swallow? (2) what to give a patient who drives? (3) when to contact a specialist colleague?</li><li><strong>Short answer.</strong> (4) What volume of pure fruit juice should a conscious adult be given? (5) How long should a patient wait after a treated hypo before driving?</li><li><strong>Sentence completion.</strong> (6) Confusion and slurred speech are classed as ______ symptoms. (7) Two episodes within 24 hours should be reported to the ______.</li></ul></div>
+<div class="oet-resource-card" style="margin-top:22px"><h3>The scan path, question by question</h3><ul><li><strong>Skim first.</strong> Titles alone give you the map: A = recognition, B = treatment, C = patient leaflet, D = ward policy. That took seconds and you have read almost nothing.</li><li><strong>Q1: B.</strong> &ldquo;Cannot swallow&rdquo; is a treatment decision, so it belongs to the pathway. Note the paraphrase: the text says &ldquo;unable to swallow&rdquo;. Anchors are often reworded.</li><li><strong>Q2: C.</strong> The audience is a patient, and only Text C is written to a patient. Purpose and reader decide most matching answers.</li><li><strong>Q3: D.</strong> A specialist colleague is named only in the reporting policy.</li><li><strong>Q4: 150 to 200 ml.</strong> Anchor: <em>fruit juice</em>. Your map sends you straight to B; scan for the number next to it. Write the range and the unit exactly as given. Leaving out <em>ml</em> makes the answer incomplete.</li><li><strong>Q5: 45 minutes.</strong> Anchor: <em>driving</em>, so Text C. Do not repeat words from the question such as &ldquo;before driving&rdquo;.</li><li><strong>Q6: neuroglycopenic.</strong> Anchor: <em>slurred speech</em>, Text A. This is the spelling trap: copy it letter by letter, because one wrong letter scores zero.</li><li><strong>Q7: diabetes specialist nurse.</strong> Anchor: <em>24 hours</em>, Text D. Copy the phrase as written; do not shorten it to DSN, because abbreviations are only accepted when they appear in the text.</li></ul></div></div></section>
+        <section class="oet-resource-section oet-resource-section--soft"><div class="container"><div class="oet-resource-heading"><h2 id="common-mistakes">Common Part A mistakes that cost easy marks</h2><p>Most lost marks in Part A are not about understanding. They come from the way the answer is located or written down. Each mistake below is based on the official OET answer rules.</p></div><div class="row"><div class="col-xl-6"><div class="oet-snippet"><strong>Reading Text A from the top</strong><p>Reading every line of the first text uses several minutes before you answer anything. Skim all four for structure, then scan only where a question sends you.</p></div><div class="oet-snippet"><strong>Repeating words from the question</strong><p>If the question already contains a word, do not write it again. OET gives the example that answering &ldquo;environmental factor&rdquo; to a question about which type of factor scores zero; the answer is &ldquo;environmental&rdquo;.</p></div><div class="oet-snippet"><strong>Changing the word form</strong><p>If the text says &ldquo;unable to swallow&rdquo;, do not write &ldquo;inability to swallow&rdquo;. You must copy the same form that appears in the text.</p></div></div><div class="col-xl-6"><div class="oet-snippet"><strong>Dropping units or decimal points</strong><p>When a dose or measurement is asked for, include the unit. Copy decimals as written in the text, for example 2.5 mg, never 2,5 mg.</p></div><div class="oet-snippet"><strong>Adding the text letter</strong><p>Do not write &ldquo;(Text B)&rdquo; next to a short answer. OET warns this can make the answer ambiguous and score zero.</p></div><div class="oet-snippet"><strong>Untidy handwriting on paper</strong><p>On paper, Part A is marked by human assessors. If they cannot read the word, you do not get the mark. Block capitals are allowed, but use them consistently.</p></div></div></div></div></section>
+        <section class="oet-resource-section"><div class="container"><div class="oet-resource-heading"><h2 id="takeaway">How to practise scanning between now and test day</h2><p>OET recommends starting without the clock: learn the question types and answer rules first, then cut the time gradually down to 15 minutes. The routine below follows that advice.</p></div><div class="oet-resource-card"><ul><li><strong>Week 1: untimed accuracy.</strong> Do one official sample Part A with no timer. Mark it strictly: any spelling slip is wrong.</li><li><strong>Week 2: anchor drills.</strong> Before answering, write the anchor word for each of the 20 questions. Check whether your anchor sent you to the right text.</li><li><strong>Week 3: cut the clock.</strong> Allow 20 minutes, then 18, then 15. Track how many questions you guessed.</li><li><strong>Every session: an error log.</strong> Label each lost mark as wrong text, wrong place in the text, word form, spelling or extra words. The label tells you what to drill next.</li></ul></div><div class="oet-snippet" style="margin-top:22px"><strong>Key takeaway</strong><p>Part A rewards locating, not reading. Skim the four texts for purpose, answer the matching questions first to build your map, scan one text per question for a single anchor word, and copy the answer exactly as it appears, with the correct spelling and units.</p></div></div></section>
+        <section class="oet-resource-section oet-resource-section--soft"><div class="container"><div class="oet-resource-heading"><h2 id="sources">Official sources</h2><p>Every test-format fact in this guide was checked against these official OET pages on 27 October 2026. OET can update its guidance, so check them again before your test date.</p></div><div class="oet-resource-card"><ul><li><a href="https://oet.com/post/reading-part-a-the-complete-guide" target="_blank" rel="noopener">OET: Reading Part A, the complete guide</a></li><li><a href="https://oet.com/ready/reading" target="_blank" rel="noopener">OET: Get ready for the Reading sub-test (format and FAQs)</a></li><li><a href="https://oet.com/en-us/post/common-questions-reading-part-a" target="_blank" rel="noopener">OET: Answers to common questions about Reading Part A</a></li><li><a href="https://oet.com/post/managing-time-reading" target="_blank" rel="noopener">OET: Strategies for managing time in Reading</a></li><li><a href="https://oet.com/en-us/post/how-important-is-spelling" target="_blank" rel="noopener">OET: How important is spelling?</a></li><li><a href="https://oet.com/post/can-i-write-answers-in-capital-letters-only" target="_blank" rel="noopener">OET: Can I write answers in capital letters only?</a></li></ul></div></div></section>
+        <section class="oet-resource-section" id="faq"><div class="container"><div class="oet-resource-heading"><h2 id="faq-heading">OET Reading Part A FAQ</h2><p>Short answers to the questions candidates ask most about this part of the test.</p></div><div class="oet-faq-item"><h3>How long do I have for OET Reading Part A?</h3><p>Part A is strictly timed at 15 minutes for 20 questions. It is separate from the 45 minutes for Parts B and C, and you cannot return to Part A once it has been collected or submitted.</p></div><div class="oet-faq-item"><h3>Can I use abbreviations in Reading Part A answers?</h3><p>Only if the abbreviation appears in the texts. OET states that abbreviations are not accepted in the Reading sub-test unless they are in the texts, so copy the words exactly as written.</p></div><div class="oet-faq-item"><h3>Does spelling matter in Reading Part A?</h3><p>Yes. A response with even one incorrect letter scores zero, because you are copying the answer from the text. British and American spelling variants are both accepted.</p></div><div class="oet-faq-item"><h3>Should I answer the matching questions first?</h3><p>Yes. OET advises doing the questions in order. The matching questions are quick and show you what each text is about, which makes the later questions faster to locate.</p></div></div></section>
+        <section class="oet-resource-cta oet-skill-final-cta"><div class="container"><div class="oet-final-cta-grid"><div class="oet-final-cta-copy"><span class="oet-final-cta-badge"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Reading practice</span><h2>Put the 15-minute plan into timed practice</h2><p>Use our Listening and Reading practice route to drill Part A scanning under time, then review every lost mark by type.</p><div class="oet-resource-actions"><a class="oet-resource-btn oet-resource-btn--light" href="/oet-practice.html#listening-reading">Practise Listening and Reading <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><a class="oet-resource-btn oet-resource-btn--light" href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation.%20%5Bpage%3A%20oet-reading-part-a-scanning%5D" target="_blank" rel="noopener noreferrer">Ask on WhatsApp <i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a></div></div><aside class="oet-final-cta-panel" aria-label="Recommended next steps"><h3>Recommended next steps</h3><div class="oet-final-cta-list"><div class="oet-final-cta-item"><span class="oet-final-cta-icon">01</span><div><strong>Try one timed Part A</strong><span>Use the 15-minute plan from this guide.</span></div></div><div class="oet-final-cta-item"><span class="oet-final-cta-icon">02</span><div><strong>Log every lost mark</strong><span>Wrong text, word form, spelling or extra words.</span></div></div><div class="oet-final-cta-item"><span class="oet-final-cta-icon">03</span><div><strong>Drill the weak step</strong><span>Repeat with the clock until it holds.</span></div></div></div><p class="oet-final-cta-note">Educational guidance only. Your result depends on your current level, practice quality and performance on the day.</p></aside></div></div></section>
+        <section class="oet-resource-section oet-author-bio" aria-label="About the author"><div class="container"><div class="oet-snippet"><strong>About the author</strong><p>Dr Ahmed Hesham is a medical doctor and OET educator who has coached doctors, nurses and allied health professionals preparing for OET since 2020. <a href="/about.html">More about Dr Hesham</a>.</p></div></div></section>
+
+        <section class="oet-related" aria-label="Related guides"><div class="container"><h2 class="oet-related-title">Keep exploring</h2><div class="oet-related-grid"><a class="oet-related-card" href="/oet-reading-tips.html"><span class="oet-related-icon"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Reading Tips</strong><span>Strategies for Parts A, B and C in one place.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-reading-part-c-inference.html"><span class="oet-related-icon"><i class="fa-solid fa-brain" aria-hidden="true"></i></span><span class="oet-related-body"><strong>Reading Part C: inference</strong><span>Evidence-led elimination for multiple-choice questions.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-listening-part-a-note-taking.html"><span class="oet-related-icon"><i class="fa-solid fa-headphones" aria-hidden="true"></i></span><span class="oet-related-body"><strong>Listening Part A: note-taking</strong><span>Prediction, abbreviations and spelling for note completion.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-practice.html#listening-reading"><span class="oet-related-icon"><i class="fa-solid fa-stopwatch" aria-hidden="true"></i></span><span class="oet-related-body"><strong>Listening and Reading practice</strong><span>Timed practice for the two receptive sub-tests.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-sample-tests.html"><span class="oet-related-icon"><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i></span><span class="oet-related-body"><strong>Free OET Sample Tests</strong><span>Official OET samples to practise the full Part A.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/blog/"><span class="oet-related-icon"><i class="fa-solid fa-book-medical" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Blog</strong><span>More practical guides for every sub-test.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a></div></div></section>
+</main>
+
+<!--================= Footer section start =================-->
+    <footer class="vl-footer-10 oet-footer fix vkl-gray-bg-19 pt-60">
+                <div class="container">
+                    <div class="oet-footer-grid">
+                        <div class="oet-footer-brand">
+                            <a class="oet-footer-logo" href="/"><img width="320" height="90" loading="lazy" decoding="async" src="/assets/img/logo/footer-logo.webp" alt="OET with Dr Hesham"></a>
+                            <p class="oet-footer-tagline">Practical OET preparation for doctors, nurses and allied health professionals.</p>
+                            <div class="social-area-footer-10 oet-footer-social">
+                                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                                <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
+                                <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation.%20%5Bpage%3A%20oet-reading-part-a-scanning%5D" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+                                <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                                <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+                            </div>
+                        </div>
+                        <div class="oet-footer-group">
+                            <h3 class="vl-footer-widget-title oet-footer-group-title"><button type="button" class="oet-footer-group-toggle" aria-expanded="true" aria-controls="oet-footer-courses"><span>Courses &amp; Packages</span><i class="fa-solid fa-angle-down" aria-hidden="true"></i></button></h3>
+                            <ul class="oet-footer-links" id="oet-footer-courses">
+                                <li><a href="/service.html">All OET Courses</a></li>
+                                <li><a href="/oet-course-for-doctors.html">OET for Doctors</a></li>
+                                <li><a href="/oet-course-for-nurses.html">OET for Nurses</a></li>
+                                <li><a href="/oet-course-for-pharmacists.html">OET for Pharmacists</a></li>
+                                <li><a href="/oet-course-for-physiotherapists.html">OET for Physiotherapists</a></li>
+                                <li><a href="/oet-for-allied-health.html">Other Healthcare Professions</a></li>
+                                <li><a href="/ar/" lang="ar">كورس OET بالعربية</a></li>
+                                <li><a href="/pricing.html">Pricing &amp; Packages</a></li>
+                            </ul>
+                        </div>
+                        <div class="oet-footer-group">
+                            <h3 class="vl-footer-widget-title oet-footer-group-title"><button type="button" class="oet-footer-group-toggle" aria-expanded="true" aria-controls="oet-footer-practice"><span>Practice &amp; Free Tools</span><i class="fa-solid fa-angle-down" aria-hidden="true"></i></button></h3>
+                            <ul class="oet-footer-links" id="oet-footer-practice">
+                                <li><a href="/oet-practice.html">OET Practice</a></li>
+                                <li><a href="/oet-practice.html#computer-based">Computer-Based Practice</a></li>
+                                <li><a href="/oet-writing-correction.html">Writing Assessment</a></li>
+                                <li><a href="/oet-sample-tests.html">Free OET Sample Tests</a></li>
+                                <li><a href="/english-placement-test">Free Placement Test</a></li>
+                                <li><a href="/oet-score-calculator.html">OET Score Calculator</a></li>
+                                <li><a href="/oet-score-requirements.html">OET Score Requirements</a></li>
+                                <li><a href="/oet-test-dates-and-fees.html">Test Dates &amp; Fees</a></li>
+                                <li><a href="/pricing.html#download-app">Download the App</a></li>
+                            </ul>
+                        </div>
+                        <div class="oet-footer-group">
+                            <h3 class="vl-footer-widget-title oet-footer-group-title"><button type="button" class="oet-footer-group-toggle" aria-expanded="true" aria-controls="oet-footer-blog" data-footer-open><span>OET Blog &amp; Guides</span><i class="fa-solid fa-angle-down" aria-hidden="true"></i></button></h3>
+                            <ul class="oet-footer-links" id="oet-footer-blog">
+                                <li><a href="/blog/">OET Blog</a></li>
+                                <li><a href="/oet-writing-tips.html">Writing Tips</a></li>
+                                <li><a href="/oet-speaking-tips.html">Speaking Tips</a></li>
+                                <li><a href="/oet-reading-tips.html">Reading Tips</a></li>
+                                <li><a href="/oet-listening-tips.html">Listening Tips</a></li>
+                                <li><a href="/uk-pathway-guide.html">UK Pathway Guide</a></li>
+                                <li><a href="/usa-pathway-guide.html">USA Pathway Guide</a></li>
+                                <li><a href="/australia-pathway-guide.html">Australia Pathway Guide</a></li>
+                                <li><a href="/gulf-pathway-guide.html">Gulf Pathway Guide</a></li>
+                                <li><a href="/oet-vs-ielts.html">OET vs IELTS</a></li>
+                            </ul>
+                        </div>
+                        <div class="oet-footer-group">
+                            <h3 class="vl-footer-widget-title oet-footer-group-title"><button type="button" class="oet-footer-group-toggle" aria-expanded="true" aria-controls="oet-footer-about"><span>About &amp; Support</span><i class="fa-solid fa-angle-down" aria-hidden="true"></i></button></h3>
+                            <ul class="oet-footer-links" id="oet-footer-about">
+                                <li><a href="/about.html">About Dr Hesham</a></li>
+                                <li><a href="/teaching-approach.html">Teaching Approach</a></li>
+                                <li><a href="/success-stories.html">Success Stories</a></li>
+                                <li><a href="/faq.html">FAQ</a></li>
+                                <li><a href="/contact.html">Contact</a></li>
+                                <li><a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation.%20%5Bpage%3A%20oet-reading-part-a-scanning%5D" target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
+                                <li><a href="mailto:support@oetwithdrhesham.co.uk">Email Support</a></li>
+                                <li><a href="/oet-materials-support.html">Free Materials &amp; Community</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="oet-footer-connect">
+                        <h3 class="oet-footer-connect-title">Stay Connected</h3>
+                        <p class="oet-footer-connect-copy">Free tips, live class alerts and course updates from Dr Hesham.</p>
+                        <div class="oet-footer-subscribe-buttons">
+                            <a class="oet-footer-btn oet-footer-btn--telegram" href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"><span class="oet-footer-btn__icon"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span><span class="oet-footer-btn__text">Telegram</span></a>
+                            <a class="oet-footer-btn oet-footer-btn--youtube" href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer"><span class="oet-footer-btn__icon"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="oet-footer-btn__text">YouTube</span></a>
+                            <a class="oet-footer-btn oet-footer-btn--facebook" href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer"><span class="oet-footer-btn__icon"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span><span class="oet-footer-btn__text">Facebook</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="oet-footer-bottom">
+                        <div class="oet-footer-copy">
+                            <p class="para">&copy; 2026 OET with Dr Hesham. All rights reserved.</p>
+                            <p class="para oet-footer-company-support">OET with Dr Hesham is a digital education platform supported by ProHealth Digital LLC, Wyoming, USA.</p>
+                        </div>
+                        <ul class="oet-footer-legal" aria-label="Legal">
+                            <li><a href="/terms/">Terms</a></li>
+                            <li><a href="/privacy/">Privacy</a></li>
+                            <li><a href="/refund-policy/">Refunds</a></li>
+                            <li><a href="/cookie-policy/">Cookies</a></li>
+                            <li><button type="button" class="oet-footer-cookie-btn" onclick="if(window.oetCookieSettings)oetCookieSettings();">Cookie settings</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+
+<!--================= Footer section End =================-->
+
+
+    <!-- js file -->
+
+    <!-- jquery js-->
+<!-- gsap js-->
+<!-- scrollTrigger js-->
+<!-- fontawesome -->
+<!-- counter js -->
+<!-- waypoints js-->
+<!-- sal js-->
+    <script defer src="/assets/js/plugins/sal.min.js?v=3ff9a5f201"></script>
+    <!-- ScrollSmoother js -->
+    <script defer src="/assets/js/plugins/lenis.min.js?v=98598577bb"></script>
+<!-- Custom js -->
+<script defer src="/assets/js/main.js?v=f943cc7fb4"></script>
+
+    
+
+
+    
+
+
+
+
+    
+
+    <div class="oet-community-popup" id="oet-community-popup" aria-hidden="true">
+        <div class="oet-community-popup__overlay" data-oet-community-close></div>
+        <div class="oet-community-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="oet-community-popup-title" aria-describedby="oet-community-popup-intro">
+            <button class="oet-community-popup__close" type="button" data-oet-community-close aria-label="Close community popup">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+            <div class="oet-community-popup__body">
+                <span class="oet-community-popup__eyebrow"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Free OET support</span>
+                <h2 class="oet-community-popup__title" id="oet-community-popup-title">Join Our Free OET Communities</h2>
+                <p class="oet-community-popup__intro" id="oet-community-popup-intro">Choose the group or resource that matches your profession, language preference, or preparation stage. Each link opens in a new tab so you can join instantly.</p>
+
+                <h3 class="oet-community-popup__section-title">WhatsApp Groups</h3>
+                <div class="oet-community-popup__grid">
+                    <a class="oet-community-popup__card" href="https://chat.whatsapp.com/LPSFtrljYdjAYGpBStpMz5" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Exam Recalls Group 1</span>
+                        <span class="oet-community-popup__hint">Recent exam recall discussions</span>
+                    </a>
+                    <a class="oet-community-popup__card" href="https://chat.whatsapp.com/CzVgwnH73Vn8PupWxPrhkz" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Exam Recalls Group 2</span>
+                        <span class="oet-community-popup__hint">Backup recalls community</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/GwXdSX6v38F3EjNzC4wS2F?mode=hq1tsha" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET Nursing Free Community-New</span>
+                        <span class="oet-community-popup__hint">Highlighted nursing community</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/CeJmvXO5dJA50OKBGtZcuD?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET Medicine Free Community</span>
+                        <span class="oet-community-popup__hint">Free orientation sessions for medicine</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/IuCFuWFXFrQHtK6qICP4jg?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET English Only-Non-Arabic Speakers</span>
+                        <span class="oet-community-popup__hint">English-only practice community</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/Kz8zXv7GpoCJBAHpfDygPW?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET Pharmacy Free Community</span>
+                        <span class="oet-community-popup__hint">Pharmacy OET support</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/E6AkDZhctn95XP7Do1RYgc?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET Physiotherapy Free Community</span>
+                        <span class="oet-community-popup__hint">Free OET community for physiotherapy</span>
+                    </a>
+                </div>
+
+                <h3 class="oet-community-popup__section-title">Free Orientation &amp; Resources</h3>
+                <div class="oet-community-popup__resources">
+                    <a class="oet-community-popup__resource" href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET with Dr Ahmed Hesham-Official Telegram Channel</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://t.me/OET_Nursing_DrHesham" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Telegram Nursing Channel</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET with Dr Ahmed Hesham - Main Facebook Group</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://www.facebook.com/share/1EMpS7pDau/" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET with Dr Ahmed Hesham-Official Facebook Page</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></span>
+                        <span class="oet-community-popup__name">Instagram</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--linkedin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></span>
+                        <span class="oet-community-popup__name">LinkedIn</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/kL91eG32Uok?si=Q464XynULlIxpiav" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/kL91eG32Uok?si=Q464XynULlIxpiav" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Doctors Arabic Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/3aBIQq_p3MQ?si=eNwqS82aYuYBaifr" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/3aBIQq_p3MQ?si=eNwqS82aYuYBaifr" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Doctors Non-Arabic Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/rbNsB7Olxts?si=RNoigvu5kz_bUVYI" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/rbNsB7Olxts?si=RNoigvu5kz_bUVYI" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Course Feedback</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/hlD1BXfijWs?si=EQFjYcWKTBOvltPI" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/hlD1BXfijWs?si=EQFjYcWKTBOvltPI" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Nursing Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/MCPZb589zdY?si=vSLShtttUOEH89rx" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/MCPZb589zdY?si=vSLShtttUOEH89rx" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET &amp; UK Nursing Live</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script id="oet-community-popup-script">
+        (function () {
+            var popup = document.getElementById('oet-community-popup');
+            var triggers = document.querySelectorAll('.oet-community-cta');
+            if (!popup || !triggers.length) return;
+
+            var closeButtons = popup.querySelectorAll('[data-oet-community-close]');
+            var scrollBody = popup.querySelector('.oet-community-popup__body');
+            var focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+            var lastTrigger = null;
+            var lastTouchY = 0;
+
+            function firstFocusable() {
+                return popup.querySelector(focusableSelector);
+            }
+
+            function openPopup(trigger) {
+                lastTrigger = trigger || null;
+                popup.classList.add('is-open');
+                popup.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('oet-community-popup-lock');
+                window.setTimeout(function () {
+                    var target = firstFocusable();
+                    if (target) target.focus({ preventScroll: true });
+                }, 30);
+            }
+
+            function closePopup() {
+                popup.classList.remove('is-open');
+                popup.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('oet-community-popup-lock');
+                if (lastTrigger && typeof lastTrigger.focus === 'function') {
+                    lastTrigger.focus({ preventScroll: true });
+                }
+            }
+
+            triggers.forEach(function (trigger) {
+                trigger.setAttribute('href', '#oet-community-popup');
+                trigger.setAttribute('aria-haspopup', 'dialog');
+                trigger.setAttribute('aria-controls', 'oet-community-popup');
+                trigger.removeAttribute('target');
+                trigger.removeAttribute('rel');
+                trigger.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    openPopup(trigger);
+                });
+            });
+
+            closeButtons.forEach(function (button) {
+                button.addEventListener('click', closePopup);
+            });
+
+            if (scrollBody) {
+                scrollBody.addEventListener('wheel', function (event) {
+                    event.stopPropagation();
+                }, { passive: true });
+
+                scrollBody.addEventListener('touchstart', function (event) {
+                    if (event.touches && event.touches.length) {
+                        lastTouchY = event.touches[0].clientY;
+                    }
+                }, { passive: true });
+
+                scrollBody.addEventListener('touchmove', function (event) {
+                    if (!event.touches || !event.touches.length) return;
+                    var currentY = event.touches[0].clientY;
+                    var deltaY = lastTouchY - currentY;
+                    var atTop = scrollBody.scrollTop <= 0;
+                    var atBottom = Math.ceil(scrollBody.scrollTop + scrollBody.clientHeight) >= scrollBody.scrollHeight;
+
+                    if ((atTop && deltaY < 0) || (atBottom && deltaY > 0)) {
+                        event.preventDefault();
+                    }
+
+                    event.stopPropagation();
+                    lastTouchY = currentY;
+                }, { passive: false });
+            }
+
+            document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && popup.classList.contains('is-open')) {
+                closePopup();
+                return;
+            }
+            if (event.key !== 'Tab' || !popup.classList.contains('is-open')) return;
+            var items = Array.prototype.filter.call(popup.querySelectorAll(focusableSelector), function (el) {
+                return el.offsetParent !== null;
+            });
+            if (!items.length) return;
+            var first = items[0];
+            var last = items[items.length - 1];
+            if (event.shiftKey && (document.activeElement === first || !popup.contains(document.activeElement))) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && (document.activeElement === last || !popup.contains(document.activeElement))) {
+                event.preventDefault();
+                first.focus();
+            }
+        });
+        })();
+    </script>
+    <script src="/assets/js/oet-analytics.js?v=17e10a118a" defer></script>
+    <script src="/assets/js/oet-cookie-consent.js?v=ca33957f48" defer></script>
+    <script src="/assets/js/oet-search.js?v=ddf57f5228" defer></script>
+</body>
+</html>

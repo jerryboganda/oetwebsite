@@ -1,6 +1,7 @@
 ---
 import part1 from '../partials/chrome/header-1.html?raw';
 import part2 from '../partials/chrome/header-2.html?raw';
+import offcanvas from '../partials/chrome/offcanvas.html?raw';
 const { showApps = false } = Astro.props;
 ---
-<Fragment set:html={part1} /><li><a class="oet-pricing-nav-link" href={showApps ? "#download-app" : "/pricing.html#download-app"}>Download App</a></li><Fragment set:html={part2} />
+<Fragment set:html={part1} /><li><a href={showApps ? "#download-app" : "/pricing.html#download-app"}><span class="submenu-icon"><i class="fa-solid fa-laptop-medical" aria-hidden="true"></i></span><span class="submenu-text">Download the App</span></a></li><Fragment set:html={part2} /><Fragment set:html={offcanvas} />

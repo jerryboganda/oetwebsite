@@ -11,15 +11,20 @@ support-chat widget. Enrollment happens in the separate web app at
 **`site/src` is the source of truth. The repo root is the deployable webroot.**
 
 ```
-site/src/pages/*.astro      one per page (56) — thin wrappers
+site/src/pages/*.astro      one per page (65 + 404) — thin wrappers; blog/index.astro is generated
 site/src/layouts/Base.astro shared document shell (head, chrome, body flags)
 site/src/components/        Header / Footer / CommunityPopup (shared chrome)
 site/src/partials/<page>/   raw HTML for each page: meta, head-extra, main, tail
-site/src/partials/chrome/   unified header/footer/popup markup
+site/src/partials/chrome/   unified header, drawer (offcanvas.html), footer, popup markup
 site/src/data/pricing.json  single source of truth for package prices
+site/src/data/blog.json     OET Blog article list (slug, category, summary, featured)
+site/src/lib/blog.mjs       reads blog.json + article partials → /blog/ and homepage cards
 site/src/lib/inject.mjs     build-time data injection (prices, story counts)
 site/scripts/postbuild.mjs  cache-bust hashes → sitemap.xml → copy to repo root
-site/scripts/verify.mjs     post-build sanity assertions (CI)
+site/scripts/verify.mjs     post-build sanity assertions (CI): pages, JSON-LD, sitemap,
+                            internal-link audit, unique titles/canonicals, nav/footer/blog
+site/scripts/blog-thumbs.mjs  npm run thumbs: blog card / og images (assets/img/blog/)
+site/scripts/qa-redesign.mjs  browser QA at 320–1440px (needs server.js on :8000 + Chrome)
 site/scripts/parity.py      historical: dist vs pre-migration diff tool
 site/scripts/extract.py     historical: one-shot migration extractor (already run;
                             do not re-run — it regenerates partials from root pages)
@@ -43,12 +48,19 @@ Everything else at the root deploys as-is: `assets/`, PHP endpoints,
   `assets/img/success-stories/success-stories.json` at build time. Add new
   stories to that manifest (+ images in `optimized/`, originals stay out of
   git) and rebuild.
+- **OET Blog**: `/blog/` and the homepage "Latest from the OET Blog" cards are
+  built from `site/src/data/blog.json`. To publish an article: create its page
+  (`site/src/pages/<slug>.astro` + `partials/<slug>/`, breadcrumb
+  Home › OET Blog › Category, BlogPosting + BreadcrumbList JSON-LD), add it to
+  `blog.json`, `PAGES` in `postbuild.mjs` and `verify.mjs`, run `npm run thumbs`,
+  rebuild. Title, dates and reading time are read from the article itself.
+  Editorial rules: `docs/editorial-plan.md`.
 
 ### Header Login / Register CTA and the `oet_signed_in` hint cookie
 
 `header-2.html` has a Login / Register link in the inline nav (pill, from
-1500px, also cloned into the hamburger drawer) and `a.oet-header-login` next to
-the hamburger (below 1500px). Both switch to "My Dashboard"
+1200px, also cloned into the hamburger drawer) and `a.oet-header-login` next to
+the hamburger (below 1200px; it reads "Log in" under 576px). Both switch to "My Dashboard"
 (`https://app.oetwithdrhesham.co.uk/`) when the learner app's hint cookie is
 present: `oet_signed_in=1` on `Domain=.oetwithdrhesham.co.uk` (constant value
 `1`, no token or PII, 30 days, set and cleared by the app together with its
@@ -56,7 +68,7 @@ present: `oet_signed_in=1` on `Domain=.oetwithdrhesham.co.uk` (constant value
 `html.oet-signed-in` and swaps `href` on every `a[data-dashboard-href]`.
 Presentation only: never gate anything on it, never add an `id` to these links
 (the nav is cloned into the drawer). Without the cookie, or with JS off, the
-link is "Login / Register" to `https://app.oetwithdrhesham.co.uk/sign-in?next=%2F`.
+link is "Log in / Register" to `https://app.oetwithdrhesham.co.uk/sign-in?next=%2F`.
 
 ## Local development
 
@@ -81,7 +93,9 @@ php -S 127.0.0.1:8000 -t .
 ```bash
 cd site
 npm run build      # astro build → postbuild (hash, sitemap, copy to root)
-npm run verify     # assert 56 pages, hashed assets, valid JSON-LD, sitemap
+npm run verify     # assert 66 pages, hashed assets, JSON-LD, sitemap (65 URLs), links
+node scripts/postbuild.mjs --check-root   # root pages == build output
+node scripts/qa-redesign.mjs              # browser QA (start server.js first)
 ```
 
 CI (`.github/workflows/build.yml`) runs build + verify + a root-drift check on
@@ -147,7 +161,12 @@ without them the chat/contact email relay is off and chat send fails
    - `https://` + host canonical redirects work (www ↔ apex, http → https).
    - Contact form and chat widget send (SMTP env is correct).
    - `storage/oet-chat/` is writable but **not** listable/downloadable.
-   - Old template URLs 301-redirect (spot-check a few from `.htaccess`).
+   - Old template URLs 301-redirect (spot-check a few from `.htaccess`;
+     `/blog-single.html` → `/blog/`, `/blog` → `/blog/`).
+   - `/blog/` lists every article, each card opens its own article; the header
+     "OET Blog" item, drawer, homepage and footer all reach it.
+   - Submit `https://oetwithdrhesham.co.uk/sitemap.xml` in Search Console after
+     a release that adds pages.
 
 ## Analytics (pending IDs)
 
