@@ -1,15 +1,13 @@
 /* =====================================================================
-   2026-10 UI + SEO redesign (developer brief, 26 Oct 2026)
-   Loaded site-wide after oet-polish.css. Sections:
-   1. Shared focus/tap rules   2. Header + drawer   3. Footer
-   4. Practice hub + blog index + article extras   5. Homepage
+   OET Blog + practice hub styles (2026-10).
+   The 26 Oct redesign's header, drawer, footer and homepage styles were
+   removed on 27 Oct 2026 (owner V3 brief: restore the original UI, keep
+   the new OET Blog). What remains, loaded site-wide after oet-polish.css:
+   1. Focus rules   2. Blog index, blog cards, practice hub, articles
+   3. Homepage "Latest from the OET Blog" section (owner-approved as-is)
    ===================================================================== */
 
-/* ---- 1. Shared ---- */
-.oet-footer a:focus-visible,
-.oet-footer button:focus-visible,
-.vl-offcanvas a:focus-visible,
-.vl-offcanvas button:focus-visible,
+/* ---- 1. Focus ---- */
 .oet-blog a:focus-visible,
 .oet-blog input:focus-visible,
 .oet-home-x a:focus-visible{
@@ -18,121 +16,7 @@
   border-radius:8px;
 }
 
-/* ---- 2. Header + drawer ---- */
-/* Phones: compact "Log in" pill; " / Register" returns from 576px */
-.oet-auth-cta__long{display:none}
-@media (min-width:576px){
-  .oet-auth-cta__long{display:inline}
-}
-/* the nav pill (desktop, and its drawer clone) always shows the full label */
-a.oet-header-cta-btn .oet-auth-cta__long{display:inline}
-
-/* current section in the desktop nav */
-@media (min-width:1200px){
-  #vl-header-sticky .vl-main-menu nav>ul>li.is-current-section>a{
-    color:var(--oet-purple);
-    background:var(--oet-lav-100);
-  }
-}
-.vl-offcanvas-menu nav>ul>li.is-current-section>a{color:var(--oet-purple)}
-
-/* drawer actions: Start Free Practice + support links */
-.oet-drawer-actions{display:flex;flex-direction:column;gap:14px}
-.oet-drawer-btn{
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  min-height:48px;padding:12px 18px;border-radius:12px;
-  font-weight:700;font-size:16px;text-decoration:none;text-align:center;
-}
-.oet-drawer-btn--primary{
-  background:linear-gradient(135deg,var(--oet-purple) 0%,var(--oet-purple-deep) 100%);
-  color:#fff!important;
-  box-shadow:0 6px 18px rgba(124,58,237,.28);
-}
-.oet-drawer-btn--primary:hover{color:#fff!important;background:var(--oet-purple-deep)}
-.oet-drawer-support{margin:0;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px;font-size:15px}
-.oet-drawer-support a{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 6px;color:var(--oet-ink);font-weight:600;text-decoration:none}
-.oet-drawer-support a:hover{color:var(--oet-purple)}
-
-/* ---- 3. Footer ---- */
-.oet-footer-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:8px;
-}
-.oet-footer-brand{padding-bottom:16px}
-.oet-footer-logo img{width:200px;height:auto}
-.oet-footer-tagline{
-  color:#d6dafc;font-size:15px;line-height:1.55;margin:12px 0 16px;max-width:34ch;
-}
-.oet-footer-social{display:flex;flex-wrap:wrap;gap:8px}
-.vl-footer-10 .oet-footer-social a{
-  display:inline-flex;align-items:center;justify-content:center;
-  width:44px;height:44px;line-height:1;margin-right:0;
-}
-.oet-footer-group{border-top:1px solid rgba(255,255,255,.12)}
-.vl-footer-10 .oet-footer-group-title{margin:0;font-size:inherit}
-.oet-footer-group-toggle{
-  all:unset;box-sizing:border-box;
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  width:100%;min-height:52px;padding:12px 2px;
-  color:#fff;font-family:"Mulish",sans-serif;font-size:17px;font-weight:700;cursor:pointer;
-}
-.oet-footer-group-toggle i{transition:transform .2s ease;font-size:15px;opacity:.8}
-.oet-footer-group-toggle[aria-expanded="true"] i{transform:rotate(180deg)}
-.oet-footer-links{list-style:none;margin:0;padding:0 0 14px}
-.oet-footer-links.is-collapsed{display:none}
-.oet-footer-links li{margin:0}
-.oet-footer-links a{
-  display:flex;align-items:center;min-height:40px;
-  color:#d6dafc;font-size:15.5px;text-decoration:none;
-}
-.oet-footer-links a:hover{color:#fff;text-decoration:underline}
-.oet-footer-connect{
-  margin-top:8px;padding:18px 0 6px;border-top:1px solid rgba(255,255,255,.12);
-}
-.oet-footer-connect-title{color:#fff;font-size:17px;margin:0 0 6px}
-.oet-footer-connect-copy{color:#d6dafc;font-size:14.5px;margin:0 0 14px}
-.oet-footer-connect .oet-footer-subscribe-buttons{flex-direction:row;flex-wrap:wrap}
-.oet-footer-connect .oet-footer-btn{flex:1 1 140px;justify-content:center;min-height:48px}
-.oet-footer-connect .oet-footer-btn__text{flex:0 0 auto}
-.oet-footer-bottom{
-  display:flex;flex-direction:column;gap:12px;
-  padding:18px 0 24px;margin-top:18px;border-top:1px solid rgba(255,255,255,.12);
-}
-.oet-footer-copy .para{margin:0;font-size:14px;color:#d6dafc}
-.oet-footer-legal{display:flex;flex-wrap:wrap;gap:4px 18px;list-style:none;margin:0;padding:0}
-.oet-footer-legal a,
-.oet-footer-cookie-btn{
-  display:inline-flex;align-items:center;min-height:44px;
-  color:#d6dafc;font-size:14.5px;text-decoration:none;
-}
-.oet-footer-cookie-btn{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;min-height:44px;color:#d6dafc;font-size:14.5px;cursor:pointer}
-.oet-footer-legal a:hover,.oet-footer-cookie-btn:hover{color:#fff;text-decoration:underline}
-
-@media (min-width:768px){
-  .oet-footer-grid{grid-template-columns:1fr 1fr;column-gap:32px}
-  .oet-footer-brand{grid-column:1/-1}
-}
-/* Desktop: columns, headings are plain titles (toggle inert) */
-@media (min-width:992px){
-  .oet-footer-grid{grid-template-columns:repeat(4,minmax(0,1fr));column-gap:32px;row-gap:0}
-  .oet-footer-group{border-top:0}
-  .oet-footer-group-toggle{cursor:default;min-height:0;padding:0 0 14px;font-size:18px}
-  .oet-footer-group-toggle i{display:none}
-  .oet-footer-links.is-collapsed{display:block}
-  .oet-footer-links a{min-height:36px}
-  .oet-footer-connect{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
-  .oet-footer-connect-copy{margin:0;flex:1 1 280px}
-  .oet-footer-connect-title{margin:0}
-  .oet-footer-connect .oet-footer-btn{flex:0 0 auto;padding:10px 18px}
-  .oet-footer-bottom{flex-direction:row;align-items:center;justify-content:space-between}
-}
-@media (min-width:1200px){
-  .oet-footer-grid{grid-template-columns:minmax(0,1.35fr) repeat(4,minmax(0,1fr))}
-  .oet-footer-brand{grid-column:auto;padding-right:16px}
-}
-
-/* ---- 4. Blog index, blog cards (also on the homepage), practice hub, articles ---- */
+/* ---- 2. Blog index, blog cards (also on the homepage), practice hub, articles ---- */
 .oet-blog-hero{padding-bottom:40px}
 .oet-blog-hero__grid{display:grid;gap:24px;align-items:end}
 .oet-blog-search label{display:block;font-weight:700;color:var(--oet-ink);margin-bottom:8px}
@@ -197,76 +81,21 @@ a.oet-header-cta-btn .oet-auth-cta__long{display:inline}
 .oet-tips-roadmap-item strong a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 .oet-resource-section{scroll-margin-top:100px}
 
-/* ---- 5. Homepage ---- */
+/* ---- 3. Homepage "Latest from the OET Blog" ---- */
 .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
-.oet-hero__professions{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:0;font-weight:700}
-.oet-hero__professions a{display:inline-flex;align-items:center;min-height:44px;color:var(--oet-purple-deep);text-decoration:underline;text-underline-offset:4px}
-.oet-hero__professions a:hover{color:var(--oet-ink)}
-.oet-home-trust{padding:28px 0;background:#fff;border-bottom:1px solid rgba(124,58,237,.1)}
-.oet-home-trust__list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0}
-.oet-home-trust__list li{display:flex;flex-direction:column;gap:2px;padding:14px 16px;border-radius:14px;background:var(--oet-lav-50);border:1px solid rgba(124,58,237,.12)}
-.oet-home-trust__list strong{font-size:24px;line-height:1.1;color:var(--oet-purple-deep)}
-.oet-home-trust__list span{font-size:14px;color:#4f4b7b;line-height:1.35}
-.oet-home-trust__who{margin:16px 0 0;text-align:center;color:#4f4b7b}
-.oet-home-trust__who a{color:var(--oet-purple-deep);font-weight:700}
 .oet-home-section{padding:64px 0}
-.oet-home-section--soft{background:linear-gradient(180deg,var(--oet-lav-50),var(--oet-lav-100))}
 .oet-home-head{max-width:720px;margin:0 auto 32px;text-align:center}
 .oet-home-head h2{font-size:clamp(26px,3vw,40px);line-height:1.2;color:var(--oet-ink);margin:0 0 10px}
 .oet-home-head p{margin:0;color:#4f4b7b;font-size:17px}
 .oet-home-kicker{font-size:14px!important;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--oet-purple)!important;margin:0 0 8px!important}
 .oet-home-head--split{max-width:none;display:flex;flex-direction:column;align-items:flex-start;gap:12px;text-align:left}
-.oet-home-grid{display:grid;grid-template-columns:1fr;gap:20px}
-.oet-home-card,.oet-home-skill,.oet-home-route{
-  display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:18px;
-  background:#fff;border:1px solid rgba(124,58,237,.14);box-shadow:var(--oet-shadow-sm);
-  color:inherit;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
-}
-a.oet-home-card:hover{transform:translateY(-3px);box-shadow:var(--oet-shadow);border-color:rgba(124,58,237,.35)}
-.oet-home-card h3,.oet-home-skill h3,.oet-home-route h3{font-size:20px;margin:0;color:var(--oet-ink)}
-.oet-home-card p,.oet-home-skill p,.oet-home-route p{margin:0;color:#4f4b7b;font-size:15.5px;line-height:1.55}
-.oet-home-card__icon{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:14px;background:var(--oet-lav-100);color:var(--oet-purple);font-size:20px}
-.oet-home-card__more{margin-top:auto;font-weight:800;color:var(--oet-purple);display:inline-flex;align-items:center;gap:8px}
-.oet-home-skill a{display:inline-flex;align-items:center;min-height:40px;font-weight:700;color:var(--oet-purple-deep);text-decoration:underline;text-underline-offset:3px}
 .oet-home-route__link{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:auto;font-weight:800;color:var(--oet-purple);text-decoration:none}
 .oet-home-route__link:hover{color:var(--oet-purple-deep);text-decoration:underline}
-.oet-home-more-links{margin:24px 0 0;text-align:center;font-weight:600;color:#4f4b7b}
-.oet-home-more-links a{color:var(--oet-purple-deep);display:inline-flex;align-items:center;min-height:44px}
-.oet-home-work-lead{margin:14px auto 0;max-width:620px;color:#4f4b7b}
-.oet-home-work-lead a{color:var(--oet-purple-deep);font-weight:700}
 .oet-home-blog{background:#e6e0ff}
-.oet-home-cta-alt{margin:16px 0 0;color:#4f4b7b}
-.oet-home-cta-alt a{color:var(--oet-purple-deep);font-weight:700;display:inline-flex;min-height:44px;align-items:center}
-@media (min-width:576px){
-  .oet-home-trust__list{grid-template-columns:repeat(3,minmax(0,1fr))}
-}
 @media (min-width:768px){
-  .oet-home-grid--3,.oet-home-grid--4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .oet-home-head--split{flex-direction:row;align-items:flex-end;justify-content:space-between}
   .oet-home-section{padding:88px 0}
-}
-@media (min-width:992px){
-  .oet-home-trust__list{grid-template-columns:repeat(5,minmax(0,1fr))}
-  .oet-home-grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}
-}
-@media (min-width:1200px){
-  .oet-home-grid--4{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
 /* testimonial star icons (were empty "#" links; same look as the theme's anchor rule) */
 .testimonial__wrap-overlay-icon .oet-star{background:hsla(0,0%,100%,.2);border-radius:2px;display:inline-block;height:28px;margin-right:4px;text-align:center;width:28px}
 .testimonial__wrap-overlay-icon .oet-star img{padding-left:2px}
-/* QA fixes (2026-10-27) */
-.oet-hero__professions{gap:0 10px}
-.vl-offcanvas nav a.oet-header-cta-btn{display:flex;align-items:center;gap:10px}
-.oet-footer-connect-title{font-family:"Mulish",sans-serif;font-weight:800;letter-spacing:0}
-@media (min-width:992px){
-  /* keep Cookie settings clear of the floating "Contact us" chat button */
-  .oet-footer-legal{padding-right:170px}
-}
-@media (min-width:1200px){
-  .vl-footer-10 .oet-footer-social a{width:40px;height:40px}
-  .oet-footer-social{gap:6px}
-}
-/* final CTA sits on a purple card: white text for contrast */
-.cta-content-wrap10 .oet-home-cta-alt{color:#fff}
-.cta-content-wrap10 .oet-home-cta-alt a{color:#fff;text-decoration:underline;text-underline-offset:3px}

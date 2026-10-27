@@ -1,4 +1,6 @@
 ---
-import footer from '../partials/chrome/footer.html?raw';
+import part1 from '../partials/chrome/footer-1.html?raw';
+import part2 from '../partials/chrome/footer-2.html?raw';
+const { showApps = false } = Astro.props;
 ---
-<Fragment set:html={footer} />
+<Fragment set:html={part1} /><li><a href="/pricing.html#download-app">Download Candidates App</a></li><Fragment set:html={part2} />

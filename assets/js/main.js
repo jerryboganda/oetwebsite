@@ -1010,48 +1010,12 @@ if (typeof sal === 'function') {
         var path = window.location.pathname.replace(/\/index\.html$/, "/").replace(/^\//, "");
         if (path === "" || path === "index.html") path = "index.html";
         document.querySelectorAll("header nav a[href], .vl-offcanvas nav a[href]").forEach(function (link) {
-            var raw = link.getAttribute("href");
-            var href = raw.split("#")[0].split("?")[0].replace(/^\//, "");
+            var href = link.getAttribute("href").split("#")[0].split("?")[0].replace(/^\//, "");
             if (!href) return;
             if (href === path || (path === "index.html" && (href === "/" || href === "index.html"))) {
-                // in-page section links (/oet-practice.html#speaking) are not the page itself
-                if (raw.indexOf("#") === -1) link.setAttribute("aria-current", "page");
-                // highlight the top-level group that contains the current page
-                var top = link.closest("nav > ul > li");
-                if (top) top.classList.add("is-current-section");
+                link.setAttribute("aria-current", "page");
             }
         });
-    })();
-
-    /*----------------------------------------*/
-    /*  footer link groups: accordions below 992px, columns above
-    /*----------------------------------------*/
-    (function () {
-        var toggles = document.querySelectorAll(".oet-footer-group-toggle");
-        if (!toggles.length) return;
-        var mq = window.matchMedia("(max-width: 991.98px)");
-        function setGroup(btn, open) {
-            var panel = document.getElementById(btn.getAttribute("aria-controls"));
-            btn.setAttribute("aria-expanded", open ? "true" : "false");
-            if (panel) panel.classList.toggle("is-collapsed", !open);
-        }
-        function sync() {
-            toggles.forEach(function (btn) {
-                // phones start collapsed except the group flagged open (OET Blog & Guides); desktop shows all columns
-                setGroup(btn, !mq.matches || btn.hasAttribute("data-footer-open"));
-                if (mq.matches) btn.removeAttribute("tabindex");
-                else btn.setAttribute("tabindex", "-1");
-            });
-        }
-        toggles.forEach(function (btn) {
-            btn.addEventListener("click", function () {
-                if (!mq.matches) return;
-                setGroup(btn, btn.getAttribute("aria-expanded") !== "true");
-            });
-        });
-        sync();
-        if (mq.addEventListener) mq.addEventListener("change", sync);
-        else if (mq.addListener) mq.addListener(sync);
     })();
 
     /*----------------------------------------*/

@@ -1,17 +1,18 @@
 /**
- * Acceptance QA for the 2026-10 UI + SEO redesign brief, in a real browser.
- * Needs the static site running (preview "website-static", node server.js on :8000)
- * and Google Chrome installed (Playwright channel "chrome", no browser download).
+ * Browser acceptance QA for the V3 correction (27 Oct 2026): the ORIGINAL owner-approved header,
+ * drawer and footer are restored, the new OET Blog is kept. Needs the static site running
+ * (preview "website-static", node server.js on :8000) and Google Chrome (Playwright channel "chrome").
  *
- * Checks at 320/360/390/430/768/1024/1440 px (the brief's test widths):
- *   - no horizontal overflow on home, /blog/, an article and the practice hub
- *   - header: logo, CTA and menu fit; inline 6-item nav from 1200px
- *   - drawer: opens, locks scroll, lists the OET Blog + Start Free Practice,
- *     Escape and backdrop close it, focus returns to the menu button
- *   - footer: accordions on phones (OET Blog & Guides open), columns on desktop
- *   - blog search filters cards; login link + signed-in hint cookie still work
- *   - no console errors
- * Screenshots go to docs/qa/2026-10-redesign/ (viewport, JPEG).
+ * Checks at 320/360/390/430/768/1024/1366/1440/1500 px (the brief's matrix plus breakpoints):
+ *   - no horizontal overflow on home, /blog/, two articles, pricing and the practice hub
+ *   - header: logo, Login / Register and menu button fit; original inline nav from 1500px,
+ *     with the approved plain "OET Blog" item
+ *   - drawer: the original drawer (cloned menu incl. OET Blog, Contact & Community, Follow the
+ *     Journey) opens and closes; submenus expand
+ *   - footer: the original footer (brand, social, Support, Top Links, Subscribe), no accordions
+ *   - homepage "Latest from the OET Blog": lavender section, 3 cards, View All Articles, before the FAQ
+ *   - blog search filters cards; login link + signed-in hint cookie still work; no console errors
+ * Screenshots go to docs/qa/2026-10-restore/ (viewport, JPEG).
  *
  * Usage (from site/):  node scripts/qa-redesign.mjs [--base http://localhost:8000] [--no-shots]
  */
@@ -21,15 +22,17 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
-const SHOTS = path.resolve(HERE, '..', '..', 'docs', 'qa', '2026-10-redesign');
+const SHOTS = path.resolve(HERE, '..', '..', 'docs', 'qa', '2026-10-restore');
 const argBase = process.argv.indexOf('--base');
 const BASE = argBase !== -1 ? process.argv[argBase + 1] : 'http://localhost:8000';
 const takeShots = !process.argv.includes('--no-shots');
-const WIDTHS = [320, 360, 390, 430, 768, 1024, 1440];
+const WIDTHS = [320, 360, 390, 430, 768, 1024, 1366, 1440, 1500];
 const PAGES = [
   ['home', '/'],
   ['blog', '/blog/'],
   ['article', '/oet-writing-referral-letter-structure.html'],
+  ['article2', '/oet-listening-tips.html'],
+  ['pricing', '/pricing.html'],
   ['practice', '/oet-practice.html'],
 ];
 const LOGIN = 'https://app.oetwithdrhesham.co.uk/sign-in?next=%2F';
@@ -80,22 +83,25 @@ for (const width of WIDTHS) {
         top: items[0] && items[0].top,
         sameRow: items.length ? items.every((b) => Math.abs((b.top + b.height / 2) - (items[0].top + items[0].height / 2)) < 4) : null,
         loginHref: document.querySelector('.oet-header-login').getAttribute('href'),
+        loginText: document.querySelector('.oet-header-login .oet-auth-cta__guest').textContent.trim(),
+        blogItem: [...document.querySelectorAll('.vl-main-menu nav>ul>li>a')].some((a) => a.getAttribute('href') === '/blog/' && a.textContent.trim() === 'OET Blog'),
       };
     });
     if (header.loginHref !== LOGIN) fail(`${name} @${width}: login link is ${header.loginHref}`);
-    if (width >= 1200) {
+    if (header.loginText !== 'Login / Register') fail(`${name} @${width}: login label is "${header.loginText}" (original: Login / Register)`);
+    if (!header.blogItem) fail(`${name} @${width}: OET Blog item missing from the menu`);
+    if (width >= 1500) {
       if (!header.nav) fail(`${name} @${width}: inline nav hidden`);
       else if (!(header.firstLeft >= header.logoRight) || !header.sameRow || header.lastRight > header.vw) fail(`${name} @${width}: inline nav does not fit (${JSON.stringify(header)})`);
     } else {
-      if (header.nav) fail(`${name} @${width}: inline nav should be hidden below 1200px`);
+      if (header.nav) fail(`${name} @${width}: inline nav should be hidden below 1500px (original breakpoint)`);
       if (!header.login || !header.burger) fail(`${name} @${width}: login or menu button missing`);
       else {
         if (header.login.left < header.logoRight) fail(`${name} @${width}: login overlaps logo`);
         if (header.burger.right > header.vw) fail(`${name} @${width}: menu button off-screen`);
-        if (header.burger.h < 44 || header.login.h < 44) fail(`${name} @${width}: header tap target under 44px`);
       }
     }
-    if (takeShots && (name !== 'article' || width === 390 || width === 1440)) {
+    if (takeShots && (!name.startsWith('article') || width === 390 || width === 1366)) {
       await page.screenshot({ path: path.join(SHOTS, `${name}-${width}.jpg`), type: 'jpeg', quality: 62 });
     }
     if (errors.length) fail(`${name} @${width}: console errors: ${errors.slice(0, 3).join(' | ')}`);
@@ -104,7 +110,7 @@ for (const width of WIDTHS) {
   ok(`${width}px: overflow, header fit and login link checked on ${PAGES.length} pages`);
 }
 
-// drawer behaviour (phone + small laptop)
+// drawer behaviour (phone + small laptop): the original drawer, with OET Blog in its cloned menu
 for (const width of [390, 1024]) {
   const { context, page } = await open(width, '/');
   const toggle = page.locator('.vl-header-action-item .vl-offcanvas-toggle');
@@ -112,74 +118,60 @@ for (const width of [390, 1024]) {
   await page.waitForTimeout(450);
   const state = await page.evaluate(() => ({
     open: document.querySelector('.vl-offcanvas').classList.contains('vl-offcanvas-open'),
-    locked: getComputedStyle(document.body).overflow === 'hidden',
-    expanded: document.querySelector('.vl-header-action-item .vl-offcanvas-toggle').getAttribute('aria-expanded'),
     blog: !!document.querySelector('.vl-offcanvas nav a[href="/blog/"]'),
-    practice: !!document.querySelector('.vl-offcanvas a[href="/oet-practice.html#free-practice"]'),
-    login: !!document.querySelector('.vl-offcanvas nav a.oet-header-cta-btn'),
+    community: [...document.querySelectorAll('.vl-offcanvas .vl-offcanvas-sm-title')].map((h) => h.textContent.trim()),
     tops: [...document.querySelectorAll('.vl-offcanvas nav>ul>li>a')].map((a) => a.textContent.trim().replace(/\s+/g, ' ')),
-    focusInside: document.querySelector('.vl-offcanvas').contains(document.activeElement),
   }));
-  if (!state.open || !state.locked || state.expanded !== 'true') fail(`drawer @${width}: did not open/lock (${JSON.stringify(state)})`);
-  if (!state.blog || !state.practice || !state.login) fail(`drawer @${width}: missing OET Blog / Start Free Practice / Log in`);
-  if (!state.focusInside) fail(`drawer @${width}: focus not moved into the drawer`);
+  if (!state.open) fail(`drawer @${width}: did not open`);
+  if (!state.blog) fail(`drawer @${width}: OET Blog missing`);
+  if (state.community.join('|') !== 'Contact & Community|Follow the Journey') fail(`drawer @${width}: not the original drawer (${state.community.join(' / ')})`);
   if (takeShots) await page.screenshot({ path: path.join(SHOTS, `drawer-${width}.jpg`), type: 'jpeg', quality: 62 });
-  // submenu toggle
   await page.locator('.vl-offcanvas nav>ul>li.has-dropdown >> nth=0').locator(':scope > button.vl-menu-close').click();
   await page.waitForTimeout(400);
-  const sub = await page.evaluate(() => {
-    const li = document.querySelector('.vl-offcanvas nav>ul>li.has-dropdown');
-    return { expanded: li.querySelector(':scope > button').getAttribute('aria-expanded'), shown: getComputedStyle(li.querySelector(':scope > .sub-menu')).display !== 'none' };
-  });
-  if (sub.expanded !== 'true' || !sub.shown) fail(`drawer @${width}: submenu did not expand`);
-  await page.keyboard.press('Escape');
+  const shown = await page.evaluate(() => getComputedStyle(document.querySelector('.vl-offcanvas nav>ul>li.has-dropdown > .sub-menu')).display !== 'none');
+  if (!shown) fail(`drawer @${width}: submenu did not expand`);
+  await page.locator('.vl-offcanvas-close .vl-offcanvas-toggle').click();
   await page.waitForTimeout(450);
-  const closed = await page.evaluate(() => ({
-    open: document.querySelector('.vl-offcanvas').classList.contains('vl-offcanvas-open'),
-    focusBack: document.activeElement === document.querySelector('.vl-header-action-item .vl-offcanvas-toggle'),
-  }));
-  if (closed.open || !closed.focusBack) fail(`drawer @${width}: Escape did not close or return focus (${JSON.stringify(closed)})`);
-  // phones: the drawer is full-width (no backdrop to tap); wider screens close on a backdrop click
-  if (width >= 768) {
-    await toggle.click();
-    await page.waitForTimeout(450);
-    await page.mouse.click(5, 400); // backdrop, left of the right-hand drawer
-    await page.waitForTimeout(450);
-    if (await page.evaluate(() => document.querySelector('.vl-offcanvas').classList.contains('vl-offcanvas-open'))) fail(`drawer @${width}: backdrop click did not close`);
-  }
+  if (await page.evaluate(() => document.querySelector('.vl-offcanvas').classList.contains('vl-offcanvas-open'))) fail(`drawer @${width}: close button did not close`);
   ok(`drawer @${width}: ${state.tops.join(' / ')}`);
   await context.close();
 }
 
-// footer: accordions on phones, columns on desktop
-for (const width of [390, 1440]) {
+// footer: the original footer, no accordions
+for (const width of [390, 1366]) {
   const { context, page } = await open(width, '/');
-  const read = () => page.evaluate(() => [...document.querySelectorAll('.oet-footer-group-toggle')].map((b) => ({
-    label: b.textContent.trim(),
-    expanded: b.getAttribute('aria-expanded'),
-    shown: getComputedStyle(document.getElementById(b.getAttribute('aria-controls'))).display !== 'none',
-    links: document.getElementById(b.getAttribute('aria-controls')).querySelectorAll('a').length,
-  })));
-  const groups = await read();
-  if (groups.length !== 4) fail(`footer @${width}: ${groups.length} groups`);
-  if (width < 992) {
-    const wrong = groups.filter((g) => (g.label === 'OET Blog & Guides') !== (g.expanded === 'true') || (g.expanded === 'true') !== g.shown);
-    if (wrong.length) fail(`footer @${width}: initial accordion state wrong ${JSON.stringify(wrong)}`);
-    await page.locator('.oet-footer-group-toggle').first().click();
-    const after = await read();
-    if (after[0].expanded !== 'true' || !after[0].shown) fail(`footer @${width}: first group did not open`);
-    if (takeShots) {
-      await page.locator('footer').scrollIntoViewIfNeeded();
-      await page.locator('footer').screenshot({ path: path.join(SHOTS, `footer-${width}.jpg`), type: 'jpeg', quality: 62 });
-    }
-  } else {
-    if (groups.some((g) => g.expanded !== 'true' || !g.shown)) fail(`footer @${width}: all columns should be open ${JSON.stringify(groups)}`);
-    if (takeShots) {
-      await page.locator('footer').scrollIntoViewIfNeeded();
-      await page.locator('footer').screenshot({ path: path.join(SHOTS, `footer-${width}.jpg`), type: 'jpeg', quality: 62 });
-    }
+  const f = await page.evaluate(() => {
+    const ft = document.querySelector('footer');
+    return {
+      titles: [...ft.querySelectorAll('h3, h4, .title')].map((h) => h.textContent.trim()).filter(Boolean),
+      accordions: ft.querySelectorAll('.oet-footer-group-toggle').length,
+      app: ft.textContent.includes('Download Candidates App'),
+    };
+  });
+  if (f.accordions || !f.app) fail(`footer @${width}: not the original footer (${JSON.stringify(f)})`);
+  if (takeShots) {
+    await page.locator('footer').scrollIntoViewIfNeeded();
+    await page.locator('footer').screenshot({ path: path.join(SHOTS, `footer-${width}.jpg`), type: 'jpeg', quality: 62 });
   }
-  ok(`footer @${width}: ${groups.map((g) => `${g.label} (${g.links})`).join(', ')}`);
+  ok(`footer @${width}: ${f.titles.join(' / ')}`);
+  await context.close();
+}
+
+// homepage OET Blog section (owner-approved as-is): lavender, 3 cards, View All Articles, before the FAQ
+for (const width of [390, 1366]) {
+  const { context, page } = await open(width, '/');
+  const blog = await page.evaluate(() => {
+    const s = document.querySelector('section.oet-home-blog');
+    if (!s) return null;
+    const faq = s.nextElementSibling && s.nextElementSibling.classList.contains('faq-theme-purple');
+    return { bg: getComputedStyle(s).backgroundColor, cards: s.querySelectorAll('.oet-blog-card').length, all: !!s.querySelector('a[href="/blog/"]'), title: s.querySelector('h2').textContent.trim(), beforeFaq: faq };
+  });
+  if (!blog || blog.bg !== 'rgb(230, 224, 255)' || blog.cards !== 3 || !blog.all || blog.title !== 'Latest from the OET Blog' || !blog.beforeFaq) fail(`home blog @${width}: ${JSON.stringify(blog)}`);
+  if (takeShots) {
+    await page.locator('section.oet-home-blog').scrollIntoViewIfNeeded();
+    await page.locator('section.oet-home-blog').screenshot({ path: path.join(SHOTS, `home-blog-${width}.jpg`), type: 'jpeg', quality: 70 });
+  }
+  ok(`home blog @${width}: ${blog && blog.cards} cards, lavender, before the FAQ`);
   await context.close();
 }
 

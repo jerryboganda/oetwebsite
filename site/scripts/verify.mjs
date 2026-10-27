@@ -326,22 +326,26 @@ if (distHtml['pricing.html']) {
     if (canon !== ORIGIN + urlOf(page)) fail(`${page}: canonical ${canon} should be ${ORIGIN + urlOf(page)}`);
   }
 
-  // chrome: one drawer, 6-item nav with the OET Blog, no community/social links inside the menus,
-  // 4 footer groups with working accordion buttons, OET Blog in the footer, no "#" legal link
-  const TOP = ['Courses', 'OET Practice', 'Free Resources', 'OET Blog', 'About', 'Pricing'];
+  // chrome = the ORIGINAL owner-approved header, drawer and footer (V3 brief, 27 Oct 2026), plus
+  // the approved "OET Blog" item as a plain top-level link inside that original menu. Guards
+  // against the 26 Oct redesign (6-item nav, drawer actions, accordion footer) coming back.
+  const TOP = ['About', 'Pricing', 'Download App', 'OET Courses', 'Free Resources', 'OET Blog', 'Free Placement Test', 'Contact'];
   for (const [page, html] of Object.entries(distHtml)) {
     if ((html.match(/id="vl-offcanvas-menu"/g) || []).length !== 1) fail(`${page}: expected exactly one offcanvas drawer`);
     const nav = (html.match(/<nav class="vl-mobile-menu-active"[\s\S]*?<\/nav>/) || [''])[0];
-    const tops = [...nav.matchAll(/<li(?: class="[^"]*")?><a (?:class="[^"]*" )?href="[^"]*">([^<]+?)\s*(?:<span class="downarrow">|<\/a>)/g)]
-      .map((m) => m[1].trim()).filter((t) => TOP.includes(t));
-    if (TOP.some((t) => !tops.includes(t))) fail(`${page}: main nav must show ${TOP.join(' / ')} (found ${tops.join(' / ')})`);
-    if (!nav.includes('href="/blog/"')) fail(`${page}: main nav must link the OET Blog (/blog/)`);
-    if (/t\.me\/|facebook\.com|youtube\.com/.test(nav)) fail(`${page}: social/community links belong outside the main nav menus`);
+    // top-level items = the first link text of each <li> directly inside the nav's outer <ul>
+    const found = [];
+    let depth = 0;
+    for (const m of nav.matchAll(/<(\/?)ul\b|<li\b[^>]*>\s*<a\b[^>]*>([^<]*)/g)) {
+      if (m[2] === undefined) depth += m[1] ? -1 : 1;
+      else if (depth === 1 && TOP.includes(m[2].trim())) found.push(m[2].trim());
+    }
+    if (found.join('|') !== TOP.join('|')) fail(`${page}: main nav must be the original ${TOP.join(' / ')} (found ${found.join(' / ')})`);
+    if (!nav.includes('<li><a href="/blog/">OET Blog</a></li>')) fail(`${page}: main nav must keep the plain "OET Blog" link to /blog/`);
+    if (/oet-drawer-actions|oet-footer-group-toggle|oet-footer-grid|oet-auth-cta__long/.test(html)) fail(`${page}: 26 Oct redesign chrome is back (drawer actions / accordion footer / short login label)`);
+    if (!html.includes('<h3 class="vl-offcanvas-sm-title mb-20">Contact &amp; Community</h3>')) fail(`${page}: drawer must be the original Contact & Community drawer`);
     const footer = (html.match(/<footer\b[\s\S]*?<\/footer>/) || [''])[0];
-    const toggles = [...footer.matchAll(/<button type="button" class="oet-footer-group-toggle" aria-expanded="true" aria-controls="([^"]+)"/g)];
-    if (toggles.length !== 4) fail(`${page}: footer must have 4 accordion groups, found ${toggles.length}`);
-    for (const t of toggles) if (!footer.includes(`id="${t[1]}"`)) fail(`${page}: footer toggle controls missing #${t[1]}`);
-    if (!/<a href="\/blog\/">OET Blog<\/a>/.test(footer)) fail(`${page}: footer must link "OET Blog"`);
+    if (!footer.includes('Download Candidates App')) fail(`${page}: footer must be the original footer`);
   }
   if (!/<main[\s\S]*href="\/blog\/"[\s\S]*<\/main>/.test(distHtml['index.html'] || '')) fail('index.html: homepage must link the OET Blog (/blog/)');
   if ((distHtml['index.html'] || '').includes('7+ OET Skills')) fail('index.html: OET has 4 core skills, not "7+"');
