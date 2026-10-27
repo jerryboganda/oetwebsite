@@ -2072,17 +2072,34 @@
         .oet-pfaq details[open] summary i { transform: rotate(180deg); }
         .oet-pfaq .oet-pfaq-body { padding: 0 20px 18px 20px; color: #4f5060; line-height: 1.7; font-size: 15.5px; }
         .oet-pfaq .oet-pfaq-body a { color: #7c3aed; text-decoration: underline; text-underline-offset: 3px; }
+        .oet-pchooser { max-width: 860px; margin: 28px auto 0; padding: 26px 24px; text-align: center; border-radius: 20px; background: linear-gradient(135deg, #f6f3ff, #eef6ff); border: 1px solid rgba(101, 66, 255, .18); }
+        .oet-pchooser h3 { margin: 0 0 8px; font-size: 22px; font-weight: 900; color: #191829; }
+        .oet-pchooser p { margin: 0 auto; max-width: 640px; color: #4f5060; line-height: 1.65; font-size: 15.5px; }
+        .oet-pchooser-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 18px 0 12px; }
+        .oet-pchooser-actions a { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 22px; border-radius: 999px; font-weight: 900; font-size: 15.5px; text-align: center; }
+        .oet-pchooser-primary { background: linear-gradient(135deg, #6542ff, #7b61ff); color: #fff; box-shadow: 0 12px 26px rgba(101, 66, 255, .28); }
+        .oet-pchooser-secondary { background: #fff; color: #3b2a99; border: 1px solid rgba(101, 66, 255, .35); }
+        .oet-pchooser-primary:hover { color: #fff; filter: brightness(1.05); }
+        .oet-pchooser-secondary:hover { color: #2d1d7a; background: #f3f0ff; }
+        .oet-pchooser .oet-pchooser-note { font-size: 13.5px; color: #6b6c7d; }
+        @media (max-width: 575px) { .oet-pchooser { padding: 22px 16px; } .oet-pchooser h3 { font-size: 19px; } .oet-pchooser-actions a { flex: 1 1 100%; padding: 12px 14px; font-size: 15px; } }
         .oet-mobile-ctabar { display: none; }
         @media (max-width: 991px) { .oet-enroll-steps { grid-template-columns: 1fr; } .oet-proof-strip .container { grid-template-columns: 1fr; } .oet-proof-thumbs { justify-content: center; } }
         @media (max-width: 767px) {
             .oet-mobile-ctabar { position: fixed; inset: auto 0 0 0; z-index: 950; display: flex; background: rgba(255, 255, 255, .96); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid rgba(101, 66, 255, .16); box-shadow: 0 -10px 30px rgba(44, 34, 110, .12); padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); }
-            .oet-mobile-ctabar a { flex: 1 1 0; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; border-radius: 999px; font-weight: 900; font-size: 15px; }
-            .oet-mcta-wa { background: #e9fbf2; color: #0f7a4d; border: 1px solid rgba(15, 122, 77, .25); }
+            .oet-mobile-ctabar a { flex: 1 1 0; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; border-radius: 999px; font-weight: 900; font-size: 14.5px; white-space: nowrap; }
+            .oet-mcta-sami { background: #f3f0ff; color: #3b2a99; border: 1px solid rgba(101, 66, 255, .28); }
+            .oet-mcta-sub { font-size: 12px; font-weight: 800; background: #fff; border-radius: 999px; padding: 2px 7px; color: #6542ff; }
             .oet-mcta-app { background: linear-gradient(135deg, #6542ff, #7b61ff); color: #fff; margin-left: 8px; }
-            .oet-mcta-app:hover, .oet-mcta-wa:hover { filter: brightness(1.04); }
+            .oet-mcta-app:hover, .oet-mcta-sami:hover { filter: brightness(1.04); }
             body.oet-live-site { padding-bottom: 78px; }
             .oet-contact-widget { bottom: 92px !important; }
             .oet-pricing-section, .oet-pricing-faq, .oet-pricing-group-head { scroll-margin-top: 16px; }
+        }
+        @media (max-width: 379px) {
+            .oet-mobile-ctabar a { font-size: 13.5px; gap: 6px; }
+            .oet-mobile-ctabar a i, .oet-mcta-sub { display: none; }
+            .oet-pchooser-actions a { font-size: 14px; }
         }
         @media (prefers-reduced-motion: reduce) { .oet-price-nav a, .oet-pfaq summary i { transition: none; } }
     </style>

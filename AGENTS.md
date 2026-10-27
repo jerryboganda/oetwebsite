@@ -37,12 +37,15 @@ partials/data and rebuild.**
   by `site/src/lib/inject.mjs` (`applyPricing`). To reprice: edit this file,
   rebuild.
 - `site/scripts/postbuild.mjs` — after `astro build`: appends content-hash
-  `?v=` to asset URLs, tags every `wa.me` link with `[page: …]`, generates
+  `?v=` to asset URLs, gives bare `wa.me` links a plain default prefill (never
+  `[page: …]` labels: the source page is tracked by `oet-analytics.js`), generates
   `sitemap.xml` (per-page git dates) and `assets/search-index.json`, copies the
   66 built pages + sitemap to the repo root. `--check-root` asserts root ==
   dist (CI parity). New page = add it to `PAGES` here and in `verify.mjs`.
 - `site/scripts/verify.mjs` — asserts pages/assets/JSON-LD/sitemap/pricing, one
-  H1 per page, tagged WhatsApp links, FAQ JSON-LD visible verbatim on the page.
+  H1 per page, WhatsApp prefills without `[page: …]` labels, the pricing
+  app-first CTAs (`register?next=/subscriptions` and `?next=/companion`, no
+  WhatsApp in the mobile sticky bar), FAQ JSON-LD visible verbatim on the page.
   Also: every `fa-*` icon must exist in `assets/css/oet-icons.css` (the icon font is
   subset — unknown icons render blank), and the score-calculator logic in
   `assets/js/oet-score-calculator.js` (regulator minimums — keep in sync with
@@ -86,6 +89,18 @@ no lead is lost if mail delivery fails. Read them with
 `ssh root@185.252.233.186 'cat /opt/docker/oetwebsite/storage/contact/*.jsonl'`.
 The container has no `sendmail` binary, and the domain's mail is Microsoft 365
 with SPF `-all`, so only Graph (sending as the M365 mailbox) delivers email.
+
+### Pricing page: app-first package choice (brief 27 Oct 2026)
+
+Package selection never goes through WhatsApp. The pricing FAQ section ends with a
+"Not sure which OET package is right for you?" panel and the mobile sticky bar
+offers the same two choices, both via free registration that keeps the destination:
+**Explore Packages & Courses** → `app…/register?next=%2Fsubscriptions` and **Ask Sami
+- 10 Free Messages** → `app…/register?next=%2Fcompanion` (`data-oet-cta` =
+`explore_packages` / `ask_sami`, recorded as `app_cta_click` `cta`). The web app keeps
+`next` through register → sign-in → OTP/MFA/device checks and the exam-date gate;
+signed-in visitors on `/register` go straight to `next`. WhatsApp stays only in
+support/contact areas.
 
 ### Header Login / Register CTA and the `oet_signed_in` hint cookie
 

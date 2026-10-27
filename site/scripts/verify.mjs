@@ -73,11 +73,18 @@ for (const page of PAGES) {
   const h1s = html.match(/<h1\b/g) || [];
   if (h1s.length !== 1) fail(`${page}: expected exactly 1 <h1>, found ${h1s.length}`);
   if (html.includes('href="/english-placement-test.html"')) fail(`${page}: link /english-placement-test (canonical), not .html`);
-  // every WhatsApp link carries exactly one [page: …] tag naming this page (postbuild tagWhatsApp)
-  const tag = encodeURIComponent(`[page: ${page === 'index.html' ? 'home' : page.replace(/\/index\.html$|\.html$/, '')}]`);
+  // WhatsApp prefills carry no user-visible technical labels such as "[page: …]" (postbuild prefillWhatsApp)
   for (const m of html.matchAll(/href="(https:\/\/wa\.me\/[^"]*)"/g)) {
-    if (!m[1].includes('?text=') || m[1].split('%5Bpage%3A').length !== 2 || !m[1].endsWith(tag))
-      fail(`${page}: WhatsApp link not tagged with ${decodeURIComponent(tag)}: ${m[1].slice(0, 90)}`);
+    if (!m[1].includes('?text=') || /%5Bpage%3A|\[page:/i.test(m[1]))
+      fail(`${page}: WhatsApp link without a clean prefill (no [page: …] labels): ${m[1].slice(0, 90)}`);
+  }
+  // Pricing: package choice goes to the app (free registration -> chosen destination), never WhatsApp
+  if (page === 'pricing.html') {
+    for (const dest of ['%2Fsubscriptions', '%2Fcompanion'])
+      if (!html.includes(`href="https://app.oetwithdrhesham.co.uk/register?next=${dest}"`))
+        fail(`pricing.html: missing app-first CTA register?next=${dest}`);
+    const stickyBar = html.match(/<div class="oet-mobile-ctabar"[\s\S]*?<\/div>/);
+    if (!stickyBar || stickyBar[0].includes('wa.me')) fail('pricing.html: mobile sticky CTA missing or links to WhatsApp');
   }
 }
 

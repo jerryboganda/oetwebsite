@@ -2154,17 +2154,34 @@
         .oet-pfaq details[open] summary i { transform: rotate(180deg); }
         .oet-pfaq .oet-pfaq-body { padding: 0 20px 18px 20px; color: #4f5060; line-height: 1.7; font-size: 15.5px; }
         .oet-pfaq .oet-pfaq-body a { color: #7c3aed; text-decoration: underline; text-underline-offset: 3px; }
+        .oet-pchooser { max-width: 860px; margin: 28px auto 0; padding: 26px 24px; text-align: center; border-radius: 20px; background: linear-gradient(135deg, #f6f3ff, #eef6ff); border: 1px solid rgba(101, 66, 255, .18); }
+        .oet-pchooser h3 { margin: 0 0 8px; font-size: 22px; font-weight: 900; color: #191829; }
+        .oet-pchooser p { margin: 0 auto; max-width: 640px; color: #4f5060; line-height: 1.65; font-size: 15.5px; }
+        .oet-pchooser-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 18px 0 12px; }
+        .oet-pchooser-actions a { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 22px; border-radius: 999px; font-weight: 900; font-size: 15.5px; text-align: center; }
+        .oet-pchooser-primary { background: linear-gradient(135deg, #6542ff, #7b61ff); color: #fff; box-shadow: 0 12px 26px rgba(101, 66, 255, .28); }
+        .oet-pchooser-secondary { background: #fff; color: #3b2a99; border: 1px solid rgba(101, 66, 255, .35); }
+        .oet-pchooser-primary:hover { color: #fff; filter: brightness(1.05); }
+        .oet-pchooser-secondary:hover { color: #2d1d7a; background: #f3f0ff; }
+        .oet-pchooser .oet-pchooser-note { font-size: 13.5px; color: #6b6c7d; }
+        @media (max-width: 575px) { .oet-pchooser { padding: 22px 16px; } .oet-pchooser h3 { font-size: 19px; } .oet-pchooser-actions a { flex: 1 1 100%; padding: 12px 14px; font-size: 15px; } }
         .oet-mobile-ctabar { display: none; }
         @media (max-width: 991px) { .oet-enroll-steps { grid-template-columns: 1fr; } .oet-proof-strip .container { grid-template-columns: 1fr; } .oet-proof-thumbs { justify-content: center; } }
         @media (max-width: 767px) {
             .oet-mobile-ctabar { position: fixed; inset: auto 0 0 0; z-index: 950; display: flex; background: rgba(255, 255, 255, .96); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid rgba(101, 66, 255, .16); box-shadow: 0 -10px 30px rgba(44, 34, 110, .12); padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); }
-            .oet-mobile-ctabar a { flex: 1 1 0; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; border-radius: 999px; font-weight: 900; font-size: 15px; }
-            .oet-mcta-wa { background: #e9fbf2; color: #0f7a4d; border: 1px solid rgba(15, 122, 77, .25); }
+            .oet-mobile-ctabar a { flex: 1 1 0; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; border-radius: 999px; font-weight: 900; font-size: 14.5px; white-space: nowrap; }
+            .oet-mcta-sami { background: #f3f0ff; color: #3b2a99; border: 1px solid rgba(101, 66, 255, .28); }
+            .oet-mcta-sub { font-size: 12px; font-weight: 800; background: #fff; border-radius: 999px; padding: 2px 7px; color: #6542ff; }
             .oet-mcta-app { background: linear-gradient(135deg, #6542ff, #7b61ff); color: #fff; margin-left: 8px; }
-            .oet-mcta-app:hover, .oet-mcta-wa:hover { filter: brightness(1.04); }
+            .oet-mcta-app:hover, .oet-mcta-sami:hover { filter: brightness(1.04); }
             body.oet-live-site { padding-bottom: 78px; }
             .oet-contact-widget { bottom: 92px !important; }
             .oet-pricing-section, .oet-pricing-faq, .oet-pricing-group-head { scroll-margin-top: 16px; }
+        }
+        @media (max-width: 379px) {
+            .oet-mobile-ctabar a { font-size: 13.5px; gap: 6px; }
+            .oet-mobile-ctabar a i, .oet-mcta-sub { display: none; }
+            .oet-pchooser-actions a { font-size: 14px; }
         }
         @media (prefers-reduced-motion: reduce) { .oet-price-nav a, .oet-pfaq summary i { transition: none; } }
     </style>
@@ -2285,7 +2302,7 @@
                                     <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
                                     <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
                                     <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
-                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation.%20%5Bpage%3A%20pricing%5D" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
                                     <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
                                     <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
                                 </div>
@@ -2346,7 +2363,7 @@
             </div>
             <div class="oet-drawer-actions mb-40">
                 <a class="oet-drawer-btn oet-drawer-btn--primary" href="/oet-practice.html#free-practice"><i class="fa-solid fa-play" aria-hidden="true"></i> Start Free Practice</a>
-                <p class="oet-drawer-support"><a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation.%20%5Bpage%3A%20pricing%5D" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp Support</a><span aria-hidden="true"> &middot; </span><a href="/contact.html"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact</a></p>
+                <p class="oet-drawer-support"><a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp Support</a><span aria-hidden="true"> &middot; </span><a href="/contact.html"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact</a></p>
             </div>
 
             <div class="vl-offcanvas-social mb-40">
@@ -2354,7 +2371,7 @@
                 <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
                 <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fab fa-youtube" aria-hidden="true"></i></a>
                 <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fab fa-telegram" aria-hidden="true"></i></a>
-                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation.%20%5Bpage%3A%20pricing%5D" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
                 <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
                 <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
             </div>
@@ -3360,10 +3377,15 @@
                         <summary>Can I get a refund?<i class="fa-solid fa-angle-down" aria-hidden="true"></i></summary>
                         <div class="oet-pfaq-body">Our products are digital and most give immediate access, which affects the usual 14-day cancellation right under UK consumer law. Please read the <a href="/refund-policy/">refund policy</a> before you buy &mdash; it explains exactly when refunds are and are not available.</div>
                     </details>
-                    <details>
-                        <summary>Not sure which package fits you?<i class="fa-solid fa-angle-down" aria-hidden="true"></i></summary>
-                        <div class="oet-pfaq-body">Message the team on <a href="https://wa.me/447961725989?text=Hi%2C%20I%20need%20help%20choosing%20an%20OET%20package%20%5Bpage%3A%20pricing%5D" target="_blank" rel="noopener">WhatsApp</a> with your profession, target score and exam date &mdash; we will point you to the most suitable route. You can also join the free communities from the links in the footer.</div>
-                    </details>
+                </div>
+                <div class="oet-pchooser" role="region" aria-labelledby="oet-pchooser-title">
+                    <h3 id="oet-pchooser-title">Not sure which OET package is right for you?</h3>
+                    <p>Create your free account to explore our courses and packages, or ask Sami, your AI study assistant, with 10 free messages.</p>
+                    <div class="oet-pchooser-actions">
+                        <a class="oet-pchooser-primary" href="https://app.oetwithdrhesham.co.uk/register?next=%2Fsubscriptions" data-oet-cta="explore_packages"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Explore Packages &amp; Courses</a>
+                        <a class="oet-pchooser-secondary" href="https://app.oetwithdrhesham.co.uk/register?next=%2Fcompanion" data-oet-cta="ask_sami"><i class="fa-solid fa-comments" aria-hidden="true"></i> Ask Sami &ndash; 10 Free Messages</a>
+                    </div>
+                    <p class="oet-pchooser-note">Free account &middot; Already registered? Log in on the next screen and you will go straight to your choice.</p>
                 </div>
             </div>
         </section>
@@ -3466,7 +3488,7 @@
                                 <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
                                 <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
                                 <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
-                                <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation.%20%5Bpage%3A%20pricing%5D" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+                                <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
                                 <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
                                 <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
                             </div>
@@ -3521,7 +3543,7 @@
                                 <li><a href="/success-stories.html">Success Stories</a></li>
                                 <li><a href="/faq.html">FAQ</a></li>
                                 <li><a href="/contact.html">Contact</a></li>
-                                <li><a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation.%20%5Bpage%3A%20pricing%5D" target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
+                                <li><a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
                                 <li><a href="mailto:support@oetwithdrhesham.co.uk">Email Support</a></li>
                                 <li><a href="/oet-materials-support.html">Free Materials &amp; Community</a></li>
                             </ul>
@@ -3711,8 +3733,8 @@
 
     <!-- Sticky mobile CTA bar -->
     <div class="oet-mobile-ctabar" role="group" aria-label="Quick actions">
-        <a class="oet-mcta-wa" href="https://wa.me/447961725989?text=Hi%2C%20I%20need%20help%20choosing%20an%20OET%20package%20%5Bpage%3A%20pricing%5D" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
-        <a class="oet-mcta-app" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i> Enrol now</a>
+        <a class="oet-mcta-sami" href="https://app.oetwithdrhesham.co.uk/register?next=%2Fcompanion" data-oet-cta="ask_sami" aria-label="Ask Sami - 10 free messages"><i class="fa-solid fa-comments" aria-hidden="true"></i> Ask Sami <span class="oet-mcta-sub">10 free</span></a>
+        <a class="oet-mcta-app" href="https://app.oetwithdrhesham.co.uk/register?next=%2Fsubscriptions" data-oet-cta="explore_packages"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Explore Packages</a>
     </div>
 
     
@@ -3919,7 +3941,7 @@
         });
         })();
     </script>
-    <script src="/assets/js/oet-analytics.js?v=17e10a118a" defer></script>
+    <script src="/assets/js/oet-analytics.js?v=04dbfccd31" defer></script>
     <script src="/assets/js/oet-cookie-consent.js?v=ca33957f48" defer></script>
     <script src="/assets/js/oet-search.js?v=ddf57f5228" defer></script>
 </body>

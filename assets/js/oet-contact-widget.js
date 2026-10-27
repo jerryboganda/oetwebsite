@@ -20,8 +20,8 @@
             phoneText: '+44 7961 725989',
             emailHref: 'mailto:support@oetwithdrhesham.co.uk',
             emailText: 'support@oetwithdrhesham.co.uk',
-            // Same [page: …] tag the build adds to static wa.me links, so widget chats name their source page.
-            whatsappHref: 'https://wa.me/447961725989?text=' + encodeURIComponent("Hi Dr Hesham, I'm interested in OET preparation. [page: " + (location.pathname.replace(/^\/|\/?index\.html$|\.html$|\/$/g, '') || 'home') + ' / chat widget]'),
+            // Plain prefill, no technical labels: the source page is recorded by oet-analytics.js.
+            whatsappHref: 'https://wa.me/447961725989?text=' + encodeURIComponent("Hi Dr Hesham, I'm interested in OET preparation."),
             telegramHref: 'https://t.me/Oet_with_Hesham'
         };
 

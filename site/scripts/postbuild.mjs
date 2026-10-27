@@ -113,15 +113,16 @@ function addHashes(html, name) {
   return out;
 }
 
-// --- 1b. WhatsApp lead attribution -------------------------------------------
-// Prefill every wa.me link with the page it sits on, so each chat names its source page.
-// Idempotent (an existing [page: …] tag is replaced): --check-root re-runs this on dist.
+// --- 1b. WhatsApp prefill ----------------------------------------------------
+// Give every bare wa.me link a friendly default message. No technical labels are added
+// to what the candidate sends: the source page is recorded by oet-analytics.js
+// (whatsapp_click, page) instead. Idempotent: --check-root re-runs this on dist, and any
+// legacy " [page: …]" suffix is stripped.
 const WA_DEFAULT_TEXT = "Hi Dr Hesham, I'm interested in OET preparation.";
-function tagWhatsApp(html, rel) {
-  const page = rel === 'index.html' ? 'home' : rel.replace(/\/index\.html$|\.html$/, '');
+function prefillWhatsApp(html) {
   return html.replace(/href="https:\/\/wa\.me\/447961725989(?:\?text=([^"]*))?"/g, (_, text) => {
     const base = text ? decodeURIComponent(text).replace(/ \[page: [^\]]*\]$/, '') : WA_DEFAULT_TEXT;
-    return `href="https://wa.me/447961725989?text=${encodeURIComponent(`${base} [page: ${page}]`)}"`;
+    return `href="https://wa.me/447961725989?text=${encodeURIComponent(base)}"`;
   });
 }
 
@@ -192,7 +193,7 @@ const drifted = [];
 for (const [rel] of PAGES) {
   const distFile = path.join(DIST, rel);
   if (!fs.existsSync(distFile)) throw new Error(`postbuild: missing ${rel} in dist/`);
-  const html = tagWhatsApp(addHashes(fs.readFileSync(distFile, 'utf8'), rel), rel);
+  const html = prefillWhatsApp(addHashes(fs.readFileSync(distFile, 'utf8'), rel));
   fs.writeFileSync(distFile, html);
   if (copyToRoot) {
     fs.mkdirSync(path.dirname(path.join(ROOT, rel)), { recursive: true }); // e.g. ar/ on first build

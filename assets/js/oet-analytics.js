@@ -71,11 +71,12 @@
     if (!a) return;
     var href = a.getAttribute("href") || "";
     if (/wa\.me|api\.whatsapp\.com/.test(href)) {
-      track("whatsapp_click", { link_text: nearestLabel(a), page: location.pathname });
+      track("whatsapp_click", { link_text: nearestLabel(a), page: location.pathname, cta: a.getAttribute("data-oet-cta") || "" });
     } else if (/t\.me|telegram\.me/.test(href)) {
       track("telegram_click", { link_text: nearestLabel(a), page: location.pathname });
     } else if (/app\.oetwithdrhesham/.test(href)) {
-      track("app_cta_click", { link_text: nearestLabel(a), page: location.pathname });
+      // data-oet-cta names the pricing-page choices ("explore_packages" / "ask_sami").
+      track("app_cta_click", { link_text: nearestLabel(a), page: location.pathname, cta: a.getAttribute("data-oet-cta") || "" });
     } else if (/youtube\.com|youtu\.be/.test(href)) {
       track("video_click", { link_text: nearestLabel(a), page: location.pathname });
     } else if (a.closest && a.closest(".oet-pricing-card")) {
