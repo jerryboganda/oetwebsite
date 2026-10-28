@@ -147,8 +147,8 @@ anonymous visitors too).
   `footer-2.html`; CSS block "Footer link groups" in `oet-common.css`, JS block "footer link groups"
   in `main.js`): brand + six social icons, then four native `<details class="oet-footer-group">`:
   Courses & Practice, Resources & Guides (now includes "OET Blog" -> `/blog/`), About & Support
-  (includes Contact) and Subscribe for OET Updates (existing copy and Telegram/YouTube/Facebook
-  buttons; renaming it "Stay Connected" needs the owner's approval). Legal row and copyright
+  (includes Contact) and Stay Connected (owner-approved heading 29 Oct 2026; existing copy and Telegram/YouTube/Facebook
+  buttons). Legal row and copyright
   unchanged. Desktop >=1024px = four columns, tablet 768-1023px = two, phone <768px = one column of
   accordions that are CLOSED in the markup (all links are real `<a href>` inside closed groups; no
   link is injected by JS). `main.js` opens the groups from 768px up, keeps them open

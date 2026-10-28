@@ -157,7 +157,7 @@ for (const width of [390, 768, 1366]) {
     };
   });
   const wantOpen = width >= 768;
-  if (f.titles.join('|') !== 'Courses & Practice|Resources & Guides|About & Support|Subscribe for OET Updates' || f.open.some((o) => o !== wantOpen) || f.links.join(',') !== '7,9,8,3' || !f.app || !f.blog || f.overflow > 0)
+  if (f.titles.join('|') !== 'Courses & Practice|Resources & Guides|About & Support|Stay Connected' || f.open.some((o) => o !== wantOpen) || f.links.join(',') !== '7,9,8,3' || !f.app || !f.blog || f.overflow > 0)
     fail(`footer @${width}: not the grouped footer (${JSON.stringify(f)})`);
   if (takeShots) {
     await page.locator('footer').scrollIntoViewIfNeeded();
