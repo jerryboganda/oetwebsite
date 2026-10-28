@@ -845,6 +845,9 @@ if (typeof sal === 'function') {
     var sideMenuNav = document.querySelector(".vl-offcanvas-menu nav");
     if (desktopMenu && sideMenuNav) {
         sideMenuNav.appendChild(desktopMenu.cloneNode(true));
+        // Owner brief 28 Oct 2026: the standalone Contact row is not part of the side menu (the
+        // support channels sit under "Support & Community" below it). The inline desktop nav keeps it.
+        sideMenuNav.querySelectorAll(".oet-nav-desktop-only").forEach(function (el) { el.remove(); });
         sideMenuNav.querySelectorAll(".sub-menu, .vl-mega-menu").forEach(function (submenu) {
             var item = submenu.parentElement;
             if (!item || item.querySelector(":scope > button.vl-menu-close")) return;
@@ -1016,6 +1019,36 @@ if (typeof sal === 'function') {
                 link.setAttribute("aria-current", "page");
             }
         });
+    })();
+
+    /*----------------------------------------*/
+    /*  footer link groups (owner brief 28 Oct 2026)
+    /*  Native <details>, closed in the markup (phone accordions, every link stays an anchor in the
+    /*  DOM). From 768px up they are opened and kept open (.is-static: the headings stop being
+    /*  toggles); below it they are closed again. Without JS they remain working accordions.
+    /*----------------------------------------*/
+    (function () {
+        var groups = document.querySelectorAll("footer .oet-footer-group");
+        if (!groups.length || !window.matchMedia) return;
+        var wide = window.matchMedia("(min-width: 768px)");
+        function syncFooterGroups() {
+            groups.forEach(function (group) {
+                var summary = group.querySelector(":scope > summary");
+                group.open = wide.matches;
+                group.classList.toggle("is-static", wide.matches);
+                if (!summary) return;
+                if (wide.matches) summary.setAttribute("tabindex", "-1");
+                else summary.removeAttribute("tabindex");
+            });
+        }
+        groups.forEach(function (group) {
+            group.addEventListener("toggle", function () {
+                if (wide.matches && !group.open) group.open = true;
+            });
+        });
+        syncFooterGroups();
+        if (wide.addEventListener) wide.addEventListener("change", syncFooterGroups);
+        else if (wide.addListener) wide.addListener(syncFooterGroups);
     })();
 
     /*----------------------------------------*/

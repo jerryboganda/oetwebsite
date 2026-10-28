@@ -20,18 +20,19 @@
     </script>
     <script>
       // Signed-in hint set by the learner app (shared-domain cookie oet_signed_in=1, no token or PII).
-      // Presentation only: swaps the header Login / Register CTA to My Dashboard, never gates anything.
-      // sync() is idempotent and runs: now (class before first paint), on DOMContentLoaded (the nav
-      // anchors exist and the deferred main.js has already cloned the nav into the mobile drawer; a
-      // clone copies whatever href it finds, and this pass fixes it), and on a bfcache restore
-      // (pageshow persisted) so Back after sign-in or sign-out never shows a stale CTA.
-      // The guest href is remembered in data-login-href the first time an anchor is seen.
+      // Presentation only. The header and drawer CTA always READS "Login / Register" (owner brief
+      // 28 Oct 2026); the hint only decides where it points: the app dashboard when the cookie exists
+      // (so a signed-in visitor is not sent back through sign-in), the sign-in entry otherwise.
+      // sync() is idempotent and runs: now, on DOMContentLoaded (the nav anchors exist and the deferred
+      // main.js has already cloned the nav into the mobile drawer; a clone copies whatever href it
+      // finds, and this pass fixes it), and on a bfcache restore (pageshow persisted) so Back after
+      // sign-in or sign-out never leaves a stale target. The guest href is remembered in
+      // data-login-href the first time an anchor is seen.
       (function () {
         var d = document;
         function sync() {
           try {
             var on = /(?:^|;\s*)oet_signed_in=1(?:;|$)/.test(d.cookie);
-            d.documentElement.classList.toggle('oet-signed-in', on);
             d.querySelectorAll('a[data-dashboard-href]').forEach(function (a) {
               if (!a.hasAttribute('data-login-href')) a.setAttribute('data-login-href', a.getAttribute('href'));
               a.setAttribute('href', a.getAttribute(on ? 'data-dashboard-href' : 'data-login-href'));
@@ -79,7 +80,7 @@
     <link rel="stylesheet" href="/assets/css/oet-icons.css?v=fb6ca9f443">
     
     <link rel="stylesheet" href="/assets/css/style.min.css?v=46ff65fd86">
-    <link rel="stylesheet" href="/assets/css/oet-common.css?v=1f7cdfb01e">
+    <link rel="stylesheet" href="/assets/css/oet-common.css?v=8133629aad">
     <link rel="stylesheet" href="/assets/css/oet-mobile.css?v=001ef98c95">
     <link rel="stylesheet" href="/assets/css/oet-cookie-consent.css?v=3db5a4831a">
     <link rel="stylesheet" href="/assets/css/oet-polish.css?v=6043093a82">
@@ -307,8 +308,8 @@
                                         </li>
                                         <li><a href="/blog/">OET Blog</a></li>
                                         <li><a href="/english-placement-test">Free Placement Test</a></li>
-                                        <li><a href="/contact.html">Contact</a></li>
-                                        <li class="oet-nav-cta-item"><a class="oet-header-cta-btn" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F" data-dashboard-href="https://app.oetwithdrhesham.co.uk/"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span class="oet-auth-cta__guest">Login / Register</span><span class="oet-auth-cta__user">My Dashboard</span></a></li>
+                                        <li class="oet-nav-desktop-only"><a href="/contact.html">Contact</a></li>
+                                        <li class="oet-nav-cta-item"><a class="oet-header-cta-btn" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F" data-dashboard-href="https://app.oetwithdrhesham.co.uk/"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>Login / Register</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -332,7 +333,7 @@
 
                             <!-- action btn -->
                             <div class="vl-header-action-item d-block d-xl-none">
-                                <a class="oet-header-login" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F" data-dashboard-href="https://app.oetwithdrhesham.co.uk/"><span class="oet-auth-cta__guest">Login / Register</span><span class="oet-auth-cta__user">My Dashboard</span></a>
+                                <a class="oet-header-login" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F" data-dashboard-href="https://app.oetwithdrhesham.co.uk/">Login / Register</a>
                                 <button type="button" class="vl-offcanvas-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="vl-offcanvas-menu">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" aria-hidden="true" focusable="false">
                                         <path d="M1.5 2.5h21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
@@ -384,7 +385,7 @@
                 <nav aria-label="Mobile navigation"></nav>
             </div>
             <div class="vl-offcanvas-info mb-40">
-                <h3 class="vl-offcanvas-sm-title mb-20">Contact &amp; Community</h3>
+                <h3 class="vl-offcanvas-sm-title mb-20">Support &amp; Community</h3>
                 <a href="#oet-community-popup" class="oet-community-cta"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.1.svg" width="24" height="24" alt=""></span> Join Free Community</a>
                                     <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.3.svg" width="24" height="24" alt=""></span> WhatsApp Support</a>
                 <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.2.svg" width="24" height="24" alt=""></span> Telegram Channel</a>
@@ -481,100 +482,96 @@
 </main>
 
 <!--================= Footer section start =================-->
-    <footer class="vl-footer-10 fix vkl-gray-bg-19 pt-60">
+    <footer class="vl-footer-10 fix vkl-gray-bg-19 pt-60 oet-footer">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6 mb-30">
-                            <!-- footer widget 1 -->
-                            <div class="vl-footer-widget-1">
-                                <div class="vl-footer-logo">
-                                    <a href="/"><img width="320" height="90" loading="lazy" decoding="async" src="/assets/img/logo/footer-logo.webp" alt="OET with Dr Hesham"></a>
-                                </div>
-                                <div class="vl-footer-content vl-footer-content-6">
-                                    <p class="para pt-16 pb-24">We help nurses, doctors, pharmacists, and allied health professionals prepare for OET with practical guidance, focused feedback, and clear UK pathway support.</p>
-                                </div>
-
-                                <!-- social area -->
-                                <div class="social-area-footer-10">
-                                    <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f"></i></a>
-                                    <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
-                                    <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram"></i></a>
-                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp"></i></a>
-                                    <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
-                                    <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
-                                </div>
+                    <div class="oet-footer-cols">
+                        <div class="oet-footer-brand vl-footer-widget-1">
+                            <div class="vl-footer-logo">
+                                <a href="/"><img width="320" height="90" loading="lazy" decoding="async" src="/assets/img/logo/footer-logo.webp" alt="OET with Dr Hesham"></a>
                             </div>
-                        </div>
-                        <div class="col-xl-2 col-md-6 mb-30">
-                            <div class="vl-footer-widget-2 vl-footer-widget-2-10">
-                                <h3 class="vl-footer-widget-title vl-footer-widget-title-6 mb-30">Support</h3>
-                                <div class="vl-footer-menu vl-footer-menu-10">
-                                    <ul>
-                                        <li><a href="/about.html">About Dr. Hesham</a></li>
-                                        <li><a href="/teaching-approach.html">Teaching Approach</a></li>
-                                        <li><a href="https://www.youtube.com/watch?v=hlD1BXfijWs" data-youtube-url="https://www.youtube.com/watch?v=hlD1BXfijWs" data-oet-inline-video="true" target="_blank" rel="noopener noreferrer">OET Programs</a></li>
-                                        <li><a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
-                                        <li><a href="mailto:support@oetwithdrhesham.co.uk">Email Support</a></li>
-                                        <li><a href="/faq.html">FAQ</a></li>
-                                        <li><a href="/contact.html">Contact</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-md-6 mb-30">
-                            <div class="vl-footer-widget-3 vl-footer-widget-3-10">
-                                <h3 class="vl-footer-widget-title vl-footer-widget-title-6 mb-30">Top Links</h3>
-                                <div class="vl-footer-menu vl-footer-menu-10">
-                                    <ul>
-
-                                        <li><a href="/service.html">OET Courses</a></li>
-                                        <li><a href="/oet-course-for-nurses.html">OET Course for Nurses</a></li>
-                                        <li><a href="/oet-course-for-doctors.html">OET Course for Doctors</a></li>
-                                        <li><a href="/oet-writing-correction.html">OET Writing Correction</a></li>
-                                        <li><a href="/oet-sample-tests.html">Free OET Sample Tests</a></li>
-                                        <li><a href="/oet-score-calculator.html">OET Score Calculator</a></li>
-                                        <li><a href="/oet-score-requirements.html">OET Score Requirements</a></li>
-                                        <li><a href="/ar/" lang="ar">كورس OET بالعربية</a></li>
-                                        <li><a href="/pricing.html">Pricing</a></li><li><a href="/pricing.html#download-app">Download Candidates App</a></li>
-
-                                        <li><a href="/oet-materials-support.html">Free Resources</a></li>
-
-                                        <li><a href="/oet-speaking-tips.html">Speaking Tips</a></li>
-
-                                        <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">Telegram Materials</a></li>
-
-                                        <li><a href="/success-stories.html">Success Stories</a></li>
-                                        <li><a href="/uk-pathway-guide.html">UK Pathway Guide</a></li>
-                                        <li><a href="/usa-pathway-guide.html">USA Pathway Guide</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-6 mb-30">
-                            <!-- footer widget 4 -->
-                            <div class="vl-footer-widget-4 vl-footer-widget-4-10">
-                                <h3 class="vl-footer-widget-title vl-footer-widget-title-6 mb-30">Subscribe for OET Updates</h3>
-                                <!-- Newslater -->
-                                <div class="vl-footer-newslate10 oet-footer-updates">
-                                        <p class="oet-updates-copy">Free tips, live class alerts and course updates &mdash; straight from Dr Hesham.</p>
-                                        <div class="oet-footer-subscribe-buttons">
-                                            <a class="oet-footer-btn oet-footer-btn--telegram" href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">
-                                                <span class="oet-footer-btn__icon"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span>
-                                                <span class="oet-footer-btn__text">Join Telegram Channel</span>
-                                            </a>
-                                            <a class="oet-footer-btn oet-footer-btn--youtube" href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer">
-                                                <span class="oet-footer-btn__icon"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
-                                                <span class="oet-footer-btn__text">Subscribe on YouTube</span>
-                                            </a>
-                                            <a class="oet-footer-btn oet-footer-btn--facebook" href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer">
-                                                <span class="oet-footer-btn__icon"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span>
-                                                <span class="oet-footer-btn__text">Join Facebook Community</span>
-                                            </a>
-                                        </div>
-                                    </div>
+                            <div class="vl-footer-content vl-footer-content-6">
+                                <p class="para pt-16 pb-24">We help nurses, doctors, pharmacists, and allied health professionals prepare for OET with practical guidance, focused feedback, and clear UK pathway support.</p>
                             </div>
 
+                            <!-- social area -->
+                            <div class="social-area-footer-10">
+                                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+                                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram"></i></a>
+                                <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                                <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+                            </div>
                         </div>
+
+                        <details class="oet-footer-group oet-footer-group--courses">
+                            <summary><h3 class="vl-footer-widget-title vl-footer-widget-title-6 oet-footer-group__title">Courses &amp; Practice</h3></summary>
+                            <div class="vl-footer-menu vl-footer-menu-10">
+                                <ul>
+                                    <li><a href="/service.html">OET Courses</a></li>
+                                    <li><a href="/oet-course-for-nurses.html">OET Course for Nurses</a></li>
+                                    <li><a href="/oet-course-for-doctors.html">OET Course for Doctors</a></li>
+                                    <li><a href="/oet-writing-correction.html">OET Writing Correction</a></li>
+                                    <li><a href="/pricing.html">Pricing</a></li>
+                                    <li><a href="/ar/" lang="ar">كورس OET بالعربية</a></li>
+<li><a href="/pricing.html#download-app">Download Candidates App</a></li>                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="oet-footer-group oet-footer-group--resources">
+                            <summary><h3 class="vl-footer-widget-title vl-footer-widget-title-6 oet-footer-group__title">Resources &amp; Guides</h3></summary>
+                            <div class="vl-footer-menu vl-footer-menu-10">
+                                <ul>
+                                    <li><a href="/blog/">OET Blog</a></li>
+                                    <li><a href="/oet-sample-tests.html">Free OET Sample Tests</a></li>
+                                    <li><a href="/oet-materials-support.html">Free Resources</a></li>
+                                    <li><a href="/oet-speaking-tips.html">Speaking Tips</a></li>
+                                    <li><a href="/oet-score-calculator.html">OET Score Calculator</a></li>
+                                    <li><a href="/oet-score-requirements.html">OET Score Requirements</a></li>
+                                    <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">Telegram Materials</a></li>
+                                    <li><a href="/uk-pathway-guide.html">UK Pathway Guide</a></li>
+                                    <li><a href="/usa-pathway-guide.html">USA Pathway Guide</a></li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="oet-footer-group oet-footer-group--support">
+                            <summary><h3 class="vl-footer-widget-title vl-footer-widget-title-6 oet-footer-group__title">About &amp; Support</h3></summary>
+                            <div class="vl-footer-menu vl-footer-menu-10">
+                                <ul>
+                                    <li><a href="/about.html">About Dr. Hesham</a></li>
+                                    <li><a href="/teaching-approach.html">Teaching Approach</a></li>
+                                    <li><a href="https://www.youtube.com/watch?v=hlD1BXfijWs" data-youtube-url="https://www.youtube.com/watch?v=hlD1BXfijWs" data-oet-inline-video="true" target="_blank" rel="noopener noreferrer">OET Programs</a></li>
+                                    <li><a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
+                                    <li><a href="mailto:support@oetwithdrhesham.co.uk">Email Support</a></li>
+                                    <li><a href="/faq.html">FAQ</a></li>
+                                    <li><a href="/contact.html">Contact</a></li>
+                                    <li><a href="/success-stories.html">Success Stories</a></li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="oet-footer-group oet-footer-group--connect">
+                            <summary><h3 class="vl-footer-widget-title vl-footer-widget-title-6 oet-footer-group__title">Subscribe for OET Updates</h3></summary>
+                            <!-- Newslater -->
+                            <div class="vl-footer-newslate10 oet-footer-updates">
+                                <p class="oet-updates-copy">Free tips, live class alerts and course updates &mdash; straight from Dr Hesham.</p>
+                                <div class="oet-footer-subscribe-buttons">
+                                    <a class="oet-footer-btn oet-footer-btn--telegram" href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">
+                                        <span class="oet-footer-btn__icon"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span>
+                                        <span class="oet-footer-btn__text">Join Telegram Channel</span>
+                                    </a>
+                                    <a class="oet-footer-btn oet-footer-btn--youtube" href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer">
+                                        <span class="oet-footer-btn__icon"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                                        <span class="oet-footer-btn__text">Subscribe on YouTube</span>
+                                    </a>
+                                    <a class="oet-footer-btn oet-footer-btn--facebook" href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer">
+                                        <span class="oet-footer-btn__icon"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span>
+                                        <span class="oet-footer-btn__text">Join Facebook Community</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </details>
                     </div>
                 </div>
                 <div class="container">
@@ -619,7 +616,7 @@
 <!-- ScrollSmoother js -->
     <script defer src="/assets/js/plugins/lenis.min.js?v=98598577bb"></script>
 <!-- Custom js -->
-<script defer src="/assets/js/main.js?v=29bce9557d"></script>
+<script defer src="/assets/js/main.js?v=ed4c53a6d8"></script>
 
     
 

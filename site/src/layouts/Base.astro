@@ -52,18 +52,19 @@ const {
     </script>
     <script is:inline>
       // Signed-in hint set by the learner app (shared-domain cookie oet_signed_in=1, no token or PII).
-      // Presentation only: swaps the header Login / Register CTA to My Dashboard, never gates anything.
-      // sync() is idempotent and runs: now (class before first paint), on DOMContentLoaded (the nav
-      // anchors exist and the deferred main.js has already cloned the nav into the mobile drawer; a
-      // clone copies whatever href it finds, and this pass fixes it), and on a bfcache restore
-      // (pageshow persisted) so Back after sign-in or sign-out never shows a stale CTA.
-      // The guest href is remembered in data-login-href the first time an anchor is seen.
+      // Presentation only. The header and drawer CTA always READS "Login / Register" (owner brief
+      // 28 Oct 2026); the hint only decides where it points: the app dashboard when the cookie exists
+      // (so a signed-in visitor is not sent back through sign-in), the sign-in entry otherwise.
+      // sync() is idempotent and runs: now, on DOMContentLoaded (the nav anchors exist and the deferred
+      // main.js has already cloned the nav into the mobile drawer; a clone copies whatever href it
+      // finds, and this pass fixes it), and on a bfcache restore (pageshow persisted) so Back after
+      // sign-in or sign-out never leaves a stale target. The guest href is remembered in
+      // data-login-href the first time an anchor is seen.
       (function () {
         var d = document;
         function sync() {
           try {
             var on = /(?:^|;\s*)oet_signed_in=1(?:;|$)/.test(d.cookie);
-            d.documentElement.classList.toggle('oet-signed-in', on);
             d.querySelectorAll('a[data-dashboard-href]').forEach(function (a) {
               if (!a.hasAttribute('data-login-href')) a.setAttribute('data-login-href', a.getAttribute('href'));
               a.setAttribute('href', a.getAttribute(on ? 'data-dashboard-href' : 'data-login-href'));

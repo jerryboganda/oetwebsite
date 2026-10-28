@@ -46,15 +46,20 @@ for (const page of PAGES) {
     fail(`${page}: literal $n backreference leaked into markup`);
   if (html.includes('<base ')) fail(`${page}: <base> tag present (root-absolute policy)`);
 
-  // header Login / Register CTA: the nav pill (>=1200px) and the action-item link (below 1200px) both
-  // carry the signed-in swap target; neither may carry an id (the drawer clones the nav); the action-item
-  // link sits before the hamburger; the oet_signed_in hint script ships in <head>
+  // header Login / Register CTA: the nav pill (>=1500px) and the action-item link (below 1500px) both
+  // carry the signed-in retarget (data-dashboard-href); neither may carry an id (the drawer clones the
+  // nav); the action-item link sits before the hamburger; the oet_signed_in hint script ships in <head>.
+  // Owner brief 28 Oct 2026: the visible label is ALWAYS "Login / Register" (no "My Dashboard" swap, no
+  // guest/user label spans). The hint cookie only retargets the href; the label text is checked in the
+  // chrome block below (visibleText is defined later).
   const ctaLinks = html.match(/<a\b[^>]*\bdata-dashboard-href="https:\/\/app\.oetwithdrhesham\.co\.uk\/"[^>]*>/g) || [];
-  if (ctaLinks.length !== 2) fail(`${page}: expected 2 header Login/Dashboard CTA links (nav pill + action item), found ${ctaLinks.length}`);
-  if (ctaLinks.some((tag) => /\sid=/.test(tag))) fail(`${page}: header Login/Dashboard CTA link must not carry an id (nav is cloned into the drawer)`);
+  if (ctaLinks.length !== 2) fail(`${page}: expected 2 header Login / Register CTA links (nav pill + action item), found ${ctaLinks.length}`);
+  if (ctaLinks.some((tag) => /\sid=/.test(tag))) fail(`${page}: header Login / Register CTA link must not carry an id (nav is cloned into the drawer)`);
   if (!/vl-header-action-item[^"]*">\s*<a class="oet-header-login"[^>]*>[\s\S]*?<button[^>]*vl-offcanvas-toggle/.test(html))
     fail(`${page}: header CTA must sit before the hamburger inside .vl-header-action-item`);
   if (!html.includes('oet_signed_in=1')) fail(`${page}: signed-in hint head script missing`);
+  if (!html.includes('a[data-dashboard-href]') || !html.includes('data-login-href')) fail(`${page}: signed-in hint script no longer retargets a[data-dashboard-href] (session behaviour must be preserved)`);
+  if (/My Dashboard|oet-auth-cta__(?:guest|user)|oet-signed-in/.test(html)) fail(`${page}: the "My Dashboard" label swap is back (the CTA always reads Login / Register)`);
 
   // every hashed local asset must exist on disk
   for (const m of html.matchAll(/(?:href|src)="(\/assets\/(?:css|js)\/[^"?]+)\?v=[0-9a-f]{10}"/g)) {
@@ -326,10 +331,32 @@ if (distHtml['pricing.html']) {
     if (canon !== ORIGIN + urlOf(page)) fail(`${page}: canonical ${canon} should be ${ORIGIN + urlOf(page)}`);
   }
 
-  // chrome = the ORIGINAL owner-approved header, drawer and footer (V3 brief, 27 Oct 2026), plus
-  // the approved "OET Blog" item as a plain top-level link inside that original menu. Guards
-  // against the 26 Oct redesign (6-item nav, drawer actions, accordion footer) coming back.
+  // chrome = the ORIGINAL owner-approved header and drawer (V3 brief, 27 Oct 2026), plus the approved
+  // "OET Blog" item as a plain top-level link inside that original menu, plus (owner brief 28 Oct 2026)
+  // the owner-approved GROUPED footer. Guards against the withdrawn 26 Oct redesign (6-item nav, drawer
+  // actions, its footer markup, short login label) coming back.
   const TOP = ['About', 'Pricing', 'Download App', 'OET Courses', 'Free Resources', 'OET Blog', 'Free Placement Test', 'Contact'];
+  // The footer groups, in order, and EVERY link each must keep as a real anchor (text -> href). The inventory
+  // is the former Support + Top Links lists plus the Resources entry "OET Blog"; none may be dropped.
+  const FOOTER_GROUPS = [
+    ['Courses & Practice', [['OET Courses', '/service.html'], ['OET Course for Nurses', '/oet-course-for-nurses.html'], ['OET Course for Doctors', '/oet-course-for-doctors.html'],
+      ['OET Writing Correction', '/oet-writing-correction.html'], ['Pricing', '/pricing.html'], ['كورس OET بالعربية', '/ar/'], ['Download Candidates App', '/pricing.html#download-app']]],
+    ['Resources & Guides', [['OET Blog', '/blog/'], ['Free OET Sample Tests', '/oet-sample-tests.html'], ['Free Resources', '/oet-materials-support.html'], ['Speaking Tips', '/oet-speaking-tips.html'],
+      ['OET Score Calculator', '/oet-score-calculator.html'], ['OET Score Requirements', '/oet-score-requirements.html'], ['Telegram Materials', 'https://t.me/Oet_with_Hesham'],
+      ['UK Pathway Guide', '/uk-pathway-guide.html'], ['USA Pathway Guide', '/usa-pathway-guide.html']]],
+    ['About & Support', [['About Dr. Hesham', '/about.html'], ['Teaching Approach', '/teaching-approach.html'], ['OET Programs', 'https://www.youtube.com/watch?v=hlD1BXfijWs'],
+      ['WhatsApp Support', 'https://wa.me/447961725989'], ['Email Support', 'mailto:support@oetwithdrhesham.co.uk'], ['FAQ', '/faq.html'], ['Contact', '/contact.html'], ['Success Stories', '/success-stories.html']]],
+    ['Subscribe for OET Updates', [['Join Telegram Channel', 'https://t.me/Oet_with_Hesham'], ['Subscribe on YouTube', 'https://www.youtube.com/@drhesham222'], ['Join Facebook Community', 'https://www.facebook.com/groups/649430742699879/?ref=share']]],
+  ];
+  const SOCIAL = ['Facebook Group', 'YouTube Channel', 'Telegram Channel', 'WhatsApp Support', 'Instagram', 'LinkedIn'];
+  const LEGAL = [['Terms & Conditions', '/terms/'], ['Privacy Policy', '/privacy/'], ['Refund Policy', '/refund-policy/'], ['Cookie Policy', '/cookie-policy/']];
+  const esc = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const mainJs = readFileSync(path.join(ROOT, 'assets/js/main.js'), 'utf8');
+  const commonCss = readFileSync(path.join(ROOT, 'assets/css/oet-common.css'), 'utf8');
+  if (!/querySelectorAll\("\.oet-nav-desktop-only"\)[\s\S]{0,80}\.remove\(\)/.test(mainJs)) fail('main.js must remove .oet-nav-desktop-only (the Contact row) from the cloned side menu');
+  if (!mainJs.includes('footer .oet-footer-group') || !mainJs.includes('(min-width: 768px)')) fail('main.js must open the footer groups from 768px up');
+  if (!/\.oet-footer-cols\{[^}]*display:grid/.test(commonCss) || !/footer\.vl-footer-10\.oet-footer\{padding-bottom:calc\(100px/.test(commonCss))
+    fail('oet-common.css: the grouped footer grid or the contact-bubble clearance (footer bottom padding) is missing');
   for (const [page, html] of Object.entries(distHtml)) {
     if ((html.match(/id="vl-offcanvas-menu"/g) || []).length !== 1) fail(`${page}: expected exactly one offcanvas drawer`);
     const nav = (html.match(/<nav class="vl-mobile-menu-active"[\s\S]*?<\/nav>/) || [''])[0];
@@ -342,10 +369,39 @@ if (distHtml['pricing.html']) {
     }
     if (found.join('|') !== TOP.join('|')) fail(`${page}: main nav must be the original ${TOP.join(' / ')} (found ${found.join(' / ')})`);
     if (!nav.includes('<li><a href="/blog/">OET Blog</a></li>')) fail(`${page}: main nav must keep the plain "OET Blog" link to /blog/`);
-    if (/oet-drawer-actions|oet-footer-group-toggle|oet-footer-grid|oet-auth-cta__long/.test(html)) fail(`${page}: 26 Oct redesign chrome is back (drawer actions / accordion footer / short login label)`);
-    if (!html.includes('<h3 class="vl-offcanvas-sm-title mb-20">Contact &amp; Community</h3>')) fail(`${page}: drawer must be the original Contact & Community drawer`);
+    // the side menu is this nav cloned by main.js; only the inline desktop nav keeps the Contact row
+    if (!nav.includes('<li class="oet-nav-desktop-only"><a href="/contact.html">Contact</a></li>')) fail(`${page}: the inline nav's Contact row must carry oet-nav-desktop-only (main.js removes it from the side menu)`);
+    if (/oet-drawer-actions|oet-footer-group-toggle|oet-footer-grid|oet-auth-cta__long/.test(html)) fail(`${page}: withdrawn 26 Oct redesign chrome is back (drawer actions / its footer markup / short login label)`);
+    // header and drawer-clone CTA: the label is exactly Login / Register; signed-out it opens the existing sign-in entry
+    const ctaTexts = [...html.matchAll(/<a\b[^>]*\bdata-dashboard-href="[^"]*"[^>]*>([\s\S]*?)<\/a>/g)].map((m) => visibleText(m[1]));
+    if (ctaTexts.length !== 2 || ctaTexts.some((t) => t !== 'login / register')) fail(`${page}: header CTA label must be exactly "Login / Register" (found ${JSON.stringify(ctaTexts)})`);
+    if ((html.match(/href="https:\/\/app\.oetwithdrhesham\.co\.uk\/sign-in\?next=%2F"/g) || []).length < 2) fail(`${page}: the signed-out CTA must open the existing sign-in entry (sign-in?next=%2F)`);
+    // drawer: "Support & Community" (not "Contact & Community") with the real support channels intact
+    const drawer = (html.match(/<div id="vl-offcanvas-menu"[\s\S]*?<div class="vl-offcanvas-overlay">/) || [''])[0];
+    if (!drawer.includes('<h3 class="vl-offcanvas-sm-title mb-20">Support &amp; Community</h3>') || html.includes('Contact &amp; Community')) fail(`${page}: drawer group heading must be "Support & Community"`);
+    for (const label of ['Join Free Community', 'WhatsApp Support', 'Telegram Channel', 'Follow the Journey']) if (!drawer.includes(label)) fail(`${page}: drawer must keep "${label}"`);
+    if ((drawer.match(/aria-label="(?:Facebook Group|YouTube Channel|Telegram Channel|WhatsApp Support|Instagram|LinkedIn)"/g) || []).length < 6) fail(`${page}: drawer must keep its six social icons`);
+    // footer: the original brand/social/legal, links re-grouped into four closed-by-default <details>
     const footer = (html.match(/<footer\b[\s\S]*?<\/footer>/) || [''])[0];
-    if (!footer.includes('Download Candidates App')) fail(`${page}: footer must be the original footer`);
+    const groups = [...footer.matchAll(/<details class="oet-footer-group[^"]*">\s*<summary><h3[^>]*>([^<]*)<\/h3><\/summary>([\s\S]*?)<\/details>/g)];
+    if (groups.map((g) => visibleText(g[1])).join('|') !== FOOTER_GROUPS.map(([t]) => t.toLowerCase()).join('|')) fail(`${page}: footer must have the groups ${FOOTER_GROUPS.map(([t]) => t).join(' / ')}`);
+    if (/<details\b[^>]*\bopen\b/.test(footer)) fail(`${page}: footer groups must be closed in the markup (phone accordions; main.js opens them from 768px)`);
+    FOOTER_GROUPS.forEach(([title, links], i) => {
+      const body = groups[i] ? groups[i][2] : '';
+      for (const [text, href] of links) {
+        // postbuild appends a clean ?text= prefill to bare wa.me links
+        const target = esc(href).replace(/&/g, '(?:&|&amp;)') + (href.startsWith('https://wa.me/') ? '(?:\\?text=[^"]*)?' : '');
+        const re = new RegExp(`<a\\b[^>]*\\bhref="${target}"[^>]*>(?:\\s*<[^>]+>)*\\s*${esc(text)}\\s*(?:</[^>]+>\\s*)*</a>`);
+        if (!re.test(body)) fail(`${page}: footer group "${title}" must keep the link "${text}" -> ${href}`);
+      }
+    });
+    if (!footer.includes('src="/assets/img/logo/footer-logo.webp"') || !footer.includes('alt="OET with Dr Hesham"')) fail(`${page}: footer must keep the OET logo`);
+    if (!footer.includes('We help nurses, doctors, pharmacists, and allied health professionals prepare for OET')) fail(`${page}: footer must keep its brand copy`);
+    const social = (footer.match(/<div class="social-area-footer-10">[\s\S]*?<\/div>/) || [''])[0];
+    for (const label of SOCIAL) if (!social.includes(`aria-label="${label}"`)) fail(`${page}: footer must keep the ${label} social icon`);
+    for (const [text, href] of LEGAL) if (!footer.includes(`<a href="${href}">${text.replace('&', '&amp;')}</a>`)) fail(`${page}: footer legal row must keep "${text}" -> ${href}`);
+    if (!footer.includes('Cookie settings') || !footer.includes('&copy; Copyright 2026 - OET with Dr Hesham. All Rights Reserved')) fail(`${page}: footer must keep Cookie settings and the copyright line`);
+    if ((footer.match(/<a\b[^>]*\bhref=/g) || []).length < 24 + 3 + 6 + 5) fail(`${page}: footer link inventory shrank (24 group links, 3 subscribe buttons, 6 social icons and 5 legal links expected)`);
   }
   if (!/<main[\s\S]*href="\/blog\/"[\s\S]*<\/main>/.test(distHtml['index.html'] || '')) fail('index.html: homepage must link the OET Blog (/blog/)');
   if ((distHtml['index.html'] || '').includes('7+ OET Skills')) fail('index.html: OET has 4 core skills, not "7+"');

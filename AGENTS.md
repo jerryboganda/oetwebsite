@@ -19,8 +19,8 @@ partials/data and rebuild.**
   search overlay (`offcanvas.html`, rendered by `Header.astro`; page partials
   no longer carry a copy), footer (`footer-1/2.html`, joined by `Footer.astro`)
   and community popup. Header, drawer and footer are the ORIGINAL owner-approved
-  design (see "Original UI restored" below); do not restyle them without the
-  owner's explicit approval. Blog, practice-hub and homepage-blog-section styles
+  design plus the three 28 Oct 2026 refinements (see "Original UI restored" below);
+  do not restyle them without the owner's explicit approval. Blog, practice-hub and homepage-blog-section styles
   live in `assets/css/oet-redesign.css`, loaded site-wide after `oet-polish.css`.
 - **OET Blog**: `site/src/pages/blog/index.astro` (→ `/blog/`) and the homepage
   "Latest from the OET Blog" cards (marker `<!--oet:latest-posts-->` in
@@ -56,8 +56,11 @@ partials/data and rebuild.**
   no dead pages, `#fragment` targets exist), unique titles/descriptions,
   self-canonicals, the ORIGINAL nav (About / Pricing / Download App / OET Courses /
   Free Resources / OET Blog / Free Placement Test / Contact, with the plain
-  "OET Blog" link), the original drawer and footer (fails if the 26 Oct redesign
-  chrome returns), and every `blog.json` article (built, linked from `/blog/`, links
+  "OET Blog" link, whose Contact row carries `oet-nav-desktop-only`), the drawer
+  ("Support & Community", real support links and six social icons kept), the header
+  CTA label (exactly "Login / Register"), the grouped footer (four closed `<details>`,
+  every link of each group with its real href, logo, brand copy, six social icons,
+  legal row; fails if the withdrawn 26 Oct chrome returns), and every `blog.json` article (built, linked from `/blog/`, links
   back, thumbnail, Article data, breadcrumb == BreadcrumbList).
   hreflang alternates must exist and link back (Arabic `ar/*` ↔ English
   `service.html`, `oet-course-for-nurses.html`, `oet-course-for-doctors.html`,
@@ -111,33 +114,60 @@ The header carries one call to action in two places, both in
 `site/src/partials/chrome/header-2.html`: the nav pill `li.oet-nav-cta-item`
 (visible from 1500px; `assets/js/main.js` also clones it into the hamburger
 drawer) and `a.oet-header-login` inside `.vl-header-action-item` (logo, CTA,
-hamburger order below 1500px; always "Login / Register"). Each link has two label spans
-(`.oet-auth-cta__guest` / `.oet-auth-cta__user`) plus `data-dashboard-href`,
-and **must never get an `id`** (the nav is cloned, ids would duplicate). Styles
-are at the end of `assets/css/oet-common.css`. `site/scripts/verify.mjs` fails
-the build if a link, the no-id rule or the head script is dropped.
+hamburger order below 1500px). **The visible label is ALWAYS "Login / Register"**
+(owner brief 28 Oct 2026): signed in or out, in the header and in the drawer
+clone. There is no "My Dashboard" label, no guest/user label spans and no
+`html.oet-signed-in` class any more. Each link keeps `data-dashboard-href` and
+**must never get an `id`** (the nav is cloned, ids would duplicate). Styles are at
+the end of `assets/css/oet-common.css`. `site/scripts/verify.mjs` fails the build
+if a link, the no-id rule, the label, the retarget script or the head script is dropped.
 
 The static site cannot see the app's session (different origin, HttpOnly
 cookies). The web app (`lib/auth-storage.ts`) sets a **presentation-only hint
 cookie** next to its own `oet_auth` and clears it on sign-out:
 `oet_signed_in=1`, `Domain=.oetwithdrhesham.co.uk`, `Path=/`, `SameSite=Lax`,
 `Secure`, 30 days. The value is always the constant `1` (never a token, id or
-PII). The inline script in `site/src/layouts/Base.astro` reads it: when
-present it adds `html.oet-signed-in` (label becomes "My Dashboard") and on
-`DOMContentLoaded` (after `main.js` built the drawer) points every
-`a[data-dashboard-href]` at `https://app.oetwithdrhesham.co.uk/`. No cookie or
-JS off means "Login / Register" to `.../sign-in?next=%2F`. It can be up to 30
-days stale; never gate anything on it, and never read `oet_device_id` as a
-sign-in signal (it exists for anonymous visitors too).
+PII). The inline script in `site/src/layouts/Base.astro` reads it and only
+RETARGETS the link: when the cookie is present, on `DOMContentLoaded` (after
+`main.js` built the drawer) and on a bfcache restore, every
+`a[data-dashboard-href]` points at `https://app.oetwithdrhesham.co.uk/` (a signed-in
+visitor is not sent back through sign-in; session handling is unchanged). No cookie
+or JS off means `.../sign-in?next=%2F`. It can be up to 30 days stale; never gate
+anything on it, and never read `oet_device_id` as a sign-in signal (it exists for
+anonymous visitors too).
+
+### Side menu, drawer and grouped footer (owner brief 28 Oct 2026)
+
+- **Side menu**: `main.js` clones the inline nav into `#vl-offcanvas-menu` and removes every
+  `.oet-nav-desktop-only` from the clone. The inline nav's "Contact" `li` carries that class, so
+  the standalone Contact row is gone from the mobile/side menu while the desktop inline nav, the
+  contact page and the footer "Contact" link stay. The drawer's group heading is "Support &
+  Community" (Join Free Community, WhatsApp Support, Telegram Channel); "OET Blog" stays a plain item.
+- **Footer** (`footer-1.html` + `Footer.astro`'s injected "Download Candidates App" `li` +
+  `footer-2.html`; CSS block "Footer link groups" in `oet-common.css`, JS block "footer link groups"
+  in `main.js`): brand + six social icons, then four native `<details class="oet-footer-group">`:
+  Courses & Practice, Resources & Guides (now includes "OET Blog" -> `/blog/`), About & Support
+  (includes Contact) and Subscribe for OET Updates (existing copy and Telegram/YouTube/Facebook
+  buttons; renaming it "Stay Connected" needs the owner's approval). Legal row and copyright
+  unchanged. Desktop >=1024px = four columns, tablet 768-1023px = two, phone <768px = one column of
+  accordions that are CLOSED in the markup (all links are real `<a href>` inside closed groups; no
+  link is injected by JS). `main.js` opens the groups from 768px up, keeps them open
+  (`.is-static`, summary inert) and re-closes them on the way down; without JS they are working
+  accordions at every width. The footer has 100px bottom padding so the fixed contact bubble never
+  covers the copyright/legal links at the end of the page. Do not rename the classes to
+  `oet-footer-grid` / `oet-footer-group-toggle` (the withdrawn 26 Oct markers that verify.mjs rejects).
 
 ## Original UI restored, new OET Blog kept (V3 brief, 2026-10-27) — OWNER RULE
 
 The 26 Oct redesign (6-item nav, compact "Log in" header, Start Free Practice
 drawer, accordion footer, rebuilt homepage) was **withdrawn by the owner**. The
 public site's visual design is the version live until 26 Oct (`f1c3af7`):
-original header (inline nav from 1500px, "Login / Register"), drawer ("Contact &
-Community", "Follow the Journey"), footer (brand, social, Support, Top Links,
-Subscribe) and homepage. **Owner-approved exceptions, keep exactly:** the homepage
+original header (inline nav from 1500px, "Login / Register"), drawer ("Follow the
+Journey"), footer (brand, social, Support, Top Links, Subscribe) and homepage.
+**Owner-approved refinements (28 Oct 2026 brief):** the CTA label is always "Login /
+Register", the side menu has no standalone Contact row and its group heading is
+"Support & Community", and the footer links are re-grouped (see the section above).
+**Owner-approved exceptions, keep exactly:** the homepage
 "Latest from the OET Blog" section (lavender, 3 illustrated cards, View All
 Articles, before the FAQ), the `/blog/` library and its articles, and a plain
 "OET Blog" item inside the original menu. Non-visual SEO from the redesign stays
