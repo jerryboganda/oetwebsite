@@ -142,9 +142,11 @@ RedirectMatch 404 ^/\.claude/
     Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
     # Browsers ignore HSTS over plain HTTP, so this is safe to send unconditionally.
     Header always set Strict-Transport-Security "max-age=15552000; includeSubDomains"
-    # CSP: local-first site; GA4/Umami + YouTube facade allowed explicitly.
+    # CSP: local-first site; GA4/Umami + YouTube facade allowed explicitly. connect-src also allows the web app's public
+    # API origin (api.oetwithdrhesham.co.uk): pricing.html and the course pages fetch GET /v1/catalog/bundles to refresh the
+    # Full / Crash Course prices live (assets/js/oet-bundles.js; the build-time defaults stay on any failure).
     # 'unsafe-inline' is required by the theme's inline scripts until the Astro build (Phase 6).
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://i.ytimg.com https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self' data:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://cloud.umami.is https://api-gateway.umami.dev; frame-src https://www.youtube-nocookie.com https://www.youtube.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://i.ytimg.com https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self' data:; connect-src 'self' https://api.oetwithdrhesham.co.uk https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://cloud.umami.is https://api-gateway.umami.dev; frame-src https://www.youtube-nocookie.com https://www.youtube.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
 </IfModule>
 
 # Block web access to include-only / internal files

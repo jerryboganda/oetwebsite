@@ -135,8 +135,16 @@ function lastmodFor(distRel) {
     : path.join(SITE, 'src', 'partials', key);
   // Visible prices on pricing.html come from the data file, not the partials;
   // the blog index and the homepage "Latest from the OET Blog" cards come from blog.json.
+  // The Full / Crash Course tiers (pricing.html and the five profession course pages) come from bundles.json
+  // and are rendered by assets/js/oet-bundles.js.
+  const bundles = [path.join(SITE, 'src', 'data', 'bundles.json'), path.join(ROOT, 'assets', 'js', 'oet-bundles.js')];
   const extra = {
-    pricing: [path.join(SITE, 'src', 'data', 'pricing.json')],
+    pricing: [path.join(SITE, 'src', 'data', 'pricing.json'), ...bundles],
+    'oet-course-for-doctors': bundles,
+    'oet-course-for-nurses': bundles,
+    'oet-course-for-pharmacists': bundles,
+    'oet-course-for-physiotherapists': bundles,
+    'oet-for-allied-health': bundles,
     blog: [path.join(SITE, 'src', 'data', 'blog.json')],
     index: [path.join(SITE, 'src', 'data', 'blog.json')],
   }[key] || [];

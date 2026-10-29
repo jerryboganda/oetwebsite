@@ -43,6 +43,10 @@ Everything else at the root deploys as-is: `assets/`, PHP endpoints,
 - **Reprice packages**: edit `site/src/data/pricing.json`, rebuild. Visible
   `£` amounts *and* JSON-LD `Offer` prices update together; the build fails
   loudly if the markup drifted.
+- **Full OET Course / Full Crash Course tiers**: edit `site/src/data/bundles.json` (prices, access, counts, copy) and rebuild. The
+  pricing page top sections, the JSON-LD offers and the "Choose your course" block on the profession course pages are generated from it by
+  `site/src/lib/bundles.mjs` + `assets/js/oet-bundles.js`; in the browser the same script refreshes them live from
+  `https://api.oetwithdrhesham.co.uk/v1/catalog/bundles` (build-time defaults stay on failure). See `AGENTS.md`.
 - **Success-story counts**: year-tab counts, the "Score cards" counter and
   JSON-LD `numberOfItems` are computed from
   `assets/img/success-stories/success-stories.json` at build time. Add new

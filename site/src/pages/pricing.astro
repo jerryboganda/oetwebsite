@@ -6,13 +6,18 @@ import mainRaw from '../partials/pricing/main.html?raw';
 import tailRaw from '../partials/pricing/tail.html?raw';
 import pricing from '../data/pricing.json';
 import { applyPricing } from '../lib/inject.mjs';
+import { applyBundlesToPricing } from '../lib/bundles.mjs';
 
 // src/data/pricing.json is the single source of truth for package prices:
 // visible &pound; amounts AND JSON-LD Offer prices are rewritten at build.
-const parts = applyPricing(
+const priced = applyPricing(
   { meta: metaRaw, headExtra: headExtraRaw, main: mainRaw, tail: tailRaw },
   pricing,
 );
+
+// src/data/bundles.json holds the Full OET Course and Crash Course tiers (the two top sections, their
+// JSON-LD offers and the data the browser refreshes live from the public catalog).
+const parts = applyBundlesToPricing(priced);
 ---
 <Base
   meta={parts.meta}

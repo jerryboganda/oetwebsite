@@ -1,0 +1,403 @@
+/*!
+ * OET bundles: Full OET Course and Full Crash Course tiers.
+ *
+ * One file, two homes (so the static HTML and the live-refreshed DOM can never drift):
+ *  - build time: site/src/lib/bundles.mjs evaluates this file in a vm sandbox (no `document`) and calls the
+ *    pure renderers below to write pricing.html and the course-page blocks;
+ *  - browser: boots the profession and exam-format selectors and refreshes price, access months, counts,
+ *    badges and upgrade hints from the public catalog (GET <catalogUrl>) by PLAN CODE. A card is never
+ *    invented: only the slots rendered at build time exist. If the request fails (network, CORS, bad body)
+ *    the build-time defaults stay and the section keeps data-catalog="static". Checkout re-prices on the
+ *    server, so a stale page can never be charged a stale price.
+ *
+ * Defaults live in site/src/data/bundles.json (embedded in the page as #oet-bundles-data).
+ * ES5 on purpose; no dependencies.
+ */
+(function (root, factory) {
+  var kit = factory();
+  if (typeof module === 'object' && module && module.exports) module.exports = kit;
+  if (typeof document !== 'undefined') kit.boot(document, root);
+})(this, function () {
+  'use strict';
+
+  var APP = 'https://app.oetwithdrhesham.co.uk';
+  var FORMATS = ['computer', 'paper'];
+  var CODE_RE = /^[a-z0-9][a-z0-9-]{0,63}$/;
+  var KEY_RE = /^[a-z0-9_]{1,40}$/;
+
+  /* ---------- helpers ---------- */
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function isNum(n) { return typeof n === 'number' && isFinite(n) && n >= 0; }
+  function round2(n) { return Math.round(n * 100) / 100; }
+  function money(n) { return '&pound;' + (n % 1 === 0 ? String(n) : n.toFixed(2)); }
+  function clean(s, max) { return typeof s === 'string' ? s.replace(/\s+/g, ' ').trim().slice(0, max) : ''; }
+  function byId(list, id) {
+    for (var i = 0; i < list.length; i++) if (list[i].id === id) return list[i];
+    return null;
+  }
+  function copy(o) {
+    var out = {};
+    Object.keys(o).forEach(function (k) { out[k] = o[k]; });
+    return out;
+  }
+  // A negative inclusion line (one that starts with No, Not or Without, about Listening or Reading) never appears on
+  // a price card: that rule lives in the entitlement and in help text (owner brief 28 Oct 2026, page 6).
+  function isNegative(label) { return /^\s*(no|not|without)\b/i.test(label || ''); }
+
+  /* ---------- defaults ---------- */
+
+  function codeFor(fam, tier, prof) { return fam.perProfession ? tier.key + '-' + prof.suffix : tier.key; }
+
+  function resolveLines(data, items) {
+    return items.map(function (it) {
+      var base = (data.lines && data.lines[it.key]) || {};
+      return {
+        key: it.key,
+        label: it.label || base.label || it.key,
+        detail: it.detail !== undefined ? it.detail : (base.detail || null),
+        value: it.value !== undefined ? it.value : null,
+        formats: it.formats || base.formats || FORMATS.slice(),
+      };
+    });
+  }
+
+  // code -> bundle, in the same shape the catalog API returns (plus `key`)
+  function expandDefaults(data) {
+    var out = {};
+    data.families.forEach(function (fam) {
+      var profs = fam.perProfession ? data.professions : [{ id: 'all', suffix: '' }];
+      profs.forEach(function (p) {
+        fam.tiers.forEach(function (t, i) {
+          var code = codeFor(fam, t, p);
+          out[code] = {
+            code: code, key: t.key, family: fam.id, tier: i + 1, profession: p.id,
+            name: t.name, price: t.price, currency: data.currency, accessMonths: t.accessMonths,
+            recommended: !!t.recommended, badge: t.badge || null, description: t.description,
+            tutorBookPermanent: !!t.tutorBookPermanent, included: resolveLines(data, t.included), upgrades: null,
+          };
+        });
+      });
+    });
+    return withUpgrades(out);
+  }
+
+  // Upgrade = pay the difference to any higher tier of the same family and profession
+  // (contract section 4). A live catalog may supply its own list; otherwise it is derived from prices.
+  function withUpgrades(bundles) {
+    var groups = {};
+    Object.keys(bundles).forEach(function (c) {
+      var b = bundles[c];
+      if (!b) return;
+      (groups[b.family + '|' + b.profession] = groups[b.family + '|' + b.profession] || []).push(b);
+    });
+    Object.keys(groups).forEach(function (g) {
+      var list = groups[g].sort(function (a, b) { return a.tier - b.tier; });
+      list.forEach(function (from, i) {
+        if (from.upgrades) return;
+        from.upgrades = [];
+        for (var j = i + 1; j < list.length; j++) {
+          var d = round2(list[j].price - from.price);
+          if (d > 0) from.upgrades.push({ toCode: list[j].code, toName: list[j].name, difference: d });
+        }
+      });
+    });
+    return bundles;
+  }
+
+  // plan codes of one family for one profession, in tier order
+  function slotCodes(data, famId, profId) {
+    var fam = byId(data.families, famId);
+    var prof = byId(data.professions, profId) || data.professions[0];
+    return fam.tiers.map(function (t) { return codeFor(fam, t, prof); });
+  }
+
+  /* ---------- live catalog ---------- */
+
+  function cleanIncluded(list) {
+    if (!Array.isArray(list)) return null;
+    var out = [];
+    for (var i = 0; i < list.length && out.length < 24; i++) {
+      var it = list[i];
+      if (!it || typeof it !== 'object') continue;
+      var key = clean(it.key, 40);
+      var label = clean(it.label, 120);
+      if (!KEY_RE.test(key) || !label) continue;
+      var value = it.value === 'unlimited' ? 'unlimited' : (isNum(it.value) ? Math.floor(it.value) : null);
+      var fm = Array.isArray(it.formats) ? it.formats.filter(function (f) { return FORMATS.indexOf(f) >= 0; }) : FORMATS.slice();
+      if (!fm.length) continue;
+      out.push({ key: key, label: label, detail: clean(it.detail, 160) || null, value: value, formats: fm });
+    }
+    return out.length ? out : null;
+  }
+
+  function cleanUpgrades(list) {
+    if (!Array.isArray(list)) return null;
+    var out = [];
+    list.forEach(function (u) {
+      if (u && typeof u === 'object' && typeof u.toCode === 'string' && CODE_RE.test(u.toCode) && isNum(u.difference)) {
+        out.push({ toCode: u.toCode, toName: clean(u.toName, 80), difference: round2(u.difference) });
+      }
+    });
+    return out;
+  }
+
+  // Overwrites defaults by plan code. Returns { bundles, count } or null when the body has nothing usable.
+  // A default whose code is absent from a usable live catalog maps to null: the plan is not on sale
+  // (an admin hid it), so its card is not shown. Codes the page has no slot for are ignored.
+  function mergeLive(defaults, json) {
+    var fams = json && Array.isArray(json.families) ? json.families : [];
+    var live = {};
+    var count = 0;
+    fams.forEach(function (f) {
+      (f && Array.isArray(f.bundles) ? f.bundles : []).forEach(function (b) {
+        if (!b || typeof b.code !== 'string' || !CODE_RE.test(b.code) || !defaults[b.code] || !isNum(b.price)) return;
+        live[b.code] = b;
+        count += 1;
+      });
+    });
+    if (!count) return null;
+    var merged = {};
+    Object.keys(defaults).forEach(function (code) {
+      var l = live[code];
+      if (!l) { merged[code] = null; return; }
+      var m = copy(defaults[code]);
+      m.price = l.price;
+      if (isNum(l.accessMonths) && l.accessMonths >= 1 && l.accessMonths <= 60) m.accessMonths = Math.floor(l.accessMonths);
+      var name = clean(l.name, 80);
+      if (name) m.name = name;
+      var desc = clean(l.description, 600);
+      if (desc) m.description = desc;
+      if (typeof l.recommended === 'boolean') m.recommended = l.recommended;
+      if (Object.prototype.hasOwnProperty.call(l, 'badge')) m.badge = clean(l.badge, 24) || null;
+      if (typeof l.tutorBookPermanent === 'boolean') m.tutorBookPermanent = l.tutorBookPermanent;
+      var inc = cleanIncluded(l.included);
+      if (inc) m.included = inc;
+      m.upgrades = cleanUpgrades(l.upgrades);
+      merged[code] = m;
+    });
+    // a live upgrade may only point at a plan that is on sale
+    Object.keys(merged).forEach(function (c) {
+      var m = merged[c];
+      if (m && m.upgrades) m.upgrades = m.upgrades.filter(function (u) { return merged[u.toCode]; });
+    });
+    return { bundles: withUpgrades(merged), count: count, version: clean(json.catalogVersion, 64) };
+  }
+
+  /* ---------- rendering (pure; used at build time and in the browser) ---------- */
+
+  // The app's register and sign-in pages keep only `next`, so the choice travels INSIDE it: the inner query
+  // (/subscriptions?package=..&profession=..&format=..) is encoded once and is the only outer parameter.
+  // The app reads package (plan code), profession and format from the /subscriptions query.
+  function appLink(kind, code, profId, fmt) {
+    return APP + '/' + kind + '?next=' + encodeURIComponent('/subscriptions?package=' + code + '&profession=' + profId + '&format=' + fmt);
+  }
+
+  function badgeHtml(b) {
+    var text = b.badge || (b.recommended ? 'Recommended' : '');
+    return text ? '<span class="oet-bundle-badge"><i class="fa-solid fa-star" aria-hidden="true"></i> ' + esc(text) + '</span>' : '';
+  }
+
+  function monthsText(n) { return n + (n === 1 ? ' month' : ' months') + ' access'; }
+
+  function renderLine(it, fmt) {
+    if (it.formats.indexOf(fmt) < 0 || isNegative(it.label)) return '';
+    var val = it.value === 'unlimited' ? 'Unlimited' : (it.value != null ? String(it.value) : '');
+    return '<li data-key="' + esc(it.key) + '"><span class="oet-bundle-line">' + (val ? '<b>' + esc(val) + '</b> ' : '') +
+      esc(it.label) + '</span>' + (it.detail ? '<small>' + esc(it.detail) + '</small>' : '') + '</li>';
+  }
+
+  // ctx = { profession: {id,label}, format: 'computer' | 'paper', formatLabel }
+  function renderCard(b, ctx) {
+    var chips = [];
+    if (b.accessMonths) chips.push(monthsText(b.accessMonths));
+    if (b.tutorBookPermanent) chips.push('TutorBook access: permanent');
+    chips.push(b.profession === 'all' ? 'All eligible disciplines' : ctx.profession.label);
+    chips.push(ctx.formatLabel);
+    var lines = b.included.map(function (it) { return renderLine(it, ctx.format); }).join('');
+    var ups = (b.upgrades || []).map(function (u) {
+      return '<span>+' + money(u.difference) + ' to ' + esc(u.toName) + '</span>';
+    }).join('');
+    var cta = 'bundle_' + b.key;
+    return '<article class="oet-bundle-card' + (b.recommended ? ' is-recommended' : '') + '" data-code="' + esc(b.code) +
+      '" data-tier="' + b.tier + '"' + (b.recommended ? ' data-recommended="true"' : '') + '>' + badgeHtml(b) +
+      '<h3>' + esc(b.name) + '</h3>' +
+      '<div class="oet-bundle-price"><strong data-field="price">' + money(b.price) + '</strong></div>' +
+      '<ul class="oet-bundle-chips" aria-label="Course summary">' + chips.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('') + '</ul>' +
+      '<p class="oet-bundle-desc">' + esc(b.description) + '</p>' +
+      '<ul class="oet-bundle-list" aria-label="What is included">' + lines + '</ul>' +
+      (ups ? '<p class="oet-bundle-upgrade"><strong>Upgrade later and pay only the difference:</strong> ' + ups + '</p>' : '') +
+      '<div class="oet-bundle-actions">' +
+      '<a class="oet-bundle-cta" href="' + esc(appLink('register', b.code, ctx.profession.id, ctx.format)) + '" data-oet-cta="' + esc(cta) +
+      '" data-plan="' + esc(b.code) + '" aria-label="Enrol now: ' + esc(b.name) + '">Enrol now</a>' +
+      '<a class="oet-bundle-signin" href="' + esc(appLink('sign-in', b.code, ctx.profession.id, ctx.format)) + '" data-oet-cta="' + esc(cta) +
+      '_signin" data-plan="' + esc(b.code) + '" aria-label="Already registered? Sign in to choose ' + esc(b.name) + '">Already registered? Sign in</a>' +
+      '</div></article>';
+  }
+
+  var EMPTY = '<p class="oet-bundle-empty">These plans are not on sale right now. Open the Candidates App to see what is currently available.</p>';
+
+  function renderGrid(codes, bundles, ctx) {
+    var html = '';
+    codes.forEach(function (c) { if (bundles[c]) html += renderCard(bundles[c], ctx); });
+    return html || EMPTY;
+  }
+
+  // compact card for the profession course pages
+  function renderMini(b, ctx) {
+    var more = b.tutorBookPermanent ? ' &middot; permanent TutorBook' : '';
+    return '<article class="oet-choose-card' + (b.recommended ? ' is-recommended' : '') + '" data-code="' + esc(b.code) + '" data-tier="' + b.tier + '">' +
+      badgeHtml(b) + '<h3>' + esc(b.name) + '</h3>' +
+      '<div class="oet-choose-price"><strong data-field="price">' + money(b.price) + '</strong>' +
+      '<span>' + (b.accessMonths ? esc(monthsText(b.accessMonths)) : '') + more + '</span></div>' +
+      '<p>' + esc(b.description) + '</p></article>';
+  }
+
+  function renderMiniGrid(codes, bundles, ctx) {
+    var html = '';
+    codes.forEach(function (c) { if (bundles[c]) html += renderMini(bundles[c], ctx); });
+    return html || EMPTY;
+  }
+
+  function makeCtx(data, profId, fmt) {
+    var prof = byId(data.professions, profId) || data.professions[0];
+    var f = byId(data.formats, fmt) || data.formats[0];
+    return { profession: prof, format: f.id, formatLabel: f.label };
+  }
+
+  // the line under the selectors; the Crash tiers are the same for every profession, so it names only the format
+  function statusText(data, st, famId) {
+    var ctx = makeCtx(data, st.profession, st.format);
+    var f = byId(data.formats, ctx.format);
+    var who = famId === 'crash' ? ctx.formatLabel : ctx.profession.label + ', ' + ctx.formatLabel;
+    return 'Showing ' + who + '. ' + (f.summary || '') + (famId !== 'crash' && ctx.profession.note ? ' ' + ctx.profession.note : '');
+  }
+
+  /* ---------- browser behaviour ---------- */
+
+  function boot(doc, win) {
+    var holder = doc.getElementById('oet-bundles-data');
+    if (!holder) return;
+    var data;
+    try { data = JSON.parse(holder.textContent); } catch (e) { return; }
+
+    var defaults = expandDefaults(data);
+    var catalog = defaults;
+    var sections = [].slice.call(doc.querySelectorAll('[data-oet-bundles]'));
+    var minis = [].slice.call(doc.querySelectorAll('[data-oet-bundles-mini]'));
+
+    var state = { profession: data.professions[0].id, format: 'computer' };
+    try {
+      var q = new win.URLSearchParams(win.location.search);
+      var p = q.get('profession');
+      var f = q.get('format');
+      var hit = p && (byId(data.professions, p) || (function () {
+        for (var i = 0; i < data.professions.length; i++) if (data.professions[i].suffix === p) return data.professions[i];
+        return null;
+      })());
+      if (hit) state.profession = hit.id;
+      if (f === 'paper' || f === 'computer') state.format = f;
+    } catch (e) { /* defaults */ }
+
+    function renderPricing() {
+      var ctx = makeCtx(data, state.profession, state.format);
+      sections.forEach(function (sec) {
+        var grid = sec.querySelector('[data-bundle-grid]');
+        if (!grid) return;
+        sec.setAttribute('data-profession', state.profession);
+        sec.setAttribute('data-format', state.format);
+        grid.innerHTML = renderGrid(slotCodes(data, sec.getAttribute('data-family'), state.profession), catalog, ctx);
+        var status = sec.querySelector('[data-bundle-status]');
+        if (status) status.textContent = statusText(data, state, sec.getAttribute('data-family'));
+      });
+    }
+
+    function renderMinis() {
+      minis.forEach(function (sec) {
+        var grid = sec.querySelector('[data-bundle-mini-grid]');
+        if (!grid) return;
+        var profId = sec.getAttribute('data-profession');
+        grid.innerHTML = renderMiniGrid(slotCodes(data, 'full', profId), catalog, makeCtx(data, profId, 'computer'));
+      });
+    }
+
+    function syncUrl() {
+      try {
+        var u = new win.URL(win.location.href);
+        if (state.profession === data.professions[0].id) u.searchParams.delete('profession'); else u.searchParams.set('profession', state.profession);
+        if (state.format === 'computer') u.searchParams.delete('format'); else u.searchParams.set('format', state.format);
+        win.history.replaceState(null, '', u.pathname + u.search + u.hash);
+      } catch (e) { /* the selection still works without a shareable URL */ }
+    }
+
+    // selectors: one profession group (Full section) and one exam-format group per section, kept in sync.
+    // They are hidden without JavaScript: the static page already shows Medicine, Computer-Based.
+    var controlSets = [].slice.call(doc.querySelectorAll('[data-bundle-controls]'));
+    function syncRadios() {
+      controlSets.forEach(function (box) {
+        [].forEach.call(box.querySelectorAll('input[type="radio"]'), function (r) {
+          r.checked = r.value === state[r.getAttribute('data-bundle-radio')];
+        });
+      });
+    }
+    controlSets.forEach(function (box) {
+      box.hidden = false;
+      box.addEventListener('change', function (ev) {
+        var t = ev.target;
+        var group = t && t.type === 'radio' ? t.getAttribute('data-bundle-radio') : null;
+        if (group !== 'profession' && group !== 'format') return;
+        state[group] = t.value;
+        syncRadios();
+        renderPricing();
+        syncUrl();
+      });
+    });
+    syncRadios();
+
+    if (sections.length) {
+      if (state.profession !== data.professions[0].id || state.format !== 'computer') renderPricing();
+    }
+
+    function mark(value, version) {
+      sections.concat(minis).forEach(function (sec) {
+        sec.setAttribute('data-catalog', value);
+        if (version) sec.setAttribute('data-catalog-version', version);
+        // owner brief: never show outdated price data as if current - say so when the live prices could not be loaded
+        [].forEach.call(sec.querySelectorAll('[data-bundle-stale]'), function (n) { n.hidden = value === 'live'; });
+      });
+    }
+
+    // live refresh by plan code; any failure keeps the build-time defaults
+    if (!data.catalogUrl || !win.fetch || (!sections.length && !minis.length)) { mark('static'); return; }
+    var ctl = win.AbortController ? new win.AbortController() : null;
+    var timer = win.setTimeout(function () { if (ctl) ctl.abort(); }, 8000);
+    win.fetch(data.catalogUrl, {
+      method: 'GET', headers: { Accept: 'application/json' }, credentials: 'omit', cache: 'no-store', mode: 'cors',
+      signal: ctl ? ctl.signal : undefined,
+    }).then(function (r) {
+      if (!r.ok) throw new Error('catalog ' + r.status);
+      return r.json();
+    }).then(function (json) {
+      win.clearTimeout(timer);
+      var merged = mergeLive(defaults, json);
+      if (!merged) { mark('static'); return; }
+      catalog = merged.bundles;
+      renderPricing();
+      renderMinis();
+      mark('live', merged.version);
+    }).catch(function () {
+      win.clearTimeout(timer);
+      mark('static');
+    });
+  }
+
+  return {
+    esc: esc, expandDefaults: expandDefaults, slotCodes: slotCodes, mergeLive: mergeLive, makeCtx: makeCtx,
+    renderCard: renderCard, renderGrid: renderGrid, renderMini: renderMini, renderMiniGrid: renderMiniGrid,
+    statusText: statusText, appLink: appLink, boot: boot,
+  };
+});

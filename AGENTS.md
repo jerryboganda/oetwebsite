@@ -38,6 +38,26 @@ partials/data and rebuild.**
   prices**. Visible £ amounts AND JSON-LD Offer prices are rewritten at build
   by `site/src/lib/inject.mjs` (`applyPricing`). To reprice: edit this file,
   rebuild.
+- **Full OET Course + Full Crash Course tiers (owner brief 28 Oct 2026)** — the six approved tiers (Full £140 / £165
+  Recommended / £220 Ultimate, Crash £75 / £100 / £125 Recommended), the 5 professions (Medicine, Nursing, Pharmacy,
+  Physiotherapy, Modified Allied Health = `other-allied-health`) and the Paper-Based / Computer-Based selector. **Build-time
+  defaults live in `site/src/data/bundles.json`** (prices, access months, counts, copy, inclusions); the plan code is
+  `key` + `-` + profession suffix (`full-tutorbook-medicine`, `ultimate-allied-health`) and `crash-*` has no suffix.
+  `assets/js/oet-bundles.js` holds the pure card renderers AND the browser behaviour; `site/src/lib/bundles.mjs` evaluates that file
+  in a vm sandbox at build time, so the static HTML and the live-refreshed DOM come from the same code (markup
+  `oet-bundle-*`, CSS `assets/css/oet-bundles.css`). Output: two top sections on `pricing.html` (`#full-oet-courses`,
+  `#crash-courses`, above the legacy catalogue, whose nav label is now "Recorded courses"), six JSON-LD Product offers, and a
+  "Choose your course" block (`#choose-your-course`, marker `<!--oet:choose-course-->`) on the four profession course pages plus
+  `oet-for-allied-health` (the Modified Allied Health page). The browser fetches `GET https://api.oetwithdrhesham.co.uk/v1/catalog/bundles`
+  (web-app contract: `docs/FULL-CRASH-BUNDLES-2026-10-29.md`) and overwrites price, access, counts, badges, upgrade hints and
+  inclusions **by plan code**; a card is never invented, a plan absent from a usable response is hidden, and on any failure the
+  defaults stay (`data-catalog="static"`, with a visible "live prices could not be loaded" note: the owner brief forbids presenting outdated
+  prices as current). Checkout re-prices on the server. The CSP `connect-src` in `.htaccess` allows `https://api.oetwithdrhesham.co.uk`
+  for this; the API must send CORS for `https://oetwithdrhesham.co.uk`. CTAs deep-link `app…/register?next=%2Fsubscriptions%3Fpackage%3D<code>%26profession%3D<id>%26format%3D<computer|paper>`
+  (the choice travels INSIDE `next`, encoded once, because the app's register/sign-in keep only `next`; `/sign-in?next=...` is the twin;
+  `data-oet-cta="bundle_<key>"`). Deep link into the page: `/pricing.html?profession=<id>&format=<id>#full-oet-courses`.
+  Rules baked in: Paper never shows a negative "No online Listening or Reading" line, every website count says "on our website",
+  TutorBook is **10 full recall-based exams** everywhere (EN + AR), the legacy packages stay untouched below.
 - `site/scripts/postbuild.mjs` — after `astro build`: appends content-hash
   `?v=` to asset URLs, gives bare `wa.me` links a plain default prefill (never
   `[page: …]` labels: the source page is tracked by `oet-analytics.js`), generates
@@ -48,7 +68,8 @@ partials/data and rebuild.**
   H1 per page, WhatsApp prefills without `[page: …]` labels, the pricing
   app-first CTAs (`register?next=/subscriptions` and `?next=/companion`, no
   WhatsApp in the mobile sticky bar), FAQ JSON-LD visible verbatim on the page.
-  Also: every `fa-*` icon must exist in `assets/css/oet-icons.css` (the icon font is
+  Also: the bundle tiers (prices, plan codes, format rules for every profession x format, live-merge contract, CTA deep links, JSON-LD
+  offers, the course-page blocks, "10 full recall-based exams", CSP connect-src), and every `fa-*` icon must exist in `assets/css/oet-icons.css` (the icon font is
   subset — unknown icons render blank), and the score-calculator logic in
   `assets/js/oet-score-calculator.js` (regulator minimums — keep in sync with
   `oet-score-requirements.html` when a regulator changes its rules).

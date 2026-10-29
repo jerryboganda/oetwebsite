@@ -4,12 +4,17 @@ import meta from '../partials/oet-course-for-pharmacists/meta.html?raw';
 import headExtra from '../partials/oet-course-for-pharmacists/head-extra.html?raw';
 import main from '../partials/oet-course-for-pharmacists/main.html?raw';
 import tail from '../partials/oet-course-for-pharmacists/tail.html?raw';
+import { applyChooseBlock } from '../lib/bundles.mjs';
+
+// The "Choose your course" block (three Full OET Course tiers for this profession) is rendered from
+// src/data/bundles.json by the same code that refreshes it live in the browser.
+const parts = applyChooseBlock({ meta, headExtra, main, tail }, 'oet-course-for-pharmacists');
 ---
 <Base
-  meta={meta}
-  headExtra={headExtra}
-  main={main}
-  tail={tail}
+  meta={parts.meta}
+  headExtra={parts.headExtra}
+  main={parts.main}
+  tail={parts.tail}
   bodyClass="oet-live-site oet-resource-page"
   salCss={true}
 />

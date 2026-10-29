@@ -253,9 +253,10 @@ for (const page of ['pricing.html', 'teaching-approach.html', 'success-stories.h
     fail(`${page}: expected exactly 1 JSON-LD block, found ${ldBlocks(distHtml[page]).length}`);
 }
 // page-level: expected entity counts catch silent drops during edits
-const structuredCount = pricing.filter((p) => p.structuredData).length;
+const bundleTierCount = JSON.parse(readFileSync(path.join(SITE, 'src/data/bundles.json'), 'utf8')).families.reduce((n, f) => n + f.tiers.length, 0);
+const structuredCount = pricing.filter((p) => p.structuredData).length + bundleTierCount; // + the Full / Crash bundle offers (src/data/bundles.json)
 if (distHtml['pricing.html'] && nodesOfType(ldBlocks(distHtml['pricing.html']), 'Product').length !== structuredCount)
-  fail(`pricing: JSON-LD Product count drifted from pricing.json structuredData entries (${structuredCount})`);
+  fail(`pricing: JSON-LD Product count drifted from pricing.json structuredData entries plus bundles.json tiers (${structuredCount})`);
 if (distHtml['teaching-approach.html'] && nodesOfType(ldBlocks(distHtml['teaching-approach.html']), 'VideoObject').length !== 8)
   fail('teaching-approach: expected 8 VideoObject entries');
 if (distHtml['success-stories.html'] && nodesOfType(ldBlocks(distHtml['success-stories.html']), 'VideoObject').length !== 3)
@@ -281,6 +282,151 @@ if (distHtml['pricing.html']) {
   }
   const pricingImage = path.join(ROOT, 'assets/img/og/og-pricing.png');
   if (!existsSync(pricingImage)) fail('pricing: schema image asset missing on disk: assets/img/og/og-pricing.png');
+}
+
+// Full OET Course and Full Crash Course bundles (owner brief 28 Oct 2026; contract docs/FULL-CRASH-BUNDLES-2026-10-29.md in
+// the web app repo): pricing.html top sections, the profession course pages' "Choose your course" block, one price source
+// (src/data/bundles.json), the format rules, the live-catalog contract and TutorBook = 10 recall-based exams everywhere.
+{
+  const { loadBundles } = await import('../src/lib/bundles.mjs');
+  const { data, kit, defaults } = loadBundles();
+  const PRICES = { 'full-practice': 140, 'full-tutorbook': 165, ultimate: 220, 'crash-essential': 75, 'crash-letters': 100, 'crash-complete': 125 };
+  const MONTHS = { 'full-practice': 6, 'full-tutorbook': 6, ultimate: 12, 'crash-essential': 6, 'crash-letters': 6, 'crash-complete': 6 };
+  const SUFFIX = { medicine: 'medicine', nursing: 'nursing', pharmacy: 'pharmacy', physiotherapy: 'physiotherapy', 'other-allied-health': 'allied-health' };
+  const CATALOG_URL = 'https://api.oetwithdrhesham.co.uk/v1/catalog/bundles';
+  const tiers = data.families.flatMap((f) => f.tiers);
+
+  // data file: the six approved tiers, prices, access, the Recommended middle tiers, the five professions
+  if (tiers.map((t) => t.key).join() !== Object.keys(PRICES).join()) fail('bundles.json: tiers must be the six approved tiers in order');
+  for (const t of tiers) {
+    if (t.price !== PRICES[t.key]) fail(`bundles.json: ${t.key} must cost GBP ${PRICES[t.key]}`);
+    if (t.accessMonths !== MONTHS[t.key]) fail(`bundles.json: ${t.key} must give ${MONTHS[t.key]} months of access`);
+    if (t.recommended !== (t.key === 'full-tutorbook' || t.key === 'crash-complete')) fail(`bundles.json: only Full Course + TutorBook and Crash + TutorBook are Recommended (${t.key})`);
+    if (t.recommended && t.badge !== 'Recommended') fail(`bundles.json: ${t.key} must carry the Recommended badge`);
+    if (/<|>/.test(t.description)) fail(`bundles.json: ${t.key} has markup in its description`);
+  }
+  if (data.professions.map((p) => p.id).join() !== Object.keys(SUFFIX).join() || data.professions.some((p) => p.suffix !== SUFFIX[p.id]))
+    fail('bundles.json: professions must be medicine, nursing, pharmacy, physiotherapy, other-allied-health (Modified Allied Health)');
+  if (data.professions.find((p) => p.id === 'other-allied-health')?.label !== 'Modified Allied Health') fail('bundles.json: other-allied-health is shown as "Modified Allied Health"');
+  if (data.formats.map((f) => f.id).join() !== 'computer,paper') fail('bundles.json: formats must be computer and paper');
+  if (data.catalogUrl !== CATALOG_URL) fail(`bundles.json: catalogUrl must be ${CATALOG_URL}`);
+  if (Object.keys(defaults).length !== 18) fail(`bundles.json: expected 18 plan codes (15 Full + 3 Crash), found ${Object.keys(defaults).length}`);
+  for (const [fam, tier, price] of [['full', 1, 25], ['full', 2, 55], ['crash', 1, 25], ['crash', 2, 25]]) {
+    const code = kit.slotCodes(data, fam, 'medicine')[tier - 1];
+    if (!defaults[code].upgrades.some((u) => u.difference === price)) fail(`bundles: ${code} must offer an upgrade that costs the GBP ${price} difference`);
+  }
+  if (defaults['full-practice-medicine'].upgrades.map((u) => u.difference).join() !== '25,80' || defaults['crash-essential'].upgrades.map((u) => u.difference).join() !== '25,50')
+    fail('bundles: upgrade differences must be 25/80 (Full 140) and 25/50 (Crash 75)');
+
+  // format rules, every profession x format: computer = website L/R numbers, paper = W/S + handwritten upload + paper L/R
+  // resources, never a negative "No online Listening or Reading" line, every website count says "on our website"
+  const lineKeys = (html) => [...html.matchAll(/<li data-key="([a-z_]+)">/g)].map((m) => m[1]);
+  for (const prof of data.professions) {
+    for (const fmt of ['computer', 'paper']) {
+      const ctx = kit.makeCtx(data, prof.id, fmt);
+      for (const fam of data.families) {
+        const codes = kit.slotCodes(data, fam.id, prof.id);
+        codes.forEach((code, i) => {
+          const want = fam.id === 'full' ? `${fam.tiers[i].key}-${SUFFIX[prof.id]}` : fam.tiers[i].key;
+          if (code !== want) fail(`bundles: plan code ${code} should be ${want}`);
+        });
+        const html = kit.renderGrid(codes, defaults, ctx);
+        const label = `bundles ${fam.id} ${prof.id}/${fmt}`;
+        for (const card of html.split('<article ').slice(1)) {
+          const code = (card.match(/data-code="([^"]+)"/) || [])[1];
+          const keys = lineKeys(card);
+          const has = (k) => keys.includes(k);
+          if (!has('website_writing') || !has('website_speaking')) fail(`${label} ${code}: Writing and Speaking on our website must always be listed`);
+          if (fmt === 'computer' && (!has('website_listening') || !has('website_reading') || has('paper_resources') || has('handwritten_upload')))
+            fail(`${label} ${code}: Computer-Based shows the website Listening/Reading numbers and no paper-only lines`);
+          if (fmt === 'paper' && (has('website_listening') || has('website_reading') || !has('paper_resources') || !has('handwritten_upload')))
+            fail(`${label} ${code}: Paper-Based lists the handwritten upload and paper L/R resources, not website L/R exams`);
+          for (const m of card.matchAll(/<li data-key="website_[a-z]+">([\s\S]*?)<\/li>/g))
+            if (!/on our website/.test(m[1])) fail(`${label} ${code}: a website count line must say "on our website"`);
+          if (/no online|online listening or reading/i.test(card.replace(/<[^>]+>/g, ' '))) fail(`${label} ${code}: no negative "No online Listening or Reading" line`);
+          for (const kind of ['register', 'sign-in'])
+            if (!card.includes(`href="https://app.oetwithdrhesham.co.uk/${kind}?next=%2Fsubscriptions%3Fpackage%3D${code}%26profession%3D${prof.id}%26format%3D${fmt}"`)) fail(`${label} ${code}: ${kind} link must carry package, profession and format INSIDE next`);
+        }
+      }
+    }
+  }
+  if (/no online/i.test(readFileSync(path.join(ROOT, 'assets/js/oet-bundles.js'), 'utf8')) || /no online/i.test(JSON.stringify(data)))
+    fail('bundles: a negative "No online Listening or Reading" line must never be authored');
+
+  // live catalog contract (pure functions): overwrite by plan code, hide what is not on sale, ignore junk, never invent a card
+  {
+    const pick = (code, over = {}) => ({ code, family: 'full', tier: 2, profession: 'medicine', price: 170, accessMonths: 6, recommended: true, badge: 'Recommended', ...over });
+    const ok = kit.mergeLive(defaults, { catalogVersion: 'abc', families: [{ id: 'full', bundles: [pick('full-tutorbook-medicine', { price: 170 }), pick('full-practice-medicine', { price: 141, recommended: false, badge: null }), pick('does-not-exist', { price: 1 })] }] });
+    if (!ok || ok.bundles['full-tutorbook-medicine'].price !== 170 || ok.bundles['full-practice-medicine'].price !== 141) fail('bundles: a live catalog must overwrite price by plan code');
+    if (ok && (ok.bundles['ultimate-medicine'] !== null || ok.bundles['does-not-exist'] !== undefined)) fail('bundles: plans missing from a live catalog are hidden and unknown codes never create a card');
+    if (ok && ok.bundles['full-practice-medicine'].upgrades.map((u) => u.difference).join() !== '29') fail('bundles: live upgrade hints are derived from live prices for the plans on sale');
+    if (kit.mergeLive(defaults, {}) !== null || kit.mergeLive(defaults, { families: [{ bundles: [pick('full-tutorbook-medicine', { price: 'x' })] }] }) !== null || kit.mergeLive(defaults, null) !== null)
+      fail('bundles: an empty or malformed live catalog must leave the build-time defaults alone');
+  }
+
+  // pricing.html: the two top sections, one data blob, CTAs, JSON-LD offers, hero and nav links
+  const ph = distHtml['pricing.html'] || '';
+  for (const [id, fam] of [['full-oet-courses', 'full'], ['crash-courses', 'crash']]) {
+    if (!new RegExp(`<section id="${id}"[^>]*data-oet-bundles data-family="${fam}"[^>]*data-catalog="static"`).test(ph)) fail(`pricing.html: section #${id} must be a data-oet-bundles section starting as data-catalog="static"`);
+    if (!ph.includes(`name="oet-bundle-format-${fam}"`)) fail(`pricing.html: #${id} needs its own exam-format selector`);
+  }
+  if (!ph.includes('name="oet-bundle-profession-full"')) fail('pricing.html: the Full section needs the profession selector');
+  for (const label of ['Medicine', 'Nursing', 'Pharmacy', 'Physiotherapy', 'Modified Allied Health', 'Computer-Based', 'Paper-Based'])
+    if (!ph.includes(`<span>${label}</span></label>`)) fail(`pricing.html: selector option "${label}" missing`);
+  if (ph.indexOf('id="full-oet-courses"') > ph.indexOf('id="full-recorded-courses"')) fail('pricing.html: the new Full/Crash sections must sit above the existing catalogue');
+  for (const dest of ['#full-oet-courses', '#crash-courses'])
+    if (!new RegExp(`class="oet-bundle-herolink[^"]*" href="${dest}"`).test(ph) || !ph.includes(`<li><a href="${dest}">`)) fail(`pricing.html: hero shortcut and quick-nav link to ${dest} required`);
+  if ((ph.match(/<article class="oet-bundle-card/g) || []).length !== 6) fail('pricing.html: expected 6 default tier cards (3 Full for Medicine + 3 Crash)');
+  if ((ph.match(/data-bundle-stale hidden/g) || []).length !== 2) fail('pricing.html: each bundle section needs a hidden "live prices could not be loaded" note');
+  const blob = (ph.match(/<script type="application\/json" id="oet-bundles-data">([\s\S]*?)<\/script>/) || [])[1];
+  try { if (JSON.parse(blob).catalogUrl !== CATALOG_URL) fail('pricing.html: embedded bundle data has the wrong catalogUrl'); } catch { fail('pricing.html: embedded bundle data is missing or invalid JSON'); }
+  for (const t of tiers) {
+    const code = t.key.startsWith('crash') ? t.key : `${t.key}-medicine`;
+    const card = (ph.match(new RegExp(`<article class="oet-bundle-card[^"]*" data-code="${code}"[\\s\\S]*?</article>`)) || [''])[0];
+    if (!card) { fail(`pricing.html: no card for plan ${code}`); continue; }
+    if (!card.includes(`<strong data-field="price">&pound;${t.price}</strong>`)) fail(`pricing.html: ${code} must show GBP ${t.price}`);
+    if (!card.includes(`<h3>${t.name.replace(/&/g, '&amp;')}</h3>`) || !card.includes(t.description.replace(/&/g, '&amp;'))) fail(`pricing.html: ${code} name/description drifted from bundles.json`);
+    if (t.recommended !== card.includes('is-recommended')) fail(`pricing.html: ${code} Recommended badge mismatch`);
+    for (const kind of ['register', 'sign-in'])
+      if (!card.includes(`href="https://app.oetwithdrhesham.co.uk/${kind}?next=%2Fsubscriptions%3Fpackage%3D${code}%26profession%3Dmedicine%26format%3Dcomputer"`)) fail(`pricing.html: ${code} needs the ${kind} deep link with package, profession and format inside next`);
+    if (!card.includes(`data-oet-cta="bundle_${t.key}"`)) fail(`pricing.html: ${code} must keep the data-oet-cta analytics attribute`);
+    if (card.includes('TutorBook of Recalls') !== t.included.some((l) => l.key === 'tutorbook')) fail(`pricing.html: ${code} TutorBook line mismatch`);
+    // JSON-LD offer for the tier
+    const prod = nodesOfType(ldBlocks(ph), 'Product').find((p) => p.name === t.name && p.offers?.url?.endsWith(t.key.startsWith('crash') ? '#crash-courses' : '#full-oet-courses'));
+    if (!prod) fail(`pricing.html: JSON-LD Product missing for ${t.name}`);
+    else if (String(prod.offers.price) !== String(t.price) || prod.offers.priceCurrency !== 'GBP') fail(`pricing.html: JSON-LD offer for ${t.name} must be GBP ${t.price}`);
+  }
+  if (!ph.includes('No private Speaking session is included in these Crash tiers.')) fail('pricing.html: the Crash section must say "No private Speaking session is included in these Crash tiers."');
+  if (!ph.includes('<noscript>')) fail('pricing.html: the bundle sections need a no-JavaScript note');
+  if (!ph.includes('/assets/css/oet-bundles.css?v=') || !ph.includes('/assets/js/oet-bundles.js?v=')) fail('pricing.html: oet-bundles.css/js must be linked and hashed');
+
+  // course pages: the "Choose your course" block with the page's own profession, same data
+  for (const [page, prof] of [['oet-course-for-doctors.html', 'medicine'], ['oet-course-for-nurses.html', 'nursing'], ['oet-course-for-pharmacists.html', 'pharmacy'], ['oet-course-for-physiotherapists.html', 'physiotherapy'], ['oet-for-allied-health.html', 'other-allied-health']]) {
+    const h = distHtml[page] || '';
+    const sec = (h.match(/<section class="oet-resource-section oet-choose" id="choose-your-course"[\s\S]*?<\/section>/) || [''])[0];
+    if (!sec) { fail(`${page}: "Choose your course" block missing`); continue; }
+    if (!sec.includes(`data-oet-bundles-mini data-profession="${prof}" data-catalog="static"`)) fail(`${page}: block must be for ${prof} and start as data-catalog="static"`);
+    if (!sec.includes(`href="/pricing.html?profession=${prof}#full-oet-courses"`)) fail(`${page}: block must link /pricing.html?profession=${prof}#full-oet-courses`);
+    kit.slotCodes(data, 'full', prof).forEach((code, i) => {
+      if (!new RegExp(`data-code="${code}"[\\s\\S]*?<strong data-field="price">&pound;${tiers[i].price}</strong>`).test(sec)) fail(`${page}: ${code} must show GBP ${tiers[i].price}`);
+    });
+    if ((sec.match(/<article class="oet-choose-card/g) || []).length !== 3 || (sec.match(/is-recommended/g) || []).length !== 1) fail(`${page}: three Full tiers expected, the middle one Recommended`);
+    if (!h.includes('href="#sec-choose"')) fail(`${page}: the on-page contents must link the Choose your course block`);
+    if (!h.includes('/assets/css/oet-bundles.css?v=') || !h.includes('/assets/js/oet-bundles.js?v=')) fail(`${page}: oet-bundles.css/js must be linked and hashed`);
+    if (!h.includes('id="oet-bundles-data"')) fail(`${page}: embedded bundle data missing`);
+  }
+  if (!(distHtml['oet-for-allied-health.html'] || '').includes('Radiography, Optometry, Veterinary Science')) fail('oet-for-allied-health.html: the Modified Allied Health block must say who it covers');
+
+  // TutorBook is 10 recall-based exams, never 8, on every page (English and Arabic)
+  for (const [page, h] of Object.entries(distHtml)) {
+    if (/\b8 full\b|\beight full\b|ثمانية امتحانات/i.test(h.replace(/<script type="application\/json"[\s\S]*?<\/script>/g, ''))) fail(`${page}: TutorBook is 10 full recall-based exams (found the old 8-exam wording)`);
+  }
+  if (!ph.includes('10 full recall-based exams')) fail('pricing.html: TutorBook must read "10 full recall-based exams"');
+
+  // CSP lets the browser reach the catalog origin
+  const htaccess = readFileSync(path.join(ROOT, '.htaccess'), 'utf8');
+  const connect = (htaccess.match(/Content-Security-Policy "[^"]*connect-src ([^;"]*)/) || [, ''])[1].split(/\s+/);
+  if (!connect.includes(new URL(CATALOG_URL).origin)) fail('.htaccess: CSP connect-src must allow https://api.oetwithdrhesham.co.uk (live catalog refresh)');
 }
 
 // 2026-10 redesign brief: navigation, footer, OET Blog and SEO quality gates
