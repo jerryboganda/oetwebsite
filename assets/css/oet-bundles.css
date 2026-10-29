@@ -434,3 +434,6 @@
 }
 .oet-classic-link:hover,
 .oet-classic-link:focus-visible { color: #3b2a99; }
+
+/* Final v4 brief: no "Package NN" numbering on pricing cards (the kicker stays in the markup because the price injector keys on it). */
+.oet-pricing-card > .oet-card-kicker { display: none; }
