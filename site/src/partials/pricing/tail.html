@@ -39,6 +39,7 @@
                 updateOnImagesReady: true,
                 observer: true,
                 observeParents: true,
+                keyboard: { enabled: true, onlyInViewport: true },
                 autoplay: reduceMotion ? false : {
                     delay: 3000,
                     disableOnInteraction: false,
@@ -59,6 +60,13 @@
             });
             slider.addEventListener('mouseleave', function () {
                 if (heroSwiper.autoplay && !reduceMotion) heroSwiper.autoplay.start();
+            });
+            // keyboard and screen-reader users: focus inside the slider (a poster link, an arrow, a dot) pauses autoplay too
+            slider.addEventListener('focusin', function () {
+                if (heroSwiper.autoplay) heroSwiper.autoplay.stop();
+            });
+            slider.addEventListener('focusout', function () {
+                if (heroSwiper.autoplay && !reduceMotion && !slider.matches(':hover')) heroSwiper.autoplay.start();
             });
         });
     </script>

@@ -56,8 +56,32 @@ partials/data and rebuild.**
   for this; the API must send CORS for `https://oetwithdrhesham.co.uk`. CTAs deep-link `app…/register?next=%2Fsubscriptions%3Fpackage%3D<code>%26profession%3D<id>%26format%3D<computer|paper>`
   (the choice travels INSIDE `next`, encoded once, because the app's register/sign-in keep only `next`; `/sign-in?next=...` is the twin;
   `data-oet-cta="bundle_<key>"`). Deep link into the page: `/pricing.html?profession=<id>&format=<id>#full-oet-courses`.
-  Rules baked in: Paper never shows a negative "No online Listening or Reading" line, every website count says "on our website",
-  TutorBook is **10 full recall-based exams** everywhere (EN + AR), the legacy packages stay untouched below.
+  Rules baked in: Paper never shows a negative "No online Listening or Reading" line, TutorBook is **10 full recall-based exams**
+  everywhere (EN + AR), the legacy packages keep every price/plan code (only the Classic labels below were added).
+  **Final v4 pricing brief (owner, 29 Oct 2026; supersedes the 28 Oct / 29 Oct addendum behaviour):**
+  - Names: Full OET Course (`full-practice`, 140), **Complete OET Bundle** (`full-tutorbook`, 165, the Recommended one),
+    Ultimate OET Course (`ultimate`, 220); Crash: Full Crash Essential (75), Full Crash + Personal Feedback (100), Full Crash +
+    TutorBook (125, Recommended). Plan codes, prices, access months and counts never change with a rename.
+  - **The Basic English Course is a free gift ONLY with Ultimate** (not the 165 tier, not in any 165 description or line, EN or AR).
+    It stays purchasable standalone at its own price.
+  - Descriptions in `bundles.json` are plain text where `**x**` marks the benefit phrases that render bold. `rich()` in
+    `assets/js/oet-bundles.js` (escape first, then `\*\*(.+?)\*\*` -> `<strong>`, a stray `**` is dropped) renders them at build time
+    AND for live API descriptions (the API sends the same markers); JSON-LD descriptions strip the markers.
+  - Included lines: counts stay bold in front; `personal_letters`, `private_session`, `tutorbook`, `basic_english`, `sami` carry
+    `class="is-human"` (bold weight) so personal human service reads differently from the website assessments, which are labelled
+    "Website ..." and never presented as human-marked. Every card has a Practice chip: "Unlimited Website Practice" when a `website_*`
+    line is `unlimited` (Ultimate), else "Website Practice Included". Each card is `id="bundle-<key>"` + `data-key` (poster target).
+  - Hero posters: the first three slides of the pricing hero slider AND of the homepage promo popup are the owner's real posters
+    (Ultimate 220, Complete OET Bundle 165, Full OET Course 140) in `assets/img/promotional-banners/poster-<ultimate|complete|full>-
+    <wide|portrait>-<w>.webp` (`<picture>` with a `(max-width: 639px)` portrait source), then banners promo-01..20 unchanged in order.
+    Each poster links `/pricing.html#bundle-<key>`; `main.js` scrolls (header offset) and `oet-bundles.js` moves focus to the card of the
+    CURRENT profession/format selection and marks it (a plan hidden by the live catalog lands on `#full-oet-courses`). Prices are
+    printed on the posters: never change a banner price without replacing the image. Five older banners contain the text "AI" in
+    their artwork (known; replace the art, not the code).
+  - Classic (legacy) recorded Full/Crash cards (Packages 01-06, 08, 10-12 on `pricing.html`) carry the chip "Course + Personal
+    Support", the line "Additional Website Practice Exams Not Included" and a link to `#ai-grading-packages` (the website practice
+    packages). Never touch legacy prices, offers or plan codes here (owner-controlled).
+  - The profession + Paper/Computer selector is the ONLY filter for the Full/Crash tiers (no discipline chip row exists or may return).
 - `site/scripts/postbuild.mjs` — after `astro build`: appends content-hash
   `?v=` to asset URLs, gives bare `wa.me` links a plain default prefill (never
   `[page: …]` labels: the source page is tracked by `oet-analytics.js`), generates
@@ -68,8 +92,10 @@ partials/data and rebuild.**
   H1 per page, WhatsApp prefills without `[page: …]` labels, the pricing
   app-first CTAs (`register?next=/subscriptions` and `?next=/companion`, no
   WhatsApp in the mobile sticky bar), FAQ JSON-LD visible verbatim on the page.
-  Also: the bundle tiers (prices, plan codes, format rules for every profession x format, live-merge contract, CTA deep links, JSON-LD
-  offers, the course-page blocks, "10 full recall-based exams", CSP connect-src), and every `fa-*` icon must exist in `assets/css/oet-icons.css` (the icon font is
+  Also: the bundle tiers (prices, plan codes, v4 names and verbatim descriptions, Basic English on Ultimate only, line labels + bold
+  human lines, Practice chips, `**` renderer incl. live descriptions, format rules for every profession x format, live-merge contract,
+  CTA deep links, JSON-LD offers, the course-page blocks, the three hero posters first (pricing slider + homepage popup, picture/portrait
+  sources, banners 01-20 after them in order), the Classic labels, "10 full recall-based exams", CSP connect-src), and every `fa-*` icon must exist in `assets/css/oet-icons.css` (the icon font is
   subset — unknown icons render blank), and the score-calculator logic in
   `assets/js/oet-score-calculator.js` (regulator minimums — keep in sync with
   `oet-score-requirements.html` when a regulator changes its rules).

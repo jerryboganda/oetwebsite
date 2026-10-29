@@ -1,5 +1,5 @@
 {
-  "_comment": "Build-time defaults for the Full OET Course and Full Crash Course tiers (owner brief 28 Oct 2026; contract: docs/FULL-CRASH-BUNDLES-2026-10-29.md in the web app repo). Single source for pricing.html, the profession course pages and the JSON-LD offers. In the browser, assets/js/oet-bundles.js refreshes price, access, counts, badges and upgrade hints from catalogUrl by plan code and falls back to these values (data-catalog=static) when the request fails. Checkout re-prices on the server. A plan code is key + '-' + profession suffix for per-profession families and just key for the rest.",
+  "_comment": "Build-time defaults for the Full OET Course and Full Crash Course tiers (owner brief 28 Oct 2026, final v4 pricing brief 29 Oct 2026; contract: docs/FULL-CRASH-BUNDLES-2026-10-29.md in the web app repo). Single source for pricing.html, the profession course pages and the JSON-LD offers. In the browser, assets/js/oet-bundles.js refreshes price, access, counts, badges, names, descriptions and upgrade hints from catalogUrl by plan code and falls back to these values (data-catalog=static) when the request fails. Descriptions are plain text where **x** marks the benefit phrases that render bold (the same renderer runs at build time and in the browser). The Basic English Course is a free gift ONLY with Ultimate. Checkout re-prices on the server. A plan code is key + '-' + profession suffix for per-profession families and just key for the rest.",
   "catalogUrl": "https://api.oetwithdrhesham.co.uk/v1/catalog/bundles",
   "currency": "GBP",
   "professions": [
@@ -20,12 +20,12 @@
   ],
   "lines": {
     "course": { "label": "Full recorded course, videos & study materials" },
-    "personal_letters": { "label": "Personal Writing Letter Assessments", "detail": "Corrected by Dr Ahmed Hesham" },
-    "private_session": { "label": "Private Speaking Session", "detail": "With an expert tutor" },
-    "website_writing": { "label": "Writing Assessments on our website" },
-    "website_speaking": { "label": "Speaking Cards on our website" },
-    "website_listening": { "label": "Listening Exams on our website", "detail": "Computer-Based", "formats": ["computer"] },
-    "website_reading": { "label": "Reading Exams on our website", "detail": "Computer-Based", "formats": ["computer"] },
+    "personal_letters": { "label": "Personal Writing Letters", "detail": "Personally assessed by Dr Ahmed Hesham" },
+    "private_session": { "label": "Private Speaking Session with an Expert Tutor" },
+    "website_writing": { "label": "Website Writing Assessments" },
+    "website_speaking": { "label": "Website Speaking Cards", "detail": "Live Virtual Patient Speaking Practice" },
+    "website_listening": { "label": "Website Listening Exams", "detail": "Computer-Based", "formats": ["computer"] },
+    "website_reading": { "label": "Website Reading Exams", "detail": "Computer-Based", "formats": ["computer"] },
     "paper_resources": {
       "label": "Paper-oriented Listening & Reading resources",
       "detail": "Recorded lessons, study materials and printable preparation",
@@ -51,13 +51,13 @@
       "tiers": [
         {
           "key": "full-practice",
-          "name": "Full Course + Practice",
+          "name": "Full OET Course",
           "price": 140,
           "accessMonths": 6,
           "recommended": false,
           "badge": null,
           "tutorBookPermanent": false,
-          "description": "A complete recorded OET course with 5 personal Writing Letter Assessments, 1 private Speaking session, plus Writing and Speaking practice on our website.",
+          "description": "A complete recorded OET course with **5 personal Writing letters by Dr Ahmed Hesham**, **1 private Speaking session with an Expert Tutor** and **website practice** (Writing, Speaking and, for Computer-Based candidates, Listening and Reading exams).",
           "included": [
             { "key": "course" },
             { "key": "personal_letters", "value": 5 },
@@ -72,13 +72,13 @@
         },
         {
           "key": "full-tutorbook",
-          "name": "Full Course + TutorBook",
+          "name": "Complete OET Bundle",
           "price": 165,
           "accessMonths": 6,
           "recommended": true,
           "badge": "Recommended",
           "tutorBookPermanent": true,
-          "description": "Everything in the Full Course + Website Practice, plus the 2026 TutorBook of Recalls with 10 full recall-based exams, model answers and permanent updates.",
+          "description": "Everything in the Full OET Course, plus the **2026 TutorBook of Recalls** with **10 full recall-based exams**, model answers and **permanent updates**.",
           "included": [
             { "key": "course" },
             { "key": "personal_letters", "value": 5 },
@@ -89,8 +89,7 @@
             { "key": "website_reading", "value": 12 },
             { "key": "paper_resources" },
             { "key": "handwritten_upload" },
-            { "key": "tutorbook" },
-            { "key": "basic_english" }
+            { "key": "tutorbook" }
           ]
         },
         {
@@ -101,7 +100,7 @@
           "recommended": false,
           "badge": null,
           "tutorBookPermanent": true,
-          "description": "Everything in the Full Course + TutorBook, plus unlimited eligible website practice and SAMI 24/7 for 12 months.",
+          "description": "Everything in the Complete OET Bundle, plus **unlimited eligible website practice**, the **Basic English Course as a free gift** and **SAMI 24/7** for **12 months**.",
           "included": [
             { "key": "course" },
             { "key": "personal_letters", "value": 5 },
@@ -126,13 +125,13 @@
       "tiers": [
         {
           "key": "crash-essential",
-          "name": "Crash Essential",
+          "name": "Full Crash Essential",
           "price": 75,
           "accessMonths": 6,
           "recommended": false,
           "badge": null,
           "tutorBookPermanent": false,
-          "description": "Full Recorded Crash Course + Website Practice",
+          "description": "Full recorded Crash Course plus **website practice**: 4 Writing assessments, 4 Speaking Cards and, for Computer-Based candidates, 6 Listening and 6 Reading exams.",
           "included": [
             { "key": "course", "label": "Full recorded Crash Course + materials" },
             { "key": "website_writing", "value": 4 },
@@ -145,13 +144,13 @@
         },
         {
           "key": "crash-letters",
-          "name": "Crash + 5 Letters",
+          "name": "Full Crash + Personal Feedback",
           "price": 100,
           "accessMonths": 6,
           "recommended": false,
           "badge": null,
           "tutorBookPermanent": false,
-          "description": "Everything in Crash Essential, PLUS 5 Personal Writing Letter Assessments by Dr Ahmed Hesham",
+          "description": "Everything in Full Crash Essential, PLUS **5 personal Writing letters assessed by Dr Ahmed Hesham**.",
           "included": [
             { "key": "course", "label": "Full recorded Crash Course + materials" },
             { "key": "personal_letters", "value": 5 },
@@ -165,13 +164,13 @@
         },
         {
           "key": "crash-complete",
-          "name": "Crash + TutorBook",
+          "name": "Full Crash + TutorBook",
           "price": 125,
           "accessMonths": 6,
           "recommended": true,
           "badge": "Recommended",
           "tutorBookPermanent": true,
-          "description": "Everything in Crash + Personal Feedback, PLUS the 2026 TutorBook of Recalls with 10 full exams",
+          "description": "Everything in Full Crash + Personal Feedback, PLUS the **2026 TutorBook of Recalls** with **10 full recall-based exams**.",
           "included": [
             { "key": "course", "label": "Full recorded Crash Course + materials" },
             { "key": "personal_letters", "value": 5 },

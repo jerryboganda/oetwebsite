@@ -284,13 +284,23 @@ if (distHtml['pricing.html']) {
   if (!existsSync(pricingImage)) fail('pricing: schema image asset missing on disk: assets/img/og/og-pricing.png');
 }
 
-// Full OET Course and Full Crash Course bundles (owner brief 28 Oct 2026; contract docs/FULL-CRASH-BUNDLES-2026-10-29.md in
+// Full OET Course and Full Crash Course bundles (owner brief 28 Oct 2026 + final v4 pricing brief 29 Oct 2026; contract docs/FULL-CRASH-BUNDLES-2026-10-29.md in
 // the web app repo): pricing.html top sections, the profession course pages' "Choose your course" block, one price source
 // (src/data/bundles.json), the format rules, the live-catalog contract and TutorBook = 10 recall-based exams everywhere.
 {
   const { loadBundles } = await import('../src/lib/bundles.mjs');
   const { data, kit, defaults } = loadBundles();
   const PRICES = { 'full-practice': 140, 'full-tutorbook': 165, ultimate: 220, 'crash-essential': 75, 'crash-letters': 100, 'crash-complete': 125 };
+  const NAMES = { 'full-practice': 'Full OET Course', 'full-tutorbook': 'Complete OET Bundle', ultimate: 'Ultimate OET Course', 'crash-essential': 'Full Crash Essential', 'crash-letters': 'Full Crash + Personal Feedback', 'crash-complete': 'Full Crash + TutorBook' };
+  // owner v4 (29 Oct 2026): the exact default descriptions; **x** marks the benefit phrases that render bold
+  const DESCRIPTIONS = {
+    'full-practice': 'A complete recorded OET course with **5 personal Writing letters by Dr Ahmed Hesham**, **1 private Speaking session with an Expert Tutor** and **website practice** (Writing, Speaking and, for Computer-Based candidates, Listening and Reading exams).',
+    'full-tutorbook': 'Everything in the Full OET Course, plus the **2026 TutorBook of Recalls** with **10 full recall-based exams**, model answers and **permanent updates**.',
+    ultimate: 'Everything in the Complete OET Bundle, plus **unlimited eligible website practice**, the **Basic English Course as a free gift** and **SAMI 24/7** for **12 months**.',
+    'crash-essential': 'Full recorded Crash Course plus **website practice**: 4 Writing assessments, 4 Speaking Cards and, for Computer-Based candidates, 6 Listening and 6 Reading exams.',
+    'crash-letters': 'Everything in Full Crash Essential, PLUS **5 personal Writing letters assessed by Dr Ahmed Hesham**.',
+    'crash-complete': 'Everything in Full Crash + Personal Feedback, PLUS the **2026 TutorBook of Recalls** with **10 full recall-based exams**.',
+  };
   const MONTHS = { 'full-practice': 6, 'full-tutorbook': 6, ultimate: 12, 'crash-essential': 6, 'crash-letters': 6, 'crash-complete': 6 };
   const SUFFIX = { medicine: 'medicine', nursing: 'nursing', pharmacy: 'pharmacy', physiotherapy: 'physiotherapy', 'other-allied-health': 'allied-health' };
   const CATALOG_URL = 'https://api.oetwithdrhesham.co.uk/v1/catalog/bundles';
@@ -301,9 +311,12 @@ if (distHtml['pricing.html']) {
   for (const t of tiers) {
     if (t.price !== PRICES[t.key]) fail(`bundles.json: ${t.key} must cost GBP ${PRICES[t.key]}`);
     if (t.accessMonths !== MONTHS[t.key]) fail(`bundles.json: ${t.key} must give ${MONTHS[t.key]} months of access`);
-    if (t.recommended !== (t.key === 'full-tutorbook' || t.key === 'crash-complete')) fail(`bundles.json: only Full Course + TutorBook and Crash + TutorBook are Recommended (${t.key})`);
+    if (t.recommended !== (t.key === 'full-tutorbook' || t.key === 'crash-complete')) fail(`bundles.json: only Complete OET Bundle and Full Crash + TutorBook are Recommended (${t.key})`);
+    if (t.name !== NAMES[t.key]) fail(`bundles.json: ${t.key} must be named "${NAMES[t.key]}" (owner v4), found "${t.name}"`);
+    if (t.description !== DESCRIPTIONS[t.key]) fail(`bundles.json: ${t.key} description must be the owner v4 text verbatim, **markers** included`);
+    if (/\bAI\b/.test(t.name + ' ' + t.description)) fail(`bundles.json: ${t.key} must not use the term "AI" in customer-facing text`);
     if (t.recommended && t.badge !== 'Recommended') fail(`bundles.json: ${t.key} must carry the Recommended badge`);
-    if (/<|>/.test(t.description)) fail(`bundles.json: ${t.key} has markup in its description`);
+    if (/<|>/.test(t.description) || (t.description.match(/\*\*/g) || []).length % 2) fail(`bundles.json: ${t.key} has markup or an unbalanced ** marker in its description`);
   }
   if (data.professions.map((p) => p.id).join() !== Object.keys(SUFFIX).join() || data.professions.some((p) => p.suffix !== SUFFIX[p.id]))
     fail('bundles.json: professions must be medicine, nursing, pharmacy, physiotherapy, other-allied-health (Modified Allied Health)');
@@ -319,22 +332,27 @@ if (distHtml['pricing.html']) {
     fail('bundles: upgrade differences must be 25/80 (Full 140) and 25/50 (Crash 75)');
 
   // included lines: the API's order (course, personal_letters, private_session, website_*, paper_*, tutorbook, basic_english, sami);
-  // Basic English is a free gift in Full Course + TutorBook (owner addendum 29 Oct 2026) and Ultimate only; SAMI is Ultimate only
+  // Basic English is a free gift ONLY with Ultimate (final v4 brief 29 Oct 2026: removed from the GBP 165 Complete OET Bundle); SAMI is Ultimate only.
+  // The v4 labels, the bold human lines and the Practice chip are asserted here too.
   {
     const ORDER = ['course', 'personal_letters', 'private_session', 'website_writing', 'website_speaking', 'website_listening', 'website_reading', 'paper_resources', 'handwritten_upload', 'tutorbook', 'basic_english', 'sami'];
     for (const b of Object.values(defaults)) {
       const keys = b.included.map((l) => l.key);
       if (keys.some((k, i) => ORDER.indexOf(k) < 0 || (i && ORDER.indexOf(k) <= ORDER.indexOf(keys[i - 1])))) fail(`bundles: ${b.code} lines are not in the catalog order (${keys.join(',')})`);
-      if (keys.includes('basic_english') !== (b.key === 'full-tutorbook' || b.key === 'ultimate')) fail(`bundles: ${b.code}: Basic English Course (gift) belongs to Full Course + TutorBook and Ultimate only`);
+      if (keys.includes('basic_english') !== (b.key === 'ultimate')) fail(`bundles: ${b.code}: the Basic English Course (gift) belongs to Ultimate ONLY`);
       if (keys.includes('sami') !== (b.key === 'ultimate')) fail(`bundles: ${b.code}: SAMI 24/7 is Ultimate only`);
       const be = b.included.find((l) => l.key === 'basic_english');
+      const V4 = { personal_letters: ['Personal Writing Letters', 'Personally assessed by Dr Ahmed Hesham'], private_session: ['Private Speaking Session with an Expert Tutor', null], website_writing: ['Website Writing Assessments', null], website_speaking: ['Website Speaking Cards', 'Live Virtual Patient Speaking Practice'], website_listening: ['Website Listening Exams', 'Computer-Based'], website_reading: ['Website Reading Exams', 'Computer-Based'] };
+      for (const l of b.included) if (V4[l.key] && (l.label !== V4[l.key][0] || l.detail !== V4[l.key][1])) fail(`bundles: ${b.code}: line ${l.key} must read "${V4[l.key][0]}"${V4[l.key][1] ? ` with detail "${V4[l.key][1]}"` : ' with no detail'}`);
+      for (const l of b.included) if (/\bAI\b/.test(`${l.label} ${l.detail || ''}`)) fail(`bundles: ${b.code}: line ${l.key} must not use the term "AI"`);
+      if (b.key !== 'ultimate' && /basic english/i.test(b.description)) fail(`bundles: ${b.code}: only Ultimate may mention the Basic English gift`);
       if (be && (be.label !== 'Basic English Course (gift)' || be.value !== null || be.formats.join() !== 'computer,paper')) fail(`bundles: ${b.code}: basic_english must read "Basic English Course (gift)", carry no value and show for both formats`);
     }
   }
 
   // format rules, every profession x format: computer = website L/R numbers, paper = W/S + handwritten upload + paper L/R
   // resources, never a negative "No online Listening or Reading" line, every website count says "on our website"
-  const lineKeys = (html) => [...html.matchAll(/<li data-key="([a-z_]+)">/g)].map((m) => m[1]);
+  const lineKeys = (html) => [...html.matchAll(/<li data-key="([a-z_]+)"[^>]*>/g)].map((m) => m[1]);
   for (const prof of data.professions) {
     for (const fmt of ['computer', 'paper']) {
       const ctx = kit.makeCtx(data, prof.id, fmt);
@@ -351,14 +369,24 @@ if (distHtml['pricing.html']) {
           const keys = lineKeys(card);
           const has = (k) => keys.includes(k);
           if (!has('website_writing') || !has('website_speaking')) fail(`${label} ${code}: Writing and Speaking on our website must always be listed`);
-          if (has('basic_english') !== /^(full-tutorbook|ultimate)-/.test(code)) fail(`${label} ${code}: Basic English Course (gift) is shown on Full Course + TutorBook and Ultimate only, in both formats`);
+          if (has('basic_english') !== /^ultimate-/.test(code)) fail(`${label} ${code}: the Basic English Course (gift) is shown on Ultimate only, in both formats`);
+          // personal human service is bold weight (is-human); website assessments are not
+          for (const m of card.matchAll(/<li data-key="([a-z_]+)"([^>]*)>/g)) {
+            const human = /^(personal_letters|private_session|tutorbook|basic_english|sami)$/.test(m[1]);
+            if (human !== /class="is-human"/.test(m[2])) fail(`${label} ${code}: line ${m[1]} ${human ? 'must' : 'must not'} carry the is-human (bold) class`);
+          }
+          // Practice chip on every card: Unlimited Website Practice when a website_* line is unlimited (Ultimate), else Website Practice Included
+          if (!card.includes(`<li class="is-practice">${/^ultimate-/.test(code) ? 'Unlimited Website Practice' : 'Website Practice Included'}</li>`)) fail(`${label} ${code}: wrong or missing Practice chip`);
+          if (!card.includes('<h3>' + NAMES[code.replace(/-(medicine|nursing|pharmacy|physiotherapy|allied-health)$/, '')].replace(/&/g, '&amp;') + '</h3>')) fail(`${label} ${code}: card must carry the v4 tier name`);
           if (fmt === 'computer' && (!has('website_listening') || !has('website_reading') || has('paper_resources') || has('handwritten_upload')))
             fail(`${label} ${code}: Computer-Based shows the website Listening/Reading numbers and no paper-only lines`);
           if (fmt === 'paper' && (has('website_listening') || has('website_reading') || !has('paper_resources') || !has('handwritten_upload')))
             fail(`${label} ${code}: Paper-Based lists the handwritten upload and paper L/R resources, not website L/R exams`);
-          for (const m of card.matchAll(/<li data-key="website_[a-z]+">([\s\S]*?)<\/li>/g))
-            if (!/on our website/.test(m[1])) fail(`${label} ${code}: a website count line must say "on our website"`);
+          for (const m of card.matchAll(/<li data-key="website_[a-z]+"[^>]*>([\s\S]*?)<\/li>/g))
+            if (!/^<span class="oet-bundle-line">(<b>[^<]+<\/b> )?Website /.test(m[1])) fail(`${label} ${code}: a website count line must say "Website ..." (website assessments are never presented as human-marked)`);
           if (/no online|online listening or reading/i.test(card.replace(/<[^>]+>/g, ' '))) fail(`${label} ${code}: no negative "No online Listening or Reading" line`);
+          if (/\bAI\b/.test(card.replace(/<[^>]+>/g, ' '))) fail(`${label} ${code}: the term "AI" must not appear on a card`);
+          if (/\*\*/.test(card)) fail(`${label} ${code}: a raw ** marker leaked into a card`);
           for (const kind of ['register', 'sign-in'])
             if (!card.includes(`href="https://app.oetwithdrhesham.co.uk/${kind}?next=%2Fsubscriptions%3Fpackage%3D${code}%26profession%3D${prof.id}%26format%3D${fmt}"`)) fail(`${label} ${code}: ${kind} link must carry package, profession and format INSIDE next`);
         }
@@ -375,6 +403,14 @@ if (distHtml['pricing.html']) {
     if (!ok || ok.bundles['full-tutorbook-medicine'].price !== 170 || ok.bundles['full-practice-medicine'].price !== 141) fail('bundles: a live catalog must overwrite price by plan code');
     if (ok && (ok.bundles['ultimate-medicine'] !== null || ok.bundles['does-not-exist'] !== undefined)) fail('bundles: plans missing from a live catalog are hidden and unknown codes never create a card');
     if (ok && ok.bundles['full-practice-medicine'].upgrades.map((u) => u.difference).join() !== '29') fail('bundles: live upgrade hints are derived from live prices for the plans on sale');
+    // the live description (same ** markers as the defaults) goes through the same renderer: bold phrases, never markup
+    const rich = ok && kit.mergeLive(defaults, { families: [{ bundles: [pick('full-tutorbook-medicine', { description: 'Plus **permanent updates** <b>x</b> & more **' })] }] });
+    if (kit.rich('A **bold** and <i>raw</i> & **x**') !== 'A <strong>bold</strong> and &lt;i&gt;raw&lt;/i&gt; &amp; <strong>x</strong>') fail('bundles: rich() must escape first, then turn **x** into <strong>x</strong>');
+    if (kit.rich('stray ** marker') !== 'stray  marker') fail('bundles: rich() must drop an unmatched ** marker');
+    if (rich) {
+      const html = kit.renderCard(rich.bundles['full-tutorbook-medicine'], kit.makeCtx(data, 'medicine', 'computer'));
+      if (!html.includes('<strong>permanent updates</strong> &lt;b&gt;x&lt;/b&gt; &amp; more') || html.includes('<b>x</b>')) fail('bundles: a live description must render ** as bold and escape any markup through the same renderer');
+    }
     if (kit.mergeLive(defaults, {}) !== null || kit.mergeLive(defaults, { families: [{ bundles: [pick('full-tutorbook-medicine', { price: 'x' })] }] }) !== null || kit.mergeLive(defaults, null) !== null)
       fail('bundles: an empty or malformed live catalog must leave the build-time defaults alone');
   }
@@ -397,18 +433,19 @@ if (distHtml['pricing.html']) {
   try { if (JSON.parse(blob).catalogUrl !== CATALOG_URL) fail('pricing.html: embedded bundle data has the wrong catalogUrl'); } catch { fail('pricing.html: embedded bundle data is missing or invalid JSON'); }
   for (const t of tiers) {
     const code = t.key.startsWith('crash') ? t.key : `${t.key}-medicine`;
-    const card = (ph.match(new RegExp(`<article class="oet-bundle-card[^"]*" data-code="${code}"[\\s\\S]*?</article>`)) || [''])[0];
+    const card = (ph.match(new RegExp(`<article class="oet-bundle-card[^"]*" id="bundle-${t.key}" data-key="${t.key}" data-code="${code}"[\\s\\S]*?</article>`)) || [''])[0];
     if (!card) { fail(`pricing.html: no card for plan ${code}`); continue; }
     if (!card.includes(`<strong data-field="price">&pound;${t.price}</strong>`)) fail(`pricing.html: ${code} must show GBP ${t.price}`);
-    if (!card.includes(`<h3>${t.name.replace(/&/g, '&amp;')}</h3>`) || !card.includes(t.description.replace(/&/g, '&amp;'))) fail(`pricing.html: ${code} name/description drifted from bundles.json`);
+    if (!card.includes(`<h3>${t.name.replace(/&/g, '&amp;')}</h3>`) || !card.includes(`<p class="oet-bundle-desc">${kit.rich(t.description)}</p>`)) fail(`pricing.html: ${code} name/description drifted from bundles.json`);
     if (t.recommended !== card.includes('is-recommended')) fail(`pricing.html: ${code} Recommended badge mismatch`);
     for (const kind of ['register', 'sign-in'])
       if (!card.includes(`href="https://app.oetwithdrhesham.co.uk/${kind}?next=%2Fsubscriptions%3Fpackage%3D${code}%26profession%3Dmedicine%26format%3Dcomputer"`)) fail(`pricing.html: ${code} needs the ${kind} deep link with package, profession and format inside next`);
     if (!card.includes(`data-oet-cta="bundle_${t.key}"`)) fail(`pricing.html: ${code} must keep the data-oet-cta analytics attribute`);
     if (card.includes('TutorBook of Recalls') !== t.included.some((l) => l.key === 'tutorbook')) fail(`pricing.html: ${code} TutorBook line mismatch`);
-    if (card.includes('Basic English Course (gift)') !== t.included.some((l) => l.key === 'basic_english')) fail(`pricing.html: ${code} Basic English gift line mismatch`);
+    if (card.includes('Basic English Course (gift)') !== (t.key === 'ultimate')) fail(`pricing.html: ${code} Basic English gift line belongs to Ultimate only`);
     // JSON-LD offer for the tier
     const prod = nodesOfType(ldBlocks(ph), 'Product').find((p) => p.name === t.name && p.offers?.url?.endsWith(t.key.startsWith('crash') ? '#crash-courses' : '#full-oet-courses'));
+    if (prod && /\*\*/.test(prod.description || '')) fail(`pricing.html: JSON-LD description for ${t.name} must not carry ** markers`);
     if (!prod) fail(`pricing.html: JSON-LD Product missing for ${t.name}`);
     else if (String(prod.offers.price) !== String(t.price) || prod.offers.priceCurrency !== 'GBP') fail(`pricing.html: JSON-LD offer for ${t.name} must be GBP ${t.price}`);
   }
@@ -438,6 +475,75 @@ if (distHtml['pricing.html']) {
     if (/\b8 full\b|\beight full\b|ثمانية امتحانات/i.test(h.replace(/<script type="application\/json"[\s\S]*?<\/script>/g, ''))) fail(`${page}: TutorBook is 10 full recall-based exams (found the old 8-exam wording)`);
   }
   if (!ph.includes('10 full recall-based exams')) fail('pricing.html: TutorBook must read "10 full recall-based exams"');
+
+  // ---- final v4 pricing brief (29 Oct 2026) ----
+  // every tier card is a stable poster target (#bundle-<key>) and carries its Practice chip
+  for (const t of tiers) {
+    const code = t.key.startsWith('crash') ? t.key : t.key + '-medicine';
+    const card = (ph.match(new RegExp('<article class="oet-bundle-card[^"]*" id="bundle-' + t.key + '" data-key="' + t.key + '" data-code="' + code + '"[\\s\\S]*?</article>')) || [''])[0];
+    if (!card) fail('pricing.html: card for ' + code + ' must carry id="bundle-' + t.key + '" and data-key (the hero poster target)');
+    if (card && !card.includes('<li class="is-practice">' + (t.key === 'ultimate' ? 'Unlimited Website Practice' : 'Website Practice Included') + '</li>')) fail('pricing.html: ' + code + ' needs its Practice chip');
+  }
+
+  // hero slider: the owner's three real posters FIRST (Ultimate GBP 220, Complete OET Bundle GBP 165, Full OET Course GBP 140), then
+  // every existing banner promo-01..20 in its current order; each poster is a whole-poster link with a portrait <picture> source for phones
+  {
+    const POSTERS = [['ultimate', 'ultimate', 'Ultimate OET Course, GBP 220'], ['complete', 'full-tutorbook', 'Complete OET Bundle, GBP 165'], ['full', 'full-practice', 'Full OET Course, GBP 140']];
+    const slidesOf = (html, opener) => {
+      const at = html.indexOf(opener);
+      if (at < 0) return [];
+      const end = html.indexOf('</button>', at); // the slider's prev/next buttons follow the slides
+      return html.slice(at, end < 0 ? undefined : end).split('<div class="swiper-slide">').slice(1);
+    };
+    const checkPosters = (page, slides, hrefOf) => {
+      if (slides.length !== 23) fail(page + ': hero/popup slider must hold the 3 posters + 20 existing banners (found ' + slides.length + ')');
+      POSTERS.forEach(([file, key, alt], i) => {
+        const sl = slides[i] || '';
+        const wide = 'poster-' + file + '-wide-1920.webp';
+        const port = 'poster-' + file + '-portrait-1080.webp';
+        if (!sl.includes('href="' + hrefOf(key) + '"')) fail(page + ': slide ' + (i + 1) + ' must link ' + hrefOf(key));
+        if (!/<picture><source media="\(max-width: 639px\)"[^>]*srcset="[^"]*poster-/.test(sl) || !sl.includes(port)) fail(page + ': slide ' + (i + 1) + ' needs a portrait (max-width: 639px) <picture> source for phones');
+        if (!sl.includes('src="/assets/img/promotional-banners/' + wide + '"') || !sl.includes('alt="' + alt + '"')) fail(page + ': slide ' + (i + 1) + ' must be the ' + alt + ' poster with that alt text');
+        for (const n of [540, 1080]) if (!existsSync(path.join(ROOT, 'assets/img/promotional-banners/poster-' + file + '-portrait-' + n + '.webp'))) fail(page + ': poster-' + file + '-portrait-' + n + '.webp missing on disk');
+        for (const n of [960, 1920]) if (!existsSync(path.join(ROOT, 'assets/img/promotional-banners/poster-' + file + '-wide-' + n + '.webp'))) fail(page + ': poster-' + file + '-wide-' + n + '.webp missing on disk');
+        if (/\bAI\b/.test(alt)) fail(page + ': poster alt text must not use the term "AI"');
+      });
+      for (let n = 1; n <= 20; n++) {
+        const want = 'promo-' + String(n).padStart(2, '0') + '-';
+        if (!(slides[n + 2] || '').includes('/assets/img/promotional-banners/' + want)) fail(page + ': existing banner ' + want + ' must keep its place right after the posters, in the original order');
+      }
+    };
+    checkPosters('pricing.html', slidesOf(ph, '<div class="swiper oet-pricing-hero-swiper">'), (key) => '/pricing.html#bundle-' + key);
+    for (const [, key] of POSTERS) {
+      if (!ph.includes('data-oet-poster="' + key + '"') || !ph.includes('id="bundle-' + key + '"')) fail('pricing.html: poster ' + key + ' needs its link AND its #bundle-' + key + ' target card');
+    }
+    checkPosters('index.html', slidesOf(distHtml['index.html'] || '', '<div class="swiper oet-promo-popup__swiper">'), (key) => '/pricing.html#bundle-' + key);
+    const js = readFileSync(path.join(ROOT, 'assets/js/oet-bundles.js'), 'utf8');
+    if (!js.includes('data-oet-poster') || !js.includes('focusCard') || !js.includes("block: 'start'")) fail('oet-bundles.js: the poster click must scroll to and focus the card of the current selection');
+    if (!/matchMedia\('\(prefers-reduced-motion: reduce\)'\)/.test(js)) fail('oet-bundles.js: the poster scroll must respect prefers-reduced-motion');
+    if (!/keyboard: \{ enabled: true/.test(ph) || !ph.includes("slider.addEventListener('focusin'") || !ph.includes('pauseOnMouseEnter: true') || !ph.includes('prefers-reduced-motion: reduce')) fail('pricing.html: hero slider must keep autoplay, pause on hover and focus, keyboard control and reduced-motion');
+  }
+
+  // Classic recorded courses (legacy catalogue): course + personal support, no website practice exams, a link to the practice packages
+  {
+    const CLASSIC = { '01': 'Full Condensed Recorded OET Course - Medicine', '02': 'Full Physiotherapy OET Course', '03': 'Full Allied Health Profession OET Course', '04': 'Full Condensed Recorded Course + TutorBook', '05': 'Full Nursing OET Course', '06': 'Nursing Course + Assessment Package', '08': 'Full Pharmacy OET Course', '10': 'Full Crash Course - General OET', '11': 'Full Crash Course + 3 Writing Assessments', '12': 'Full Crash Course + 5 Writing Assessments' };
+    for (const [n, title] of Object.entries(CLASSIC)) {
+      const card = (ph.match(new RegExp('<div class="oet-card-kicker">Package ' + n + '</div>[\\s\\S]*?</article>')) || [''])[0];
+      if (!card.includes(title)) { fail('pricing.html: Classic card Package ' + n + ' (' + title + ') not found'); continue; }
+      if (!card.includes('<span class="oet-chip-support">Course + Personal Support</span>')) fail('pricing.html: Package ' + n + ' needs the "Course + Personal Support" chip');
+      if (!card.includes('<p class="oet-classic-note">Additional Website Practice Exams Not Included</p>')) fail('pricing.html: Package ' + n + ' needs "Additional Website Practice Exams Not Included"');
+      if (!card.includes('<a class="oet-classic-link" href="#ai-grading-packages">Want more exam practice? Explore Website Practice Packages</a>')) fail('pricing.html: Package ' + n + ' needs the "Explore Website Practice Packages" link');
+    }
+    if ((ph.match(/class="oet-classic-note"/g) || []).length !== Object.keys(CLASSIC).length) fail('pricing.html: only the ten recorded Full / Crash Classic cards carry the Classic note (not the Nursing Premium Bundle or Basic English)');
+    if (!ph.includes('id="ai-grading-packages"')) fail('pricing.html: the website practice packages anchor #ai-grading-packages is missing');
+    // one selector for the Full / Crash tiers: no second discipline filter competing with it
+    if (/data-discipline|data-filter|oet-discipline-filter|oet-filter-chip/i.test(ph)) fail('pricing.html: the profession + Paper/Computer selector is the only filter for the Full / Crash tiers');
+  }
+
+  // Arabic pages carry no bundle cards, so no English-only tier name or Basic English gift on the 165 tier can sit there
+  for (const [page, h] of Object.entries(distHtml)) {
+    if (page.startsWith('ar/') && /oet-bundle-card|oet-choose-card|Complete OET Bundle|Ultimate OET Course|Full Crash Essential/.test(h)) fail(page + ': English-only bundle strings must not appear on an Arabic page');
+  }
 
   // CSP lets the browser reach the catalog origin
   const htaccess = readFileSync(path.join(ROOT, '.htaccess'), 'utf8');

@@ -371,3 +371,66 @@
   line-height: 1.5;
 }
 .oet-bundle-stale[hidden] { display: none; }
+
+/* ---- final v4 pricing brief (29 Oct 2026) ---- */
+
+/* the benefit phrases a description marks with **x** render bold */
+.oet-bundle-desc strong,
+.oet-choose-card p strong { color: var(--bd-ink); font-weight: 800; }
+
+/* "Unlimited Website Practice" / "Website Practice Included" */
+.oet-bundle-chips li.is-practice { color: #1d5c46; background: #e9fbf4; border-color: #bdeedb; }
+
+/* personal human service reads heavier than the website assessments (letters, the private Speaking session, TutorBook,
+   and the Basic English gift / SAMI that only Ultimate carries) */
+.oet-bundle-list li .oet-bundle-line { font-weight: 500; }
+.oet-bundle-list li.is-human .oet-bundle-line { color: var(--bd-ink); font-weight: 800; }
+.oet-bundle-list li.is-human small { color: #4d4867; font-weight: 600; }
+
+/* a hero poster scrolls to its card (assets/js/main.js adds the header offset on top of this margin) and the card that was reached is marked */
+.oet-bundle-card { scroll-margin-top: 24px; }
+.oet-bundle-card:focus { outline: none; }
+.oet-bundle-card:focus-visible { outline: 3px solid #b8a6ff; outline-offset: 5px; }
+.oet-bundle-card.is-targeted { animation: oetBundleTarget 2.6s ease-out 1; }
+@keyframes oetBundleTarget {
+  0%, 35% { box-shadow: 0 0 0 4px rgba(101, 66, 255, .55), 0 30px 70px rgba(101, 66, 255, .30); }
+  100% { box-shadow: 0 14px 38px rgba(28, 22, 70, .08); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .oet-bundle-card.is-targeted { animation: none; box-shadow: 0 0 0 4px rgba(101, 66, 255, .55); }
+}
+
+/* hero poster slides: the whole poster is one link; the portrait source is swapped in on phones by <picture> */
+.oet-pricing-hero-slide--poster > .oet-poster-link {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: 22px;
+}
+.oet-pricing-hero-slide--poster picture { display: contents; }
+.oet-pricing-hero-slide--poster > .oet-poster-link:focus-visible { outline: 3px solid #6542ff; outline-offset: -8px; }
+
+/* Classic recorded courses (pricing.html, legacy catalogue): course + personal support, no website practice exams */
+.oet-meta-chips .oet-chip-support { color: #fff; background: #5f3df5; border-color: #5f3df5; }
+.oet-classic-note {
+  margin: 14px 0 0;
+  padding: 9px 12px;
+  color: #6b4a00;
+  background: #fff8e6;
+  border: 1px solid #f1d58a;
+  border-radius: 12px;
+  font-size: 13.5px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+.oet-classic-link {
+  display: inline-block;
+  margin: 10px 0 14px;
+  color: #5f3df5;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.oet-classic-link:hover,
+.oet-classic-link:focus-visible { color: #3b2a99; }

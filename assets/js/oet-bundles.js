@@ -32,6 +32,13 @@
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
+  // Plain text with **x** benefit markers -> escaped HTML with <strong>. Escape FIRST, then apply the marker
+  // regex, so a description (default or live) can never inject markup. A stray unmatched ** is dropped.
+  function rich(s) {
+    return esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*\*/g, '');
+  }
+  // the same text without the markers (JSON-LD, aria text)
+  function plain(s) { return String(s == null ? '' : s).replace(/\*\*/g, ''); }
   function isNum(n) { return typeof n === 'number' && isFinite(n) && n >= 0; }
   function round2(n) { return Math.round(n * 100) / 100; }
   function money(n) { return '&pound;' + (n % 1 === 0 ? String(n) : n.toFixed(2)); }
@@ -204,17 +211,31 @@
 
   function monthsText(n) { return n + (n === 1 ? ' month' : ' months') + ' access'; }
 
+  // Personal human service (Dr Hesham's letters, the private session with an Expert Tutor, the TutorBook, and the
+  // Basic English gift / SAMI that only Ultimate carries) renders in bold weight so it reads as different from the
+  // website assessments (owner brief v4, 29 Oct 2026). A website assessment is never presented as human-marked.
+  var HUMAN_LINES = { personal_letters: 1, private_session: 1, tutorbook: 1, basic_english: 1, sami: 1 };
+
   function renderLine(it, fmt) {
     if (it.formats.indexOf(fmt) < 0 || isNegative(it.label)) return '';
     var val = it.value === 'unlimited' ? 'Unlimited' : (it.value != null ? String(it.value) : '');
-    return '<li data-key="' + esc(it.key) + '"><span class="oet-bundle-line">' + (val ? '<b>' + esc(val) + '</b> ' : '') +
+    return '<li data-key="' + esc(it.key) + '"' + (HUMAN_LINES[it.key] ? ' class="is-human"' : '') + '><span class="oet-bundle-line">' + (val ? '<b>' + esc(val) + '</b> ' : '') +
       esc(it.label) + '</span>' + (it.detail ? '<small>' + esc(it.detail) + '</small>' : '') + '</li>';
+  }
+
+  // "Unlimited Website Practice" when any website_* line is unlimited (Ultimate), else "Website Practice Included"
+  function practiceText(b) {
+    for (var i = 0; i < b.included.length; i++) {
+      if (/^website_/.test(b.included[i].key) && b.included[i].value === 'unlimited') return 'Unlimited Website Practice';
+    }
+    return 'Website Practice Included';
   }
 
   // ctx = { profession: {id,label}, format: 'computer' | 'paper', formatLabel }
   function renderCard(b, ctx) {
     var chips = [];
     if (b.accessMonths) chips.push(monthsText(b.accessMonths));
+    chips.push({ text: practiceText(b), practice: true });
     if (b.tutorBookPermanent) chips.push('TutorBook access: permanent');
     chips.push(b.profession === 'all' ? 'All eligible disciplines' : ctx.profession.label);
     chips.push(ctx.formatLabel);
@@ -223,12 +244,16 @@
       return '<span>+' + money(u.difference) + ' to ' + esc(u.toName) + '</span>';
     }).join('');
     var cta = 'bundle_' + b.key;
-    return '<article class="oet-bundle-card' + (b.recommended ? ' is-recommended' : '') + '" data-code="' + esc(b.code) +
-      '" data-tier="' + b.tier + '"' + (b.recommended ? ' data-recommended="true"' : '') + '>' + badgeHtml(b) +
+    // id + data-key give the hero posters a stable target (the poster links are #bundle-<key>; assets/js boot() scrolls to
+    // the card of the CURRENT profession/format selection, which is the card with this data-key)
+    return '<article class="oet-bundle-card' + (b.recommended ? ' is-recommended' : '') + '" id="bundle-' + esc(b.key) + '" data-key="' + esc(b.key) +
+      '" data-code="' + esc(b.code) + '" data-tier="' + b.tier + '"' + (b.recommended ? ' data-recommended="true"' : '') + '>' + badgeHtml(b) +
       '<h3>' + esc(b.name) + '</h3>' +
       '<div class="oet-bundle-price"><strong data-field="price">' + money(b.price) + '</strong></div>' +
-      '<ul class="oet-bundle-chips" aria-label="Course summary">' + chips.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('') + '</ul>' +
-      '<p class="oet-bundle-desc">' + esc(b.description) + '</p>' +
+      '<ul class="oet-bundle-chips" aria-label="Course summary">' + chips.map(function (c) {
+        return typeof c === 'string' ? '<li>' + esc(c) + '</li>' : '<li class="is-practice">' + esc(c.text) + '</li>';
+      }).join('') + '</ul>' +
+      '<p class="oet-bundle-desc">' + rich(b.description) + '</p>' +
       '<ul class="oet-bundle-list" aria-label="What is included">' + lines + '</ul>' +
       (ups ? '<p class="oet-bundle-upgrade"><strong>Upgrade later and pay only the difference:</strong> ' + ups + '</p>' : '') +
       '<div class="oet-bundle-actions">' +
@@ -249,12 +274,12 @@
 
   // compact card for the profession course pages
   function renderMini(b, ctx) {
-    var more = b.tutorBookPermanent ? ' &middot; permanent TutorBook' : '';
+    var more = ' &middot; ' + esc(practiceText(b)) + (b.tutorBookPermanent ? ' &middot; permanent TutorBook' : '');
     return '<article class="oet-choose-card' + (b.recommended ? ' is-recommended' : '') + '" data-code="' + esc(b.code) + '" data-tier="' + b.tier + '">' +
       badgeHtml(b) + '<h3>' + esc(b.name) + '</h3>' +
       '<div class="oet-choose-price"><strong data-field="price">' + money(b.price) + '</strong>' +
       '<span>' + (b.accessMonths ? esc(monthsText(b.accessMonths)) : '') + more + '</span></div>' +
-      '<p>' + esc(b.description) + '</p></article>';
+      '<p>' + rich(b.description) + '</p></article>';
   }
 
   function renderMiniGrid(codes, bundles, ctx) {
@@ -279,11 +304,56 @@
 
   /* ---------- browser behaviour ---------- */
 
+  // Hero poster -> the card of that tier for the CURRENT profession and exam-format selection (the grid is already
+  // rendered for it, so nothing about the selection changes). The poster is a plain /pricing.html#bundle-<key> link:
+  // without JavaScript it lands on the static default card, and with JavaScript the site's in-page anchor handler
+  // (assets/js/main.js, header offset + landing correction) does the scrolling. This code adds what that handler does
+  // not: it moves keyboard focus to the card, marks it, and covers a plan an admin hid (no card: land on the section).
+  function findCard(doc, key) {
+    var sec = doc.getElementById('full-oet-courses');
+    var cards = sec ? sec.querySelectorAll('[data-key]') : [];
+    for (var i = 0; i < cards.length; i++) if (cards[i].getAttribute('data-key') === key) return cards[i];
+    return null;
+  }
+
+  function focusCard(win, card) {
+    card.setAttribute('tabindex', '-1');
+    try { card.focus({ preventScroll: true }); } catch (e) { card.focus(); }
+    card.classList.add('is-targeted');
+    win.setTimeout(function () { card.classList.remove('is-targeted'); }, 2600);
+  }
+
+  function scrollTo(win, el) {
+    var reduce = !!(win.matchMedia && win.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    try { el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); } catch (e) { el.scrollIntoView(); }
+  }
+
+  function bindPosters(doc, win) {
+    doc.addEventListener('click', function (ev) {
+      if (ev.button > 0 || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+      var a = ev.target;
+      while (a && a !== doc && !(a.getAttribute && a.getAttribute('data-oet-poster'))) a = a.parentNode;
+      if (!a || a === doc) return;
+      var key = a.getAttribute('data-oet-poster');
+      if (!CODE_RE.test(key)) return;
+      var card = findCard(doc, key);
+      var target = card || doc.getElementById('full-oet-courses');
+      if (!target) return; // not the pricing page: the link just navigates
+      if (!ev.defaultPrevented) { // the site anchor handler did not scroll (it needs the #bundle-<key> element): do it here
+        ev.preventDefault();
+        scrollTo(win, target);
+        try { win.history.replaceState(null, '', win.location.pathname + win.location.search + '#' + (card ? 'bundle-' + key : 'full-oet-courses')); } catch (e) { /* the scroll still happened */ }
+      }
+      if (card) focusCard(win, card);
+    }, false);
+  }
+
   function boot(doc, win) {
     var holder = doc.getElementById('oet-bundles-data');
     if (!holder) return;
     var data;
     try { data = JSON.parse(holder.textContent); } catch (e) { return; }
+    bindPosters(doc, win);
 
     var defaults = expandDefaults(data);
     var catalog = defaults;
@@ -396,7 +466,7 @@
   }
 
   return {
-    esc: esc, expandDefaults: expandDefaults, slotCodes: slotCodes, mergeLive: mergeLive, makeCtx: makeCtx,
+    esc: esc, rich: rich, plain: plain, practiceText: practiceText, expandDefaults: expandDefaults, slotCodes: slotCodes, mergeLive: mergeLive, makeCtx: makeCtx,
     renderCard: renderCard, renderGrid: renderGrid, renderMini: renderMini, renderMiniGrid: renderMiniGrid,
     statusText: statusText, appLink: appLink, boot: boot,
   };

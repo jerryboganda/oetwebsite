@@ -1,5 +1,32 @@
 [
   {
+    "src": "assets/img/promotional-banners/poster-ultimate-wide-1920.webp",
+    "portraitSrc": "assets/img/promotional-banners/poster-ultimate-portrait-1080.webp",
+    "alt": "Ultimate OET Course, GBP 220",
+    "width": 1920,
+    "height": 1080,
+    "portraitWidth": 1080,
+    "portraitHeight": 1350
+  },
+  {
+    "src": "assets/img/promotional-banners/poster-complete-wide-1920.webp",
+    "portraitSrc": "assets/img/promotional-banners/poster-complete-portrait-1080.webp",
+    "alt": "Complete OET Bundle, GBP 165",
+    "width": 1920,
+    "height": 1080,
+    "portraitWidth": 1080,
+    "portraitHeight": 1350
+  },
+  {
+    "src": "assets/img/promotional-banners/poster-full-wide-1920.webp",
+    "portraitSrc": "assets/img/promotional-banners/poster-full-portrait-1080.webp",
+    "alt": "Full OET Course, GBP 140",
+    "width": 1920,
+    "height": 1080,
+    "portraitWidth": 1080,
+    "portraitHeight": 1350
+  },
+  {
     "src": "assets/img/promotional-banners/promo-01-file-0000000018f471f483ccd1708d679d31.webp",
     "alt": "OET promotional banner 1",
     "width": 1597,

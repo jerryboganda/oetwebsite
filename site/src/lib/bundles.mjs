@@ -106,7 +106,7 @@ function ldItems(data, startPosition) {
         item: {
           '@type': 'Product',
           name: t.name,
-          description: t.description,
+          description: t.description.replace(/\*\*/g, ''), // the **bold** markers are for the visible cards only
           image: `${ORIGIN}/assets/img/og/og-pricing.png`,
           brand: { '@type': 'Brand', name: 'OET with Dr Hesham' },
           offers: {
