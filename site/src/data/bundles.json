@@ -89,7 +89,8 @@
             { "key": "website_reading", "value": 12 },
             { "key": "paper_resources" },
             { "key": "handwritten_upload" },
-            { "key": "tutorbook" }
+            { "key": "tutorbook" },
+            { "key": "basic_english" }
           ]
         },
         {

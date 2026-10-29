@@ -318,6 +318,20 @@ if (distHtml['pricing.html']) {
   if (defaults['full-practice-medicine'].upgrades.map((u) => u.difference).join() !== '25,80' || defaults['crash-essential'].upgrades.map((u) => u.difference).join() !== '25,50')
     fail('bundles: upgrade differences must be 25/80 (Full 140) and 25/50 (Crash 75)');
 
+  // included lines: the API's order (course, personal_letters, private_session, website_*, paper_*, tutorbook, basic_english, sami);
+  // Basic English is a free gift in Full Course + TutorBook (owner addendum 29 Oct 2026) and Ultimate only; SAMI is Ultimate only
+  {
+    const ORDER = ['course', 'personal_letters', 'private_session', 'website_writing', 'website_speaking', 'website_listening', 'website_reading', 'paper_resources', 'handwritten_upload', 'tutorbook', 'basic_english', 'sami'];
+    for (const b of Object.values(defaults)) {
+      const keys = b.included.map((l) => l.key);
+      if (keys.some((k, i) => ORDER.indexOf(k) < 0 || (i && ORDER.indexOf(k) <= ORDER.indexOf(keys[i - 1])))) fail(`bundles: ${b.code} lines are not in the catalog order (${keys.join(',')})`);
+      if (keys.includes('basic_english') !== (b.key === 'full-tutorbook' || b.key === 'ultimate')) fail(`bundles: ${b.code}: Basic English Course (gift) belongs to Full Course + TutorBook and Ultimate only`);
+      if (keys.includes('sami') !== (b.key === 'ultimate')) fail(`bundles: ${b.code}: SAMI 24/7 is Ultimate only`);
+      const be = b.included.find((l) => l.key === 'basic_english');
+      if (be && (be.label !== 'Basic English Course (gift)' || be.value !== null || be.formats.join() !== 'computer,paper')) fail(`bundles: ${b.code}: basic_english must read "Basic English Course (gift)", carry no value and show for both formats`);
+    }
+  }
+
   // format rules, every profession x format: computer = website L/R numbers, paper = W/S + handwritten upload + paper L/R
   // resources, never a negative "No online Listening or Reading" line, every website count says "on our website"
   const lineKeys = (html) => [...html.matchAll(/<li data-key="([a-z_]+)">/g)].map((m) => m[1]);
@@ -337,6 +351,7 @@ if (distHtml['pricing.html']) {
           const keys = lineKeys(card);
           const has = (k) => keys.includes(k);
           if (!has('website_writing') || !has('website_speaking')) fail(`${label} ${code}: Writing and Speaking on our website must always be listed`);
+          if (has('basic_english') !== /^(full-tutorbook|ultimate)-/.test(code)) fail(`${label} ${code}: Basic English Course (gift) is shown on Full Course + TutorBook and Ultimate only, in both formats`);
           if (fmt === 'computer' && (!has('website_listening') || !has('website_reading') || has('paper_resources') || has('handwritten_upload')))
             fail(`${label} ${code}: Computer-Based shows the website Listening/Reading numbers and no paper-only lines`);
           if (fmt === 'paper' && (has('website_listening') || has('website_reading') || !has('paper_resources') || !has('handwritten_upload')))
@@ -391,6 +406,7 @@ if (distHtml['pricing.html']) {
       if (!card.includes(`href="https://app.oetwithdrhesham.co.uk/${kind}?next=%2Fsubscriptions%3Fpackage%3D${code}%26profession%3Dmedicine%26format%3Dcomputer"`)) fail(`pricing.html: ${code} needs the ${kind} deep link with package, profession and format inside next`);
     if (!card.includes(`data-oet-cta="bundle_${t.key}"`)) fail(`pricing.html: ${code} must keep the data-oet-cta analytics attribute`);
     if (card.includes('TutorBook of Recalls') !== t.included.some((l) => l.key === 'tutorbook')) fail(`pricing.html: ${code} TutorBook line mismatch`);
+    if (card.includes('Basic English Course (gift)') !== t.included.some((l) => l.key === 'basic_english')) fail(`pricing.html: ${code} Basic English gift line mismatch`);
     // JSON-LD offer for the tier
     const prod = nodesOfType(ldBlocks(ph), 'Product').find((p) => p.name === t.name && p.offers?.url?.endsWith(t.key.startsWith('crash') ? '#crash-courses' : '#full-oet-courses'));
     if (!prod) fail(`pricing.html: JSON-LD Product missing for ${t.name}`);
