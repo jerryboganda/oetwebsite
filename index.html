@@ -82,7 +82,8 @@
     <link rel="stylesheet" href="/assets/css/oet-polish.css?v=6043093a82">
     <link rel="stylesheet" href="/assets/css/oet-redesign.css?v=3115f332e0">
     <link rel="stylesheet" href="/assets/css/oet-hero.css?v=b3b893fabb">
-    ﻿<style>
+    ﻿<link rel="stylesheet" href="/assets/css/oet-promo-carousel.css?v=b62672c152">
+<style>
 body.oet-live-site .oet-services-tone .oet-service-icon-grid { display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 12px;
@@ -217,6 +218,11 @@ body.oet-promo-popup-lock { overflow: hidden; }
             font-size: 13px;
             line-height: 1.2;
             font-weight: 700; }
+.oet-promo-popup__controls { display: inline-flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 8px 12px; }
 .oet-promo-popup__frame { position: relative;
             border-radius: 24px;
             overflow: hidden;
@@ -245,7 +251,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
             width: 100%;
             height: 100%;
             box-sizing: border-box;
-            padding: 20px 20px 76px;
+            padding: 20px 20px 112px;
             text-decoration: none;
             background:
                 radial-gradient(circle at 20% 18%, rgba(124,58,237, 0.1), transparent 30%),
@@ -276,8 +282,11 @@ body.oet-promo-popup-lock { overflow: hidden; }
             backface-visibility: hidden;
             will-change: transform; }
 .oet-promo-popup__cta { position: absolute;
-            left: 24px;
-            bottom: 18px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: max-content;
+            bottom: 60px;
             z-index: 4;
             display: inline-flex;
             align-items: center;
@@ -327,11 +336,13 @@ body.oet-promo-popup-lock { overflow: hidden; }
 .oet-promo-popup__nav--next::before { transform: translateX(-2px) rotate(45deg); }
 .oet-promo-popup__pagination { position: absolute;
             left: 50% !important;
-            bottom: 16px !important;
+            bottom: 14px !important;
             z-index: 7;
             width: auto !important;
+            max-width: calc(100% - 28px);
             transform: translateX(-50%);
             display: inline-flex;
+            flex-wrap: wrap;
             align-items: center;
             justify-content: center;
             gap: 0;
@@ -370,9 +381,9 @@ body.oet-promo-popup-lock { overflow: hidden; }
   .oet-promo-popup__shell { padding: 10px 10px calc(10px + env(safe-area-inset-bottom)); }
   .oet-promo-popup__topline { padding: 2px 48px 10px 2px; }
   .oet-promo-popup__hint { display: none; }
-  .oet-promo-popup__swiper { height: min(58dvh, 520px);
-                min-height: 0; }
-  .oet-promo-popup__slide-link { padding: 12px 10px 64px; }
+  .oet-promo-popup__shell .oet-promo-popup__swiper { height: min(68dvh, 600px) !important;
+                min-height: 0 !important; }
+  .oet-promo-popup__slide-link { padding: 12px 10px 128px; }
   .oet-promo-popup__image { width: 100%;
                 height: auto;
                 max-height: 100%; }
@@ -385,10 +396,12 @@ body.oet-promo-popup-lock { overflow: hidden; }
                 margin-top: -22px; }
   .oet-promo-popup__nav--prev { left: 8px; }
   .oet-promo-popup__nav--next { right: 8px; }
-  .oet-promo-popup__cta { left: 14px;
-                bottom: 14px;
+  .oet-promo-popup__cta { bottom: 80px;
                 padding: 10px 14px;
                 font-size: 13px; }
+}
+@media (max-width: 1023.98px) and (orientation: landscape) and (max-height: 500px) {
+  .oet-promo-popup__shell .oet-promo-popup__swiper { height: min(80dvh, 360px) !important; }
 }
 @media (prefers-reduced-motion: reduce) {
   .oet-promo-popup, .oet-promo-popup *, .oet-promo-popup *::before, .oet-promo-popup *::after { transition-duration: 0.01ms !important;
@@ -1996,6 +2009,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
 <!-- Custom js -->
 <script defer src="/assets/js/main.js?v=ed4c53a6d8"></script>
      <script defer src="/assets/js/oet-contact-widget.js?v=b34b83f460"></script>
+    <script defer src="/assets/js/oet-promo-carousel.js?v=5589282b6a"></script>
     <script>
         window.addEventListener('load', function () {
             var cta = document.querySelector('.oet-community-cta');
@@ -2176,147 +2190,120 @@ body.oet-promo-popup-lock { overflow: hidden; }
             <div class="oet-promo-popup__shell">
                 <div class="oet-promo-popup__topline">
                     <h2 class="oet-promo-popup__badge" id="oet-promo-popup-title"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Latest OET offers</h2>
-                    <span class="oet-promo-popup__hint">Swipe through current packages and promotions</span>
+                    <span class="oet-promo-popup__controls">
+                        <span class="oet-promo-popup__hint" data-oet-carousel-hint>Browse the latest packages and promotions.</span>
+                        <button class="oet-carousel-toggle" type="button" data-oet-carousel-toggle aria-pressed="false" hidden><svg class="oet-carousel-toggle__icon oet-carousel-toggle__icon--pause" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3.5 2h3.2v12H3.5zM9.3 2h3.2v12H9.3z"/></svg><svg class="oet-carousel-toggle__icon oet-carousel-toggle__icon--play" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 2.2v11.6L13.6 8z"/></svg><span class="oet-carousel-toggle__text" data-oet-carousel-toggle-text>Pause</span></button>
+                    </span>
                 </div>
                 <div class="oet-promo-popup__frame">
                     <div class="swiper oet-promo-popup__swiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html#bundle-ultimate" aria-label="View Ultimate OET Course, GBP 220">
-                                    <span class="oet-promo-popup__image-wrap"><picture><source media="(max-width: 639px)" type="image/webp" srcset="/assets/img/promotional-banners/poster-ultimate-portrait-540.webp 540w, /assets/img/promotional-banners/poster-ultimate-portrait-1080.webp 1080w" sizes="(max-width: 639px) 300px" width="1080" height="1350"><img class="oet-promo-popup__image" loading="lazy" src="/assets/img/promotional-banners/poster-ultimate-wide-1920.webp" srcset="/assets/img/promotional-banners/poster-ultimate-wide-960.webp 960w, /assets/img/promotional-banners/poster-ultimate-wide-1920.webp 1920w" sizes="(max-width: 767px) 300px, 490px" alt="Ultimate OET Course, GBP 220" width="1920" height="1080" decoding="async"></picture></span>
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html#full-oet-courses" data-oet-poster="full-oet-courses" data-oet-cta="poster_path-to-success" aria-label="Explore packages: Your Path to OET Success with Dr Ahmed Hesham: learn, practise, succeed">
+                                    <span class="oet-promo-popup__image-wrap"><picture><img class="oet-promo-popup__image" src="/assets/img/promotional-banners/poster-01-path-to-oet-success.png" alt="Your Path to OET Success with Dr Ahmed Hesham: learn, practise, succeed" width="1536" height="947" loading="lazy" decoding="async"></picture></span>
+                                    <span class="oet-promo-popup__cta">Explore packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html#bundle-ultimate" data-oet-poster="bundle-ultimate" data-oet-cta="poster_ultimate" aria-label="View this course: Ultimate OET Course, GBP 220">
+                                    <span class="oet-promo-popup__image-wrap"><picture><source media="(max-width: 639px)" srcset="/assets/img/promotional-banners/poster-02-ultimate-mobile-1080x1350.png" width="1080" height="1350"><img class="oet-promo-popup__image" src="/assets/img/promotional-banners/poster-02-ultimate-wide-1920x1080.png" alt="Ultimate OET Course, GBP 220" width="1920" height="1080" loading="lazy" decoding="async"></picture></span>
                                     <span class="oet-promo-popup__cta">View this course <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html#bundle-full-tutorbook" aria-label="View Complete OET Bundle, GBP 165">
-                                    <span class="oet-promo-popup__image-wrap"><picture><source media="(max-width: 639px)" type="image/webp" srcset="/assets/img/promotional-banners/poster-complete-portrait-540.webp 540w, /assets/img/promotional-banners/poster-complete-portrait-1080.webp 1080w" sizes="(max-width: 639px) 300px" width="1080" height="1350"><img class="oet-promo-popup__image" loading="lazy" src="/assets/img/promotional-banners/poster-complete-wide-1920.webp" srcset="/assets/img/promotional-banners/poster-complete-wide-960.webp 960w, /assets/img/promotional-banners/poster-complete-wide-1920.webp 1920w" sizes="(max-width: 767px) 300px, 490px" alt="Complete OET Bundle, GBP 165" width="1920" height="1080" decoding="async"></picture></span>
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html#bundle-full-tutorbook" data-oet-poster="bundle-full-tutorbook" data-oet-cta="poster_complete" aria-label="View this course: Complete OET Bundle, GBP 165, Recommended">
+                                    <span class="oet-promo-popup__image-wrap"><picture><source media="(max-width: 639px)" srcset="/assets/img/promotional-banners/poster-03-complete-mobile-1080x1350.png" width="1080" height="1350"><img class="oet-promo-popup__image" src="/assets/img/promotional-banners/poster-03-complete-wide-1920x1080.png" alt="Complete OET Bundle, GBP 165, Recommended" width="1920" height="1080" loading="lazy" decoding="async"></picture></span>
                                     <span class="oet-promo-popup__cta">View this course <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html#bundle-full-practice" aria-label="View Full OET Course, GBP 140">
-                                    <span class="oet-promo-popup__image-wrap"><picture><source media="(max-width: 639px)" type="image/webp" srcset="/assets/img/promotional-banners/poster-full-portrait-540.webp 540w, /assets/img/promotional-banners/poster-full-portrait-1080.webp 1080w" sizes="(max-width: 639px) 300px" width="1080" height="1350"><img class="oet-promo-popup__image" loading="lazy" src="/assets/img/promotional-banners/poster-full-wide-1920.webp" srcset="/assets/img/promotional-banners/poster-full-wide-960.webp 960w, /assets/img/promotional-banners/poster-full-wide-1920.webp 1920w" sizes="(max-width: 767px) 300px, 490px" alt="Full OET Course, GBP 140" width="1920" height="1080" decoding="async"></picture></span>
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html#bundle-full-practice" data-oet-poster="bundle-full-practice" data-oet-cta="poster_full" aria-label="View this course: Full OET Course, GBP 140">
+                                    <span class="oet-promo-popup__image-wrap"><picture><source media="(max-width: 639px)" srcset="/assets/img/promotional-banners/poster-04-full-mobile-1080x1350.png" width="1080" height="1350"><img class="oet-promo-popup__image" src="/assets/img/promotional-banners/poster-04-full-wide-1920x1080.png" alt="Full OET Course, GBP 140" width="1920" height="1080" loading="lazy" decoding="async"></picture></span>
                                     <span class="oet-promo-popup__cta">View this course <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 1">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-01-file-0000000018f471f483ccd1708d679d31.webp" srcset="/assets/img/promotional-banners/promo-01-file-0000000018f471f483ccd1708d679d31-640w.webp 640w, /assets/img/promotional-banners/promo-01-file-0000000018f471f483ccd1708d679d31.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 1" width="1597" height="985" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                                <a class="oet-promo-popup__slide-link" href="https://app.oetwithdrhesham.co.uk/companion" data-oet-cta="poster_ask-sami" aria-label="Ask SAMI: Ask Sami, your smart OET study assistant">
+                                    <span class="oet-promo-popup__image-wrap"><picture><img class="oet-promo-popup__image" src="/assets/img/promotional-banners/poster-05-ask-sami.jpg" alt="Ask Sami, your smart OET study assistant" width="1087" height="1536" loading="lazy" decoding="async"></picture></span>
+                                    <span class="oet-promo-popup__cta">Ask SAMI <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 2">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-02-file-0000000064687246ad98bfcbbaa05194.webp" srcset="/assets/img/promotional-banners/promo-02-file-0000000064687246ad98bfcbbaa05194-640w.webp 640w, /assets/img/promotional-banners/promo-02-file-0000000064687246ad98bfcbbaa05194.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 2" width="1024" height="1536" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html#writing-packages" data-oet-poster="writing-packages" data-oet-cta="poster_writing-assessments" aria-label="Explore packages: Website Writing Assessments: submit your OET letter, receive detailed feedback and track your progress">
+                                    <span class="oet-promo-popup__image-wrap"><picture><img class="oet-promo-popup__image" src="/assets/img/promotional-banners/poster-07-website-writing-assessments.png" alt="Website Writing Assessments: submit your OET letter, receive detailed feedback and track your progress" width="1229" height="1536" loading="lazy" decoding="async"></picture></span>
+                                    <span class="oet-promo-popup__cta">Explore packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 3">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-03-file-00000000c9c07246b6eac83988eecf0c.webp" srcset="/assets/img/promotional-banners/promo-03-file-00000000c9c07246b6eac83988eecf0c-640w.webp 640w, /assets/img/promotional-banners/promo-03-file-00000000c9c07246b6eac83988eecf0c.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 3" width="1024" height="1536" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html#speaking-packages" data-oet-poster="speaking-packages" data-oet-cta="poster_virtual-speaking" aria-label="Explore packages: Live Virtual Patient Speaking Practice: realistic OET role-plays with detailed performance feedback">
+                                    <span class="oet-promo-popup__image-wrap"><picture><img class="oet-promo-popup__image" src="/assets/img/promotional-banners/poster-08-live-virtual-patient-speaking.png" alt="Live Virtual Patient Speaking Practice: realistic OET role-plays with detailed performance feedback" width="1024" height="1536" loading="lazy" decoding="async"></picture></span>
+                                    <span class="oet-promo-popup__cta">Explore packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 4">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-04-img-20260522-wa0010.webp" srcset="/assets/img/promotional-banners/promo-04-img-20260522-wa0010-640w.webp 640w, /assets/img/promotional-banners/promo-04-img-20260522-wa0010.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 4" width="1023" height="1537" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html#pkg-medicine-classic" data-oet-poster="pkg-medicine-classic" data-oet-cta="poster_medicine-classic" aria-label="View this course: Medicine Classic Full Course with the SAMI learning companion">
+                                    <span class="oet-promo-popup__image-wrap"><picture><img class="oet-promo-popup__image" src="/assets/img/promotional-banners/poster-09-medicine-classic-full-course.png" alt="Medicine Classic Full Course with the SAMI learning companion" width="1122" height="1402" loading="lazy" decoding="async"></picture></span>
+                                    <span class="oet-promo-popup__cta">View this course <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 5">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-05-img-20260623-wa0008.webp" srcset="/assets/img/promotional-banners/promo-05-img-20260623-wa0008-640w.webp 640w, /assets/img/promotional-banners/promo-05-img-20260623-wa0008.webp 852w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 5" width="852" height="1280" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html#bundle-crash-complete" data-oet-poster="bundle-crash-complete" data-oet-cta="poster_crash-tutorbook" aria-label="View this course: Full Crash Course plus TutorBook with the SAMI learning companion">
+                                    <span class="oet-promo-popup__image-wrap"><picture><img class="oet-promo-popup__image" src="/assets/img/promotional-banners/poster-10-full-crash-tutorbook.png" alt="Full Crash Course plus TutorBook with the SAMI learning companion" width="1122" height="1402" loading="lazy" decoding="async"></picture></span>
+                                    <span class="oet-promo-popup__cta">View this course <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 6">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-06-img-20260623-wa0009.webp" srcset="/assets/img/promotional-banners/promo-06-img-20260623-wa0009-640w.webp 640w, /assets/img/promotional-banners/promo-06-img-20260623-wa0009.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 6" width="1032" height="1280" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html#tutor-book" data-oet-poster="tutor-book" data-oet-cta="poster_tutorbook-pharmacy" aria-label="Explore packages: The Tutor, OET Exams, Pharmacy Edition by Dr Ahmed Hesham (TutorBook, first edition)">
+                                    <span class="oet-promo-popup__image-wrap"><picture><img class="oet-promo-popup__image" src="/assets/img/promotional-banners/promo-04-img-20260522-wa0010.webp" srcset="/assets/img/promotional-banners/promo-04-img-20260522-wa0010-640w.webp 640w, /assets/img/promotional-banners/promo-04-img-20260522-wa0010.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="The Tutor, OET Exams, Pharmacy Edition by Dr Ahmed Hesham (TutorBook, first edition)" width="1023" height="1537" loading="lazy" decoding="async"></picture></span>
+                                    <span class="oet-promo-popup__cta">Explore packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 7">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-07-img-20260623-wa0010.webp" srcset="/assets/img/promotional-banners/promo-07-img-20260623-wa0010-640w.webp 640w, /assets/img/promotional-banners/promo-07-img-20260623-wa0010.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 7" width="1016" height="1280" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html#full-mock-exam-packages" data-oet-poster="full-mock-exam-packages" data-oet-cta="poster_mock-exams" aria-label="Explore packages: Mock exam packages by Dr Ahmed Hesham: 1, 3 or 5 full OET mock exams">
+                                    <span class="oet-promo-popup__image-wrap"><picture><img class="oet-promo-popup__image" src="/assets/img/promotional-banners/promo-07-img-20260623-wa0010.webp" srcset="/assets/img/promotional-banners/promo-07-img-20260623-wa0010-640w.webp 640w, /assets/img/promotional-banners/promo-07-img-20260623-wa0010.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="Mock exam packages by Dr Ahmed Hesham: 1, 3 or 5 full OET mock exams" width="1016" height="1280" loading="lazy" decoding="async"></picture></span>
+                                    <span class="oet-promo-popup__cta">Explore packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 8">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-08-picsart-26-06-18-22-34-02-588.webp" srcset="/assets/img/promotional-banners/promo-08-picsart-26-06-18-22-34-02-588-640w.webp 640w, /assets/img/promotional-banners/promo-08-picsart-26-06-18-22-34-02-588.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 8" width="1191" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html#pkg-basic-english" data-oet-poster="pkg-basic-english" data-oet-cta="poster_basic-english" aria-label="View this course: Basic English Course, preparation for OET, by Dr Ahmed Hesham">
+                                    <span class="oet-promo-popup__image-wrap"><picture><img class="oet-promo-popup__image" src="/assets/img/promotional-banners/promo-11-picsart-26-06-21-01-45-35-187.webp" srcset="/assets/img/promotional-banners/promo-11-picsart-26-06-21-01-45-35-187-640w.webp 640w, /assets/img/promotional-banners/promo-11-picsart-26-06-21-01-45-35-187.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="Basic English Course, preparation for OET, by Dr Ahmed Hesham" width="1202" height="1800" loading="lazy" decoding="async"></picture></span>
+                                    <span class="oet-promo-popup__cta">View this course <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 9">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-09-picsart-26-06-21-01-41-41-833.webp" srcset="/assets/img/promotional-banners/promo-09-picsart-26-06-21-01-41-41-833-640w.webp 640w, /assets/img/promotional-banners/promo-09-picsart-26-06-21-01-41-41-833.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 9" width="1426" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html#pkg-nursing-classic" data-oet-poster="pkg-nursing-classic" data-oet-cta="poster_nursing-recorded" aria-label="View this course: Full OET Recorded Course for Nursing by Dr Ahmed Hesham">
+                                    <span class="oet-promo-popup__image-wrap"><picture><img class="oet-promo-popup__image" src="/assets/img/promotional-banners/promo-13-picsart-26-06-21-01-46-42-168.webp" srcset="/assets/img/promotional-banners/promo-13-picsart-26-06-21-01-46-42-168-640w.webp 640w, /assets/img/promotional-banners/promo-13-picsart-26-06-21-01-46-42-168.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="Full OET Recorded Course for Nursing by Dr Ahmed Hesham" width="1273" height="1800" loading="lazy" decoding="async"></picture></span>
+                                    <span class="oet-promo-popup__cta">View this course <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 10">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-10-picsart-26-06-21-01-43-09-802.webp" srcset="/assets/img/promotional-banners/promo-10-picsart-26-06-21-01-43-09-802-640w.webp 640w, /assets/img/promotional-banners/promo-10-picsart-26-06-21-01-43-09-802.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 10" width="1355" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html#pkg-speaking-crash" data-oet-poster="pkg-speaking-crash" data-oet-cta="poster_speaking-crash" aria-label="View this course: Recorded Speaking Crash Course by Dr Ahmed Hesham">
+                                    <span class="oet-promo-popup__image-wrap"><picture><img class="oet-promo-popup__image" src="/assets/img/promotional-banners/promo-15-picsart-26-06-22-00-53-29-763.webp" srcset="/assets/img/promotional-banners/promo-15-picsart-26-06-22-00-53-29-763-640w.webp 640w, /assets/img/promotional-banners/promo-15-picsart-26-06-22-00-53-29-763.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="Recorded Speaking Crash Course by Dr Ahmed Hesham" width="1284" height="1800" loading="lazy" decoding="async"></picture></span>
+                                    <span class="oet-promo-popup__cta">View this course <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 11">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-11-picsart-26-06-21-01-45-35-187.webp" srcset="/assets/img/promotional-banners/promo-11-picsart-26-06-21-01-45-35-187-640w.webp 640w, /assets/img/promotional-banners/promo-11-picsart-26-06-21-01-45-35-187.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 11" width="1202" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html#pkg-private-speaking" data-oet-poster="pkg-private-speaking" data-oet-cta="poster_private-speaking" aria-label="Explore packages: Private Speaking Assessment Session by Dr Ahmed Hesham: live 1:1 session with detailed performance feedback">
+                                    <span class="oet-promo-popup__image-wrap"><picture><img class="oet-promo-popup__image" src="/assets/img/promotional-banners/promo-16-picsart-26-06-22-00-54-15-072.webp" srcset="/assets/img/promotional-banners/promo-16-picsart-26-06-22-00-54-15-072-640w.webp 640w, /assets/img/promotional-banners/promo-16-picsart-26-06-22-00-54-15-072.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="Private Speaking Assessment Session by Dr Ahmed Hesham: live 1:1 session with detailed performance feedback" width="1448" height="1800" loading="lazy" decoding="async"></picture></span>
+                                    <span class="oet-promo-popup__cta">Explore packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 12">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-12-picsart-26-06-21-01-46-09-227.webp" srcset="/assets/img/promotional-banners/promo-12-picsart-26-06-21-01-46-09-227-640w.webp 640w, /assets/img/promotional-banners/promo-12-picsart-26-06-21-01-46-09-227.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 12" width="1279" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html#pkg-mega-special" data-oet-poster="pkg-mega-special" data-oet-cta="poster_mega-special" aria-label="View this course: Mega Special Package: recorded Writing and Speaking courses, a private Speaking session and 5 Writing letter assessments">
+                                    <span class="oet-promo-popup__image-wrap"><picture><img class="oet-promo-popup__image" src="/assets/img/promotional-banners/promo-17-picsart-26-06-22-00-54-52-208.webp" srcset="/assets/img/promotional-banners/promo-17-picsart-26-06-22-00-54-52-208-640w.webp 640w, /assets/img/promotional-banners/promo-17-picsart-26-06-22-00-54-52-208.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="Mega Special Package: recorded Writing and Speaking courses, a private Speaking session and 5 Writing letter assessments" width="1337" height="1800" loading="lazy" decoding="async"></picture></span>
+                                    <span class="oet-promo-popup__cta">View this course <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 13">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-13-picsart-26-06-21-01-46-42-168.webp" srcset="/assets/img/promotional-banners/promo-13-picsart-26-06-21-01-46-42-168-640w.webp 640w, /assets/img/promotional-banners/promo-13-picsart-26-06-21-01-46-42-168.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 13" width="1273" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html#pkg-writing-crash" data-oet-poster="pkg-writing-crash" data-oet-cta="poster_writing-crash" aria-label="View this course: Writing Crash Course by Dr Ahmed Hesham, with an optional letter assessment add-on">
+                                    <span class="oet-promo-popup__image-wrap"><picture><img class="oet-promo-popup__image" src="/assets/img/promotional-banners/promo-18-picsart-26-06-22-00-55-28-608.webp" srcset="/assets/img/promotional-banners/promo-18-picsart-26-06-22-00-55-28-608-640w.webp 640w, /assets/img/promotional-banners/promo-18-picsart-26-06-22-00-55-28-608.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="Writing Crash Course by Dr Ahmed Hesham, with an optional letter assessment add-on" width="1355" height="1800" loading="lazy" decoding="async"></picture></span>
+                                    <span class="oet-promo-popup__cta">View this course <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 14">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-14-picsart-26-06-21-02-34-54-686.webp" srcset="/assets/img/promotional-banners/promo-14-picsart-26-06-21-02-34-54-686-640w.webp 640w, /assets/img/promotional-banners/promo-14-picsart-26-06-21-02-34-54-686.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 14" width="1438" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 15">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-15-picsart-26-06-22-00-53-29-763.webp" srcset="/assets/img/promotional-banners/promo-15-picsart-26-06-22-00-53-29-763-640w.webp 640w, /assets/img/promotional-banners/promo-15-picsart-26-06-22-00-53-29-763.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 15" width="1284" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 16">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-16-picsart-26-06-22-00-54-15-072.webp" srcset="/assets/img/promotional-banners/promo-16-picsart-26-06-22-00-54-15-072-640w.webp 640w, /assets/img/promotional-banners/promo-16-picsart-26-06-22-00-54-15-072.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 16" width="1448" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 17">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-17-picsart-26-06-22-00-54-52-208.webp" srcset="/assets/img/promotional-banners/promo-17-picsart-26-06-22-00-54-52-208-640w.webp 640w, /assets/img/promotional-banners/promo-17-picsart-26-06-22-00-54-52-208.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 17" width="1337" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 18">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-18-picsart-26-06-22-00-55-28-608.webp" srcset="/assets/img/promotional-banners/promo-18-picsart-26-06-22-00-55-28-608-640w.webp 640w, /assets/img/promotional-banners/promo-18-picsart-26-06-22-00-55-28-608.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 18" width="1355" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 19">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-19-picsart-26-06-22-00-56-00-318.webp" srcset="/assets/img/promotional-banners/promo-19-picsart-26-06-22-00-56-00-318-640w.webp 640w, /assets/img/promotional-banners/promo-19-picsart-26-06-22-00-56-00-318.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 19" width="1199" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 20">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-20-picsart-26-06-22-00-58-29-199.webp" srcset="/assets/img/promotional-banners/promo-20-picsart-26-06-22-00-58-29-199-640w.webp 640w, /assets/img/promotional-banners/promo-20-picsart-26-06-22-00-58-29-199.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 20" width="1271" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                                <a class="oet-promo-popup__slide-link" href="/pricing.html#pkg-double-special" data-oet-poster="pkg-double-special" data-oet-cta="poster_double-special" aria-label="View this course: Double Special Package: Writing plus Speaking, by Dr Ahmed Hesham">
+                                    <span class="oet-promo-popup__image-wrap"><picture><img class="oet-promo-popup__image" src="/assets/img/promotional-banners/promo-19-picsart-26-06-22-00-56-00-318.webp" srcset="/assets/img/promotional-banners/promo-19-picsart-26-06-22-00-56-00-318-640w.webp 640w, /assets/img/promotional-banners/promo-19-picsart-26-06-22-00-56-00-318.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="Double Special Package: Writing plus Speaking, by Dr Ahmed Hesham" width="1199" height="1800" loading="lazy" decoding="async"></picture></span>
+                                    <span class="oet-promo-popup__cta">View this course <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
                                 </a>
                             </div>
                         </div>
@@ -2345,6 +2332,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
             var storageKey = 'oetPromoPopupDismissedSession';
             var lastFocused = null;
             var promoSwiper = null;
+            var promoCtl = null;
             var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             var autoOpenScheduled = false;
 
@@ -2379,11 +2367,9 @@ body.oet-promo-popup-lock { overflow: hidden; }
                     watchSlidesProgress: false,
                     preloadImages: true,
                     updateOnImagesReady: true,
-                    autoplay: reduceMotion ? false : {
-                        delay: 3000,
-                        disableOnInteraction: false,
-                        pauseOnMouseEnter: true
-                    },
+                    // 7 seconds (never 3), held on hover / focus and by the Pause / Play button, off under reduced motion:
+                    // all of that lives in assets/js/oet-promo-carousel.js; without it there is no autoplay at all
+                    autoplay: window.OetPromoCarousel ? { delay: window.OetPromoCarousel.DELAY, disableOnInteraction: false, pauseOnMouseEnter: false } : false,
                     keyboard: {
                         enabled: true,
                         onlyInViewport: false
@@ -2397,6 +2383,11 @@ body.oet-promo-popup-lock { overflow: hidden; }
                         prevEl: '.oet-promo-popup__nav--prev'
                     }
                 });
+                if (window.OetPromoCarousel) {
+                    promoCtl = window.OetPromoCarousel.attach(promoSwiper, popup.querySelector('.oet-promo-popup__shell') || popup, {
+                        isActive: function () { return popup.classList.contains('is-open'); }
+                    });
+                }
             }
 
             function animateActiveSlide() {
@@ -2426,6 +2417,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
                 popup.classList.add('is-open');
                 popup.setAttribute('aria-hidden', 'false');
                 document.body.classList.add('oet-promo-popup-lock');
+                if (promoCtl) promoCtl.sync();
 
                 if (typeof gsap !== 'undefined' && !reduceMotion) {
                     gsap.killTweensOf([popup, dialog]);
@@ -2463,7 +2455,8 @@ body.oet-promo-popup-lock { overflow: hidden; }
                             dialog.style.transform = '';
                         }
                     }
-                    if (promoSwiper && promoSwiper.autoplay) promoSwiper.autoplay.stop();
+                    if (promoCtl) promoCtl.sync();
+                    else if (promoSwiper && promoSwiper.autoplay) promoSwiper.autoplay.stop();
                     if (lastFocused && typeof lastFocused.focus === 'function') {
                         lastFocused.focus({ preventScroll: true });
                     }
@@ -2500,15 +2493,6 @@ body.oet-promo-popup-lock { overflow: hidden; }
                 first.focus();
             }
         });
-
-            if (swiperElement) {
-                swiperElement.addEventListener('mouseenter', function () {
-                    if (promoSwiper && promoSwiper.autoplay) promoSwiper.autoplay.stop();
-                });
-                swiperElement.addEventListener('mouseleave', function () {
-                    if (promoSwiper && promoSwiper.autoplay && popup.classList.contains('is-open') && !reduceMotion) promoSwiper.autoplay.start();
-                });
-            }
 
             window.addEventListener('resize', function () {
                 if (popup.classList.contains('is-open')) {
