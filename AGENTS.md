@@ -60,9 +60,18 @@ partials/data and rebuild.**
   Rules baked in: Paper never shows a negative "No online Listening or Reading" line, TutorBook is **10 full recall-based exams**
   everywhere (EN + AR), the legacy packages keep every price/plan code (only the Classic labels below were added).
   **Final v4 pricing brief (owner, 29 Oct 2026; supersedes the 28 Oct / 29 Oct addendum behaviour):**
-  - Names: Full OET Course (`full-practice`, 140), **Complete OET Bundle** (`full-tutorbook`, 165, the Recommended one),
-    Ultimate OET Course (`ultimate`, 220); Crash: Full Crash Essential (75), Full Crash + Personal Feedback (100), Full Crash +
-    TutorBook (125, Recommended). Plan codes, prices, access months and counts never change with a rename.
+  - Names (**renamed by the owner's names brief, 30 Oct 2026**, which the web app and the live `/v1/catalog/bundles` API follow with the same strings): Full OET Course + Website Practice
+    (`full-practice`, 140), **Complete OET Bundle + TutorBook** (`full-tutorbook`, 165, the Recommended one), Ultimate OET Course (`ultimate`, 220, unchanged); Crash: Full Crash Essential (75, unchanged),
+    Full Crash + 5 Personal Writing Assessments (`crash-letters`, 100), Full Crash + 5 Personal Assessments + TutorBook (`crash-complete`, 125, Recommended). Plan codes, prices, access months
+    and counts never change with a rename. The descriptions of the Full and Complete tiers still say "Everything in the Full OET Course" / "Everything in the Complete OET Bundle" because the
+    API sends exactly those sentences (build-time defaults and live refresh must agree); the Crash 125 description says "Everything in Full Crash + 5 Personal Writing Assessments". The hero poster
+    alt texts quote the approved artwork titles ("Full OET Course, GBP 140", "Complete OET Bundle, GBP 165") and stay.
+    Classic recorded cards (legacy catalogue, `pricing.json` titles = the `<h3>` = the JSON-LD name, all three must match or `applyPricing` fails the build): Pkg 01 **Classic Full Course + SAMI - Medicine**,
+    Pkg 02 **... - Physiotherapy**, Pkg 03 **... - Modified Allied Health**, Pkg 08 **... - Pharmacy**, Pkg 05 **Classic Nursing OET Course** (also `bundles.json` `nursingPackages[0].name`, checked
+    against `pricing.json` by `loadBundles`). Prose, FAQ answers and their FAQ JSON-LD twins on the profession course pages and `service.html` use the same names; edit text and twin together.
+    The doctors page ("What is included", `#included`) sells Medicine as the Classic Full Course + SAMI (&pound;105) plus the two upgrade tiers Full OET Course + Website Practice (&pound;140) and Complete OET Bundle + TutorBook
+    (&pound;165, Recommended); those prices are typed into the partial, so `verify.mjs` compares them with `pricing.json` / `bundles.json` and a reprice must edit the partial too. The old GBP 140 "Full Condensed Recorded Course + TutorBook" is retired
+    and `verify.mjs` fails if it (or "Medicine Condensed" / `full-condensed-medicine-tbook`) is named again on any page. The Arabic doctors page (`ar/oet-course-for-doctors`) still describes "two packages" (course and course + TutorBook) in Arabic: owner decision pending, because the English-only tier names may not appear on Arabic pages.
   - **The Basic English Course is a free gift ONLY with Ultimate** (not the 165 tier, not in any 165 description or line, EN or AR).
     It stays purchasable standalone at its own price.
   - Descriptions in `bundles.json` are plain text where `**x**` marks the benefit phrases that render bold. `rich()` in
@@ -73,7 +82,7 @@ partials/data and rebuild.**
     "Website ..." and never presented as human-marked. Every card has a Practice chip: "Unlimited Website Practice" when a `website_*`
     line is `unlimited` (Ultimate), else "Website Practice Included". Each card is `id="bundle-<key>"` + `data-key` (poster target).
   - Hero carousel: **superseded 30 Oct 2026** (Final Master brief, below). The posters of 29 Oct (`poster-<ultimate|complete|full>-<wide|portrait>-<w>.webp`)
-    and banners promo-01, 02, 03, 05, 06, 08, 09, 10, 12, 14, 20 are retired and their files deleted.
+    and banners promo-01, 02, 03, 05, 06, 08, 09, 10, 12, 14, 20 are retired and their files deleted (promo-07 and promo-13 followed on 30 Oct 2026, see below).
   - Classic (legacy) recorded cards (Packages 01, 02, 03, 05, 08 on `pricing.html`) carry the chips "Classic Full Course" (Nursing: "Classic Nursing Course") and
     "Course + Personal Support", the line "Additional Website Practice Exams Not Included", a "SAMI 24/7 learning companion included" bullet and the upsell below.
     The earlier "never touch legacy prices, offers or plan codes (owner-controlled)" rule was **explicitly overridden by the owner on 30 Oct 2026**: the repricing and
@@ -84,8 +93,10 @@ partials/data and rebuild.**
     renders both from it (markers `<!--oet:promo-slides-->` in `partials/pricing/main.html` and `partials/index/tail.html`). Order: 01 Your Path to OET Success
     (`#full-oet-courses`), 02 Ultimate 220 (`#bundle-ultimate`), 03 Complete 165 Recommended (`#bundle-full-tutorbook`), 04 Full 140 (`#bundle-full-practice`), 05 Ask SAMI
     (`https://app.oetwithdrhesham.co.uk/companion`, same tab, the app redirects to sign-in), then 07 Website Writing (`#writing-packages`), 08 Live Virtual Patient Speaking
-    (`#speaking-packages`), 09 Medicine Classic (`#pkg-medicine-classic`), 10 Full Crash + TutorBook (`#bundle-crash-complete`), then the kept banners promo-04, 07, 11, 13, 15, 16,
-    17, 18, 19 (each linked to its own card). **Poster 06 (Digital Practice) is HELD by the owner** (struck-out GBP 30/64/150 not yet substantiated): never add it, and never show a
+    (`#speaking-packages`), 09 Medicine Classic (`#pkg-medicine-classic`), 10 Full Crash + TutorBook (`#bundle-crash-complete`), then the kept banners promo-04, 11, 15, 16,
+    17, 18, 19 (each linked to its own card): **16 slides**. **Retired later on 30 Oct 2026, files deleted:** promo-07 (Mock Exam Packages: its artwork prints a "Passing Score Guaranteed" seal, an
+    unsupported guarantee claim) and promo-13 (Nursing recorded course: its artwork prints "Free 3 letters assessment", which the Classic Nursing OET Course does not include); `verify.mjs` fails if either
+    file or slide returns. Their old targets `#full-mock-exam-packages` and `#pkg-nursing-classic` stay on the page (other pages and the Nursing panel link them). **Poster 06 (Digital Practice) is HELD by the owner** (struck-out GBP 30/64/150 not yet substantiated): never add it, and never show a
     struck-out or "was" price on Quick Check / Exam Prep Pro / OET Mastery (15 / 32 / 75). The artwork files are the owner's exact approved bytes (SHA-256 in `verify.mjs` =
     `POSTER_FILE_SHA256.txt`): never edit, re-crop, convert or optimise them; posters 02-04 use the owner's 1080x1350 mobile files below 640px, the rest scale with
     `object-fit: contain`. Every slide is a whole-image link plus a visible CTA ("View this course" / "Explore packages" / "Ask SAMI") and real alt text without "AI".
@@ -95,21 +106,21 @@ partials/data and rebuild.**
     (`data-oet-carousel-toggle`, `aria-pressed="true"` while the visitor has paused it, the label reads Pause/Play), autoplay also held on hover and focus, none under
     `prefers-reduced-motion` (the button is hidden then); swipe, keyboard, arrows and dots stay with Swiper. Without the helper there is no autoplay at all.
   - **Prices:** Classic Physiotherapy (Pkg 02) 105, Classic Modified Allied Health (Pkg 03) 105, Nursing Premium Bundle (Pkg 07) 105 (Recommended); Medicine (01) and Pharmacy (08) stay 105;
-    Full Nursing OET Course (Pkg 05, the "Classic Nursing" course) stays 65; Quick Check 15, Exam Prep Pro 32, OET Mastery 75 unchanged. (Before: Pkg 02 100, Pkg 03 80, Pkg 07 100.)
+    Classic Nursing OET Course (Pkg 05, formerly "Full Nursing OET Course") stays 65; Quick Check 15, Exam Prep Pro 32, OET Mastery 75 unchanged. (Before: Pkg 02 100, Pkg 03 80, Pkg 07 100.)
   - **Removed from sale:** Pkg 06 Nursing Course + Assessment Package (75) and Pkg 10/11/12 legacy Full Crash 65/75/85: cards, pricing.json entries, JSON-LD Products, FAQ and prose are gone
     (Nursing prose points at the Nursing Premium Bundle, everyone else at `#crash-courses`). `verify.mjs` fails if any page names, links or prices them again. Independent Writing Crash,
     Speaking Crash, Basic English, TutorBook, Mocks and the special packages stay.
   - **Nursing rules** (`professions[nursing].notSold` in `bundles.json`, applied by `assets/js/oet-bundles.js` and `site/src/lib/bundles.mjs`): selecting Nursing hides the whole Crash section
-    and every link to it, shows no Full/Complete/Ultimate card, and shows an explanation pointing at the Full Nursing OET Course (Pkg 05, 65, `#pkg-nursing-classic`) and the Nursing Premium Bundle
+    and every link to it, shows no Full/Complete/Ultimate card, and shows an explanation pointing at the Classic Nursing OET Course (Pkg 05, 65, `#pkg-nursing-classic`) and the Nursing Premium Bundle
     (Pkg 07, 105 Recommended, `#pkg-nursing-premium`), prices read from `pricing.json`. The Nursing course page's "Choose your course" block shows the same two packages.
   - **Ultimate premium frame:** every Ultimate 220 card (four non-Nursing professions, both formats, pricing page and the course pages' mini cards) carries `is-ultimate`: `3px solid #D4AF37`,
     rounded, gold glow, a permanent crown (**inline SVG**, `fa-crown` is not in the icon subset) + "ULTIMATE" badge. Focus and "reached from a poster" marks are offset outline rings, never a box-shadow
     that would replace the glow. The poster artwork is untouched. Complete 165 and Nursing Premium keep "Recommended".
   - **SAMI 24/7** is an included line on all six tiers (Full 140/165/220, Crash 75/100/125); the Classic cards (01, 02, 03, 05, 07, 08) say it too. Basic English stays a gift of Ultimate only (and included in Nursing Premium).
   - **Upsell micro-copy** (one consistent wording, links to the actual card, never WhatsApp): Full 140 "Upgrade to Complete" (GBP 25 more, TutorBook included); Complete 165 "Upgrade to Ultimate" (55 more);
-    Crash 75 "Upgrade to Crash + 5 Personal Writing Assessments" (25 more); Crash 100 "Add TutorBook" (25 more); Ultimate and Crash 125 none (`tier.upsell` in `bundles.json`, difference from the live catalog).
-    Classic Full (Medicine/Pharmacy/Physiotherapy/Allied): "Enhance your preparation with website practice" -> the Full OET Course card of that profession, quoting that tier's OWN live price
-    (`<!--oet:tier-price:full-practice:<profession>-->`, refreshed from the catalog), never a promised discount (the app has no "pay only the difference" checkout for Classic -> Full). Full Nursing OET Course
+    Crash 75 "Upgrade to Full Crash + 5 Personal Writing Assessments" (25 more); Crash 100 "Add TutorBook" (25 more, note names "Full Crash + 5 Personal Assessments + TutorBook"); Ultimate and Crash 125 none (`tier.upsell` in `bundles.json`, difference from the live catalog).
+    Classic Full (Medicine/Pharmacy/Physiotherapy/Allied): "Enhance your preparation with website practice" -> the Full OET Course + Website Practice card of that profession, quoting that tier's OWN live price
+    (`<!--oet:tier-price:full-practice:<profession>-->`, refreshed from the catalog), never a promised discount (the app has no "pay only the difference" checkout for Classic -> Full). Classic Nursing OET Course
     (65) -> Nursing Premium Bundle at its own price (marker `<!--oet:price:Package 07-->`). Writing Crash / personal-letter cards (13-22) -> `#writing-packages`; Speaking Crash / private sessions (23-25) -> `#speaking-packages`.
 - `site/scripts/postbuild.mjs` — after `astro build`: appends content-hash
   `?v=` to asset URLs, gives bare `wa.me` links a plain default prefill (never
@@ -182,7 +193,10 @@ offers the same two choices, both via free registration that keeps the destinati
 `explore_packages` / `ask_sami`, recorded as `app_cta_click` `cta`). The web app keeps
 `next` through register → sign-in → OTP/MFA/device checks and the exam-date gate;
 signed-in visitors on `/register` go straight to `next`. WhatsApp stays only in
-support/contact areas.
+support/contact areas. **Wording (owner, 30 Oct 2026):** candidate-facing pricing, homepage and course-page copy never uses the term "AI"
+(Sami is "your study assistant"; `verify.mjs` rejects "AI" in the carousel, on the tier cards and in the `<main>` text of `pricing`, `index`, `service` and the five profession course pages). The legal pages (`terms`, `privacy`,
+`refund-policy`) still name AI providers and "AI credits" for legal disclosure and were left for the owner to decide; the anchor `#ai-grading-packages` is an
+internal identifier and stays.
 
 ### Header Login / Register CTA and the `oet_signed_in` hint cookie
 

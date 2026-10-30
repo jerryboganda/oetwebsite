@@ -9,7 +9,7 @@
       "label": "Nursing",
       "suffix": "nursing",
       "notSold": ["full", "crash"],
-      "note": "Nursing has its own packages: the Full Nursing OET Course and the Nursing Premium Bundle. The Full OET Course, Complete OET Bundle, Ultimate and Full Crash tiers are not sold to Nursing."
+      "note": "Nursing has its own packages: the Classic Nursing OET Course and the Nursing Premium Bundle. The Full OET Course + Website Practice, Complete OET Bundle + TutorBook, Ultimate and Full Crash tiers are not sold to Nursing."
     },
     { "id": "pharmacy", "label": "Pharmacy", "suffix": "pharmacy" },
     { "id": "physiotherapy", "label": "Physiotherapy", "suffix": "physiotherapy" },
@@ -52,7 +52,7 @@
   "nursingPackages": [
     {
       "kicker": "Package 05",
-      "name": "Full Nursing OET Course",
+      "name": "Classic Nursing OET Course",
       "tag": "Classic",
       "anchor": "pkg-nursing-classic",
       "recommended": false,
@@ -75,7 +75,7 @@
       "tiers": [
         {
           "key": "full-practice",
-          "name": "Full OET Course",
+          "name": "Full OET Course + Website Practice",
           "price": 140,
           "accessMonths": 6,
           "recommended": false,
@@ -98,7 +98,7 @@
         },
         {
           "key": "full-tutorbook",
-          "name": "Complete OET Bundle",
+          "name": "Complete OET Bundle + TutorBook",
           "price": 165,
           "accessMonths": 6,
           "recommended": true,
@@ -159,7 +159,7 @@
           "recommended": false,
           "badge": null,
           "tutorBookPermanent": false,
-          "upsell": { "to": "crash-letters", "label": "Upgrade to Crash + 5 Personal Writing Assessments", "note": "5 personal Writing letters by Dr Ahmed Hesham" },
+          "upsell": { "to": "crash-letters", "label": "Upgrade to Full Crash + 5 Personal Writing Assessments", "note": "5 personal Writing letters by Dr Ahmed Hesham" },
           "description": "Full recorded Crash Course plus **website practice**: 4 Writing assessments, 4 Speaking Cards and, for Computer-Based candidates, 6 Listening and 6 Reading exams.",
           "included": [
             { "key": "course", "label": "Full recorded Crash Course + materials" },
@@ -174,13 +174,13 @@
         },
         {
           "key": "crash-letters",
-          "name": "Full Crash + Personal Feedback",
+          "name": "Full Crash + 5 Personal Writing Assessments",
           "price": 100,
           "accessMonths": 6,
           "recommended": false,
           "badge": null,
           "tutorBookPermanent": false,
-          "upsell": { "to": "crash-complete", "label": "Add TutorBook", "note": "Full Crash + TutorBook" },
+          "upsell": { "to": "crash-complete", "label": "Add TutorBook", "note": "Full Crash + 5 Personal Assessments + TutorBook" },
           "description": "Everything in Full Crash Essential, PLUS **5 personal Writing letters assessed by Dr Ahmed Hesham**.",
           "included": [
             { "key": "course", "label": "Full recorded Crash Course + materials" },
@@ -196,13 +196,13 @@
         },
         {
           "key": "crash-complete",
-          "name": "Full Crash + TutorBook",
+          "name": "Full Crash + 5 Personal Assessments + TutorBook",
           "price": 125,
           "accessMonths": 6,
           "recommended": true,
           "badge": "Recommended",
           "tutorBookPermanent": true,
-          "description": "Everything in Full Crash + Personal Feedback, PLUS the **2026 TutorBook of Recalls** with **10 full recall-based exams**.",
+          "description": "Everything in Full Crash + 5 Personal Writing Assessments, PLUS the **2026 TutorBook of Recalls** with **10 full recall-based exams**.",
           "included": [
             { "key": "course", "label": "Full recorded Crash Course + materials" },
             { "key": "personal_letters", "value": 5 },

@@ -50,10 +50,14 @@ Everything else at the root deploys as-is: `assets/`, PHP endpoints,
   pricing page top sections, the JSON-LD offers and the "Choose your course" block on the profession course pages are generated from it by
   `site/src/lib/bundles.mjs` + `assets/js/oet-bundles.js`; in the browser the same script refreshes them live from
   `https://api.oetwithdrhesham.co.uk/v1/catalog/bundles` (build-time defaults stay on failure). Final Master brief (owner, 30 Oct 2026): Nursing is sold none of the six tiers (it sees its own
-  two packages), the Ultimate card has the gold frame + crown, SAMI 24/7 is on all six tiers, and every eligible card carries one upsell line. See `AGENTS.md`.
+  two packages), the Ultimate card has the gold frame + crown, SAMI 24/7 is on all six tiers, and every eligible card carries one upsell line. Names brief (owner, 30 Oct 2026):
+  the tiers are Full OET Course + Website Practice, Complete OET Bundle + TutorBook, Ultimate OET Course, Full Crash Essential, Full Crash + 5 Personal Writing Assessments and
+  Full Crash + 5 Personal Assessments + TutorBook; the Classic cards are "Classic Full Course + SAMI - <profession>" (Medicine, Physiotherapy, Modified Allied Health, Pharmacy) and
+  "Classic Nursing OET Course" (`pricing.json` title = card `<h3>` = JSON-LD name). See `AGENTS.md`.
 - **Promotional carousel** (pricing hero slider and homepage popup, same slides, same order): edit `assets/img/promotional-banners/promotional-banners.json` (one entry per slide:
   link, pricing-page target id, call to action, alt text, files) and rebuild. The approved poster files are never edited (their SHA-256 is checked by `verify.mjs`); poster 06 (Digital Practice)
-  is held by the owner. Behaviour (7-second autoplay, Pause/Play button, hover/focus hold, reduced motion) lives in `assets/js/oet-promo-carousel.js`. See `AGENTS.md`, "Final Master brief".
+  is held by the owner. The carousel holds 16 slides: posters 01-05 and 07-10, then promo-04, 11, 15, 16, 17, 18, 19 (promo-07 Mock Exams and promo-13 Nursing recorded course were retired
+  on 30 Oct 2026 because their artwork prints claims the products do not make; their files are deleted). Behaviour (7-second autoplay, Pause/Play button, hover/focus hold, reduced motion) lives in `assets/js/oet-promo-carousel.js`. See `AGENTS.md`, "Final Master brief".
 - **Success-story counts**: year-tab counts, the "Score cards" counter and
   JSON-LD `numberOfItems` are computed from
   `assets/img/success-stories/success-stories.json` at build time. Add new

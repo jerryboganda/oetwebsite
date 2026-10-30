@@ -292,7 +292,8 @@ if (distHtml['pricing.html']) {
   const { loadBundles } = await import('../src/lib/bundles.mjs');
   const { data, kit, defaults } = loadBundles();
   const PRICES = { 'full-practice': 140, 'full-tutorbook': 165, ultimate: 220, 'crash-essential': 75, 'crash-letters': 100, 'crash-complete': 125 };
-  const NAMES = { 'full-practice': 'Full OET Course', 'full-tutorbook': 'Complete OET Bundle', ultimate: 'Ultimate OET Course', 'crash-essential': 'Full Crash Essential', 'crash-letters': 'Full Crash + Personal Feedback', 'crash-complete': 'Full Crash + TutorBook' };
+  // owner 30 Oct 2026 (names brief): the Full and Complete tiers say what they add, and the two upper Crash tiers say what the personal part is
+  const NAMES = { 'full-practice': 'Full OET Course + Website Practice', 'full-tutorbook': 'Complete OET Bundle + TutorBook', ultimate: 'Ultimate OET Course', 'crash-essential': 'Full Crash Essential', 'crash-letters': 'Full Crash + 5 Personal Writing Assessments', 'crash-complete': 'Full Crash + 5 Personal Assessments + TutorBook' };
   // owner v4 (29 Oct 2026): the exact default descriptions; **x** marks the benefit phrases that render bold
   const DESCRIPTIONS = {
     'full-practice': 'A complete recorded OET course with **5 personal Writing letters by Dr Ahmed Hesham**, **1 private Speaking session with an Expert Tutor** and **website practice** (Writing, Speaking and, for Computer-Based candidates, Listening and Reading exams).',
@@ -300,7 +301,7 @@ if (distHtml['pricing.html']) {
     ultimate: 'Everything in the Complete OET Bundle, plus **unlimited eligible website practice**, the **Basic English Course as a free gift** and **SAMI 24/7** for **12 months**.',
     'crash-essential': 'Full recorded Crash Course plus **website practice**: 4 Writing assessments, 4 Speaking Cards and, for Computer-Based candidates, 6 Listening and 6 Reading exams.',
     'crash-letters': 'Everything in Full Crash Essential, PLUS **5 personal Writing letters assessed by Dr Ahmed Hesham**.',
-    'crash-complete': 'Everything in Full Crash + Personal Feedback, PLUS the **2026 TutorBook of Recalls** with **10 full recall-based exams**.',
+    'crash-complete': 'Everything in Full Crash + 5 Personal Writing Assessments, PLUS the **2026 TutorBook of Recalls** with **10 full recall-based exams**.',
   };
   const MONTHS = { 'full-practice': 6, 'full-tutorbook': 6, ultimate: 12, 'crash-essential': 6, 'crash-letters': 6, 'crash-complete': 6 };
   const SUFFIX = { medicine: 'medicine', nursing: 'nursing', pharmacy: 'pharmacy', physiotherapy: 'physiotherapy', 'other-allied-health': 'allied-health' };
@@ -312,7 +313,7 @@ if (distHtml['pricing.html']) {
   for (const t of tiers) {
     if (t.price !== PRICES[t.key]) fail(`bundles.json: ${t.key} must cost GBP ${PRICES[t.key]}`);
     if (t.accessMonths !== MONTHS[t.key]) fail(`bundles.json: ${t.key} must give ${MONTHS[t.key]} months of access`);
-    if (t.recommended !== (t.key === 'full-tutorbook' || t.key === 'crash-complete')) fail(`bundles.json: only Complete OET Bundle and Full Crash + TutorBook are Recommended (${t.key})`);
+    if (t.recommended !== (t.key === 'full-tutorbook' || t.key === 'crash-complete')) fail(`bundles.json: only Complete OET Bundle + TutorBook and Full Crash + 5 Personal Assessments + TutorBook are Recommended (${t.key})`);
     if (t.name !== NAMES[t.key]) fail(`bundles.json: ${t.key} must be named "${NAMES[t.key]}" (owner v4), found "${t.name}"`);
     if (t.description !== DESCRIPTIONS[t.key]) fail(`bundles.json: ${t.key} description must be the owner v4 text verbatim, **markers** included`);
     if (/\bAI\b/.test(t.name + ' ' + t.description)) fail(`bundles.json: ${t.key} must not use the term "AI" in customer-facing text`);
@@ -333,7 +334,7 @@ if (distHtml['pricing.html']) {
     fail('bundles: upgrade differences must be 25/80 (Full 140) and 25/50 (Crash 75)');
 
   // included lines: the API's order (course, personal_letters, private_session, website_*, paper_*, tutorbook, basic_english, sami);
-  // Basic English is a free gift ONLY with Ultimate (final v4 brief 29 Oct 2026: removed from the GBP 165 Complete OET Bundle); SAMI 24/7 is on ALL SIX tiers
+  // Basic English is a free gift ONLY with Ultimate (final v4 brief 29 Oct 2026: removed from the GBP 165 Complete OET Bundle + TutorBook); SAMI 24/7 is on ALL SIX tiers
   // (Final Master brief, owner 30 Oct 2026: Full 140 / Complete 165 / Ultimate 220 and Crash 75 / 100 / 125; the API sends the same item key "sami", label "SAMI 24/7").
   // The v4 labels, the bold human lines and the Practice chip are asserted here too.
   {
@@ -363,11 +364,11 @@ if (distHtml['pricing.html']) {
         // Nursing is sold none of the six tiers (Final Master brief, owner 30 Oct 2026): no card, no link, only the explanation of its two packages
         if (prof.id === 'nursing') {
           const nurse = kit.renderFamilyGrid(data, fam.id, defaults, ctx);
-          if (kit.isSold(prof, fam.id) || codes.length || /oet-bundle-card|Enrol now|bundle_(?:full|ultimate|crash)|data-key="/.test(nurse)) fail(`bundles ${fam.id} nursing/${fmt}: Nursing must not be shown or linked any Ultimate, Full OET Course, Complete OET Bundle or Full Crash tier`);
+          if (kit.isSold(prof, fam.id) || codes.length || /oet-bundle-card|Enrol now|bundle_(?:full|ultimate|crash)|data-key="/.test(nurse)) fail(`bundles ${fam.id} nursing/${fmt}: Nursing must not be shown or linked any Ultimate, Full OET Course + Website Practice, Complete OET Bundle + TutorBook or Full Crash tier`);
           if (fam.id === 'crash' && nurse !== '') fail(`bundles crash nursing/${fmt}: the Crash section renders nothing for Nursing`);
           if (fam.id === 'full' && (!nurse.includes('data-nursing-panel') || !nurse.includes('href="#pkg-nursing-classic"') || !nurse.includes('href="#pkg-nursing-premium"')
               || !nurse.includes('>&pound;65</span>') || !nurse.includes('>&pound;105</span>') || (nurse.match(/is-recommended/g) || []).length !== 1))
-            fail(`bundles full nursing/${fmt}: the explanation must point at the Full Nursing OET Course (GBP 65) and the Nursing Premium Bundle (GBP 105, Recommended), each linking its own card`);
+            fail(`bundles full nursing/${fmt}: the explanation must point at the Classic Nursing OET Course (GBP 65) and the Nursing Premium Bundle (GBP 105, Recommended), each linking its own card`);
           continue;
         }
         codes.forEach((code, i) => {
@@ -387,10 +388,10 @@ if (distHtml['pricing.html']) {
             fail(`${label} ${code}: the gold frame, crown and ULTIMATE badge belong to Ultimate cards only, on all four professions in both formats`);
           if (ult && (card.includes('is-recommended') || /fa-crown/.test(card))) fail(`${label} ${code}: Ultimate is not Recommended and its crown is an inline SVG, not the icon font`);
           // one consistent upsell line under the card (owner 30 Oct 2026), linking the next tier's own card
-          const UPSELL = { 'full-practice': ['bundle-full-tutorbook', 'Upgrade to Complete', 25], 'full-tutorbook': ['bundle-ultimate', 'Upgrade to Ultimate', 55], 'crash-essential': ['bundle-crash-letters', 'Upgrade to Crash + 5 Personal Writing Assessments', 25], 'crash-letters': ['bundle-crash-complete', 'Add TutorBook', 25] };
+          const UPSELL = { 'full-practice': ['bundle-full-tutorbook', 'Upgrade to Complete', 25], 'full-tutorbook': ['bundle-ultimate', 'Upgrade to Ultimate', 55], 'crash-essential': ['bundle-crash-letters', 'Upgrade to Full Crash + 5 Personal Writing Assessments', 25], 'crash-letters': ['bundle-crash-complete', 'Add TutorBook', 25] };
           const up = UPSELL[code.replace(/-(medicine|nursing|pharmacy|physiotherapy|allied-health)$/, '')];
           if (up && (!card.includes(`<a class="oet-bundle-upgrade__link" href="#${up[0]}" data-oet-poster="${up[0]}">${up[1]}</a>`) || !card.includes(`<span>&pound;${up[2]} more`))) fail(`${label} ${code}: upsell must read "${up[1]}" with the GBP ${up[2]} difference and link #${up[0]}`);
-          if (!up && card.includes('oet-bundle-upgrade')) fail(`${label} ${code}: Ultimate and Full Crash + TutorBook carry no upsell`);
+          if (!up && card.includes('oet-bundle-upgrade')) fail(`${label} ${code}: Ultimate and Full Crash + 5 Personal Assessments + TutorBook carry no upsell`);
           if (/wa\.me|whatsapp|pay only the difference/i.test(card)) fail(`${label} ${code}: no WhatsApp link and no promised discount on a card`);
           if (!has('website_writing') || !has('website_speaking')) fail(`${label} ${code}: Writing and Speaking on our website must always be listed`);
           if (has('basic_english') !== /^ultimate-/.test(code)) fail(`${label} ${code}: the Basic English Course (gift) is shown on Ultimate only, in both formats`);
@@ -428,7 +429,7 @@ if (distHtml['pricing.html']) {
     if (ok && (ok.bundles['ultimate-medicine'] !== null || ok.bundles['does-not-exist'] !== undefined)) fail('bundles: plans missing from a live catalog are hidden and unknown codes never create a card');
     if (ok && ok.bundles['full-practice-medicine'].upgrades.map((u) => u.difference).join() !== '29') fail('bundles: live upgrade hints are derived from live prices for the plans on sale');
     // the upsell quotes the live difference, and a target an admin hid renders no upsell at all
-    if (ok && !kit.renderCard(ok.bundles['full-practice-medicine'], kit.makeCtx(data, 'medicine', 'computer')).includes('<span>&pound;29 more &middot; TutorBook included</span>')) fail('bundles: the Full OET Course upsell must quote the live GBP difference to the Complete OET Bundle');
+    if (ok && !kit.renderCard(ok.bundles['full-practice-medicine'], kit.makeCtx(data, 'medicine', 'computer')).includes('<span>&pound;29 more &middot; TutorBook included</span>')) fail('bundles: the Full OET Course + Website Practice upsell must quote the live GBP difference to the Complete OET Bundle + TutorBook');
     const hid = kit.mergeLive(defaults, { families: [{ id: 'full', bundles: [pick('full-practice-medicine', { price: 140, recommended: false, badge: null })] }] });
     if (hid && kit.renderCard(hid.bundles['full-practice-medicine'], kit.makeCtx(data, 'medicine', 'computer')).includes('oet-bundle-upgrade')) fail('bundles: an upsell whose target tier is not on sale must not render');
     // the live description (same ** markers as the defaults) goes through the same renderer: bold phrases, never markup
@@ -497,12 +498,23 @@ if (distHtml['pricing.html']) {
       // Nursing is sold none of the six tiers (owner 30 Oct 2026): its block shows the two Nursing packages, prices from pricing.json, and no Crash link
       const cards = sec.split('<article class="oet-choose-card').slice(1);
       const priceOf = (kicker) => pricing.find((c) => c.kicker === kicker).price;
-      if (cards.length !== 2 || (sec.match(/is-recommended/g) || []).length !== 1 || !cards[0].includes('<h3>Full Nursing OET Course</h3>') || !cards[0].includes(`<strong data-field="price">&pound;${priceOf('Package 05')}</strong>`)
+      if (cards.length !== 2 || (sec.match(/is-recommended/g) || []).length !== 1 || !cards[0].includes('<h3>Classic Nursing OET Course</h3>') || !cards[0].includes(`<strong data-field="price">&pound;${priceOf('Package 05')}</strong>`)
           || !cards[1].startsWith(' is-recommended') || !cards[1].includes('<h3>Nursing Premium Bundle</h3>') || !cards[1].includes(`<strong data-field="price">&pound;${priceOf('Package 07')}</strong>`))
-        fail(`${page}: the Nursing block must show the Full Nursing OET Course (GBP ${priceOf('Package 05')}) and the Nursing Premium Bundle (GBP ${priceOf('Package 07')}, Recommended) and nothing else`);
+        fail(`${page}: the Nursing block must show the Classic Nursing OET Course (GBP ${priceOf('Package 05')}) and the Nursing Premium Bundle (GBP ${priceOf('Package 07')}, Recommended) and nothing else`);
       if (/crash-courses|oet-bundle-card|Ultimate OET Course|Complete OET Bundle|data-bundle-stale/.test(sec.replace(/<p>Choose your Nursing package[\s\S]*?<\/p>/, ''))) fail(`${page}: the Nursing block must not show or link any Crash, Ultimate, Full or Complete tier`);
     } else if ((sec.match(/<article class="oet-choose-card/g) || []).length !== 3 || (sec.match(/is-recommended/g) || []).length !== 1) fail(`${page}: three Full tiers expected, the middle one Recommended`);
     if (prof !== 'nursing' && ((sec.match(/<article class="oet-choose-card is-ultimate"/g) || []).length !== 1 || !sec.includes('<span class="oet-bundle-ultimate-badge"><svg class="oet-bundle-crown"'))) fail(`${page}: the Ultimate card carries the gold frame and the crown + ULTIMATE badge`);
+    // Doctors page (owner follow-up, 30 Oct 2026): "What is included" describes the Classic Full Course + SAMI and the two upgrade tiers with today's prices (one source:
+    // pricing.json Package 01 and bundles.json), the second card is the Complete OET Bundle + TutorBook linking its own pricing card, and the retired Full Condensed Recorded Course + TutorBook is gone
+    if (prof === 'medicine') {
+      const inc = (h.match(/<section class="oet-resource-section" id="included">[\s\S]*?<\/section>/) || [''])[0];
+      const classicPrice = pricing.find((c) => c.kicker === 'Package 01').price;
+      const intro = `Medicine has the Classic Full Course + SAMI (&pound;${classicPrice}), a recorded course with its original benefits, and two upgrade tiers: the ${tiers[0].name} (&pound;${tiers[0].price}) and the ${tiers[1].name} (&pound;${tiers[1].price}, Recommended).`;
+      if (!inc.includes(`<p>${intro} Each includes 6 months of course access.</p>`)) fail(`${page}: the "What is included" intro must name the Classic Full Course + SAMI (GBP ${classicPrice}) and the ${tiers[0].name} (GBP ${tiers[0].price}) and ${tiers[1].name} (GBP ${tiers[1].price}, Recommended)`);
+      if ((inc.match(/<article class="oet-resource-card"/g) || []).length !== 2 || !inc.includes('<h3>Classic Full Course + SAMI - Medicine</h3>') || !inc.includes(`<h3>${tiers[1].name}</h3>`)) fail(`${page}: "What is included" must show exactly two cards, the Classic Full Course + SAMI - Medicine and the ${tiers[1].name}`);
+      if (!inc.includes('<a class="oet-resource-btn oet-resource-btn--light" href="/pricing.html#bundle-full-tutorbook">') || !inc.includes('href="/pricing.html#full-recorded-courses"') || !inc.includes('href="/pricing.html#tutor-book"')) fail(`${page}: the included section must link the Complete OET Bundle card (#bundle-full-tutorbook), the medicine packages (#full-recorded-courses) and TutorBook (#tutor-book)`);
+      if (/Condensed Recorded|TutorBook bundle|two Medicine packages|the recorded Medicine course or/i.test(h)) fail(`${page}: the retired Full Condensed Recorded Course + TutorBook (old GBP 140) must not be advertised any more`);
+    }
     if (!h.includes('href="#sec-choose"')) fail(`${page}: the on-page contents must link the Choose your course block`);
     if (!h.includes('/assets/css/oet-bundles.css?v=') || !h.includes('/assets/js/oet-bundles.js?v=')) fail(`${page}: oet-bundles.css/js must be linked and hashed`);
     if (!h.includes('id="oet-bundles-data"')) fail(`${page}: embedded bundle data missing`);
@@ -528,7 +540,8 @@ if (distHtml['pricing.html']) {
 
   // Promotional carousel: ONE ordered list (assets/img/promotional-banners/promotional-banners.json) feeds the pricing hero slider AND the homepage popup, in the same order.
   // Slides 1-5 are the approved posters 01-05, then 07-10 (06 Digital Practice is HELD: it prints unsubstantiated struck-out prices), then the still-relevant older banners
-  // promo-04, 07, 11, 13, 15, 16, 17, 18, 19. The approved artwork is byte-identical to the owner's files (SHA-256 below), every slide is a whole-image link with a visible
+  // promo-04, 11, 15, 16, 17, 18, 19 (promo-07 Mock Exams and promo-13 Nursing recorded course were retired on 30 Oct 2026: their artwork prints a 'Passing Score Guaranteed' seal
+  // and 'Free 3 letters assessment', claims the products do not make). 9 + 7 = 16 slides. The approved artwork is byte-identical to the owner's files (SHA-256 below), every slide is a whole-image link with a visible
   // call to action and real alt text without "AI", and the three tier posters swap to the portrait files below 640px.
   {
     const manifest = JSON.parse(readFileSync(path.join(ROOT, 'assets/img/promotional-banners/promotional-banners.json'), 'utf8'));
@@ -544,9 +557,7 @@ if (distHtml['pricing.html']) {
       ['medicine-classic', '/pricing.html#pkg-medicine-classic', 'poster-09-medicine-classic-full-course.png'],
       ['crash-tutorbook', '/pricing.html#bundle-crash-complete', 'poster-10-full-crash-tutorbook.png'],
       ['tutorbook-pharmacy', '/pricing.html#tutor-book', 'promo-04-img-20260522-wa0010.webp'],
-      ['mock-exams', '/pricing.html#full-mock-exam-packages', 'promo-07-img-20260623-wa0010.webp'],
       ['basic-english', '/pricing.html#pkg-basic-english', 'promo-11-picsart-26-06-21-01-45-35-187.webp'],
-      ['nursing-recorded', '/pricing.html#pkg-nursing-classic', 'promo-13-picsart-26-06-21-01-46-42-168.webp'],
       ['speaking-crash', '/pricing.html#pkg-speaking-crash', 'promo-15-picsart-26-06-22-00-53-29-763.webp'],
       ['private-speaking', '/pricing.html#pkg-private-speaking', 'promo-16-picsart-26-06-22-00-54-15-072.webp'],
       ['mega-special', '/pricing.html#pkg-mega-special', 'promo-17-picsart-26-06-22-00-54-52-208.webp'],
@@ -568,7 +579,7 @@ if (distHtml['pricing.html']) {
       'poster-03-complete-mobile-1080x1350.png': 'fce8004018a9a1811ef38dd8628f878e4b9e739d77cbca846d4b3a8e24f3e544',
       'poster-04-full-mobile-1080x1350.png': '3396bc5bf8852959b06b33ad8dbc51d30349c5d119bd19a428afe73696484994',
     };
-    if (manifest.slides.length !== EXPECT.length) fail(`promotional-banners.json: expected ${EXPECT.length} slides (posters 01-05, 07-10, then promo-04, 07, 11, 13, 15, 16, 17, 18, 19), found ${manifest.slides.length}`);
+    if (manifest.slides.length !== EXPECT.length) fail(`promotional-banners.json: expected ${EXPECT.length} slides (posters 01-05, 07-10, then promo-04, 11, 15, 16, 17, 18, 19), found ${manifest.slides.length}`);
     EXPECT.forEach(([id, href, src], i) => {
       const s = manifest.slides[i] || {};
       if (s.id !== id || s.href !== href || s.src !== src) fail(`promotional-banners.json: slide ${i + 1} must be ${id} -> ${href} (${src})`);
@@ -586,7 +597,7 @@ if (distHtml['pricing.html']) {
     for (const [id, mobile] of [['ultimate', 'poster-02-ultimate-mobile-1080x1350.png'], ['complete', 'poster-03-complete-mobile-1080x1350.png'], ['full', 'poster-04-full-mobile-1080x1350.png']])
       if (manifest.slides.find((s) => s.id === id)?.mobile?.src !== mobile) fail(`promotional-banners.json: poster ${id} needs its approved mobile file ${mobile}`);
     // retired banners and the held poster are gone from disk and from the manifest
-    for (const n of ['01', '02', '03', '05', '06', '08', '09', '10', '12', '14', '20']) {
+    for (const n of ['01', '02', '03', '05', '06', '07', '08', '09', '10', '12', '13', '14', '20']) {
       if (readdirSync(path.join(ROOT, BASE.slice(1))).some((f) => f.startsWith('promo-' + n + '-'))) fail(`assets/img/promotional-banners: promo-${n} was retired (30 Oct 2026) and must not come back`);
     }
     if (readdirSync(path.join(ROOT, BASE.slice(1))).some((f) => /poster-06|digital-practice/i.test(f)) || manifest.slides.some((s) => /poster-06|digital/i.test(s.src + s.id))) fail('poster 06 (Digital Practice) is HELD by the owner (unsubstantiated struck-out prices): it must not be on disk or in the carousel');
@@ -613,12 +624,12 @@ if (distHtml['pricing.html']) {
         if (s.srcset && !sl.includes(`srcset="${s.srcset.map(([f, w]) => `${BASE}${f} ${w}w`).join(', ')}"`)) fail(`${page}: slide ${i + 1} (${id}) srcset drifted from the manifest`);
         if (/\bAI\b/.test(sl.replace(/<[^>]+>/g, ' '))) fail(`${page}: slide ${i + 1} must not use the term "AI"`);
       });
-      if (slides.some((sl) => /promo-(?:01|02|03|05|06|08|09|10|12|14|20)-|poster-(?:ultimate|complete|full)-|poster-06/.test(sl))) fail(`${page}: a retired banner or the held poster 06 is still in the carousel`);
+      if (slides.some((sl) => /promo-(?:01|02|03|05|06|07|08|09|10|12|13|14|20)-|poster-(?:ultimate|complete|full)-|poster-06/.test(sl))) fail(`${page}: a retired banner or the held poster 06 is still in the carousel`);
     };
     check('pricing.html', slidesOf(ph, '<div class="swiper oet-pricing-hero-swiper">', '</button>'), null, 'pricing');
     check('index.html', slidesOf(distHtml['index.html'] || '', '<div class="swiper oet-promo-popup__swiper">', '</button>'), null, 'popup');
     for (const id of ['full-oet-courses', 'bundle-ultimate', 'bundle-full-tutorbook', 'bundle-full-practice', 'bundle-crash-complete', 'writing-packages', 'speaking-packages', 'pkg-medicine-classic', 'tutor-book', 'full-mock-exam-packages', 'pkg-basic-english', 'pkg-nursing-classic', 'pkg-nursing-premium', 'pkg-speaking-crash', 'pkg-private-speaking', 'pkg-mega-special', 'pkg-writing-crash', 'pkg-double-special'])
-      if (!ph.includes(` id="${id}"`)) fail(`pricing.html: carousel / upsell target #${id} is missing`);
+      if (!ph.includes(` id="${id}"`)) fail(`pricing.html: carousel / upsell / link target #${id} is missing (#full-mock-exam-packages and #pkg-nursing-classic lost their banners on 30 Oct 2026 but other pages and the Nursing panel still link them)`);
     // no duplicate ids on the pricing page (every poster and upsell lands on exactly one element)
     {
       const ids = [...ph.replace(/<script[\s\S]*?<\/script>/g, '').matchAll(/\sid="((?:pkg|bundle)-[^"]+)"/g)].map((m) => m[1]);
@@ -645,10 +656,11 @@ if (distHtml['pricing.html']) {
   }
 
   // Classic recorded courses (legacy catalogue). Final Master brief (owner 30 Oct 2026): Medicine / Physiotherapy / Allied Health / Pharmacy are GBP 105 and carry SAMI,
-  // Full Nursing OET Course is GBP 65, Nursing Premium Bundle GBP 105 (Recommended). Each Classic Full card says "Enhance your preparation with website practice" and
-  // links the Full OET Course card of ITS profession, quoting that tier's own live price (never a promised discount).
+  // Classic Nursing OET Course is GBP 65, Nursing Premium Bundle GBP 105 (Recommended). Each Classic Full card says "Enhance your preparation with website practice" and
+  // links the Full OET Course + Website Practice card of ITS profession, quoting that tier's own live price (never a promised discount).
   {
-    const CLASSIC = { '01': ['Full Condensed Recorded OET Course - Medicine', 'pkg-medicine-classic', 'medicine', 105], '02': ['Full Physiotherapy OET Course', 'pkg-physiotherapy-classic', 'physiotherapy', 105], '03': ['Full Allied Health Profession OET Course', 'pkg-allied-health-classic', 'other-allied-health', 105], '05': ['Full Nursing OET Course', 'pkg-nursing-classic', null, 65], '08': ['Full Pharmacy OET Course', 'pkg-pharmacy-classic', 'pharmacy', 105] };
+    // display names (owner 30 Oct 2026, names brief): "Classic Full Course + SAMI - <profession>" for 01 / 02 / 03 / 08, "Classic Nursing OET Course" for 05
+    const CLASSIC = { '01': ['Classic Full Course + SAMI - Medicine', 'pkg-medicine-classic', 'medicine', 105], '02': ['Classic Full Course + SAMI - Physiotherapy', 'pkg-physiotherapy-classic', 'physiotherapy', 105], '03': ['Classic Full Course + SAMI - Modified Allied Health', 'pkg-allied-health-classic', 'other-allied-health', 105], '05': ['Classic Nursing OET Course', 'pkg-nursing-classic', null, 65], '08': ['Classic Full Course + SAMI - Pharmacy', 'pkg-pharmacy-classic', 'pharmacy', 105] };
     for (const [n, [title, id, prof, price]] of Object.entries(CLASSIC)) {
       const card = (ph.match(new RegExp('<article class="oet-pricing-card" id="' + id + '">\\s*<div class="oet-card-kicker">Package ' + n + '</div>[\\s\\S]*?</article>')) || [''])[0];
       if (!card.includes(title)) { fail('pricing.html: Classic card Package ' + n + ' (' + title + ') with id ' + id + ' not found'); continue; }
@@ -659,8 +671,8 @@ if (distHtml['pricing.html']) {
       if (!card.includes('<li>SAMI 24/7 learning companion included</li>')) fail('pricing.html: Package ' + n + ' must say SAMI is included');
       if (prof) {
         const want = `<a class="oet-upsell__link" href="/pricing.html?profession=${prof}#bundle-full-practice" data-oet-poster="bundle-full-practice" data-profession="${prof}">Enhance your preparation with website practice</a>`;
-        if (!card.includes(want) || !card.includes(`<span class="oet-tier-price" data-tier="full-practice" data-profession="${prof}">&pound;140</span>`)) fail('pricing.html: Package ' + n + ' must link the Full OET Course card of its profession and quote that tier price (GBP 140)');
-      } else if (!card.includes('<a class="oet-upsell__link" href="#pkg-nursing-premium" data-oet-poster="pkg-nursing-premium">Upgrade to the Nursing Premium Bundle</a>') || !card.includes('Basic English Course: &pound;105.</span>')) fail('pricing.html: the Full Nursing OET Course card must upsell the Nursing Premium Bundle at its own price (GBP 105)');
+        if (!card.includes(want) || !card.includes(`<span class="oet-tier-price" data-tier="full-practice" data-profession="${prof}">&pound;140</span>`)) fail('pricing.html: Package ' + n + ' must link the Full OET Course + Website Practice card of its profession and quote that tier price (GBP 140)');
+      } else if (!card.includes('<a class="oet-upsell__link" href="#pkg-nursing-premium" data-oet-poster="pkg-nursing-premium">Upgrade to the Nursing Premium Bundle</a>') || !card.includes('Basic English Course: &pound;105.</span>')) fail('pricing.html: the Classic Nursing OET Course card must upsell the Nursing Premium Bundle at its own price (GBP 105)');
       if (/wa\.me|whatsapp|pay only the difference|ai-grading-packages/i.test(card)) fail('pricing.html: Package ' + n + ' upsell is a link to the actual card, with no WhatsApp and no promised discount');
     }
     if ((ph.match(/class="oet-classic-note"/g) || []).length !== Object.keys(CLASSIC).length) fail('pricing.html: only the five Classic Full cards carry the Classic note (not the Nursing Premium Bundle or Basic English)');
@@ -704,7 +716,16 @@ if (distHtml['pricing.html']) {
       if (/Nursing Course \+ Assessment|nursing-course-plus-assessment|Full Crash Course (?:-|&ndash;|\+) ?(?:General|3 Writing|5 Writing)|full-crash-course-(?:general|plus)|View the Crash Course\b|crash-course options/i.test(html.replace(/&amp;/g, '&')))
         fail(`${page}: the Nursing Course + Assessment Package and the legacy Full Crash GBP 65 / 75 / 85 were removed from sale and must not be named, linked or priced`);
       if (/<!--oet:/.test(html)) fail(`${page}: an unreplaced <!--oet:...--> build marker leaked into the page`);
+      // the former GBP 140 Full Condensed Recorded Course + TutorBook (Medicine) was retired; its place is the Complete OET Bundle + TutorBook (the legacy Classic Medicine keeps its own sign-in slug, which is not matched here)
+      if (/Condensed Recorded Course \+ TutorBook|Medicine Condensed|full-condensed-medicine-tbook/i.test(html.replace(/&amp;/g, '&'))) fail(`${page}: the retired Full Condensed Recorded Course + TutorBook must not be named or linked (the Complete OET Bundle + TutorBook replaces it)`);
     }
+  }
+
+  // Wording (owner, 30 Oct 2026): no candidate-facing "AI" on the pricing, homepage, service and profession course pages (Sami is "your study assistant"). The legal pages keep
+  // their provider disclosures and the internal #ai-grading-packages anchor is not visible copy, so neither is scanned.
+  for (const page of ['pricing.html', 'index.html', 'service.html', 'oet-course-for-doctors.html', 'oet-course-for-nurses.html', 'oet-course-for-pharmacists.html', 'oet-course-for-physiotherapists.html', 'oet-for-allied-health.html']) {
+    const copy = ((distHtml[page] || '').match(/<main[\s\S]*<\/main>/) || [''])[0].replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ');
+    if (/\bAI\b/.test(copy)) fail(`${page}: the term "AI" must not appear in candidate-facing copy (owner 30 Oct 2026)`);
   }
 
   // Arabic pages carry no bundle cards, so no English-only tier name or Basic English gift on the 165 tier can sit there

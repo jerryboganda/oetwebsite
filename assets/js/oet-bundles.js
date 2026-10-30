@@ -13,7 +13,7 @@
  * Defaults live in site/src/data/bundles.json (embedded in the page as #oet-bundles-data).
  *
  * Final Master brief (owner, 30 Oct 2026), all in this file:
- *  - Nursing is never sold the Ultimate, Full OET Course, Complete OET Bundle or Full Crash tiers (professions[].notSold in
+ *  - Nursing is never sold the Ultimate, Full OET Course + Website Practice, Complete OET Bundle + TutorBook or Full Crash tiers (professions[].notSold in
  *    bundles.json): for Nursing the Full section shows an explanation that points at the two Nursing packages
  *    (data.nursingPackages), the whole Crash section and every link to it are hidden, and a poster that points at a hidden tier
  *    lands on #full-oet-courses instead of dead-ending;
@@ -239,7 +239,7 @@
 
   // One upsell line under an eligible card: the NEXT tier of the same family and profession (tier.upsell.to), priced from
   // the live difference. Links to that tier's own card (#bundle-<key>), never to WhatsApp or the generic page. Ultimate and
-  // Full Crash + TutorBook have none (nothing above them), and a target the live catalog hides renders nothing.
+  // Full Crash + 5 Personal Assessments + TutorBook have none (nothing above them), and a target the live catalog hides renders nothing.
   function upsellHtml(b) {
     var u = b.upsell;
     if (!u || !b.upgrades) return '';
@@ -328,7 +328,7 @@
     var cards = nursingCards(data);
     if (!cards) return EMPTY;
     return '<div class="oet-bundle-nursing" data-nursing-panel>' +
-      '<p class="oet-bundle-nursing__lead"><strong>Nursing has its own packages.</strong> The Full OET Course, Complete OET Bundle, Ultimate and Full Crash tiers are not sold to Nursing. Choose one of the two Nursing packages below.</p>' +
+      '<p class="oet-bundle-nursing__lead"><strong>Nursing has its own packages.</strong> The Full OET Course + Website Practice, Complete OET Bundle + TutorBook, Ultimate and Full Crash tiers are not sold to Nursing. Choose one of the two Nursing packages below.</p>' +
       '<div class="oet-bundle-nursing__grid">' + cards + '</div>' +
       '<p class="oet-bundle-nursing__more">Nursing candidates can still add the Writing Crash and Speaking Crash courses, the website Writing, Speaking, Listening and Reading packages, and private tutoring.</p></div>';
   }
