@@ -539,9 +539,9 @@ if (distHtml['pricing.html']) {
   // ---- Final Master brief (owner, 30 Oct 2026) ----
 
   // Promotional carousel: ONE ordered list (assets/img/promotional-banners/promotional-banners.json) feeds the pricing hero slider AND the homepage popup, in the same order.
-  // Slides 1-5 are the approved posters 01-05, then 07-10 (06 Digital Practice is HELD: it prints unsubstantiated struck-out prices), then the still-relevant older banners
+  // Slides 1-5 are the approved posters 01-05, then 06-10 (06 Digital Practice was published on the owner's instruction of 31 Oct 2026), then the still-relevant older banners
   // promo-04, 11, 15, 16, 17, 18, 19 (promo-07 Mock Exams and promo-13 Nursing recorded course were retired on 30 Oct 2026: their artwork prints a 'Passing Score Guaranteed' seal
-  // and 'Free 3 letters assessment', claims the products do not make). 9 + 7 = 16 slides. The approved artwork is byte-identical to the owner's files (SHA-256 below), every slide is a whole-image link with a visible
+  // and 'Free 3 letters assessment', claims the products do not make). 10 + 7 = 17 slides. The approved artwork is byte-identical to the owner's files (SHA-256 below), every slide is a whole-image link with a visible
   // call to action and real alt text without "AI", and the three tier posters swap to the portrait files below 640px.
   {
     const manifest = JSON.parse(readFileSync(path.join(ROOT, 'assets/img/promotional-banners/promotional-banners.json'), 'utf8'));
@@ -552,6 +552,7 @@ if (distHtml['pricing.html']) {
       ['complete', '/pricing.html#bundle-full-tutorbook', 'poster-03-complete-wide-1920x1080.png'],
       ['full', '/pricing.html#bundle-full-practice', 'poster-04-full-wide-1920x1080.png'],
       ['ask-sami', 'https://app.oetwithdrhesham.co.uk/companion', 'poster-05-ask-sami.jpg'],
+      ['digital-practice', '/pricing.html#ai-grading-packages', 'poster-06-digital-practice.png'],
       ['writing-assessments', '/pricing.html#writing-packages', 'poster-07-website-writing-assessments.png'],
       ['virtual-speaking', '/pricing.html#speaking-packages', 'poster-08-live-virtual-patient-speaking.png'],
       ['medicine-classic', '/pricing.html#pkg-medicine-classic', 'poster-09-medicine-classic-full-course.png'],
@@ -571,6 +572,7 @@ if (distHtml['pricing.html']) {
       'poster-03-complete-wide-1920x1080.png': 'a40528c8d785d56147c31258ae75f53402e80338e1a8a647bfac2fb603c01562',
       'poster-04-full-wide-1920x1080.png': 'f3d5c5e2613322066963978d59fc60f096bc8795f8e1677e43604becd71dcf65',
       'poster-05-ask-sami.jpg': '13ca90a0cf5122b01ec054e24ce564fa3921b927dee210cc5ca714b97a1e24bd',
+      'poster-06-digital-practice.png': '22fff0f24009b0a6c33550275057e3e0da82e7ae1d8646907a30bbc364bee72b',
       'poster-07-website-writing-assessments.png': '362a57576d398474f22ff6ff6c35170ae746f491c0411e4ad6a4356ea230a425',
       'poster-08-live-virtual-patient-speaking.png': 'be29dbc59de2f003ae5a98009c5e0c416100526eea166bd11a9cad8ffd0e11d4',
       'poster-09-medicine-classic-full-course.png': 'd5346aaabb43f6328bc1e61f567ae34dcb92532a406df864924bf19f686febc3',
@@ -579,7 +581,7 @@ if (distHtml['pricing.html']) {
       'poster-03-complete-mobile-1080x1350.png': 'fce8004018a9a1811ef38dd8628f878e4b9e739d77cbca846d4b3a8e24f3e544',
       'poster-04-full-mobile-1080x1350.png': '3396bc5bf8852959b06b33ad8dbc51d30349c5d119bd19a428afe73696484994',
     };
-    if (manifest.slides.length !== EXPECT.length) fail(`promotional-banners.json: expected ${EXPECT.length} slides (posters 01-05, 07-10, then promo-04, 11, 15, 16, 17, 18, 19), found ${manifest.slides.length}`);
+    if (manifest.slides.length !== EXPECT.length) fail(`promotional-banners.json: expected ${EXPECT.length} slides (posters 01-10, then promo-04, 11, 15, 16, 17, 18, 19), found ${manifest.slides.length}`);
     EXPECT.forEach(([id, href, src], i) => {
       const s = manifest.slides[i] || {};
       if (s.id !== id || s.href !== href || s.src !== src) fail(`promotional-banners.json: slide ${i + 1} must be ${id} -> ${href} (${src})`);
@@ -596,11 +598,10 @@ if (distHtml['pricing.html']) {
     // posters 02-04 carry the portrait file below 640px; the others scale with object-fit: contain
     for (const [id, mobile] of [['ultimate', 'poster-02-ultimate-mobile-1080x1350.png'], ['complete', 'poster-03-complete-mobile-1080x1350.png'], ['full', 'poster-04-full-mobile-1080x1350.png']])
       if (manifest.slides.find((s) => s.id === id)?.mobile?.src !== mobile) fail(`promotional-banners.json: poster ${id} needs its approved mobile file ${mobile}`);
-    // retired banners and the held poster are gone from disk and from the manifest
+    // retired banners are gone from disk and from the manifest
     for (const n of ['01', '02', '03', '05', '06', '07', '08', '09', '10', '12', '13', '14', '20']) {
       if (readdirSync(path.join(ROOT, BASE.slice(1))).some((f) => f.startsWith('promo-' + n + '-'))) fail(`assets/img/promotional-banners: promo-${n} was retired (30 Oct 2026) and must not come back`);
     }
-    if (readdirSync(path.join(ROOT, BASE.slice(1))).some((f) => /poster-06|digital-practice/i.test(f)) || manifest.slides.some((s) => /poster-06|digital/i.test(s.src + s.id))) fail('poster 06 (Digital Practice) is HELD by the owner (unsubstantiated struck-out prices): it must not be on disk or in the carousel');
 
     // the rendered slides: the pricing hero and the homepage popup, same list and order
     const slidesOf = (html, opener, closer) => {
@@ -624,7 +625,7 @@ if (distHtml['pricing.html']) {
         if (s.srcset && !sl.includes(`srcset="${s.srcset.map(([f, w]) => `${BASE}${f} ${w}w`).join(', ')}"`)) fail(`${page}: slide ${i + 1} (${id}) srcset drifted from the manifest`);
         if (/\bAI\b/.test(sl.replace(/<[^>]+>/g, ' '))) fail(`${page}: slide ${i + 1} must not use the term "AI"`);
       });
-      if (slides.some((sl) => /promo-(?:01|02|03|05|06|07|08|09|10|12|13|14|20)-|poster-(?:ultimate|complete|full)-|poster-06/.test(sl))) fail(`${page}: a retired banner or the held poster 06 is still in the carousel`);
+      if (slides.some((sl) => /promo-(?:01|02|03|05|06|07|08|09|10|12|13|14|20)-|poster-(?:ultimate|complete|full)-/.test(sl))) fail(`${page}: a retired banner is still in the carousel`);
     };
     check('pricing.html', slidesOf(ph, '<div class="swiper oet-pricing-hero-swiper">', '</button>'), null, 'pricing');
     check('index.html', slidesOf(distHtml['index.html'] || '', '<div class="swiper oet-promo-popup__swiper">', '</button>'), null, 'popup');
@@ -730,6 +731,7 @@ if (distHtml['pricing.html']) {
 
   // Arabic pages carry no bundle cards, so no English-only tier name or Basic English gift on the 165 tier can sit there
   for (const [page, h] of Object.entries(distHtml)) {
+    if (page === 'ar/oet-course-for-doctors.html' && /الكورس \+ TutorBook|باقة TutorBook|المختصر للطب/.test(h)) fail(page + ': the retired course + TutorBook / Condensed wording is back (Classic, Full + practice and the Complete bundle are the tiers)');
     if (page.startsWith('ar/') && /oet-bundle-card|oet-choose-card|Complete OET Bundle|Ultimate OET Course|Full Crash Essential/.test(h)) fail(page + ': English-only bundle strings must not appear on an Arabic page');
   }
 

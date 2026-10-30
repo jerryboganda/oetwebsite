@@ -1,5 +1,5 @@
 {
-  "_comment": "Ordered promotional banners: the SINGLE source for the pricing-page hero slider AND the homepage promo popup (same slides, same order). site/src/lib/promo.mjs renders both from this file at build time and scripts/verify.mjs checks it. Final Master brief, owner 30 Oct 2026: slides 1-4 are the owner's approved posters 01-04, slide 5 the SAMI poster, then the Writing, Speaking, Medicine Classic and Crash + TutorBook posters, then the still-relevant older banners. The approved artwork files are never edited or re-cropped (their SHA-256 is checked in verify.mjs). Poster 06 (Digital Practice) is HELD by the owner: it prints struck-out comparison prices that are not yet substantiated, so it is NOT in this list. Retired on 30 Oct 2026 (files deleted): promo-01, 02, 03, 05, 06, 08, 09, 10, 12, 14, 20, and later the same day promo-07 (Mock Exam Packages: its artwork prints a 'Passing Score Guaranteed' seal, an unsupported guarantee claim) and promo-13 (Nursing recorded course: its artwork prints 'Free 3 letters assessment', which the Classic Nursing OET Course does not include). `target` is the id of the element on /pricing.html that the poster scrolls to (a poster whose target is not rendered, for example a tier Nursing is not sold, lands on #full-oet-courses); `external` links leave the site. `mobile` is the portrait file shown below 640px.",
+  "_comment": "Ordered promotional banners: the SINGLE source for the pricing-page hero slider AND the homepage promo popup (same slides, same order). site/src/lib/promo.mjs renders both from this file at build time and scripts/verify.mjs checks it. Final Master brief, owner 30 Oct 2026: slides 1-4 are the owner's approved posters 01-04, slide 5 the SAMI poster, then the Writing, Speaking, Medicine Classic and Crash + TutorBook posters, then the still-relevant older banners. The approved artwork files are never edited or re-cropped (their SHA-256 is checked in verify.mjs). Poster 06 (Digital Practice) was held on 30 Oct 2026 and PUBLISHED on the owner's instruction of 31 Oct 2026 (slide 6): the owner has the documented former prices behind the struck-out comparison it prints. Retired on 30 Oct 2026 (files deleted): promo-01, 02, 03, 05, 06, 08, 09, 10, 12, 14, 20, and later the same day promo-07 (Mock Exam Packages: its artwork prints a 'Passing Score Guaranteed' seal, an unsupported guarantee claim) and promo-13 (Nursing recorded course: its artwork prints 'Free 3 letters assessment', which the Classic Nursing OET Course does not include). `target` is the id of the element on /pricing.html that the poster scrolls to (a poster whose target is not rendered, for example a tier Nursing is not sold, lands on #full-oet-courses); `external` links leave the site. `mobile` is the portrait file shown below 640px.",
   "base":"/assets/img/promotional-banners/",
   "slides": [
     {
@@ -54,6 +54,16 @@
       "src": "poster-05-ask-sami.jpg",
       "width": 1087,
       "height": 1536
+    },
+    {
+      "id": "digital-practice",
+      "href": "/pricing.html#ai-grading-packages",
+      "target": "ai-grading-packages",
+      "cta": "Explore packages",
+      "alt": "Digital Practice and Assessment Packages: Quick Check, Exam Prep Pro and OET Mastery. Practise, get feedback and improve",
+      "src": "poster-06-digital-practice.png",
+      "width": 1122,
+      "height": 1402
     },
     {
       "id": "writing-assessments",

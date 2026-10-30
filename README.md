@@ -56,7 +56,7 @@ Everything else at the root deploys as-is: `assets/`, PHP endpoints,
   "Classic Nursing OET Course" (`pricing.json` title = card `<h3>` = JSON-LD name). See `AGENTS.md`.
 - **Promotional carousel** (pricing hero slider and homepage popup, same slides, same order): edit `assets/img/promotional-banners/promotional-banners.json` (one entry per slide:
   link, pricing-page target id, call to action, alt text, files) and rebuild. The approved poster files are never edited (their SHA-256 is checked by `verify.mjs`); poster 06 (Digital Practice)
-  is held by the owner. The carousel holds 16 slides: posters 01-05 and 07-10, then promo-04, 11, 15, 16, 17, 18, 19 (promo-07 Mock Exams and promo-13 Nursing recorded course were retired
+  was published on 31 Oct 2026. The carousel holds 17 slides: posters 01-10, then promo-04, 11, 15, 16, 17, 18, 19 (promo-07 Mock Exams and promo-13 Nursing recorded course were retired
   on 30 Oct 2026 because their artwork prints claims the products do not make; their files are deleted). Behaviour (7-second autoplay, Pause/Play button, hover/focus hold, reduced motion) lives in `assets/js/oet-promo-carousel.js`. See `AGENTS.md`, "Final Master brief".
 - **Success-story counts**: year-tab counts, the "Score cards" counter and
   JSON-LD `numberOfItems` are computed from
