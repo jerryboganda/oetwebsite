@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/assets/css/oet-bundles.css">
+<link rel="stylesheet" href="/assets/css/oet-promo-carousel.css">
 <style id="oet-pricing-catalogue-css">
         .oet-pricing-main {
             position: relative;
@@ -97,12 +98,19 @@
             font-size: 13px;
             font-weight: 800;
         }
+        .oet-pricing-hero-slider__controls {
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 10px 12px;
+        }
         .oet-pricing-hero-swiper {
             position: relative;
             z-index: 2;
             width: 100%;
-            height: min(68vh, 650px);
-            min-height: 500px;
+            height: min(78vh, 760px);
+            min-height: 540px;
             border-radius: 22px;
             overflow: hidden;
             background: linear-gradient(145deg, #ffffff, #f8f6ff);
@@ -128,15 +136,15 @@
             width: 100%;
             height: 100%;
             min-width: 0;
-            padding: 28px 28px 58px;
+            padding: 28px 28px 98px;
             box-sizing: border-box;
         }
         .oet-pricing-hero-slide img {
             position: absolute;
-            inset: 28px 28px 58px;
+            inset: 28px 28px 98px;
             display: block;
             width: calc(100% - 56px);
-            height: calc(100% - 86px);
+            height: calc(100% - 126px);
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
@@ -175,12 +183,15 @@
         .oet-pricing-hero-pagination {
             position: absolute;
             left: 50% !important;
-            bottom: 16px !important;
+            bottom: 12px !important;
             z-index: 6;
             width: auto !important;
+            max-width: calc(100% - 96px);
             transform: translateX(-50%);
             display: inline-flex;
-            gap: 7px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4px 7px;
             align-items: center;
             border-radius: 999px;
             padding: 8px 10px;
@@ -462,17 +473,19 @@
                 gap: 7px;
             }
             .oet-pricing-hero-slider__hint { font-size: 12px; }
-            .oet-pricing-hero-swiper {
-                height: min(52dvh, 380px);
-                min-height: 0;
+            /* assets/css/oet-mobile.css pins this height with !important, hence the extra specificity */
+            .oet-pricing-hero-slider .oet-pricing-hero-swiper {
+                height: min(74dvh, 580px) !important;
+                min-height: 0 !important;
                 border-radius: 18px;
             }
-            .oet-pricing-hero-slide { padding: 16px 12px 58px; }
+            .oet-pricing-hero-slide { padding: 14px 10px 104px; }
             .oet-pricing-hero-slide img {
-                inset: 16px 12px 58px;
-                width: calc(100% - 24px);
-                height: calc(100% - 74px);
+                inset: 14px 10px 104px;
+                width: calc(100% - 20px);
+                height: calc(100% - 118px);
             }
+            .oet-pricing-hero-pagination .swiper-pagination-bullet { margin: 0 4px !important; }
             .oet-pricing-hero-nav {
                 width: 36px;
                 height: 36px;
@@ -492,6 +505,9 @@
             .oet-pricing-group-head { padding: 46px 0 0; }
             .oet-pricing-group-head h2 { font-size: 30px; }
             #full-mock-exam-packages { padding-bottom: 90px; }
+        }
+        @media (max-width: 1023.98px) and (orientation: landscape) and (max-height: 500px) {
+            .oet-pricing-hero-slider .oet-pricing-hero-swiper { height: min(92dvh, 460px) !important; min-height: 0 !important; }
         }
     </style>
     <style id="oet-public-app-downloads-css">
@@ -740,7 +756,7 @@
       },
       "offers": {
        "@type": "Offer",
-       "price": "100",
+       "price": "105",
        "priceCurrency": "GBP",
         "availability": "https://schema.org/InStock",
         "url": "https://oetwithdrhesham.co.uk/pricing.html",
@@ -770,7 +786,7 @@
       },
       "offers": {
        "@type": "Offer",
-       "price": "75",
+       "price": "105",
        "priceCurrency": "GBP",
         "availability": "https://schema.org/InStock",
         "url": "https://oetwithdrhesham.co.uk/pricing.html",
@@ -800,7 +816,7 @@
       },
       "offers": {
        "@type": "Offer",
-       "price": "75",
+       "price": "105",
        "priceCurrency": "GBP",
         "availability": "https://schema.org/InStock",
         "url": "https://oetwithdrhesham.co.uk/pricing.html",
@@ -830,7 +846,7 @@
       },
       "offers": {
        "@type": "Offer",
-       "price": "60",
+       "price": "65",
        "priceCurrency": "GBP",
         "availability": "https://schema.org/InStock",
         "url": "https://oetwithdrhesham.co.uk/pricing.html",
@@ -851,8 +867,8 @@
      "position": 5,
      "item": {
       "@type": "Product",
-      "name": "Nursing Course + Assessment Package ( Writing & Speaking )",
-      "description": "The complete Nursing OET preparation package, combining comprehensive recorded lessons, full Nursing course materials, personalised Writing and Speaking assessments, and practice credits. Designed to provide structured preparation, expert feedback, and focused practice across all OET skills, helping candidates build confidence and work effectively towards their target OET score.",
+      "name": "Full Pharmacy OET Course",
+      "description": "A profession-specific OET preparation course for pharmacists covering all four sub-tests with pharmacy-focused Writing and Speaking content. The course includes pharmacy scenarios such as complaint handling, dosage issues, drug safety, expiry-date discrepancies, interactions and counselling.",
       "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
       "brand": {
        "@type": "Brand",
@@ -860,7 +876,7 @@
       },
       "offers": {
        "@type": "Offer",
-       "price": "70",
+       "price": "105",
        "priceCurrency": "GBP",
         "availability": "https://schema.org/InStock",
         "url": "https://oetwithdrhesham.co.uk/pricing.html",
@@ -879,36 +895,6 @@
     {
      "@type": "ListItem",
      "position": 6,
-     "item": {
-      "@type": "Product",
-      "name": "Full Pharmacy OET Course",
-      "description": "A profession-specific OET preparation course for pharmacists covering all four sub-tests with pharmacy-focused Writing and Speaking content. The course includes pharmacy scenarios such as complaint handling, dosage issues, drug safety, expiry-date discrepancies, interactions and counselling.",
-      "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
-      "brand": {
-       "@type": "Brand",
-       "name": "OET with Dr Hesham"
-      },
-      "offers": {
-       "@type": "Offer",
-       "price": "100",
-       "priceCurrency": "GBP",
-        "availability": "https://schema.org/InStock",
-        "url": "https://oetwithdrhesham.co.uk/pricing.html",
-        "hasMerchantReturnPolicy": {
-         "@type": "MerchantReturnPolicy",
-         "applicableCountry": "GB",
-         "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-         "merchantReturnDays": 14,
-         "returnFees": "https://schema.org/FreeReturn",
-         "merchantReturnLink": "https://oetwithdrhesham.co.uk/refund-policy/",
-         "name": "OET with Dr Hesham Refund Policy"
-        }
-      }
-     }
-    },
-    {
-     "@type": "ListItem",
-     "position": 7,
      "item": {
       "@type": "Product",
       "name": "Basic English Course - Preparation for OET",
@@ -938,97 +924,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 8,
-     "item": {
-      "@type": "Product",
-      "name": "Full Crash Course - General OET",
-      "description": "A condensed, high-impact OET course for candidates with limited time before the exam. It covers the four sub-tests in an exam-oriented format with high-yield strategies and recall-based guidance.",
-      "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
-      "brand": {
-       "@type": "Brand",
-       "name": "OET with Dr Hesham"
-      },
-      "offers": {
-       "@type": "Offer",
-       "price": "60",
-       "priceCurrency": "GBP",
-        "availability": "https://schema.org/InStock",
-        "url": "https://oetwithdrhesham.co.uk/pricing.html",
-        "hasMerchantReturnPolicy": {
-         "@type": "MerchantReturnPolicy",
-         "applicableCountry": "GB",
-         "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-         "merchantReturnDays": 14,
-         "returnFees": "https://schema.org/FreeReturn",
-         "merchantReturnLink": "https://oetwithdrhesham.co.uk/refund-policy/",
-         "name": "OET with Dr Hesham Refund Policy"
-        }
-      }
-     }
-    },
-    {
-     "@type": "ListItem",
-     "position": 9,
-     "item": {
-      "@type": "Product",
-      "name": "Full Crash Course + 3 Writing Assessments",
-      "description": "The Full Crash Course bundled with assessment of 3 Writing letters. It combines condensed preparation across the exam with personalised Writing correction.",
-      "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
-      "brand": {
-       "@type": "Brand",
-       "name": "OET with Dr Hesham"
-      },
-      "offers": {
-       "@type": "Offer",
-       "price": "70",
-       "priceCurrency": "GBP",
-        "availability": "https://schema.org/InStock",
-        "url": "https://oetwithdrhesham.co.uk/pricing.html",
-        "hasMerchantReturnPolicy": {
-         "@type": "MerchantReturnPolicy",
-         "applicableCountry": "GB",
-         "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-         "merchantReturnDays": 14,
-         "returnFees": "https://schema.org/FreeReturn",
-         "merchantReturnLink": "https://oetwithdrhesham.co.uk/refund-policy/",
-         "name": "OET with Dr Hesham Refund Policy"
-        }
-      }
-     }
-    },
-    {
-     "@type": "ListItem",
-     "position": 10,
-     "item": {
-      "@type": "Product",
-      "name": "Full Crash Course + 5 Writing Assessments",
-      "description": "The Full Crash Course bundled with assessment of 5 Writing letters. It is the recommended crash-course bundle for candidates who want more personalised Writing feedback while studying the four sub-tests.",
-      "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
-      "brand": {
-       "@type": "Brand",
-       "name": "OET with Dr Hesham"
-      },
-      "offers": {
-       "@type": "Offer",
-       "price": "80",
-       "priceCurrency": "GBP",
-        "availability": "https://schema.org/InStock",
-        "url": "https://oetwithdrhesham.co.uk/pricing.html",
-        "hasMerchantReturnPolicy": {
-         "@type": "MerchantReturnPolicy",
-         "applicableCountry": "GB",
-         "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-         "merchantReturnDays": 14,
-         "returnFees": "https://schema.org/FreeReturn",
-         "merchantReturnLink": "https://oetwithdrhesham.co.uk/refund-policy/",
-         "name": "OET with Dr Hesham Refund Policy"
-        }
-      }
-     }
-    },
-    {
-     "@type": "ListItem",
-     "position": 11,
+     "position": 7,
      "item": {
       "@type": "Product",
       "name": "3 Writing Letter Assessments - Add-on",
@@ -1058,7 +954,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 12,
+     "position": 8,
      "item": {
       "@type": "Product",
       "name": "5 Writing Letter Assessments - Add-on",
@@ -1088,7 +984,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 13,
+     "position": 9,
      "item": {
       "@type": "Product",
       "name": "7 Writing Letter Assessments - Add-on",
@@ -1118,7 +1014,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 14,
+     "position": 10,
      "item": {
       "@type": "Product",
       "name": "10 Writing Letter Assessments - Add-on",
@@ -1148,7 +1044,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 15,
+     "position": 11,
      "item": {
       "@type": "Product",
       "name": "Recorded Writing Crash Course",
@@ -1178,7 +1074,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 16,
+     "position": 12,
      "item": {
       "@type": "Product",
       "name": "Writing Crash Course + 2 Letter Assessments",
@@ -1208,7 +1104,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 17,
+     "position": 13,
      "item": {
       "@type": "Product",
       "name": "Writing Crash Course + 3 Letter Assessments",
@@ -1238,7 +1134,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 18,
+     "position": 14,
      "item": {
       "@type": "Product",
       "name": "Writing Crash Course + 7 Letter Assessments",
@@ -1268,7 +1164,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 19,
+     "position": 15,
      "item": {
       "@type": "Product",
       "name": "Writing Crash Course + 10 Letter Assessments",
@@ -1298,7 +1194,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 20,
+     "position": 16,
      "item": {
       "@type": "Product",
       "name": "Recorded Speaking Crash Course",
@@ -1328,7 +1224,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 21,
+     "position": 17,
      "item": {
       "@type": "Product",
       "name": "1 Private Speaking Assessment Session",
@@ -1358,7 +1254,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 22,
+     "position": 18,
      "item": {
       "@type": "Product",
       "name": "2 Private Speaking Assessment Sessions",
@@ -1388,7 +1284,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 23,
+     "position": 19,
      "item": {
       "@type": "Product",
       "name": "Double Special Package - Writing + Speaking",
@@ -1418,7 +1314,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 24,
+     "position": 20,
      "item": {
       "@type": "Product",
       "name": "TutorBook - First Edition 2026",
@@ -1448,7 +1344,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 25,
+     "position": 21,
      "item": {
       "@type": "Product",
       "name": "TutorBook - Add-on for Enrolled Students",
@@ -1478,7 +1374,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 26,
+     "position": 22,
      "item": {
       "@type": "Product",
       "name": "Quick Check",
@@ -1508,7 +1404,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 27,
+     "position": 23,
      "item": {
       "@type": "Product",
       "name": "Exam Prep Pro",
@@ -1538,7 +1434,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 28,
+     "position": 24,
      "item": {
       "@type": "Product",
       "name": "1 Full Mock",
@@ -1568,7 +1464,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 29,
+     "position": 25,
      "item": {
       "@type": "Product",
       "name": "5 Full Mocks",
@@ -1598,7 +1494,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 30,
+     "position": 26,
      "item": {
       "@type": "Product",
       "name": "Listening Starter",
@@ -1628,7 +1524,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 31,
+     "position": 27,
      "item": {
       "@type": "Product",
       "name": "Listening Standard",
@@ -1658,7 +1554,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 32,
+     "position": 28,
      "item": {
       "@type": "Product",
       "name": "Listening Pro",
@@ -1688,7 +1584,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 33,
+     "position": 29,
      "item": {
       "@type": "Product",
       "name": "Listening Recalls",
@@ -1718,7 +1614,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 34,
+     "position": 30,
      "item": {
       "@type": "Product",
       "name": "Reading Starter",
@@ -1748,7 +1644,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 35,
+     "position": 31,
      "item": {
       "@type": "Product",
       "name": "Reading Standard",
@@ -1778,7 +1674,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 36,
+     "position": 32,
      "item": {
       "@type": "Product",
       "name": "Reading Pro",
@@ -1808,7 +1704,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 37,
+     "position": 33,
      "item": {
       "@type": "Product",
       "name": "Writing Starter",
@@ -1838,7 +1734,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 38,
+     "position": 34,
      "item": {
       "@type": "Product",
       "name": "Writing Standard",
@@ -1868,7 +1764,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 39,
+     "position": 35,
      "item": {
       "@type": "Product",
       "name": "Writing Pro",
@@ -1898,7 +1794,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 40,
+     "position": 36,
      "item": {
       "@type": "Product",
       "name": "Speaking Starter",
@@ -1928,7 +1824,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 41,
+     "position": 37,
      "item": {
       "@type": "Product",
       "name": "Speaking Standard",
@@ -1958,7 +1854,7 @@
     },
     {
      "@type": "ListItem",
-     "position": 42,
+     "position": 38,
      "item": {
       "@type": "Product",
       "name": "Speaking Pro",

@@ -7,6 +7,7 @@ import tailRaw from '../partials/pricing/tail.html?raw';
 import pricing from '../data/pricing.json';
 import { applyPricing } from '../lib/inject.mjs';
 import { applyBundlesToPricing } from '../lib/bundles.mjs';
+import { applyPromoToPricing } from '../lib/promo.mjs';
 
 // src/data/pricing.json is the single source of truth for package prices:
 // visible &pound; amounts AND JSON-LD Offer prices are rewritten at build.
@@ -17,7 +18,10 @@ const priced = applyPricing(
 
 // src/data/bundles.json holds the Full OET Course and Crash Course tiers (the two top sections, their
 // JSON-LD offers and the data the browser refreshes live from the public catalog).
-const parts = applyBundlesToPricing(priced);
+const bundled = applyBundlesToPricing(priced);
+
+// assets/img/promotional-banners/promotional-banners.json is the ONE ordered list of hero slides (shared with the homepage popup).
+const parts = applyPromoToPricing(bundled);
 ---
 <Base
   meta={parts.meta}

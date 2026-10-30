@@ -1,4 +1,5 @@
-﻿<style>
+﻿<link rel="stylesheet" href="/assets/css/oet-promo-carousel.css">
+<style>
 body.oet-live-site .oet-services-tone .oet-service-icon-grid { display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 12px;
@@ -133,6 +134,11 @@ body.oet-promo-popup-lock { overflow: hidden; }
             font-size: 13px;
             line-height: 1.2;
             font-weight: 700; }
+.oet-promo-popup__controls { display: inline-flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 8px 12px; }
 .oet-promo-popup__frame { position: relative;
             border-radius: 24px;
             overflow: hidden;
@@ -161,7 +167,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
             width: 100%;
             height: 100%;
             box-sizing: border-box;
-            padding: 20px 20px 76px;
+            padding: 20px 20px 112px;
             text-decoration: none;
             background:
                 radial-gradient(circle at 20% 18%, rgba(124,58,237, 0.1), transparent 30%),
@@ -192,8 +198,11 @@ body.oet-promo-popup-lock { overflow: hidden; }
             backface-visibility: hidden;
             will-change: transform; }
 .oet-promo-popup__cta { position: absolute;
-            left: 24px;
-            bottom: 18px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: max-content;
+            bottom: 60px;
             z-index: 4;
             display: inline-flex;
             align-items: center;
@@ -243,11 +252,13 @@ body.oet-promo-popup-lock { overflow: hidden; }
 .oet-promo-popup__nav--next::before { transform: translateX(-2px) rotate(45deg); }
 .oet-promo-popup__pagination { position: absolute;
             left: 50% !important;
-            bottom: 16px !important;
+            bottom: 14px !important;
             z-index: 7;
             width: auto !important;
+            max-width: calc(100% - 28px);
             transform: translateX(-50%);
             display: inline-flex;
+            flex-wrap: wrap;
             align-items: center;
             justify-content: center;
             gap: 0;
@@ -286,9 +297,9 @@ body.oet-promo-popup-lock { overflow: hidden; }
   .oet-promo-popup__shell { padding: 10px 10px calc(10px + env(safe-area-inset-bottom)); }
   .oet-promo-popup__topline { padding: 2px 48px 10px 2px; }
   .oet-promo-popup__hint { display: none; }
-  .oet-promo-popup__swiper { height: min(58dvh, 520px);
-                min-height: 0; }
-  .oet-promo-popup__slide-link { padding: 12px 10px 64px; }
+  .oet-promo-popup__shell .oet-promo-popup__swiper { height: min(68dvh, 600px) !important;
+                min-height: 0 !important; }
+  .oet-promo-popup__slide-link { padding: 12px 10px 128px; }
   .oet-promo-popup__image { width: 100%;
                 height: auto;
                 max-height: 100%; }
@@ -301,10 +312,12 @@ body.oet-promo-popup-lock { overflow: hidden; }
                 margin-top: -22px; }
   .oet-promo-popup__nav--prev { left: 8px; }
   .oet-promo-popup__nav--next { right: 8px; }
-  .oet-promo-popup__cta { left: 14px;
-                bottom: 14px;
+  .oet-promo-popup__cta { bottom: 80px;
                 padding: 10px 14px;
                 font-size: 13px; }
+}
+@media (max-width: 1023.98px) and (orientation: landscape) and (max-height: 500px) {
+  .oet-promo-popup__shell .oet-promo-popup__swiper { height: min(80dvh, 360px) !important; }
 }
 @media (prefers-reduced-motion: reduce) {
   .oet-promo-popup, .oet-promo-popup *, .oet-promo-popup *::before, .oet-promo-popup *::after { transition-duration: 0.01ms !important;

@@ -21,6 +21,7 @@
 <!-- Custom js -->
 <script defer src="/assets/js/main.js"></script>
      <script defer src="/assets/js/oet-contact-widget.js"></script>
+    <script defer src="/assets/js/oet-promo-carousel.js"></script>
     <script>
         window.addEventListener('load', function () {
             var cta = document.querySelector('.oet-community-cta');
@@ -201,149 +202,15 @@
             <div class="oet-promo-popup__shell">
                 <div class="oet-promo-popup__topline">
                     <h2 class="oet-promo-popup__badge" id="oet-promo-popup-title"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Latest OET offers</h2>
-                    <span class="oet-promo-popup__hint">Swipe through current packages and promotions</span>
+                    <span class="oet-promo-popup__controls">
+                        <span class="oet-promo-popup__hint" data-oet-carousel-hint>Browse the latest packages and promotions.</span>
+                        <button class="oet-carousel-toggle" type="button" data-oet-carousel-toggle aria-pressed="false" hidden><svg class="oet-carousel-toggle__icon oet-carousel-toggle__icon--pause" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3.5 2h3.2v12H3.5zM9.3 2h3.2v12H9.3z"/></svg><svg class="oet-carousel-toggle__icon oet-carousel-toggle__icon--play" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 2.2v11.6L13.6 8z"/></svg><span class="oet-carousel-toggle__text" data-oet-carousel-toggle-text>Pause</span></button>
+                    </span>
                 </div>
                 <div class="oet-promo-popup__frame">
                     <div class="swiper oet-promo-popup__swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html#bundle-ultimate" aria-label="View Ultimate OET Course, GBP 220">
-                                    <span class="oet-promo-popup__image-wrap"><picture><source media="(max-width: 639px)" type="image/webp" srcset="/assets/img/promotional-banners/poster-ultimate-portrait-540.webp 540w, /assets/img/promotional-banners/poster-ultimate-portrait-1080.webp 1080w" sizes="(max-width: 639px) 300px" width="1080" height="1350"><img class="oet-promo-popup__image" loading="lazy" src="/assets/img/promotional-banners/poster-ultimate-wide-1920.webp" srcset="/assets/img/promotional-banners/poster-ultimate-wide-960.webp 960w, /assets/img/promotional-banners/poster-ultimate-wide-1920.webp 1920w" sizes="(max-width: 767px) 300px, 490px" alt="Ultimate OET Course, GBP 220" width="1920" height="1080" decoding="async"></picture></span>
-                                    <span class="oet-promo-popup__cta">View this course <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html#bundle-full-tutorbook" aria-label="View Complete OET Bundle, GBP 165">
-                                    <span class="oet-promo-popup__image-wrap"><picture><source media="(max-width: 639px)" type="image/webp" srcset="/assets/img/promotional-banners/poster-complete-portrait-540.webp 540w, /assets/img/promotional-banners/poster-complete-portrait-1080.webp 1080w" sizes="(max-width: 639px) 300px" width="1080" height="1350"><img class="oet-promo-popup__image" loading="lazy" src="/assets/img/promotional-banners/poster-complete-wide-1920.webp" srcset="/assets/img/promotional-banners/poster-complete-wide-960.webp 960w, /assets/img/promotional-banners/poster-complete-wide-1920.webp 1920w" sizes="(max-width: 767px) 300px, 490px" alt="Complete OET Bundle, GBP 165" width="1920" height="1080" decoding="async"></picture></span>
-                                    <span class="oet-promo-popup__cta">View this course <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html#bundle-full-practice" aria-label="View Full OET Course, GBP 140">
-                                    <span class="oet-promo-popup__image-wrap"><picture><source media="(max-width: 639px)" type="image/webp" srcset="/assets/img/promotional-banners/poster-full-portrait-540.webp 540w, /assets/img/promotional-banners/poster-full-portrait-1080.webp 1080w" sizes="(max-width: 639px) 300px" width="1080" height="1350"><img class="oet-promo-popup__image" loading="lazy" src="/assets/img/promotional-banners/poster-full-wide-1920.webp" srcset="/assets/img/promotional-banners/poster-full-wide-960.webp 960w, /assets/img/promotional-banners/poster-full-wide-1920.webp 1920w" sizes="(max-width: 767px) 300px, 490px" alt="Full OET Course, GBP 140" width="1920" height="1080" decoding="async"></picture></span>
-                                    <span class="oet-promo-popup__cta">View this course <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 1">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-01-file-0000000018f471f483ccd1708d679d31.webp" srcset="/assets/img/promotional-banners/promo-01-file-0000000018f471f483ccd1708d679d31-640w.webp 640w, /assets/img/promotional-banners/promo-01-file-0000000018f471f483ccd1708d679d31.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 1" width="1597" height="985" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 2">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-02-file-0000000064687246ad98bfcbbaa05194.webp" srcset="/assets/img/promotional-banners/promo-02-file-0000000064687246ad98bfcbbaa05194-640w.webp 640w, /assets/img/promotional-banners/promo-02-file-0000000064687246ad98bfcbbaa05194.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 2" width="1024" height="1536" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 3">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-03-file-00000000c9c07246b6eac83988eecf0c.webp" srcset="/assets/img/promotional-banners/promo-03-file-00000000c9c07246b6eac83988eecf0c-640w.webp 640w, /assets/img/promotional-banners/promo-03-file-00000000c9c07246b6eac83988eecf0c.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 3" width="1024" height="1536" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 4">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-04-img-20260522-wa0010.webp" srcset="/assets/img/promotional-banners/promo-04-img-20260522-wa0010-640w.webp 640w, /assets/img/promotional-banners/promo-04-img-20260522-wa0010.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 4" width="1023" height="1537" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 5">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-05-img-20260623-wa0008.webp" srcset="/assets/img/promotional-banners/promo-05-img-20260623-wa0008-640w.webp 640w, /assets/img/promotional-banners/promo-05-img-20260623-wa0008.webp 852w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 5" width="852" height="1280" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 6">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-06-img-20260623-wa0009.webp" srcset="/assets/img/promotional-banners/promo-06-img-20260623-wa0009-640w.webp 640w, /assets/img/promotional-banners/promo-06-img-20260623-wa0009.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 6" width="1032" height="1280" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 7">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-07-img-20260623-wa0010.webp" srcset="/assets/img/promotional-banners/promo-07-img-20260623-wa0010-640w.webp 640w, /assets/img/promotional-banners/promo-07-img-20260623-wa0010.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 7" width="1016" height="1280" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 8">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-08-picsart-26-06-18-22-34-02-588.webp" srcset="/assets/img/promotional-banners/promo-08-picsart-26-06-18-22-34-02-588-640w.webp 640w, /assets/img/promotional-banners/promo-08-picsart-26-06-18-22-34-02-588.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 8" width="1191" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 9">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-09-picsart-26-06-21-01-41-41-833.webp" srcset="/assets/img/promotional-banners/promo-09-picsart-26-06-21-01-41-41-833-640w.webp 640w, /assets/img/promotional-banners/promo-09-picsart-26-06-21-01-41-41-833.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 9" width="1426" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 10">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-10-picsart-26-06-21-01-43-09-802.webp" srcset="/assets/img/promotional-banners/promo-10-picsart-26-06-21-01-43-09-802-640w.webp 640w, /assets/img/promotional-banners/promo-10-picsart-26-06-21-01-43-09-802.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 10" width="1355" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 11">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-11-picsart-26-06-21-01-45-35-187.webp" srcset="/assets/img/promotional-banners/promo-11-picsart-26-06-21-01-45-35-187-640w.webp 640w, /assets/img/promotional-banners/promo-11-picsart-26-06-21-01-45-35-187.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 11" width="1202" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 12">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-12-picsart-26-06-21-01-46-09-227.webp" srcset="/assets/img/promotional-banners/promo-12-picsart-26-06-21-01-46-09-227-640w.webp 640w, /assets/img/promotional-banners/promo-12-picsart-26-06-21-01-46-09-227.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 12" width="1279" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 13">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-13-picsart-26-06-21-01-46-42-168.webp" srcset="/assets/img/promotional-banners/promo-13-picsart-26-06-21-01-46-42-168-640w.webp 640w, /assets/img/promotional-banners/promo-13-picsart-26-06-21-01-46-42-168.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 13" width="1273" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 14">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-14-picsart-26-06-21-02-34-54-686.webp" srcset="/assets/img/promotional-banners/promo-14-picsart-26-06-21-02-34-54-686-640w.webp 640w, /assets/img/promotional-banners/promo-14-picsart-26-06-21-02-34-54-686.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 14" width="1438" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 15">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-15-picsart-26-06-22-00-53-29-763.webp" srcset="/assets/img/promotional-banners/promo-15-picsart-26-06-22-00-53-29-763-640w.webp 640w, /assets/img/promotional-banners/promo-15-picsart-26-06-22-00-53-29-763.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 15" width="1284" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 16">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-16-picsart-26-06-22-00-54-15-072.webp" srcset="/assets/img/promotional-banners/promo-16-picsart-26-06-22-00-54-15-072-640w.webp 640w, /assets/img/promotional-banners/promo-16-picsart-26-06-22-00-54-15-072.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 16" width="1448" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 17">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-17-picsart-26-06-22-00-54-52-208.webp" srcset="/assets/img/promotional-banners/promo-17-picsart-26-06-22-00-54-52-208-640w.webp 640w, /assets/img/promotional-banners/promo-17-picsart-26-06-22-00-54-52-208.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 17" width="1337" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 18">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-18-picsart-26-06-22-00-55-28-608.webp" srcset="/assets/img/promotional-banners/promo-18-picsart-26-06-22-00-55-28-608-640w.webp 640w, /assets/img/promotional-banners/promo-18-picsart-26-06-22-00-55-28-608.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 18" width="1355" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 19">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-19-picsart-26-06-22-00-56-00-318.webp" srcset="/assets/img/promotional-banners/promo-19-picsart-26-06-22-00-56-00-318-640w.webp 640w, /assets/img/promotional-banners/promo-19-picsart-26-06-22-00-56-00-318.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 19" width="1199" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a class="oet-promo-popup__slide-link" href="/pricing.html" aria-label="View packages - promotional banner 20">
-                                    <span class="oet-promo-popup__image-wrap"><img class="oet-promo-popup__image" loading="lazy" decoding="async" src="/assets/img/promotional-banners/promo-20-picsart-26-06-22-00-58-29-199.webp" srcset="/assets/img/promotional-banners/promo-20-picsart-26-06-22-00-58-29-199-640w.webp 640w, /assets/img/promotional-banners/promo-20-picsart-26-06-22-00-58-29-199.webp 900w" sizes="(max-width: 767px) 300px, 490px" alt="OET promotional banner 20" width="1271" height="1800" loading="lazy" decoding="async"></span>
-                                    <span class="oet-promo-popup__cta">View packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-                                </a>
-                            </div>
+                            <!--oet:promo-slides-->
                         </div>
                         <button class="oet-promo-popup__nav oet-promo-popup__nav--prev" type="button" aria-label="Previous promotional banner"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
                         <button class="oet-promo-popup__nav oet-promo-popup__nav--next" type="button" aria-label="Next promotional banner"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
@@ -370,6 +237,7 @@
             var storageKey = 'oetPromoPopupDismissedSession';
             var lastFocused = null;
             var promoSwiper = null;
+            var promoCtl = null;
             var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             var autoOpenScheduled = false;
 
@@ -404,11 +272,9 @@
                     watchSlidesProgress: false,
                     preloadImages: true,
                     updateOnImagesReady: true,
-                    autoplay: reduceMotion ? false : {
-                        delay: 3000,
-                        disableOnInteraction: false,
-                        pauseOnMouseEnter: true
-                    },
+                    // 7 seconds (never 3), held on hover / focus and by the Pause / Play button, off under reduced motion:
+                    // all of that lives in assets/js/oet-promo-carousel.js; without it there is no autoplay at all
+                    autoplay: window.OetPromoCarousel ? { delay: window.OetPromoCarousel.DELAY, disableOnInteraction: false, pauseOnMouseEnter: false } : false,
                     keyboard: {
                         enabled: true,
                         onlyInViewport: false
@@ -422,6 +288,11 @@
                         prevEl: '.oet-promo-popup__nav--prev'
                     }
                 });
+                if (window.OetPromoCarousel) {
+                    promoCtl = window.OetPromoCarousel.attach(promoSwiper, popup.querySelector('.oet-promo-popup__shell') || popup, {
+                        isActive: function () { return popup.classList.contains('is-open'); }
+                    });
+                }
             }
 
             function animateActiveSlide() {
@@ -451,6 +322,7 @@
                 popup.classList.add('is-open');
                 popup.setAttribute('aria-hidden', 'false');
                 document.body.classList.add('oet-promo-popup-lock');
+                if (promoCtl) promoCtl.sync();
 
                 if (typeof gsap !== 'undefined' && !reduceMotion) {
                     gsap.killTweensOf([popup, dialog]);
@@ -488,7 +360,8 @@
                             dialog.style.transform = '';
                         }
                     }
-                    if (promoSwiper && promoSwiper.autoplay) promoSwiper.autoplay.stop();
+                    if (promoCtl) promoCtl.sync();
+                    else if (promoSwiper && promoSwiper.autoplay) promoSwiper.autoplay.stop();
                     if (lastFocused && typeof lastFocused.focus === 'function') {
                         lastFocused.focus({ preventScroll: true });
                     }
@@ -525,15 +398,6 @@
                 first.focus();
             }
         });
-
-            if (swiperElement) {
-                swiperElement.addEventListener('mouseenter', function () {
-                    if (promoSwiper && promoSwiper.autoplay) promoSwiper.autoplay.stop();
-                });
-                swiperElement.addEventListener('mouseleave', function () {
-                    if (promoSwiper && promoSwiper.autoplay && popup.classList.contains('is-open') && !reduceMotion) promoSwiper.autoplay.start();
-                });
-            }
 
             window.addEventListener('resize', function () {
                 if (popup.classList.contains('is-open')) {

@@ -45,6 +45,13 @@ export function applyPricing(parts, data) {
       out = replaceAcross(out, ld, `$1${card.price}$2`, 1, `JSON-LD offer "${card.title}"`);
     }
   }
+  // Prose that quotes another card's price (for example the "Upgrade to the Nursing Premium Bundle" line on the Full
+  // Nursing OET Course card) carries <!--oet:price:Package 07-->: filled from the same data, so a reprice cannot leave it stale.
+  const byKicker = new Map(data.map((c) => [c.kicker, c.price]));
+  out = Object.fromEntries(Object.entries(out).map(([k, html]) => [k, html.replace(/<!--oet:price:(Package \d+)-->/g, (_, kicker) => {
+    if (!byKicker.has(kicker)) throw new Error(`inject: price marker for unknown package "${kicker}"`);
+    return `&pound;${byKicker.get(kicker)}`;
+  })]));
   return out;
 }
 

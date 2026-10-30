@@ -5,9 +5,13 @@ import headExtra from '../partials/index/head-extra.html?raw';
 import main from '../partials/index/main.html?raw';
 import tail from '../partials/index/tail.html?raw';
 import { loadBlog, applyLatestPosts } from '../lib/blog.mjs';
+import { applyPromoToHome } from '../lib/promo.mjs';
 
 // "Latest from the OET Blog" cards come from src/data/blog.json
-const parts = applyLatestPosts({ meta, headExtra, main, tail }, loadBlog().posts);
+const withPosts = applyLatestPosts({ meta, headExtra, main, tail }, loadBlog().posts);
+
+// The promo popup carousel is rendered from assets/img/promotional-banners/promotional-banners.json: the same ordered slides as the pricing hero.
+const parts = applyPromoToHome(withPosts);
 ---
 <Base
   meta={parts.meta}

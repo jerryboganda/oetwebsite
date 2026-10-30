@@ -8,13 +8,13 @@
   {
     "kicker": "Package 02",
     "title": "Full Physiotherapy OET Course",
-    "price": 100,
+    "price": 105,
     "structuredData": true
   },
   {
     "kicker": "Package 03",
     "title": "Full Allied Health Profession OET Course",
-    "price": 80,
+    "price": 105,
     "structuredData": true
   },
   {
@@ -24,15 +24,9 @@
     "structuredData": true
   },
   {
-    "kicker": "Package 06",
-    "title": "Nursing Course + Assessment Package ( Writing & Speaking )",
-    "price": 75,
-    "structuredData": true
-  },
-  {
     "kicker": "Package 07",
     "title": "Nursing Premium Bundle",
-    "price": 100
+    "price": 105
   },
   {
     "kicker": "Package 08",
@@ -44,24 +38,6 @@
     "kicker": "Package 09",
     "title": "Basic English Course - Preparation for OET",
     "price": 35,
-    "structuredData": true
-  },
-  {
-    "kicker": "Package 10",
-    "title": "Full Crash Course - General OET",
-    "price": 65,
-    "structuredData": true
-  },
-  {
-    "kicker": "Package 11",
-    "title": "Full Crash Course + 3 Writing Assessments",
-    "price": 75,
-    "structuredData": true
-  },
-  {
-    "kicker": "Package 12",
-    "title": "Full Crash Course + 5 Writing Assessments",
-    "price": 85,
     "structuredData": true
   },
   {

@@ -34,9 +34,10 @@ partials/data and rebuild.**
   point at its anchors (`#free-practice`, `#computer-based`, `#writing`,
   `#speaking`, `#listening-reading`), which deep-link into the learner app via
   `sign-in?next=` / `register?next=` (all app practice routes are auth-walled).
-- `site/src/data/pricing.json` — **single source of truth for all 48 package
-  prices**. Visible £ amounts AND JSON-LD Offer prices are rewritten at build
-  by `site/src/lib/inject.mjs` (`applyPricing`). To reprice: edit this file,
+- `site/src/data/pricing.json` — **single source of truth for all 43 package
+  prices** (47 until 30 Oct 2026, see "Final Master brief" below). Visible £ amounts AND JSON-LD Offer prices are rewritten at build
+  by `site/src/lib/inject.mjs` (`applyPricing`, which also fills `<!--oet:price:Package NN-->` markers used by prose that quotes a card's price). Every entry
+  must match its card exactly once, so a card removed from `main.html` must lose its entry (and its JSON-LD Product) in the same commit. To reprice: edit this file,
   rebuild.
 - **Full OET Course + Full Crash Course tiers (owner brief 28 Oct 2026)** — the six approved tiers (Full £140 / £165
   Recommended / £220 Ultimate, Crash £75 / £100 / £125 Recommended), the 5 professions (Medicine, Nursing, Pharmacy,
@@ -71,17 +72,45 @@ partials/data and rebuild.**
     `class="is-human"` (bold weight) so personal human service reads differently from the website assessments, which are labelled
     "Website ..." and never presented as human-marked. Every card has a Practice chip: "Unlimited Website Practice" when a `website_*`
     line is `unlimited` (Ultimate), else "Website Practice Included". Each card is `id="bundle-<key>"` + `data-key` (poster target).
-  - Hero posters: the first three slides of the pricing hero slider AND of the homepage promo popup are the owner's real posters
-    (Ultimate 220, Complete OET Bundle 165, Full OET Course 140) in `assets/img/promotional-banners/poster-<ultimate|complete|full>-
-    <wide|portrait>-<w>.webp` (`<picture>` with a `(max-width: 639px)` portrait source), then banners promo-01..20 unchanged in order.
-    Each poster links `/pricing.html#bundle-<key>`; `main.js` scrolls (header offset) and `oet-bundles.js` moves focus to the card of the
-    CURRENT profession/format selection and marks it (a plan hidden by the live catalog lands on `#full-oet-courses`). Prices are
-    printed on the posters: never change a banner price without replacing the image. Five older banners contain the text "AI" in
-    their artwork (known; replace the art, not the code).
-  - Classic (legacy) recorded Full/Crash cards (Packages 01-06, 08, 10-12 on `pricing.html`) carry the chip "Course + Personal
-    Support", the line "Additional Website Practice Exams Not Included" and a link to `#ai-grading-packages` (the website practice
-    packages). Never touch legacy prices, offers or plan codes here (owner-controlled).
+  - Hero carousel: **superseded 30 Oct 2026** (Final Master brief, below). The posters of 29 Oct (`poster-<ultimate|complete|full>-<wide|portrait>-<w>.webp`)
+    and banners promo-01, 02, 03, 05, 06, 08, 09, 10, 12, 14, 20 are retired and their files deleted.
+  - Classic (legacy) recorded cards (Packages 01, 02, 03, 05, 08 on `pricing.html`) carry the chips "Classic Full Course" (Nursing: "Classic Nursing Course") and
+    "Course + Personal Support", the line "Additional Website Practice Exams Not Included", a "SAMI 24/7 learning companion included" bullet and the upsell below.
+    The earlier "never touch legacy prices, offers or plan codes (owner-controlled)" rule was **explicitly overridden by the owner on 30 Oct 2026**: the repricing and
+    removals recorded in the "Final Master brief" are authorised; any other legacy price, offer or plan code is still owner-controlled.
   - The profession + Paper/Computer selector is the ONLY filter for the Full/Crash tiers (no discipline chip row exists or may return).
+  **Final Master brief (owner, 30 Oct 2026; supersedes every earlier poster, price and carousel instruction; `OET_FINAL_MASTER_FOR_FAISAL`):**
+  - **Carousel (pricing hero AND homepage popup, one source):** `assets/img/promotional-banners/promotional-banners.json` is the ONLY ordered slide list; `site/src/lib/promo.mjs`
+    renders both from it (markers `<!--oet:promo-slides-->` in `partials/pricing/main.html` and `partials/index/tail.html`). Order: 01 Your Path to OET Success
+    (`#full-oet-courses`), 02 Ultimate 220 (`#bundle-ultimate`), 03 Complete 165 Recommended (`#bundle-full-tutorbook`), 04 Full 140 (`#bundle-full-practice`), 05 Ask SAMI
+    (`https://app.oetwithdrhesham.co.uk/companion`, same tab, the app redirects to sign-in), then 07 Website Writing (`#writing-packages`), 08 Live Virtual Patient Speaking
+    (`#speaking-packages`), 09 Medicine Classic (`#pkg-medicine-classic`), 10 Full Crash + TutorBook (`#bundle-crash-complete`), then the kept banners promo-04, 07, 11, 13, 15, 16,
+    17, 18, 19 (each linked to its own card). **Poster 06 (Digital Practice) is HELD by the owner** (struck-out GBP 30/64/150 not yet substantiated): never add it, and never show a
+    struck-out or "was" price on Quick Check / Exam Prep Pro / OET Mastery (15 / 32 / 75). The artwork files are the owner's exact approved bytes (SHA-256 in `verify.mjs` =
+    `POSTER_FILE_SHA256.txt`): never edit, re-crop, convert or optimise them; posters 02-04 use the owner's 1080x1350 mobile files below 640px, the rest scale with
+    `object-fit: contain`. Every slide is a whole-image link plus a visible CTA ("View this course" / "Explore packages" / "Ask SAMI") and real alt text without "AI".
+    `data-oet-poster="<element id>"` makes `assets/js/oet-bundles.js` scroll to, focus and mark that element (optionally after `data-profession` switches the selector); a target that is
+    not rendered (a tier Nursing is not sold, a plan an admin hid) lands on `#full-oet-courses`. Adding a slide = one entry in the JSON (+ its files) and nothing else.
+  - **Carousel behaviour** (`assets/js/oet-promo-carousel.js` + `assets/css/oet-promo-carousel.css`, shared by both carousels): autoplay **7000 ms** (never 3000), a Pause/Play button
+    (`data-oet-carousel-toggle`, `aria-pressed="true"` while the visitor has paused it, the label reads Pause/Play), autoplay also held on hover and focus, none under
+    `prefers-reduced-motion` (the button is hidden then); swipe, keyboard, arrows and dots stay with Swiper. Without the helper there is no autoplay at all.
+  - **Prices:** Classic Physiotherapy (Pkg 02) 105, Classic Modified Allied Health (Pkg 03) 105, Nursing Premium Bundle (Pkg 07) 105 (Recommended); Medicine (01) and Pharmacy (08) stay 105;
+    Full Nursing OET Course (Pkg 05, the "Classic Nursing" course) stays 65; Quick Check 15, Exam Prep Pro 32, OET Mastery 75 unchanged. (Before: Pkg 02 100, Pkg 03 80, Pkg 07 100.)
+  - **Removed from sale:** Pkg 06 Nursing Course + Assessment Package (75) and Pkg 10/11/12 legacy Full Crash 65/75/85: cards, pricing.json entries, JSON-LD Products, FAQ and prose are gone
+    (Nursing prose points at the Nursing Premium Bundle, everyone else at `#crash-courses`). `verify.mjs` fails if any page names, links or prices them again. Independent Writing Crash,
+    Speaking Crash, Basic English, TutorBook, Mocks and the special packages stay.
+  - **Nursing rules** (`professions[nursing].notSold` in `bundles.json`, applied by `assets/js/oet-bundles.js` and `site/src/lib/bundles.mjs`): selecting Nursing hides the whole Crash section
+    and every link to it, shows no Full/Complete/Ultimate card, and shows an explanation pointing at the Full Nursing OET Course (Pkg 05, 65, `#pkg-nursing-classic`) and the Nursing Premium Bundle
+    (Pkg 07, 105 Recommended, `#pkg-nursing-premium`), prices read from `pricing.json`. The Nursing course page's "Choose your course" block shows the same two packages.
+  - **Ultimate premium frame:** every Ultimate 220 card (four non-Nursing professions, both formats, pricing page and the course pages' mini cards) carries `is-ultimate`: `3px solid #D4AF37`,
+    rounded, gold glow, a permanent crown (**inline SVG**, `fa-crown` is not in the icon subset) + "ULTIMATE" badge. Focus and "reached from a poster" marks are offset outline rings, never a box-shadow
+    that would replace the glow. The poster artwork is untouched. Complete 165 and Nursing Premium keep "Recommended".
+  - **SAMI 24/7** is an included line on all six tiers (Full 140/165/220, Crash 75/100/125); the Classic cards (01, 02, 03, 05, 07, 08) say it too. Basic English stays a gift of Ultimate only (and included in Nursing Premium).
+  - **Upsell micro-copy** (one consistent wording, links to the actual card, never WhatsApp): Full 140 "Upgrade to Complete" (GBP 25 more, TutorBook included); Complete 165 "Upgrade to Ultimate" (55 more);
+    Crash 75 "Upgrade to Crash + 5 Personal Writing Assessments" (25 more); Crash 100 "Add TutorBook" (25 more); Ultimate and Crash 125 none (`tier.upsell` in `bundles.json`, difference from the live catalog).
+    Classic Full (Medicine/Pharmacy/Physiotherapy/Allied): "Enhance your preparation with website practice" -> the Full OET Course card of that profession, quoting that tier's OWN live price
+    (`<!--oet:tier-price:full-practice:<profession>-->`, refreshed from the catalog), never a promised discount (the app has no "pay only the difference" checkout for Classic -> Full). Full Nursing OET Course
+    (65) -> Nursing Premium Bundle at its own price (marker `<!--oet:price:Package 07-->`). Writing Crash / personal-letter cards (13-22) -> `#writing-packages`; Speaking Crash / private sessions (23-25) -> `#speaking-packages`.
 - `site/scripts/postbuild.mjs` — after `astro build`: appends content-hash
   `?v=` to asset URLs, gives bare `wa.me` links a plain default prefill (never
   `[page: …]` labels: the source page is tracked by `oet-analytics.js`), generates
@@ -94,8 +123,8 @@ partials/data and rebuild.**
   WhatsApp in the mobile sticky bar), FAQ JSON-LD visible verbatim on the page.
   Also: the bundle tiers (prices, plan codes, v4 names and verbatim descriptions, Basic English on Ultimate only, line labels + bold
   human lines, Practice chips, `**` renderer incl. live descriptions, format rules for every profession x format, live-merge contract,
-  CTA deep links, JSON-LD offers, the course-page blocks, the three hero posters first (pricing slider + homepage popup, picture/portrait
-  sources, banners 01-20 after them in order), the Classic labels, "10 full recall-based exams", CSP connect-src), and every `fa-*` icon must exist in `assets/css/oet-icons.css` (the icon font is
+  CTA deep links, JSON-LD offers, the course-page blocks, the Final Master carousel (manifest order, both carousels, SHA-256 of every approved poster, portrait sources, targets, CTAs, 7 s autoplay and
+  the Pause/Play button), the Ultimate frame, the Nursing rules, the upsells, the repriced and removed packages, the Classic labels, "10 full recall-based exams", CSP connect-src), and every `fa-*` icon must exist in `assets/css/oet-icons.css` (the icon font is
   subset — unknown icons render blank), and the score-calculator logic in
   `assets/js/oet-score-calculator.js` (regulator minimums — keep in sync with
   `oet-score-requirements.html` when a regulator changes its rules).

@@ -11,6 +11,16 @@
  *    server, so a stale page can never be charged a stale price.
  *
  * Defaults live in site/src/data/bundles.json (embedded in the page as #oet-bundles-data).
+ *
+ * Final Master brief (owner, 30 Oct 2026), all in this file:
+ *  - Nursing is never sold the Ultimate, Full OET Course, Complete OET Bundle or Full Crash tiers (professions[].notSold in
+ *    bundles.json): for Nursing the Full section shows an explanation that points at the two Nursing packages
+ *    (data.nursingPackages), the whole Crash section and every link to it are hidden, and a poster that points at a hidden tier
+ *    lands on #full-oet-courses instead of dead-ending;
+ *  - the Ultimate card carries the gold frame and the crown + ULTIMATE badge (inline SVG, not a font icon);
+ *  - every eligible card carries one consistent upsell line under it (data-driven: tier.upsell in bundles.json);
+ *  - any element with data-oet-poster="<id>" (hero posters, upsell links, Classic-card links) scrolls to that element,
+ *    optionally after switching the profession selector (data-profession), and marks the card it reached.
  * ES5 on purpose; no dependencies.
  */
 (function (root, factory) {
@@ -86,6 +96,7 @@
             name: t.name, price: t.price, currency: data.currency, accessMonths: t.accessMonths,
             recommended: !!t.recommended, badge: t.badge || null, description: t.description,
             tutorBookPermanent: !!t.tutorBookPermanent, included: resolveLines(data, t.included), upgrades: null,
+            upsell: t.upsell || null,
           };
         });
       });
@@ -116,10 +127,18 @@
     return bundles;
   }
 
-  // plan codes of one family for one profession, in tier order
+  // A family a profession is not sold at all (Nursing: no Full tiers, no Crash tiers; owner 30 Oct 2026).
+  function isSold(prof, famId) {
+    var no = (prof && prof.notSold) || [];
+    for (var i = 0; i < no.length; i++) if (no[i] === famId) return false;
+    return true;
+  }
+
+  // plan codes of one family for one profession, in tier order (none when the profession is not sold that family)
   function slotCodes(data, famId, profId) {
     var fam = byId(data.families, famId);
     var prof = byId(data.professions, profId) || data.professions[0];
+    if (!isSold(prof, famId)) return [];
     return fam.tiers.map(function (t) { return codeFor(fam, t, prof); });
   }
 
@@ -211,6 +230,29 @@
 
   function monthsText(n) { return n + (n === 1 ? ' month' : ' months') + ' access'; }
 
+  // The Ultimate tier is the premium tier: thick gold frame (CSS .is-ultimate) plus a permanent crown + ULTIMATE badge.
+  // The crown is an INLINE SVG (the icon font is a subset and has no crown; an inline SVG also keeps the gold in
+  // forced-colour and dark rendering). It replaces the generic Recommended/badge pill, which sits in the same slot.
+  var CROWN_SVG = '<svg class="oet-bundle-crown" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7l4.5 4.5L12 4l4.5 7.5L21 7l-1.8 11H4.8L3 7z"/><path d="M5 20h14v2H5z"/></svg>';
+  function ultimateBadgeHtml() { return '<span class="oet-bundle-ultimate-badge">' + CROWN_SVG + 'ULTIMATE</span>'; }
+  function isUltimate(b) { return b.key === 'ultimate'; }
+
+  // One upsell line under an eligible card: the NEXT tier of the same family and profession (tier.upsell.to), priced from
+  // the live difference. Links to that tier's own card (#bundle-<key>), never to WhatsApp or the generic page. Ultimate and
+  // Full Crash + TutorBook have none (nothing above them), and a target the live catalog hides renders nothing.
+  function upsellHtml(b) {
+    var u = b.upsell;
+    if (!u || !b.upgrades) return '';
+    var hit = null;
+    for (var i = 0; i < b.upgrades.length && !hit; i++) {
+      var c = b.upgrades[i].toCode;
+      if (c === u.to || c.indexOf(u.to + '-') === 0) hit = b.upgrades[i];
+    }
+    if (!hit) return '';
+    return '<p class="oet-bundle-upgrade"><a class="oet-bundle-upgrade__link" href="#bundle-' + esc(u.to) + '" data-oet-poster="bundle-' + esc(u.to) + '">' + esc(u.label) + '</a>' +
+      '<span>' + money(hit.difference) + ' more' + (u.note ? ' &middot; ' + esc(u.note) : '') + '</span></p>';
+  }
+
   // Personal human service (Dr Hesham's letters, the private session with an Expert Tutor, the TutorBook, and the
   // Basic English gift / SAMI that only Ultimate carries) renders in bold weight so it reads as different from the
   // website assessments (owner brief v4, 29 Oct 2026). A website assessment is never presented as human-marked.
@@ -240,14 +282,11 @@
     chips.push(b.profession === 'all' ? 'All eligible disciplines' : ctx.profession.label);
     chips.push(ctx.formatLabel);
     var lines = b.included.map(function (it) { return renderLine(it, ctx.format); }).join('');
-    var ups = (b.upgrades || []).map(function (u) {
-      return '<span>+' + money(u.difference) + ' to ' + esc(u.toName) + '</span>';
-    }).join('');
     var cta = 'bundle_' + b.key;
     // id + data-key give the hero posters a stable target (the poster links are #bundle-<key>; assets/js boot() scrolls to
     // the card of the CURRENT profession/format selection, which is the card with this data-key)
-    return '<article class="oet-bundle-card' + (b.recommended ? ' is-recommended' : '') + '" id="bundle-' + esc(b.key) + '" data-key="' + esc(b.key) +
-      '" data-code="' + esc(b.code) + '" data-tier="' + b.tier + '"' + (b.recommended ? ' data-recommended="true"' : '') + '>' + badgeHtml(b) +
+    return '<article class="oet-bundle-card' + (b.recommended ? ' is-recommended' : '') + (isUltimate(b) ? ' is-ultimate' : '') + '" id="bundle-' + esc(b.key) + '" data-key="' + esc(b.key) +
+      '" data-code="' + esc(b.code) + '" data-tier="' + b.tier + '"' + (b.recommended ? ' data-recommended="true"' : '') + '>' + (isUltimate(b) ? ultimateBadgeHtml() : badgeHtml(b)) +
       '<h3>' + esc(b.name) + '</h3>' +
       '<div class="oet-bundle-price"><strong data-field="price">' + money(b.price) + '</strong></div>' +
       '<ul class="oet-bundle-chips" aria-label="Course summary">' + chips.map(function (c) {
@@ -255,13 +294,12 @@
       }).join('') + '</ul>' +
       '<p class="oet-bundle-desc">' + rich(b.description) + '</p>' +
       '<ul class="oet-bundle-list" aria-label="What is included">' + lines + '</ul>' +
-      (ups ? '<p class="oet-bundle-upgrade"><strong>Upgrade later and pay only the difference:</strong> ' + ups + '</p>' : '') +
       '<div class="oet-bundle-actions">' +
       '<a class="oet-bundle-cta" href="' + esc(appLink('register', b.code, ctx.profession.id, ctx.format)) + '" data-oet-cta="' + esc(cta) +
       '" data-plan="' + esc(b.code) + '" aria-label="Enrol now: ' + esc(b.name) + '">Enrol now</a>' +
       '<a class="oet-bundle-signin" href="' + esc(appLink('sign-in', b.code, ctx.profession.id, ctx.format)) + '" data-oet-cta="' + esc(cta) +
       '_signin" data-plan="' + esc(b.code) + '" aria-label="Already registered? Sign in to choose ' + esc(b.name) + '">Already registered? Sign in</a>' +
-      '</div></article>';
+      '</div>' + upsellHtml(b) + '</article>';
   }
 
   var EMPTY = '<p class="oet-bundle-empty">These plans are not on sale right now. Open the Candidates App to see what is currently available.</p>';
@@ -272,11 +310,40 @@
     return html || EMPTY;
   }
 
+  // Nursing: the explanation that replaces the Full tiers (owner 30 Oct 2026). data.nursingPackages = the two Nursing
+  // packages, their prices read from pricing.json when the page is built (src/lib/bundles.mjs), so a reprice cannot leave
+  // this stale. Each links to its own card further down the page (the Classic cards carry the ids).
+  function nursingCards(data) {
+    return (data.nursingPackages || []).map(function (p) {
+      return '<a class="oet-bundle-nursing__card' + (p.recommended ? ' is-recommended' : '') + '" href="#' + esc(p.anchor) + '" data-oet-poster="' + esc(p.anchor) + '">' +
+        (p.tag ? '<span class="oet-bundle-nursing__tag">' + esc(p.tag) + '</span>' : '') +
+        '<strong class="oet-bundle-nursing__name">' + esc(p.name) + '</strong>' +
+        (isNum(p.price) ? '<span class="oet-bundle-nursing__price">' + money(p.price) + '</span>' : '') +
+        '<span class="oet-bundle-nursing__sum">' + esc(p.summary) + '</span>' +
+        '<span class="oet-bundle-nursing__cta">View this course <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>';
+    }).join('');
+  }
+
+  function renderNursingPanel(data) {
+    var cards = nursingCards(data);
+    if (!cards) return EMPTY;
+    return '<div class="oet-bundle-nursing" data-nursing-panel>' +
+      '<p class="oet-bundle-nursing__lead"><strong>Nursing has its own packages.</strong> The Full OET Course, Complete OET Bundle, Ultimate and Full Crash tiers are not sold to Nursing. Choose one of the two Nursing packages below.</p>' +
+      '<div class="oet-bundle-nursing__grid">' + cards + '</div>' +
+      '<p class="oet-bundle-nursing__more">Nursing candidates can still add the Writing Crash and Speaking Crash courses, the website Writing, Speaking, Listening and Reading packages, and private tutoring.</p></div>';
+  }
+
+  // The Full family for one selection: its cards, or (Nursing) the explanation; the Crash family is simply not rendered for Nursing
+  function renderFamilyGrid(data, famId, bundles, ctx) {
+    if (!isSold(ctx.profession, famId)) return famId === 'full' ? renderNursingPanel(data) : '';
+    return renderGrid(slotCodes(data, famId, ctx.profession.id), bundles, ctx);
+  }
+
   // compact card for the profession course pages
   function renderMini(b, ctx) {
     var more = ' &middot; ' + esc(practiceText(b)) + (b.tutorBookPermanent ? ' &middot; permanent TutorBook' : '');
-    return '<article class="oet-choose-card' + (b.recommended ? ' is-recommended' : '') + '" data-code="' + esc(b.code) + '" data-tier="' + b.tier + '">' +
-      badgeHtml(b) + '<h3>' + esc(b.name) + '</h3>' +
+    return '<article class="oet-choose-card' + (b.recommended ? ' is-recommended' : '') + (isUltimate(b) ? ' is-ultimate' : '') + '" data-code="' + esc(b.code) + '" data-tier="' + b.tier + '">' +
+      (isUltimate(b) ? ultimateBadgeHtml() : badgeHtml(b)) + '<h3>' + esc(b.name) + '</h3>' +
       '<div class="oet-choose-price"><strong data-field="price">' + money(b.price) + '</strong>' +
       '<span>' + (b.accessMonths ? esc(monthsText(b.accessMonths)) : '') + more + '</span></div>' +
       '<p>' + rich(b.description) + '</p></article>';
@@ -286,6 +353,25 @@
     var html = '';
     codes.forEach(function (c) { if (bundles[c]) html += renderMini(bundles[c], ctx); });
     return html || EMPTY;
+  }
+
+  // Nursing course page: the two Nursing packages in the same compact card (prices from pricing.json at build time)
+  function renderNursingMini(data) {
+    var html = (data.nursingPackages || []).map(function (p) {
+      return '<article class="oet-choose-card' + (p.recommended ? ' is-recommended' : '') + '" data-code="' + esc(p.anchor) + '">' +
+        badgeHtml({ badge: p.recommended ? 'Recommended' : null, recommended: !!p.recommended }) + '<h3>' + esc(p.name) + '</h3>' +
+        '<div class="oet-choose-price">' + (isNum(p.price) ? '<strong data-field="price">' + money(p.price) + '</strong>' : '') +
+        '<span>6 months access' + (p.tag && !p.recommended ? ' &middot; ' + esc(p.tag) + ' course' : '') + '</span></div>' +
+        '<p>' + esc(p.summary) + '</p></article>';
+    }).join('');
+    return html || EMPTY;
+  }
+
+  // The mini block of one profession: its three Full tiers, or (Nursing) its two packages
+  function renderMiniFor(data, profId, bundles) {
+    var prof = byId(data.professions, profId) || data.professions[0];
+    if (!isSold(prof, 'full')) return renderNursingMini(data);
+    return renderMiniGrid(slotCodes(data, 'full', prof.id), bundles, makeCtx(data, prof.id, 'computer'));
   }
 
   function makeCtx(data, profId, fmt) {
@@ -298,24 +384,22 @@
   function statusText(data, st, famId) {
     var ctx = makeCtx(data, st.profession, st.format);
     var f = byId(data.formats, ctx.format);
+    // Nursing is sold none of these tiers (the panel under the line explains): no format summary to show
+    if (!isSold(ctx.profession, famId)) return 'Showing ' + ctx.profession.label + '.';
     var who = famId === 'crash' ? ctx.formatLabel : ctx.profession.label + ', ' + ctx.formatLabel;
     return 'Showing ' + who + '. ' + (f.summary || '') + (famId !== 'crash' && ctx.profession.note ? ' ' + ctx.profession.note : '');
   }
 
   /* ---------- browser behaviour ---------- */
 
-  // Hero poster -> the card of that tier for the CURRENT profession and exam-format selection (the grid is already
-  // rendered for it, so nothing about the selection changes). The poster is a plain /pricing.html#bundle-<key> link:
-  // without JavaScript it lands on the static default card, and with JavaScript the site's in-page anchor handler
-  // (assets/js/main.js, header offset + landing correction) does the scrolling. This code adds what that handler does
-  // not: it moves keyboard focus to the card, marks it, and covers a plan an admin hid (no card: land on the section).
-  function findCard(doc, key) {
-    var sec = doc.getElementById('full-oet-courses');
-    var cards = sec ? sec.querySelectorAll('[data-key]') : [];
-    for (var i = 0; i < cards.length; i++) if (cards[i].getAttribute('data-key') === key) return cards[i];
-    return null;
-  }
-
+  // Posters, upsell links and Classic-card links all carry data-oet-poster="<id of the element to land on>" (and, for the
+  // Classic cards, data-profession="<profession to select first>"). The link is a plain /pricing.html#<id> href: without
+  // JavaScript it lands on the static default element, and with JavaScript the site's in-page anchor handler
+  // (assets/js/main.js, header offset + landing correction) does the scrolling. This code adds what that handler does not:
+  //  - it selects the profession first when the link names one, so the card that is reached belongs to that profession;
+  //  - it moves keyboard focus to a card and marks it (a hero poster for Ultimate lands on the Ultimate card);
+  //  - it covers a target that is not rendered (a tier Nursing is not sold, a plan an admin hid): the visitor lands on the
+  //    profession selector section (#full-oet-courses) instead of a dead end.
   function focusCard(win, card) {
     card.setAttribute('tabindex', '-1');
     try { card.focus({ preventScroll: true }); } catch (e) { card.focus(); }
@@ -323,37 +407,78 @@
     win.setTimeout(function () { card.classList.remove('is-targeted'); }, 2600);
   }
 
-  function scrollTo(win, el) {
-    var reduce = !!(win.matchMedia && win.matchMedia('(prefers-reduced-motion: reduce)').matches);
-    try { el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); } catch (e) { el.scrollIntoView(); }
+  function isShown(el) {
+    return !!(el && (el.offsetWidth || el.offsetHeight || (el.getClientRects && el.getClientRects().length)));
   }
 
-  function bindPosters(doc, win) {
+  function headerOffset(doc) {
+    var header = doc.getElementById('vl-header-sticky');
+    return header ? Math.round(header.getBoundingClientRect().height) : 0;
+  }
+
+  // used only when the site anchor handler did not scroll (it needs the element to exist at click time)
+  function scrollTo(win, doc, el) {
+    var reduce = !!(win.matchMedia && win.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    var top = Math.max(0, el.getBoundingClientRect().top + (win.pageYOffset || (doc.documentElement && doc.documentElement.scrollTop) || 0) - headerOffset(doc) - 16);
+    try { win.scrollTo({ top: top, behavior: reduce ? 'auto' : 'smooth' }); } catch (e) { win.scrollTo(0, top); }
+  }
+
+  // select(profId) switches the profession selector and re-renders; it returns true when something changed
+  function bindPosters(doc, win, select) {
     doc.addEventListener('click', function (ev) {
       if (ev.button > 0 || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
       var a = ev.target;
       while (a && a !== doc && !(a.getAttribute && a.getAttribute('data-oet-poster'))) a = a.parentNode;
       if (!a || a === doc) return;
-      var key = a.getAttribute('data-oet-poster');
-      if (!CODE_RE.test(key)) return;
-      var card = findCard(doc, key);
-      var target = card || doc.getElementById('full-oet-courses');
-      if (!target) return; // not the pricing page: the link just navigates
-      if (!ev.defaultPrevented) { // the site anchor handler did not scroll (it needs the #bundle-<key> element): do it here
+      var id = a.getAttribute('data-oet-poster');
+      if (!CODE_RE.test(id)) return;
+      var prof = a.getAttribute('data-profession');
+      var switched = !!(prof && select(prof));
+      var el = doc.getElementById(id);
+      var landed = isShown(el) ? el : doc.getElementById('full-oet-courses');
+      if (!landed) return; // not the pricing page: the link just navigates
+      // the site anchor handler already scrolls when the element existed at click time and the selection did not change
+      if (!ev.defaultPrevented || switched || landed !== el) {
         ev.preventDefault();
-        scrollTo(win, target);
-        try { win.history.replaceState(null, '', win.location.pathname + win.location.search + '#' + (card ? 'bundle-' + key : 'full-oet-courses')); } catch (e) { /* the scroll still happened */ }
+        scrollTo(win, doc, landed);
+        try { win.history.replaceState(null, '', win.location.pathname + win.location.search + '#' + landed.id); } catch (e) { /* the scroll still happened */ }
       }
-      if (card) focusCard(win, card);
+      if (landed === el && el.tagName === 'ARTICLE') focusCard(win, el);
     }, false);
   }
+
+  // The tier price quoted inside Classic-card prose (<span class="oet-tier-price" data-tier data-profession>): the live
+  // price of that tier for that profession, so the line never states a price the checkout would not.
+  function tierPriceText(data, bundles, key, profId) {
+    var fam = null;
+    for (var i = 0; i < data.families.length; i++) {
+      for (var j = 0; j < data.families[i].tiers.length; j++) if (data.families[i].tiers[j].key === key) fam = data.families[i];
+    }
+    var prof = byId(data.professions, profId);
+    if (!fam || !prof) return '';
+    var tier = null;
+    for (var k = 0; k < fam.tiers.length; k++) if (fam.tiers[k].key === key) tier = fam.tiers[k];
+    var b = bundles[codeFor(fam, tier, prof)];
+    return b && isNum(b.price) ? money(b.price) : '';
+  }
+
+  function tierPriceHtml(data, bundles, key, profId) {
+    return '<span class="oet-tier-price" data-tier="' + esc(key) + '" data-profession="' + esc(profId) + '">' + tierPriceText(data, bundles, key, profId) + '</span>';
+  }
+
+  function refreshTierPrices(doc, data, bundles) {
+    [].forEach.call(doc.querySelectorAll('.oet-tier-price'), function (el) {
+      var text = tierPriceText(data, bundles, el.getAttribute('data-tier'), el.getAttribute('data-profession'));
+      if (text) el.innerHTML = text;
+    });
+  }
+
 
   function boot(doc, win) {
     var holder = doc.getElementById('oet-bundles-data');
     if (!holder) return;
     var data;
     try { data = JSON.parse(holder.textContent); } catch (e) { return; }
-    bindPosters(doc, win);
 
     var defaults = expandDefaults(data);
     var catalog = defaults;
@@ -378,20 +503,24 @@
       sections.forEach(function (sec) {
         var grid = sec.querySelector('[data-bundle-grid]');
         if (!grid) return;
+        var fam = sec.getAttribute('data-family');
         sec.setAttribute('data-profession', state.profession);
         sec.setAttribute('data-format', state.format);
-        grid.innerHTML = renderGrid(slotCodes(data, sec.getAttribute('data-family'), state.profession), catalog, ctx);
+        // Nursing is not sold the Crash tiers at all: the whole section goes (the Full section stays and explains)
+        sec.hidden = fam === 'crash' && !isSold(ctx.profession, 'crash');
+        grid.innerHTML = renderFamilyGrid(data, fam, catalog, ctx);
         var status = sec.querySelector('[data-bundle-status]');
-        if (status) status.textContent = statusText(data, state, sec.getAttribute('data-family'));
+        if (status) status.textContent = statusText(data, state, fam);
       });
+      // every link to the Crash section (hero shortcut, quick nav) disappears with it
+      [].forEach.call(doc.querySelectorAll('[data-oet-crash-link]'), function (el) { el.hidden = !isSold(ctx.profession, 'crash'); });
     }
 
     function renderMinis() {
       minis.forEach(function (sec) {
         var grid = sec.querySelector('[data-bundle-mini-grid]');
         if (!grid) return;
-        var profId = sec.getAttribute('data-profession');
-        grid.innerHTML = renderMiniGrid(slotCodes(data, 'full', profId), catalog, makeCtx(data, profId, 'computer'));
+        grid.innerHTML = renderMiniFor(data, sec.getAttribute('data-profession'), catalog);
       });
     }
 
@@ -432,6 +561,18 @@
       if (state.profession !== data.professions[0].id || state.format !== 'computer') renderPricing();
     }
 
+    // a poster, upsell or Classic-card link may name the profession its card belongs to: switch to it first
+    function selectProfession(id) {
+      var hit = byId(data.professions, id);
+      if (!hit || hit.id === state.profession || !sections.length) return false;
+      state.profession = hit.id;
+      syncRadios();
+      renderPricing();
+      syncUrl();
+      return true;
+    }
+    bindPosters(doc, win, selectProfession);
+
     function mark(value, version) {
       sections.concat(minis).forEach(function (sec) {
         sec.setAttribute('data-catalog', value);
@@ -458,6 +599,7 @@
       catalog = merged.bundles;
       renderPricing();
       renderMinis();
+      refreshTierPrices(doc, data, catalog);
       mark('live', merged.version);
     }).catch(function () {
       win.clearTimeout(timer);
@@ -468,6 +610,8 @@
   return {
     esc: esc, rich: rich, plain: plain, practiceText: practiceText, expandDefaults: expandDefaults, slotCodes: slotCodes, mergeLive: mergeLive, makeCtx: makeCtx,
     renderCard: renderCard, renderGrid: renderGrid, renderMini: renderMini, renderMiniGrid: renderMiniGrid,
+    renderFamilyGrid: renderFamilyGrid, renderNursingPanel: renderNursingPanel, renderNursingMini: renderNursingMini, renderMiniFor: renderMiniFor,
+    isSold: isSold, tierPriceHtml: tierPriceHtml,
     statusText: statusText, appLink: appLink, boot: boot,
   };
 });

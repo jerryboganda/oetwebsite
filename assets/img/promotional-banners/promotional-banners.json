@@ -1,119 +1,198 @@
-[
-  {
-    "src": "assets/img/promotional-banners/poster-ultimate-wide-1920.webp",
-    "portraitSrc": "assets/img/promotional-banners/poster-ultimate-portrait-1080.webp",
-    "alt": "Ultimate OET Course, GBP 220",
-    "width": 1920,
-    "height": 1080,
-    "portraitWidth": 1080,
-    "portraitHeight": 1350
-  },
-  {
-    "src": "assets/img/promotional-banners/poster-complete-wide-1920.webp",
-    "portraitSrc": "assets/img/promotional-banners/poster-complete-portrait-1080.webp",
-    "alt": "Complete OET Bundle, GBP 165",
-    "width": 1920,
-    "height": 1080,
-    "portraitWidth": 1080,
-    "portraitHeight": 1350
-  },
-  {
-    "src": "assets/img/promotional-banners/poster-full-wide-1920.webp",
-    "portraitSrc": "assets/img/promotional-banners/poster-full-portrait-1080.webp",
-    "alt": "Full OET Course, GBP 140",
-    "width": 1920,
-    "height": 1080,
-    "portraitWidth": 1080,
-    "portraitHeight": 1350
-  },
-  {
-    "src": "assets/img/promotional-banners/promo-01-file-0000000018f471f483ccd1708d679d31.webp",
-    "alt": "OET promotional banner 1",
-    "width": 1597,
-    "height": 985
-  },
-  {
-    "src": "assets/img/promotional-banners/promo-02-file-0000000064687246ad98bfcbbaa05194.webp",
-    "alt": "OET promotional banner 2",
-    "width": 1024,
-    "height": 1536
-  },
-  {
-    "src": "assets/img/promotional-banners/promo-03-file-00000000c9c07246b6eac83988eecf0c.webp",
-    "alt": "OET promotional banner 3",
-    "width": 1024,
-    "height": 1536
-  },
-  {
-    "src": "assets/img/promotional-banners/promo-04-img-20260522-wa0010.webp",
-    "alt": "OET promotional banner 4",
-    "width": 1023,
-    "height": 1537
-  },
-  {
-    "src": "assets/img/promotional-banners/promo-07-img-20260623-wa0010.webp",
-    "alt": "OET promotional banner 7",
-    "width": 1016,
-    "height": 1280
-  },
-  {
-    "src": "assets/img/promotional-banners/promo-09-picsart-26-06-21-01-41-41-833.webp",
-    "alt": "OET promotional banner 9",
-    "width": 1426,
-    "height": 1800
-  },
-  {
-    "src": "assets/img/promotional-banners/promo-10-picsart-26-06-21-01-43-09-802.webp",
-    "alt": "OET promotional banner 10",
-    "width": 1355,
-    "height": 1800
-  },
-  {
-    "src": "assets/img/promotional-banners/promo-11-picsart-26-06-21-01-45-35-187.webp",
-    "alt": "OET promotional banner 11",
-    "width": 1202,
-    "height": 1800
-  },
-  {
-    "src": "assets/img/promotional-banners/promo-13-picsart-26-06-21-01-46-42-168.webp",
-    "alt": "OET promotional banner 13",
-    "width": 1273,
-    "height": 1800
-  },
-  {
-    "src": "assets/img/promotional-banners/promo-15-picsart-26-06-22-00-53-29-763.webp",
-    "alt": "OET promotional banner 15",
-    "width": 1284,
-    "height": 1800
-  },
-  {
-    "src": "assets/img/promotional-banners/promo-16-picsart-26-06-22-00-54-15-072.webp",
-    "alt": "OET promotional banner 16",
-    "width": 1448,
-    "height": 1800
-  },
-  {
-    "src": "assets/img/promotional-banners/promo-17-picsart-26-06-22-00-54-52-208.webp",
-    "alt": "OET promotional banner 17",
-    "width": 1337,
-    "height": 1800
-  },
-  {
-    "src": "assets/img/promotional-banners/promo-18-picsart-26-06-22-00-55-28-608.webp",
-    "alt": "OET promotional banner 18",
-    "width": 1355,
-    "height": 1800
-  },
-  {
-    "src": "assets/img/promotional-banners/promo-19-picsart-26-06-22-00-56-00-318.webp",
-    "alt": "OET promotional banner 19",
-    "width": 1199,
-    "height": 1800
-  },
-  {
-    "src": "assets/img/promotional-banners/promo-20-picsart-26-06-22-00-58-29-199.webp",
-    "alt": "OET promotional banner 20",
-    "width": 1271,
-    "height": 1800
-  }
-]
+{
+  "_comment": "Ordered promotional banners: the SINGLE source for the pricing-page hero slider AND the homepage promo popup (same slides, same order). site/src/lib/promo.mjs renders both from this file at build time and scripts/verify.mjs checks it. Final Master brief, owner 30 Oct 2026: slides 1-4 are the owner's approved posters 01-04, slide 5 the SAMI poster, then the Writing, Speaking, Medicine Classic and Crash + TutorBook posters, then the still-relevant older banners. The approved artwork files are never edited or re-cropped (their SHA-256 is checked in verify.mjs). Poster 06 (Digital Practice) is HELD by the owner: it prints struck-out comparison prices that are not yet substantiated, so it is NOT in this list. Retired on 30 Oct 2026 (files deleted): promo-01, 02, 03, 05, 06, 08, 09, 10, 12, 14, 20. `target` is the id of the element on /pricing.html that the poster scrolls to (a poster whose target is not rendered, for example a tier Nursing is not sold, lands on #full-oet-courses); `external` links leave the site. `mobile` is the portrait file shown below 640px.",
+  "base":"/assets/img/promotional-banners/",
+  "slides": [
+    {
+      "id": "path-to-success",
+      "href": "/pricing.html#full-oet-courses",
+      "target": "full-oet-courses",
+      "cta": "Explore packages",
+      "alt": "Your Path to OET Success with Dr Ahmed Hesham: learn, practise, succeed",
+      "src": "poster-01-path-to-oet-success.png",
+      "width": 1536,
+      "height": 947
+    },
+    {
+      "id": "ultimate",
+      "href": "/pricing.html#bundle-ultimate",
+      "target": "bundle-ultimate",
+      "cta": "View this course",
+      "alt": "Ultimate OET Course, GBP 220",
+      "src": "poster-02-ultimate-wide-1920x1080.png",
+      "width": 1920,
+      "height": 1080,
+      "mobile": { "src": "poster-02-ultimate-mobile-1080x1350.png", "width": 1080, "height": 1350 }
+    },
+    {
+      "id": "complete",
+      "href": "/pricing.html#bundle-full-tutorbook",
+      "target": "bundle-full-tutorbook",
+      "cta": "View this course",
+      "alt": "Complete OET Bundle, GBP 165, Recommended",
+      "src": "poster-03-complete-wide-1920x1080.png",
+      "width": 1920,
+      "height": 1080,
+      "mobile": { "src": "poster-03-complete-mobile-1080x1350.png", "width": 1080, "height": 1350 }
+    },
+    {
+      "id": "full",
+      "href": "/pricing.html#bundle-full-practice",
+      "target": "bundle-full-practice",
+      "cta": "View this course",
+      "alt": "Full OET Course, GBP 140",
+      "src": "poster-04-full-wide-1920x1080.png",
+      "width": 1920,
+      "height": 1080,
+      "mobile": { "src": "poster-04-full-mobile-1080x1350.png", "width": 1080, "height": 1350 }
+    },
+    {
+      "id": "ask-sami",
+      "href": "https://app.oetwithdrhesham.co.uk/companion",
+      "external": true,
+      "cta": "Ask SAMI",
+      "alt": "Ask Sami, your smart OET study assistant",
+      "src": "poster-05-ask-sami.jpg",
+      "width": 1087,
+      "height": 1536
+    },
+    {
+      "id": "writing-assessments",
+      "href": "/pricing.html#writing-packages",
+      "target": "writing-packages",
+      "cta": "Explore packages",
+      "alt": "Website Writing Assessments: submit your OET letter, receive detailed feedback and track your progress",
+      "src": "poster-07-website-writing-assessments.png",
+      "width": 1229,
+      "height": 1536
+    },
+    {
+      "id": "virtual-speaking",
+      "href": "/pricing.html#speaking-packages",
+      "target": "speaking-packages",
+      "cta": "Explore packages",
+      "alt": "Live Virtual Patient Speaking Practice: realistic OET role-plays with detailed performance feedback",
+      "src": "poster-08-live-virtual-patient-speaking.png",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "id": "medicine-classic",
+      "href": "/pricing.html#pkg-medicine-classic",
+      "target": "pkg-medicine-classic",
+      "cta": "View this course",
+      "alt": "Medicine Classic Full Course with the SAMI learning companion",
+      "src": "poster-09-medicine-classic-full-course.png",
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "id": "crash-tutorbook",
+      "href": "/pricing.html#bundle-crash-complete",
+      "target": "bundle-crash-complete",
+      "cta": "View this course",
+      "alt": "Full Crash Course plus TutorBook with the SAMI learning companion",
+      "src": "poster-10-full-crash-tutorbook.png",
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "id": "tutorbook-pharmacy",
+      "href": "/pricing.html#tutor-book",
+      "target": "tutor-book",
+      "cta": "Explore packages",
+      "alt": "The Tutor, OET Exams, Pharmacy Edition by Dr Ahmed Hesham (TutorBook, first edition)",
+      "src": "promo-04-img-20260522-wa0010.webp",
+      "srcset": [["promo-04-img-20260522-wa0010-640w.webp", 640], ["promo-04-img-20260522-wa0010.webp", 900]],
+      "width": 1023,
+      "height": 1537
+    },
+    {
+      "id": "mock-exams",
+      "href": "/pricing.html#full-mock-exam-packages",
+      "target": "full-mock-exam-packages",
+      "cta": "Explore packages",
+      "alt": "Mock exam packages by Dr Ahmed Hesham: 1, 3 or 5 full OET mock exams",
+      "src": "promo-07-img-20260623-wa0010.webp",
+      "srcset": [["promo-07-img-20260623-wa0010-640w.webp", 640], ["promo-07-img-20260623-wa0010.webp", 900]],
+      "width": 1016,
+      "height": 1280
+    },
+    {
+      "id": "basic-english",
+      "href": "/pricing.html#pkg-basic-english",
+      "target": "pkg-basic-english",
+      "cta": "View this course",
+      "alt": "Basic English Course, preparation for OET, by Dr Ahmed Hesham",
+      "src": "promo-11-picsart-26-06-21-01-45-35-187.webp",
+      "srcset": [["promo-11-picsart-26-06-21-01-45-35-187-640w.webp", 640], ["promo-11-picsart-26-06-21-01-45-35-187.webp", 900]],
+      "width": 1202,
+      "height": 1800
+    },
+    {
+      "id": "nursing-recorded",
+      "href": "/pricing.html#pkg-nursing-classic",
+      "target": "pkg-nursing-classic",
+      "cta": "View this course",
+      "alt": "Full OET Recorded Course for Nursing by Dr Ahmed Hesham",
+      "src": "promo-13-picsart-26-06-21-01-46-42-168.webp",
+      "srcset": [["promo-13-picsart-26-06-21-01-46-42-168-640w.webp", 640], ["promo-13-picsart-26-06-21-01-46-42-168.webp", 900]],
+      "width": 1273,
+      "height": 1800
+    },
+    {
+      "id": "speaking-crash",
+      "href": "/pricing.html#pkg-speaking-crash",
+      "target": "pkg-speaking-crash",
+      "cta": "View this course",
+      "alt": "Recorded Speaking Crash Course by Dr Ahmed Hesham",
+      "src": "promo-15-picsart-26-06-22-00-53-29-763.webp",
+      "srcset": [["promo-15-picsart-26-06-22-00-53-29-763-640w.webp", 640], ["promo-15-picsart-26-06-22-00-53-29-763.webp", 900]],
+      "width": 1284,
+      "height": 1800
+    },
+    {
+      "id": "private-speaking",
+      "href": "/pricing.html#pkg-private-speaking",
+      "target": "pkg-private-speaking",
+      "cta": "Explore packages",
+      "alt": "Private Speaking Assessment Session by Dr Ahmed Hesham: live 1:1 session with detailed performance feedback",
+      "src": "promo-16-picsart-26-06-22-00-54-15-072.webp",
+      "srcset": [["promo-16-picsart-26-06-22-00-54-15-072-640w.webp", 640], ["promo-16-picsart-26-06-22-00-54-15-072.webp", 900]],
+      "width": 1448,
+      "height": 1800
+    },
+    {
+      "id": "mega-special",
+      "href": "/pricing.html#pkg-mega-special",
+      "target": "pkg-mega-special",
+      "cta": "View this course",
+      "alt": "Mega Special Package: recorded Writing and Speaking courses, a private Speaking session and 5 Writing letter assessments",
+      "src": "promo-17-picsart-26-06-22-00-54-52-208.webp",
+      "srcset": [["promo-17-picsart-26-06-22-00-54-52-208-640w.webp", 640], ["promo-17-picsart-26-06-22-00-54-52-208.webp", 900]],
+      "width": 1337,
+      "height": 1800
+    },
+    {
+      "id": "writing-crash",
+      "href": "/pricing.html#pkg-writing-crash",
+      "target": "pkg-writing-crash",
+      "cta": "View this course",
+      "alt": "Writing Crash Course by Dr Ahmed Hesham, with an optional letter assessment add-on",
+      "src": "promo-18-picsart-26-06-22-00-55-28-608.webp",
+      "srcset": [["promo-18-picsart-26-06-22-00-55-28-608-640w.webp", 640], ["promo-18-picsart-26-06-22-00-55-28-608.webp", 900]],
+      "width": 1355,
+      "height": 1800
+    },
+    {
+      "id": "double-special",
+      "href": "/pricing.html#pkg-double-special",
+      "target": "pkg-double-special",
+      "cta": "View this course",
+      "alt": "Double Special Package: Writing plus Speaking, by Dr Ahmed Hesham",
+      "src": "promo-19-picsart-26-06-22-00-56-00-318.webp",
+      "srcset": [["promo-19-picsart-26-06-22-00-56-00-318-640w.webp", 640], ["promo-19-picsart-26-06-22-00-56-00-318.webp", 900]],
+      "width": 1199,
+      "height": 1800
+    }
+  ]
+}

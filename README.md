@@ -16,10 +16,11 @@ site/src/layouts/Base.astro shared document shell (head, chrome, body flags)
 site/src/components/        Header / Footer / CommunityPopup (shared chrome)
 site/src/partials/<page>/   raw HTML for each page: meta, head-extra, main, tail
 site/src/partials/chrome/   original header, drawer (offcanvas.html), footer (footer-1/2), popup markup
-site/src/data/pricing.json  single source of truth for package prices
+site/src/data/pricing.json  single source of truth for package prices (43 cards)
 site/src/data/blog.json     OET Blog article list (slug, category, summary, featured)
 site/src/lib/blog.mjs       reads blog.json + article partials → /blog/ and homepage cards
 site/src/lib/inject.mjs     build-time data injection (prices, story counts)
+site/src/lib/promo.mjs      renders the pricing hero slider + homepage popup from assets/img/promotional-banners/promotional-banners.json
 site/scripts/postbuild.mjs  cache-bust hashes → sitemap.xml → copy to repo root
 site/scripts/verify.mjs     post-build sanity assertions (CI): pages, JSON-LD, sitemap,
                             internal-link audit, unique titles/canonicals, nav/footer/blog
@@ -42,11 +43,17 @@ Everything else at the root deploys as-is: `assets/`, PHP endpoints,
 
 - **Reprice packages**: edit `site/src/data/pricing.json`, rebuild. Visible
   `£` amounts *and* JSON-LD `Offer` prices update together; the build fails
-  loudly if the markup drifted.
+  loudly if the markup drifted. On 30 Oct 2026 the owner repriced Physiotherapy, Modified Allied Health and
+  the Nursing Premium Bundle to 105 and removed from sale the Nursing Course + Assessment Package and the
+  legacy Full Crash 65/75/85 (an explicit override of the earlier "legacy prices are owner-controlled" rule).
 - **Full OET Course / Full Crash Course tiers**: edit `site/src/data/bundles.json` (prices, access, counts, copy) and rebuild. The
   pricing page top sections, the JSON-LD offers and the "Choose your course" block on the profession course pages are generated from it by
   `site/src/lib/bundles.mjs` + `assets/js/oet-bundles.js`; in the browser the same script refreshes them live from
-  `https://api.oetwithdrhesham.co.uk/v1/catalog/bundles` (build-time defaults stay on failure). See `AGENTS.md`.
+  `https://api.oetwithdrhesham.co.uk/v1/catalog/bundles` (build-time defaults stay on failure). Final Master brief (owner, 30 Oct 2026): Nursing is sold none of the six tiers (it sees its own
+  two packages), the Ultimate card has the gold frame + crown, SAMI 24/7 is on all six tiers, and every eligible card carries one upsell line. See `AGENTS.md`.
+- **Promotional carousel** (pricing hero slider and homepage popup, same slides, same order): edit `assets/img/promotional-banners/promotional-banners.json` (one entry per slide:
+  link, pricing-page target id, call to action, alt text, files) and rebuild. The approved poster files are never edited (their SHA-256 is checked by `verify.mjs`); poster 06 (Digital Practice)
+  is held by the owner. Behaviour (7-second autoplay, Pause/Play button, hover/focus hold, reduced motion) lives in `assets/js/oet-promo-carousel.js`. See `AGENTS.md`, "Final Master brief".
 - **Success-story counts**: year-tab counts, the "Score cards" counter and
   JSON-LD `numberOfItems` are computed from
   `assets/img/success-stories/success-stories.json` at build time. Add new

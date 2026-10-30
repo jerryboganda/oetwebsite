@@ -1,10 +1,16 @@
 {
-  "_comment": "Build-time defaults for the Full OET Course and Full Crash Course tiers (owner brief 28 Oct 2026, final v4 pricing brief 29 Oct 2026; contract: docs/FULL-CRASH-BUNDLES-2026-10-29.md in the web app repo). Single source for pricing.html, the profession course pages and the JSON-LD offers. In the browser, assets/js/oet-bundles.js refreshes price, access, counts, badges, names, descriptions and upgrade hints from catalogUrl by plan code and falls back to these values (data-catalog=static) when the request fails. Descriptions are plain text where **x** marks the benefit phrases that render bold (the same renderer runs at build time and in the browser). The Basic English Course is a free gift ONLY with Ultimate. Checkout re-prices on the server. A plan code is key + '-' + profession suffix for per-profession families and just key for the rest.",
+  "_comment": "Build-time defaults for the Full OET Course and Full Crash Course tiers (owner brief 28 Oct 2026, final v4 pricing brief 29 Oct 2026; contract: docs/FULL-CRASH-BUNDLES-2026-10-29.md in the web app repo). Single source for pricing.html, the profession course pages and the JSON-LD offers. In the browser, assets/js/oet-bundles.js refreshes price, access, counts, badges, names, descriptions and upgrade hints from catalogUrl by plan code and falls back to these values (data-catalog=static) when the request fails. Descriptions are plain text where **x** marks the benefit phrases that render bold (the same renderer runs at build time and in the browser). The Basic English Course is a free gift ONLY with Ultimate. Final Master brief (owner, 30 Oct 2026): SAMI 24/7 is on all six tiers (Crash included), Nursing is sold none of the six (see professions[].notSold and nursingPackages, whose prices are read from pricing.json), and every tier may carry one upsell (upsell.to = the next tier, rendered under the card). Checkout re-prices on the server. A plan code is key + '-' + profession suffix for per-profession families and just key for the rest.",
   "catalogUrl": "https://api.oetwithdrhesham.co.uk/v1/catalog/bundles",
   "currency": "GBP",
   "professions": [
     { "id": "medicine", "label": "Medicine", "suffix": "medicine" },
-    { "id": "nursing", "label": "Nursing", "suffix": "nursing" },
+    {
+      "id": "nursing",
+      "label": "Nursing",
+      "suffix": "nursing",
+      "notSold": ["full", "crash"],
+      "note": "Nursing has its own packages: the Full Nursing OET Course and the Nursing Premium Bundle. The Full OET Course, Complete OET Bundle, Ultimate and Full Crash tiers are not sold to Nursing."
+    },
     { "id": "pharmacy", "label": "Pharmacy", "suffix": "pharmacy" },
     { "id": "physiotherapy", "label": "Physiotherapy", "suffix": "physiotherapy" },
     {
@@ -43,6 +49,24 @@
     "basic_english": { "label": "Basic English Course (gift)" },
     "sami": { "label": "SAMI 24/7" }
   },
+  "nursingPackages": [
+    {
+      "kicker": "Package 05",
+      "name": "Full Nursing OET Course",
+      "tag": "Classic",
+      "anchor": "pkg-nursing-classic",
+      "recommended": false,
+      "summary": "Recorded Nursing course, study materials and SAMI 24/7."
+    },
+    {
+      "kicker": "Package 07",
+      "name": "Nursing Premium Bundle",
+      "tag": "Recommended",
+      "anchor": "pkg-nursing-premium",
+      "recommended": true,
+      "summary": "The course plus 5 personal Writing letters, a private Speaking session, TutorBook and the Basic English Course."
+    }
+  ],
   "families": [
     {
       "id": "full",
@@ -57,6 +81,7 @@
           "recommended": false,
           "badge": null,
           "tutorBookPermanent": false,
+          "upsell": { "to": "full-tutorbook", "label": "Upgrade to Complete", "note": "TutorBook included" },
           "description": "A complete recorded OET course with **5 personal Writing letters by Dr Ahmed Hesham**, **1 private Speaking session with an Expert Tutor** and **website practice** (Writing, Speaking and, for Computer-Based candidates, Listening and Reading exams).",
           "included": [
             { "key": "course" },
@@ -79,6 +104,7 @@
           "recommended": true,
           "badge": "Recommended",
           "tutorBookPermanent": true,
+          "upsell": { "to": "ultimate", "label": "Upgrade to Ultimate", "note": "unlimited eligible website practice" },
           "description": "Everything in the Full OET Course, plus the **2026 TutorBook of Recalls** with **10 full recall-based exams**, model answers and **permanent updates**.",
           "included": [
             { "key": "course" },
@@ -133,6 +159,7 @@
           "recommended": false,
           "badge": null,
           "tutorBookPermanent": false,
+          "upsell": { "to": "crash-letters", "label": "Upgrade to Crash + 5 Personal Writing Assessments", "note": "5 personal Writing letters by Dr Ahmed Hesham" },
           "description": "Full recorded Crash Course plus **website practice**: 4 Writing assessments, 4 Speaking Cards and, for Computer-Based candidates, 6 Listening and 6 Reading exams.",
           "included": [
             { "key": "course", "label": "Full recorded Crash Course + materials" },
@@ -141,7 +168,8 @@
             { "key": "website_listening", "value": 6 },
             { "key": "website_reading", "value": 6 },
             { "key": "paper_resources" },
-            { "key": "handwritten_upload" }
+            { "key": "handwritten_upload" },
+            { "key": "sami" }
           ]
         },
         {
@@ -152,6 +180,7 @@
           "recommended": false,
           "badge": null,
           "tutorBookPermanent": false,
+          "upsell": { "to": "crash-complete", "label": "Add TutorBook", "note": "Full Crash + TutorBook" },
           "description": "Everything in Full Crash Essential, PLUS **5 personal Writing letters assessed by Dr Ahmed Hesham**.",
           "included": [
             { "key": "course", "label": "Full recorded Crash Course + materials" },
@@ -161,7 +190,8 @@
             { "key": "website_listening", "value": 6 },
             { "key": "website_reading", "value": 6 },
             { "key": "paper_resources" },
-            { "key": "handwritten_upload" }
+            { "key": "handwritten_upload" },
+            { "key": "sami" }
           ]
         },
         {
@@ -182,7 +212,8 @@
             { "key": "website_reading", "value": 6 },
             { "key": "paper_resources" },
             { "key": "handwritten_upload" },
-            { "key": "tutorbook" }
+            { "key": "tutorbook" },
+            { "key": "sami" }
           ]
         }
       ]

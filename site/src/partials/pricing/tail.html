@@ -16,6 +16,7 @@
 <!-- Custom js -->
 <script defer src="/assets/js/main.js"></script>
 <script defer src="/assets/js/oet-bundles.js"></script>
+<script defer src="/assets/js/oet-promo-carousel.js"></script>
 
     
 
@@ -25,7 +26,11 @@
             var slider = document.querySelector('.oet-pricing-hero-swiper');
             if (!slider || typeof Swiper === 'undefined') return;
 
-            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            // Autoplay is 7 seconds, held while the pointer or focus is on the slider, and off under prefers-reduced-motion; the visitor
+            // can also pause it with the Pause / Play button (assets/js/oet-promo-carousel.js). Without that helper there is no autoplay at all.
+            var helper = window.OetPromoCarousel;
+            var scope = slider.closest ? slider.closest('.oet-pricing-hero-slider') : slider.parentNode;
+            var reduceMotion = !!(helper ? helper.reducedMotion() : (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches));
 
             var heroSwiper = new Swiper(slider, {
                 loop: true,
@@ -40,11 +45,7 @@
                 observer: true,
                 observeParents: true,
                 keyboard: { enabled: true, onlyInViewport: true },
-                autoplay: reduceMotion ? false : {
-                    delay: 3000,
-                    disableOnInteraction: false,
-                    pauseOnMouseEnter: true
-                },
+                autoplay: helper ? { delay: helper.DELAY, disableOnInteraction: false, pauseOnMouseEnter: false } : false,
                 pagination: {
                     el: '.oet-pricing-hero-pagination',
                     clickable: true
@@ -55,19 +56,7 @@
                 }
             });
 
-            slider.addEventListener('mouseenter', function () {
-                if (heroSwiper.autoplay) heroSwiper.autoplay.stop();
-            });
-            slider.addEventListener('mouseleave', function () {
-                if (heroSwiper.autoplay && !reduceMotion) heroSwiper.autoplay.start();
-            });
-            // keyboard and screen-reader users: focus inside the slider (a poster link, an arrow, a dot) pauses autoplay too
-            slider.addEventListener('focusin', function () {
-                if (heroSwiper.autoplay) heroSwiper.autoplay.stop();
-            });
-            slider.addEventListener('focusout', function () {
-                if (heroSwiper.autoplay && !reduceMotion && !slider.matches(':hover')) heroSwiper.autoplay.start();
-            });
+            if (helper && scope) helper.attach(heroSwiper, scope);
         });
     </script>
 

@@ -1,0 +1,31 @@
+/* Pause / Play button of the promo carousels (pricing hero slider + homepage promo popup), behaviour in assets/js/oet-promo-carousel.js.
+   Hidden until the script has attached to a running carousel; shown pressed (filled) while the visitor has paused it. */
+.oet-carousel-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  margin: 0;
+  padding: 7px 14px;
+  color: #3b2a99;
+  background: #fff;
+  border: 1px solid rgba(101, 66, 255, .35);
+  border-radius: 999px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1;
+  cursor: pointer;
+}
+.oet-carousel-toggle[hidden] { display: none; }
+.oet-carousel-toggle:hover { color: #2d1d7a; background: #f3f0ff; }
+.oet-carousel-toggle:focus-visible { outline: 3px solid #6542ff; outline-offset: 2px; }
+.oet-carousel-toggle[aria-pressed="true"] { color: #fff; background: #6542ff; border-color: #6542ff; }
+.oet-carousel-toggle__icon { width: 12px; height: 12px; flex: none; fill: currentColor; }
+.oet-carousel-toggle__icon--play { display: none; }
+.oet-carousel-toggle[aria-pressed="true"] .oet-carousel-toggle__icon--pause { display: none; }
+.oet-carousel-toggle[aria-pressed="true"] .oet-carousel-toggle__icon--play { display: inline; }
+@media (forced-colors: active) {
+  .oet-carousel-toggle { border-color: ButtonText; }
+  .oet-carousel-toggle[aria-pressed="true"] { border-color: Highlight; }
+}

@@ -227,16 +227,18 @@
 .oet-bundle-line b { color: #3f2bb8; font-weight: 900; }
 .oet-bundle-list small { display: block; margin-top: 2px; color: #6b6c7d; font-size: 12.5px; line-height: 1.4; }
 .oet-bundle-upgrade {
-  margin: 0 0 16px;
+  margin: 14px 0 0;
   padding: 10px 12px;
   color: #4d4867;
   background: #f8f6ff;
   border: 1px dashed #d4c9fb;
   border-radius: 12px;
-  font-size: 13px;
+  font-size: 13.5px;
   line-height: 1.5;
 }
-.oet-bundle-upgrade strong { display: block; margin-bottom: 2px; color: #3b2a99; font-weight: 900; }
+.oet-bundle-upgrade__link { display: block; margin-bottom: 2px; color: #3b2a99; font-weight: 900; text-decoration: underline; text-underline-offset: 3px; }
+.oet-bundle-upgrade__link:hover,
+.oet-bundle-upgrade__link:focus-visible { color: #2d1d7a; }
 .oet-bundle-upgrade span { display: block; font-weight: 700; }
 .oet-bundle-actions { display: flex; flex-direction: column; gap: 10px; }
 .oet-bundle-cta {
@@ -409,6 +411,29 @@
 }
 .oet-pricing-hero-slide--poster picture { display: contents; }
 .oet-pricing-hero-slide--poster > .oet-poster-link:focus-visible { outline: 3px solid #6542ff; outline-offset: -8px; }
+/* every slide is a whole-image link with a visible call to action (Final Master brief, owner 30 Oct 2026); the CTA sits between the poster and the dots */
+.oet-poster-cta {
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 38px;
+  padding: 10px 18px;
+  transform: translateX(-50%);
+  color: #fff;
+  background: linear-gradient(135deg, #6542ff, #7c5cff);
+  border-radius: 999px;
+  box-shadow: 0 10px 22px rgba(101, 66, 255, .28);
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+}
+.oet-pricing-hero-slide--poster > .oet-poster-link:hover .oet-poster-cta,
+.oet-pricing-hero-slide--poster > .oet-poster-link:focus-visible .oet-poster-cta { filter: brightness(1.08); }
 
 /* Classic recorded courses (pricing.html, legacy catalogue): course + personal support, no website practice exams */
 .oet-meta-chips .oet-chip-support { color: #fff; background: #5f3df5; border-color: #5f3df5; }
@@ -423,17 +448,159 @@
   font-weight: 800;
   line-height: 1.4;
 }
-.oet-classic-link {
-  display: inline-block;
-  margin: 10px 0 14px;
-  color: #5f3df5;
-  font-size: 14px;
-  font-weight: 800;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.oet-meta-chips .oet-chip-classic { color: #3b2a99; background: #fff; border-color: #b8a6ff; }
+/* one consistent upsell line under an eligible card (the bundle cards use .oet-bundle-upgrade): a link to the actual card, never WhatsApp */
+.oet-upsell {
+  margin: 12px 0 14px;
+  padding: 10px 12px;
+  color: #4d4867;
+  background: #f8f6ff;
+  border: 1px dashed #d4c9fb;
+  border-radius: 12px;
+  font-size: 13.5px;
+  line-height: 1.45;
 }
-.oet-classic-link:hover,
-.oet-classic-link:focus-visible { color: #3b2a99; }
+.oet-upsell__link { display: block; margin-bottom: 2px; color: #5f3df5; font-weight: 900; text-decoration: underline; text-underline-offset: 3px; }
+.oet-upsell__link:hover,
+.oet-upsell__link:focus-visible { color: #3b2a99; }
+.oet-upsell span { display: block; font-weight: 700; }
+.oet-tier-price { color: #3b2a99; font-weight: 900; }
+
+/* a Classic card reached from a poster or an upsell link is marked like a bundle card (offset ring: no clash with the frame or shadow) */
+.oet-pricing-card { scroll-margin-top: 24px; }
+.oet-pricing-card:focus { outline: none; }
+.oet-pricing-card:focus-visible { outline: 3px solid #b8a6ff; outline-offset: 4px; }
+.oet-pricing-card.is-targeted { animation: oetPricingTarget 2.6s ease-out 1; }
+@keyframes oetPricingTarget {
+  0%, 35% { box-shadow: 0 0 0 4px rgba(101, 66, 255, .55), 0 20px 52px rgba(101, 66, 255, .22); }
+  100% { box-shadow: 0 14px 38px rgba(28, 22, 70, .07); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .oet-pricing-card.is-targeted { animation: none; box-shadow: 0 0 0 4px rgba(101, 66, 255, .55); }
+}
 
 /* Final v4 brief: no "Package NN" numbering on pricing cards (the kicker stays in the markup because the price injector keys on it). */
 .oet-pricing-card > .oet-card-kicker { display: none; }
+
+/* ---- Final Master brief (owner, 30 Oct 2026) ---- */
+
+[data-oet-crash-link][hidden],
+.oet-bundles[hidden] { display: none !important; }
+
+/* Ultimate: the premium tier. Thick GOLD frame (never purple), a gold glow, and a permanent crown + ULTIMATE badge on every
+   profession's Ultimate card. The frame is a border, so it never changes with state; the focus and "reached from a poster"
+   marks are OFFSET rings outside it (outline), so they cannot clash with the gold. Colours are explicit (no currentColor,
+   no theme variable), so the gold reads the same on light, forced-dark and small screens. */
+.oet-bundle-card.is-ultimate,
+.oet-bundle-card.is-ultimate.is-recommended,
+.oet-choose-card.is-ultimate {
+  padding-top: 40px;
+  background: linear-gradient(180deg, #fff8e1 0, #fff 210px);
+  border: 3px solid #D4AF37;
+  border-radius: 22px;
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, .35), 0 10px 30px rgba(212, 175, 55, .30);
+}
+.oet-bundle-ultimate-badge {
+  position: absolute;
+  top: -17px;
+  left: 50%;
+  z-index: 3;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 18px;
+  color: #2d2100;
+  background: linear-gradient(135deg, #f8dd85, #D4AF37 55%, #b8901f);
+  border: 1px solid rgba(122, 92, 0, .45);
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, .45);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.oet-bundle-crown { width: 18px; height: 18px; flex: none; fill: currentColor; }
+.oet-bundle-card.is-ultimate h3 { font-size: 24px; }
+.oet-bundle-card.is-ultimate .oet-bundle-price strong { color: #7a5c00; }
+.oet-bundle-card.is-ultimate .oet-bundle-cta,
+.oet-bundle-card.is-ultimate.is-recommended .oet-bundle-cta {
+  color: #2d2100;
+  background: linear-gradient(135deg, #f8dd85, #D4AF37 60%, #c9a227);
+  border-color: transparent;
+  box-shadow: 0 12px 26px rgba(212, 175, 55, .38);
+}
+.oet-bundle-card.is-ultimate .oet-bundle-cta:hover,
+.oet-bundle-card.is-ultimate .oet-bundle-cta:focus-visible { color: #2d2100; filter: brightness(1.05); }
+.oet-bundle-card.is-ultimate:focus-visible { outline: 3px solid #6542ff; outline-offset: 7px; }
+.oet-bundle-card.is-ultimate.is-targeted {
+  animation: none;
+  outline: 3px solid rgba(101, 66, 255, .6);
+  outline-offset: 7px;
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, .35), 0 10px 30px rgba(212, 175, 55, .30);
+}
+@media (forced-colors: active) {
+  .oet-bundle-card.is-ultimate,
+  .oet-choose-card.is-ultimate { border-color: Highlight; }
+  .oet-bundle-ultimate-badge { border-color: CanvasText; }
+}
+@media (max-width: 767px) {
+  .oet-bundle-card.is-ultimate,
+  .oet-bundle-card.is-ultimate.is-recommended,
+  .oet-choose-card.is-ultimate { padding-top: 38px; }
+  .oet-bundle-card.is-ultimate h3 { font-size: 22px; }
+}
+
+/* Nursing: the explanation that replaces the tiers Nursing is not sold, and the two Nursing packages */
+.oet-bundle-grid > .oet-bundle-nursing { grid-column: 1 / -1; }
+.oet-bundle-nursing {
+  padding: 26px;
+  background: #fff;
+  border: 2px solid var(--bd-violet);
+  border-radius: 22px;
+  box-shadow: 0 18px 44px rgba(101, 66, 255, .14);
+}
+.oet-bundle-nursing__lead { margin: 0 0 18px; color: var(--bd-ink); font-size: 16px; line-height: 1.55; }
+.oet-bundle-nursing__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.oet-bundle-nursing__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 22px 22px 18px;
+  color: var(--bd-text);
+  background: #f8f6ff;
+  border: 1px solid var(--bd-line);
+  border-radius: 18px;
+  text-decoration: none;
+}
+.oet-bundle-nursing__card.is-recommended { background: linear-gradient(180deg, #f2edff, #fff); border: 2px solid var(--bd-violet); }
+.oet-bundle-nursing__card:hover,
+.oet-bundle-nursing__card:focus-visible { border-color: var(--bd-violet); }
+.oet-bundle-nursing__tag {
+  align-self: flex-start;
+  padding: 5px 10px;
+  color: #3b2a99;
+  background: #fff;
+  border: 1px solid #b8a6ff;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.oet-bundle-nursing__card.is-recommended .oet-bundle-nursing__tag { color: #fff; background: var(--bd-violet); border-color: var(--bd-violet); }
+.oet-bundle-nursing__name { color: var(--bd-ink); font-size: 20px; font-weight: 800; line-height: 1.25; overflow-wrap: break-word; }
+.oet-bundle-nursing__price { color: #5f3df5; font-size: 34px; font-weight: 900; line-height: 1.1; }
+.oet-bundle-nursing__sum { font-size: 14.5px; line-height: 1.5; }
+.oet-bundle-nursing__cta { margin-top: auto; padding-top: 6px; color: #5f3df5; font-size: 15px; font-weight: 900; }
+.oet-bundle-nursing__more { margin: 18px 0 0; color: var(--bd-muted); font-size: 14px; line-height: 1.55; }
+@media (max-width: 767px) {
+  .oet-bundle-nursing { padding: 20px; }
+  .oet-bundle-nursing__grid { grid-template-columns: 1fr; }
+}
+.oet-choose-grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 991px) {
+  .oet-choose-grid--two { grid-template-columns: 1fr; }
+}
