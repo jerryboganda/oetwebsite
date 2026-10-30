@@ -332,7 +332,7 @@ if (distHtml['pricing.html']) {
     fail('bundles: upgrade differences must be 25/80 (Full 140) and 25/50 (Crash 75)');
 
   // included lines: the API's order (course, personal_letters, private_session, website_*, paper_*, tutorbook, basic_english, sami);
-  // Basic English is a free gift ONLY with Ultimate (final v4 brief 29 Oct 2026: removed from the GBP 165 Complete OET Bundle); SAMI is Ultimate only.
+  // Basic English is a free gift ONLY with Ultimate (final v4 brief 29 Oct 2026: removed from the GBP 165 Complete OET Bundle); SAMI is in the three Full tiers (owner 30 Oct 2026, posters win), never Crash.
   // The v4 labels, the bold human lines and the Practice chip are asserted here too.
   {
     const ORDER = ['course', 'personal_letters', 'private_session', 'website_writing', 'website_speaking', 'website_listening', 'website_reading', 'paper_resources', 'handwritten_upload', 'tutorbook', 'basic_english', 'sami'];
@@ -340,7 +340,7 @@ if (distHtml['pricing.html']) {
       const keys = b.included.map((l) => l.key);
       if (keys.some((k, i) => ORDER.indexOf(k) < 0 || (i && ORDER.indexOf(k) <= ORDER.indexOf(keys[i - 1])))) fail(`bundles: ${b.code} lines are not in the catalog order (${keys.join(',')})`);
       if (keys.includes('basic_english') !== (b.key === 'ultimate')) fail(`bundles: ${b.code}: the Basic English Course (gift) belongs to Ultimate ONLY`);
-      if (keys.includes('sami') !== (b.key === 'ultimate')) fail(`bundles: ${b.code}: SAMI 24/7 is Ultimate only`);
+      if (keys.includes('sami') !== (b.family === 'full')) fail(`bundles: ${b.code}: SAMI 24/7 belongs to the three Full tiers (140, 165, 220) and never to Crash`);
       const be = b.included.find((l) => l.key === 'basic_english');
       const V4 = { personal_letters: ['Personal Writing Letters', 'Personally assessed by Dr Ahmed Hesham'], private_session: ['Private Speaking Session with an Expert Tutor', null], website_writing: ['Website Writing Assessments', null], website_speaking: ['Website Speaking Cards', 'Live Virtual Patient Speaking Practice'], website_listening: ['Website Listening Exams', 'Computer-Based'], website_reading: ['Website Reading Exams', 'Computer-Based'] };
       for (const l of b.included) if (V4[l.key] && (l.label !== V4[l.key][0] || l.detail !== V4[l.key][1])) fail(`bundles: ${b.code}: line ${l.key} must read "${V4[l.key][0]}"${V4[l.key][1] ? ` with detail "${V4[l.key][1]}"` : ' with no detail'}`);
@@ -526,7 +526,7 @@ if (distHtml['pricing.html']) {
 
   // Classic recorded courses (legacy catalogue): course + personal support, no website practice exams, a link to the practice packages
   {
-    const CLASSIC = { '01': 'Full Condensed Recorded OET Course - Medicine', '02': 'Full Physiotherapy OET Course', '03': 'Full Allied Health Profession OET Course', '04': 'Full Condensed Recorded Course + TutorBook', '05': 'Full Nursing OET Course', '06': 'Nursing Course + Assessment Package', '08': 'Full Pharmacy OET Course', '10': 'Full Crash Course - General OET', '11': 'Full Crash Course + 3 Writing Assessments', '12': 'Full Crash Course + 5 Writing Assessments' };
+    const CLASSIC = { '01': 'Full Condensed Recorded OET Course - Medicine', '02': 'Full Physiotherapy OET Course', '03': 'Full Allied Health Profession OET Course', '05': 'Full Nursing OET Course', '06': 'Nursing Course + Assessment Package', '08': 'Full Pharmacy OET Course', '10': 'Full Crash Course - General OET', '11': 'Full Crash Course + 3 Writing Assessments', '12': 'Full Crash Course + 5 Writing Assessments' };
     for (const [n, title] of Object.entries(CLASSIC)) {
       const card = (ph.match(new RegExp('<div class="oet-card-kicker">Package ' + n + '</div>[\\s\\S]*?</article>')) || [''])[0];
       if (!card.includes(title)) { fail('pricing.html: Classic card Package ' + n + ' (' + title + ') not found'); continue; }
