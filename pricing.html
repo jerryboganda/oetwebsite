@@ -412,6 +412,33 @@
             text-decoration: line-through;
             font-weight: 800;
         }
+        /* Quick Check / Exam Prep Pro / OET Mastery comparison price (owner QA 31 Oct 2026): ONE thin diagonal slash, never an X or a horizontal strike. */
+        .oet-price-slash {
+            position: relative;
+            display: inline-block;
+            color: #6d6a7c;
+            font-size: 17px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .oet-price-slash::after {
+            content: "";
+            position: absolute;
+            left: -3px;
+            right: -3px;
+            top: 50%;
+            height: 1px;
+            background: currentColor;
+            transform: rotate(-12deg);
+        }
+        .oet-price-slash .oet-price-slash__label {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
+        }
         .oet-meta-chips,
         .oet-pricing-badges {
             display: flex;
@@ -3027,7 +3054,7 @@
                 <article class="oet-pricing-card">
                     <div class="oet-card-kicker">Package 30</div>
                     <h3>Quick Check</h3>
-                    <div class="oet-pricing-price"><strong>&pound;15</strong></div>
+                    <div class="oet-pricing-price"><strong>&pound;15</strong><span class="oet-price-slash"><span class="oet-price-slash__label">Was </span>&pound;30</span></div>
                     <div class="oet-meta-chips"><span>All disciplines</span><span>Assessment &amp; Exam Preparation Package</span><span>30 days from purchase</span></div>
                     <p class="oet-pricing-format"><strong>Format:</strong> Flexible Writing assessments with a second quality review or immersive live virtual-patient Speaking role-plays, plus Listening and Reading practice exams</p>
                     <p class="oet-pricing-desc">Get a focused picture of your OET preparation with 5 flexible assessment attempts for Writing letters, Speaking cards or any combination of both, plus 3 Listening and 3 Reading practice exams. Every submitted Writing letter is assessed using Dr Ahmed Hesham's lectures and Rulebook, with a second quality review; detailed Writing assessment is typically released after a minimum 15-minute review window. Human mentor review is available when required or requested. Practise Speaking through live, two-way role-plays with a virtual patient speaking natural, native-like English and receive detailed feedback.</p>
@@ -3042,7 +3069,7 @@
                 <article class="oet-pricing-card">
                     <div class="oet-card-kicker">Package 31</div>
                     <h3>Exam Prep Pro</h3>
-                    <div class="oet-pricing-price"><strong>&pound;32</strong></div>
+                    <div class="oet-pricing-price"><strong>&pound;32</strong><span class="oet-price-slash"><span class="oet-price-slash__label">Was </span>&pound;64</span></div>
                     <div class="oet-meta-chips"><span>All disciplines</span><span>Assessment &amp; Exam Preparation Package</span><span>90 days from purchase</span></div>
                     <p class="oet-pricing-format"><strong>Format:</strong> Flexible Writing assessments with a second quality review or immersive live virtual-patient Speaking role-plays, plus Listening and Reading practice exams</p>
                     <p class="oet-pricing-desc">Build a complete OET practice routine with 15 flexible Writing or Speaking assessment attempts, usable across letters and immersive live virtual-patient role-play cards with natural, native-like dialogue. Every Writing letter is assessed using Dr Ahmed Hesham's lectures and exclusive Rulebook, with a second quality review and detailed feedback aligned with the latest published OET Writing criteria. Detailed Writing assessment is typically released after a minimum 15-minute review window. Human mentor review is available when required or requested. Includes 6 Listening and 6 Reading practice exams.</p>
@@ -3057,7 +3084,7 @@
                 <article class="oet-pricing-card is-featured">
                     <div class="oet-card-kicker">Package 32</div>
                     <h3>OET Mastery</h3>
-                    <div class="oet-pricing-price"><strong>&pound;75</strong></div>
+                    <div class="oet-pricing-price"><strong>&pound;75</strong><span class="oet-price-slash"><span class="oet-price-slash__label">Was </span>&pound;150</span></div>
                     <div class="oet-meta-chips"><span>All disciplines</span><span>Assessment &amp; Exam Preparation Package</span><span>6 months from purchase</span></div>
                     <p class="oet-pricing-format"><strong>Format:</strong> Unlimited Writing assessments with a second quality review, immersive live virtual-patient Speaking role-plays, unlimited Listening and Reading practice, and priority access</p>
                     <p class="oet-pricing-desc">Access comprehensive OET preparation throughout your 6-month membership: unlimited Writing letters assessed using Dr Ahmed Hesham's lectures and exclusive Rulebook with a second quality review, unlimited immersive Speaking role-plays with a responsive live virtual patient speaking natural, native-like English, and unlimited Listening and Reading practice. Detailed Writing assessment is typically released after a minimum 15-minute review window. Human mentor review is available when required or requested. Receive detailed, criteria-aligned feedback with priority assessment access.</p>
