@@ -329,6 +329,33 @@
             text-decoration: line-through;
             font-weight: 800;
         }
+        /* Quick Check / Exam Prep Pro / OET Mastery comparison price (owner QA 31 Oct 2026): ONE thin diagonal slash, never an X or a horizontal strike. */
+        .oet-price-slash {
+            position: relative;
+            display: inline-block;
+            color: #6d6a7c;
+            font-size: 17px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .oet-price-slash::after {
+            content: "";
+            position: absolute;
+            left: -3px;
+            right: -3px;
+            top: 50%;
+            height: 1px;
+            background: currentColor;
+            transform: rotate(-12deg);
+        }
+        .oet-price-slash .oet-price-slash__label {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
+        }
         .oet-meta-chips,
         .oet-pricing-badges {
             display: flex;

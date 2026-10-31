@@ -688,13 +688,19 @@ if (distHtml['pricing.html']) {
     for (const [kicker, price] of Object.entries(PRICE)) {
       if (pricing.find((c) => c.kicker === kicker)?.price !== price) fail(`pricing.json: ${kicker} must cost GBP ${price} (owner 30 Oct 2026)`);
       const card = (ph.match(new RegExp('<div class="oet-card-kicker">' + kicker + '</div>[\\s\\S]*?</article>')) || [''])[0];
-      if (!card.includes('<div class="oet-pricing-price"><strong>&pound;' + price + '</strong></div>')) fail(`pricing.html: ${kicker} must show GBP ${price}`);
+      if (!card.includes('<div class="oet-pricing-price"><strong>&pound;' + price + '</strong>')) fail(`pricing.html: ${kicker} must show GBP ${price}`);
     }
-    // Quick Check / Exam Prep Pro / OET Mastery: the live price alone, never a struck-out comparison figure (not substantiated by a documented former price)
-    for (const kicker of ['Package 30', 'Package 31', 'Package 32']) {
+    // Quick Check / Exam Prep Pro / OET Mastery (owner QA 31 Oct 2026): checkout price 15 / 32 / 75 with the comparison price 30 / 64 / 150 drawn
+    // as ONE thin diagonal slash (`oet-price-slash`), never an X, a horizontal line-through, <del>/<s> or a second slash. Every other card has none.
+    const WAS = { 'Package 30': 30, 'Package 31': 64, 'Package 32': 150 };
+    for (const [kicker, was] of Object.entries(WAS)) {
       const card = (ph.match(new RegExp('<div class="oet-card-kicker">' + kicker + '</div>[\\s\\S]*?</article>')) || [''])[0];
-      if (/oet-pricing-was|<del\b|<s>|<strike\b|line-through|was &pound;|previous price/i.test(card)) fail(`pricing.html: ${kicker} must not show a struck-out or "was" price`);
+      const slash = `<span class="oet-price-slash"><span class="oet-price-slash__label">Was </span>&pound;${was}</span>`;
+      if ((card.match(/oet-price-slash"/g) || []).length !== 1 || !card.includes(slash)) fail(`pricing.html: ${kicker} must show exactly one slashed comparison price of GBP ${was}`);
+      if (/oet-pricing-was|<del\b|<s>|<strike\b|line-through|previous price/i.test(card)) fail(`pricing.html: ${kicker} comparison price is a single diagonal slash only (no X, no horizontal strike)`);
     }
+    if ((ph.match(/oet-price-slash"/g) || []).length !== 3) fail('pricing.html: only Quick Check, Exam Prep Pro and OET Mastery carry a slashed comparison price');
+    if (!/\.oet-price-slash::after\s*\{[^}]*height:\s*1px[^}]*rotate\(-12deg\)/.test(ph) || /\.oet-price-slash::before/.test(ph)) fail('pricing.css: the comparison price is ONE thin diagonal slash (a single ::after line, no ::before, no X)');
     // sold: the Writing and Speaking Crash products, Basic English, TutorBook, mocks and the special packages stay
     for (const [kicker, title] of [['Package 09', 'Basic English Course - Preparation for OET'], ['Package 17', 'Recorded Writing Crash Course'], ['Package 23', 'Recorded Speaking Crash Course'], ['Package 26', 'Double Special Package - Writing + Speaking'], ['Package 27', 'Mega Special Package'], ['Package 46', 'TutorBook - First Edition 2026'], ['Package 48', '1 Full Mock']])
       if (!pricing.some((c) => c.kicker === kicker && c.title === title) || !new RegExp('<div class="oet-card-kicker">' + kicker + '</div>\\s*<h3>' + title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '</h3>').test(ph)) fail(`pricing.html: ${title} (${kicker}) stays on sale`);
