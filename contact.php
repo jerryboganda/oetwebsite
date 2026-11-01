@@ -135,7 +135,8 @@ if ($sent) {
 }
 
 if ($saved || $sent) {
-    redirect_back('sent=1');
+    // v=1 marks a really delivered enquiry (bots and rate-limited redirects use sent=1 alone), so analytics counts only real leads.
+    redirect_back('sent=1&v=1');
 }
 
 redirect_back('error=mail');

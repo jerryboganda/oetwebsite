@@ -11,7 +11,13 @@
   }
 
   function write(v) {
-    document.cookie = C + "=" + encodeURIComponent(JSON.stringify(v)) + ";path=/;max-age=31536000;SameSite=Lax";
+    // One cookie for the whole oetwithdrhesham.co.uk domain, so the choice made here is also respected on app.oetwithdrhesham.co.uk.
+    var root = "oetwithdrhesham.co.uk", host = location.hostname;
+    var shared = host === root || host.slice(-(root.length + 1)) === "." + root;
+    var secure = location.protocol === "https:" ? ";Secure" : "";
+    // The cookie used to be saved for this host only: expire that copy so the shared one is the only one read.
+    document.cookie = C + "=;path=/;max-age=0;SameSite=Lax" + secure;
+    document.cookie = C + "=" + encodeURIComponent(JSON.stringify(v)) + ";path=/;max-age=31536000;SameSite=Lax" + secure + (shared ? ";domain=." + root : "");
   }
 
   function loadAnalytics() {
@@ -84,7 +90,7 @@
       '        </svg>',
       '      </span>',
       '      <p class="oet-cc-text">',
-      '        We use cookies to improve your experience and analyse site traffic. ',
+      '        We use essential cookies and, with your permission, analytics (Google) and marketing (Meta) cookies to measure how the site and our adverts perform. ',
       '        <a href="/cookie-policy">Cookie Policy</a>',
       '      </p>',
       '    </div>',
