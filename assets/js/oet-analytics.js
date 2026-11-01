@@ -128,6 +128,8 @@
         t.src = "https://connect.facebook.net/en_US/fbevents.js";
         document.head.appendChild(t);
       }
+      // No automatic button, form or page-metadata collection: only the events listed above are ever sent.
+      window.fbq("set", "autoConfig", false, id);
       window.fbq("init", id);
       window.fbq("track", "PageView");
       pixelReady = true;
