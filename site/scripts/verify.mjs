@@ -990,8 +990,8 @@ if (distHtml['pricing.html']) {
   }
   {
     const years = yearsCoaching(person);
-    const home = distHtml['index.html'] || '';
-    const about = distHtml['about.html'] || '';
+    const home = (distHtml['index.html'] || '').replace(/\r\n?/g, '\n');
+    const about = (distHtml['about.html'] || '').replace(/\r\n?/g, '\n');
     if (!home.includes(`<span class="counter">${years}</span><span>+</span></strong>\n                                        <span class="oet-hero__stat-label">Years coaching</span>`)) fail(`index.html: the "Years coaching" stat must read ${years}+ (completed years since ${person.coachingSince})`);
     if (!home.includes(`With over ${numberWord(years)} years of dedicated experience`)) fail(`index.html: "With over ${numberWord(years)} years" must follow person.json coachingSince`);
     if (!about.includes(`<span class="counter">${years}</span><span>+</span></h3>\n                            <p>Years of healthcare education and coaching experience</p>`)) fail(`about.html: the years counter must read ${years}+`);
