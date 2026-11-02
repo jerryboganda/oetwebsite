@@ -307,9 +307,19 @@
                 }
             }
 
+            // The posters carry their real URLs in data-src / data-srcset (src/lib/promo.mjs) so that nothing is
+            // downloaded until the popup opens; copy them back BEFORE Swiper clones the looped slides.
+            function hydrateImages() {
+                popup.querySelectorAll('[data-src], [data-srcset]').forEach(function (el) {
+                    if (el.hasAttribute('data-srcset')) { el.setAttribute('srcset', el.getAttribute('data-srcset')); el.removeAttribute('data-srcset'); }
+                    if (el.hasAttribute('data-src')) { el.setAttribute('src', el.getAttribute('data-src')); el.removeAttribute('data-src'); }
+                });
+            }
+
             function openPopup() {
                 if (popup.classList.contains('is-open')) return;
                 lastFocused = document.activeElement;
+                hydrateImages();
                 initSwiper();
                 refreshSlider();
                 var preloader = document.querySelector('.preloader');

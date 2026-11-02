@@ -188,6 +188,18 @@ without them the chat/contact email relay is off and chat send fails
      "OET Blog" item, the drawer and the homepage OET Blog section all reach it.
    - Submit `https://oetwithdrhesham.co.uk/sitemap.xml` in Search Console after
      a release that adds pages.
+   - Folder index files 301 to the folder (one hop, https):
+     `curl -sI https://oetwithdrhesham.co.uk/blog/index.html` (and `/ar/index.html`,
+     `/privacy/index.html`, `/terms/index.html`, `/refund-policy/index.html`,
+     `/cookie-policy/index.html`) → `301`, `location: https://oetwithdrhesham.co.uk/blog/`.
+   - AI-search discovery files answer 200 with the right type:
+     `curl -sI …/llms.txt` and `…/llms-full.txt` → `text/plain; charset=utf-8`,
+     `…/feed.xml` → `application/atom+xml`, `…/robots.txt` lists the AI crawler groups,
+     `…/<indexnow-key>.txt` (the 32-hex file in the repo root) → 200.
+   - Optional, after a release with new or changed pages: ping IndexNow (Bing, which
+     also feeds Copilot and ChatGPT search) from a machine with the repo:
+     `cd site && OET_INDEXNOW_KEY=<key> node scripts/postbuild.mjs --indexnow`
+     (sends the sitemap URLs whose lastmod is today; CI never does this).
 
 ## Analytics (pending IDs)
 

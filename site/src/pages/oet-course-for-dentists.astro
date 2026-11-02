@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import meta from '../partials/oet-course-for-dentists/meta.html?raw';
+import headExtra from '../partials/oet-course-for-dentists/head-extra.html?raw';
+import main from '../partials/oet-course-for-dentists/main.html?raw';
+import tail from '../partials/oet-course-for-dentists/tail.html?raw';
+import { applyChooseBlock, applyCourseSchema } from '../lib/bundles.mjs';
+
+// The "Choose your course" block (three Full OET Course tiers for this profession) is rendered from
+// src/data/bundles.json by the same code that refreshes it live in the browser. Its Course JSON-LD gets the offers
+// (Classic card + Full tiers, from the data files), the instructor and the image (applyCourseSchema).
+const parts = applyCourseSchema(applyChooseBlock({ meta, headExtra, main, tail }, 'oet-course-for-dentists'));
+---
+<Base
+  meta={parts.meta}
+  headExtra={parts.headExtra}
+  main={parts.main}
+  tail={parts.tail}
+  bodyClass="oet-live-site oet-resource-page"
+  salCss={true}
+/>

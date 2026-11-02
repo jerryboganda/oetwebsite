@@ -11,7 +11,7 @@ enrollment **web app** lives at app./api.oetwithdrhesham.co.uk (repo
 OUTPUT, committed for parity/deploy. Never hand-edit root HTML — edit the
 partials/data and rebuild.**
 
-- `site/src/pages/*.astro` — 66 thin wrappers incl. 404 (one per page; `ar/` = Arabic, `lang="ar"`), each importing
+- `site/src/pages/*.astro` — 79 thin wrappers incl. 404 (one per page; `ar/` = Arabic, `lang="ar"`), each importing
   its page partials `?raw` and rendering through `site/src/layouts/Base.astro`.
 - `site/src/partials/<page>/{meta,head-extra,main,tail}.html` — byte-preserved
   page bodies. This is where page content/CSS edits happen.
@@ -121,12 +121,17 @@ partials/data and rebuild.**
     Classic Full (Medicine/Pharmacy/Physiotherapy/Allied): "Enhance your preparation with website practice" -> the Full OET Course + Website Practice card of that profession, quoting that tier's OWN live price
     (`<!--oet:tier-price:full-practice:<profession>-->`, refreshed from the catalog), never a promised discount (the app has no "pay only the difference" checkout for Classic -> Full). Classic Nursing OET Course
     (65) -> Nursing Premium Bundle at its own price (marker `<!--oet:price:Package 07-->`). Writing Crash / personal-letter cards (13-22) -> `#writing-packages`; Speaking Crash / private sessions (23-25) -> `#speaking-packages`.
-- `site/scripts/postbuild.mjs` — after `astro build`: appends content-hash
+- `site/scripts/postbuild.mjs` — after `astro build`: bundles the eight always-loaded
+  stylesheets (order fixed in `CORE_CSS`, = Base.astro's order) into `assets/css/oet-core.css`
+  and replaces their `<link>`s with one (conditional sheets stay separate; `astro dev`
+  keeps the separate files; never edit `oet-core.css` by hand, edit the source sheets), appends content-hash
   `?v=` to asset URLs, gives bare `wa.me` links a plain default prefill (never
   `[page: …]` labels: the source page is tracked by `oet-analytics.js`), generates
-  `sitemap.xml` (per-page git dates) and `assets/search-index.json`, copies the
-  66 built pages + sitemap to the repo root. `--check-root` asserts root ==
-  dist (CI parity). New page = add it to `PAGES` here and in `verify.mjs`.
+  `sitemap.xml` (per-page git dates), `assets/search-index.json`, `llms.txt`,
+  `llms-full.txt` and `feed.xml` (see "SEO + AI-search layer" below), copies the
+  79 built pages + sitemap + generated files to the repo root. `--check-root` asserts root ==
+  dist for the pages, `oet-core.css` and the three generated files (CI parity). New page = add it to
+  `PAGES` here and in `verify.mjs`, and to `LLMS_GROUPS` here unless it is a blog post (posts are grouped by category).
 - `site/scripts/verify.mjs` — asserts pages/assets/JSON-LD/sitemap/pricing, one
   H1 per page, WhatsApp prefills without `[page: …]` labels, the pricing
   app-first CTAs (`register?next=/subscriptions` and `?next=/companion`, no
@@ -148,10 +153,67 @@ partials/data and rebuild.**
   every link of each group with its real href, logo, brand copy, six social icons,
   legal row; fails if the withdrawn 26 Oct chrome returns), and every `blog.json` article (built, linked from `/blog/`, links
   back, thumbnail, Article data, breadcrumb == BreadcrumbList).
-  hreflang alternates must exist and link back (Arabic `ar/*` ↔ English
-  `service.html`, `oet-course-for-nurses.html`, `oet-course-for-doctors.html`,
+  hreflang alternates must exist and link back, and match the explicit `HREFLANG_PAIRS`
+  table (each side declares en, ar and x-default = the English page; no other page declares
+  hreflang): `/` ↔ `/ar/` (the Arabic entry page; `service.html` has no alternates since
+  2 Nov 2026), `oet-course-for-nurses.html`, `oet-course-for-doctors.html`,
+  `oet-course-for-pharmacists.html`, `oet-course-for-physiotherapists.html`,
   `oet-score-requirements.html`, `oet-test-dates-and-fees.html`, `oet-vs-ielts.html`,
-  `oet-writing-tips.html`, `oet-speaking-tips.html`, `oet-sample-tests.html`).
+  `oet-writing-tips.html`, `oet-speaking-tips.html`, `oet-sample-tests.html`,
+  `gulf-pathway-guide.html` ↔ the same slug under `ar/`.
+  Since 2 Nov 2026 it also gates the SEO + AI-search layer (below): titles ≤ 60 characters
+  (English) / ≤ 70 (Arabic), breadcrumb == BreadcrumbList on EVERY page that has one,
+  every #drhesham / #organization node == person.json, "since YYYY" and the years counters
+  == coachingSince, byline dates == JSON-LD dates ≤ sitemap lastmod, author box and Related
+  articles on every post, ≥ 3 inbound links per post and ≥ 10 per profession course page,
+  Course offers == the data files, the 24-card score-card sample + associatedMedia, no
+  stale "1,600", llms.txt == sitemap URLs, feed entries == posts, robots AI groups, the
+  IndexNow key file, the folder-index 301s, one `oet-core.css` link per page and the
+  derived head tags.
+
+### SEO + AI-search (GEO) layer (plan of 2 Nov 2026)
+
+- **`site/src/lib/page.mjs` `enrichPage()`** runs on EVERY page from `Base.astro`, after
+  the wrapper's own injections. Build markers, all optional, none may survive into dist:
+  `<!--oet:price:Package NN-->` (pricing.json) and `<!--oet:bundle-price:<tier key>-->`
+  (bundles.json) render `&pound;N` on any page (never type a price);
+  `<!--oet:story-count-->` = the success-stories manifest count ("1,750");
+  `<!--oet:years-->` / `<!--oet:years-word-->` = completed years of coaching;
+  `<!--oet:dates-->` (or `<!--oet:dates class="pathway-byline"-->`) = the "By Dr Ahmed
+  Hesham · Published · Updated" byline with `<time>` read from the page's own JSON-LD
+  (edit `dateModified` there, never the visible text); `<!--oet:author-box-->`;
+  `<!--oet:related-guides-->` = four "Related articles" cards from blog.json (same category
+  +2, shared `professions` +1, newest first, skipping posts the page already links).
+- **`site/src/data/person.json`** is the single source for Dr Ahmed Hesham (Person
+  `#drhesham`) and the organisation (`#organization`): `src/lib/schema.mjs` rebuilds every
+  typed node with those @ids on every page. `coachingSince` = 2018 (owner, 2 Nov 2026).
+  `alumniOf`, `hasCredential`, `identifier` and `twitter` stay empty until the OWNER
+  supplies them (they then appear in the schema, the author box and `twitter:site`
+  automatically); never fill them from a guess. "Rated 5.0 on Google" and the 15K / 20K /
+  25K counters were kept by the owner on 2 Nov 2026 pending a source.
+- **`site/src/lib/head.mjs`** adds, only when the meta partial lacks them: og:image:alt
+  (= og:title), `name=author`, on blog posts og:type article + article:published_time /
+  modified_time / author, `twitter:site` (once person.json has a handle) and the Atom link.
+- **Course JSON-LD** (`applyCourseSchema` in `bundles.mjs`, called by the six profession
+  course pages and `service.astro`): offers = the profession's Classic card(s) from
+  pricing.json + the three Full tiers from bundles.json where sold; instructor #drhesham;
+  image = og:image. No aggregateRating or review, ever. `oet-course-for-dentists` maps to
+  `other-allied-health` (Dentistry is a Modified Allied Health profession).
+- **Success stories**: `applyStorySample` (inject.mjs) writes 4 real score cards per year
+  (24) into `#success-gallery` with honest alt text, mirrored as `associatedMedia`; the
+  gallery script replaces them on load.
+- **AI discovery files** (postbuild): `llms.txt` (curated, every sitemap URL once, key facts
+  and prices generated from the data files), `llms-full.txt` (plain text of every non-legal
+  page), `feed.xml` (Atom, every blog.json post, `<updated>` = newest dateModified). No
+  build timestamps inside them. `robots.txt` names the AI crawlers (all allowed on purpose).
+  IndexNow: the `<32-hex>.txt` key file in the root; `postbuild.mjs --indexnow` with
+  `OET_INDEXNOW_KEY` pings today's changed URLs (manual, never CI).
+- **Homepage popup** posters are deferred (`data-src` / `data-srcset`, hydrated by
+  `hydrateImages()` in `partials/index/tail.html` before Swiper starts): nothing downloads
+  until the popup opens. The pricing hero is unchanged; poster bytes stay SHA-locked.
+- **Owner inputs still open** (see `docs/seo-geo-owner-checklist-2026-11.md`): degree and
+  university, registration body + number, X handle, team names, workload hours for
+  nursing / pharmacy / physio / allied, per-card grades for `/oet-results-data.html`.
 
 ### Build & verify (always run after editing site/src)
 

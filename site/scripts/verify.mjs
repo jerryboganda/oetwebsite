@@ -29,6 +29,11 @@ const PAGES = [
   'oet-writing-referral-letter-structure.html', 'oet-writing-physiotherapy-referral-vs-discharge.html',
   'oet-reading-part-a-scanning.html', 'oet-reading-part-c-inference.html', 'oet-listening-part-a-note-taking.html',
   'oet-speaking-empathy-signposting.html', 'oet-computer-vs-paper.html',
+  // SEO + GEO plan (2 Nov 2026): landing pages, the dentists course page, seven articles and three Arabic twins
+  'oet-mock-test.html', 'oet-speaking-practice-online.html', 'oet-course-for-dentists.html', 'oet-vs-pte.html', 'oet-study-plan.html',
+  'oet-reading-part-b-workplace-texts.html', 'oet-listening-parts-b-c.html', 'oet-writing-nursing-discharge-letter.html',
+  'oet-speaking-angry-anxious-patient.html', 'oet-retake-after-near-miss.html',
+  'ar/oet-course-for-pharmacists.html', 'ar/oet-course-for-physiotherapists.html', 'ar/gulf-pathway-guide.html',
 ];
 
 let failures = 0;
@@ -100,7 +105,7 @@ if (!existsSync(sitemapFile)) fail('sitemap.xml missing from dist');
 else {
   const sm = readFileSync(sitemapFile, 'utf8');
   const urls = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  if (urls.length !== 65) fail(`sitemap has ${urls.length} URLs, expected 65`);
+  if (urls.length !== PAGES.length - 1) fail(`sitemap has ${urls.length} URLs, expected ${PAGES.length - 1} (every page but 404)`);
   // Clean URLs served via .htaccess rewrites map to their built .html file.
   const CLEAN_URL_ALIASES = { 'english-placement-test': 'english-placement-test.html' };
   for (const u of urls) {
@@ -485,7 +490,7 @@ if (distHtml['pricing.html']) {
   if (!ph.includes('/assets/css/oet-bundles.css?v=') || !ph.includes('/assets/js/oet-bundles.js?v=')) fail('pricing.html: oet-bundles.css/js must be linked and hashed');
 
   // course pages: the "Choose your course" block with the page's own profession, same data
-  for (const [page, prof] of [['oet-course-for-doctors.html', 'medicine'], ['oet-course-for-nurses.html', 'nursing'], ['oet-course-for-pharmacists.html', 'pharmacy'], ['oet-course-for-physiotherapists.html', 'physiotherapy'], ['oet-for-allied-health.html', 'other-allied-health']]) {
+  for (const [page, prof] of [['oet-course-for-doctors.html', 'medicine'], ['oet-course-for-nurses.html', 'nursing'], ['oet-course-for-pharmacists.html', 'pharmacy'], ['oet-course-for-physiotherapists.html', 'physiotherapy'], ['oet-for-allied-health.html', 'other-allied-health'], ['oet-course-for-dentists.html', 'other-allied-health']]) {
     const h = distHtml[page] || '';
     const sec = (h.match(/<section class="oet-resource-section oet-choose" id="choose-your-course"[\s\S]*?<\/section>/) || [''])[0];
     if (!sec) { fail(`${page}: "Choose your course" block missing`); continue; }
@@ -621,7 +626,10 @@ if (distHtml['pricing.html']) {
         if (/target="_blank"/.test(link)) fail(`${page}: slide ${i + 1} (${id}) opens in the same tab`);
         if (!sl.includes(`src="${BASE}${src}"`) || !sl.includes(`alt="${s.alt}"`)) fail(`${page}: slide ${i + 1} must show ${src} with its manifest alt text`);
         if (!new RegExp(`${kind === 'pricing' ? 'oet-poster-cta' : 'oet-promo-popup__cta'}">${s.cta} <i class="fa-solid fa-arrow-right"`).test(sl)) fail(`${page}: slide ${i + 1} must show the visible call to action "${s.cta}"`);
-        if (s.mobile ? !sl.includes(`<source media="(max-width: 639px)" srcset="${BASE}${s.mobile.src}"`) : sl.includes('<source')) fail(`${page}: slide ${i + 1} (${id}) portrait source for phones: ${s.mobile ? 'required' : 'not expected'}`);
+        // the homepage popup defers every poster (data-src / data-srcset, hydrated when it opens: SEO + GEO plan 2 Nov 2026)
+        const set = kind === 'popup' ? 'data-srcset' : 'srcset';
+        if (s.mobile ? !sl.includes(`<source media="(max-width: 639px)" ${set}="${BASE}${s.mobile.src}"`) : sl.includes('<source')) fail(`${page}: slide ${i + 1} (${id}) portrait source for phones: ${s.mobile ? 'required' : 'not expected'}`);
+        if (kind === 'popup' && (/ (?:src|srcset)="\/assets\/img\/promotional-banners\//.test(sl) || !sl.includes(`data-src="${BASE}${src}"`))) fail(`${page}: popup slide ${i + 1} (${id}) must defer its image (data-src / data-srcset) until the popup opens`);
         if (s.srcset && !sl.includes(`srcset="${s.srcset.map(([f, w]) => `${BASE}${f} ${w}w`).join(', ')}"`)) fail(`${page}: slide ${i + 1} (${id}) srcset drifted from the manifest`);
         if (/\bAI\b/.test(sl.replace(/<[^>]+>/g, ' '))) fail(`${page}: slide ${i + 1} must not use the term "AI"`);
       });
@@ -724,13 +732,14 @@ if (distHtml['pricing.html']) {
         fail(`${page}: the Nursing Course + Assessment Package and the legacy Full Crash GBP 65 / 75 / 85 were removed from sale and must not be named, linked or priced`);
       if (/<!--oet:/.test(html)) fail(`${page}: an unreplaced <!--oet:...--> build marker leaked into the page`);
       // the former GBP 140 Full Condensed Recorded Course + TutorBook (Medicine) was retired; its place is the Complete OET Bundle + TutorBook (the legacy Classic Medicine keeps its own sign-in slug, which is not matched here)
-      if (/Condensed Recorded Course \+ TutorBook|Medicine Condensed|full-condensed-medicine-tbook/i.test(html.replace(/&amp;/g, '&'))) fail(`${page}: the retired Full Condensed Recorded Course + TutorBook must not be named or linked (the Complete OET Bundle + TutorBook replaces it)`);
+      // (2 Nov 2026: also the "Full condensed recorded Medicine" Course description; bare "condensed" stays legal on the Classic cards)
+      if (/Condensed Recorded Course|Full condensed recorded|Medicine Condensed|full-condensed-medicine-tbook/i.test(html.replace(/&amp;/g, '&'))) fail(`${page}: the retired Full Condensed Recorded Course + TutorBook must not be named or linked (the Complete OET Bundle + TutorBook replaces it)`);
     }
   }
 
   // Wording (owner, 30 Oct 2026): no candidate-facing "AI" on the pricing, homepage, service and profession course pages (Sami is "your study assistant"). The legal pages keep
   // their provider disclosures and the internal #ai-grading-packages anchor is not visible copy, so neither is scanned.
-  for (const page of ['pricing.html', 'index.html', 'service.html', 'oet-course-for-doctors.html', 'oet-course-for-nurses.html', 'oet-course-for-pharmacists.html', 'oet-course-for-physiotherapists.html', 'oet-for-allied-health.html']) {
+  for (const page of ['pricing.html', 'index.html', 'service.html', 'oet-course-for-doctors.html', 'oet-course-for-nurses.html', 'oet-course-for-pharmacists.html', 'oet-course-for-physiotherapists.html', 'oet-for-allied-health.html', 'oet-course-for-dentists.html', 'oet-mock-test.html', 'oet-speaking-practice-online.html']) {
     const copy = ((distHtml[page] || '').match(/<main[\s\S]*<\/main>/) || [''])[0].replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ');
     if (/\bAI\b/.test(copy)) fail(`${page}: the term "AI" must not appear in candidate-facing copy (owner 30 Oct 2026)`);
   }
@@ -896,6 +905,226 @@ if (distHtml['pricing.html']) {
   if (!nodesOfType(ldBlocks(blogHtml), 'Blog').length) fail('blog/index.html: Blog JSON-LD missing');
   const cards = (blogHtml.match(/class="oet-blog-card"/g) || []).length;
   if (cards < posts.length) fail(`blog/index.html: ${cards} cards for ${posts.length} posts`);
+}
+
+// ---- SEO + AI-search (GEO) plan, 2 Nov 2026 ----------------------------------------------------------------------
+// hreflang pairs, title lengths, entity data (person.json), dates, author box, related articles, internal links,
+// Course offers, the crawlable score-card sample, llms.txt / llms-full.txt / feed.xml, robots.txt, IndexNow, the
+// bundled core stylesheet and the derived head tags.
+{
+  const ORIGIN = 'https://oetwithdrhesham.co.uk';
+  const { loadBlog, pageDates } = await import('../src/lib/blog.mjs');
+  const { posts } = loadBlog();
+  const { loadPerson, personNode, organizationNode, yearsCoaching, numberWord } = await import('../src/lib/schema.mjs');
+  const { courseOffers } = await import('../src/lib/bundles.mjs');
+  const person = loadPerson();
+  const urlOf = (page) => (page === 'index.html' ? '/' : page.endsWith('/index.html') ? `/${page.slice(0, -10)}`
+    : page === 'english-placement-test.html' ? '/english-placement-test' : `/${page}`);
+  const pageOfUrl = (u) => (u === '/' ? 'index.html' : u.endsWith('/') ? `${u.slice(1)}index.html` : u === '/english-placement-test' ? 'english-placement-test.html' : u.slice(1));
+  const mainOf = (html) => (html.match(/<main[\s\S]*<\/main>/) || [''])[0];
+  const decoded = (s) => s.replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number(d))).replace(/&([a-z]+);/gi, (m, e) => NAMED[e] ?? m);
+  const postPages = new Set(posts.map((p) => p.url.slice(1)));
+  const COURSE_PAGES = { 'oet-course-for-doctors.html': 'medicine', 'oet-course-for-nurses.html': 'nursing', 'oet-course-for-pharmacists.html': 'pharmacy',
+    'oet-course-for-physiotherapists.html': 'physiotherapy', 'oet-for-allied-health.html': 'other-allied-health', 'oet-course-for-dentists.html': 'other-allied-health' };
+
+  // hreflang: an explicit table of English <-> Arabic twins (the homepage pairs with the Arabic entry page /ar/).
+  // Each side declares en, ar and x-default (= the English page); no other page declares hreflang.
+  const HREFLANG_PAIRS = [
+    ['index.html', 'ar/index.html'], ['oet-course-for-doctors.html', 'ar/oet-course-for-doctors.html'], ['oet-course-for-nurses.html', 'ar/oet-course-for-nurses.html'],
+    ['oet-course-for-pharmacists.html', 'ar/oet-course-for-pharmacists.html'], ['oet-course-for-physiotherapists.html', 'ar/oet-course-for-physiotherapists.html'],
+    ['oet-score-requirements.html', 'ar/oet-score-requirements.html'], ['oet-test-dates-and-fees.html', 'ar/oet-test-dates-and-fees.html'], ['oet-vs-ielts.html', 'ar/oet-vs-ielts.html'],
+    ['oet-writing-tips.html', 'ar/oet-writing-tips.html'], ['oet-speaking-tips.html', 'ar/oet-speaking-tips.html'], ['oet-sample-tests.html', 'ar/oet-sample-tests.html'],
+    ['gulf-pathway-guide.html', 'ar/gulf-pathway-guide.html'],
+  ];
+  const paired = new Map(HREFLANG_PAIRS.flatMap(([en, ar]) => [[en, [en, ar]], [ar, [en, ar]]]));
+  for (const [page, html] of Object.entries(distHtml)) {
+    const alts = [...html.matchAll(/<link rel="alternate" hreflang="([a-zA-Z-]+)" href="([^"]+)"/g)].map((m) => `${m[1]}=${m[2]}`).sort();
+    const pair = paired.get(page);
+    const want = pair ? [`ar=${ORIGIN}${urlOf(pair[1])}`, `en=${ORIGIN}${urlOf(pair[0])}`, `x-default=${ORIGIN}${urlOf(pair[0])}`] : [];
+    if (alts.join() !== want.join()) fail(`${page}: hreflang must be ${want.length ? want.join(', ') : 'absent (not an English/Arabic pair)'}; found ${alts.join(', ') || 'none'}`);
+  }
+
+  // titles: at most 60 characters in English, 70 in Arabic (entities decoded)
+  for (const [page, html] of Object.entries(distHtml)) {
+    const title = decoded((html.match(/<title>([\s\S]*?)<\/title>/) || [, ''])[1]);
+    const max = page.startsWith('ar/') ? 70 : 60;
+    if ([...title].length > max) fail(`${page}: <title> is ${[...title].length} characters (max ${max}): ${title}`);
+  }
+
+  // pricing.html: the visible pricing FAQ has its FAQPage twin (the systemic check above proves each answer is verbatim)
+  {
+    const ph = distHtml['pricing.html'] || '';
+    const visibleQs = ((ph.match(/<div class="oet-pfaq">[\s\S]*?<\/div>\s*<div class="oet-pchooser"/) || [''])[0].match(/<details>/g) || []).length;
+    const ldQs = nodesOfType(ldBlocks(ph).filter((b) => JSON.stringify(b).includes('"FAQPage"')), 'Question').length;
+    if (!visibleQs || ldQs !== visibleQs) fail(`pricing.html: FAQPage JSON-LD has ${ldQs} questions for ${visibleQs} visible pricing FAQs`);
+  }
+
+  // breadcrumbs: EVERY page with BreadcrumbList JSON-LD shows the same trail (blog style nav or the theme's breadcrumb-text list)
+  for (const [page, html] of Object.entries(distHtml)) {
+    const crumbs = nodesOfType(ldBlocks(html), 'BreadcrumbList')[0];
+    if (!crumbs) continue;
+    const list = (html.match(/<nav class="oet-breadcrumbs" aria-label="[^"]+"><ol>([\s\S]*?)<\/ol><\/nav>/) || html.match(/<div class="breadcrumb-text">[\s\S]*?<ul>([\s\S]*?)<\/ul>/) || [])[1];
+    if (!list) { fail(`${page}: BreadcrumbList JSON-LD without a visible breadcrumb`); continue; }
+    const names = [...list.matchAll(/<li[^>]*>([\s\S]*?)<\/li>/g)].map((m) => visibleText(m[1])).filter(Boolean);
+    const ldNames = crumbs.itemListElement.map((i) => visibleText(i.name));
+    if (names.join(' > ') !== ldNames.join(' > ')) fail(`${page}: visible breadcrumb "${names.join(' > ')}" != JSON-LD "${ldNames.join(' > ')}"`);
+  }
+  for (const page of ['pricing.html', 'faq.html', 'success-stories.html', 'english-placement-test.html'])
+    if (!(distHtml[page] || '').includes('<nav class="oet-breadcrumbs" aria-label="Breadcrumb">')) fail(`${page}: needs the visible breadcrumb above its H1`);
+
+  // entity data: every typed #drhesham / #organization node is the person.json node, everywhere
+  const same = (a, b) => { const { '@context': _x, ...ra } = a; return JSON.stringify(ra) === JSON.stringify(b); };
+  const P = personNode(person);
+  const O = organizationNode(person);
+  for (const [page, html] of Object.entries(distHtml)) {
+    for (const b of ldBlocks(html)) walk(b, (n) => {
+      if (!n['@type']) return;
+      if (n['@id'] === person.id && !same(n, P)) fail(`${page}: Person #drhesham differs from src/data/person.json (rebuilt by src/lib/schema.mjs)`);
+      if (n['@id'] === person.organization.id && !same(n, O)) fail(`${page}: Organization #organization differs from src/data/person.json`);
+    });
+    // a visible "coached … since YYYY" claim must use the owner-confirmed year
+    for (const m of visibleText(mainOf(html)).matchAll(/(?:coach|coached|coaching|teach|teaching)[^.]{0,120}?since (\d{4})/g))
+      if (Number(m[1]) !== person.coachingSince) fail(`${page}: says coaching "since ${m[1]}", person.json says ${person.coachingSince}`);
+    if (/"description":\s*"[^"]*since (?!\d{4}\b)|since 2020\./.test(html)) fail(`${page}: a stale "since 2020" entity description is back`);
+  }
+  {
+    const years = yearsCoaching(person);
+    const home = distHtml['index.html'] || '';
+    const about = distHtml['about.html'] || '';
+    if (!home.includes(`<span class="counter">${years}</span><span>+</span></strong>\n                                        <span class="oet-hero__stat-label">Years coaching</span>`)) fail(`index.html: the "Years coaching" stat must read ${years}+ (completed years since ${person.coachingSince})`);
+    if (!home.includes(`With over ${numberWord(years)} years of dedicated experience`)) fail(`index.html: "With over ${numberWord(years)} years" must follow person.json coachingSince`);
+    if (!about.includes(`<span class="counter">${years}</span><span>+</span></h3>\n                            <p>Years of healthcare education and coaching experience</p>`)) fail(`about.html: the years counter must read ${years}+`);
+    const firstTab = (about.match(/aria-selected="true">(\d{4})<\/button>/) || [])[1];
+    if (Number(firstTab) !== person.coachingSince) fail(`about.html: the timeline starts in ${firstTab}, person.json coachingSince is ${person.coachingSince}`);
+  }
+
+  // dates: the visible byline shows the JSON-LD dates; dateModified >= datePublished; the sitemap is never older
+  const lastmod = new Map([...readFileSync(path.join(DIST, 'sitemap.xml'), 'utf8').matchAll(/<loc>([^<]+)<\/loc><lastmod>([^<]+)<\/lastmod>/g)].map((m) => [m[1], m[2]]));
+  for (const [page, html] of Object.entries(distHtml)) {
+    const head = html.slice(0, html.indexOf('</head>'));
+    const { published, modified } = pageDates(head);
+    if (published && modified && modified < published) fail(`${page}: dateModified ${modified} is before datePublished ${published}`);
+    if (modified && lastmod.has(ORIGIN + urlOf(page)) && lastmod.get(ORIGIN + urlOf(page)) < modified) fail(`${page}: sitemap lastmod ${lastmod.get(ORIGIN + urlOf(page))} is older than dateModified ${modified}`);
+    const byline = (mainOf(html).match(/<p class="(?:oet-guide-meta|pathway-byline)">By <a href="\/about\.html">Dr Ahmed Hesham<\/a>[\s\S]*?<\/p>/) || [])[0];
+    if (postPages.has(page) && !byline) fail(`${page}: articles show the "By Dr Ahmed Hesham · Published · Updated" byline (<!--oet:dates-->)`);
+    if (byline) {
+      const times = [...byline.matchAll(/<time datetime="(\d{4}-\d{2}-\d{2})">/g)].map((m) => m[1]);
+      if (!times.length) fail(`${page}: the byline must carry <time datetime> dates (<!--oet:dates-->), not typed text`);
+      else if (times[times.length - 1] !== modified) fail(`${page}: visible updated date ${times[times.length - 1]} != JSON-LD dateModified ${modified}`);
+    }
+  }
+
+  // author box on every article; "Related articles" on every article, the six course pages and the tips hub
+  for (const page of postPages) {
+    const html = distHtml[page] || '';
+    if ((html.match(/<section class="oet-resource-section oet-author-bio" aria-label="About the author">/g) || []).length !== 1) fail(`${page}: needs exactly one author box (<!--oet:author-box-->)`);
+    if (!html.includes(`coached doctors, nurses and allied health professionals preparing for OET since ${person.coachingSince}`)) fail(`${page}: the author box must come from person.json`);
+  }
+  for (const page of [...postPages, ...Object.keys(COURSE_PAGES), 'oet-tips.html']) {
+    const sec = ((distHtml[page] || '').match(/<section class="oet-related oet-related--articles" aria-label="Related articles">[\s\S]*?<\/section>/) || [''])[0];
+    const n = (sec.match(/class="oet-related-card"/g) || []).length;
+    if (n < 3) fail(`${page}: "Related articles" needs at least 3 cards (found ${n})`);
+    if (sec.includes(`href="${urlOf(page)}"`)) fail(`${page}: "Related articles" links the page itself`);
+  }
+
+  // internal links: every article has >= 3 inbound <main> links from other pages, every profession course page >= 10
+  {
+    const inbound = new Map();
+    for (const [page, html] of Object.entries(distHtml)) {
+      for (const t of new Set([...mainOf(html).matchAll(/href="(\/[^"#?]*)/g)].map((m) => pageOfUrl(m[1])))) {
+        if (t !== page) inbound.set(t, (inbound.get(t) || 0) + 1);
+      }
+    }
+    for (const page of postPages) if ((inbound.get(page) || 0) < 3) fail(`${page}: only ${inbound.get(page) || 0} inbound links from other pages (min 3)`);
+    for (const page of Object.keys(COURSE_PAGES)) if ((inbound.get(page) || 0) < 10) fail(`${page}: only ${inbound.get(page) || 0} inbound links from other pages (min 10)`);
+    for (const page of ['oet-mock-test.html', 'oet-speaking-practice-online.html', 'ar/oet-course-for-pharmacists.html', 'ar/oet-course-for-physiotherapists.html', 'ar/gulf-pathway-guide.html'])
+      if ((inbound.get(page) || 0) < 3) fail(`${page}: only ${inbound.get(page) || 0} inbound links from other pages (min 3)`);
+  }
+
+  // Course JSON-LD: offers (Classic card + Full tiers, prices from the data files), instructor #drhesham, image = og:image
+  for (const page of [...Object.keys(COURSE_PAGES), 'service.html']) {
+    const html = distHtml[page] || '';
+    const og = (html.match(/<meta property="og:image" content="([^"]+)"/) || [])[1];
+    const courses = nodesOfType(ldBlocks(html), 'Course').filter((c) => COURSE_PAGES[(c.url || String(c['@id'] || '').replace(/#.*$/, '')).replace(`${ORIGIN}/`, '')]);
+    if (!courses.length) fail(`${page}: no profession Course node`);
+    for (const c of courses) {
+      const prof = COURSE_PAGES[(c.url || String(c['@id']).replace(/#.*$/, '')).replace(`${ORIGIN}/`, '')];
+      const want = courseOffers(prof).map((o) => `${o.name}=${o.price}`).sort().join('|');
+      const got = (c.offers || []).map((o) => `${o.name}=${o.price}`).sort().join('|');
+      if (got !== want) fail(`${page}: Course "${c.name}" offers ${got || 'none'}, expected ${want}`);
+      if ((c.offers || []).some((o) => o.priceCurrency !== 'GBP' || o.category !== 'Paid' || !o.url)) fail(`${page}: Course "${c.name}" offers need GBP, category Paid and a url`);
+      if (c.instructor?.['@id'] !== person.id) fail(`${page}: Course "${c.name}" instructor must be #drhesham`);
+      if (c.image !== og) fail(`${page}: Course "${c.name}" image must be the page og:image`);
+      if (c.aggregateRating || c.review) fail(`${page}: Course "${c.name}" must not carry a self-made rating or review`);
+    }
+  }
+
+  // success stories: a crawlable sample of real score cards, mirrored in associatedMedia; no stale "1,600+"
+  {
+    const html = distHtml['success-stories.html'] || '';
+    const gallery = (html.match(/<div class="success-masonry" id="success-gallery">([\s\S]*?)<\/div>\s*<nav class="success-pagination"/) || [, ''])[1];
+    const imgs = [...gallery.matchAll(/<img src="([^"]+)" alt="([^"]+)" width="\d+" height="\d+" loading="lazy"/g)];
+    if (imgs.length < 24) fail(`success-stories.html: expected at least 24 score cards in the HTML (found ${imgs.length})`);
+    for (const [, src, alt] of imgs) {
+      if (!existsSync(path.join(ROOT, src.slice(1)))) fail(`success-stories.html: sample image missing on disk ${src}`);
+      if (!/^Verified OET score card shared in \d{4} \(\d+ of [\d,]+ that year\)$/.test(alt)) fail(`success-stories.html: sample alt text must be the honest description, found "${alt}"`);
+    }
+    const gal = nodesOfType(ldBlocks(html), 'ImageGallery')[0];
+    if (!gal || (gal.associatedMedia || []).length !== imgs.length) fail(`success-stories.html: ImageGallery associatedMedia must list the ${imgs.length} sample images`);
+    for (const [page, h] of Object.entries(distHtml)) if (/1,600\+|\+1,600|1,600 /.test(h)) fail(`${page}: stale "1,600" score-card count (use <!--oet:story-count-->)`);
+  }
+
+  // discovery files: llms.txt, llms-full.txt and feed.xml are built, committed to the webroot, complete and free of "AI"
+  {
+    const sitemapUrls = [...lastmod.keys()].sort();
+    for (const f of ['llms.txt', 'llms-full.txt', 'feed.xml']) {
+      const d = path.join(DIST, f);
+      const r = path.join(ROOT, f);
+      if (!existsSync(d) || !existsSync(r)) { fail(`${f}: missing from dist or the repo root`); continue; }
+      if (readFileSync(d, 'utf8').replace(/\r\n?/g, '\n') !== readFileSync(r, 'utf8').replace(/\r\n?/g, '\n')) fail(`${f}: root copy differs from the build`);
+      if (/\bAI\b/.test(readFileSync(d, 'utf8'))) fail(`${f}: must not use the term "AI"`);
+    }
+    const llms = existsSync(path.join(DIST, 'llms.txt')) ? readFileSync(path.join(DIST, 'llms.txt'), 'utf8') : '';
+    const listed = [...llms.matchAll(/^- \[[^\]]+\]\((https:\/\/[^)]+)\): /gm)].map((m) => m[1]);
+    if (listed.slice().sort().join() !== sitemapUrls.join()) fail(`llms.txt: must list every sitemap URL exactly once (${listed.length} listed, ${sitemapUrls.length} in the sitemap)`);
+    if (!llms.startsWith('# OET with Dr Hesham\n\n> ') || !llms.includes(`since ${person.coachingSince}`)) fail('llms.txt: needs the H1, the summary blockquote and the person.json facts');
+    const full = existsSync(path.join(DIST, 'llms-full.txt')) ? readFileSync(path.join(DIST, 'llms-full.txt'), 'utf8') : '';
+    for (const u of sitemapUrls) if (!/\/(terms|privacy|refund-policy|cookie-policy)\/$/.test(u) && !full.includes(`URL: ${u}\n`)) fail(`llms-full.txt: missing ${u}`);
+    const feed = existsSync(path.join(DIST, 'feed.xml')) ? readFileSync(path.join(DIST, 'feed.xml'), 'utf8') : '';
+    if ((feed.match(/<entry>/g) || []).length !== posts.length) fail(`feed.xml: ${(feed.match(/<entry>/g) || []).length} entries for ${posts.length} blog posts`);
+    const newest = posts.reduce((m, p) => (p.dateModified > m ? p.dateModified : m), '');
+    if (!feed.includes(`<updated>${newest}T00:00:00Z</updated>\n  <author>`)) fail(`feed.xml: <updated> must be the newest dateModified (${newest})`);
+    for (const p of posts) if (!feed.includes(`<id>${ORIGIN}${p.url}</id>`)) fail(`feed.xml: no entry for ${p.url}`);
+  }
+  {
+    const robots = readFileSync(path.join(ROOT, 'robots.txt'), 'utf8');
+    for (const ua of ['*', 'OAI-SearchBot', 'ChatGPT-User', 'GPTBot', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Bingbot', 'Applebot-Extended'])
+      if (!new RegExp(`^User-agent: ${ua.replace('*', '\\*')}$`, 'm').test(robots)) fail(`robots.txt: no group for ${ua}`);
+    if (/^Disallow:\s*\/\s*$/m.test(robots) || !robots.includes('Sitemap: https://oetwithdrhesham.co.uk/sitemap.xml') || !robots.includes('https://oetwithdrhesham.co.uk/llms.txt')) fail('robots.txt: everything stays allowed, with the Sitemap line and the llms.txt pointer');
+    const keys = readdirSync(ROOT).filter((f) => /^[0-9a-f]{32}\.txt$/.test(f));
+    if (keys.length !== 1) fail(`IndexNow: expected exactly one <32-hex>.txt key file in the repo root, found ${keys.length}`);
+    else if (readFileSync(path.join(ROOT, keys[0]), 'utf8').trim() !== keys[0].slice(0, 32)) fail(`IndexNow: ${keys[0]} must contain its own key`);
+    const ht = readFileSync(path.join(ROOT, '.htaccess'), 'utf8');
+    if (!ht.includes('RewriteRule ^(privacy|terms|refund-policy|cookie-policy|ar|blog)/index\\.html$ https://%{HTTP_HOST}/$1/ [R=301,L]')) fail('.htaccess: /<folder>/index.html must 301 to /<folder>/');
+    if (!ht.includes('ExpiresByType text/plain "access plus 1 day"') || !ht.includes('application/atom+xml')) fail('.htaccess: text/plain caching and the Atom feed type are required');
+  }
+
+  // one bundled render-blocking stylesheet; head tags derived by src/lib/head.mjs
+  const CORE = ['plugins/bootstrap.purged.min.css', 'oet-icons.css', 'style.min.css', 'oet-common.css', 'oet-mobile.css', 'oet-cookie-consent.css', 'oet-polish.css', 'oet-redesign.css'];
+  if (!existsSync(path.join(ROOT, 'assets/css/oet-core.css'))) fail('assets/css/oet-core.css missing (npm run build)');
+  for (const [page, html] of Object.entries(distHtml)) {
+    if ((html.match(/<link rel="stylesheet" href="\/assets\/css\/oet-core\.css\?v=[0-9a-f]{10}">/g) || []).length !== 1) fail(`${page}: must link the bundled /assets/css/oet-core.css once`);
+    for (const c of CORE) if (html.includes(`href="/assets/css/${c}`)) fail(`${page}: ${c} must come from oet-core.css, not its own <link>`);
+    if (!html.includes('<link rel="alternate" type="application/atom+xml" title="OET Blog by Dr Hesham" href="/feed.xml">')) fail(`${page}: Atom feed link missing`);
+    if (/<meta property="og:image" /.test(html) && !/<meta property="og:image:alt" content="[^"]+">/.test(html)) fail(`${page}: og:image without og:image:alt`);
+    if (postPages.has(page)) {
+      const { published, modified } = pageDates(html.slice(0, html.indexOf('</head>')));
+      if (!html.includes('<meta property="og:type" content="article">') || !html.includes(`<meta property="article:published_time" content="${published}">`)
+        || !html.includes(`<meta property="article:modified_time" content="${modified}">`) || !html.includes(`<meta name="author" content="${person.name}">`))
+        fail(`${page}: articles need og:type article, article:published_time / modified_time from the JSON-LD and the author meta`);
+    }
+  }
 }
 
 if (failures) {

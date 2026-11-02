@@ -5,13 +5,16 @@ import headExtraRaw from '../partials/success-stories/head-extra.html?raw';
 import mainRaw from '../partials/success-stories/main.html?raw';
 import tailRaw from '../partials/success-stories/tail.html?raw';
 import stories from '../../../assets/img/success-stories/success-stories.json';
-import { applyStoryCounts } from '../lib/inject.mjs';
+import { applyStoryCounts, applyStorySample } from '../lib/inject.mjs';
+import { rewriteJsonLd, mapNodes } from '../lib/schema.mjs';
 
 // Year-tab counts are computed from success-stories.json at build time
 // (they were hand-edited HTML before the Astro migration).
-const parts = applyStoryCounts(
-  { meta: metaRaw, headExtra: headExtraRaw, main: mainRaw, tail: tailRaw },
-  stories,
+// The gallery itself is rendered by JavaScript, so a sample of real <img> score cards (4 per year) is written into
+// the HTML for crawlers and no-JS visitors, and listed as associatedMedia in the ImageGallery JSON-LD.
+const parts = applyStorySample(
+  applyStoryCounts({ meta: metaRaw, headExtra: headExtraRaw, main: mainRaw, tail: tailRaw }, stories),
+  stories, rewriteJsonLd, mapNodes,
 );
 ---
 <Base

@@ -4,12 +4,15 @@ import meta from '../partials/service/meta.html?raw';
 import headExtra from '../partials/service/head-extra.html?raw';
 import main from '../partials/service/main.html?raw';
 import tail from '../partials/service/tail.html?raw';
+import { applyCourseSchema } from '../lib/bundles.mjs';
 // No salCss: service tail.html does not load sal.js, so sal.css would keep [data-sal] content hidden.
+// The ItemList of profession courses gets each course's offers, instructor and image (applyCourseSchema).
+const parts = applyCourseSchema({ meta, headExtra, main, tail });
 ---
 <Base
-  meta={meta}
-  headExtra={headExtra}
-  main={main}
-  tail={tail}
+  meta={parts.meta}
+  headExtra={parts.headExtra}
+  main={parts.main}
+  tail={parts.tail}
   bodyClass="oet-live-site oet-resource-page"
 />

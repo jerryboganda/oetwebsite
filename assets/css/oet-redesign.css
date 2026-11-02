@@ -99,3 +99,5 @@
 /* testimonial star icons (were empty "#" links; same look as the theme's anchor rule) */
 .testimonial__wrap-overlay-icon .oet-star{background:hsla(0,0%,100%,.2);border-radius:2px;display:inline-block;height:28px;margin-right:4px;text-align:center;width:28px}
 .testimonial__wrap-overlay-icon .oet-star img{padding-left:2px}
+/* visible breadcrumbs on the centred heroes (pricing, FAQ, placement test; SEO + GEO plan 2 Nov 2026) */
+.text-center .oet-breadcrumbs ol,.oet-faq-hero .oet-breadcrumbs ol,.oet-pt-hero .oet-breadcrumbs ol{justify-content:center}

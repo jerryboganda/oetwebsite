@@ -13,14 +13,14 @@ Options -Indexes
 <IfModule mod_brotli.c>
     AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/xml
     AddOutputFilterByType BROTLI_COMPRESS text/javascript application/javascript application/x-javascript
-    AddOutputFilterByType BROTLI_COMPRESS application/json application/ld+json application/xml
+    AddOutputFilterByType BROTLI_COMPRESS application/json application/ld+json application/xml application/atom+xml
     AddOutputFilterByType BROTLI_COMPRESS image/svg+xml font/ttf font/otf
 </IfModule>
 
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
     AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript
-    AddOutputFilterByType DEFLATE application/json application/ld+json application/xml
+    AddOutputFilterByType DEFLATE application/json application/ld+json application/xml application/atom+xml
     AddOutputFilterByType DEFLATE image/svg+xml font/ttf font/otf
     # already-compressed formats
     SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|webp|avif|woff2?|mp4|zip)$ no-gzip
@@ -54,6 +54,9 @@ Options -Indexes
     ExpiresByType application/json "access plus 1 hour"
     ExpiresByType application/xml "access plus 1 day"
     ExpiresByType text/xml "access plus 1 day"
+    # llms.txt, llms-full.txt and the IndexNow key; the Atom feed (generated at build)
+    ExpiresByType text/plain "access plus 1 day"
+    ExpiresByType application/atom+xml "access plus 1 hour"
 </IfModule>
 
 <IfModule mod_headers.c>
@@ -76,7 +79,11 @@ Options -Indexes
     AddType image/avif .avif
     AddType image/webp .webp
     AddType font/woff2 .woff2
-    AddCharset utf-8 .html .css .js .json .xml .svg
+    AddCharset utf-8 .html .css .js .json .xml .svg .txt
+    # the OET Blog feed is Atom, not a plain XML document
+    <Files "feed.xml">
+        ForceType "application/atom+xml; charset=utf-8"
+    </Files>
 </IfModule>
 
 <IfModule mod_rewrite.c>
@@ -89,6 +96,9 @@ RewriteRule ^(privacy|terms|refund-policy|cookie-policy|ar|blog)$ https://%{HTTP
 # THE_REQUEST guards stop these firing on DirectoryIndex / clean-URL internal rewrites.
 RewriteCond %{THE_REQUEST} \s/index\.html[\s?]
 RewriteRule ^index\.html$ https://%{HTTP_HOST}/ [R=301,L]
+# Same for the folder pages: /blog/index.html etc. would otherwise answer 200 as a duplicate of /blog/.
+RewriteCond %{THE_REQUEST} \s/(privacy|terms|refund-policy|cookie-policy|ar|blog)/index\.html[\s?]
+RewriteRule ^(privacy|terms|refund-policy|cookie-policy|ar|blog)/index\.html$ https://%{HTTP_HOST}/$1/ [R=301,L]
 RewriteCond %{THE_REQUEST} \s/english-placement-test\.html[\s?]
 RewriteRule ^english-placement-test\.html$ https://%{HTTP_HOST}/english-placement-test [R=301,L]
 # Browsers and crawlers still request /favicon.ico; serve the real icon.

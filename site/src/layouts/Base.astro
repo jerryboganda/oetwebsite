@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CommunityPopup from '../components/CommunityPopup.astro';
+import { enrichPage } from '../lib/page.mjs';
 
 interface Props {
   meta: string;
@@ -18,10 +19,6 @@ interface Props {
 }
 
 const {
-  meta,
-  headExtra,
-  main,
-  tail,
   bodyClass = 'oet-live-site',
   swiperCss = false,
   salCss = false,
@@ -30,6 +27,15 @@ const {
   showApps = false,
   lang = 'en',
 } = Astro.props;
+
+// Site-wide build markers, entity nodes, dates byline, author box, related articles and derived head tags
+// (src/lib/page.mjs). Runs after the page wrapper's own injections (pricing, bundles, promo, story counts).
+const { meta, headExtra, main, tail } = enrichPage({
+  meta: Astro.props.meta,
+  headExtra: Astro.props.headExtra,
+  main: Astro.props.main,
+  tail: Astro.props.tail,
+});
 ---
 <html lang={lang} class="oet-live-site">
 <head>

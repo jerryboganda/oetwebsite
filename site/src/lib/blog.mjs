@@ -120,3 +120,82 @@ export function applyLatestPosts(parts, posts) {
   const cards = latestPosts(posts).map((p) => renderCard(p)).join('\n');
   return Object.fromEntries(Object.entries(parts).map(([k, html]) => [k, html.replace(marker, cards)]));
 }
+
+// ---- Related articles (`<!--oet:related-guides-->`) -------------------------------------------------------------
+// Pages that are not posts but carry the marker: course pages match on profession, the tips hub shows the newest.
+export const RELATED_CONTEXT = {
+  'oet-course-for-doctors': { professions: ['medicine'] },
+  'oet-course-for-nurses': { professions: ['nursing'] },
+  'oet-course-for-pharmacists': { professions: ['pharmacy'] },
+  'oet-course-for-physiotherapists': { professions: ['physiotherapy'] },
+  'oet-for-allied-health': { professions: ['allied-health'] },
+  'oet-course-for-dentists': { professions: ['allied-health'] },
+  'oet-tips': {},
+};
+
+/**
+ * Score every other post against the page: same category +2, a shared profession +1 (a general post, with no
+ * profession, +0.5 when the page has one), newest first on ties. Posts the page already links are skipped.
+ */
+export function relatedPosts(context, posts, n = 4, exclude = new Set()) {
+  const profs = context.professions || [];
+  const score = (p) => {
+    let s = context.category && p.category === context.category ? 2 : 0;
+    if (profs.length) {
+      const pp = p.professions || [];
+      s += pp.length ? (pp.some((x) => profs.includes(x)) ? 1 : 0) : 0.5;
+    }
+    return s;
+  };
+  return posts
+    .filter((p) => p.slug !== context.slug && !exclude.has(p.url))
+    .map((p) => ({ p, s: score(p) }))
+    .sort((a, b) => b.s - a.s || b.p.datePublished.localeCompare(a.p.datePublished) || a.p.order - b.p.order)
+    .slice(0, n)
+    .map(({ p }) => p);
+}
+
+function shorten(s, max = 110) {
+  if (s.length <= max) return s;
+  const cut = s.slice(0, max);
+  return cut.slice(0, cut.lastIndexOf(' ')).replace(/[,;:]$/, '') + '…';
+}
+
+export function renderRelated(list) {
+  const cards = list.map((p) => `<a class="oet-related-card" href="${p.url}"><span class="oet-related-icon"><i class="fa-solid fa-${p.icon}" aria-hidden="true"></i></span><span class="oet-related-body"><strong>${escapeHtml(p.title)}</strong><span>${escapeHtml(shorten(p.summary))}</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a>`).join('');
+  return `<section class="oet-related oet-related--articles" aria-label="Related articles"><div class="container"><h2 class="oet-related-title">Related articles</h2><div class="oet-related-grid">${cards}</div></div></section>`;
+}
+
+/** Fill `<!--oet:related-guides-->` (0 or 1 per page) for the page `key` (its URL slug, e.g. "oet-writing-tips"). */
+export function applyRelatedGuides(parts, key, posts) {
+  const marker = '<!--oet:related-guides-->';
+  const hits = Object.values(parts).reduce((n, html) => n + html.split(marker).length - 1, 0);
+  if (!hits) return parts;
+  if (hits !== 1) throw new Error(`blog: ${marker} found ${hits} time(s) on ${key}, expected 1`);
+  const self = posts.find((p) => p.slug === key);
+  const context = self ? { slug: key, category: self.category, professions: self.professions || [] } : RELATED_CONTEXT[key];
+  if (!context) throw new Error(`blog: ${marker} on ${key}, which is neither a post in blog.json nor in RELATED_CONTEXT`);
+  const linked = new Set([...Object.values(parts).join('\n').matchAll(/href="(\/[^"#?]+\.html)/g)].map((m) => m[1]));
+  const list = relatedPosts({ ...context, slug: key }, posts, 4, linked);
+  if (list.length < 3) throw new Error(`blog: only ${list.length} related posts for ${key}`);
+  return Object.fromEntries(Object.entries(parts).map(([k, html]) => [k, html.replace(marker, renderRelated(list))]));
+}
+
+// ---- Visible "Published · Updated" byline (`<!--oet:dates-->`) ----------------------------------------------------
+/** The page's dates, read from its own JSON-LD: earliest datePublished, latest dateModified. */
+export function pageDates(html) {
+  const pick = (k) => [...html.matchAll(new RegExp(`"${k}"\\s*:\\s*"(\\d{4}-\\d{2}-\\d{2})`, 'g'))].map((m) => m[1]).sort();
+  const pub = pick('datePublished');
+  const mod = pick('dateModified');
+  return { published: pub[0] || null, modified: mod[mod.length - 1] || pub[pub.length - 1] || null };
+}
+
+export function renderDates({ published, modified }, byline, cls = 'oet-guide-meta') {
+  if (!modified) throw new Error('blog: <!--oet:dates--> on a page with no datePublished/dateModified in its JSON-LD');
+  if (published && modified < published) throw new Error(`blog: dateModified ${modified} is before datePublished ${published}`);
+  const t = (d) => `<time datetime="${d}">${formatDate(d)}</time>`;
+  const dates = published && published !== modified
+    ? `Published ${t(published)} &middot; Updated ${t(modified)}`
+    : published ? `Published ${t(published)}` : `Updated ${t(modified)}`;
+  return `<p class="${cls}">By <a href="/about.html">Dr Ahmed Hesham</a>, ${escapeHtml(byline)} &middot; ${dates}</p>`;
+}

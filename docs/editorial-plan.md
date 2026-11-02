@@ -56,10 +56,37 @@ Never: guaranteed scores, invented statistics, reviews or dates, visible
 4. `cd site && npm run thumbs && npm run build && node scripts/verify.mjs`.
 5. After deploy, request indexing for the new URL in Search Console.
 
+## Published 2 Nov 2026 (SEO + GEO plan, Track C)
+
+The five backlog topics plus two new articles. Facts were checked on oet.com and the
+regulators' own sites on 2 Nov 2026 (each article lists its sources). **Dr Hesham
+reviews each before it is deployed.**
+
+| Article | Cluster |
+|---|---|
+| `/oet-writing-nursing-discharge-letter.html` | Writing / Nursing |
+| `/oet-speaking-angry-anxious-patient.html` | Speaking |
+| `/oet-reading-part-b-workplace-texts.html` | Reading |
+| `/oet-listening-parts-b-c.html` | Listening |
+| `/oet-retake-after-near-miss.html` | Exam format |
+| `/oet-study-plan.html` | Exam format |
+| `/oet-vs-pte.html` | Exam format |
+
+Same release, not blog articles: `/oet-mock-test.html`, `/oet-speaking-practice-online.html`,
+`/oet-course-for-dentists.html`, and the Arabic `/ar/oet-course-for-pharmacists.html`,
+`/ar/oet-course-for-physiotherapists.html`, `/ar/gulf-pathway-guide.html`.
+
+New articles use the build markers `<!--oet:dates-->` (byline with Published / Updated),
+`<!--oet:author-box-->` and, after the hand-written "Keep exploring" block,
+`<!--oet:related-guides-->` (src/lib/page.mjs). Give each blog.json entry its
+`professions` (medicine, nursing, pharmacy, physiotherapy, allied-health; empty = all):
+it drives the "Related articles" cards.
+
 ## Topic backlog (not yet written)
 
-- OET Writing: discharge letters for nurses, the final request paragraph
-- OET Speaking: handling an angry or anxious patient
-- OET Reading Part B: workplace extracts and purpose questions
-- OET Listening Part B and Part C: following a presentation
-- Retaking OET: what to change after a near miss
+- `/oet-results-data.html`: "What 1,750 verified score cards show". Waits for the owner's
+  per-card grades and professions (the manifest has only file, year and platform). State
+  the method and date; no invented figures.
+- OET Writing: transfer letters for physiotherapists and occupational therapists
+- OET Reading Part A: dosage and table questions
+- OET Speaking: breaking bad news and explaining a procedure

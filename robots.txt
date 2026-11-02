@@ -1,3 +1,36 @@
+# robots.txt for oetwithdrhesham.co.uk
+# Every search and answer engine is welcome. AI assistants' crawlers are named explicitly and allowed on
+# purpose (search, browsing and model training alike): OET with Dr Hesham wants to be known and cited.
+# A curated index of the site for language models: https://oetwithdrhesham.co.uk/llms.txt
+# Full text of every guide and course page: https://oetwithdrhesham.co.uk/llms-full.txt
+
 User-agent: *
 Allow: /
+
+# OpenAI: ChatGPT search, ChatGPT browsing, model training
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+Allow: /
+
+# Anthropic: Claude search, Claude browsing, model training
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: ClaudeBot
+Allow: /
+
+# Perplexity: search index and user-requested fetches
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+Allow: /
+
+# Google (Gemini and AI Overviews grounding) and Bing (Copilot; Bing's index also feeds ChatGPT search)
+User-agent: Google-Extended
+User-agent: Bingbot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
 Sitemap: https://oetwithdrhesham.co.uk/sitemap.xml

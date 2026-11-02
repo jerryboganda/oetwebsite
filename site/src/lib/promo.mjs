@@ -35,14 +35,22 @@ export function loadPromo() {
   return data;
 }
 
-function picture(data, s, cls, eager) {
+// A 1x1 transparent GIF: the popup images carry their real URLs in data-src / data-srcset until the popup opens.
+const BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+// deferred (homepage popup only): the dialog sits in the DOM, invisible, from page load, so even loading="lazy" fetched
+// the first posters (up to 1.85 MB each) on every visit. openPopup() in partials/index/tail.html copies data-src /
+// data-srcset back before Swiper starts.
+function picture(data, s, cls, eager, deferred = false) {
   const url = (f) => data.base + f;
+  const set = deferred ? 'data-srcset' : 'srcset';
   const mobile = s.mobile
-    ? `<source media="(max-width: 639px)" srcset="${url(s.mobile.src)}" width="${s.mobile.width}" height="${s.mobile.height}">`
+    ? `<source media="(max-width: 639px)" ${set}="${url(s.mobile.src)}" width="${s.mobile.width}" height="${s.mobile.height}">`
     : '';
-  const srcset = s.srcset ? ` srcset="${s.srcset.map(([f, w]) => `${url(f)} ${w}w`).join(', ')}" sizes="${LEGACY_SIZES}"` : '';
+  const srcset = s.srcset ? ` ${set}="${s.srcset.map(([f, w]) => `${url(f)} ${w}w`).join(', ')}" sizes="${LEGACY_SIZES}"` : '';
   const loading = eager ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
-  return `<picture>${mobile}<img class="${cls}" src="${url(s.src)}"${srcset} alt="${esc(s.alt)}" width="${s.width}" height="${s.height}" ${loading} decoding="async"></picture>`;
+  const src = deferred ? `src="${BLANK}" data-src="${url(s.src)}"` : `src="${url(s.src)}"`;
+  return `<picture>${mobile}<img class="${cls}" ${src}${srcset} alt="${esc(s.alt)}" width="${s.width}" height="${s.height}" ${loading} decoding="async"></picture>`;
 }
 
 // data-oet-poster (a pricing-page element id) is what assets/js/oet-bundles.js uses to scroll to, focus and mark the
@@ -63,7 +71,7 @@ export function pricingSlides(data) {
 export function popupSlides(data) {
   return data.slides.map((s) =>
     `<div class="swiper-slide">\n                                <a class="oet-promo-popup__slide-link" ${linkAttrs(s)} aria-label="${esc(`${s.cta}: ${s.alt}`)}">\n` +
-    `                                    <span class="oet-promo-popup__image-wrap">${picture(data, s, 'oet-promo-popup__image', false)}</span>\n` +
+    `                                    <span class="oet-promo-popup__image-wrap">${picture(data, s, 'oet-promo-popup__image', false, true)}</span>\n` +
     `                                    <span class="oet-promo-popup__cta">${esc(s.cta)} ${ARROW}</span>\n` +
     `                                </a>\n                            </div>`,
   ).join('\n                            ');

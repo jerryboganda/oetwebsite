@@ -8,6 +8,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
+import { rewriteJsonLd, mapNodes } from './schema.mjs';
 
 const SITE = process.cwd();
 const ROOT = path.dirname(SITE);
@@ -174,6 +175,8 @@ const PAGE_PROFESSION = {
   'oet-course-for-pharmacists': 'pharmacy',
   'oet-course-for-physiotherapists': 'physiotherapy',
   'oet-for-allied-health': 'other-allied-health',
+  // Dentistry is one of the Modified Allied Health professions (oet-for-allied-health), so the dentists page sells those tiers
+  'oet-course-for-dentists': 'other-allied-health',
 };
 
 /**
@@ -200,4 +203,64 @@ export function applyChooseBlock(parts, page, bundles = loadBundles()) {
   const html = `<section class="oet-resource-section oet-choose" id="choose-your-course" data-oet-bundles-mini data-profession="${profId}" data-catalog="static"><div class="container"><div class="oet-resource-heading"><h2 id="sec-choose">Choose your course</h2><p>${lead}</p></div>${stale}<div class="oet-choose-grid${sold ? '' : ' oet-choose-grid--two'}" data-bundle-mini-grid>${cards}</div><div class="oet-resource-actions">${actions}</div></div></section>
         ${dataScript(data)}`;
   return { ...parts, main: replaceOnce(parts.main, '<!--oet:choose-course-->', html, `${page} main`) };
+}
+
+// ---- Course JSON-LD: offers, instructor and image (SEO + GEO plan, 2 Nov 2026) ------------------------------------
+// The Classic recorded course card(s) of each profession (prices from pricing.json) and, where the profession is sold
+// them, the three Full OET Course tiers (prices from bundles.json). No aggregateRating: there is no third-party rating.
+const CLASSIC_CARDS = {
+  medicine: [['Package 01', 'pkg-medicine-classic']],
+  nursing: [['Package 05', 'pkg-nursing-classic'], ['Package 07', 'pkg-nursing-premium']],
+  pharmacy: [['Package 08', 'pkg-pharmacy-classic']],
+  physiotherapy: [['Package 02', 'pkg-physiotherapy-classic']],
+  'other-allied-health': [['Package 03', 'pkg-allied-health-classic']],
+};
+
+/** The offers a profession's Course node carries: [{name, price, url}], prices from the two data files. */
+export function courseOffers(profId, bundles = loadBundles()) {
+  const { data, kit, defaults } = bundles;
+  const pricing = JSON.parse(fs.readFileSync(path.join(SITE, 'src', 'data', 'pricing.json'), 'utf8'));
+  const out = CLASSIC_CARDS[profId].map(([kicker, id]) => {
+    const row = pricing.find((c) => c.kicker === kicker);
+    if (!row) throw new Error(`bundles: ${kicker} is not in pricing.json`);
+    return { name: row.title, price: row.price, url: `${ORIGIN}/pricing.html#${id}` };
+  });
+  const prof = data.professions.find((p) => p.id === profId);
+  if (kit.isSold(prof, 'full')) {
+    for (const code of kit.slotCodes(data, 'full', profId)) {
+      out.push({ name: defaults[code].name, price: defaults[code].price, url: `${ORIGIN}/pricing.html#full-oet-courses` });
+    }
+  }
+  return out;
+}
+
+const COURSE_URL = Object.fromEntries(Object.entries(PAGE_PROFESSION).map(([page, prof]) => [`${ORIGIN}/${page}.html`, prof]));
+
+/**
+ * Give every Course node that describes a profession course page (matched by its url or @id) its offers, the
+ * instructor (#drhesham, expanded to the full Person by src/lib/schema.mjs) and an image (the page's og:image).
+ * Used by the five course pages, the dentists page and service.html (whose ItemList lists the course pages).
+ */
+export function applyCourseSchema(parts, bundles = loadBundles()) {
+  const image = (parts.meta.match(/<meta property="og:image" content="([^"]+)"/) || [])[1];
+  if (!image) throw new Error('bundles: applyCourseSchema needs the page og:image');
+  let hits = 0;
+  const out = rewriteJsonLd(parts, (ld) => mapNodes(ld, (node) => {
+    if (node['@type'] !== 'Course') return undefined;
+    const url = node.url || String(node['@id'] || '').replace(/#.*$/, '');
+    const prof = COURSE_URL[url];
+    if (!prof) return undefined;
+    hits += 1;
+    return {
+      ...node,
+      image,
+      instructor: { '@type': 'Person', '@id': `${ORIGIN}/#drhesham` },
+      offers: courseOffers(prof, bundles).map((o) => ({
+        '@type': 'Offer', category: 'Paid', name: o.name, price: String(o.price), priceCurrency: 'GBP',
+        url: o.url, availability: 'https://schema.org/InStock',
+      })),
+    };
+  }), (body) => body.includes('"Course"'));
+  if (!hits) throw new Error('bundles: applyCourseSchema found no profession Course node');
+  return out;
 }
