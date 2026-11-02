@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en" class="oet-live-site">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <script>
+      (function () {
+        try {
+          var m = window.matchMedia;
+          if (m && (
+            m('(max-width:1023.98px)').matches ||
+            m('(pointer:coarse)').matches ||
+            m('(hover:none)').matches ||
+            m('(prefers-reduced-motion:reduce)').matches
+          )) {
+            document.documentElement.classList.add('oet-lite-motion');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <script>
+      // Signed-in hint set by the learner app (shared-domain cookie oet_signed_in=1, no token or PII).
+      // Presentation only. The header and drawer CTA always READS "Login / Register" (owner brief
+      // 28 Oct 2026); the hint only decides where it points: the app dashboard when the cookie exists
+      // (so a signed-in visitor is not sent back through sign-in), the sign-in entry otherwise.
+      // sync() is idempotent and runs: now, on DOMContentLoaded (the nav anchors exist and the deferred
+      // main.js has already cloned the nav into the mobile drawer; a clone copies whatever href it
+      // finds, and this pass fixes it), and on a bfcache restore (pageshow persisted) so Back after
+      // sign-in or sign-out never leaves a stale target. The guest href is remembered in
+      // data-login-href the first time an anchor is seen.
+      (function () {
+        var d = document;
+        function sync() {
+          try {
+            var on = /(?:^|;\s*)oet_signed_in=1(?:;|$)/.test(d.cookie);
+            d.querySelectorAll('a[data-dashboard-href]').forEach(function (a) {
+              if (!a.hasAttribute('data-login-href')) a.setAttribute('data-login-href', a.getAttribute('href'));
+              a.setAttribute('href', a.getAttribute(on ? 'data-dashboard-href' : 'data-login-href'));
+            });
+          } catch (e) {}
+        }
+        sync();
+        d.addEventListener('DOMContentLoaded', sync);
+        window.addEventListener('pageshow', function (e) { if (e.persisted) sync(); });
+      })();
+    </script>
+    <title>OET Course for Dentists | OET Dentistry, Dr Hesham</title>
+    <meta name="description" content="OET course for dentists: OET Dentistry Writing and Speaking, English rules for Australia, Ireland, New Zealand and the UK GDC, and a dental study plan.">
+    <link rel="canonical" href="https://oetwithdrhesham.co.uk/oet-course-for-dentists.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="OET with Dr Hesham">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:url" content="https://oetwithdrhesham.co.uk/oet-course-for-dentists.html">
+    <meta property="og:title" content="OET Course for Dentists | OET with Dr Hesham">
+    <meta property="og:description" content="OET course for dentists: OET Dentistry Writing and Speaking, English rules for Australia, Ireland, New Zealand and the UK GDC, and a dental study plan.">
+    <meta property="og:image" content="https://oetwithdrhesham.co.uk/assets/img/og/og-services.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="OET Course for Dentists by Dr Hesham">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OET Course for Dentists | OET with Dr Hesham">
+    <meta name="twitter:description" content="OET course for dentists: OET Dentistry Writing and Speaking, English rules for Australia, Ireland, New Zealand and the UK GDC, and a dental study plan.">
+    <meta name="twitter:image" content="https://oetwithdrhesham.co.uk/assets/img/og/og-services.png">
+
+    <meta name="author" content="Dr Ahmed Hesham">
+    <link rel="alternate" type="application/atom+xml" title="OET Blog by Dr Hesham" href="/feed.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="/assets/img/logo/fav-icon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/img/logo/fav-icon.png" type="image/png" sizes="256x256">
+    <link rel="shortcut icon" href="/assets/img/logo/fav-icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/img/logo/fav-icon.png" sizes="180x180">
+    <link rel="preload" href="/assets/fonts/mulish-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/cal-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+        
+        <link rel="stylesheet" href="/assets/css/plugins/sal.css?v=52a59aec6a">
+                        <link rel="stylesheet" href="/assets/css/oet-core.css?v=20b685e957">
+    
+    <link rel="stylesheet" href="/assets/css/oet-pathway.css?v=ff5d90a514">
+<style>
+@media (max-width: 767px) {
+  .oet-resource-hero .oet-tips-hero-copy[data-sal], .oet-resource-hero .oet-tips-hero-copy [data-sal], .oet-resource-hero .oet-tips-hero-panel[data-sal] { opacity: 1 !important;
+                transform: none !important; }
+}
+</style>
+    <style>
+.oet-final-cta-icon { display: grid !important;
+            place-items: center !important;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px !important;
+            font-weight: 900;
+            line-height: 1 !important;
+            color: #ffffff !important; }
+</style>
+    <link rel="stylesheet" href="/assets/css/oet-resource.css?v=d24f259e0a">
+    <style>
+@media (min-width: 1200px) {
+  .oet-skill-hero { padding-top: 240px !important; }
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://oetwithdrhesham.co.uk/oet-course-for-dentists.html#webpage",
+      "url": "https://oetwithdrhesham.co.uk/oet-course-for-dentists.html",
+      "name": "OET Course for Dentists | OET Dentistry, Dr Hesham",
+      "description": "OET course for dentists: OET Dentistry Writing and Speaking, English rules for Australia, Ireland, New Zealand and the UK GDC, and a dental study plan.",
+      "inLanguage": "en-GB",
+      "isPartOf": {
+        "@id": "https://oetwithdrhesham.co.uk/#website"
+      },
+      "about": {
+        "@id": "https://oetwithdrhesham.co.uk/oet-course-for-dentists.html#course"
+      },
+      "author": {
+        "@id": "https://oetwithdrhesham.co.uk/#drhesham"
+      },
+      "datePublished": "2026-11-02",
+      "dateModified": "2026-11-02",
+      "breadcrumb": {
+        "@id": "https://oetwithdrhesham.co.uk/oet-course-for-dentists.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://oetwithdrhesham.co.uk/oet-course-for-dentists.html#course",
+      "name": "OET Course for Dentists",
+      "description": "Recorded OET preparation for dentists through the Modified Allied Health course, covering Listening, Reading, Writing and Speaking, with personal Writing letter assessments and a private Speaking session.",
+      "url": "https://oetwithdrhesham.co.uk/oet-course-for-dentists.html",
+      "inLanguage": "en-GB",
+      "educationalLevel": "Intermediate to advanced English for healthcare professionals",
+      "provider": {
+        "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "courseWorkload": "PT40H"
+      },
+      "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-services.png",
+      "instructor": {
+        "@type": "Person",
+        "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+        "name": "Dr Ahmed Hesham",
+        "honorificPrefix": "Dr",
+        "jobTitle": "Medical Doctor & OET Educator",
+        "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+        "url": "https://oetwithdrhesham.co.uk/about.html",
+        "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+        "worksFor": {
+          "@id": "https://oetwithdrhesham.co.uk/#organization"
+        },
+        "knowsAbout": [
+          "OET preparation",
+          "Medical English",
+          "OET Writing",
+          "OET Speaking",
+          "Healthcare professional registration"
+        ],
+        "knowsLanguage": [
+          "en",
+          "ar"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+          "https://www.youtube.com/@drhesham222"
+        ]
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "category": "Paid",
+          "name": "Classic Full Course + SAMI - Modified Allied Health",
+          "price": "105",
+          "priceCurrency": "GBP",
+          "url": "https://oetwithdrhesham.co.uk/pricing.html#pkg-allied-health-classic",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "category": "Paid",
+          "name": "Full OET Course + Website Practice",
+          "price": "140",
+          "priceCurrency": "GBP",
+          "url": "https://oetwithdrhesham.co.uk/pricing.html#full-oet-courses",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "category": "Paid",
+          "name": "Complete OET Bundle + TutorBook",
+          "price": "165",
+          "priceCurrency": "GBP",
+          "url": "https://oetwithdrhesham.co.uk/pricing.html#full-oet-courses",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "category": "Paid",
+          "name": "Ultimate OET Course",
+          "price": "220",
+          "priceCurrency": "GBP",
+          "url": "https://oetwithdrhesham.co.uk/pricing.html#full-oet-courses",
+          "availability": "https://schema.org/InStock"
+        }
+      ]
+    },
+    {
+      "@type": "EducationalOrganization",
+      "@id": "https://oetwithdrhesham.co.uk/#organization",
+      "name": "OET with Dr Hesham",
+      "url": "https://oetwithdrhesham.co.uk/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://oetwithdrhesham.co.uk/assets/img/logo/platform-logo.png",
+        "width": 320,
+        "height": 90
+      },
+      "email": "support@oetwithdrhesham.co.uk",
+      "telephone": "+447961725989",
+      "founder": {
+        "@id": "https://oetwithdrhesham.co.uk/#drhesham"
+      },
+      "knowsLanguage": [
+        "en",
+        "ar"
+      ],
+      "sameAs": [
+        "https://www.youtube.com/@drhesham222",
+        "https://t.me/Oet_with_Hesham",
+        "https://t.me/OET_Nursing_DrHesham",
+        "https://www.facebook.com/groups/649430742699879",
+        "https://www.instagram.com/oetwith.drhesham"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "telephone": "+447961725989",
+        "email": "support@oetwithdrhesham.co.uk",
+        "availableLanguage": [
+          "English",
+          "Arabic"
+        ]
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+      "name": "Dr Ahmed Hesham",
+      "honorificPrefix": "Dr",
+      "jobTitle": "Medical Doctor & OET Educator",
+      "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+      "url": "https://oetwithdrhesham.co.uk/about.html",
+      "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+      "worksFor": {
+        "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "knowsAbout": [
+        "OET preparation",
+        "Medical English",
+        "OET Writing",
+        "OET Speaking",
+        "Healthcare professional registration"
+      ],
+      "knowsLanguage": [
+        "en",
+        "ar"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+        "https://www.youtube.com/@drhesham222"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://oetwithdrhesham.co.uk/oet-course-for-dentists.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://oetwithdrhesham.co.uk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "OET Courses",
+          "item": "https://oetwithdrhesham.co.uk/service.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "OET for Dentists",
+          "item": "https://oetwithdrhesham.co.uk/oet-course-for-dentists.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://oetwithdrhesham.co.uk/oet-course-for-dentists.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can dentists use OET for UK registration?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The GDC's English language page does not name OET. It names IELTS, including IELTS One Skill Retake and IELTS Online, and its guidance asks for Academic IELTS with 7 overall and at least 6.5 in each area. Check the GDC page before you book any test for UK registration."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What OET score do dentists need for Australia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Dental Board of Australia uses Ahpra's accepted test rules. For tests taken on or after 23 April 2026 the OET minimums are Listening 350, Reading 360, Writing 350 and Speaking 360, on paper or computer at a test centre. OET@Home is not accepted."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What OET grade does the Dental Council of Ireland require?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "At least grade B in each of Listening, Reading, Writing and Speaking in OET Dentistry, with a certificate no more than 2 years old when you apply. The Council accepts paper-based and computer-based OET but not OET@Home."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the Dental Council of New Zealand accept OET?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The Dental Council of New Zealand has approved OET and IELTS Academic. Dentists need A or B grades in each of the four OET sub-tests, passed in one sitting, and a pass is valid for two years."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which OET course should a dentist choose?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dentistry is covered by the Modified Allied Health course family, which includes every profession outside Medicine, Nursing, Pharmacy and Physiotherapy. Book OET Dentistry for the exam itself, and practise dental letters and role-plays alongside the course."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do dentists write in OET Writing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One letter from dental case notes in 40 minutes, after 5 minutes of reading time, with a body of about 180 to 200 words. It may be a referral to a specialist, a letter to a doctor or advice to carers. OET's own Dentistry sample letter is written to a retirement village about a resident's oral hygiene."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+    <link rel="stylesheet" href="/assets/css/oet-bundles.css?v=0629c28aac">
+
+</head>
+<body class="oet-live-site oet-resource-page">
+    <a class="oet-skip-link" data-lenis-ignore-anchor href="#main-content">Skip to main content</a>
+<!--================= Header section start =================-->
+    <header>
+        <div id="vl-header-sticky" class="vl-header-area vl-transparent-header">
+            <!-- header top ribbon -->
+            <div class="vl-header-top-area d-none d-xl-block">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="vl-header-top-text">
+                                <span class="vl-header-top-badge"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Free OET Prep for Doctors &amp; Nurses</span>
+                                <a class="oet-community-cta" href="#oet-community-popup" aria-label="Join Free Community!" aria-haspopup="dialog" aria-controls="oet-community-popup">
+                                    <span class="oet-community-cta__sizer" aria-hidden="true"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Join Free Community!</span>
+                                    <span class="oet-community-cta__content" aria-hidden="true">
+                                        <span class="oet-community-cta__text"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Join Free Community!</span>
+                                        <span class="oet-community-cta__cursor">|</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- header top icon list -->
+                            <div class="header-top">
+                                <ul>
+                                    <li><a href="mailto:support@oetwithdrhesham.co.uk"><span class="header-top-icon"><i class="fa-regular fa-envelope" aria-hidden="true"></i></span><span>support@oetwithdrhesham.co.uk</span></a></li>
+                                    <li><a href="tel:+447961725989"><span class="header-top-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span><span>+44 7961 725989</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vl-header-main-area">
+                <div class="container">
+                    <div class="header-border-bottom">
+                        <div class="row align-items-center">
+                            <div class="col-xl-2 col-md-6 col-6">
+                                <div class="vl-logo">
+                                    <a href="/" title="OET with Dr Hesham | The Pathway to UK" aria-label="OET with Dr Hesham Homepage"><img width="320" height="90" decoding="async" src="/assets/img/logo/platform-logo.webp" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-7 d-none d-xl-block">
+                                <div class="vl-main-menu text-center">
+                                    <nav class="vl-mobile-menu-active" aria-label="Main navigation">
+                                        <ul>
+                                            <li class="has-dropdown"><a href="/about.html">About <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="/about.html"><span class="submenu-icon"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></span><span class="submenu-text">About Dr. Hesham</span></a></li>
+                                                    <li><a href="https://www.youtube.com/watch?v=kL91eG32Uok" data-youtube-url="https://www.youtube.com/watch?v=kL91eG32Uok" data-oet-inline-video="true" class="popup-video" aria-label="Play Why OET video" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span><span class="submenu-text">Why OET</span></a></li>
+                                                    <li><a href="/teaching-approach.html"><span class="submenu-icon"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i></span><span class="submenu-text">Teaching Approach</span></a></li>
+                                                    <li><a href="/oet-writing-correction.html"><span class="submenu-icon"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i></span><span class="submenu-text">Writing Corrections</span></a></li>
+                                                    <li><a href="/pricing.html"><span class="submenu-icon"><i class="fa-solid fa-tags" aria-hidden="true"></i></span><span class="submenu-text">Packages &amp; Offers</span></a></li>
+                                                    <li><a href="/success-stories.html"><span class="submenu-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span><span class="submenu-text">Success Stories</span></a></li>
+                                                    <li><a href="/faq.html"><span class="submenu-icon"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span><span class="submenu-text">FAQ</span></a></li>
+                                                    <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span><span class="submenu-text">Telegram Materials</span></a></li>
+                                                    <li class="has-dropdown"><a href="/blog/#pathways"><span class="submenu-icon"><i class="fa-solid fa-route" aria-hidden="true"></i></span><span class="submenu-text">Pathway Guidelines</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                        <ul class="sub-menu">
+                                                            <li><a href="/uk-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-flag" aria-hidden="true"></i></span><span class="submenu-text">UK Pathway Guide</span></a></li>
+                                                            <li><a href="/usa-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span><span class="submenu-text">USA Pathway Guide</span></a></li>
+                                                            <li><a href="/australia-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-earth-oceania" aria-hidden="true"></i></span><span class="submenu-text">Australia Pathway Guide</span></a></li>
+                                                            <li><a href="/gulf-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-compass" aria-hidden="true"></i></span><span class="submenu-text">Gulf Pathway Guide</span></a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><a class="oet-pricing-nav-link" href="/pricing.html">Pricing</a></li><li><a class="oet-pricing-nav-link" href="/pricing.html#download-app">Download App</a></li>
+                                        <li class="has-dropdown"><a href="/service.html">OET Courses <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                            <ul class="sub-menu">
+                                               <li><a href="/oet-course-for-nurses.html"><span class="submenu-icon"><i class="fa-solid fa-notes-medical" aria-hidden="true"></i></span><span class="submenu-text">OET for Nurses</span></a></li>
+                                               <li><a href="/oet-course-for-doctors.html"><span class="submenu-icon"><i class="fa-solid fa-stethoscope" aria-hidden="true"></i></span><span class="submenu-text">OET for Doctors</span></a></li>
+                                               <li><a href="/oet-writing-correction.html"><span class="submenu-icon"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i></span><span class="submenu-text">Writing Correction</span></a></li>
+                                               <li><a href="/ar/" lang="ar"><span class="submenu-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span><span class="submenu-text">OET بالعربية</span></a></li>
+                                               <li><a href="/oet-course-for-pharmacists.html"><span class="submenu-icon"><i class="fa-solid fa-pills" aria-hidden="true"></i></span><span class="submenu-text">OET for Pharmacists</span></a></li>
+                                               <li><a href="/oet-course-for-physiotherapists.html"><span class="submenu-icon"><i class="fa-solid fa-person-walking" aria-hidden="true"></i></span><span class="submenu-text">OET for Physiotherapists</span></a></li>
+                                               <li><a href="/oet-for-allied-health.html"><span class="submenu-icon"><i class="fa-solid fa-briefcase-medical" aria-hidden="true"></i></span><span class="submenu-text">OET for Allied Health</span></a></li>
+                                               <li><a href="/pricing.html"><span class="submenu-icon"><i class="fa-solid fa-box-open" aria-hidden="true"></i></span><span class="submenu-text">OET Packages</span></a></li>
+                                            </ul>
+                                        </li>
+                                        
+                                        <li class="has-dropdown"><a href="/oet-tips.html">Free Resources <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                            <ul class="sub-menu">
+                                               <li class="has-dropdown"><a href="/oet-tips.html"><span class="submenu-icon"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></span><span class="submenu-text">OET Tips</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                   <ul class="sub-menu">
+                                                       <li><a href="/oet-writing-tips.html"><span class="submenu-icon"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></span><span class="submenu-text">Writing Tips</span></a></li>
+                                                       <li><a href="/oet-reading-tips.html"><span class="submenu-icon"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i></span><span class="submenu-text">Reading Tips</span></a></li>
+                                                       <li><a href="/oet-listening-tips.html"><span class="submenu-icon"><i class="fa-solid fa-headphones" aria-hidden="true"></i></span><span class="submenu-text">Listening Tips</span></a></li>
+                                                       <li><a href="/oet-speaking-tips.html"><span class="submenu-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span><span class="submenu-text">Speaking Tips</span></a></li>
+                                                   </ul>
+                                               </li>
+                                               <li class="has-dropdown"><a href="/oet-score-requirements.html"><span class="submenu-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><span class="submenu-text">OET Exam Guide</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                   <ul class="sub-menu">
+                                                       <li><a href="/oet-sample-tests.html"><span class="submenu-icon"><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i></span><span class="submenu-text">Free Sample Tests</span></a></li>
+                                                       <li><a href="/oet-score-calculator.html"><span class="submenu-icon"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></span><span class="submenu-text">OET Score Calculator</span></a></li>
+                                                       <li><a href="/oet-score-requirements.html"><span class="submenu-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><span class="submenu-text">Score Requirements</span></a></li>
+                                                       <li><a href="/oet-test-dates-and-fees.html"><span class="submenu-icon"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></span><span class="submenu-text">Test Dates &amp; Fees</span></a></li>
+                                                       <li><a href="/oet-vs-ielts.html"><span class="submenu-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span><span class="submenu-text">OET vs IELTS</span></a></li>
+                                                       <li><a href="/oet-for-ecfmg.html"><span class="submenu-icon"><i class="fa-solid fa-flag" aria-hidden="true"></i></span><span class="submenu-text">OET for ECFMG</span></a></li>
+                                                       <li><a href="/oet-writing-sample-nursing.html"><span class="submenu-icon"><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i></span><span class="submenu-text">Writing Sample: Nursing</span></a></li>
+                                                       <li><a href="/oet-writing-sample-medicine.html"><span class="submenu-icon"><i class="fa-solid fa-file-waveform" aria-hidden="true"></i></span><span class="submenu-text">Writing Sample: Medicine</span></a></li>
+                                                       <li><a href="/oet-speaking-role-play-nursing.html"><span class="submenu-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span><span class="submenu-text">Speaking Role-Plays: Nursing</span></a></li>
+                                                       <li><a href="/oet-speaking-role-play-medicine.html"><span class="submenu-icon"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i></span><span class="submenu-text">Speaking Role-Plays: Medicine</span></a></li>
+                                                   </ul>
+                                               </li>
+                                               <li class="has-dropdown"><a href="/oet-materials-support.html"><span class="submenu-icon"><i class="fa-solid fa-folder-open" aria-hidden="true"></i></span><span class="submenu-text">Materials &amp; Support</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                   <ul class="sub-menu">
+                                                       <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span><span class="submenu-text">Telegram Materials</span></a></li>
+                                                       <li><a href="#oet-community-popup" class="oet-community-cta"><span class="submenu-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span><span class="submenu-text">Join Free Community</span></a></li>
+                                                       <li><a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><span class="submenu-text">WhatsApp Support</span></a></li>
+                                                   </ul>
+                                               </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="/blog/">OET Blog</a></li>
+                                        <li><a href="/english-placement-test">Free Placement Test</a></li>
+                                        <li class="oet-nav-desktop-only"><a href="/contact.html">Contact</a></li>
+                                        <li class="oet-nav-cta-item"><a class="oet-header-cta-btn" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F" data-dashboard-href="https://app.oetwithdrhesham.co.uk/"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>Login / Register</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-6">
+                            <div class="vl-header-right">
+                                <!-- header btn -->
+                                <div class="vl-header-search d-none d-xl-block">
+                                    <button type="button" class="oet-search-btn" aria-label="Search this site" aria-controls="vl-header-search" aria-expanded="false"><img aria-hidden="true" loading="lazy" decoding="async" class="vl-search-toggle" src="/assets/img/icon/vl-search-1.1.svg" alt=""></button>
+                                </div>
+                                <!-- header social area -->
+                                <div class="social-area social-area-headerTop d-none d-xl-block">
+                                    <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                                    <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                                    <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
+                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+                                    <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                                    <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+                                </div>
+                            </div>
+
+                            <!-- action btn -->
+                            <div class="vl-header-action-item d-block d-xl-none">
+                                <a class="oet-header-login" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F" data-dashboard-href="https://app.oetwithdrhesham.co.uk/">Login / Register</a>
+                                <button type="button" class="vl-offcanvas-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="vl-offcanvas-menu">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" aria-hidden="true" focusable="false">
+                                        <path d="M1.5 2.5h21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M1.5 9h21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M1.5 15.5h21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>    <!-- vl header search  -->
+    <div id="vl-header-search" class="vl-header-search-bar d-flex align-items-center">
+        <button class="vl-search-close" aria-label="Close search">&times;</button>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="vl-search-bar text-center">
+                        <h2 class="vl-search-bar-title mb-30">Search OET tips, writing, speaking, UK pathway</h2>
+                        <div class="contact-form-box contact-search-form-box">
+                            <form action="#">
+                                <input type="search" aria-label="Search this site" placeholder="Search OET preparation, writing, speaking...">
+                                <button type="submit"><i class="far fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- vl header search end -->
+
+    <!-- offcanvas menu start -->
+    <div id="vl-offcanvas-menu" class="vl-offcanvas">
+        <div class="vl-offcanvas-wrapper">
+            <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-50">
+                <div class="vl-offcanvas-logo">
+                    <a href="/" title="OET with Dr Hesham | The Pathway to UK"><img width="320" height="90" decoding="async" src="/assets/img/logo/platform-logo.webp" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                </div>
+                <div class="vl-offcanvas-close">
+                    <button class="vl-offcanvas-toggle" type="button" aria-label="Close menu"><span aria-hidden="true">&times;</span></button>
+                </div>
+            </div>
+
+            <div class="vl-offcanvas-menu d-lg-block mb-40">
+                <nav aria-label="Mobile navigation"></nav>
+            </div>
+            <div class="vl-offcanvas-info mb-40">
+                <h3 class="vl-offcanvas-sm-title mb-20">Support &amp; Community</h3>
+                <a href="#oet-community-popup" class="oet-community-cta"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.1.svg" width="24" height="24" alt=""></span> Join Free Community</a>
+                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.3.svg" width="24" height="24" alt=""></span> WhatsApp Support</a>
+                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.2.svg" width="24" height="24" alt=""></span> Telegram Channel</a>
+            </div>
+
+            <div class="vl-offcanvas-social mb-40">
+                <h3 class="vl-offcanvas-sm-title mb-20">Follow the Journey</h3>
+                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fab fa-youtube"></i></a>
+                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fab fa-telegram"></i></a>
+                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+            </div>
+        </div>
+    </div>
+    <div class="vl-offcanvas-overlay"></div>
+
+    <!-- offcanvas menu end -->
+
+<!--================= Header section End =================-->
+
+    <!--================= Header section End =================-->
+
+
+    <main id="main-content" tabindex="-1">
+
+        <section class="oet-resource-hero oet-skill-hero">
+            <div class="container">
+                <nav class="oet-breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/service.html">OET Courses</a></li><li aria-current="page">OET for Dentists</li></ol></nav>
+                <div class="oet-tips-hero-grid">
+                    <div class="oet-tips-hero-copy" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out">
+                        <span class="oet-resource-eyebrow"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i> OET Dentistry</span>
+                        <h1 class="oet-resource-title text-effect">OET Course for Dentists</h1>
+                        <p class="oet-resource-lead">Dentists sit OET Dentistry. Listening and Reading are the same for every profession, while the Writing letter and the two Speaking role-plays use dental scenarios. This page sets out the English rules of the dental regulators in Australia, Ireland, New Zealand and the UK, and how to prepare with the Modified Allied Health course from Dr Hesham, which covers Dentistry.</p>
+                        <p class="oet-guide-meta">By <a href="/about.html">Dr Ahmed Hesham</a>, medical doctor and founder of OET with Dr Hesham &middot; Published <time datetime="2026-11-02">2 Nov 2026</time></p>
+                        <div class="oet-resource-actions">
+                            <a class="oet-resource-btn" href="/english-placement-test">Start the free placement test <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                            <a class="oet-resource-btn oet-resource-btn--light" href="/pricing.html?profession=other-allied-health#full-oet-courses">Compare the courses <i class="fa-solid fa-tags" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="oet-resource-stats"><div class="oet-resource-stat"><strong>45</strong><span>Minutes for the dental Writing task</span></div><div class="oet-resource-stat"><strong>2</strong><span>Dental role-plays in Speaking</span></div><div class="oet-resource-stat"><strong>40+</strong><span>Hours in the Classic Modified Allied Health course</span></div></div>
+                    </div>
+                    <aside class="oet-tips-hero-panel" aria-label="OET Dentistry preparation route" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="140" data-sal-easing="ease-in-out">
+                        <span class="oet-tips-panel-kicker"><i class="fa-solid fa-route" aria-hidden="true"></i> Dental route</span>
+                        <h2>Check the regulator, then train the dental tasks.</h2>
+                        <p>Dentists usually know the clinical content. Marks are lost on choosing the right case notes for the reader and on structuring a patient conversation in plain English.</p>
+                        <div class="oet-tips-roadmap"><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">01</span><div><strong>Check your regulator</strong><span>Accepted tests, grades and test modes.</span></div></div><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">02</span><div><strong>Learn the method</strong><span>Recorded lessons for all four sub-tests.</span></div></div><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">03</span><div><strong>Get corrected</strong><span>Personal letter assessments and a private Speaking session.</span></div></div></div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+        <nav class="oet-toc" aria-label="On this page"><div class="container"><span class="oet-toc-label">On this page</span><div class="oet-toc-links"><a href="#sec-who">Who it is for</a><a href="#sec-format">OET Dentistry format</a><a href="#sec-scores">Registration rules</a><a href="#sec-choose">Choose your course</a><a href="#sec-included">What is included</a><a href="#sec-writing">Dental Writing</a><a href="#sec-speaking">Dental Speaking</a><a href="#sec-study">Study approach</a><a href="#sec-faq">FAQ</a></div></div></nav>
+
+        <section class="oet-resource-section" id="who"><div class="container"><div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h2 id="sec-who">Who is this OET course for dentists for?</h2><p>It is for dentists who need OET for registration abroad and want one structured route through all four sub-tests, with personal feedback on the two that are written for dentists.</p></div><div class="oet-resource-grid"><article class="oet-resource-card" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><span class="oet-resource-icon"><i class="fa-solid fa-earth-oceania" aria-hidden="true"></i></span><h3>Dentists registering in Australia</h3><p>The Dental Board of Australia applies the same accepted English tests and minimum scores as the other National Boards, and OET is one of them. The <a href="/australia-pathway-guide.html">Australia pathway guide</a> explains where the English test fits in the registration steps.</p></article><article class="oet-resource-card" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="170" data-sal-easing="ease-in-out"><span class="oet-resource-icon"><i class="fa-solid fa-passport" aria-hidden="true"></i></span><h3>Dentists heading to Ireland or New Zealand</h3><p>The Dental Council of Ireland asks for at least B in each OET Dentistry sub-test, and the Dental Council of New Zealand asks for A or B in each, in one sitting. One weak sub-test means another full test, so targeted feedback matters.</p></article><article class="oet-resource-card" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="240" data-sal-easing="ease-in-out"><span class="oet-resource-icon"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></span><h3>Dentists planning the UK</h3><p>Read the GDC's English language page before you book anything: it names IELTS, not OET. Our <a href="/oet-vs-ielts.html">OET vs IELTS</a> and <a href="/oet-vs-pte.html">OET vs PTE</a> guides compare the tests if you are still deciding.</p></article></div></div></section>
+
+        <section class="oet-resource-section oet-resource-section--soft" id="format"><div class="container"><div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h2 id="sec-format">What is in OET Dentistry?</h2><p>OET has four sub-tests. OET says Listening and Reading are common to all candidates, while Writing and Speaking are profession specific and reflect workplace scenarios from your own profession.</p></div><div data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><div class="pathway-table-wrap"><table class="pathway-table"><thead><tr><th>Sub-test</th><th>Time</th><th>What dentists do</th><th>Dental content?</th></tr></thead><tbody>
+            <tr><td>Listening</td><td>About 40 minutes, 42 questions</td><td>Three parts on topics of general healthcare interest; Part A is note completion from consultations, using the words you hear</td><td>No, the same for every profession</td></tr>
+            <tr><td>Reading</td><td>60 minutes, 42 questions</td><td>Three parts; Part A is a 15-minute task across four short texts, collected before you start Parts B and C</td><td>No, the same for every profession</td></tr>
+            <tr><td>Writing</td><td>45 minutes: 5 minutes reading time, then 40 minutes writing</td><td>One letter from dental case notes, such as a referral, advice, transfer or discharge letter, with a guide of 180&ndash;200 words</td><td>Yes</td></tr>
+            <tr><td>Speaking</td><td>About 20 minutes</td><td>Two role-plays with an interlocutor playing a patient or a patient's relative or carer; three minutes to prepare each card</td><td>Yes</td></tr>
+            </tbody></table></div><p>OET Dentistry can be taken on paper or on computer at a venue. OET@Home also exists, but Ahpra and the Dental Council of Ireland do not accept it, so check your regulator before you book. OET publishes a free Dentistry sample pack, including a Speaking role card; find it through our <a href="/oet-sample-tests.html">guide to official OET sample tests</a>.</p></div></div></section>
+
+        <section class="oet-resource-section" id="scores"><div class="container"><div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h2 id="sec-scores">What OET score do dentists need?</h2><p>There is no single OET pass mark. Each dental regulator sets its own English rule, and they differ more than most candidates expect.</p></div><div data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><div class="pathway-table-wrap"><table class="pathway-table"><thead><tr><th>Destination</th><th>Regulator</th><th>English rule for dentists</th><th>Official source</th></tr></thead><tbody>
+            <tr><td>Australia</td><td>Dental Board of Australia (Ahpra)</td><td>Any profession-specific OET, on paper or computer at a test centre. For tests taken on or after 23 April 2026: Listening 350, Reading 360, Writing 350, Speaking 360. Two sittings within 12 months are allowed if no score in either falls below 320, 340, 350 and 350. OET@Home is not accepted. IELTS Academic, PTE Academic, TOEFL iBT and Cambridge English tests are also accepted.</td><td><a href="https://www.ahpra.gov.au/Registration/Registration-Standards/English-language-skills/Accepted-English-language-tests" target="_blank" rel="noopener noreferrer">Ahpra: accepted English tests</a></td></tr>
+            <tr><td>Ireland</td><td>Dental Council of Ireland</td><td>OET Dentistry with at least B in each of the four sub-tests, from a certificate no more than 2 years old when you apply. Paper-based and computer-based tests are accepted; OET@Home is not. The alternative test is Academic IELTS with 7.0 in each module.</td><td><a href="https://www.dentalcouncil.ie/registration/language-proficiency" target="_blank" rel="noopener noreferrer">Dental Council: language proficiency</a></td></tr>
+            <tr><td>New Zealand</td><td>Dental Council of New Zealand</td><td>OET with A or B grades in each of the four sub-tests, passed in one sitting. A pass is valid for two years, and one-skill retakes are not accepted. IELTS Academic, with at least 7 in each band, is the other approved test.</td><td><a href="https://dcnz.org.nz/i-want-to-practise-in-new-zealand/registration-what-you-need-to-know" target="_blank" rel="noopener noreferrer">Dental Council (NZ): registration</a></td></tr>
+            <tr><td>United Kingdom</td><td>General Dental Council (GDC)</td><td>The GDC's English language page does not name OET. It names IELTS, including IELTS One Skill Retake and IELTS Online, and its guidance asks for Academic IELTS with 7 overall and at least 6.5 in each area. The guidance also accepts a recent pass in another English-speaking regulator's language test, backed by evidence from that regulator, but it does not name OET, and the GDC says it is reviewing this guidance. Ask the GDC before relying on OET.</td><td><a href="https://www.gdc-uk.org/registration/route-to-registration/english-language-controls" target="_blank" rel="noopener noreferrer">GDC: English language controls</a></td></tr>
+            <tr><td>United States</td><td>State dental boards</td><td>We found no US dental licensing route that names OET. Check the requirements of your state dental board and of any programme you apply to.</td><td>No OET route found</td></tr>
+            </tbody></table></div><p class="oet-guide-meta">Checked against the official regulator pages on 2 November 2026. Rules change, so confirm before you book.</p><div class="pathway-disclaimer"><strong>Verify with your regulator before booking.</strong> Requirements, validity rules and accepted test formats can change. Always confirm on the official regulator page before you book OET or pay any fee.</div><p>Other allied health regulators, including the HCPC, are covered on the <a href="/oet-for-allied-health.html">OET for allied health</a> page, and every regulator is compared in the <a href="/oet-score-requirements.html">OET score requirements</a> guide.</p></div></div></section>
+        <section class="oet-resource-section oet-choose" id="choose-your-course" data-oet-bundles-mini data-profession="other-allied-health" data-catalog="static"><div class="container"><div class="oet-resource-heading"><h2 id="sec-choose">Choose your course</h2><p>Three Full OET Courses for Modified Allied Health. The price is the same for Paper-Based and Computer-Based candidates. Modified Allied Health covers Radiography, Optometry, Veterinary Science and every other profession outside Medicine, Nursing, Pharmacy and Physiotherapy.</p></div><p class="oet-bundle-stale" data-bundle-stale hidden>Live prices could not be loaded, so these are the last published prices. The price is confirmed again at checkout in the Candidates App.</p><div class="oet-choose-grid" data-bundle-mini-grid><article class="oet-choose-card" data-code="full-practice-allied-health" data-tier="1"><h3>Full OET Course + Website Practice</h3><div class="oet-choose-price"><strong data-field="price">&pound;140</strong><span>6 months access &middot; Website Practice Included</span></div><p>A complete recorded OET course with <strong>5 personal Writing letters by Dr Ahmed Hesham</strong>, <strong>1 private Speaking session with an Expert Tutor</strong> and <strong>website practice</strong> (Writing, Speaking and, for Computer-Based candidates, Listening and Reading exams).</p></article><article class="oet-choose-card is-recommended" data-code="full-tutorbook-allied-health" data-tier="2"><span class="oet-bundle-badge"><i class="fa-solid fa-star" aria-hidden="true"></i> Recommended</span><h3>Complete OET Bundle + TutorBook</h3><div class="oet-choose-price"><strong data-field="price">&pound;165</strong><span>6 months access &middot; Website Practice Included &middot; permanent TutorBook</span></div><p>Everything in the Full OET Course, plus the <strong>2026 TutorBook of Recalls</strong> with <strong>10 full recall-based exams</strong>, model answers and <strong>permanent updates</strong>.</p></article><article class="oet-choose-card is-ultimate" data-code="ultimate-allied-health" data-tier="3"><span class="oet-bundle-ultimate-badge"><svg class="oet-bundle-crown" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7l4.5 4.5L12 4l4.5 7.5L21 7l-1.8 11H4.8L3 7z"/><path d="M5 20h14v2H5z"/></svg>ULTIMATE</span><h3>Ultimate OET Course</h3><div class="oet-choose-price"><strong data-field="price">&pound;220</strong><span>12 months access &middot; Unlimited Website Practice &middot; permanent TutorBook</span></div><p>Everything in the Complete OET Bundle, plus <strong>unlimited eligible website practice</strong>, the <strong>Basic English Course as a free gift</strong> and <strong>SAMI 24/7</strong> for <strong>12 months</strong>.</p></article></div><div class="oet-resource-actions"><a class="oet-resource-btn" href="/pricing.html?profession=other-allied-health#full-oet-courses">Compare the three courses <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><a class="oet-resource-btn oet-resource-btn--light" href="/pricing.html#crash-courses">See Crash Courses</a></div></div></section>
+        <script type="application/json" id="oet-bundles-data">{"catalogUrl":"https://api.oetwithdrhesham.co.uk/v1/catalog/bundles","currency":"GBP","professions":[{"id":"medicine","label":"Medicine","suffix":"medicine"},{"id":"nursing","label":"Nursing","suffix":"nursing","notSold":["full","crash"],"note":"Nursing has its own packages: the Classic Nursing OET Course and the Nursing Premium Bundle. The Full OET Course + Website Practice, Complete OET Bundle + TutorBook, Ultimate and Full Crash tiers are not sold to Nursing."},{"id":"pharmacy","label":"Pharmacy","suffix":"pharmacy"},{"id":"physiotherapy","label":"Physiotherapy","suffix":"physiotherapy"},{"id":"other-allied-health","label":"Modified Allied Health","suffix":"allied-health","note":"Modified Allied Health covers Radiography, Optometry, Veterinary Science and every other profession outside Medicine, Nursing, Pharmacy and Physiotherapy."}],"formats":[{"id":"computer","label":"Computer-Based","summary":"Recorded course content plus website Writing, Speaking, Listening and Reading practice."},{"id":"paper","label":"Paper-Based","summary":"Recorded course content plus website Writing and Speaking practice, handwritten letter upload and paper-oriented Listening and Reading resources."}],"lines":{"course":{"label":"Full recorded course, videos & study materials"},"personal_letters":{"label":"Personal Writing Letters","detail":"Personally assessed by Dr Ahmed Hesham"},"private_session":{"label":"Private Speaking Session with an Expert Tutor"},"website_writing":{"label":"Website Writing Assessments"},"website_speaking":{"label":"Website Speaking Cards","detail":"Live Virtual Patient Speaking Practice"},"website_listening":{"label":"Website Listening Exams","detail":"Computer-Based","formats":["computer"]},"website_reading":{"label":"Website Reading Exams","detail":"Computer-Based","formats":["computer"]},"paper_resources":{"label":"Paper-oriented Listening & Reading resources","detail":"Recorded lessons, study materials and printable preparation","formats":["paper"]},"handwritten_upload":{"label":"Handwritten Writing letter upload","detail":"Image or PDF with verified text extraction","formats":["paper"]},"tutorbook":{"label":"TutorBook of Recalls","detail":"10 full recall-based exams, model answers, scripts & rationales, permanent updates"},"basic_english":{"label":"Basic English Course (gift)"},"sami":{"label":"SAMI 24/7"}},"nursingPackages":[{"kicker":"Package 05","name":"Classic Nursing OET Course","tag":"Classic","anchor":"pkg-nursing-classic","recommended":false,"summary":"Recorded Nursing course, study materials and SAMI 24/7.","price":65},{"kicker":"Package 07","name":"Nursing Premium Bundle","tag":"Recommended","anchor":"pkg-nursing-premium","recommended":true,"summary":"The course plus 5 personal Writing letters, a private Speaking session, TutorBook and the Basic English Course.","price":105}],"families":[{"id":"full","title":"Full OET Courses","perProfession":true,"tiers":[{"key":"full-practice","name":"Full OET Course + Website Practice","price":140,"accessMonths":6,"recommended":false,"badge":null,"tutorBookPermanent":false,"upsell":{"to":"full-tutorbook","label":"Upgrade to Complete","note":"TutorBook included"},"description":"A complete recorded OET course with **5 personal Writing letters by Dr Ahmed Hesham**, **1 private Speaking session with an Expert Tutor** and **website practice** (Writing, Speaking and, for Computer-Based candidates, Listening and Reading exams).","included":[{"key":"course"},{"key":"personal_letters","value":5},{"key":"private_session","value":1},{"key":"website_writing","value":8},{"key":"website_speaking","value":8},{"key":"website_listening","value":12},{"key":"website_reading","value":12},{"key":"paper_resources"},{"key":"handwritten_upload"},{"key":"sami"}]},{"key":"full-tutorbook","name":"Complete OET Bundle + TutorBook","price":165,"accessMonths":6,"recommended":true,"badge":"Recommended","tutorBookPermanent":true,"upsell":{"to":"ultimate","label":"Upgrade to Ultimate","note":"unlimited eligible website practice"},"description":"Everything in the Full OET Course, plus the **2026 TutorBook of Recalls** with **10 full recall-based exams**, model answers and **permanent updates**.","included":[{"key":"course"},{"key":"personal_letters","value":5},{"key":"private_session","value":1},{"key":"website_writing","value":8},{"key":"website_speaking","value":8},{"key":"website_listening","value":12},{"key":"website_reading","value":12},{"key":"paper_resources"},{"key":"handwritten_upload"},{"key":"tutorbook"},{"key":"sami"}]},{"key":"ultimate","name":"Ultimate OET Course","price":220,"accessMonths":12,"recommended":false,"badge":null,"tutorBookPermanent":true,"description":"Everything in the Complete OET Bundle, plus **unlimited eligible website practice**, the **Basic English Course as a free gift** and **SAMI 24/7** for **12 months**.","included":[{"key":"course"},{"key":"personal_letters","value":5},{"key":"private_session","value":1},{"key":"website_writing","value":"unlimited"},{"key":"website_speaking","value":"unlimited"},{"key":"website_listening","value":"unlimited"},{"key":"website_reading","value":"unlimited"},{"key":"paper_resources"},{"key":"handwritten_upload"},{"key":"tutorbook"},{"key":"basic_english"},{"key":"sami"}]}]},{"id":"crash","title":"Full Crash Courses","perProfession":false,"tiers":[{"key":"crash-essential","name":"Full Crash Essential","price":75,"accessMonths":6,"recommended":false,"badge":null,"tutorBookPermanent":false,"upsell":{"to":"crash-letters","label":"Upgrade to Full Crash + 5 Personal Writing Assessments","note":"5 personal Writing letters by Dr Ahmed Hesham"},"description":"Full recorded Crash Course plus **website practice**: 4 Writing assessments, 4 Speaking Cards and, for Computer-Based candidates, 6 Listening and 6 Reading exams.","included":[{"key":"course","label":"Full recorded Crash Course + materials"},{"key":"website_writing","value":4},{"key":"website_speaking","value":4},{"key":"website_listening","value":6},{"key":"website_reading","value":6},{"key":"paper_resources"},{"key":"handwritten_upload"},{"key":"sami"}]},{"key":"crash-letters","name":"Full Crash + 5 Personal Writing Assessments","price":100,"accessMonths":6,"recommended":false,"badge":null,"tutorBookPermanent":false,"upsell":{"to":"crash-complete","label":"Add TutorBook","note":"Full Crash + 5 Personal Assessments + TutorBook"},"description":"Everything in Full Crash Essential, PLUS **5 personal Writing letters assessed by Dr Ahmed Hesham**.","included":[{"key":"course","label":"Full recorded Crash Course + materials"},{"key":"personal_letters","value":5},{"key":"website_writing","value":4},{"key":"website_speaking","value":4},{"key":"website_listening","value":6},{"key":"website_reading","value":6},{"key":"paper_resources"},{"key":"handwritten_upload"},{"key":"sami"}]},{"key":"crash-complete","name":"Full Crash + 5 Personal Assessments + TutorBook","price":125,"accessMonths":6,"recommended":true,"badge":"Recommended","tutorBookPermanent":true,"description":"Everything in Full Crash + 5 Personal Writing Assessments, PLUS the **2026 TutorBook of Recalls** with **10 full recall-based exams**.","included":[{"key":"course","label":"Full recorded Crash Course + materials"},{"key":"personal_letters","value":5},{"key":"website_writing","value":4},{"key":"website_speaking","value":4},{"key":"website_listening","value":6},{"key":"website_reading","value":6},{"key":"paper_resources"},{"key":"handwritten_upload"},{"key":"tutorbook"},{"key":"sami"}]}]}]}</script>
+        <section class="oet-resource-section oet-resource-section--soft" id="included"><div class="container"><div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h2 id="sec-included">Which course do dentists take, and what is included?</h2><p>Dentistry is covered by the Modified Allied Health course family, which includes every profession outside Medicine, Nursing, Pharmacy and Physiotherapy. You book OET Dentistry for the exam; the course teaches the method for all four sub-tests.</p></div><div class="oet-resource-grid"><article class="oet-resource-card" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><span class="oet-resource-icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span><h3>Full OET Courses for Modified Allied Health</h3><p>The three courses shown above are the Full OET Course + Website Practice, the Complete OET Bundle + TutorBook (Recommended) and the Ultimate OET Course.</p><ul><li>The full recorded course with videos and study materials</li><li>5 personal Writing letters assessed by Dr Ahmed Hesham</li><li>1 private Speaking session with an Expert Tutor</li><li>Website Writing and Speaking practice, plus Listening and Reading exams for Computer-Based candidates</li><li>SAMI 24/7, your study assistant</li><li>Complete adds the TutorBook of Recalls with 10 full recall-based exams; Ultimate adds unlimited eligible website practice and 12 months of access</li></ul></article><article class="oet-resource-card" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="170" data-sal-easing="ease-in-out"><span class="oet-resource-icon"><i class="fa-solid fa-play" aria-hidden="true"></i></span><h3>Classic Full Course + SAMI - Modified Allied Health</h3><p>Package 03, &pound;105, with 6 months of access. Recorded videos plus structured study materials.</p><ul><li>40+ hours across Listening, Reading, Writing and Speaking</li><li>160+ Listening exams and 100+ Reading exams with answer keys and rationales</li><li>90+ Writing tasks and 100+ Speaking cards</li><li>5 Writing letter assessments with personalised correction</li><li>1 private Speaking session and SAMI 24/7</li><li>Additional website practice exams are not included</li></ul></article><article class="oet-resource-card" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="240" data-sal-easing="ease-in-out"><span class="oet-resource-icon"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i></span><h3>Add-ons when you need them</h3><p>Add more feedback to an active course on the sub-test that is holding you back.</p><ul><li>Extra Writing assessments of 3, 5, 7 or 10 letters</li><li>Private live Speaking sessions</li><li>Full mock exams under exam timing</li></ul></article></div><p data-sal="slide-up" data-sal-duration="1100" data-sal-delay="200" data-sal-easing="ease-in-out">The recorded course is not dentistry-only. Pair it with OET's free Dentistry sample pack, write your practice letters from dental case notes, and send those letters for correction. The <a href="/oet-for-allied-health.html">OET for allied health</a> page describes the course family in more detail.</p><div class="oet-resource-actions" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="300" data-sal-easing="ease-in-out"><a class="oet-resource-btn" href="/pricing.html?profession=other-allied-health#full-oet-courses">Compare the three courses <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><a class="oet-resource-btn oet-resource-btn--light" href="/pricing.html#pkg-allied-health-classic">Classic Modified Allied Health course</a><a class="oet-resource-btn oet-resource-btn--light" href="/pricing.html#separate-packages">Writing and Speaking add-ons</a></div></div></section>
+
+        <section class="oet-resource-section" id="writing"><div class="container"><div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h2 id="sec-writing">How do dentists pass OET Writing?</h2><p>You have 5 minutes to read the case notes and 40 minutes to write one letter, with a body of about 180&ndash;200 words. OET applies no automatic penalty for writing a little over or under, but a much longer letter usually means notes the reader did not need.</p></div>
+            <div class="row"><div class="col-xl-6">
+                <div class="oet-snippet" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><strong>Referral to a specialist</strong><p>Refer a patient to an oral and maxillofacial surgeon, a periodontist, an orthodontist or a paediatric dentist. Say what you found, what you have already done, and exactly what you want the specialist to do.</p></div>
+                <div class="oet-snippet" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="160" data-sal-easing="ease-in-out"><strong>Letters to a doctor</strong><p>Write to a GP about a finding, or ask for information about a patient's medical history or medicines before treatment. Keep dental terms to what a medical reader uses, and make the question easy to answer.</p></div>
+            </div><div class="col-xl-6">
+                <div class="oet-snippet" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="220" data-sal-easing="ease-in-out"><strong>Letters to non-dental readers</strong><p>OET's own Dentistry sample letter is written to a retirement village, asking for closer supervision of a resident's oral hygiene. Carers and parents need plain, practical instructions, not clinical shorthand.</p></div>
+                <div class="oet-snippet" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="280" data-sal-easing="ease-in-out"><strong>What the assessors check</strong><p>Six criteria: Purpose, Content, Conciseness &amp; Clarity, Genre &amp; Style, Organisation &amp; Layout, and Language. A clear purpose in the opening sentence and a specific request at the end protect marks across several of them.</p></div>
+            </div></div>
+            <div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h3 id="practice-example">Practice example: an urgent referral from a dental practice</h3><p>This is an invented practice case written by OET with Dr Hesham to demonstrate the method. It is not an official OET task and does not describe a real patient.</p></div>
+            <div class="row"><div class="col-xl-6">
+                <div class="oet-snippet" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><strong>Practice example: the task</strong><p>You are the dentist at a general dental practice. Write a letter of referral to the Oral and Maxillofacial Surgery department at the local hospital, requesting urgent assessment of a lesion on Mr K's tongue.</p></div>
+                <div class="oet-snippet" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="160" data-sal-easing="ease-in-out"><strong>Practice example: case notes (summary)</strong>
+                    <ul>
+                        <li>Mr K, 58, bus driver; married, two adult children</li>
+                        <li>Smoker, 20 cigarettes a day for 35 years; alcohol about 25 units a week</li>
+                        <li>Type 2 diabetes, metformin 500 mg twice daily; no known drug allergies</li>
+                        <li>3 weeks ago: painless ulcer, left lateral border of tongue, about 8 mm; sharp cusp on lower left first molar smoothed</li>
+                        <li>Today: ulcer not healed, now about 10 mm with firm edges; no other mucosal lesions seen</li>
+                        <li>Scale and polish 6 months ago; bridge for upper incisors being planned</li>
+                        <li>Prefers morning appointments; says he is nervous about hospitals</li>
+                    </ul>
+                </div>
+            </div><div class="col-xl-6">
+                <div class="oet-snippet" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="220" data-sal-easing="ease-in-out"><strong>Keep, because the surgeon needs it</strong>
+                    <ul>
+                        <li>Site, size and duration of the ulcer, and that it has grown</li>
+                        <li>Firm edges, and no healing after the sharp cusp was smoothed</li>
+                        <li>Smoking and alcohol history</li>
+                        <li>Diabetes and metformin, relevant to any procedure</li>
+                        <li>His nervousness about hospitals, in one short sentence</li>
+                    </ul>
+                </div>
+                <div class="oet-snippet" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="280" data-sal-easing="ease-in-out"><strong>Omit, because it does not change the request</strong>
+                    <ul>
+                        <li>Scale and polish, and the planned bridge</li>
+                        <li>His job and family</li>
+                        <li>His preference for morning appointments</li>
+                    </ul>
+                </div>
+            </div></div>
+            <div class="row"><div class="col-xl-6">
+                <div class="oet-snippet" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><strong>Paragraph plan</strong>
+                    <ul>
+                        <li><strong>P1, purpose:</strong> urgent assessment of a non-healing tongue ulcer</li>
+                        <li><strong>P2, the lesion:</strong> site, size, firm edges, growth, and no healing after the cusp was smoothed</li>
+                        <li><strong>P3, relevant history:</strong> smoking, alcohol, diabetes and metformin</li>
+                        <li><strong>P4, closing request:</strong> urgent assessment and investigation; mention his nervousness</li>
+                    </ul>
+                </div>
+            </div><div class="col-xl-6">
+                <div class="oet-snippet" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="160" data-sal-easing="ease-in-out"><strong>Model opening sentence</strong><p>I am writing to refer Mr K, a 58-year-old man, for urgent assessment of a non-healing ulcer on the left lateral border of his tongue, which has persisted for three weeks despite removal of a possible source of trauma.</p></div>
+                <div class="oet-snippet" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="220" data-sal-easing="ease-in-out"><strong>Key takeaway</strong><p>The first sentence tells the surgeon why the referral is urgent. Every kept note supports that urgency or helps the team plan safely; everything else, however true, stays in the notes.</p></div>
+            </div></div>
+            <p data-sal="slide-up" data-sal-duration="1100" data-sal-delay="200" data-sal-easing="ease-in-out">The same keep-or-omit method is explained step by step in <a href="/oet-writing-referral-letter-structure.html">OET referral letter structure</a> and the <a href="/oet-writing-tips.html">OET Writing tips</a>. To see exactly which notes and sentences are costing you marks, send your letters for <a href="/oet-writing-correction.html">OET writing correction</a>.</p>
+        </div></section>
+
+        <section class="oet-resource-section oet-resource-section--soft" id="speaking"><div class="container"><div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h2 id="sec-speaking">What dental role-plays should you practise for OET Speaking?</h2><p>OET Speaking takes about 20 minutes and has two role-plays. You get three minutes to prepare each card, and a role-play usually ends at around five minutes. The interlocutor plays a patient or a patient's relative or carer; OET's free Dentistry sample role-play is set in a local dental clinic.</p></div><div class="row"><div class="col-xl-6"><div class="oet-resource-card" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h3>Dental scenarios worth practising</h3><ul><li>Explaining a diagnosis and the treatment options, such as a filling, root canal treatment or an extraction</li><li>Aftercare advice following an extraction, and when to seek help</li><li>Reassuring an anxious patient who has avoided the dentist for years</li><li>Oral hygiene and diet advice for a parent whose child has tooth decay</li><li>Talking about smoking and gum disease, or with a patient who expects antibiotics for toothache</li><li>Responding calmly to a patient who is unhappy about a delay, a cost or a result</li></ul></div></div><div class="col-xl-6"><div class="oet-resource-card" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="170" data-sal-easing="ease-in-out"><h3>How you are assessed</h3><p>Two assessors score the recording on linguistic criteria (intelligibility, fluency, appropriateness of language, and resources of grammar and expression) and on clinical communication (relationship building, understanding and incorporating the patient's perspective, providing structure, information gathering and information giving). Plain explanations matter more than technical vocabulary: say "gum disease" before "periodontitis", then check the patient has understood.</p></div></div></div><p data-sal="slide-up" data-sal-duration="1100" data-sal-delay="220" data-sal-easing="ease-in-out">Build the structure with the <a href="/oet-speaking-tips.html">OET Speaking tips</a> and <a href="/oet-speaking-empathy-signposting.html">empathy and signposting</a>, practise the anxious-patient card with <a href="/oet-speaking-angry-anxious-patient.html">handling an angry or anxious patient</a>, then rehearse dental cards aloud before your private session.</p></div></section>
+
+        <section class="oet-resource-section" id="listening-reading"><div class="container"><div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h2 id="sec-listening-reading">How should dentists prepare for Listening and Reading?</h2><p>You sit exactly the same Listening and Reading papers as doctors and nurses, so dental knowledge does not help much here. Method does.</p></div><div class="row"><div class="col-xl-6"><div class="oet-snippet" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><strong>Listening (about 40 minutes, 42 questions)</strong><p>In Part A you complete notes from consultations using the words you hear, so spelling and prediction matter. Practise a little every day rather than one long session a week. See the <a href="/oet-listening-tips.html">OET Listening tips</a>.</p></div></div><div class="col-xl-6"><div class="oet-snippet" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="170" data-sal-easing="ease-in-out"><strong>Reading (60 minutes, 42 questions)</strong><p>Part A is collected after 15 minutes, so train fast scanning across four short texts; Parts B and C reward careful reading and eliminating distractors. See the <a href="/oet-reading-tips.html">OET Reading tips</a>.</p></div></div></div></div></section>
+
+        <section class="oet-resource-section oet-resource-section--soft" id="study"><div class="container"><div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h2 id="sec-study">A study approach for dentists</h2><p>Self-paced, but in a fixed order: confirm the target, diagnose, learn, get corrected, test yourself, then book.</p></div><div data-sal="slide-up" data-sal-duration="1100" data-sal-delay="120" data-sal-easing="ease-in-out"><div class="oet-tips-roadmap"><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">01</span><div><strong>Confirm your target</strong><span>Check the accepted tests, grades and test modes on your regulator's own page, using the table above.</span></div></div><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">02</span><div><strong>Take the free placement test</strong><span>Check your Listening, Reading, Writing and Speaking level on the <a href="/english-placement-test">free placement test</a> before you choose a course.</span></div></div><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">03</span><div><strong>Learn the method</strong><span>Work through the recorded lessons for all four sub-tests, and keep Listening and Reading practice going throughout.</span></div></div><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">04</span><div><strong>Write from dental case notes</strong><span>One timed letter at a time; send each for correction and fix the same weakness in the next letter.</span></div></div><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">05</span><div><strong>Rehearse dental role-plays aloud</strong><span>Record yourself with a timer, then use your private Speaking session for feedback on structure and plain language.</span></div></div><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">06</span><div><strong>Sit a full mock exam</strong><span>Check all four sub-tests under exam timing with a <a href="/pricing.html#full-mock-exam-packages">full mock exam</a> before you pay for the real test.</span></div></div><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">07</span><div><strong>Book OET Dentistry</strong><span>When your practice scores consistently meet your regulator's rule, book OET Dentistry in a format your regulator accepts.</span></div></div></div></div></div></section>
+
+        <section class="oet-resource-section" id="faq"><div class="container"><div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h2 id="sec-faq">OET for dentists FAQ</h2><p>Short answers before you enrol. More exam questions are answered on the <a href="/faq.html">full OET FAQ page</a>.</p></div><div class="oet-faq-item" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h3>Can dentists use OET for UK registration?</h3><p>The GDC's English language page does not name OET. It names IELTS, including IELTS One Skill Retake and IELTS Online, and its guidance asks for Academic IELTS with 7 overall and at least 6.5 in each area. Check the GDC page before you book any test for UK registration.</p></div><div class="oet-faq-item" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="170" data-sal-easing="ease-in-out"><h3>What OET score do dentists need for Australia?</h3><p>The Dental Board of Australia uses Ahpra's accepted test rules. For tests taken on or after 23 April 2026 the OET minimums are Listening 350, Reading 360, Writing 350 and Speaking 360, on paper or computer at a test centre. OET@Home is not accepted.</p></div><div class="oet-faq-item" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="240" data-sal-easing="ease-in-out"><h3>What OET grade does the Dental Council of Ireland require?</h3><p>At least grade B in each of Listening, Reading, Writing and Speaking in OET Dentistry, with a certificate no more than 2 years old when you apply. The Council accepts paper-based and computer-based OET but not OET@Home.</p></div><div class="oet-faq-item" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="310" data-sal-easing="ease-in-out"><h3>Does the Dental Council of New Zealand accept OET?</h3><p>Yes. The Dental Council of New Zealand has approved OET and IELTS Academic. Dentists need A or B grades in each of the four OET sub-tests, passed in one sitting, and a pass is valid for two years.</p></div><div class="oet-faq-item" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="380" data-sal-easing="ease-in-out"><h3>Which OET course should a dentist choose?</h3><p>Dentistry is covered by the Modified Allied Health course family, which includes every profession outside Medicine, Nursing, Pharmacy and Physiotherapy. Book OET Dentistry for the exam itself, and practise dental letters and role-plays alongside the course.</p></div><div class="oet-faq-item" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="450" data-sal-easing="ease-in-out"><h3>What do dentists write in OET Writing?</h3><p>One letter from dental case notes in 40 minutes, after 5 minutes of reading time, with a body of about 180 to 200 words. It may be a referral to a specialist, a letter to a doctor or advice to carers. OET's own Dentistry sample letter is written to a retirement village about a resident's oral hygiene.</p></div></div></section>
+
+        <section class="oet-resource-section oet-resource-section--soft" id="official-sources"><div class="container"><div class="oet-resource-heading" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><h2 id="sec-sources">Official sources</h2><p>The test and regulator facts on this page were checked against these official pages on 2 November 2026.</p></div>
+            <ul>
+                <li><a href="https://oet.com/test/oet-test" target="_blank" rel="noopener">OET: OET Test overview and professions</a></li>
+                <li><a href="https://oet.com/ready/listening" target="_blank" rel="noopener">OET: Listening sub-test</a>, <a href="https://oet.com/ready/reading" target="_blank" rel="noopener">Reading sub-test</a>, <a href="https://oet.com/ready/writing" target="_blank" rel="noopener">Writing sub-test</a> and <a href="https://oet.com/ready/speaking" target="_blank" rel="noopener">Speaking sub-test</a></li>
+                <li><a href="https://oet.com/post/did-you-know-the-oet-speaking-test-gives-you-three-preparation-minutes" target="_blank" rel="noopener">OET: three preparation minutes in the Speaking sub-test</a> and <a href="https://oet.com/en-us/post/speaking-criteria-overview" target="_blank" rel="noopener">Speaking criteria overview</a></li>
+                <li><a href="https://oet.com/test/oet-test-on-paper" target="_blank" rel="noopener">OET Test on Paper</a> and <a href="https://oet.com/test/oet-test-on-computer" target="_blank" rel="noopener">OET Test on Computer</a></li>
+                <li><a href="https://oet.com/ready/sample-tests/oet-test-on-computer/dentistry" target="_blank" rel="noopener">OET: Dentistry sample tests</a></li>
+                <li><a href="https://www.ahpra.gov.au/Registration/Registration-Standards/English-language-skills/Accepted-English-language-tests" target="_blank" rel="noopener">Ahpra: Accepted English language tests</a></li>
+                <li><a href="https://www.dentalboard.gov.au/Registration-Standards" target="_blank" rel="noopener">Dental Board of Australia: Registration standards</a></li>
+                <li><a href="https://www.dentalcouncil.ie/registration/language-proficiency" target="_blank" rel="noopener">Dental Council of Ireland: Language proficiency</a></li>
+                <li><a href="https://dcnz.org.nz/i-want-to-practise-in-new-zealand/registration-what-you-need-to-know" target="_blank" rel="noopener">Dental Council of New Zealand: Registration, what you need to know</a></li>
+                <li><a href="https://www.gdc-uk.org/registration/route-to-registration/english-language-controls" target="_blank" rel="noopener">GDC: English language controls</a> and <a href="https://www.gdc-uk.org/docs/default-source/registration/english-language-controls/gdc-guidance-on-english-language-controls.pdf" target="_blank" rel="noopener">GDC guidance on evidence of English language competence</a></li>
+            </ul>
+        </div></section>
+
+        <section class="oet-resource-cta oet-skill-final-cta"><div class="container"><div class="oet-final-cta-grid" data-sal="slide-up" data-sal-duration="1100" data-sal-delay="100" data-sal-easing="ease-in-out"><div class="oet-final-cta-copy"><span class="oet-final-cta-badge"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i> OET Dentistry next step</span><h2>Start your OET Dentistry preparation</h2><p>Take the free placement test to see your level, compare the Modified Allied Health courses, and get your dental letters corrected before exam day.</p><div class="oet-resource-actions"><a class="oet-resource-btn oet-resource-btn--light" href="/english-placement-test">Start the free placement test <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><a class="oet-resource-btn oet-resource-btn--light" href="/pricing.html?profession=other-allied-health#full-oet-courses">Compare the courses <i class="fa-solid fa-tags" aria-hidden="true"></i></a><a class="oet-resource-btn oet-resource-btn--light" href="/oet-writing-correction.html">Get a letter assessed <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i></a></div></div><aside class="oet-final-cta-panel" aria-label="Recommended next steps"><h3>Recommended next steps</h3><div class="oet-final-cta-list"><div class="oet-final-cta-item"><span class="oet-final-cta-icon">01</span><div><strong>Check your level</strong><span>Free placement test across all four skills.</span></div></div><div class="oet-final-cta-item"><span class="oet-final-cta-icon">02</span><div><strong>Choose your course</strong><span>Modified Allied Health, which covers Dentistry.</span></div></div><div class="oet-final-cta-item"><span class="oet-final-cta-icon">03</span><div><strong>Get corrected</strong><span>Dental letters and role-plays with personal feedback.</span></div></div></div><p class="oet-final-cta-note">Educational guidance only. Your result depends on your starting level, practice quality and exam-day performance.</p></aside></div></div></section>
+
+        <section class="oet-resource-section oet-author-bio" aria-label="About the author"><div class="container"><div class="oet-snippet"><strong>About the author</strong><p>Dr Ahmed Hesham is a medical doctor and OET educator who has coached doctors, nurses and allied health professionals preparing for OET since 2018. <a href="/about.html">More about Dr Hesham</a>.</p></div></div></section>
+
+        <section class="oet-related" aria-label="Related guides"><div class="container"><h2 class="oet-related-title">Keep exploring</h2><div class="oet-related-grid"><a class="oet-related-card" href="/oet-for-allied-health.html"><span class="oet-related-icon"><i class="fa-solid fa-briefcase-medical" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET for Allied Health</strong><span>The Modified Allied Health course and HCPC and Ahpra scores.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-vs-pte.html"><span class="oet-related-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET vs PTE</strong><span>Format, scoring and which regulators accept each test.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-writing-correction.html"><span class="oet-related-icon"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Writing Correction</strong><span>Letters marked with an estimated score and voice-note feedback.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-sample-tests.html"><span class="oet-related-icon"><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Sample Tests</strong><span>Where to find the official sample tests for every profession.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-score-requirements.html"><span class="oet-related-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Score Requirements</strong><span>The score each regulator asks for, with official links.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-practice.html"><span class="oet-related-icon"><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Practice Hub</strong><span>Free practice, timed mocks and Writing tasks.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/blog/"><span class="oet-related-icon"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Blog</strong><span>Guides for every sub-test and pathway.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-mock-test.html"><span class="oet-related-icon"><i class="fa-solid fa-stopwatch" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Mock Tests</strong><span>Full timed mocks and how to read the result.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-course-for-pharmacists.html"><span class="oet-related-icon"><i class="fa-solid fa-prescription-bottle-medical" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Course for Pharmacists</strong><span>Pharmacy letters, counselling role-plays and GPhC scores.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a></div></div></section>
+        <section class="oet-related oet-related--articles" aria-label="Related articles"><div class="container"><h2 class="oet-related-title">Related articles</h2><div class="oet-related-grid"><a class="oet-related-card" href="/oet-writing-sample-occupational-therapy.html"><span class="oet-related-icon"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Writing Sample for Occupational Therapists: Referral Letter</strong><span>Home assessment case notes after a fall, a model referral letter and marking notes.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-study-plan.html"><span class="oet-related-icon"><i class="fa-solid fa-desktop" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Study Plan: 4, 8 and 12-Week Schedules</strong><span>Week-by-week OET study plans for 4, 8 and 12 weeks by sub-test, with when to take the placement test and a…</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-retake-after-near-miss.html"><span class="oet-related-icon"><i class="fa-solid fa-desktop" aria-hidden="true"></i></span><span class="oet-related-body"><strong>Retaking OET After a Near Miss: What to Do Next</strong><span>Missed your target by one sub-test? Read the result, check whether your regulator combines sittings, weigh a…</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-reading-part-b-workplace-texts.html"><span class="oet-related-icon"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Reading Part B: workplace texts and purpose questions</strong><span>Answer Reading Part B by finding each workplace text's purpose first, then eliminating distractors, with an…</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a></div></div></section>
+</main>
+
+<!--================= Footer section start =================-->
+    <footer class="vl-footer-10 fix vkl-gray-bg-19 pt-60 oet-footer">
+                <div class="container">
+                    <div class="oet-footer-cols">
+                        <div class="oet-footer-brand vl-footer-widget-1">
+                            <div class="vl-footer-logo">
+                                <a href="/"><img width="320" height="90" loading="lazy" decoding="async" src="/assets/img/logo/footer-logo.webp" alt="OET with Dr Hesham"></a>
+                            </div>
+                            <div class="vl-footer-content vl-footer-content-6">
+                                <p class="para pt-16 pb-24">We help nurses, doctors, pharmacists, and allied health professionals prepare for OET with practical guidance, focused feedback, and clear UK pathway support.</p>
+                            </div>
+
+                            <!-- social area -->
+                            <div class="social-area-footer-10">
+                                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+                                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram"></i></a>
+                                <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                                <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+                            </div>
+                        </div>
+
+                        <details class="oet-footer-group oet-footer-group--courses">
+                            <summary><h3 class="vl-footer-widget-title vl-footer-widget-title-6 oet-footer-group__title">Courses &amp; Practice</h3></summary>
+                            <div class="vl-footer-menu vl-footer-menu-10">
+                                <ul>
+                                    <li><a href="/service.html">OET Courses</a></li>
+                                    <li><a href="/oet-course-for-nurses.html">OET Course for Nurses</a></li>
+                                    <li><a href="/oet-course-for-doctors.html">OET Course for Doctors</a></li>
+                                    <li><a href="/oet-writing-correction.html">OET Writing Correction</a></li>
+                                    <li><a href="/pricing.html">Pricing</a></li>
+                                    <li><a href="/ar/" lang="ar">كورس OET بالعربية</a></li>
+<li><a href="/pricing.html#download-app">Download Candidates App</a></li>                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="oet-footer-group oet-footer-group--resources">
+                            <summary><h3 class="vl-footer-widget-title vl-footer-widget-title-6 oet-footer-group__title">Resources &amp; Guides</h3></summary>
+                            <div class="vl-footer-menu vl-footer-menu-10">
+                                <ul>
+                                    <li><a href="/blog/">OET Blog</a></li>
+                                    <li><a href="/oet-sample-tests.html">Free OET Sample Tests</a></li>
+                                    <li><a href="/oet-materials-support.html">Free Resources</a></li>
+                                    <li><a href="/oet-speaking-tips.html">Speaking Tips</a></li>
+                                    <li><a href="/oet-score-calculator.html">OET Score Calculator</a></li>
+                                    <li><a href="/oet-score-requirements.html">OET Score Requirements</a></li>
+                                    <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">Telegram Materials</a></li>
+                                    <li><a href="/uk-pathway-guide.html">UK Pathway Guide</a></li>
+                                    <li><a href="/usa-pathway-guide.html">USA Pathway Guide</a></li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="oet-footer-group oet-footer-group--support">
+                            <summary><h3 class="vl-footer-widget-title vl-footer-widget-title-6 oet-footer-group__title">About &amp; Support</h3></summary>
+                            <div class="vl-footer-menu vl-footer-menu-10">
+                                <ul>
+                                    <li><a href="/about.html">About Dr. Hesham</a></li>
+                                    <li><a href="/teaching-approach.html">Teaching Approach</a></li>
+                                    <li><a href="https://www.youtube.com/watch?v=hlD1BXfijWs" data-youtube-url="https://www.youtube.com/watch?v=hlD1BXfijWs" data-oet-inline-video="true" target="_blank" rel="noopener noreferrer">OET Programs</a></li>
+                                    <li><a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
+                                    <li><a href="mailto:support@oetwithdrhesham.co.uk">Email Support</a></li>
+                                    <li><a href="/faq.html">FAQ</a></li>
+                                    <li><a href="/contact.html">Contact</a></li>
+                                    <li><a href="/success-stories.html">Success Stories</a></li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="oet-footer-group oet-footer-group--connect">
+                            <summary><h3 class="vl-footer-widget-title vl-footer-widget-title-6 oet-footer-group__title">Stay Connected</h3></summary>
+                            <!-- Newslater -->
+                            <div class="vl-footer-newslate10 oet-footer-updates">
+                                <p class="oet-updates-copy">Free tips, live class alerts and course updates &mdash; straight from Dr Hesham.</p>
+                                <div class="oet-footer-subscribe-buttons">
+                                    <a class="oet-footer-btn oet-footer-btn--telegram" href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">
+                                        <span class="oet-footer-btn__icon"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span>
+                                        <span class="oet-footer-btn__text">Join Telegram Channel</span>
+                                    </a>
+                                    <a class="oet-footer-btn oet-footer-btn--youtube" href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer">
+                                        <span class="oet-footer-btn__icon"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                                        <span class="oet-footer-btn__text">Subscribe on YouTube</span>
+                                    </a>
+                                    <a class="oet-footer-btn oet-footer-btn--facebook" href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer">
+                                        <span class="oet-footer-btn__icon"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span>
+                                        <span class="oet-footer-btn__text">Join Facebook Community</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="vl-copy-righ1t vl-copy-righ1t-10">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 mb-30">
+                                    <div class="vl-footer-copy-right-widget vl-footer-copy-right-widget-6">
+                                        <p class="para">&copy; Copyright 2026 - OET with Dr Hesham. All Rights Reserved</p>
+                                        <p class="para oet-footer-company-support">OET with Dr Hesham is a digital education platform supported by ProHealth Digital LLC, Wyoming, USA.</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 mb-30">
+                                    <div class="vl-copy-right-menu vl-copy-right-menu-10">
+                                        <ul aria-label="Legal">
+                                            <li><strong>Legal</strong></li>
+                                            <li><a href="/terms/">Terms &amp; Conditions</a></li>
+                                            <li><a href="/privacy/">Privacy Policy</a></li>
+                                            <li><a href="/refund-policy/">Refund Policy</a></li>
+                                            <li><a href="/cookie-policy/">Cookie Policy</a></li>
+                                            <li><a href="/cookie-policy/" onclick="oetCookieSettings();return false;">Cookie settings</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+<!--================= Footer section End =================-->
+
+
+    <!-- js file -->
+
+    <!-- jquery js-->
+<!-- gsap js-->
+<!-- scrollTrigger js-->
+<!-- fontawesome -->
+<!-- counter js -->
+<!-- waypoints js-->
+<!-- sal js-->
+    <script defer src="/assets/js/plugins/sal.min.js?v=3ff9a5f201"></script>
+    <!-- ScrollSmoother js -->
+    <script defer src="/assets/js/plugins/lenis.min.js?v=98598577bb"></script>
+<!-- Custom js -->
+<script defer src="/assets/js/main.js?v=ed4c53a6d8"></script>
+<script defer src="/assets/js/oet-bundles.js?v=52604c01c4"></script>
+
+    
+
+
+    
+
+
+
+
+    
+
+    <div class="oet-community-popup" id="oet-community-popup" aria-hidden="true">
+        <div class="oet-community-popup__overlay" data-oet-community-close></div>
+        <div class="oet-community-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="oet-community-popup-title" aria-describedby="oet-community-popup-intro">
+            <button class="oet-community-popup__close" type="button" data-oet-community-close aria-label="Close community popup">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+            <div class="oet-community-popup__body">
+                <span class="oet-community-popup__eyebrow"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Free OET support</span>
+                <h2 class="oet-community-popup__title" id="oet-community-popup-title">Join Our Free OET Communities</h2>
+                <p class="oet-community-popup__intro" id="oet-community-popup-intro">Choose the group or resource that matches your profession, language preference, or preparation stage. Each link opens in a new tab so you can join instantly.</p>
+
+                <h3 class="oet-community-popup__section-title">WhatsApp Groups</h3>
+                <div class="oet-community-popup__grid">
+                    <a class="oet-community-popup__card" href="https://chat.whatsapp.com/LPSFtrljYdjAYGpBStpMz5" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Exam Recalls Group 1</span>
+                        <span class="oet-community-popup__hint">Recent exam recall discussions</span>
+                    </a>
+                    <a class="oet-community-popup__card" href="https://chat.whatsapp.com/CzVgwnH73Vn8PupWxPrhkz" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Exam Recalls Group 2</span>
+                        <span class="oet-community-popup__hint">Backup recalls community</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/GwXdSX6v38F3EjNzC4wS2F?mode=hq1tsha" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET Nursing Free Community-New</span>
+                        <span class="oet-community-popup__hint">Highlighted nursing community</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/CeJmvXO5dJA50OKBGtZcuD?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET Medicine Free Community</span>
+                        <span class="oet-community-popup__hint">Free orientation sessions for medicine</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/IuCFuWFXFrQHtK6qICP4jg?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET English Only-Non-Arabic Speakers</span>
+                        <span class="oet-community-popup__hint">English-only practice community</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/Kz8zXv7GpoCJBAHpfDygPW?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET Pharmacy Free Community</span>
+                        <span class="oet-community-popup__hint">Pharmacy OET support</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/E6AkDZhctn95XP7Do1RYgc?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET Physiotherapy Free Community</span>
+                        <span class="oet-community-popup__hint">Free OET community for physiotherapy</span>
+                    </a>
+                </div>
+
+                <h3 class="oet-community-popup__section-title">Free Orientation &amp; Resources</h3>
+                <div class="oet-community-popup__resources">
+                    <a class="oet-community-popup__resource" href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET with Dr Ahmed Hesham-Official Telegram Channel</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://t.me/OET_Nursing_DrHesham" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Telegram Nursing Channel</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET with Dr Ahmed Hesham - Main Facebook Group</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://www.facebook.com/share/1EMpS7pDau/" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET with Dr Ahmed Hesham-Official Facebook Page</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></span>
+                        <span class="oet-community-popup__name">Instagram</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--linkedin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></span>
+                        <span class="oet-community-popup__name">LinkedIn</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/kL91eG32Uok?si=Q464XynULlIxpiav" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/kL91eG32Uok?si=Q464XynULlIxpiav" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Doctors Arabic Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/3aBIQq_p3MQ?si=eNwqS82aYuYBaifr" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/3aBIQq_p3MQ?si=eNwqS82aYuYBaifr" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Doctors Non-Arabic Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/rbNsB7Olxts?si=RNoigvu5kz_bUVYI" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/rbNsB7Olxts?si=RNoigvu5kz_bUVYI" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Course Feedback</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/hlD1BXfijWs?si=EQFjYcWKTBOvltPI" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/hlD1BXfijWs?si=EQFjYcWKTBOvltPI" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Nursing Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/MCPZb589zdY?si=vSLShtttUOEH89rx" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/MCPZb589zdY?si=vSLShtttUOEH89rx" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET &amp; UK Nursing Live</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script id="oet-community-popup-script">
+        (function () {
+            var popup = document.getElementById('oet-community-popup');
+            var triggers = document.querySelectorAll('.oet-community-cta');
+            if (!popup || !triggers.length) return;
+
+            var closeButtons = popup.querySelectorAll('[data-oet-community-close]');
+            var scrollBody = popup.querySelector('.oet-community-popup__body');
+            var focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+            var lastTrigger = null;
+            var lastTouchY = 0;
+
+            function firstFocusable() {
+                return popup.querySelector(focusableSelector);
+            }
+
+            function openPopup(trigger) {
+                lastTrigger = trigger || null;
+                popup.classList.add('is-open');
+                popup.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('oet-community-popup-lock');
+                window.setTimeout(function () {
+                    var target = firstFocusable();
+                    if (target) target.focus({ preventScroll: true });
+                }, 30);
+            }
+
+            function closePopup() {
+                popup.classList.remove('is-open');
+                popup.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('oet-community-popup-lock');
+                if (lastTrigger && typeof lastTrigger.focus === 'function') {
+                    lastTrigger.focus({ preventScroll: true });
+                }
+            }
+
+            triggers.forEach(function (trigger) {
+                trigger.setAttribute('href', '#oet-community-popup');
+                trigger.setAttribute('aria-haspopup', 'dialog');
+                trigger.setAttribute('aria-controls', 'oet-community-popup');
+                trigger.removeAttribute('target');
+                trigger.removeAttribute('rel');
+                trigger.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    openPopup(trigger);
+                });
+            });
+
+            closeButtons.forEach(function (button) {
+                button.addEventListener('click', closePopup);
+            });
+
+            if (scrollBody) {
+                scrollBody.addEventListener('wheel', function (event) {
+                    event.stopPropagation();
+                }, { passive: true });
+
+                scrollBody.addEventListener('touchstart', function (event) {
+                    if (event.touches && event.touches.length) {
+                        lastTouchY = event.touches[0].clientY;
+                    }
+                }, { passive: true });
+
+                scrollBody.addEventListener('touchmove', function (event) {
+                    if (!event.touches || !event.touches.length) return;
+                    var currentY = event.touches[0].clientY;
+                    var deltaY = lastTouchY - currentY;
+                    var atTop = scrollBody.scrollTop <= 0;
+                    var atBottom = Math.ceil(scrollBody.scrollTop + scrollBody.clientHeight) >= scrollBody.scrollHeight;
+
+                    if ((atTop && deltaY < 0) || (atBottom && deltaY > 0)) {
+                        event.preventDefault();
+                    }
+
+                    event.stopPropagation();
+                    lastTouchY = currentY;
+                }, { passive: false });
+            }
+
+            document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && popup.classList.contains('is-open')) {
+                closePopup();
+                return;
+            }
+            if (event.key !== 'Tab' || !popup.classList.contains('is-open')) return;
+            var items = Array.prototype.filter.call(popup.querySelectorAll(focusableSelector), function (el) {
+                return el.offsetParent !== null;
+            });
+            if (!items.length) return;
+            var first = items[0];
+            var last = items[items.length - 1];
+            if (event.shiftKey && (document.activeElement === first || !popup.contains(document.activeElement))) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && (document.activeElement === last || !popup.contains(document.activeElement))) {
+                event.preventDefault();
+                first.focus();
+            }
+        });
+        })();
+    </script>
+    <script src="/assets/js/oet-analytics.js?v=182b4205b8" defer></script>
+    <script src="/assets/js/oet-cookie-consent.js?v=e9753196cd" defer></script>
+    <script src="/assets/js/oet-search.js?v=ddf57f5228" defer></script>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-GB">
+  <title>OET Blog by Dr Hesham</title>
+  <subtitle>Practical OET advice for Listening, Reading, Writing and Speaking, plus exam format and registration pathway guides.</subtitle>
+  <id>https://oetwithdrhesham.co.uk/blog/</id>
+  <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/blog/"/>
+  <link rel="self" type="application/atom+xml" href="https://oetwithdrhesham.co.uk/feed.xml"/>
+  <updated>2026-11-02T00:00:00Z</updated>
+  <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+  <icon>https://oetwithdrhesham.co.uk/assets/img/logo/fav-icon.png</icon>
+  <entry>
+    <title>OET Study Plan: 4, 8 and 12-Week Schedules</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-study-plan.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-study-plan.html</id>
+    <published>2026-11-02T00:00:00Z</published>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="exam-format" label="Exam Format"/>
+    <summary>Week-by-week OET study plans for 4, 8 and 12 weeks by sub-test, with when to take the placement test and a full mock, and how to use free practice.</summary>
+  </entry>
+  <entry>
+    <title>OET vs PTE: which English test should healthcare professionals take?</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-vs-pte.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-vs-pte.html</id>
+    <published>2026-11-02T00:00:00Z</published>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="exam-format" label="Exam Format"/>
+    <summary>OET or PTE Academic? Format, timing and scoring side by side, and which UK, Irish, Australian, New Zealand and US regulators accept each test.</summary>
+  </entry>
+  <entry>
+    <title>Retaking OET After a Near Miss: What to Do Next</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-retake-after-near-miss.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-retake-after-near-miss.html</id>
+    <published>2026-11-02T00:00:00Z</published>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="exam-format" label="Exam Format"/>
+    <summary>Missed your target by one sub-test? Read the result, check whether your regulator combines sittings, weigh a re-mark or re-sit, and plan the retake.</summary>
+  </entry>
+  <entry>
+    <title>OET Nursing Discharge Letter: Writing the Final Request Paragraph</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-writing-nursing-discharge-letter.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-writing-nursing-discharge-letter.html</id>
+    <published>2026-11-02T00:00:00Z</published>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="writing" label="Writing"/>
+    <summary>Write a nursing discharge letter whose final paragraph tells the reader exactly what to do next: an invented case, note selection, model letter and closing requests.</summary>
+  </entry>
+  <entry>
+    <title>OET Speaking: How to Handle an Angry or Anxious Patient</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-speaking-angry-anxious-patient.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-speaking-angry-anxious-patient.html</id>
+    <published>2026-11-02T00:00:00Z</published>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="speaking" label="Speaking"/>
+    <summary>Stay calm with an angry, upset or anxious patient in an OET role-play: acknowledge, explain and involve, mapped to the clinical communication criteria.</summary>
+  </entry>
+  <entry>
+    <title>OET Reading Part B: workplace texts and purpose questions</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-reading-part-b-workplace-texts.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-reading-part-b-workplace-texts.html</id>
+    <published>2026-11-02T00:00:00Z</published>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="reading" label="Reading"/>
+    <summary>Answer Reading Part B by finding each workplace text's purpose first, then eliminating distractors, with an invented practice text and worked answers.</summary>
+  </entry>
+  <entry>
+    <title>OET Listening Parts B and C: prediction, opinion and distractors</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-listening-parts-b-c.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-listening-parts-b-c.html</id>
+    <published>2026-11-02T00:00:00Z</published>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="listening" label="Listening"/>
+    <summary>Predict from the stem and options, separate opinion from fact and spot distractor patterns in Listening Parts B and C, with a worked practice transcript.</summary>
+  </entry>
+  <entry>
+    <title>OET Test Dates 2026, Fees and Results</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-test-dates-and-fees.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-test-dates-and-fees.html</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="exam-format" label="Exam Format"/>
+    <summary>Paper and computer test dates, fees, re-sit and rescheduling costs, booking deadlines and results timing.</summary>
+  </entry>
+  <entry>
+    <title>Gulf Pathway Guide for OET Healthcare Professionals</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/gulf-pathway-guide.html"/>
+    <id>https://oetwithdrhesham.co.uk/gulf-pathway-guide.html</id>
+    <published>2026-05-19T00:00:00Z</published>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="pathways" label="Pathway Guides"/>
+    <summary>Qatar DHP, Sheryan, DataFlow and Prometric steps for doctors, nurses, pharmacists and physiotherapists.</summary>
+  </entry>
+  <entry>
+    <title>OET Listening Tips 2026: 10 Expert Strategies for Healthcare Professionals</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-listening-tips.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-listening-tips.html</id>
+    <published>2026-05-18T00:00:00Z</published>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="listening" label="Listening"/>
+    <summary>Strategies for Parts A, B and C: note-taking, accents, distractors and answer accuracy.</summary>
+  </entry>
+  <entry>
+    <title>OET Writing: referral letter structure and note selection</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-writing-referral-letter-structure.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-writing-referral-letter-structure.html</id>
+    <published>2026-10-27T00:00:00Z</published>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="writing" label="Writing"/>
+    <summary>Organise a referral letter around the reader's next step: sort case notes into keep, summarise or omit, plan the paragraphs, and see a worked practice case.</summary>
+  </entry>
+  <entry>
+    <title>OET Speaking: Realistic Empathy and Signposting</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-speaking-empathy-signposting.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-speaking-empathy-signposting.html</id>
+    <published>2026-10-27T00:00:00Z</published>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="speaking" label="Speaking"/>
+    <summary>Make empathy sound genuine and signpost every topic change in OET role-plays, mapped to the clinical communication criteria, with weak vs stronger examples.</summary>
+  </entry>
+  <entry>
+    <title>OET on Computer vs Paper: Preparation Differences</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-computer-vs-paper.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-computer-vs-paper.html</id>
+    <published>2026-10-27T00:00:00Z</published>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="exam-format" label="Exam Format"/>
+    <summary>How paper, computer and OET@Home differ for Writing, Reading and Speaking, how to choose a mode, and a two-week practice plan for each format.</summary>
+  </entry>
+  <entry>
+    <title>OET Writing for Physiotherapy: referral vs discharge letters</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-writing-physiotherapy-referral-vs-discharge.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-writing-physiotherapy-referral-vs-discharge.html</id>
+    <published>2026-10-27T00:00:00Z</published>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="writing" label="Writing"/>
+    <summary>How physiotherapy referral and discharge letters differ in reader, purpose and emphasis, with one practice patient written up both ways.</summary>
+  </entry>
+  <entry>
+    <title>OET Reading Part A: scanning under time pressure</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-reading-part-a-scanning.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-reading-part-a-scanning.html</id>
+    <published>2026-10-27T00:00:00Z</published>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="reading" label="Reading"/>
+    <summary>A minute-by-minute plan for Reading Part A, with a worked scan path through four practice texts and the copying rules that cost easy marks.</summary>
+  </entry>
+  <entry>
+    <title>OET Reading Part C: inference and distractors</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-reading-part-c-inference.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-reading-part-c-inference.html</id>
+    <published>2026-10-27T00:00:00Z</published>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="reading" label="Reading"/>
+    <summary>A six-step elimination method for Reading Part C, with a practice paragraph showing why each wrong option fails.</summary>
+  </entry>
+  <entry>
+    <title>OET Listening Part A: note-taking and spelling</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-listening-part-a-note-taking.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-listening-part-a-note-taking.html</id>
+    <published>2026-10-27T00:00:00Z</published>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="listening" label="Listening"/>
+    <summary>Turn a consultation into accurate Part A notes: prediction, exact wording, spelling and abbreviations, with a worked practice extract.</summary>
+  </entry>
+  <entry>
+    <title>UK Pathway Guide 2026 for OET Healthcare Professionals</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/uk-pathway-guide.html"/>
+    <id>https://oetwithdrhesham.co.uk/uk-pathway-guide.html</id>
+    <published>2026-05-19T00:00:00Z</published>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="pathways" label="Pathway Guides"/>
+    <summary>NMC, GMC, GPhC and HCPC score requirements, steps, documents and common mistakes.</summary>
+  </entry>
+  <entry>
+    <title>USA Pathway Guide 2026 for Healthcare Professionals</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/usa-pathway-guide.html"/>
+    <id>https://oetwithdrhesham.co.uk/usa-pathway-guide.html</id>
+    <published>2026-05-19T00:00:00Z</published>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="pathways" label="Pathway Guides"/>
+    <summary>ECFMG, USMLE, NCLEX, FPGEC and NPTE routes, English test rules and state boards.</summary>
+  </entry>
+  <entry>
+    <title>Australia Pathway Guide for OET Candidates</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/australia-pathway-guide.html"/>
+    <id>https://oetwithdrhesham.co.uk/australia-pathway-guide.html</id>
+    <published>2026-05-19T00:00:00Z</published>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="pathways" label="Pathway Guides"/>
+    <summary>Ahpra, AMC, NMBA and APC steps for doctors, nurses, pharmacists and physiotherapists.</summary>
+  </entry>
+  <entry>
+    <title>OET Writing Tips 2026: 11 Expert Strategies for Healthcare Professionals</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-writing-tips.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-writing-tips.html</id>
+    <published>2026-05-18T00:00:00Z</published>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="writing" label="Writing"/>
+    <summary>Eleven strategies for letter type, reader, case-note selection, structure, tone and the final check before time.</summary>
+  </entry>
+  <entry>
+    <title>OET Speaking Tips 2026: 11 Expert Strategies for Healthcare Professionals</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-speaking-tips.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-speaking-tips.html</id>
+    <published>2026-05-18T00:00:00Z</published>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="speaking" label="Speaking"/>
+    <summary>Patient-friendly language, empathy, structure, signposting and time control in OET role-plays.</summary>
+  </entry>
+  <entry>
+    <title>OET Reading Tips 2026: 10 Expert Strategies for Healthcare Professionals</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-reading-tips.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-reading-tips.html</id>
+    <published>2026-05-18T00:00:00Z</published>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="reading" label="Reading"/>
+    <summary>Part A scanning, Part B and C distractors, inference and a weekly mock strategy.</summary>
+  </entry>
+  <entry>
+    <title>OET Writing Sample for Nurses: Discharge Letter</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-writing-sample-nursing.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-writing-sample-nursing.html</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="writing" label="Writing"/>
+    <summary>Discharge case notes, a model letter to the district nurse and a criterion-by-criterion explanation.</summary>
+  </entry>
+  <entry>
+    <title>OET Nursing Referral Letter Sample: Referral to a Specialist Nurse</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-writing-sample-nursing-referral.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-writing-sample-nursing-referral.html</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="writing" label="Writing"/>
+    <summary>Practice nurse case notes, a model referral to a diabetes specialist nurse and marking notes.</summary>
+  </entry>
+  <entry>
+    <title>OET Nursing Transfer Letter Sample: Hospital to Care Home</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-writing-sample-nursing-transfer.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-writing-sample-nursing-transfer.html</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="writing" label="Writing"/>
+    <summary>Post-stroke case notes, a model transfer letter to a care home nurse and marking notes.</summary>
+  </entry>
+  <entry>
+    <title>OET Writing Sample for Doctors: Referral Letter</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-writing-sample-medicine.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-writing-sample-medicine.html</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="writing" label="Writing"/>
+    <summary>GP case notes, a model referral letter to a cardiologist and an explanation of every selection decision.</summary>
+  </entry>
+  <entry>
+    <title>OET Medicine Discharge Letter Sample: Hospital to GP</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-writing-sample-medicine-discharge.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-writing-sample-medicine-discharge.html</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="writing" label="Writing"/>
+    <summary>Pneumonia case notes and a model discharge letter from hospital to the GP, decision by decision.</summary>
+  </entry>
+  <entry>
+    <title>OET Writing Sample for Pharmacists: Letter to a GP</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-writing-sample-pharmacy.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-writing-sample-pharmacy.html</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="writing" label="Writing"/>
+    <summary>Medication review case notes, a model letter to a GP and an explanation of every selection decision.</summary>
+  </entry>
+  <entry>
+    <title>OET Writing Sample for Physiotherapists: Discharge Letter</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-writing-sample-physiotherapy.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-writing-sample-physiotherapy.html</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="writing" label="Writing"/>
+    <summary>Knee replacement case notes, a model letter to a community physiotherapist and marking notes.</summary>
+  </entry>
+  <entry>
+    <title>OET Writing Sample for Occupational Therapists: Referral Letter</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-writing-sample-occupational-therapy.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-writing-sample-occupational-therapy.html</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="writing" label="Writing"/>
+    <summary>Home assessment case notes after a fall, a model referral letter and marking notes.</summary>
+  </entry>
+  <entry>
+    <title>OET Speaking Role-Play Cards for Nurses (With Model Answers)</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-speaking-role-play-nursing.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-speaking-role-play-nursing.html</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="speaking" label="Speaking"/>
+    <summary>Two nursing practice cards and a model role-play with marking notes, useful phrases and common mistakes.</summary>
+  </entry>
+  <entry>
+    <title>OET Speaking Role-Play Cards for Doctors (With Model Answers)</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-speaking-role-play-medicine.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-speaking-role-play-medicine.html</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="speaking" label="Speaking"/>
+    <summary>Two medicine practice cards and a model consultation with marking notes and useful phrases.</summary>
+  </entry>
+  <entry>
+    <title>OET Speaking Role-Play Cards for Pharmacists (With Model Answers)</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-speaking-role-play-pharmacy.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-speaking-role-play-pharmacy.html</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="speaking" label="Speaking"/>
+    <summary>Two pharmacy practice cards and a model role-play with marking notes and useful phrases.</summary>
+  </entry>
+  <entry>
+    <title>OET Speaking Role-Play Cards for Physiotherapists (With Model Answers)</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-speaking-role-play-physiotherapy.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-speaking-role-play-physiotherapy.html</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="speaking" label="Speaking"/>
+    <summary>Two physiotherapy practice cards and a model role-play with marking notes and useful phrases.</summary>
+  </entry>
+  <entry>
+    <title>OET vs IELTS: Which Test Should Nurses and Doctors Take?</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-vs-ielts.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-vs-ielts.html</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="exam-format" label="Exam Format"/>
+    <summary>OET's official IELTS comparison, format differences, which regulators accept each test and how to choose.</summary>
+  </entry>
+  <entry>
+    <title>OET Score Requirements by Regulator (2026)</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-score-requirements.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-score-requirements.html</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="pathways" label="Pathway Guides"/>
+    <summary>Minimum scores, sittings, OET@Home rules and validity for the NMC, GMC, Ahpra, NMBI, ECFMG and more.</summary>
+  </entry>
+  <entry>
+    <title>OET for ECFMG Certification: 2027 Pathways Guide</title>
+    <link rel="alternate" type="text/html" href="https://oetwithdrhesham.co.uk/oet-for-ecfmg.html"/>
+    <id>https://oetwithdrhesham.co.uk/oet-for-ecfmg.html</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
+    <category term="pathways" label="Pathway Guides"/>
+    <summary>Required OET Medicine scores for the 2027 ECFMG Pathways, the one-sitting rule and key deadlines.</summary>
+  </entry>
+</feed>
