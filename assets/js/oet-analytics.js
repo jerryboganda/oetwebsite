@@ -203,7 +203,10 @@
     if (!a) return;
     var href = a.getAttribute("href") || "";
     var card = a.closest && a.closest(".oet-pricing-card");
-    if (/wa\.me|api\.whatsapp\.com/.test(href)) {
+    if (a.hasAttribute("data-ios-download")) {
+      // iOS Beta download button (TestFlight). A click is intent, never a confirmed install.
+      track("ios_download_click", { placement: a.getAttribute("data-ios-download") || "", destination: /testflight\.apple\.com/.test(href) ? "testflight" : "app-store", page: location.pathname });
+    } else if (/wa\.me|api\.whatsapp\.com/.test(href)) {
       track("click_whatsapp", { link_text: nearestLabel(a), page: location.pathname, cta: a.getAttribute("data-oet-cta") || "" });
     } else if (/t\.me|telegram\.me/.test(href)) {
       track("telegram_click", { link_text: nearestLabel(a), page: location.pathname });

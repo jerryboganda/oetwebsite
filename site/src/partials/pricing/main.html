@@ -972,20 +972,24 @@
                         <p class="oet-app-card__desc">Official Android app/store download.</p>
                     </a>
 
-                    <!-- iPhone / iPad — Apple-approved install path (TestFlight now, App Store once live).
-                         Never a raw .ipa: iOS has no sideloading, so an ordinary candidate cannot
-                         install one. The web app's /get-app page resolves the current approved link. -->
-                    <a class="oet-app-card" data-platform="ios" href="https://app.oetwithdrhesham.co.uk/get-app" aria-label="Get the Candidates App for iPhone and iPad - TestFlight or App Store install">
+                    <!-- iOS App - public TestFlight beta (owner brief 3 Nov 2026). Same card, icon and layout as before;
+                         only the state, wording and destination changed. THIS href is the single place the iOS link lives
+                         (the download-button script below reads it): when Apple releases the App Store listing, change it here
+                         and the wording to "Available on the App Store" / "Download on the App Store", and remove the beta text.
+                         Never a raw .ipa: iOS has no sideloading. -->
+                    <a class="oet-app-card" data-platform="ios" data-ios-download="pricing_download_card" href="https://testflight.apple.com/join/trrrMBj8" aria-label="Download via TestFlight - iOS Beta, for iPhone and iPad. App Store release coming soon.">
                         <div class="oet-app-card__header">
                             <div class="oet-app-card__identity">
                                 <span class="oet-app-card__icon" aria-hidden="true">
                                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 1.01-2.87-.96.04-2.06.65-2.73 1.43-.58.67-1.1 1.74-.96 2.78 1.07.08 2.06-.59 2.68-1.34z"/></svg>
                                 </span>
-                                <h3 class="oet-app-card__title">iPhone / iPad</h3>
+                                <h3 class="oet-app-card__title">iOS App</h3>
                             </div>
-                            <span class="oet-app-card__badge" data-badge="ios">Recommended</span>
+                            <span class="oet-app-card__badge" data-badge="ios">iOS Beta</span>
                         </div>
-                        <p class="oet-app-card__desc">Install via TestFlight (public beta) or the App Store &mdash; the current approved link is on the app page.</p>
+                        <p class="oet-app-card__desc">Available via Apple TestFlight</p>
+                        <span class="oet-app-card__cta">Download via TestFlight</span>
+                        <p class="oet-app-card__note">For iPhone and iPad. App Store release coming soon.</p>
                     </a>
 
                     <!-- Windows -->
