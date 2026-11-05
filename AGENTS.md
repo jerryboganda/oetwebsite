@@ -216,6 +216,8 @@ partials/data and rebuild.**
   university, registration body + number, X handle, team names, workload hours for
   nursing / pharmacy / physio / allied, per-card grades for `/oet-results-data.html`.
 
+**Pricing and package display brief (owner, 5 Nov 2026):** "No Assessment Credits Required" is removed from Listening/Reading Starter, Standard and Pro (and must not return); every access period on a chip or benefit line is bold (`<strong>30 Days</strong> Access`; bundle cards via `accessHtml` in `assets/js/oet-bundles.js`); Listening Recalls (45), TutorBook (46) and the enrolled-student add-on (47) carry a bold `oet-pricing-hook` headline above the summary, "Lead - explanation" benefit lines with the lead bold and the access line last. The copy mirrors the web app (`lib/catalog-website-packages.ts`); edit both together. On mobile the sticky CTA bar clears content with `env(safe-area-inset-bottom)` in the body padding, `scroll-padding-bottom` and the contact bubble offset (`partials/pricing/head-extra.html`).
+
 ### Build & verify (always run after editing site/src)
 
 ```sh

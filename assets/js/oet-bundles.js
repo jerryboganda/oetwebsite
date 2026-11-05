@@ -237,6 +237,9 @@
 
   function monthsText(n) { return n + (n === 1 ? ' month' : ' months') + ' access'; }
 
+  // Access periods read bold on the cards (owner brief 5 Nov 2026): only the stored duration, never a changed word.
+  function accessHtml(text) { return esc(text).replace(/(\d+\s*(?:days?|months?|years?)|permanent)/gi, '<strong>$1</strong>'); }
+
   // The Ultimate tier is the premium tier: thick gold frame (CSS .is-ultimate) plus a permanent crown + ULTIMATE badge.
   // The crown is an INLINE SVG (the icon font is a subset and has no crown; an inline SVG also keeps the gold in
   // forced-colour and dark rendering). It replaces the generic Recommended/badge pill, which sits in the same slot.
@@ -303,7 +306,7 @@
       '<h3>' + esc(b.name) + '</h3>' +
       '<div class="oet-bundle-price"><strong data-field="price">' + money(b.price) + '</strong></div>' + upgradeValueHtml(b) +
       '<ul class="oet-bundle-chips" aria-label="Course summary">' + chips.map(function (c) {
-        return typeof c === 'string' ? '<li>' + esc(c) + '</li>' : '<li class="is-practice">' + esc(c.text) + '</li>';
+        return typeof c === 'string' ? '<li>' + accessHtml(c) + '</li>' : '<li class="is-practice">' + esc(c.text) + '</li>';
       }).join('') + '</ul>' +
       '<p class="oet-bundle-desc">' + rich(b.description) + '</p>' +
       '<ul class="oet-bundle-list" aria-label="What is included">' + lines + '</ul>' +
@@ -354,11 +357,11 @@
 
   // compact card for the profession course pages
   function renderMini(b, ctx) {
-    var more = ' &middot; ' + esc(practiceText(b)) + (b.tutorBookPermanent ? ' &middot; permanent TutorBook' : '');
+    var more = ' &middot; ' + esc(practiceText(b)) + (b.tutorBookPermanent ? ' &middot; <strong>permanent</strong> TutorBook' : '');
     return '<article class="oet-choose-card' + (b.recommended ? ' is-recommended' : '') + (isUltimate(b) ? ' is-ultimate' : '') + '" data-code="' + esc(b.code) + '" data-tier="' + b.tier + '">' +
       (isUltimate(b) ? ultimateBadgeHtml() : badgeHtml(b)) + '<h3>' + esc(b.name) + '</h3>' +
       '<div class="oet-choose-price"><strong data-field="price">' + money(b.price) + '</strong>' +
-      '<span>' + (b.accessMonths ? esc(monthsText(b.accessMonths)) : '') + more + '</span></div>' +
+      '<span>' + (b.accessMonths ? accessHtml(monthsText(b.accessMonths)) : '') + more + '</span></div>' +
       upgradeValueHtml(b) + '<p>' + rich(b.description) + '</p></article>';
   }
 
@@ -374,7 +377,7 @@
       return '<article class="oet-choose-card' + (p.recommended ? ' is-recommended' : '') + '" data-code="' + esc(p.anchor) + '">' +
         badgeHtml({ badge: p.recommended ? 'Recommended' : null, recommended: !!p.recommended }) + '<h3>' + esc(p.name) + '</h3>' +
         '<div class="oet-choose-price">' + (isNum(p.price) ? '<strong data-field="price">' + money(p.price) + '</strong>' : '') +
-        '<span>6 months access' + (p.tag && !p.recommended ? ' &middot; ' + esc(p.tag) + ' course' : '') + '</span></div>' +
+        '<span><strong>6 months</strong> access' + (p.tag && !p.recommended ? ' &middot; ' + esc(p.tag) + ' course' : '') + '</span></div>' +
         '<p>' + esc(p.summary) + '</p></article>';
     }).join('');
     return html || EMPTY;

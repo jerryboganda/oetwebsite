@@ -428,6 +428,8 @@
         .oet-pricing-card li.oet-li-primary { color: #191829; font-weight: 700; }
         .oet-pricing-card li.oet-li-primary::before { background: #0e9f6e; box-shadow: 0 5px 12px rgba(14,159,110,.24); }
         .oet-pricing-card li.oet-li-secondary { color: #33334a; font-weight: 600; }
+        .oet-pricing-card .oet-pricing-hook { margin: 0 0 6px; color: #191829; font-size: 16px; line-height: 1.35; }
+        .oet-pricing-card .oet-meta-chips strong, .oet-pricing-card li strong { color: #191829; font-weight: 800; }
         .oet-pricing-card li.oet-li-support { color: #6d6a7c; font-size: 13px; margin-bottom: 6px; }
         .oet-writing-proof { display: flex; flex-direction: column; gap: 2px; margin: 10px 0 0; color: #565768; }
         .oet-writing-proof strong { color: #191829; font-weight: 700; }
@@ -1382,7 +1384,7 @@
      "item": {
       "@type": "Product",
       "name": "TutorBook - First Edition 2026",
-      "description": "TutorBook is a 2026 OET preparation book built around 10 full recall-based exams covering Listening, Reading, Writing and Speaking. It brings together the main 2026 exam ideas and recall themes, with complete model answers, rationales, Listening scripts, Reading vocabulary support and additional recent recall-based exams already included as add-ons.",
+      "description": "10 Complete 2026 Recall-Based OET Exams Across All Four Sub-tests. Prepare with the complete TutorBook 2026: 10 full recall-based exams covering Listening, Reading, Writing and Speaking. Learn from model answers, detailed answer rationales and Listening scripts, build confidence with the 2026 Reading vocabulary dictionary and practise with the additional recent recall-based exams already included. Includes a personalised PDF and private update-channel access.",
       "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
       "brand": {
        "@type": "Brand",
@@ -1412,7 +1414,7 @@
      "item": {
       "@type": "Product",
       "name": "TutorBook - Add-on for Enrolled Students",
-      "description": "A TutorBook add-on available to candidates with an eligible active enrolment. TutorBook is a 2026 OET preparation book built around 10 full recall-based exams covering Listening, Reading, Writing and Speaking. It brings together the main 2026 exam ideas and recall themes, with complete model answers, rationales, Listening scripts, Reading vocabulary support and additional recent recall-based exams already included as add-ons.",
+      "description": "10 Complete 2026 Recall-Based OET Exams Across All Four Sub-tests. The full TutorBook 2026 at a special price for eligible enrolled students. Candidates with an eligible active enrolment receive the same complete book content and private updates as standalone purchasers, with no reduced-edition restrictions.",
       "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
       "brand": {
        "@type": "Brand",
@@ -1652,7 +1654,7 @@
      "item": {
       "@type": "Product",
       "name": "Listening Recalls",
-      "description": "Master your OET Listening with more than 2,500 essential words, including the latest additions and commonly tested spellings. Listen, repeat, and memorise each word to improve your accuracy and confidence.",
+      "description": "Master 2,500+ Essential OET Listening Words. Improve your OET Listening accuracy and spelling with 2,500+ recall-based words, British-accent audio and interactive practice. Check each word's historical recall frequency, take mini-tests, save favourites and automatically revisit the words you miss in spelling practice. New words are added regularly.",
       "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
       "brand": {
        "@type": "Brand",
@@ -2099,8 +2101,9 @@
             .oet-mcta-sub { font-size: 12px; font-weight: 800; background: #fff; border-radius: 999px; padding: 2px 7px; color: #6542ff; }
             .oet-mcta-app { background: linear-gradient(135deg, #6542ff, #7b61ff); color: #fff; margin-left: 8px; }
             .oet-mcta-app:hover, .oet-mcta-sami:hover { filter: brightness(1.04); }
-            body.oet-live-site { padding-bottom: 78px; }
-            .oet-contact-widget { bottom: 92px !important; }
+            html { scroll-padding-bottom: calc(92px + env(safe-area-inset-bottom)); }
+            body.oet-live-site { padding-bottom: calc(78px + env(safe-area-inset-bottom)); }
+            .oet-contact-widget { bottom: calc(92px + env(safe-area-inset-bottom)) !important; }
             .oet-pricing-section, .oet-pricing-faq, .oet-pricing-group-head { scroll-margin-top: 16px; }
         }
         @media (max-width: 379px) {
