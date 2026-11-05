@@ -105,6 +105,7 @@
           "badge": "Recommended",
           "tutorBookPermanent": true,
           "upsell": { "to": "ultimate", "label": "Upgrade to Ultimate", "note": "unlimited eligible website practice" },
+          "upgradeValue": { "from": "full-practice", "label": "Full OET Course", "note": "Now includes the 2026 TutorBook with 10 full recall-based exams." },
           "description": "Everything in the Full OET Course, plus the **2026 TutorBook of Recalls** with **10 full recall-based exams**, model answers and **permanent updates**.",
           "included": [
             { "key": "course" },

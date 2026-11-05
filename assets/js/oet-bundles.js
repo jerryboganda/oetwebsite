@@ -96,7 +96,7 @@
             name: t.name, price: t.price, currency: data.currency, accessMonths: t.accessMonths,
             recommended: !!t.recommended, badge: t.badge || null, description: t.description,
             tutorBookPermanent: !!t.tutorBookPermanent, included: resolveLines(data, t.included), upgrades: null,
-            upsell: t.upsell || null,
+            upsell: t.upsell || null, upgradeValue: t.upgradeValue || null,
           };
         });
       });
@@ -115,6 +115,13 @@
     });
     Object.keys(groups).forEach(function (g) {
       var list = groups[g].sort(function (a, b) { return a.tier - b.tier; });
+      list.forEach(function (b) {
+        b.upgradeDifference = null;
+        if (!b.upgradeValue) return;
+        for (var i = 0; i < list.length; i++) {
+          if (list[i].key === b.upgradeValue.from && b.price > list[i].price) b.upgradeDifference = round2(b.price - list[i].price);
+        }
+      });
       list.forEach(function (from, i) {
         if (from.upgrades) return;
         from.upgrades = [];
@@ -253,6 +260,12 @@
       '<span>' + money(hit.difference) + ' more' + (u.note ? ' &middot; ' + esc(u.note) : '') + '</span></p>';
   }
 
+  // The value of this tier over the one below it, shown at the top of the card (owner brief 1 Nov 2026: the Complete card makes the upgrade and the TutorBook immediately clear).
+  function upgradeValueHtml(b) {
+    if (!b.upgradeValue || !b.upgradeDifference) return '';
+    return '<p class="oet-bundle-valueup"><strong>' + money(b.upgradeDifference) + ' upgrade from the ' + esc(b.upgradeValue.label) + '</strong> ' + esc(b.upgradeValue.note) + '</p>';
+  }
+
   // Personal human service (Dr Hesham's letters, the private session with an Expert Tutor, the TutorBook, and the
   // Basic English gift / SAMI that only Ultimate carries) renders in bold weight so it reads as different from the
   // website assessments (owner brief v4, 29 Oct 2026). A website assessment is never presented as human-marked.
@@ -288,7 +301,7 @@
     return '<article class="oet-bundle-card' + (b.recommended ? ' is-recommended' : '') + (isUltimate(b) ? ' is-ultimate' : '') + '" id="bundle-' + esc(b.key) + '" data-key="' + esc(b.key) +
       '" data-code="' + esc(b.code) + '" data-tier="' + b.tier + '"' + (b.recommended ? ' data-recommended="true"' : '') + '>' + (isUltimate(b) ? ultimateBadgeHtml() : badgeHtml(b)) +
       '<h3>' + esc(b.name) + '</h3>' +
-      '<div class="oet-bundle-price"><strong data-field="price">' + money(b.price) + '</strong></div>' +
+      '<div class="oet-bundle-price"><strong data-field="price">' + money(b.price) + '</strong></div>' + upgradeValueHtml(b) +
       '<ul class="oet-bundle-chips" aria-label="Course summary">' + chips.map(function (c) {
         return typeof c === 'string' ? '<li>' + esc(c) + '</li>' : '<li class="is-practice">' + esc(c.text) + '</li>';
       }).join('') + '</ul>' +
@@ -346,7 +359,7 @@
       (isUltimate(b) ? ultimateBadgeHtml() : badgeHtml(b)) + '<h3>' + esc(b.name) + '</h3>' +
       '<div class="oet-choose-price"><strong data-field="price">' + money(b.price) + '</strong>' +
       '<span>' + (b.accessMonths ? esc(monthsText(b.accessMonths)) : '') + more + '</span></div>' +
-      '<p>' + rich(b.description) + '</p></article>';
+      upgradeValueHtml(b) + '<p>' + rich(b.description) + '</p></article>';
   }
 
   function renderMiniGrid(codes, bundles, ctx) {

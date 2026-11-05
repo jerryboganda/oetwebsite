@@ -226,6 +226,8 @@
 }
 .oet-bundle-line b { color: #3f2bb8; font-weight: 900; }
 .oet-bundle-list small { display: block; margin-top: 2px; color: #6b6c7d; font-size: 12.5px; line-height: 1.4; }
+.oet-bundle-valueup { margin: 0 0 14px; padding: 10px 12px; color: var(--bd-ink); background: #f0ebff; border-radius: 12px; font-size: 14px; line-height: 1.45; }
+.oet-bundle-valueup strong { display: block; color: #3f2bb8; font-weight: 900; }
 .oet-bundle-upgrade {
   margin: 14px 0 0;
   padding: 10px 12px;

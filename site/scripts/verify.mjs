@@ -677,7 +677,7 @@ if (distHtml['pricing.html']) {
       if (!card.includes('<span class="oet-chip-support">Course + Personal Support</span>')) fail('pricing.html: Package ' + n + ' needs the "Course + Personal Support" chip');
       if (!card.includes('<span class="oet-chip-classic">Classic ' + (prof ? 'Full' : 'Nursing') + ' Course</span>')) fail('pricing.html: Package ' + n + ' carries the Classic label');
       if (!card.includes('<p class="oet-classic-note">Additional Website Practice Exams Not Included</p>')) fail('pricing.html: Package ' + n + ' needs "Additional Website Practice Exams Not Included"');
-      if (!card.includes('<li>SAMI 24/7 learning companion included</li>')) fail('pricing.html: Package ' + n + ' must say SAMI is included');
+      if (!/<li[^>]*>SAMI 24\/7 learning companion included<\/li>/.test(card)) fail('pricing.html: Package ' + n + ' must say SAMI is included');
       if (prof) {
         const want = `<a class="oet-upsell__link" href="/pricing.html?profession=${prof}#bundle-full-practice" data-oet-poster="bundle-full-practice" data-profession="${prof}">Enhance your preparation with website practice</a>`;
         if (!card.includes(want) || !card.includes(`<span class="oet-tier-price" data-tier="full-practice" data-profession="${prof}">&pound;140</span>`)) fail('pricing.html: Package ' + n + ' must link the Full OET Course + Website Practice card of its profession and quote that tier price (GBP 140)');
@@ -742,6 +742,11 @@ if (distHtml['pricing.html']) {
   for (const page of ['pricing.html', 'index.html', 'service.html', 'oet-course-for-doctors.html', 'oet-course-for-nurses.html', 'oet-course-for-pharmacists.html', 'oet-course-for-physiotherapists.html', 'oet-for-allied-health.html', 'oet-course-for-dentists.html', 'oet-mock-test.html', 'oet-speaking-practice-online.html']) {
     const copy = ((distHtml[page] || '').match(/<main[\s\S]*<\/main>/) || [''])[0].replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ');
     if (/\bAI\b/.test(copy)) fail(`${page}: the term "AI" must not appear in candidate-facing copy (owner 30 Oct 2026)`);
+  }
+
+  // Website Writing Assessment wording (owner brief 1 Nov 2026): within 15 minutes, never the old review-window, quality-review or mentor promises.
+  for (const [page, html] of Object.entries(distHtml)) {
+    if (/minimum 15|review window|second quality review|human mentor review/i.test(html)) fail(`${page}: the retired Writing assessment wording is back (use "Detailed Writing Assessment Within 15 Minutes")`);
   }
 
   // Arabic pages carry no bundle cards, so no English-only tier name or Basic English gift on the 165 tier can sit there

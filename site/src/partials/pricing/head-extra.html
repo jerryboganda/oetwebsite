@@ -424,6 +424,20 @@
             font-weight: 900;
             line-height: 1;
         }
+        /* Package card visual hierarchy (owner brief 1 Nov 2026): one treatment on every card; the levels mirror the web app's lib/catalog-benefits.ts. */
+        .oet-pricing-card li.oet-li-primary { color: #191829; font-weight: 700; }
+        .oet-pricing-card li.oet-li-primary::before { background: #0e9f6e; box-shadow: 0 5px 12px rgba(14,159,110,.24); }
+        .oet-pricing-card li.oet-li-secondary { color: #33334a; font-weight: 600; }
+        .oet-pricing-card li.oet-li-support { color: #6d6a7c; font-size: 13px; margin-bottom: 6px; }
+        .oet-writing-proof { display: flex; flex-direction: column; gap: 2px; margin: 10px 0 0; color: #565768; }
+        .oet-writing-proof strong { color: #191829; font-weight: 700; }
+        /* Recommended / Best Value on a featured card is the clear purple label; Standard in a skill group stays subtle and never gold. */
+        .oet-pricing-card.is-featured .oet-pricing-badges span:first-child { color: #fff; background: #6542ff; }
+        .oet-pricing-card.is-recommended-subtle { border-color: rgba(101,66,255,.42); background: #fbfaff; }
+        /* OET Mastery: purple card with a thin gold top accent, deliberately not the Ultimate gold frame. */
+        .oet-pricing-card.is-mastery { background: #f3efff; border-color: rgba(101,66,255,.48); box-shadow: 0 20px 52px rgba(101,66,255,.16); }
+        .oet-pricing-card.is-mastery::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; background: #D4AF37; }
+        .oet-card-ribbon { color: #5133d8; font-size: 12px; font-weight: 900; letter-spacing: .06em; margin-bottom: 6px; }
         .oet-best-for {
             color: #342f4f;
             background: linear-gradient(135deg, #f5f1ff, #eefcf8);
@@ -1428,7 +1442,7 @@
      "item": {
       "@type": "Product",
       "name": "Quick Check",
-      "description": "Get a focused picture of your OET preparation with 5 flexible assessment attempts for Writing letters, Speaking cards or any combination of both, plus 3 Listening and 3 Reading practice exams. Every submitted Writing letter is assessed using Dr Ahmed Hesham's lectures and Rulebook, with a second quality review; detailed Writing assessment is typically released after a minimum 15-minute review window. Human mentor review is available when required or requested. Practise Speaking through live, two-way role-plays with a virtual patient speaking natural, native-like English and receive detailed feedback.",
+      "description": "A quick, balanced check across all four OET skills. The 5 attempts are shared: divide them between Writing and Speaking in any combination (5 in total, not 5 per skill). Listening and Reading exams are separate.",
       "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
       "brand": {
        "@type": "Brand",
@@ -1458,7 +1472,7 @@
      "item": {
       "@type": "Product",
       "name": "Exam Prep Pro",
-      "description": "Build a complete OET practice routine with 15 flexible Writing or Speaking assessment attempts, usable across letters and immersive live virtual-patient role-play cards with natural, native-like dialogue. Every Writing letter is assessed using Dr Ahmed Hesham's lectures and exclusive Rulebook, with a second quality review and detailed feedback aligned with the latest published OET Writing criteria. Detailed Writing assessment is typically released after a minimum 15-minute review window. Human mentor review is available when required or requested. Includes 6 Listening and 6 Reading practice exams.",
+      "description": "A complete practice routine across all four OET skills. The 15 attempts are shared: divide them between Writing and Speaking in any combination (15 in total, not 15 per skill). Listening and Reading exams are separate.",
       "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
       "brand": {
        "@type": "Brand",
@@ -1548,7 +1562,7 @@
      "item": {
       "@type": "Product",
       "name": "Listening Starter",
-      "description": "A short, focused introduction to OET Listening practice. Complete 3 practice exams and check your answers automatically against the answer key. Review your results without using assessment credits.",
+      "description": "3 OET Listening practice exams, checked instantly against the answer key.",
       "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
       "brand": {
        "@type": "Brand",
@@ -1578,7 +1592,7 @@
      "item": {
       "@type": "Product",
       "name": "Listening Standard",
-      "description": "Build consistency with 6 OET Listening practice exams. Each exam is checked automatically against the answer key, giving you a straightforward way to practise and review performance across a longer access period.",
+      "description": "6 OET Listening practice exams, checked instantly against the answer key.",
       "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
       "brand": {
        "@type": "Brand",
@@ -1608,7 +1622,7 @@
      "item": {
       "@type": "Product",
       "name": "Listening Pro",
-      "description": "Keep practising OET Listening throughout your 6-month access period without a fixed exam limit. Answer checking is included automatically, so you can work through more practice and review your performance at your own pace.",
+      "description": "Unlimited OET Listening practice for 6 months, checked instantly against the answer key.",
       "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
       "brand": {
        "@type": "Brand",
@@ -1668,7 +1682,7 @@
      "item": {
       "@type": "Product",
       "name": "Reading Starter",
-      "description": "A short, focused introduction to OET Reading practice. Complete 3 practice exams and check your answers automatically against the answer key. Review your results without using assessment credits.",
+      "description": "3 OET Reading practice exams, checked instantly against the answer key.",
       "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
       "brand": {
        "@type": "Brand",
@@ -1698,7 +1712,7 @@
      "item": {
       "@type": "Product",
       "name": "Reading Standard",
-      "description": "Build consistency with 6 OET Reading practice exams. Each exam is checked automatically against the answer key, giving you a straightforward way to practise and review performance across a longer access period.",
+      "description": "6 OET Reading practice exams, checked instantly against the answer key.",
       "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
       "brand": {
        "@type": "Brand",
@@ -1728,7 +1742,7 @@
      "item": {
       "@type": "Product",
       "name": "Reading Pro",
-      "description": "Keep practising OET Reading throughout your 6-month access period without a fixed exam limit. Answer checking is included automatically, so you can work through more practice and review your performance at your own pace.",
+      "description": "Unlimited OET Reading practice for 6 months, checked instantly against the answer key.",
       "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
       "brand": {
        "@type": "Brand",
@@ -1758,7 +1772,7 @@
      "item": {
       "@type": "Product",
       "name": "Writing Starter",
-      "description": "Get started with focused practice through 3 complete OET Writing letter assessments. Every letter is assessed using Dr Ahmed Hesham's lectures and exclusive Rulebook, in line with the latest published OET Writing criteria, with a second quality review. Human mentor review is available when required or requested. Detailed assessment is typically released after a minimum 15-minute review window, with clear explanations of your mistakes and practical steps to improve your next letter.",
+      "description": "3 complete OET Writing letters, each assessed using Dr Ahmed Hesham's Exclusive OET Rulebook with detailed, criteria-aligned feedback from the time a completed letter is submitted.",
       "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
       "brand": {
        "@type": "Brand",
@@ -1788,7 +1802,7 @@
      "item": {
       "@type": "Product",
       "name": "Writing Standard",
-      "description": "Build stronger Writing consistency through 8 complete OET Writing letter assessments. Every letter is assessed using Dr Ahmed Hesham's lectures and exclusive Rulebook, in line with the latest published OET Writing criteria, with a second quality review. Human mentor review is available when required or requested. Detailed assessment is typically released after a minimum 15-minute review window, with clear explanations of your mistakes and practical steps to improve your next letter.",
+      "description": "8 complete OET Writing letters, each assessed using Dr Ahmed Hesham's Exclusive OET Rulebook with detailed, criteria-aligned feedback from the time a completed letter is submitted.",
       "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
       "brand": {
        "@type": "Brand",
@@ -1818,7 +1832,7 @@
      "item": {
       "@type": "Product",
       "name": "Writing Pro",
-      "description": "Take your Writing preparation further through 15 complete OET Writing letter assessments. Every letter is assessed using Dr Ahmed Hesham's lectures and exclusive Rulebook, in line with the latest published OET Writing criteria, with a second quality review. Human mentor review is available when required or requested. Detailed assessment is typically released after a minimum 15-minute review window, with clear explanations of your mistakes and practical steps to improve your next letter.",
+      "description": "15 complete OET Writing letters, each assessed using Dr Ahmed Hesham's Exclusive OET Rulebook with detailed, criteria-aligned feedback from the time a completed letter is submitted.",
       "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
       "brand": {
        "@type": "Brand",
@@ -1848,7 +1862,7 @@
      "item": {
       "@type": "Product",
       "name": "Speaking Starter",
-      "description": "Step into the OET Speaking room before exam day with 3 live, interactive role-play cards. Speak with a responsive virtual patient in natural, native-like English. Ask questions, build rapport, explore patient concerns and guide the consultation while the patient responds in real time - not through a one-way recording. After every role-play, review your transcript and detailed assessment aligned with published OET Speaking criteria, so you know exactly what to practise next.",
+      "description": "3 live, two-way role-plays with a responsive virtual patient, followed by a transcript and detailed OET Speaking feedback.",
       "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
       "brand": {
        "@type": "Brand",
@@ -1878,7 +1892,7 @@
      "item": {
       "@type": "Product",
       "name": "Speaking Standard",
-      "description": "Bring the OET Speaking room into your preparation with 8 live, interactive role-play cards. Hold dynamic, two-way conversations with a lifelike virtual patient speaking natural, native-like English. Practise taking the lead, demonstrating empathy, signposting, explaining clinical plans and responding confidently when a patient asks something unexpected. Each session ends with a detailed transcript and criterion-based assessment to help you strengthen your next conversation.",
+      "description": "8 live, two-way role-plays with a responsive virtual patient, followed by a transcript and detailed OET Speaking feedback.",
       "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
       "brand": {
        "@type": "Brand",
@@ -1908,7 +1922,7 @@
      "item": {
       "@type": "Product",
       "name": "Speaking Pro",
-      "description": "Immerse yourself in high-intensity OET Speaking preparation with 15 live, interactive role-plays. Step into realistic clinical scenarios with a responsive virtual patient who listens, reacts and speaks natural, native-like English. Practise thinking on your feet, building patient trust and steering the consultation in an exam-style setting. After each card, study your full transcript and detailed OET-criteria assessment to identify strengths, close performance gaps and focus your next practice session.",
+      "description": "15 live, two-way role-plays with a responsive virtual patient, followed by a transcript and detailed OET Speaking feedback.",
       "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-pricing.png",
       "brand": {
        "@type": "Brand",
