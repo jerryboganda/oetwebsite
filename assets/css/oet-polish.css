@@ -366,3 +366,295 @@ body.oet-live-site .vl-offcanvas-menu ul li.has-dropdown > .vl-mega-menu {
 body.oet-live-site .vl-offcanvas-menu ul li.active > .vl-menu-close i {
     transform: rotate(90deg);
 }
+
+/* --------------------------------------------------------------------------
+   13. Data tables never cut off
+   body{overflow-x:clip} silently cropped wide tables at tablet widths (the
+   8-column Arabic score table, the UK/USA regulator tables at 1024px).
+   Wrapped tables scroll inside their wrapper; bare tables may break a long
+   word rather than push past their column.
+   -------------------------------------------------------------------------- */
+body.oet-live-site .pathway-table-wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+}
+
+body.oet-live-site :not(.pathway-table-wrap) > .pathway-table td,
+body.oet-live-site :not(.pathway-table-wrap) > .pathway-table th {
+    overflow-wrap: anywhere;
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+    body.oet-live-site .pathway-table td,
+    body.oet-live-site .pathway-table th {
+        padding: 12px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   14. Button accent circle
+   The theme parks a 40px accent circle at the start of .vl-primary-btn /
+   .primary-btn-10, right under the first letter, which read as a smudge
+   (and stays put on touch screens, where hover never fires). At rest it now
+   sits behind the trailing arrow; hover still floods the whole button.
+   -------------------------------------------------------------------------- */
+body.oet-live-site .vl-primary-btn:not(:hover)::after,
+body.oet-live-site .primary-btn-10:not(:hover)::after {
+    /* !important: page-level rules (e.g. .blog__wrap10 .blg-btn10) pin left/top */
+    left: auto !important;
+    right: 8px !important;
+    top: calc(50% - 20px) !important;
+}
+
+body.oet-live-site .vl-primary-btn:not(:hover)::after {
+    right: 10px !important;
+}
+
+/* Hover grows the circle from the arrow instead of jumping to the left edge first */
+body.oet-live-site .vl-primary-btn:hover::after,
+body.oet-live-site .primary-btn-10:hover::after {
+    left: auto !important;
+    right: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   15. Phone layout (home + service pages)
+   Measured at 320-767px: counters stacked one per row with 30px gaps; image
+   cards kept the desktop 300px crop box around a 171px image (130px blank);
+   the intro-video still was cropped to 350px, cutting its own headline; the
+   icon cards ran 9-line paragraphs in 165px columns.
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+    .counterbox__grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .counterbox__grid .counterbox__single {
+        margin-bottom: 0 !important;
+    }
+
+    .counterbox__single .title {
+        font-size: clamp(1.4rem, 6.4vw, 2rem);
+        line-height: 1.1;
+        padding-bottom: 6px !important;
+    }
+
+    .counterbox__single p {
+        font-size: 13px;
+        line-height: 1.35;
+    }
+
+    .service__box10-thumb,
+    .service__box10-thumb img {
+        height: auto;
+    }
+
+    .service__box10-thumb img {
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+    }
+
+    .vl-work-thumb-three {
+        margin-bottom: 40px;
+    }
+
+    .vl-work-thumb-three img {
+        height: auto;
+    }
+}
+
+/* Icon cards: one column, icon beside the text (specificity beats the
+   homepage's inline 2-column grid). */
+@media (max-width: 575.98px) {
+    html body.oet-live-site .oet-services-tone .oet-service-icon-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    html body.oet-live-site .oet-services-tone .oet-service-icon-grid > [class*="col-"]:last-child {
+        grid-column: auto;
+    }
+
+    html body.oet-live-site .oet-services-tone .oet-service-icon-grid .service__box10 {
+        display: grid;
+        grid-template-columns: 48px minmax(0, 1fr);
+        column-gap: 14px;
+        align-items: start;
+        padding: 16px;
+    }
+
+    html body.oet-live-site .oet-services-tone .oet-service-icon-grid .service__box10-icon span {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 0;
+        font-size: 20px;
+        border-radius: 14px;
+    }
+
+    html body.oet-live-site .oet-services-tone .oet-service-icon-grid .service__box10-content .title {
+        padding-bottom: 6px;
+    }
+
+    html body.oet-live-site .oet-services-tone .oet-service-icon-grid .service__box10-content .para {
+        font-size: 15px;
+        line-height: 1.5;
+        padding-bottom: 8px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   16. Footer
+   Top Links (16 items) sat in a 2/12 column, so nearly every link wrapped to
+   two lines and the column ran ~450px taller than its neighbours. It now has
+   4/12 and two balanced columns. The legal row used absolutely-placed "|"
+   bars that dangled at line ends once it wrapped; it is a wrapping flex row
+   with real gaps instead. Socials stay on one row down to 320px.
+   -------------------------------------------------------------------------- */
+.vl-footer-10 .oet-footer-toplinks .vl-footer-menu ul {
+    columns: 2;
+    column-gap: 24px;
+}
+
+.vl-footer-10 .oet-footer-toplinks .vl-footer-menu ul li {
+    break-inside: avoid;
+}
+
+.vl-footer-10 .social-area-footer-10 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.vl-footer-10 .social-area-footer-10 a {
+    margin-right: 0;
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+    .vl-footer-10 .social-area-footer-10 {
+        gap: 8px;
+    }
+
+    .vl-footer-10 .social-area-footer-10 a {
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+    }
+}
+
+.vl-footer-10 .vl-copy-right-menu-10 ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: flex-end;
+    gap: 6px 18px;
+}
+
+.vl-footer-10 .vl-copy-right-menu ul li,
+.vl-footer-10 .vl-copy-right-menu ul li:last-child {
+    margin: 0;
+    padding: 0;
+}
+
+.vl-footer-10 .vl-copy-right-menu ul li::after {
+    display: none;
+}
+
+@media (max-width: 767.98px) {
+    .vl-footer-10 .vl-footer-copy-right-widget .para {
+        text-align: center;
+    }
+
+    .vl-footer-10 .vl-copy-right-menu-10 ul {
+        justify-content: center;
+    }
+
+    /* Room for the floating back-to-top and chat buttons, which otherwise sit
+       on top of the last legal links. */
+    footer.vl-footer-10 {
+        padding-bottom: 88px;
+    }
+
+    .vl-footer-10 .social-area-footer-10 a {
+        width: 44px;
+        height: 44px;
+        line-height: 44px;
+    }
+}
+
+@media (max-width: 359.98px) {
+    .vl-footer-10 .social-area-footer-10 {
+        gap: 6px;
+    }
+
+    .vl-footer-10 .social-area-footer-10 a {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .vl-footer-10 .oet-footer-toplinks .vl-footer-menu ul {
+        columns: 1;
+    }
+}
+
+/* Footer and legal links get a finger-sized hit area without changing the
+   visual rhythm (padding is offset by a smaller margin). */
+@media (pointer: coarse) {
+    .vl-footer-10 .vl-footer-menu ul li a {
+        padding: 6px 0;
+        margin-bottom: 1px;
+    }
+
+    .vl-footer-10 .vl-copy-right-menu-10 ul li a {
+        display: inline-block;
+        padding: 8px 0;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   17. "How OET coaching works" step cards
+   The theme's offset outline frame (::after, 75% / 160px tall) is drawn for
+   the staggered 3-up desktop row. Stacked on phones/tablets it cut straight
+   through each card, so it is dropped there.
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+    .workitem__three::after {
+        display: none;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   18. Data tables on phones
+   oet-pathway.css made every cell nowrap and squeezed column one to 140px,
+   so column one broke mid-word ("physiothera-pist") while the rest ran off
+   screen unwrapped. Cells wrap normally; tables with 3+ columns keep a
+   readable column width and scroll sideways inside their own box.
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+    body.oet-live-site .pathway-table {
+        white-space: normal;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    body.oet-live-site .pathway-table td,
+    body.oet-live-site .pathway-table th {
+        white-space: normal;
+        min-width: 0;
+        max-width: none;
+        padding: 12px;
+        overflow-wrap: break-word;
+    }
+
+    body.oet-live-site .pathway-table:has(tr > :nth-child(3)) td,
+    body.oet-live-site .pathway-table:has(tr > :nth-child(3)) th {
+        min-width: 150px;
+    }
+
+    body.oet-live-site .pathway-table:has(tr > :nth-child(3)) td:first-child,
+    body.oet-live-site .pathway-table:has(tr > :nth-child(3)) th:first-child {
+        min-width: 120px;
+    }
+}

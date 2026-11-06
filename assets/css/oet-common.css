@@ -653,8 +653,9 @@ footer.vl-footer-10{margin-top:0;padding-top:40px}
    footer comment above): the vendor's own 20-70px bottom padding on
    .cta-wrap7 left a few px of real overlap at several widths once the
    footer's overlap trick was removed. One generous, width-independent
-   buffer replaces every vendor breakpoint value at once. */
-.cta-wrap7{padding-bottom:220px}
+   buffer replaces every vendor breakpoint value at once (100px = the
+   section rhythm; 220px read as an empty band above the footer). */
+.cta-wrap7{padding-bottom:100px}
 
 .vl-footer-10 .row>.mb-30{margin-bottom:18px}
 .vl-footer-10 .vl-footer-widget-title{font-size:18px;margin-bottom:16px}
@@ -733,8 +734,8 @@ body.oet-live-site .blog-padding-bottom10 .blog__wrap10{
   padding-right:clamp(16px,2vw,32px);
 }
 
-/* Hamburger/offcanvas across the whole 992-1499 band (replaces inline menu) */
-@media (min-width:992px) and (max-width:1499.98px){
+/* Hamburger/offcanvas across the 992-1199 band (replaces inline menu) */
+@media (min-width:992px) and (max-width:1199.98px){
   #vl-header-sticky .vl-header-action-item{
     display:flex!important;
     align-items:center;
@@ -779,8 +780,8 @@ body.oet-live-site .blog-padding-bottom10 .blog__wrap10{
   #vl-header-sticky .vl-header-right{display:none!important}
 }
 
-/* Inline menu from 1500px up: tiered, verified-fit type scale */
-@media (min-width:1500px){
+/* Inline menu from 1200px up: tiered, verified-fit type scale */
+@media (min-width:1200px){
   #vl-header-sticky .header-border-bottom>.row>[class*="col-"]{
     flex:0 0 auto;
     width:auto;
@@ -852,6 +853,14 @@ body.oet-live-site .blog-padding-bottom10 .blog__wrap10{
   }
   /* Socials only where they truly fit; duplicate of topbar/footer links */
   #vl-header-sticky .social-area-headerTop{display:none!important}
+}
+/* 1200-1499 laptops: the same 8 items in a tighter scale (measured fit: ~860px of menu at 1200w) */
+@media (min-width:1200px) and (max-width:1499.98px){
+  #vl-header-sticky .vl-main-menu nav>ul{column-gap:clamp(0px,0.9vw - 10px,4px)}
+  #vl-header-sticky .vl-main-menu nav>ul>li>a{font-size:clamp(13.5px,0.25vw + 10.5px,14.5px);padding:8px clamp(5px,0.6vw - 2px,8px);gap:4px}
+  #vl-header-sticky .vl-main-menu nav>ul>li.oet-nav-cta-item{margin-left:6px}
+  #vl-header-sticky .vl-main-menu nav>ul>li>a.oet-header-cta-btn{font-size:13px!important;padding:8px 13px!important}
+  #vl-header-sticky .vl-logo img{max-width:150px}
 }
 @media (min-width:1750px){
   #vl-header-sticky .social-area-headerTop{display:flex!important;gap:5px}

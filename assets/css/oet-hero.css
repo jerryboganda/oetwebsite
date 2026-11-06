@@ -715,7 +715,7 @@
     }
 
     .oet-hero__badge-sub {
-        font-size: 10.5px;
+        font-size: 11px;
     }
 
     /* Below his face line: the head occupies roughly the top 30% of the cutout. */
@@ -734,7 +734,7 @@
     }
 
     .oet-hero__stat-label {
-        font-size: 11px;
+        font-size: 12px;
     }
 }
 
@@ -803,7 +803,7 @@
     }
 
     .oet-hero__stat-label {
-        font-size: 11px;
+        font-size: 12px;
     }
 
     /* Portrait keeps room on both flanks so the floating proof never overlaps
@@ -843,7 +843,7 @@
     }
 
     .oet-hero__badge-sub {
-        font-size: 10px;
+        font-size: 11px;
     }
 
     .oet-hero__stars {
@@ -1091,8 +1091,16 @@ html.oet-lite-motion .oet-hero__bloom {
         align-items: stretch;
     }
 
+    /* In a column the 260px flex-basis became a 260px-tall body, leaving a
+       gap above the button. */
+    .oet-hero__placement-body {
+        flex: 0 1 auto;
+    }
+
     .oet-hero__placement-cta {
         justify-content: center;
         width: 100%;
+        white-space: normal;
+        text-align: center;
     }
 }

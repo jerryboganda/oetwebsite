@@ -698,8 +698,9 @@
         @media (max-width: 767.98px) {
             .oet-candidates-apps { padding: 60px 0 70px; }
             .oet-candidates-apps__inner { padding: 0 16px; }
-            .oet-candidates-apps__grid { grid-template-columns: 1fr; gap: 14px; margin-top: 24px; }
+            .oet-candidates-apps__grid { grid-template-columns: minmax(0, 1fr); gap: 14px; margin-top: 24px; }
             .oet-app-card { padding: 18px 20px; }
+            .oet-app-card__header { flex-wrap: wrap; }
             .oet-candidates-apps__actions { flex-direction: column; width: 100%; gap: 12px; }
             .oet-btn-download-primary, .oet-btn-open-app { width: 100%; }
         }
@@ -2085,4 +2086,36 @@
             .oet-pricing-section, .oet-pricing-faq, .oet-pricing-group-head { scroll-margin-top: 16px; }
         }
         @media (prefers-reduced-motion: reduce) { .oet-price-nav a, .oet-pfaq summary i { transition: none; } }
+    </style>
+    <style>
+        /* Phones: each of the 48 cards listed every inclusion (~1,300px a card,
+           ~53,000px of page). Collapsed cards keep price, tags, the first three
+           inclusions and "Best for"; the toggle (added by the pricing tail
+           script) reveals the rest in place. Content stays in the DOM. */
+        .oet-pricing-more { display: none; }
+        /* "Hover to pause" means nothing on a touch screen */
+        @media (hover: none) { .oet-hover-only { display: none; } }
+        @media (max-width: 767.98px) {
+            .oet-pricing-card.is-collapsible:not(.is-expanded) .oet-pricing-desc,
+            .oet-pricing-card.is-collapsible:not(.is-expanded) > ul > li:nth-child(n+4) { display: none; }
+            .oet-pricing-more {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                align-self: flex-start;
+                min-height: 44px;
+                margin: -6px 0 12px;
+                padding: 0;
+                border: 0;
+                background: none;
+                color: #5133d8;
+                font: inherit;
+                font-size: 14px;
+                font-weight: 800;
+                cursor: pointer;
+            }
+            .oet-pricing-more i { transition: transform .2s ease; font-size: 12px; }
+            .oet-pricing-card.is-expanded .oet-pricing-more i { transform: rotate(180deg); }
+            .oet-pricing-more:focus-visible { outline: 3px solid #6542ff; outline-offset: 2px; border-radius: 6px; }
+        }
     </style>

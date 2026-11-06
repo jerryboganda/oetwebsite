@@ -503,9 +503,16 @@ body.sal-disabled [data-sal|=slide]{
     grid-template-columns:1fr!important;
   }
 
-  .oet-cc button{
+  .oet-cc button:not(.oet-cc-close){
     min-height:44px!important;
     width:100%;
+  }
+
+  /* The close button is a 44px circle, not a full-width bar beside the title */
+  .oet-cc .oet-cc-close{
+    flex:0 0 44px;
+    width:44px;
+    height:44px;
   }
 
   .success-hero{
@@ -569,12 +576,11 @@ body.sal-disabled [data-sal|=slide]{
   /* "Get OET-Ready" CTA banner, immediately above the footer on the home/about/
      contact pages: the desktop 342px crop height is far taller than a 2:1 image
      needs at phone widths, crowding the footer below it. Let it scale by its
-     real aspect ratio instead, and add clear breathing room before the footer.
-     The image's rendered height grows with viewport width (locked 2:1 ratio),
-     right up to the 767.98px edge of this block, so the buffer has to clear
-     the tallest case in this range, not just small phones (2026-09-11 §1 fix). */
+     real aspect ratio instead. The image is in normal flow, so it pushes the
+     footer down by itself; the old 260px buffer only left a ~280px empty band
+     (check-cta-overlap.mjs guards the no-overlap rule). */
   .cta-wrap7{
-    padding-bottom:260px;
+    padding-bottom:40px;
   }
 
   .cta-large-thumb-10 img{
