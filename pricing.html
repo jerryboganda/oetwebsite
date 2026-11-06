@@ -859,8 +859,9 @@
         @media (max-width: 767.98px) {
             .oet-candidates-apps { padding: 60px 0 70px; }
             .oet-candidates-apps__inner { padding: 0 16px; }
-            .oet-candidates-apps__grid { grid-template-columns: 1fr; gap: 14px; margin-top: 24px; }
+            .oet-candidates-apps__grid { grid-template-columns: minmax(0, 1fr); gap: 14px; margin-top: 24px; }
             .oet-app-card { padding: 18px 20px; }
+            .oet-app-card__header { flex-wrap: wrap; }
             .oet-candidates-apps__actions { flex-direction: column; width: 100%; gap: 12px; }
             .oet-btn-download-primary, .oet-btn-open-app { width: 100%; }
         }
@@ -2387,6 +2388,36 @@
         }
         @media (prefers-reduced-motion: reduce) { .oet-price-nav a, .oet-pfaq summary i { transition: none; } }
     </style>
+    <style>
+        /* Phones: each of the 48 cards listed every inclusion (~1,300px a card,
+           ~53,000px of page). Collapsed cards keep price, tags, the first three
+           inclusions and "Best for"; the toggle (added by the pricing tail
+           script) reveals the rest in place. Content stays in the DOM. */
+        .oet-pricing-more { display: none; }
+        @media (max-width: 767.98px) {
+            .oet-pricing-card.is-collapsible:not(.is-expanded) .oet-pricing-desc,
+            .oet-pricing-card.is-collapsible:not(.is-expanded) > ul > li:nth-child(n+4) { display: none; }
+            .oet-pricing-more {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                align-self: flex-start;
+                min-height: 44px;
+                margin: -6px 0 12px;
+                padding: 0;
+                border: 0;
+                background: none;
+                color: #5133d8;
+                font: inherit;
+                font-size: 14px;
+                font-weight: 800;
+                cursor: pointer;
+            }
+            .oet-pricing-more i { transition: transform .2s ease; font-size: 12px; }
+            .oet-pricing-card.is-expanded .oet-pricing-more i { transform: rotate(180deg); }
+            .oet-pricing-more:focus-visible { outline: 3px solid #6542ff; outline-offset: 2px; border-radius: 6px; }
+        }
+    </style>
 
 </head>
 <body class="oet-live-site">
@@ -3881,6 +3912,37 @@
             });
 
             if (helper && scope) helper.attach(heroSwiper, scope);
+        });
+    </script>
+
+    <script id="oet-pricing-collapse-script">
+        // Phones only (CSS hides the toggle at 768px+): collapse long package cards.
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.oet-pricing-card').forEach(function (card) {
+                var list = card.querySelector(':scope > ul');
+                var hidden = (list ? Math.max(list.children.length - 3, 0) : 0) + (card.querySelector('.oet-pricing-desc') ? 1 : 0);
+                if (!list || !hidden) return;
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'oet-pricing-more';
+                btn.setAttribute('aria-expanded', 'false');
+                var label = document.createElement('span');
+                var more = list.children.length > 3 ? 'See all ' + list.children.length + ' inclusions' : 'See full details';
+                label.textContent = more;
+                var icon = document.createElement('i');
+                icon.className = 'fa-solid fa-angle-down';
+                icon.setAttribute('aria-hidden', 'true');
+                btn.append(label, icon);
+                btn.addEventListener('click', function () {
+                    var open = card.classList.toggle('is-expanded');
+                    btn.setAttribute('aria-expanded', String(open));
+                    label.textContent = open ? 'Show less' : more;
+                    // collapsing a long card must not strand the reader below it
+                    if (!open && card.getBoundingClientRect().top < 0) card.scrollIntoView({ block: 'start' });
+                });
+                list.after(btn);
+                card.classList.add('is-collapsible');
+            });
         });
     </script>
 
