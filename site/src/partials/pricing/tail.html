@@ -60,6 +60,37 @@
         });
     </script>
 
+    <script id="oet-pricing-collapse-script">
+        // Phones only (CSS hides the toggle at 768px+): collapse long package cards.
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.oet-pricing-card').forEach(function (card) {
+                var list = card.querySelector(':scope > ul');
+                var hidden = (list ? Math.max(list.children.length - 3, 0) : 0) + (card.querySelector('.oet-pricing-desc') ? 1 : 0);
+                if (!list || !hidden) return;
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'oet-pricing-more';
+                btn.setAttribute('aria-expanded', 'false');
+                var label = document.createElement('span');
+                var more = list.children.length > 3 ? 'See all ' + list.children.length + ' inclusions' : 'See full details';
+                label.textContent = more;
+                var icon = document.createElement('i');
+                icon.className = 'fa-solid fa-angle-down';
+                icon.setAttribute('aria-hidden', 'true');
+                btn.append(label, icon);
+                btn.addEventListener('click', function () {
+                    var open = card.classList.toggle('is-expanded');
+                    btn.setAttribute('aria-expanded', String(open));
+                    label.textContent = open ? 'Show less' : more;
+                    // collapsing a long card must not strand the reader below it
+                    if (!open && card.getBoundingClientRect().top < 0) card.scrollIntoView({ block: 'start' });
+                });
+                list.after(btn);
+                card.classList.add('is-collapsible');
+            });
+        });
+    </script>
+
     <script id="oet-candidates-app-detection-script">
         document.addEventListener('DOMContentLoaded', function () {
             var section = document.getElementById('download-app');
