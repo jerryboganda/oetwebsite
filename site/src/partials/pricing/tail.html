@@ -103,11 +103,11 @@
             var platformMap = {
                 android: {
                     name: 'Android',
-                    url: 'https://app.oetwithdrhesham.co.uk/get-app/android-install'
+                    url: 'https://play.google.com/store/apps/details?id=com.oetwithdrhesham.app'
                 },
                 ios: {
-                    name: 'iOS App (TestFlight beta)',
-                    // The iOS card's own href is the single place the iOS link lives (TestFlight now, App Store later).
+                    name: 'iOS App',
+                    // The iOS card's own href is the single place the iOS link lives (the public App Store listing).
                     url: (function () {
                         var c = section.querySelector('.oet-app-card[data-platform="ios"]');
                         return c ? c.getAttribute('href') : 'https://app.oetwithdrhesham.co.uk/get-app';
@@ -160,7 +160,7 @@
                 if (primaryBtn) {
                     primaryBtn.href = data.url;
                     primaryBtn.setAttribute('aria-label', targetPlatform === 'ios'
-                        ? 'Download via TestFlight - iOS Beta, for iPhone and iPad'
+                        ? 'Download on the App Store - iOS app for iPhone and iPad'
                         : 'Download the Candidates App for ' + data.name);
                     if (targetPlatform === 'ios') {
                         primaryBtn.setAttribute('data-ios-download', 'pricing_download_cta');
@@ -169,7 +169,7 @@
                     }
                 }
                 if (primaryText) {
-                    primaryText.textContent = targetPlatform === 'ios' ? 'Download via TestFlight' : 'Download the Candidates App';
+                    primaryText.textContent = targetPlatform === 'ios' ? 'Download on the App Store' : 'Download the Candidates App';
                 }
             }
 
