@@ -1252,16 +1252,14 @@ Choose your device. Device detection can highlight the recommended option, but a
 Android
 Recommended
 Official Android app/store download.
-<!-- iOS App - public TestFlight beta (owner brief 3 Nov 2026). Same card, icon and layout as before;
-only the state, wording and destination changed. THIS href is the single place the iOS link lives
-(the download-button script below reads it): when Apple releases the App Store listing, change it here
-and the wording to "Available on the App Store" / "Download on the App Store", and remove the beta text.
+<!-- iOS App - public App Store listing (owner brief 7 Nov 2026).
+THIS href is the single place the iOS link lives (the download-button script below reads it).
 Never a raw .ipa: iOS has no sideloading. -->
 iOS App
-iOS Beta
-Available via Apple TestFlight
-Download via TestFlight
-For iPhone and iPad. App Store release coming soon.
+App Store
+Available on the App Store
+Download on the App Store
+For iPhone and iPad.
 Windows
 Recommended
 Laptop/desktop installer or official Windows destination.
