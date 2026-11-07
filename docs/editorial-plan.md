@@ -90,3 +90,21 @@ it drives the "Related articles" cards.
 - OET Writing: transfer letters for physiotherapists and occupational therapists
 - OET Reading Part A: dosage and table questions
 - OET Speaking: breaking bad news and explaining a procedure
+
+## Published 7 Nov 2026 (Search Console pass, `docs/seo-audit-2026-11-07.md`)
+
+Each answers queries Search Console showed landing on the wrong page or nowhere. Facts were read on oet.com on
+7 Nov 2026 (each page cites its sources); regulator scores match `/oet-score-requirements.html`. **Dr Hesham reads these after
+publication**: the owner ordered all improvements to go ahead on 7 Nov 2026.
+
+| Article | Cluster | Queries it answers |
+|---|---|---|
+| `/what-is-oet.html` (+ `/ar/`) | Exam format | oet exam, occupational english test, oet structure, oet reading time |
+| `/oet-exam-fees.html` (+ `/ar/`) | Exam format | oet exam fees in uk, price of oet, oet medicine fees, سعر امتحان oet |
+| `/oet-cancellation-refund-policy.html` | Exam format | oet refund policy, oet cancellation policy (were landing on our legal page) |
+| `/oet-passing-score.html` (+ `/ar/`) | Exam format | oet passing score, oet score out of 42, oet pass mark for nurses |
+| `/oet-writing-samples.html` | Writing hub | oet writing samples, oet referral letter sample |
+| `/oet-speaking-role-play-cards.html` | Speaking hub | oet role play cards, oet speaking cards |
+
+Refresh the converted currency figures on the fee pages when the exchange rate moves noticeably, and the 2027 tables on the
+dates pages as soon as OET publishes 2027 paper dates or computer dates after 29 June 2027.

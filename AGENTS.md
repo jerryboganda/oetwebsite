@@ -11,7 +11,7 @@ enrollment **web app** lives at app./api.oetwithdrhesham.co.uk (repo
 OUTPUT, committed for parity/deploy. Never hand-edit root HTML — edit the
 partials/data and rebuild.**
 
-- `site/src/pages/*.astro` — 79 thin wrappers incl. 404 (one per page; `ar/` = Arabic, `lang="ar"`), each importing
+- `site/src/pages/*.astro` — 88 thin wrappers incl. 404 (one per page; `ar/` = Arabic, `lang="ar"`), each importing
   its page partials `?raw` and rendering through `site/src/layouts/Base.astro`.
 - `site/src/partials/<page>/{meta,head-extra,main,tail}.html` — byte-preserved
   page bodies. This is where page content/CSS edits happen.
@@ -130,7 +130,7 @@ partials/data and rebuild.**
   `[page: …]` labels: the source page is tracked by `oet-analytics.js`), generates
   `sitemap.xml` (per-page git dates), `assets/search-index.json`, `llms.txt`,
   `llms-full.txt` and `feed.xml` (see "SEO + AI-search layer" below), copies the
-  79 built pages + sitemap + generated files to the repo root. `--check-root` asserts root ==
+  88 built pages + sitemap + generated files to the repo root. `--check-root` asserts root ==
   dist for the pages, `oet-core.css` and the three generated files (CI parity). New page = add it to
   `PAGES` here and in `verify.mjs`, and to `LLMS_GROUPS` here unless it is a blog post (posts are grouped by category).
 - `site/scripts/verify.mjs` — asserts pages/assets/JSON-LD/sitemap/pricing, one
@@ -161,7 +161,7 @@ partials/data and rebuild.**
   `oet-course-for-pharmacists.html`, `oet-course-for-physiotherapists.html`,
   `oet-score-requirements.html`, `oet-test-dates-and-fees.html`, `oet-vs-ielts.html`,
   `oet-writing-tips.html`, `oet-speaking-tips.html`, `oet-sample-tests.html`,
-  `gulf-pathway-guide.html` ↔ the same slug under `ar/`.
+  `gulf-pathway-guide.html`, `what-is-oet.html`, `oet-exam-fees.html`, `oet-passing-score.html` ↔ the same slug under `ar/`.
   Since 2 Nov 2026 it also gates the SEO + AI-search layer (below): titles ≤ 60 characters
   (English) / ≤ 70 (Arabic), breadcrumb == BreadcrumbList on EVERY page that has one,
   every #drhesham / #organization node == person.json, "since YYYY" and the years counters

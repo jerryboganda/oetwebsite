@@ -93,6 +93,15 @@ const PAGES = [
   ['ar/oet-course-for-pharmacists.html', '/ar/oet-course-for-pharmacists.html', 'monthly', '0.8'],
   ['ar/oet-course-for-physiotherapists.html', '/ar/oet-course-for-physiotherapists.html', 'monthly', '0.8'],
   ['ar/gulf-pathway-guide.html', '/ar/gulf-pathway-guide.html', 'monthly', '0.7'],
+  ['what-is-oet.html', '/what-is-oet.html', 'monthly', '0.9'],
+  ['oet-exam-fees.html', '/oet-exam-fees.html', 'monthly', '0.9'],
+  ['oet-cancellation-refund-policy.html', '/oet-cancellation-refund-policy.html', 'monthly', '0.8'],
+  ['oet-passing-score.html', '/oet-passing-score.html', 'monthly', '0.9'],
+  ['oet-writing-samples.html', '/oet-writing-samples.html', 'monthly', '0.9'],
+  ['oet-speaking-role-play-cards.html', '/oet-speaking-role-play-cards.html', 'monthly', '0.9'],
+  ['ar/what-is-oet.html', '/ar/what-is-oet.html', 'monthly', '0.8'],
+  ['ar/oet-exam-fees.html', '/ar/oet-exam-fees.html', 'monthly', '0.8'],
+  ['ar/oet-passing-score.html', '/ar/oet-passing-score.html', 'monthly', '0.8'],
   ['404.html', null, null, null],
 ];
 

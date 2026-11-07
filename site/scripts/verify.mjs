@@ -34,6 +34,9 @@ const PAGES = [
   'oet-reading-part-b-workplace-texts.html', 'oet-listening-parts-b-c.html', 'oet-writing-nursing-discharge-letter.html',
   'oet-speaking-angry-anxious-patient.html', 'oet-retake-after-near-miss.html',
   'ar/oet-course-for-pharmacists.html', 'ar/oet-course-for-physiotherapists.html', 'ar/gulf-pathway-guide.html',
+  // SEO pass of 7 Nov 2026: pages for queries Search Console showed landing on the wrong page, plus the two hubs
+  'what-is-oet.html', 'oet-exam-fees.html', 'oet-cancellation-refund-policy.html', 'oet-passing-score.html', 'oet-writing-samples.html', 'oet-speaking-role-play-cards.html',
+  'ar/what-is-oet.html', 'ar/oet-exam-fees.html', 'ar/oet-passing-score.html',
 ];
 
 let failures = 0;
@@ -941,6 +944,7 @@ if (distHtml['pricing.html']) {
     ['oet-score-requirements.html', 'ar/oet-score-requirements.html'], ['oet-test-dates-and-fees.html', 'ar/oet-test-dates-and-fees.html'], ['oet-vs-ielts.html', 'ar/oet-vs-ielts.html'],
     ['oet-writing-tips.html', 'ar/oet-writing-tips.html'], ['oet-speaking-tips.html', 'ar/oet-speaking-tips.html'], ['oet-sample-tests.html', 'ar/oet-sample-tests.html'],
     ['gulf-pathway-guide.html', 'ar/gulf-pathway-guide.html'],
+    ['what-is-oet.html', 'ar/what-is-oet.html'], ['oet-exam-fees.html', 'ar/oet-exam-fees.html'], ['oet-passing-score.html', 'ar/oet-passing-score.html'],
   ];
   const paired = new Map(HREFLANG_PAIRS.flatMap(([en, ar]) => [[en, [en, ar]], [ar, [en, ar]]]));
   for (const [page, html] of Object.entries(distHtml)) {

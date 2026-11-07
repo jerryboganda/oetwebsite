@@ -292,6 +292,42 @@
       "category": "pathways",
       "professions": [],
       "summary": "Qatar DHP, Sheryan, DataFlow and Prometric steps for doctors, nurses, pharmacists and physiotherapists."
+    },
+    {
+      "slug": "what-is-oet",
+      "category": "exam-format",
+      "professions": [],
+      "summary": "The Occupational English Test explained: format, timing, scoring, cost and which regulators accept it."
+    },
+    {
+      "slug": "oet-exam-fees",
+      "category": "exam-format",
+      "professions": [],
+      "summary": "What the OET exam costs in pounds and other currencies, plus re-sit, re-mark and rescheduling fees."
+    },
+    {
+      "slug": "oet-cancellation-refund-policy",
+      "category": "exam-format",
+      "professions": [],
+      "summary": "What OET refunds if you cancel, the last date for each test mode, no-shows and when rescheduling is cheaper."
+    },
+    {
+      "slug": "oet-passing-score",
+      "category": "exam-format",
+      "professions": [],
+      "summary": "The usual OET pass mark, what 350 out of 500 and 30 out of 42 mean, the grade bands and the rules for nurses and doctors."
+    },
+    {
+      "slug": "oet-writing-samples",
+      "category": "writing",
+      "professions": [],
+      "summary": "Every free OET model letter in one place, by profession and letter type, with how to practise and mark them."
+    },
+    {
+      "slug": "oet-speaking-role-play-cards",
+      "category": "speaking",
+      "professions": [],
+      "summary": "Every free OET role-play card in one place, by profession, with how to practise them and how Speaking is marked."
     }
   ]
 }

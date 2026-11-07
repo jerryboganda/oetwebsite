@@ -130,6 +130,13 @@ RewriteRule ^preview\.html$ https://%{HTTP_HOST}/ [R=301,L]
 RewriteRule ^login\.html$ https://app.oetwithdrhesham.co.uk/sign-in?next=/ [R=301,L,NE]
 # Clean URL for the free placement test landing page.
 RewriteRule ^english-placement-test/?$ /english-placement-test.html [L]
+
+# Old or mistyped page URLs that Google or other sites still request
+RewriteRule ^oet-writing\.html$ https://%{HTTP_HOST}/oet-writing-tips.html [R=301,L]
+RewriteRule ^(.+\.html)/$ https://%{HTTP_HOST}/$1 [R=301,L]
+# A page URL shared without .html goes to the real page
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([a-z0-9-]+(?:/[a-z0-9-]+)?)/?$ https://%{HTTP_HOST}/$1.html [R=301,L]
 </IfModule>
 
 # Deny access to internal docs & build sources
