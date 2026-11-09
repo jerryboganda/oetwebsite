@@ -72,6 +72,12 @@ Options -Indexes
     <FilesMatch "\.(css|js|avif|webp|png|jpe?g|gif|svg|ico|woff2?|ttf|mp4)$">
         Header set Cache-Control "public, max-age=31536000, immutable"
     </FilesMatch>
+
+    # Brand icons are requested without a ?v= by browsers and crawlers (/favicon.ico, /apple-touch-icon.png), so they must
+    # revalidate; "immutable for a year" is what kept the old tab icon on screen. Later Header set wins over the block above.
+    <FilesMatch "^(favicon\.ico|apple-touch-icon\.png|site\.webmanifest|fav-icon\.(png|svg)|favicon-(16x16|32x32)\.png|icon-(192|512)\.png)$">
+        Header set Cache-Control "public, max-age=3600, must-revalidate"
+    </FilesMatch>
 </IfModule>
 
 # Correct MIME types for modern formats
@@ -79,6 +85,7 @@ Options -Indexes
     AddType image/avif .avif
     AddType image/webp .webp
     AddType font/woff2 .woff2
+    AddType application/manifest+json .webmanifest
     AddCharset utf-8 .html .css .js .json .xml .svg .txt
     # the OET Blog feed is Atom, not a plain XML document
     <Files "feed.xml">
@@ -101,8 +108,7 @@ RewriteCond %{THE_REQUEST} \s/(privacy|terms|refund-policy|cookie-policy|ar|blog
 RewriteRule ^(privacy|terms|refund-policy|cookie-policy|ar|blog)/index\.html$ https://%{HTTP_HOST}/$1/ [R=301,L]
 RewriteCond %{THE_REQUEST} \s/english-placement-test\.html[\s?]
 RewriteRule ^english-placement-test\.html$ https://%{HTTP_HOST}/english-placement-test [R=301,L]
-# Browsers and crawlers still request /favicon.ico; serve the real icon.
-RewriteRule ^favicon\.ico$ /assets/img/logo/fav-icon.png [L]
+# /favicon.ico and /apple-touch-icon.png are real files at the web root (emblem-only icon, 9 Nov 2026), no rewrite needed.
 
 # --- Removed template demo pages -> relevant live pages (301) ---
 
