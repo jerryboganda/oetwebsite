@@ -22,7 +22,7 @@ const mime = {
 http
   .createServer((req, res) => {
     let reqPath = decodeURIComponent(req.url.split('?')[0]);
-    if (reqPath === '/') reqPath = '/index.html';
+    if (reqPath === '/' || reqPath === '/community' || reqPath === '/community/') reqPath = '/index.html';
     if (reqPath.endsWith('/')) reqPath += 'index.html';
     // Mirror the .htaccess clean-URL rewrite (e.g. /english-placement-test).
     if (!path.extname(reqPath) && fs.existsSync(path.join(root, reqPath + '.html'))) reqPath += '.html';

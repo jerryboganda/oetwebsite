@@ -2165,6 +2165,17 @@ body.oet-live-site .success-page + footer.vl-footer-10 { margin-top: 0 !importan
                 button.addEventListener('click', closePopup);
             });
 
+            // Shareable direct links: /community (served as the homepage by .htaccess) and /#oet-community-popup
+            // open the same popup on load, so a pinned post or in-app browser needs no second tap.
+            function openedByUrl() {
+                var path = window.location.pathname.replace(/\/+$/, '').toLowerCase();
+                return path === '/community' || window.location.hash === '#oet-community-popup';
+            }
+            if (openedByUrl()) openPopup(null);
+            window.addEventListener('hashchange', function () {
+                if (window.location.hash === '#oet-community-popup') openPopup(null);
+            });
+
             if (scrollBody) {
                 scrollBody.addEventListener('wheel', function (event) {
                     event.stopPropagation();

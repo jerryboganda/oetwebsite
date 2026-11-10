@@ -342,6 +342,8 @@ This issue happened on 2026-08-22 and must not recur:
 - Correct local workflow: run the legacy server, then run `astro dev` on the site. Do not assume a visual CSS bug when the asset pipeline is broken.
 - Reminder: if the site looks blank or raw, validate the network path and asset delivery before editing any layout rules.
 
+**Community popup direct link (owner request, 10 Nov 2026):** `https://oetwithdrhesham.co.uk/community` (and `/#oet-community-popup`) opens the existing "Join Free Community" popup on load. `.htaccess` serves `/index.html` in place for `/community` (no redirect, so in-app browsers keep the URL; the homepage canonical keeps it out of the index) and the popup script in `partials/chrome/community-popup.html` opens the popup when the path is `/community` or the hash is `#oet-community-popup`. No separate page exists; keep `server.js` in step with the `.htaccess` rule.
+
 ## Production deployment (VPS 185.252.233.186)
 
 Live since 2026-08-14 at commit `0608979` (branch `main`). SSH: `ssh

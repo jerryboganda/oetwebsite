@@ -134,6 +134,9 @@ RewriteRule ^preview\.html$ https://%{HTTP_HOST}/ [R=301,L]
 # Login: single canonical server-side redirect to the app (Phase 5)
 # NB: literal %2F would be parsed as a RewriteCond backreference; NE keeps "/" raw.
 RewriteRule ^login\.html$ https://app.oetwithdrhesham.co.uk/sign-in?next=/ [R=301,L,NE]
+# Shareable link to the homepage "Join Free Community" popup: /community serves the homepage in place (no redirect, so
+# every in-app browser keeps the URL) and the page script opens the popup. The homepage canonical tag keeps it out of the index.
+RewriteRule ^community/?$ /index.html [L]
 # Clean URL for the free placement test landing page.
 RewriteRule ^english-placement-test/?$ /english-placement-test.html [L]
 
