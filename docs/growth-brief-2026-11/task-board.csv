@@ -1,13 +1,13 @@
 id,priority,workstream,task,owner,deadline,dependency,status,proof
-T01,P1,Brand identity,Primary brand name in schema / og:site_name / llms.txt with recognised variations,Developer,19 Nov 2026,,Done (deploy pending),site/src/data/person.json; verify.mjs gate
-T02,P1,Brand facts,Official information page EN + AR with links register and answers,Developer,19 Nov 2026,,Done (deploy pending),/official-information.html; /ar/official-information.html
-T03,P1,App links,App Store and Google Play links on trust / course / Arabic pages,Developer,19 Nov 2026,,Done (deploy pending),oet-official-strip on 20 pages
-T04,P1,Analytics,Google Play click event; App Store links without data attribute,Developer,19 Nov 2026,,Done (deploy pending),assets/js/oet-analytics.js
-T05,P1,AI crawlers,robots.txt names OAI-AdsBot and Googlebot; live user-agent test,Developer,19 Nov 2026,,Done (robots deploy pending),HTTP 200 for 9 crawler user agents on 4 URLs
-T06,P1,Claims,Homepage counters linked to their public source,Developer,19 Nov 2026,Owner decision 19 Nov,Done (deploy pending),index page
+T01,P1,Brand identity,Primary brand name in schema / og:site_name / llms.txt with recognised variations,Developer,19 Nov 2026,,Done, live 19 Nov 2026,site/src/data/person.json; verify.mjs gate
+T02,P1,Brand facts,Official information page EN + AR with links register and answers,Developer,19 Nov 2026,,Done, live 19 Nov 2026,/official-information.html; /ar/official-information.html
+T03,P1,App links,App Store and Google Play links on trust / course / Arabic pages,Developer,19 Nov 2026,,Done, live 19 Nov 2026,oet-official-strip on 20 pages
+T04,P1,Analytics,Google Play click event; App Store links without data attribute,Developer,19 Nov 2026,,Done, live 19 Nov 2026,assets/js/oet-analytics.js
+T05,P1,AI crawlers,robots.txt names OAI-AdsBot and Googlebot; live user-agent test,Developer,19 Nov 2026,,Done, live 19 Nov 2026,HTTP 200 for 9 crawler user agents on 4 URLs
+T06,P1,Claims,Homepage counters linked to their public source,Developer,19 Nov 2026,Owner decision 19 Nov,Done, live 19 Nov 2026,index page
 T07,P1,Course accuracy,Reconcile site bundles with live checkout catalog; 165 description set to the live wording,Developer,19 Nov 2026,,Done,bundles.json; verify gate
-T08,P1,Deploy,Deploy main to the VPS and run the post-deploy checklist,Owner / developer,,T01-T06,To do,
-T09,P1,Indexing,Request indexing for the two new URLs; IndexNow ping,Owner / developer,,T08,To do,Search Console screenshot
+T08,P1,Deploy,Deploy main to the VPS and run the post-deploy checklist,Developer,19 Nov 2026,T01-T06,Done: commit 299de7f live,22 live URLs return 200
+T09,P1,Indexing,IndexNow ping done (101 URLs HTTP 200); request indexing in Search Console for the 14 new URLs,Owner,,T08,IndexNow done; Search Console to do,Search Console screenshot
 T10,P1,Claims,Create a Google Business Profile if eligible then send URL and review count for the 5.0 badge,Owner,,,Open: no profile yet,
 T11,P1,Course accuracy,Choose the approved Complete OET Bundle description (site vs live catalog),Owner,19 Nov 2026,T07,Done: live checkout wording,
 T12,P1,Links register,Confirm Instagram / X / TikTok / Facebook Page / Google Business Profile URLs,Owner,,,Waiting on owner,brand-facts-and-links-register.md

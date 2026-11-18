@@ -62,5 +62,7 @@ Search Console and Bing exports, Core Web Vitals field data, rankings by country
 
 ## 5. Deploy
 
-Standard deploy (AGENTS.md). After it: request indexing for `/official-information.html`, `/ar/official-information.html` and the twelve country pages in Search Console, then
-`cd site && OET_INDEXNOW_KEY=<key> node scripts/postbuild.mjs --indexnow`.
+Deployed on 19 Nov 2026 (commit `299de7f`). Live checks after deploy: 22 URLs return 200 (the 14 new pages included), `og:site_name` and the
+schema carry the new name, `robots.txt` names OAI-AdsBot, the sitemap lists 101 URLs, the pricing page shows the live-checkout wording and no
+TestFlight link, and IndexNow accepted 101 URLs (HTTP 200). Still to do by hand: request indexing in Search Console for
+`/official-information.html`, `/ar/official-information.html` and the twelve country pages.
