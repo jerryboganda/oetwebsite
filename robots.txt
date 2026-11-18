@@ -7,10 +7,11 @@
 User-agent: *
 Allow: /
 
-# OpenAI: ChatGPT search, ChatGPT browsing, model training
+# OpenAI: ChatGPT search, ChatGPT browsing, model training, and the crawler that validates ad landing pages
 User-agent: OAI-SearchBot
 User-agent: ChatGPT-User
 User-agent: GPTBot
+User-agent: OAI-AdsBot
 Allow: /
 
 # Anthropic: Claude search, Claude browsing, model training
@@ -25,6 +26,7 @@ User-agent: Perplexity-User
 Allow: /
 
 # Google (Gemini and AI Overviews grounding) and Bing (Copilot; Bing's index also feeds ChatGPT search)
+User-agent: Googlebot
 User-agent: Google-Extended
 User-agent: Bingbot
 Allow: /

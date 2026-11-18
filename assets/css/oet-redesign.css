@@ -101,3 +101,12 @@
 .testimonial__wrap-overlay-icon .oet-star img{padding-left:2px}
 /* visible breadcrumbs on the centred heroes (pricing, FAQ, placement test; SEO + GEO plan 2 Nov 2026) */
 .text-center .oet-breadcrumbs ol,.oet-faq-hero .oet-breadcrumbs ol,.oet-pt-hero .oet-breadcrumbs ol{justify-content:center}
+
+/* Homepage counters link to the public source of the figure (owner decision 19 Nov 2026). The link keeps the label look. */
+.oet-stat-source { color: inherit; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
+.oet-stat-source:hover, .oet-stat-source:focus-visible { color: inherit; text-decoration-style: solid; }
+
+/* Official links and app strip at the end of the trust and course pages (growth brief 15 Nov 2026) */
+.oet-official-strip { background: #f6f3ff; border-top: 1px solid #e4dcff; padding: 22px 0; }
+.oet-official-strip p { color: #2d2748; font-size: 15px; line-height: 1.7; margin: 0; text-align: center; }
+.oet-official-strip a { color: #5b3ff1; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }

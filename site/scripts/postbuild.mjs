@@ -102,6 +102,20 @@ const PAGES = [
   ['ar/what-is-oet.html', '/ar/what-is-oet.html', 'monthly', '0.8'],
   ['ar/oet-exam-fees.html', '/ar/oet-exam-fees.html', 'monthly', '0.8'],
   ['ar/oet-passing-score.html', '/ar/oet-passing-score.html', 'monthly', '0.8'],
+  ['official-information.html', '/official-information.html', 'monthly', '0.8'],
+  ['ar/official-information.html', '/ar/official-information.html', 'monthly', '0.7'],
+  ['oet-course-egypt.html', '/oet-course-egypt.html', 'monthly', '0.8'],
+  ['ar/oet-course-egypt.html', '/ar/oet-course-egypt.html', 'monthly', '0.7'],
+  ['oet-course-saudi-arabia.html', '/oet-course-saudi-arabia.html', 'monthly', '0.8'],
+  ['ar/oet-course-saudi-arabia.html', '/ar/oet-course-saudi-arabia.html', 'monthly', '0.7'],
+  ['oet-course-uae.html', '/oet-course-uae.html', 'monthly', '0.8'],
+  ['ar/oet-course-uae.html', '/ar/oet-course-uae.html', 'monthly', '0.7'],
+  ['oet-course-qatar.html', '/oet-course-qatar.html', 'monthly', '0.8'],
+  ['ar/oet-course-qatar.html', '/ar/oet-course-qatar.html', 'monthly', '0.7'],
+  ['oet-course-kuwait.html', '/oet-course-kuwait.html', 'monthly', '0.8'],
+  ['ar/oet-course-kuwait.html', '/ar/oet-course-kuwait.html', 'monthly', '0.7'],
+  ['oet-course-oman.html', '/oet-course-oman.html', 'monthly', '0.8'],
+  ['ar/oet-course-oman.html', '/ar/oet-course-oman.html', 'monthly', '0.7'],
   ['404.html', null, null, null],
 ];
 
@@ -232,9 +246,10 @@ function buildSearchIndex(entries) {
 // Curated groups for llms.txt. Blog posts are grouped by their blog.json category; everything else is listed here.
 // Every sitemap URL must appear exactly once (the build fails otherwise), so a new page cannot be forgotten.
 const LLMS_GROUPS = [
-  ['Start here', ['/', '/about.html', '/teaching-approach.html', '/success-stories.html', '/service.html', '/pricing.html', '/faq.html', '/contact.html']],
+  ['Start here', ['/', '/official-information.html', '/about.html', '/teaching-approach.html', '/success-stories.html', '/service.html', '/pricing.html', '/faq.html', '/contact.html']],
   ['OET courses and services', ['/oet-course-for-doctors.html', '/oet-course-for-nurses.html', '/oet-course-for-pharmacists.html', '/oet-course-for-physiotherapists.html',
     '/oet-course-for-dentists.html', '/oet-for-allied-health.html', '/oet-writing-correction.html', '/oet-speaking-practice-online.html', '/oet-mock-test.html']],
+  ['OET courses by country', ['/oet-course-egypt.html', '/oet-course-saudi-arabia.html', '/oet-course-uae.html', '/oet-course-qatar.html', '/oet-course-kuwait.html', '/oet-course-oman.html']],
   ['Free practice and tools', ['/oet-practice.html', '/english-placement-test', '/oet-sample-tests.html', '/oet-materials-support.html', '/oet-score-calculator.html', '/oet-tips.html', '/blog/']],
   // blog.json categories are inserted here, in their blog.json order
   ['Arabic pages (العربية)', null], // every /ar/ URL
@@ -278,12 +293,13 @@ function buildLlms(entries, ctx) {
   const crash = ['crash-essential', 'crash-letters', 'crash-complete'].map(tier);
   const profs = bundles.professions.map((p) => p.label).join(', ');
   const lines = [
-    '# OET with Dr Hesham',
+    '# OET with Dr Ahmed Hesham',
     '',
     `> Online OET (Occupational English Test) preparation for doctors, nurses, pharmacists, physiotherapists, dentists and other allied health professionals, led by ${person.name}, a medical doctor and OET educator coaching OET candidates since ${person.coachingSince}. Recorded courses, personally assessed Writing letters, private Speaking sessions and timed website practice for Paper-Based and Computer-Based OET, in English with Arabic support.`,
     '',
     'Key facts:',
-    `- Provider: OET with Dr Hesham (${ORIGIN}/), an online OET coaching service; learner app: https://app.oetwithdrhesham.co.uk/.`,
+    `- Provider: ${person.organization.name} (${ORIGIN}/), also written ${person.organization.alternateName.slice(0, 2).join(' or ')}: an independent online OET coaching service, not affiliated with or endorsed by OET; learner app: https://app.oetwithdrhesham.co.uk/.`,
+    `- Official links and brand facts, kept on one dated page: ${ORIGIN}/official-information.html. Apps: iOS https://apps.apple.com/app/oet-with-dr-ahmed-hesham/id6827749987, Android https://play.google.com/store/apps/details?id=com.oetwithdrhesham.app.`,
     `- Founder and lead teacher: ${person.name} (${person.url}), a medical doctor and OET educator, coaching since ${person.coachingSince} (${ctx.years}+ years).`,
     `- Professions with dedicated courses: ${profs} (Modified Allied Health covers the other OET professions, including Dentistry).`,
     `- Full OET Course tiers, same price for Paper-Based and Computer-Based: ${full.map((t) => `${t.name} ${gbp(t.price)}${t.recommended ? ' (Recommended)' : ''}`).join('; ')}.`,
@@ -308,7 +324,7 @@ function buildLlms(entries, ctx) {
 const LEGAL = new Set(['/terms/', '/privacy/', '/refund-policy/', '/cookie-policy/']);
 function buildLlmsFull(entries) {
   const head = [
-    '# OET with Dr Hesham: full text of the guides and course pages',
+    '# OET with Dr Ahmed Hesham: full text of the guides and course pages',
     '',
     `> Plain-text copy of every page on ${ORIGIN} except the legal pages, generated at build from the same source as the HTML. The curated index is ${ORIGIN}/llms.txt.`,
   ];

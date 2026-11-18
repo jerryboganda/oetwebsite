@@ -36,7 +36,7 @@ const PAGES = [
   'ar/oet-course-for-pharmacists.html', 'ar/oet-course-for-physiotherapists.html', 'ar/gulf-pathway-guide.html',
   // SEO pass of 7 Nov 2026: pages for queries Search Console showed landing on the wrong page, plus the two hubs
   'what-is-oet.html', 'oet-exam-fees.html', 'oet-cancellation-refund-policy.html', 'oet-passing-score.html', 'oet-writing-samples.html', 'oet-speaking-role-play-cards.html',
-  'ar/what-is-oet.html', 'ar/oet-exam-fees.html', 'ar/oet-passing-score.html',
+  'ar/what-is-oet.html', 'ar/oet-exam-fees.html', 'ar/oet-passing-score.html', 'official-information.html', 'ar/official-information.html', 'oet-course-egypt.html', 'ar/oet-course-egypt.html', 'oet-course-saudi-arabia.html', 'ar/oet-course-saudi-arabia.html', 'oet-course-uae.html', 'ar/oet-course-uae.html', 'oet-course-qatar.html', 'ar/oet-course-qatar.html', 'oet-course-kuwait.html', 'ar/oet-course-kuwait.html', 'oet-course-oman.html', 'ar/oet-course-oman.html',
 ];
 
 let failures = 0;
@@ -305,7 +305,7 @@ if (distHtml['pricing.html']) {
   // owner v4 (29 Oct 2026): the exact default descriptions; **x** marks the benefit phrases that render bold
   const DESCRIPTIONS = {
     'full-practice': 'A complete recorded OET course with **5 personal Writing letters by Dr Ahmed Hesham**, **1 private Speaking session with an Expert Tutor** and **website practice** (Writing, Speaking and, for Computer-Based candidates, Listening and Reading exams).',
-    'full-tutorbook': 'Everything in the Full OET Course, plus the **2026 TutorBook of Recalls** with **10 full recall-based exams**, model answers and **permanent updates**.',
+    'full-tutorbook': 'Everything in the Full OET Course, PLUS the 2026 TutorBook with 10 Recall-Based Exams, model answers and **permanent updates**: a £25 upgrade.',
     ultimate: 'Everything in the Complete OET Bundle, plus **unlimited eligible website practice**, the **Basic English Course as a free gift** and **SAMI 24/7** for **12 months**.',
     'crash-essential': 'Full recorded Crash Course plus **website practice**: 4 Writing assessments, 4 Speaking Cards and, for Computer-Based candidates, 6 Listening and 6 Reading exams.',
     'crash-letters': 'Everything in Full Crash Essential, PLUS **5 personal Writing letters assessed by Dr Ahmed Hesham**.',
@@ -944,7 +944,7 @@ if (distHtml['pricing.html']) {
     ['oet-score-requirements.html', 'ar/oet-score-requirements.html'], ['oet-test-dates-and-fees.html', 'ar/oet-test-dates-and-fees.html'], ['oet-vs-ielts.html', 'ar/oet-vs-ielts.html'],
     ['oet-writing-tips.html', 'ar/oet-writing-tips.html'], ['oet-speaking-tips.html', 'ar/oet-speaking-tips.html'], ['oet-sample-tests.html', 'ar/oet-sample-tests.html'],
     ['gulf-pathway-guide.html', 'ar/gulf-pathway-guide.html'],
-    ['what-is-oet.html', 'ar/what-is-oet.html'], ['oet-exam-fees.html', 'ar/oet-exam-fees.html'], ['oet-passing-score.html', 'ar/oet-passing-score.html'],
+    ['what-is-oet.html', 'ar/what-is-oet.html'], ['oet-exam-fees.html', 'ar/oet-exam-fees.html'], ['oet-passing-score.html', 'ar/oet-passing-score.html'], ['official-information.html', 'ar/official-information.html'], ['oet-course-egypt.html', 'ar/oet-course-egypt.html'], ['oet-course-saudi-arabia.html', 'ar/oet-course-saudi-arabia.html'], ['oet-course-uae.html', 'ar/oet-course-uae.html'], ['oet-course-qatar.html', 'ar/oet-course-qatar.html'], ['oet-course-kuwait.html', 'ar/oet-course-kuwait.html'], ['oet-course-oman.html', 'ar/oet-course-oman.html'],
   ];
   const paired = new Map(HREFLANG_PAIRS.flatMap(([en, ar]) => [[en, [en, ar]], [ar, [en, ar]]]));
   for (const [page, html] of Object.entries(distHtml)) {
@@ -1097,7 +1097,7 @@ if (distHtml['pricing.html']) {
     const llms = existsSync(path.join(DIST, 'llms.txt')) ? readFileSync(path.join(DIST, 'llms.txt'), 'utf8') : '';
     const listed = [...llms.matchAll(/^- \[[^\]]+\]\((https:\/\/[^)]+)\): /gm)].map((m) => m[1]);
     if (listed.slice().sort().join() !== sitemapUrls.join()) fail(`llms.txt: must list every sitemap URL exactly once (${listed.length} listed, ${sitemapUrls.length} in the sitemap)`);
-    if (!llms.startsWith('# OET with Dr Hesham\n\n> ') || !llms.includes(`since ${person.coachingSince}`)) fail('llms.txt: needs the H1, the summary blockquote and the person.json facts');
+    if (!llms.startsWith('# OET with Dr Ahmed Hesham\n\n> ') || !llms.includes(`since ${person.coachingSince}`)) fail('llms.txt: needs the H1, the summary blockquote and the person.json facts');
     const full = existsSync(path.join(DIST, 'llms-full.txt')) ? readFileSync(path.join(DIST, 'llms-full.txt'), 'utf8') : '';
     for (const u of sitemapUrls) if (!/\/(terms|privacy|refund-policy|cookie-policy)\/$/.test(u) && !full.includes(`URL: ${u}\n`)) fail(`llms-full.txt: missing ${u}`);
     const feed = existsSync(path.join(DIST, 'feed.xml')) ? readFileSync(path.join(DIST, 'feed.xml'), 'utf8') : '';
@@ -1108,7 +1108,7 @@ if (distHtml['pricing.html']) {
   }
   {
     const robots = readFileSync(path.join(ROOT, 'robots.txt'), 'utf8');
-    for (const ua of ['*', 'OAI-SearchBot', 'ChatGPT-User', 'GPTBot', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Bingbot', 'Applebot-Extended'])
+    for (const ua of ['*', 'OAI-SearchBot', 'ChatGPT-User', 'GPTBot', 'OAI-AdsBot', 'Googlebot', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Bingbot', 'Applebot-Extended'])
       if (!new RegExp(`^User-agent: ${ua.replace('*', '\\*')}$`, 'm').test(robots)) fail(`robots.txt: no group for ${ua}`);
     if (/^Disallow:\s*\/\s*$/m.test(robots) || !robots.includes('Sitemap: https://oetwithdrhesham.co.uk/sitemap.xml') || !robots.includes('https://oetwithdrhesham.co.uk/llms.txt')) fail('robots.txt: everything stays allowed, with the Sitemap line and the llms.txt pointer');
     const keys = readdirSync(ROOT).filter((f) => /^[0-9a-f]{32}\.txt$/.test(f));
@@ -1117,6 +1117,36 @@ if (distHtml['pricing.html']) {
     const ht = readFileSync(path.join(ROOT, '.htaccess'), 'utf8');
     if (!ht.includes('RewriteRule ^(privacy|terms|refund-policy|cookie-policy|ar|blog)/index\\.html$ https://%{HTTP_HOST}/$1/ [R=301,L]')) fail('.htaccess: /<folder>/index.html must 301 to /<folder>/');
     if (!ht.includes('ExpiresByType text/plain "access plus 1 day"') || !ht.includes('application/atom+xml')) fail('.htaccess: text/plain caching and the Atom feed type are required');
+  }
+
+  // Growth brief 15 Nov 2026: one primary brand name, one page of official links and facts, store clicks measured
+  {
+    const org = person.organization;
+    if (org.name !== 'OET with Dr Ahmed Hesham' || !(org.alternateName || []).includes('OET with Dr Hesham')) fail('person.json: the primary brand is "OET with Dr Ahmed Hesham", with "OET with Dr Hesham" as an alternateName');
+    for (const [page, html] of Object.entries(distHtml)) {
+      const site = (html.match(/<meta property="og:site_name" content="([^"]*)"/) || [])[1];
+      if (site !== undefined && site !== org.name) fail(`${page}: og:site_name must be "${org.name}"`);
+      if (/testflight/i.test(html)) fail(`${page}: no TestFlight link (the App Store listing is the only iOS link)`);
+    }
+    const OFFICIAL = ['https://wa.me/447961725989', 'https://apps.apple.com/app/oet-with-dr-ahmed-hesham/id6827749987', 'https://play.google.com/store/apps/details?id=com.oetwithdrhesham.app',
+      'https://app.oetwithdrhesham.co.uk/', 'mailto:support@oetwithdrhesham.co.uk', 'ProHealth Digital LLC', ...org.sameAs.map((u) => u.replace(/\/$/, ''))];
+    for (const page of ['official-information.html', 'ar/official-information.html']) {
+      const html = distHtml[page] || '';
+      for (const need of OFFICIAL) if (!html.includes(need)) fail(`${page}: the official links page must carry ${need}`);
+      if (!/"dateModified": "\d{4}-\d{2}-\d{2}"/.test(html)) fail(`${page}: the official facts page must be dated (dateModified)`);
+    }
+    const linked = ['about.html', 'contact.html', 'success-stories.html', 'teaching-approach.html', 'service.html', 'oet-course-for-doctors.html', 'oet-course-for-nurses.html',
+      'oet-course-for-pharmacists.html', 'oet-course-for-physiotherapists.html', 'oet-course-for-dentists.html', 'oet-for-allied-health.html'];
+    for (const page of linked) {
+      const html = distHtml[page] || '';
+      if (!html.includes('href="/official-information.html"') || !html.includes('play.google.com/store/apps/details?id=com.oetwithdrhesham.app') || !html.includes('apps.apple.com/app/oet-with-dr-ahmed-hesham/id6827749987'))
+        fail(`${page}: the trust and course pages link the official information page and both app stores`);
+    }
+    for (const page of ['ar/index.html', 'ar/oet-course-for-doctors.html', 'ar/oet-course-for-nurses.html'])
+      if (!(distHtml[page] || '').includes('href="/ar/official-information.html"')) fail(`${page}: Arabic pages link the Arabic official information page`);
+    const analytics = readFileSync(path.join(ROOT, 'assets/js/oet-analytics.js'), 'utf8');
+    for (const ev of ['ios_download_click', 'android_download_click', 'click_whatsapp', 'app_cta_click', 'generate_lead']) if (!analytics.includes(`"${ev}"`)) fail(`oet-analytics.js: the ${ev} event is required`);
+    if (!/^User-agent: OAI-AdsBot$/m.test(readFileSync(path.join(ROOT, 'robots.txt'), 'utf8'))) fail('robots.txt: OAI-AdsBot must be allowed (ad landing-page validation)');
   }
 
   // one bundled render-blocking stylesheet; head tags derived by src/lib/head.mjs

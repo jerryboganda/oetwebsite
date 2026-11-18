@@ -206,6 +206,12 @@
     if (a.hasAttribute("data-ios-download")) {
       // iOS download button (App Store). A click is intent, never a confirmed install.
       track("ios_download_click", { placement: a.getAttribute("data-ios-download") || "", destination: "app-store", page: location.pathname });
+    } else if (/apps\.apple\.com\//.test(href)) {
+      // an App Store link without the data attribute (official-information page, course pages) is the same intent
+      track("ios_download_click", { placement: a.getAttribute("data-oet-cta") || "link", destination: "app-store", page: location.pathname });
+    } else if (/play\.google\.com\/store\/apps/.test(href)) {
+      // Google Play. A click is intent, never a confirmed install.
+      track("android_download_click", { placement: a.getAttribute("data-android-download") || a.getAttribute("data-oet-cta") || "link", destination: "google-play", page: location.pathname });
     } else if (/wa\.me|api\.whatsapp\.com/.test(href)) {
       track("click_whatsapp", { link_text: nearestLabel(a), page: location.pathname, cta: a.getAttribute("data-oet-cta") || "" });
     } else if (/t\.me|telegram\.me/.test(href)) {

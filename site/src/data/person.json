@@ -2,6 +2,7 @@
   "_comment": "Single source of truth for Dr Ahmed Hesham's entity data (schema.org Person #drhesham) and the author byline / author box. Every Person node with @id #drhesham on every page is rebuilt from this file at build (src/lib/schema.mjs), and verify.mjs fails if a page disagrees. coachingSince = the owner-confirmed start year (2 Nov 2026: 2018, the About timeline). The 'N+ years' counters use completed years only (build year - coachingSince - 1), so they are true whatever the start month was. The credential slots (alumniOf, hasCredential, identifier, twitter) stay EMPTY until the owner supplies them: never fill them from a guess.",
   "id": "https://oetwithdrhesham.co.uk/#drhesham",
   "name": "Dr Ahmed Hesham",
+  "alternateName": ["Dr Hesham", "د. أحمد هشام"],
   "honorificPrefix": "Dr",
   "jobTitle": "Medical Doctor & OET Educator",
   "byline": "medical doctor and founder of OET with Dr Hesham",
@@ -26,7 +27,13 @@
   "twitter": null,
   "organization": {
     "id": "https://oetwithdrhesham.co.uk/#organization",
-    "name": "OET with Dr Hesham",
+    "name": "OET with Dr Ahmed Hesham",
+    "alternateName": [
+      "OET with Dr Hesham",
+      "Dr Hesham OET",
+      "OET مع د. أحمد هشام",
+      "د. أحمد هشام OET"
+    ],
     "url": "https://oetwithdrhesham.co.uk/",
     "logo": "https://oetwithdrhesham.co.uk/assets/img/logo/platform-logo.png",
     "logoWidth": 320,

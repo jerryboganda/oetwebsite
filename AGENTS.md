@@ -11,7 +11,7 @@ enrollment **web app** lives at app./api.oetwithdrhesham.co.uk (repo
 OUTPUT, committed for parity/deploy. Never hand-edit root HTML — edit the
 partials/data and rebuild.**
 
-- `site/src/pages/*.astro` — 88 thin wrappers incl. 404 (one per page; `ar/` = Arabic, `lang="ar"`), each importing
+- `site/src/pages/*.astro` — 102 thin wrappers incl. 404 (one per page; `ar/` = Arabic, `lang="ar"`), each importing
   its page partials `?raw` and rendering through `site/src/layouts/Base.astro`.
 - `site/src/partials/<page>/{meta,head-extra,main,tail}.html` — byte-preserved
   page bodies. This is where page content/CSS edits happen.
@@ -130,7 +130,7 @@ partials/data and rebuild.**
   `[page: …]` labels: the source page is tracked by `oet-analytics.js`), generates
   `sitemap.xml` (per-page git dates), `assets/search-index.json`, `llms.txt`,
   `llms-full.txt` and `feed.xml` (see "SEO + AI-search layer" below), copies the
-  88 built pages + sitemap + generated files to the repo root. `--check-root` asserts root ==
+  102 built pages + sitemap + generated files to the repo root. `--check-root` asserts root ==
   dist for the pages, `oet-core.css` and the three generated files (CI parity). New page = add it to
   `PAGES` here and in `verify.mjs`, and to `LLMS_GROUPS` here unless it is a blog post (posts are grouped by category).
 - `site/scripts/verify.mjs` — asserts pages/assets/JSON-LD/sitemap/pricing, one
@@ -331,6 +331,20 @@ restored chrome). No further redesign of the menu, blog or homepage without the
 owner's explicit approval. Evidence: `docs/qa/restore-2026-10-qa.md` (+ before/
 after composites in `docs/qa/2026-10-restore/compare/`). History of the withdrawn
 redesign: `docs/qa/redesign-2026-10-qa.md`.
+
+## Growth brief: Search Visibility & Brand Discovery (owner, 15 Nov 2026; built 19 Nov 2026)
+
+Status, registers and plans: `docs/growth-brief-2026-11/README.md` (read it before any SEO, brand or claims work).
+
+- **Primary brand = "OET with Dr Ahmed Hesham"** in `person.json` (`organization.name`), the WebSite node, `og:site_name` on every page and the `llms.txt` H1; "OET with Dr Hesham", "Dr Hesham OET" and the Arabic forms are `alternateName`. Page titles, the logo alt and the footer copyright keep the short form "OET with Dr Hesham" (owner-approved chrome). `verify.mjs` gates the name and `og:site_name`.
+- **`/official-information.html` + `/ar/official-information.html`** are the single dated source of truth for identity, official links (site, app, App Store, Google Play, WhatsApp, email, social), teaching, prices (markers) and results, with the answer-ready FAQ. Bump `dateModified` in the meta partial when a fact changes. A new official profile goes into `person.json` `sameAs`, both pages and `docs/growth-brief-2026-11/brand-facts-and-links-register.md` together, and only after the owner confirms the URL. Arabic pages use the Arabic tier names (verify forbids the English-only ones under `ar/`).
+- **`.oet-official-strip`** (end of `<main>` on the trust, course and five Arabic pages) links the official page and both app stores; `verify.mjs` requires it.
+- **Owner decisions 19 Nov 2026:** the "Rated 5.0 on Google" badge stays as it is (link it when the owner sends the Google profile URL); the homepage counters link to their public source (`.oet-stat-source`: YouTube channel, Telegram channel); "recall-based practice" is explained in ONE FAQ answer on the official page, and the 8 Nov decision against a recalls landing page stands.
+- **Analytics:** `android_download_click` (any Google Play link) joins `ios_download_click`; the event list is in `docs/growth-brief-2026-11/conversion-events.md`.
+- **robots.txt** also names `OAI-AdsBot` and `Googlebot` (verify gate).
+- **Country pages (owner decision 19 Nov 2026):** `/oet-course-<egypt|saudi-arabia|uae|qatar|kuwait|oman>.html` + the same under `/ar/` (hreflang pairs, LLMS group "OET courses by country", `.oet-country-strip` links on service, the Gulf guides, the official pages and `/ar/`). Every local fact comes from `docs/growth-brief-2026-11/country-research/*.md` (primary sources, 19 Nov 2026): never add a venue, a licensing rule or a local price from memory, never state a tax or local-currency OET price, and keep the Kuwait page free of local licensing claims until an official Kuwait source has been read. Venue lists change: re-check the OET venue finder and bump `dateModified`. Arabic pages use the Arabic tier names.
+- **Complete OET Bundle (165) description** = the live checkout wording since 19 Nov 2026 (owner): "...PLUS the 2026 TutorBook with 10 Recall-Based Exams, model answers and **permanent updates**: a £25 upgrade."
+- Not built on purpose: comparison pages naming competitors (owner approval; internal matrix in `docs/growth-brief-2026-11/competitor-matrix.md`, never link or publish it).
 
 ## Critical debug memory: raw HTML + missing styles
 
