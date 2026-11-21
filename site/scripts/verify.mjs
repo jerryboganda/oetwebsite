@@ -42,6 +42,8 @@ const PAGES = [
   'ar/oet-writing-sample-nursing-referral.html', 'ar/oet-writing-sample-nursing.html', 'ar/oet-writing-sample-medicine.html',
   'ar/oet-writing-sample-medicine-discharge.html', 'ar/oet-writing-sample-pharmacy.html', 'ar/oet-writing-sample-physiotherapy.html',
   'ar/oet-speaking-role-play-cards.html', 'ar/oet-mock-test.html', 'ar/oet-score-calculator.html',
+  // OET Recalls (owner brief v2, 21 Nov 2026)
+  'oet-recalls.html', 'ar/oet-recalls.html',
 ];
 
 let failures = 0;
@@ -217,7 +219,9 @@ const visibleText = (s) => s.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(
 for (const [page, html] of Object.entries(distHtml)) {
   const vis = visibleText((html.match(/<main[\s\S]*<\/main>/) || [''])[0]);
   for (const q of nodesOfType(ldBlocks(html), 'Question')) {
-    if (!vis.includes(visibleText(q.name || '')) || !vis.includes(visibleText(q.acceptedAnswer?.text || '')))
+    // a final full stop is not content: the Recalls FAQ (owner brief) marks up an answer that the page continues past its full stop
+    const answer = visibleText(q.acceptedAnswer?.text || '').replace(/\.$/, '');
+    if (!vis.includes(visibleText(q.name || '')) || !vis.includes(answer))
       fail(`${page}: FAQ JSON-LD not visible verbatim on the page: "${String(q.name).slice(0, 60)}"`);
   }
 }
@@ -845,17 +849,26 @@ if (distHtml['pricing.html']) {
   if (!mainJs.includes('footer .oet-footer-group') || !mainJs.includes('(min-width: 768px)')) fail('main.js must open the footer groups from 768px up');
   if (!/\.oet-footer-cols\{[^}]*display:grid/.test(commonCss) || !/footer\.vl-footer-10\.oet-footer\{padding-bottom:calc\(100px/.test(commonCss))
     fail('oet-common.css: the grouped footer grid or the contact-bubble clearance (footer bottom padding) is missing');
+  // OET Recalls (owner brief v2, 21 Nov 2026): one language-matched link after "OET Blog" in the shared header nav (and so in the mobile menu
+  // main.js clones from it) and in the footer Resources & Guides group. The two landing pages are FROZEN: they must carry no Recalls link at all.
+  const { RECALLS_LINKS } = await import('../src/lib/recalls.mjs');
+  const FROZEN_HOME = ['index.html', 'ar/index.html'];
+  const recallsOf = (page) => RECALLS_LINKS[page.startsWith('ar/') ? 'ar' : 'en'];
+  for (const page of FROZEN_HOME) if (/oet-recalls/.test(distHtml[page] || '')) fail(`${page}: the landing page is frozen (owner brief 21 Nov 2026): it must not link or mention the Recalls page`);
   for (const [page, html] of Object.entries(distHtml)) {
     if ((html.match(/id="vl-offcanvas-menu"/g) || []).length !== 1) fail(`${page}: expected exactly one offcanvas drawer`);
     const nav = (html.match(/<nav class="vl-mobile-menu-active"[\s\S]*?<\/nav>/) || [''])[0];
+    const rl = recallsOf(page);
+    const wantTop = FROZEN_HOME.includes(page) ? TOP : [...TOP.slice(0, TOP.indexOf('OET Blog') + 1), rl.nav, ...TOP.slice(TOP.indexOf('OET Blog') + 1)];
     // top-level items = the first link text of each <li> directly inside the nav's outer <ul>
     const found = [];
     let depth = 0;
     for (const m of nav.matchAll(/<(\/?)ul\b|<li\b[^>]*>\s*<a\b[^>]*>([^<]*)/g)) {
       if (m[2] === undefined) depth += m[1] ? -1 : 1;
-      else if (depth === 1 && TOP.includes(m[2].trim())) found.push(m[2].trim());
+      else if (depth === 1 && wantTop.includes(m[2].trim())) found.push(m[2].trim());
     }
-    if (found.join('|') !== TOP.join('|')) fail(`${page}: main nav must be the original ${TOP.join(' / ')} (found ${found.join(' / ')})`);
+    if (found.join('|') !== wantTop.join('|')) fail(`${page}: main nav must be ${wantTop.join(' / ')} (found ${found.join(' / ')})`);
+    if (!FROZEN_HOME.includes(page) && !nav.includes(`<li><a href="/blog/">OET Blog</a></li><li><a href="${rl.href}"${rl.lang}>${rl.nav}</a></li>`)) fail(`${page}: the Recalls nav link (${rl.nav} -> ${rl.href}) must follow "OET Blog" directly`);
     if (!nav.includes('<li><a href="/blog/">OET Blog</a></li>')) fail(`${page}: main nav must keep the plain "OET Blog" link to /blog/`);
     // the side menu is this nav cloned by main.js; only the inline desktop nav keeps the Contact row
     if (!nav.includes('<li class="oet-nav-desktop-only"><a href="/contact.html">Contact</a></li>')) fail(`${page}: the inline nav's Contact row must carry oet-nav-desktop-only (main.js removes it from the side menu)`);
@@ -874,7 +887,10 @@ if (distHtml['pricing.html']) {
     const groups = [...footer.matchAll(/<details class="oet-footer-group[^"]*">\s*<summary><h3[^>]*>([^<]*)<\/h3><\/summary>([\s\S]*?)<\/details>/g)];
     if (groups.map((g) => visibleText(g[1])).join('|') !== FOOTER_GROUPS.map(([t]) => t.toLowerCase()).join('|')) fail(`${page}: footer must have the groups ${FOOTER_GROUPS.map(([t]) => t).join(' / ')}`);
     if (/<details\b[^>]*\bopen\b/.test(footer)) fail(`${page}: footer groups must be closed in the markup (phone accordions; main.js opens them from 768px)`);
-    FOOTER_GROUPS.forEach(([title, links], i) => {
+    // the Recalls footer link lives in Resources & Guides on every page except the frozen landing pages
+    const groupsHere = FROZEN_HOME.includes(page) ? FOOTER_GROUPS
+      : FOOTER_GROUPS.map(([t, l]) => (t === 'Resources & Guides' ? [t, [...l, [rl.footer, rl.href]]] : [t, l]));
+    groupsHere.forEach(([title, links], i) => {
       const body = groups[i] ? groups[i][2] : '';
       for (const [text, href] of links) {
         // postbuild appends a clean ?text= prefill to bare wa.me links
@@ -958,6 +974,8 @@ if (distHtml['pricing.html']) {
     ['oet-writing-sample-medicine.html', 'ar/oet-writing-sample-medicine.html'], ['oet-writing-sample-medicine-discharge.html', 'ar/oet-writing-sample-medicine-discharge.html'],
     ['oet-writing-sample-pharmacy.html', 'ar/oet-writing-sample-pharmacy.html'], ['oet-writing-sample-physiotherapy.html', 'ar/oet-writing-sample-physiotherapy.html'],
     ['oet-speaking-role-play-cards.html', 'ar/oet-speaking-role-play-cards.html'], ['oet-mock-test.html', 'ar/oet-mock-test.html'], ['oet-score-calculator.html', 'ar/oet-score-calculator.html'],
+    // OET Recalls (owner brief v2, 21 Nov 2026)
+    ['oet-recalls.html', 'ar/oet-recalls.html'],
   ];
   const paired = new Map(HREFLANG_PAIRS.flatMap(([en, ar]) => [[en, [en, ar]], [ar, [en, ar]]]));
   for (const [page, html] of Object.entries(distHtml)) {
@@ -1181,7 +1199,8 @@ if (distHtml['pricing.html']) {
 
 // ---- SEO implementation brief, 21 Nov 2026 ------------------------------------------------------------------------------
 // P1 counters, P4 honest "free" wording, P5 Arabic section, P6 homepage weight, P7 HSTS, and the January 2027 paper-test news
-// (two posts, the announcement bar on every page, the homepage cards). P2 (a public recalls page) is NOT built: owner decision.
+// (two posts, the announcement bar on every page, the homepage cards). P2 (the public recalls page) was reversed by the owner on
+// 21 Nov 2026 (brief v2) and is built: see the "OET Recalls page" block at the end of this file.
 {
   const ORIGIN = 'https://oetwithdrhesham.co.uk';
   const { loadBlog } = await import('../src/lib/blog.mjs');
@@ -1288,7 +1307,8 @@ if (distHtml['pricing.html']) {
     const ANCHORS = ['اختبار OET تجريبي مجاني', 'نموذج امتحان OET مجاني', 'حمل نماذج OET الرسمية', 'جرب نفسك في OET قبل الحجز'];
     const used = new Set();
     for (const page of Object.keys(distHtml)) {
-      if (!page.startsWith('ar/') || page === 'ar/oet-sample-tests.html') continue;
+      // ar/oet-recalls.html keeps the exact four-block format the owner approved (brief v2, 21 Nov 2026)
+      if (!page.startsWith('ar/') || page === 'ar/oet-sample-tests.html' || page === 'ar/oet-recalls.html') continue;
       const hit = ANCHORS.find((a) => mainOf(distHtml[page]).includes(`<a href="/ar/oet-sample-tests.html">${a}</a>`));
       if (!hit) fail(`${page}: must link /ar/oet-sample-tests.html with one of the four rotating keyword anchors`);
       else used.add(hit);
@@ -1334,6 +1354,157 @@ if (distHtml['pricing.html']) {
 
   // P7: HSTS is sent once, by the proxy (NPM); the Apache config must not add a second, different value
   if (/Strict-Transport-Security/i.test(read('.htaccess').replace(/^\s*#.*$/gm, ''))) fail('.htaccess: must not set Strict-Transport-Security (the proxy already does; a second value made two conflicting headers)');
+}
+
+// ---- OET Recalls page (owner brief v2, 21 Nov 2026) --------------------------------------------------------------------------
+// /oet-recalls.html + /ar/oet-recalls.html. The expected strings below are the brief's verbatim copy (sections 2, 4, 5, appendices A-C);
+// the apex origin replaces the brief's "www." host, which 301-redirects to the apex (a www canonical would point at a redirect).
+{
+  const ORIGIN = 'https://oetwithdrhesham.co.uk';
+  const { loadRecalls } = await import('../src/lib/recalls.mjs');
+  const data = loadRecalls(); // validates src/data/recalls.json (newest first, <= 3 month groups, known skills and professions)
+  const total = data.months.reduce((n, m) => n + m.entries.length, 0);
+  if (!total) console.warn('WARN recalls: src/data/recalls.json has no entries yet, so Block B shows its holding line. Do NOT publish until the first batch from Dr Hesham is added (docs/recalls-page-2026-11-21.md).');
+  const mainOf = (html) => (html.match(/<main[\s\S]*<\/main>/) || [''])[0];
+  const vis = (html) => visibleText(html);
+
+  const EXPECT = {
+    en: {
+      page: 'oet-recalls.html', url: '/oet-recalls.html', sibling: '/ar/oet-recalls.html', locale: 'en_GB', alt: 'ar_EG',
+      title: 'OET Recalls: Recent Exam Topics | Dr Hesham',
+      desc: 'Read the latest OET recalls: recent Writing and Speaking exam topics reported by our students, updated after every OET test date. Register for the full recall library and audio word banks.',
+      h1: 'OET Recalls: Recent Exam Topics',
+      intro: 'Preparing for OET? This page collects recent OET recalls: the exam topics our students report right after their test dates. Read the latest Writing and Speaking topics from roughly the last two months, free. New recalls are added after every test date.',
+      ctaH: 'Want more recalls and more words?',
+      ctaP: 'Registered students get the complete recall library, audio word banks, full courses, and writing corrections.',
+      ctaBtn: 'Register on our platform',
+      faq: [
+        ['What are OET recalls?', 'Recalls are the exam topics that candidates remember and report after their test. They show the real topics being asked right now, so you can practise with material that matches the current exam, not old question banks.'],
+        ['How often is this page updated?', 'After every OET test date. The page keeps roughly the last two months of topics, so what you see here reflects the current exam.'],
+        ['Are these official OET questions?', 'No. They are topics reported by our students from their own exam experience, shared for practice purposes. They are not official OET content and are not endorsed by OET.'],
+        ['Where can I find more recalls and word banks?', 'The free page shows recent Writing and Speaking topics. Registered students get the complete recall library, audio word recalls, full courses, and writing corrections on our platform — tap "Register on our platform" above to join.'],
+      ],
+      disclaimer: 'Disclaimer. All topics on this page are reported by our students from their own exam experience and are shared for practice purposes only. This is not official OET content, and it has not been reviewed, approved, or endorsed by OET or Cambridge Boxhill Language Assessment.',
+      crumbs: [['Home', `${ORIGIN}/`], ['OET Recalls', `${ORIGIN}/oet-recalls.html`]],
+    },
+    ar: {
+      page: 'ar/oet-recalls.html', url: '/ar/oet-recalls.html', sibling: '/oet-recalls.html', locale: 'ar_EG', alt: 'en_GB',
+      title: 'ريكولز OET: مواضيع الامتحان الأخيرة | دكتور هشام',
+      desc: 'اقرأ أحدث ريكولز OET: مواضيع الكتابة والمحادثة الأخيرة من الامتحان الحقيقي، منقولة عن طلابنا ومحدّثة بعد كل موعد امتحان. سجّل للوصول إلى مكتبة الريكولز الكاملة وبنوك الكلمات الصوتية.',
+      h1: 'ريكولز OET: مواضيع الامتحان الأخيرة',
+      intro: 'بتحضّر لامتحان OET؟ الصفحة دي بتجمّع أحدث الريكولز: مواضيع الامتحان اللي طلابنا بينقلوها فوراً بعد كل موعد. اقرأ آخر مواضيع الكتابة والمحادثة من آخر شهرين تقريباً، مجاناً. بنضيف ريكولز جديدة بعد كل موعد امتحان.',
+      ctaH: 'عايز ريكولز أكتر وكلمات أكتر؟',
+      ctaP: 'الطلاب المسجلين عندهم مكتبة الريكولز الكاملة، وبنوك الكلمات الصوتية، والكورسات الكاملة، وتصحيح الكتابة.',
+      ctaBtn: 'سجّل على منصتنا',
+      faq: [
+        ['إيه هي ريكولز OET؟', 'الريكولز هي مواضيع الامتحان اللي الطلاب بيفتكروها وبينقلوها بعد امتحانهم. بتوريك المواضيع الحقيقية المطلوبة دلوقتي، فبتتدرب على مادة شبه الامتحان الحالي، مش بنوك أسئلة قديمة.'],
+        ['الصفحة بتتحدث كل قد إيه؟', 'بعد كل موعد امتحان OET. الصفحة بتحتفظ بمواضيع آخر شهرين تقريباً، عشان اللي تشوفه هنا يعكس الامتحان الحالي.'],
+        ['هل دي أسئلة رسمية من OET؟', 'لأ. دي مواضيع منقولة عن طلابنا من تجربتهم الشخصية في الامتحان، ومشاركتها لأغراض التدريب. مش محتوى رسمي من OET ولا معتمد منهم.'],
+        ['ألاقي ريكولز وبنوك كلمات أكتر فين؟', 'الصفحة المجانية بتعرض مواضيع الكتابة والمحادثة الأخيرة. الطلاب المسجلين عندهم مكتبة الريكولز الكاملة، وريكولز الكلمات الصوتية، والكورسات الكاملة، وتصحيح الكتابة على منصتنا — دوس على «سجّل على منصتنا» فوق عشان تشترك.'],
+      ],
+      disclaimer: 'إخلاء مسؤولية. جميع المواضيع في هذه الصفحة مُبلَّغة من طلابنا من تجربتهم الشخصية في الامتحان، ومشاركتها لأغراض التدريب فقط. هذا ليس محتوى رسمياً من OET، ولم تتم مراجعته أو اعتماده أو دعمه من OET أو Cambridge Boxhill Language Assessment.',
+      crumbs: [['الرئيسية', `${ORIGIN}/ar/`], ['ريكولز OET', `${ORIGIN}/ar/oet-recalls.html`]],
+    },
+  };
+
+  for (const [lang, x] of Object.entries(EXPECT)) {
+    const html = distHtml[x.page] || '';
+    const main = mainOf(html);
+    const head = html.slice(0, html.indexOf('</head>'));
+    const meta = (re) => (head.match(re) || [, ''])[1];
+    const label = x.page;
+
+    // head metadata exactly as section 4 (canonical on the apex origin)
+    if (meta(/<title>([^<]*)<\/title>/) !== x.title) fail(`${label}: title must be "${x.title}"`);
+    if (meta(/<meta name="description" content="([^"]*)"/) !== x.desc) fail(`${label}: meta description must be the brief's verbatim text`);
+    if (meta(/<link rel="canonical" href="([^"]*)"/) !== ORIGIN + x.url) fail(`${label}: canonical must be ${ORIGIN + x.url}`);
+    if (meta(/<meta name="robots" content="([^"]*)"/) !== 'index, follow') fail(`${label}: robots must be "index, follow"`);
+    if (meta(/<meta property="og:title" content="([^"]*)"/) !== x.title) fail(`${label}: og:title must equal the title tag`);
+    if (meta(/<meta property="og:description" content="([^"]*)"/) !== x.desc) fail(`${label}: og:description must equal the meta description`);
+    if (meta(/<meta property="og:locale" content="([^"]*)"/) !== x.locale || meta(/<meta property="og:locale:alternate" content="([^"]*)"/) !== x.alt) fail(`${label}: og:locale must be ${x.locale} with alternate ${x.alt}`);
+    if (meta(/<meta property="og:image" content="([^"]*)"/) !== `${ORIGIN}/assets/img/og/og-recalls.png` || meta(/<meta property="og:image:width" content="([^"]*)"/) !== '1200' || meta(/<meta property="og:image:height" content="([^"]*)"/) !== '630') fail(`${label}: og:image must be og-recalls.png at 1200x630`);
+
+    // language and direction: Arabic is genuinely RTL on <html> and on <main>; English stays untouched
+    if (lang === 'ar') {
+      if (!/<html lang="ar" dir="rtl"/.test(html)) fail(`${label}: <html> must carry lang="ar" dir="rtl"`);
+      if (!/<main\b[^>]*\bdir="rtl"[^>]*\blang="ar"/.test(main)) fail(`${label}: <main> must be dir="rtl" lang="ar"`);
+    } else if (/<html\b[^>]*\bdir=/.test(html)) fail(`${label}: the English page must not set dir on <html>`);
+
+    // Block A: H1 and the verbatim intro
+    if ((main.match(/<h1\b/g) || []).length !== 1 || vis((main.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/) || [, ''])[1]) !== visibleText(x.h1)) fail(`${label}: the single H1 must read "${x.h1}"`);
+    if (!vis(main).includes(visibleText(x.intro))) fail(`${label}: the hero intro must be the brief's verbatim text`);
+
+    // Block order: A hero, B topics, C registration box, D FAQ, then the disclaimer last, directly above the shared footer
+    const at = (s) => main.indexOf(s);
+    const order = ['class="oet-resource-hero', 'id="recent-topics"', 'class="oet-recalls-cta-section"', 'id="faq"', 'class="oet-recalls-disclaimer-section"'].map(at);
+    if (order.some((i) => i < 0) || order.some((v, i) => i && v <= order[i - 1])) fail(`${label}: blocks must run hero, topics, registration box, FAQ, disclaimer`);
+    if (!/<p class="oet-recalls-disclaimer">[\s\S]*?<\/p>\s*<\/div>\s*<\/section>\s*<\/main>/.test(main)) fail(`${label}: the disclaimer must close the page content, directly above the footer`);
+    const disc = (main.match(/<p class="oet-recalls-disclaimer">([\s\S]*?)<\/p>/) || [, ''])[1];
+    if (vis(disc) !== visibleText(x.disclaimer)) fail(`${label}: the disclaimer must be the brief's verbatim text`);
+
+    // Block C: one in-flow box, verbatim copy, the button to the app registration with the conversion event hook
+    const box = (main.match(/<div class="oet-recalls-cta">([\s\S]*?)<\/div>\s*<\/div>\s*<\/section>/) || [, ''])[1];
+    if (vis((box.match(/<h2[^>]*>([\s\S]*?)<\/h2>/) || [, ''])[1]) !== visibleText(x.ctaH)) fail(`${label}: registration box headline must read "${x.ctaH}"`);
+    if (vis((box.match(/<p>([\s\S]*?)<\/p>/) || [, ''])[1]) !== visibleText(x.ctaP)) fail(`${label}: registration box line must be the brief's verbatim text`);
+    const btn = (box.match(/<a\b[^>]*>[\s\S]*?<\/a>/g) || []);
+    if (btn.length !== 1 || !btn[0].includes('href="https://app.oetwithdrhesham.co.uk/register"') || vis(btn[0]) !== visibleText(x.ctaBtn) || !btn[0].includes('data-oet-event="recalls_cta_register"')) fail(`${label}: one button "${x.ctaBtn}" to https://app.oetwithdrhesham.co.uk/register carrying data-oet-event="recalls_cta_register"`);
+    if (!html.includes('<script defer src="/assets/js/oet-recalls.js?v=') || !html.includes('<link rel="stylesheet" href="/assets/css/oet-recalls.css?v=')) fail(`${label}: must load oet-recalls.css and oet-recalls.js`);
+
+    // Block D: four FAQs in order, with FAQPage and BreadcrumbList JSON-LD in the page's language (the generic check proves each answer is visible)
+    const items = [...main.matchAll(/<div class="oet-faq-item"><h3>([\s\S]*?)<\/h3><p>([\s\S]*?)<\/p><\/div>/g)];
+    if (items.length !== 4 || items.some((m, i) => vis(m[1]) !== visibleText(x.faq[i][0]) || vis(m[2]) !== visibleText(x.faq[i][1]))) fail(`${label}: the four FAQs must be the brief's verbatim copy, in order`);
+    const faqLd = nodesOfType(ldBlocks(html), 'FAQPage')[0];
+    const qs = faqLd ? faqLd.mainEntity : [];
+    if (!faqLd || qs.length !== 4 || qs.some((q, i) => q.name !== x.faq[i][0])) fail(`${label}: FAQPage JSON-LD must carry the four questions`);
+    if (lang === 'ar' && faqLd && faqLd.inLanguage !== 'ar') fail(`${label}: the Arabic FAQPage JSON-LD must set inLanguage "ar"`);
+    const crumb = nodesOfType(ldBlocks(html), 'BreadcrumbList')[0];
+    const got = crumb ? crumb.itemListElement.map((i) => [i.name, i.item]) : [];
+    if (JSON.stringify(got) !== JSON.stringify(x.crumbs)) fail(`${label}: BreadcrumbList must be ${JSON.stringify(x.crumbs)}`);
+    const wp = nodesOfType(ldBlocks(html), 'WebPage')[0];
+    if (!wp || wp.datePublished !== data.published || wp.dateModified !== data.updated) fail(`${label}: WebPage JSON-LD dates must be recalls.json published/updated (${data.published} / ${data.updated})`);
+
+    // language switcher: a visible link to the sibling version
+    if (!new RegExp(`<a\\b[^>]*href="${x.sibling.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"[^>]*hreflang="`).test(main)) fail(`${label}: needs a visible link to its sibling ${x.sibling}`);
+
+    // Block B: every entry of recalls.json renders as a card, tagged with skill + profession, grouped newest month first; no audio on the public page
+    if ((main.match(/class="oet-recalls-card"/g) || []).length !== total) fail(`${label}: ${(main.match(/class="oet-recalls-card"/g) || []).length} cards for ${total} entries in recalls.json`);
+    if ((main.match(/class="oet-recalls-month-title"/g) || []).length !== data.months.length) fail(`${label}: one heading per month group expected`);
+    if (lang === 'ar' && (main.match(/class="oet-recalls-topic"/g) || []).length !== (main.match(/class="oet-recalls-topic" lang="en" dir="ltr"/g) || []).length) fail(`${label}: Arabic page topics stay English and must be marked lang="en" dir="ltr"`);
+    if (lang === 'en' && /oet-recalls-hint/.test(main)) fail(`${label}: the Arabic hint belongs to the Arabic page only`);
+    if (/<audio\b|<video\b|<source\b|\.(mp3|wav|m4a|ogg)\b/i.test(main)) fail(`${label}: text topics only: no audio on the public page`);
+  }
+
+  // one intrusion rule: the page CSS has no fixed or sticky element (no pop-up, no sticky bar)
+  if (/position\s*:\s*(fixed|sticky)/.test(readFileSync(path.join(ROOT, 'assets/css/oet-recalls.css'), 'utf8'))) fail('oet-recalls.css: the registration box must stay in flow (no fixed or sticky positioning)');
+
+  // sitemap: both versions, weekly, 0.8, mutual hreflang annotations with x-default = the English page
+  {
+    const sm = readFileSync(path.join(DIST, 'sitemap.xml'), 'utf8');
+    if (!sm.includes('xmlns:xhtml="http://www.w3.org/1999/xhtml"')) fail('sitemap.xml: the xhtml namespace is required for the hreflang annotations');
+    for (const x of Object.values(EXPECT)) {
+      const row = (sm.match(new RegExp(`<url><loc>${ORIGIN}${x.url.replace(/\./g, '\\.')}</loc>[\\s\\S]*?</url>`)) || [''])[0];
+      const want = ['<changefreq>weekly</changefreq>', '<priority>0.8</priority>', `<xhtml:link rel="alternate" hreflang="en" href="${ORIGIN}/oet-recalls.html"/>`,
+        `<xhtml:link rel="alternate" hreflang="ar" href="${ORIGIN}/ar/oet-recalls.html"/>`, `<xhtml:link rel="alternate" hreflang="x-default" href="${ORIGIN}/oet-recalls.html"/>`];
+      if (!row || want.some((w) => !row.includes(w))) fail(`sitemap.xml: ${x.url} needs weekly, 0.8 and the en / ar / x-default xhtml:link annotations`);
+    }
+  }
+
+  // /oet-recalls and /ar/oet-recalls 301 to the .html pages through the existing .htaccess rule "a page URL shared without .html goes to the real page"
+  {
+    const ht = readFileSync(path.join(ROOT, '.htaccess'), 'utf8');
+    const rule = ht.match(/RewriteCond %\{DOCUMENT_ROOT\}\/\$1\.html -f\s*\n\s*RewriteRule (\^\(\[a-z0-9-\]\+\(\?:\/\[a-z0-9-\]\+\)\?\)\/\?\$) https:\/\/%\{HTTP_HOST\}\/\$1\.html \[R=301,L\]/);
+    if (!rule) fail('.htaccess: the extensionless-URL 301 rule (RewriteCond -f + RewriteRule ... [R=301,L]) is missing, so /oet-recalls would not redirect');
+    else for (const p of ['oet-recalls', 'ar/oet-recalls']) {
+      if (!new RegExp(rule[1]).test(p) || !existsSync(path.join(ROOT, `${p}.html`))) fail(`.htaccess: /${p} would not 301 to /${p}.html`);
+    }
+  }
+
+  // the share card exists at 1200x630 (PNG header)
+  {
+    const f = path.join(ROOT, 'assets/img/og/og-recalls.png');
+    if (!existsSync(f)) fail('assets/img/og/og-recalls.png is missing');
+    else { const b = readFileSync(f); if (b.readUInt32BE(16) !== 1200 || b.readUInt32BE(20) !== 630) fail('og-recalls.png must be 1200x630'); }
+  }
 }
 
 if (failures) {

@@ -11,7 +11,7 @@ enrollment **web app** lives at app./api.oetwithdrhesham.co.uk (repo
 OUTPUT, committed for parity/deploy. Never hand-edit root HTML — edit the
 partials/data and rebuild.**
 
-- `site/src/pages/*.astro` — 115 thin wrappers incl. 404 (one per page; `ar/` = Arabic, `lang="ar"`), each importing
+- `site/src/pages/*.astro` — 117 thin wrappers incl. 404 (one per page; `ar/` = Arabic, `lang="ar"`), each importing
   its page partials `?raw` and rendering through `site/src/layouts/Base.astro`.
 - `site/src/partials/<page>/{meta,head-extra,main,tail}.html` — byte-preserved
   page bodies. This is where page content/CSS edits happen.
@@ -130,7 +130,7 @@ partials/data and rebuild.**
   `[page: …]` labels: the source page is tracked by `oet-analytics.js`), generates
   `sitemap.xml` (per-page git dates), `assets/search-index.json`, `llms.txt`,
   `llms-full.txt` and `feed.xml` (see "SEO + AI-search layer" below), copies the
-  115 built pages + sitemap + generated files to the repo root. `--check-root` asserts root ==
+  117 built pages + sitemap + generated files to the repo root. `--check-root` asserts root ==
   dist for the pages, `oet-core.css` and the three generated files (CI parity). New page = add it to
   `PAGES` here and in `verify.mjs`, and to `LLMS_GROUPS` here unless it is a blog post (posts are grouped by category).
 - `site/scripts/verify.mjs` — asserts pages/assets/JSON-LD/sitemap/pricing, one
@@ -337,7 +337,7 @@ redesign: `docs/qa/redesign-2026-10-qa.md`.
 Status, evidence and open decisions: `docs/seo-brief-2026-11-21.md`. What the code now does:
 
 - **P1 counters**: `applyStoryCounts` (`inject.mjs`) writes the FINAL number as the counter's text (`<span class="oet-countup" data-count="1750">1,750</span>`); `assets/js/main.js` still animates from 0 on view and formats with `en-GB`. `verify.mjs` fails on any `oet-countup` whose text is not its `data-count`. The same pass fixed a latent bug: `rewriteJsonLd` writes `<` as `<`, so a `<!--oet:…-->` marker inside JSON-LD shipped literally; `enrichPage` (`page.mjs`) now un-escapes markers first and `verify.mjs` also scans for `<!--oet:`.
-- **P2 public recalls page: NOT built (owner re-confirmed "keep it out" on 21 Nov 2026, when asked directly about this audit item).** It contradicts the owner decision of 8 Nov 2026 (re-confirmed 19 Nov): OET treats sharing test content as malpractice and a public recalls page could hurt a Preparation Partner application. It also needs real monthly recall data that the repo does not hold. Do not build it (or the `/oet-recalls.html` pair) without a new, explicit owner decision AND the data.
+- **P2 public recalls page: REVERSED and built on 21 Nov 2026 (owner brief v2, later that same day).** Earlier that day the owner had re-confirmed "keep it out" (the 8 Nov decision, re-confirmed 19 Nov: OET treats sharing test content as malpractice and a public recalls page could hurt a Preparation Partner application). The owner then issued the v2 brief and told the agent to implement it, which is the new, explicit decision this file asked for. The data condition was met the same day: the owner pasted the first batch (14 Medicine entries: 6 Writing + 8 Speaking, filed under November 2026) and ordered commit, push and deploy. Rules and how it works: "OET Recalls page" below.
 - **P3 Course + Offer schema**: already shipped before the audit (`applyCourseSchema`, offers from `pricing.json` / `bundles.json`, `verify.mjs` checks them); nothing added. The audit's template (`PT30H`, one hand-typed price) would have duplicated and drifted from it.
 - **P4 mock test**: the full mocks are PAID, so the title stays "OET Mock Test Online: Full Timed Mock Exams" (`verify.mjs` fails if it ever says "free"). The page now leads with a genuinely free "Start free" section (official sample tests, placement test, score calculator) and the FAQ "Is there a free OET mock test online?"; the description ends "Start free with official sample tests." If the owner ever offers a free mock, change the title/description then.
 - **P5 Arabic section**: 11 new `/ar/` twins (`pricing`, `success-stories`, `oet-mock-test`, `oet-score-calculator`, `oet-speaking-role-play-cards`, six `oet-writing-sample-*`), each with the three-link hreflang block on BOTH sides (`HREFLANG_PAIRS` in `verify.mjs`). `/ar/pricing.html` has no typed price (markers only), no struck-out comparison prices and no live-catalog refresh: prices are the build-time list prices and the page says checkout confirms them. Arabic tier names are in the page itself (`الكورس المكثف …` for Crash were chosen by the page author: owner to confirm). `/ar/success-stories.html` reuses `applyStoryCounts` / `applyStorySample` with `STORY_AR` (the Arabic markup must carry exactly those labels). The calculator reuses `assets/js/oet-score-calculator.js` untouched and maps its English rule names/notes to Arabic in its own tail script. Every existing Arabic page links `/ar/oet-sample-tests.html` with one of the four rotating keyword anchors (`verify.mjs` checks all four are in use) plus topical links to the new pages (each new page needs >= 3 inbound links).
@@ -347,6 +347,35 @@ Status, evidence and open decisions: `docs/seo-brief-2026-11-21.md`. What the co
 - **Announcement bar + homepage card** (`src/data/announcement.json` is the single source: wording, links, `until: 2027-01-15`): `components/Announcement.astro` renders a slim in-flow bar before the header on EVERY page (EN pages -> the EN post, `/ar/` pages -> the AR post), the homepage and `/ar/` get a card directly under the hero (`<!--oet:news-card-->`). The transparent header is `position:absolute`, so `oet-redesign.css` pushes it down by the bar's fixed height (`--oet-bar-h`: 40 px, 56 px on phones; never JS-measured). The head script in `Base.astro` adds `html.oet-news-expired` after `until` (end of day UTC) and `html.oet-bar-dismissed` (localStorage `oet_announce_<id>`) before first paint; `assets/js/oet-announce.js` only handles the dismiss button. The build never depends on the date (output stays deterministic). **After 15 January 2027** remove it for good: delete `announcement.json`, `Announcement.astro`, `lib/announce.mjs`, `oet-announce.js`, the `<!--oet:news-card-->` markers in `partials/index/main.html` and `partials/ar/main.html`, the Announcement lines in `Base.astro`, the announcement CSS block at the end of `oet-redesign.css` and its checks in `verify.mjs`; keep the posts (evergreen).
 - Not done on purpose: the pricing page's Paper-Based / Computer-Based selector and the pages that describe paper availability by profession (`oet-test-dates-and-fees` dates, country pages) still describe 2026 reality; from January 2027 paper is Nursing/Medicine-only. Owner decision whether to change the selector and the dates table.
 
+## OET Recalls page (owner brief v2, 21 Nov 2026; built 21 Nov 2026)
+
+`/oet-recalls.html` + `/ar/oet-recalls.html`: free, text-only recent Writing and Speaking topics reported by students, with one registration box
+and a FAQ. Operating guide, brief-vs-reality notes and the open items: `docs/recalls-page-2026-11-21.md` (read it before touching the page).
+
+- **Topics = one data file**, `site/src/data/recalls.json` (months newest first, entries `{skill, profession, topic, hintAr?}`, `updated` = the edit date). Both
+  languages render from it (`src/lib/recalls.mjs`); `updated` becomes JSON-LD `dateModified`, and the file's git date drives the sitemap `lastmod`. Topic text stays
+  English on both versions; the Arabic page adds the optional one-line `hintAr`. At most three month groups (about the last two months): `loadRecalls()` fails the
+  build on an older month, a wrong order, an unknown skill or profession. **Never invent topics**; they come from Dr Hesham after each test date. While `months` is
+  empty the page shows a holding line and `verify.mjs` prints a WARN: do not deploy in that state.
+- **The two landing pages are FROZEN** (`index.html`, `ar/index.html`: no banner, link, script or content change). The Recalls link in the shared header (after
+  "OET Blog": "Recalls" / "الريكولز") and footer (Resources & Guides: "OET Recalls" / "ريكولز OET") is language-matched and is NOT rendered on those two pages
+  (`layouts/Base.astro`, keyed on the canonical via `pageKey`), because their markup is this same chrome. `verify.mjs` fails if either landing page mentions the page.
+  Their SHA-256 was identical before and after the change. Putting the link on the homepage needs the owner to lift the freeze.
+- **Canonical host is the apex** `https://oetwithdrhesham.co.uk` (the brief typed `www.`, which 301-redirects to the apex; a `www` canonical would point at a redirect).
+- **Arabic = `<html lang="ar" dir="rtl">`** (new `dir` prop on `Base.astro`, set only by this page, so no other page changes) plus `<main dir="rtl">`. The shared English
+  header, drawer, popups and footer are not translated, so `html[dir=rtl] body{direction:ltr}` in `assets/css/oet-recalls.css` keeps them left to right exactly as on
+  the other `/ar/` pages. Typeface = the same Arabic stack as every `/ar/` page.
+- **Verbatim copy** (titles, descriptions, intro, CTA, FAQ, disclaimer) is asserted by the "OET Recalls page" block at the end of `verify.mjs`. The disclaimer's English
+  wording is canonical for any legal question: do not reword either version without checking with Dr Hesham. The FAQ JSON-LD answer 4 is the brief's shorter text;
+  the visible answer continues past its full stop, so the FAQ verbatim gate ignores one final full stop.
+- **Registration button** -> `https://app.oetwithdrhesham.co.uk/register` (`data-oet-cta="recalls_register"`). The conversion event `recalls_cta_register` comes from the
+  page-only `assets/js/oet-recalls.js` through `window.oetAnalytics.track` (cookie-consent aware); `oet-analytics.js` still sends the generic `app_cta_click` for the same
+  click. Do not edit shared CSS/JS for this page: it would change the `?v=` hashes inside the frozen homepage.
+- **`/oet-recalls` and `/ar/oet-recalls` 301 to the `.html` pages** through the existing `.htaccess` rule "a page URL shared without .html goes to the real page"; no new
+  rule is needed (`verify.mjs` asserts the rule and both targets). Sitemap entries carry `xhtml:link` hreflang annotations (the only ones in the sitemap; the page `<head>`
+  hreflang is the site-wide pattern). `og-recalls.png` (1200x630, bilingual) was rendered once from the site's own logo and font.
+- **Not in the brief, so not added:** no link or banner anywhere else (homepage body, pricing, blog templates), no audio, no pop-up or sticky bar.
+
 ## Growth brief: Search Visibility & Brand Discovery (owner, 15 Nov 2026; built 19 Nov 2026)
 
 Status, registers and plans: `docs/growth-brief-2026-11/README.md` (read it before any SEO, brand or claims work).
@@ -354,7 +383,7 @@ Status, registers and plans: `docs/growth-brief-2026-11/README.md` (read it befo
 - **Primary brand = "OET with Dr Ahmed Hesham"** in `person.json` (`organization.name`), the WebSite node, `og:site_name` on every page and the `llms.txt` H1; "OET with Dr Hesham", "Dr Hesham OET" and the Arabic forms are `alternateName`. Page titles, the logo alt and the footer copyright keep the short form "OET with Dr Hesham" (owner-approved chrome). `verify.mjs` gates the name and `og:site_name`.
 - **`/official-information.html` + `/ar/official-information.html`** are the single dated source of truth for identity, official links (site, app, App Store, Google Play, WhatsApp, email, social), teaching, prices (markers) and results, with the answer-ready FAQ. Bump `dateModified` in the meta partial when a fact changes. A new official profile goes into `person.json` `sameAs`, both pages and `docs/growth-brief-2026-11/brand-facts-and-links-register.md` together, and only after the owner confirms the URL. Arabic pages use the Arabic tier names (verify forbids the English-only ones under `ar/`).
 - **`.oet-official-strip`** (end of `<main>` on the trust, course and five Arabic pages) links the official page and both app stores; `verify.mjs` requires it.
-- **Owner decisions 19 Nov 2026:** the "Rated 5.0 on Google" badge stays as it is (link it when the owner sends the Google profile URL); the homepage counters link to their public source (`.oet-stat-source`: YouTube channel, Telegram channel); "recall-based practice" is explained in ONE FAQ answer on the official page, and the 8 Nov decision against a recalls landing page stands.
+- **Owner decisions 19 Nov 2026:** the "Rated 5.0 on Google" badge stays as it is (link it when the owner sends the Google profile URL); the homepage counters link to their public source (`.oet-stat-source`: YouTube channel, Telegram channel); "recall-based practice" is explained in ONE FAQ answer on the official page, and the 8 Nov decision against a recalls landing page stood (reversed by the owner on 21 Nov 2026, see "OET Recalls page" below).
 - **Analytics:** `android_download_click` (any Google Play link) joins `ios_download_click`; the event list is in `docs/growth-brief-2026-11/conversion-events.md`.
 - **robots.txt** also names `OAI-AdsBot` and `Googlebot` (verify gate).
 - **Country pages (owner decision 19 Nov 2026):** `/oet-course-<egypt|saudi-arabia|uae|qatar|kuwait|oman>.html` + the same under `/ar/` (hreflang pairs, LLMS group "OET courses by country", `.oet-country-strip` links on service, the Gulf guides, the official pages and `/ar/`). Every local fact comes from `docs/growth-brief-2026-11/country-research/*.md` (primary sources, 19 Nov 2026): never add a venue, a licensing rule or a local price from memory, never state a tax or local-currency OET price, and keep the Kuwait page free of local licensing claims until an official Kuwait source has been read. Venue lists change: re-check the OET venue finder and bump `dateModified`. Arabic pages use the Arabic tier names.

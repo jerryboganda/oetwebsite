@@ -3,7 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CommunityPopup from '../components/CommunityPopup.astro';
 import Announcement from '../components/Announcement.astro';
-import { enrichPage } from '../lib/page.mjs';
+import { enrichPage, pageKey } from '../lib/page.mjs';
 import { loadAnnouncement } from '../lib/announce.mjs';
 
 interface Props {
@@ -18,6 +18,7 @@ interface Props {
   heroCss?: boolean;
   showApps?: boolean;
   lang?: string;
+  dir?: string;
 }
 
 const {
@@ -28,7 +29,12 @@ const {
   heroCss = false,
   showApps = false,
   lang = 'en',
+  dir,
 } = Astro.props;
+
+// The Recalls link in the shared header and footer (owner brief 21 Nov 2026) is language-matched and is NOT rendered on the two
+// frozen landing pages (index.html, ar/index.html): the brief forbids any change to them, and their markup is this same chrome.
+const recalls = !['index', 'ar/index'].includes(pageKey(Astro.props.meta) ?? '');
 
 // Announcement bar state, applied before first paint: expired (after `until`, end of day UTC) or dismissed by the
 // visitor (localStorage). The bar and the homepage news card hide themselves from these two html classes (oet-redesign.css).
@@ -44,7 +50,7 @@ const { meta, headExtra, main, tail } = enrichPage({
   tail: Astro.props.tail,
 });
 ---
-<html lang={lang} class="oet-live-site">
+<html lang={lang} dir={dir} class="oet-live-site">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -119,11 +125,11 @@ const { meta, headExtra, main, tail } = enrichPage({
 <!--================= Announcement bar (data/announcement.json) =================-->
     <Announcement lang={lang} />
 <!--================= Header section start =================-->
-    <Header showApps={showApps} />
+    <Header showApps={showApps} lang={lang} recalls={recalls} />
 <!--================= Header section End =================-->
 <Fragment set:html={main} />
 <!--================= Footer section start =================-->
-    <Footer showApps={showApps} />
+    <Footer showApps={showApps} lang={lang} recalls={recalls} />
 <!--================= Footer section End =================-->
 <Fragment set:html={tail} />
     <CommunityPopup />

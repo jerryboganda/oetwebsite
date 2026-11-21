@@ -130,6 +130,9 @@ const PAGES = [
   ['ar/oet-speaking-role-play-cards.html', '/ar/oet-speaking-role-play-cards.html', 'monthly', '0.7'],
   ['ar/oet-mock-test.html', '/ar/oet-mock-test.html', 'monthly', '0.8'],
   ['ar/oet-score-calculator.html', '/ar/oet-score-calculator.html', 'monthly', '0.7'],
+  // OET Recalls (owner brief v2, 21 Nov 2026): the only sitemap entries with xhtml:link hreflang annotations (the 5th element: en, ar)
+  ['oet-recalls.html', '/oet-recalls.html', 'weekly', '0.8', ['/oet-recalls.html', '/ar/oet-recalls.html']],
+  ['ar/oet-recalls.html', '/ar/oet-recalls.html', 'weekly', '0.8', ['/oet-recalls.html', '/ar/oet-recalls.html']],
   ['404.html', null, null, null],
 ];
 
@@ -197,6 +200,9 @@ function lastmodFor(distRel) {
     'oet-for-allied-health': bundles,
     blog: [path.join(SITE, 'src', 'data', 'blog.json')],
     index: [path.join(SITE, 'src', 'data', 'blog.json')],
+    // the Recalls topics and dates live in the data file: adding a month bumps the lastmod of both versions
+    'oet-recalls': [path.join(SITE, 'src', 'data', 'recalls.json')],
+    'ar/oet-recalls': [path.join(SITE, 'src', 'data', 'recalls.json')],
   }[key] || [];
   const sources = [partials, ...extra]
     .map((p) => `"${path.relative(ROOT, p)}"`).join(' ');
@@ -215,11 +221,15 @@ function lastmodFor(distRel) {
 }
 
 function buildSitemap() {
-  const rows = PAGES.filter(([, url]) => url).map(([rel, url, freq, prio]) =>
+  // alt = [English url, Arabic url]: mutual hreflang annotations, x-default = the English page (same as the page <head>)
+  const alternates = (alt) => alt ? `<xhtml:link rel="alternate" hreflang="en" href="${ORIGIN}${alt[0]}"/>` +
+    `<xhtml:link rel="alternate" hreflang="ar" href="${ORIGIN}${alt[1]}"/>` +
+    `<xhtml:link rel="alternate" hreflang="x-default" href="${ORIGIN}${alt[0]}"/>` : '';
+  const rows = PAGES.filter(([, url]) => url).map(([rel, url, freq, prio, alt]) =>
     `  <url><loc>${ORIGIN}${url}</loc><lastmod>${lastmodFor(rel)}</lastmod>` +
-    `<changefreq>${freq}</changefreq><priority>${prio}</priority></url>`);
+    `<changefreq>${freq}</changefreq><priority>${prio}</priority>${alternates(alt)}</url>`);
   return `<?xml version="1.0" encoding="UTF-8"?>\n` +
-    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows.join('\n')}\n</urlset>\n`;
+    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${rows.join('\n')}\n</urlset>\n`;
 }
 
 // --- 2b. page text shared by the search index, llms.txt and llms-full.txt ------
@@ -264,7 +274,7 @@ const LLMS_GROUPS = [
   ['OET courses and services', ['/oet-course-for-doctors.html', '/oet-course-for-nurses.html', '/oet-course-for-pharmacists.html', '/oet-course-for-physiotherapists.html',
     '/oet-course-for-dentists.html', '/oet-for-allied-health.html', '/oet-writing-correction.html', '/oet-speaking-practice-online.html', '/oet-mock-test.html']],
   ['OET courses by country', ['/oet-course-egypt.html', '/oet-course-saudi-arabia.html', '/oet-course-uae.html', '/oet-course-qatar.html', '/oet-course-kuwait.html', '/oet-course-oman.html']],
-  ['Free practice and tools', ['/oet-practice.html', '/english-placement-test', '/oet-sample-tests.html', '/oet-materials-support.html', '/oet-score-calculator.html', '/oet-tips.html', '/blog/']],
+  ['Free practice and tools', ['/oet-practice.html', '/english-placement-test', '/oet-sample-tests.html', '/oet-materials-support.html', '/oet-score-calculator.html', '/oet-tips.html', '/oet-recalls.html', '/blog/']],
   // blog.json categories are inserted here, in their blog.json order
   ['Arabic pages (العربية)', null], // every /ar/ URL
   ['Legal', ['/terms/', '/privacy/', '/refund-policy/', '/cookie-policy/']],

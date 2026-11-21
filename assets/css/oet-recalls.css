@@ -1,0 +1,53 @@
+/* OET Recalls page, English + Arabic (owner brief v2, 21 Nov 2026).
+   Loaded only by /oet-recalls.html and /ar/oet-recalls.html, never bundled into oet-core.css (the frozen homepage must not change).
+   Site tokens: purple #7c3aed, deep #6d28d9, ink #16213e, muted #667085, lavender #f2f0fe. */
+
+/* hero: the same clearance under the transparent header as the other resource pages */
+@media (min-width:1200px){.oet-recalls-page .oet-skill-hero{padding-top:240px!important}}
+.oet-recalls-lang{font-size:14px;font-weight:700;margin:18px 0 0}
+.oet-recalls-lang a{color:#6d28d9}
+
+/* Block B: month groups and entry cards */
+.oet-recalls-month+.oet-recalls-month{margin-top:40px}
+.oet-recalls-month-title{color:#16213e;font-size:clamp(22px,3vw,28px);font-weight:800;line-height:1.2;margin:0 0 16px}
+.oet-recalls-list{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));list-style:none;margin:0;padding:0}
+.oet-recalls-card{background:#fff;border:1px solid rgba(124,58,237,.16);border-radius:16px;box-shadow:0 10px 26px rgba(35,28,79,.06);margin:0;padding:20px 22px}
+.oet-recalls-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.oet-recalls-tag{background:#f2f0fe;border-radius:999px;color:#6d28d9;font-size:13px;font-weight:800;line-height:1;padding:7px 12px}
+.oet-recalls-tag--writing{background:#7c3aed;color:#fff}
+.oet-recalls-tag--speaking{background:#6d28d9;color:#fff}
+.oet-recalls-topic{color:#16213e;font-size:16px;line-height:1.65;margin:0;overflow-wrap:anywhere}
+.oet-recalls-hint{color:#667085;font-size:15px;line-height:1.8;margin:10px 0 0}
+.oet-recalls-empty{background:#fff;border:1px dashed rgba(124,58,237,.4);border-radius:16px;color:#475467;margin:0;padding:24px;text-align:center}
+
+/* Block C: one in-flow registration box (no pop-up, no sticky bar) */
+.oet-recalls-cta-section{background:#fff;padding:64px 0}
+.oet-recalls-cta{background:#f2f0fe;border:2px solid #7c3aed;border-radius:20px;margin:0 auto;max-width:860px;padding:40px 32px;text-align:center}
+.oet-recalls-cta h2{color:#16213e;font-size:clamp(26px,3.4vw,38px);font-weight:800;line-height:1.15;margin:0 0 12px}
+.oet-recalls-cta p{color:#475467;font-size:17px;line-height:1.7;margin:0 auto 24px;max-width:620px}
+
+/* Block D: the verbatim disclaimer, small and muted, directly above the shared footer */
+.oet-recalls-disclaimer-section{background:#fff;padding:32px 0 64px}
+.oet-recalls-disclaimer{color:#667085;font-size:13px;line-height:1.7;margin:0;max-width:920px}
+.oet-recalls-disclaimer strong{color:#475467}
+
+@media (max-width:575px){
+  .oet-recalls-cta-section{padding:44px 0}
+  .oet-recalls-cta{border-radius:16px;padding:28px 18px}
+  .oet-recalls-cta .oet-resource-btn{justify-content:center;width:100%}
+  .oet-recalls-card{padding:18px}
+}
+
+/* Arabic version: <html lang="ar" dir="rtl">. The shared English header, drawer, popups and footer keep their left-to-right
+   layout exactly as on the other /ar/ pages (they are not translated), so only <main> reads right to left. */
+html[dir=rtl] body{direction:ltr}
+main[dir=rtl] :is(h1,h2,h3,p,li,a,span,strong,small,summary,label,button){font-family:"Segoe UI",Tahoma,"Noto Naskh Arabic","Noto Sans Arabic",Arial,sans-serif}
+main[dir=rtl],main[dir=rtl] *{letter-spacing:0!important}
+main[dir=rtl] p,main[dir=rtl] li{line-height:1.9}
+main[dir=rtl] :is(h1,h2,h3,p,li){text-align:right}
+main[dir=rtl] .oet-breadcrumbs li+li::before{content:"\2039"}
+main[dir=rtl] .oet-ar-en{font-size:14px;font-weight:700}
+main[dir=rtl] .oet-recalls-lang a{color:#6d28d9}
+main[dir=rtl] .oet-recalls-cta :is(h2,p){text-align:center}
+main[dir=rtl] .oet-recalls-hint,main[dir=rtl] .oet-recalls-empty{line-height:1.9}
+main[dir=rtl] .oet-recalls-empty{text-align:center}

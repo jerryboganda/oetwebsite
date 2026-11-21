@@ -1,0 +1,43 @@
+{
+  "published": "2026-11-21",
+  "updated": "2026-11-21",
+  "skills": {
+    "writing": { "en": "Writing", "ar": "الكتابة" },
+    "speaking": { "en": "Speaking", "ar": "المحادثة" }
+  },
+  "professions": {
+    "dentistry": { "en": "Dentistry", "ar": "طب الأسنان" },
+    "dietetics": { "en": "Dietetics", "ar": "التغذية العلاجية" },
+    "medicine": { "en": "Medicine", "ar": "الطب" },
+    "nursing": { "en": "Nursing", "ar": "التمريض" },
+    "occupational-therapy": { "en": "Occupational Therapy", "ar": "العلاج الوظيفي" },
+    "optometry": { "en": "Optometry", "ar": "البصريات" },
+    "pharmacy": { "en": "Pharmacy", "ar": "الصيدلة" },
+    "physiotherapy": { "en": "Physiotherapy", "ar": "العلاج الطبيعي" },
+    "podiatry": { "en": "Podiatry", "ar": "طب القدم" },
+    "radiography": { "en": "Radiography", "ar": "الأشعة" },
+    "speech-pathology": { "en": "Speech Pathology", "ar": "أمراض النطق والتخاطب" },
+    "veterinary-science": { "en": "Veterinary Science", "ar": "الطب البيطري" }
+  },
+  "months": [
+    {
+      "month": "2026-11",
+      "entries": [
+        { "skill": "writing", "profession": "medicine", "topic": "Urgent referral to breast surgeon (breast mass, back pain)", "hintAr": "تحويل مستعجل لجراحة أورام الثدي" },
+        { "skill": "writing", "profession": "medicine", "topic": "Urgent referral to GP, situational depression (PhD student, father died)", "hintAr": "اكتئاب ظرفي" },
+        { "skill": "writing", "profession": "medicine", "topic": "Urgent referral to chest consultant, suspected lung cancer", "hintAr": "اشتباه سرطان رئة" },
+        { "skill": "writing", "profession": "medicine", "topic": "Routine referral to hematologist, suspected multiple myeloma", "hintAr": "اشتباه مييلوما متعددة" },
+        { "skill": "writing", "profession": "medicine", "topic": "Discharge letter, 87F osteoporotic vertebral injury", "hintAr": "كسر هشاشة في الفقرات" },
+        { "skill": "writing", "profession": "medicine", "topic": "Discharge letter (Nov 1 sitting): pneumonia → sepsis → AKI → rehab depression", "hintAr": "نزل بمؤونيا وبعدين اكتئاب" },
+        { "skill": "speaking", "profession": "medicine", "topic": "Herpes zoster, examine the patient", "hintAr": "حزام ناري، افحص المريض" },
+        { "skill": "speaking", "profession": "medicine", "topic": "Rotator cuff tear, examine the patient", "hintAr": "قطع في الكتف، افحص المريض" },
+        { "skill": "speaking", "profession": "medicine", "topic": "Cold sores, asking for examination", "hintAr": "هيربس على الشفايف" },
+        { "skill": "speaking", "profession": "medicine", "topic": "Eye infection, asking for examination", "hintAr": "التهاب في العين" },
+        { "skill": "speaking", "profession": "medicine", "topic": "7-year-old with father, fever", "hintAr": "طفل مع أبوه، سخونية" },
+        { "skill": "speaking", "profession": "medicine", "topic": "Post-thyroidectomy nausea", "hintAr": "غثيان بعد استئصال الغدة" },
+        { "skill": "speaking", "profession": "medicine", "topic": "Insomnia, lifestyle changes without meds", "hintAr": "أرق بدون أدوية" },
+        { "skill": "speaking", "profession": "medicine", "topic": "Marathon runner with fracture wants to run again", "hintAr": "عدّاءة عندها كسر وعايزة ترجع للجري" }
+      ]
+    }
+  ]
+}

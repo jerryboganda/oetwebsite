@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import meta from '../partials/oet-recalls/meta.html?raw';
+import headExtra from '../partials/oet-recalls/head-extra.html?raw';
+import main from '../partials/oet-recalls/main.html?raw';
+import tail from '../partials/oet-recalls/tail.html?raw';
+import { applyRecalls } from '../lib/recalls.mjs';
+
+// topics and JSON-LD dates come from src/data/recalls.json (src/lib/recalls.mjs)
+const page = applyRecalls('en', { meta, headExtra, main, tail });
+---
+<Base
+  meta={page.meta}
+  headExtra={page.headExtra}
+  main={page.main}
+  tail={page.tail}
+  bodyClass="oet-live-site oet-resource-page oet-recalls-page"
+  salCss={true}
+/>
