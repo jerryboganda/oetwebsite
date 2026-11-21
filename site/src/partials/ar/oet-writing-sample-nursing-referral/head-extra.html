@@ -1,0 +1,187 @@
+<link rel="stylesheet" href="/assets/css/oet-pathway.css">
+<style>
+@media (max-width: 767px) {
+  .oet-resource-hero .oet-tips-hero-copy[data-sal], .oet-resource-hero .oet-tips-hero-copy [data-sal], .oet-resource-hero .oet-tips-hero-panel[data-sal] { opacity: 1 !important;
+                transform: none !important; }
+}
+</style>
+    <style>
+.oet-final-cta-icon { display: grid !important;
+            place-items: center !important;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px !important;
+            font-weight: 900;
+            line-height: 1 !important;
+            color: #ffffff !important; }
+</style>
+    <link rel="stylesheet" href="/assets/css/oet-resource.css">
+    <style>
+@media (min-width: 1200px) {
+  .oet-skill-hero { padding-top: 240px !important; }
+}
+</style>
+    <style>
+.oet-sample-notes ul { margin: 8px 0 0; padding-left: 18px; color: #625f76; font-size: 15px; line-height: 1.6; }
+.oet-sample-notes li { margin: 4px 0; }
+.oet-sample-task { background: #f7f4ff; border: 1px dashed rgba(124,58,237,.45); border-radius: 18px; padding: 22px 24px; margin: 8px 0 18px; }
+.oet-sample-task p { color: #3f3b57; margin: 0 0 8px; line-height: 1.65; }
+.oet-sample-task ul { color: #3f3b57; margin: 0; padding-left: 18px; }
+.oet-sample-letter { background: #fff; border: 1px solid rgba(124,58,237,.16); border-left: 4px solid #7c3aed; border-radius: 18px; box-shadow: 0 14px 34px rgba(35,28,79,.07); padding: 26px 28px; max-width: 780px; }
+.oet-sample-letter p { color: #2a2740; font-size: 15.5px; line-height: 1.7; margin: 0 0 12px; }
+.oet-sample-note { color: #5f5a7b; font-size: 14px; font-style: italic; margin: 14px 0 0; }
+@media (max-width: 575px) { .oet-sample-letter { padding: 20px 18px; } }
+</style>
+
+<style>
+main[dir=rtl] :is(h1, h2, h3, h4, p, li, td, th, a, span, strong, small, summary, label, button) { font-family: "Segoe UI", Tahoma, "Noto Naskh Arabic", "Noto Sans Arabic", Arial, sans-serif; }
+main[dir=rtl], main[dir=rtl] * { letter-spacing: 0 !important; }
+main[dir=rtl] p, main[dir=rtl] li, main[dir=rtl] td { line-height: 1.9; }
+main[dir=rtl] h1, main[dir=rtl] h2, main[dir=rtl] h3, main[dir=rtl] p, main[dir=rtl] li, main[dir=rtl] th, main[dir=rtl] td { text-align: right; }
+main[dir=rtl] .oet-resource-card li { padding-left: 0; padding-right: 24px; }
+main[dir=rtl] .oet-resource-card li:before { left: auto; right: 0; }
+main[dir=rtl] .oet-ar-steps { margin: 0; padding: 0 22px 0 0; }
+main[dir=rtl] .oet-ar-steps li { margin-bottom: 12px; }
+main[dir=rtl] .oet-breadcrumbs li + li::before { content: "\2039"; }
+main[dir=rtl] .fa-arrow-left, main[dir=rtl] .fa-arrow-right { display: inline-block; }
+main[dir=rtl] .oet-related-card:hover .oet-related-arrow { transform: translateX(-4px); }
+main[dir=rtl] .oet-ar-en { font-size: 14px; font-weight: 700; margin-inline-start: 8px; }
+main[dir=rtl] .oet-ar-note { color: #5f5a7b; font-size: 14px; margin-top: 14px; }
+main[dir=rtl] .oet-ar-note a, main[dir=rtl] .oet-resource-heading a, main[dir=rtl] .oet-resource-card a, main[dir=rtl] .pathway-table a, main[dir=rtl] .oet-ar-steps a { color: #5b3ff1; font-weight: 700; }
+
+/* sample-page RTL fixes: Arabic boxes get the accent on the right, English exam material stays left-to-right */
+main[dir=rtl] .oet-snippet { border-left: 0; border-right: 4px solid #7c3aed; }
+main[dir=rtl] .oet-sample-notes ul { padding-left: 0; padding-right: 18px; }
+main[dir=rtl] [dir=ltr] { text-align: left; }
+main[dir=rtl] [dir=ltr] :is(h3, p, li, strong, span) { text-align: left; }
+main[dir=rtl] [dir=ltr] .oet-snippet { border-right: 0; border-left: 4px solid #7c3aed; }
+main[dir=rtl] [dir=ltr] .oet-sample-notes ul, main[dir=rtl] [dir=ltr] .oet-sample-task ul { padding-right: 0; padding-left: 18px; }
+main[dir=rtl] [dir=ltr] .oet-sample-notes li, main[dir=rtl] .oet-sample-letter p, main[dir=rtl] .oet-sample-task p { line-height: 1.7; }
+main[dir=rtl] .oet-sample-notes li { line-height: 1.7; }
+main[dir=rtl] .oet-sample-note { font-style: normal; }
+main[dir=rtl] .oet-ar-label { color: #3f3b57; font-weight: 800; margin: 18px 0 8px; }
+main[dir=rtl] .oet-ar-label + p { margin-top: 0; }
+main[dir=rtl] .oet-sample-letter-wrap { max-width: 780px; }
+main[dir=rtl] .oet-resource-card + p { margin-top: 18px; }
+main[dir=rtl] .oet-final-cta-note { margin-top: 14px; }
+main[dir=rtl] .oet-snippet strong, main[dir=rtl] .oet-resource-card h3 { text-align: right; }
+main[dir=rtl] [dir=ltr] .oet-snippet strong { text-align: left; }
+main[dir=rtl] .oet-tips-roadmap-item strong, main[dir=rtl] .oet-tips-roadmap-item span, main[dir=rtl] .oet-final-cta-item strong, main[dir=rtl] .oet-final-cta-item span, main[dir=rtl] .oet-tips-panel-kicker, main[dir=rtl] .oet-final-cta-note, main[dir=rtl] .oet-final-cta-panel h3 { text-align: right; }
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://oetwithdrhesham.co.uk/ar/oet-writing-sample-nursing-referral.html#webpage",
+   "url": "https://oetwithdrhesham.co.uk/ar/oet-writing-sample-nursing-referral.html",
+   "name": "نموذج رسالة OET للتمريض: رسالة تحويل إلى ممرضة السكري | د. أحمد هشام",
+   "description": "نموذج مجاني لرسالة تحويل تمريضية في OET: ملاحظات حالة من ممرضة عيادة، وإجابة نموذجية بالإنجليزية للتحويل إلى ممرضة متخصصة في السكري، وملاحظات التصحيح.",
+   "inLanguage": "ar",
+   "isPartOf": {
+    "@id": "https://oetwithdrhesham.co.uk/#website"
+   },
+   "author": {
+    "@id": "https://oetwithdrhesham.co.uk/#drhesham"
+   },
+   "datePublished": "2026-11-21",
+   "dateModified": "2026-11-21"
+  },
+  {
+   "@type": "Article",
+   "@id": "https://oetwithdrhesham.co.uk/ar/oet-writing-sample-nursing-referral.html#article",
+   "headline": "نموذج رسالة OET للتمريض: رسالة تحويل إلى ممرضة متخصصة",
+   "description": "نموذج مجاني لرسالة تحويل تمريضية في OET: ملاحظات حالة من ممرضة عيادة، وإجابة نموذجية بالإنجليزية للتحويل إلى ممرضة متخصصة في السكري، وملاحظات التصحيح.",
+   "inLanguage": "ar",
+   "image": "https://oetwithdrhesham.co.uk/assets/img/og/og-tips.png",
+   "datePublished": "2026-11-21",
+   "dateModified": "2026-11-21",
+   "mainEntityOfPage": {
+    "@id": "https://oetwithdrhesham.co.uk/ar/oet-writing-sample-nursing-referral.html#webpage"
+   },
+   "author": {
+    "@type": "Person",
+    "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+    "name": "Dr Ahmed Hesham",
+    "url": "https://oetwithdrhesham.co.uk/about.html"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "@id": "https://oetwithdrhesham.co.uk/#organization",
+    "name": "OET with Dr Hesham",
+    "url": "https://oetwithdrhesham.co.uk/",
+    "logo": {
+     "@type": "ImageObject",
+     "url": "https://oetwithdrhesham.co.uk/assets/img/logo/platform-logo.png"
+    }
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "الرئيسية",
+     "item": "https://oetwithdrhesham.co.uk/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "كورس OET بالعربي",
+     "item": "https://oetwithdrhesham.co.uk/ar/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "نماذج رسائل Writing",
+     "item": "https://oetwithdrhesham.co.uk/ar/oet-writing-tips.html#sec-samples"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "نموذج رسالة تحويل للتمريض",
+     "item": "https://oetwithdrhesham.co.uk/ar/oet-writing-sample-nursing-referral.html"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "كم يجب أن يكون طول رسالة التحويل التمريضية في OET؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "يجب أن يكون متن الرسالة حوالي 180 إلى 200 كلمة. لا تُعاقَب كتابة أكثر قليلاً أو أقل قليلاً في حد ذاتها، لكن الرسائل الطويلة تتضمن عادةً ملاحظات حالة غير ذات صلة، وهذا يكلف درجات في المحتوى والإيجاز."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ماذا يجب أن تقول الفقرة الأولى في رسالة التحويل التمريضية؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "من هو المريض، وما الذي تطلب من القارئ أن يفعله، ولماذا. يبحث المصحح عن الغرض فوراً، لذلك اذكر الطلب، مثل مراجعة العلاج والتثقيف، في الفقرة الافتتاحية."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "هل أذكر التفاصيل الشخصية أو الاجتماعية في رسالة التحويل؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "فقط عندما تؤثر في الرعاية التي سيقدمها القارئ. هنا يفسر الفقد تغير الغذاء، ودعم الابنة يساعد في المواعيد، أما مهنته السابقة وهواياته فلا تغير الخطوة التالية."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "هل يمكنني تصحيح رسالة التحويل التمريضية الخاصة بي؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "نعم. اكتب نسختك من هذه المهمة بالوقت المحدد، ثم أرسلها لتصحيح الكتابة في OET. تحصل على درجة تقديرية وتصحيح تفصيلي وملاحظات صوتية على واتساب."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>

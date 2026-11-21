@@ -1,0 +1,93 @@
+
+
+    <!-- js file -->
+
+    <!-- jquery js-->
+<!-- gsap js-->
+<!-- scrollTrigger js-->
+<!-- fontawesome -->
+<!-- counter js -->
+<!-- waypoints js-->
+<!-- sal js-->
+    <script defer src="/assets/js/plugins/sal.min.js"></script>
+    <!-- ScrollSmoother js -->
+    <script defer src="/assets/js/plugins/lenis.min.js"></script>
+<!-- Custom js -->
+<script defer src="/assets/js/main.js"></script>
+<!-- Shared logic: OetScoreCalc.grade() and .check(). The shared file only draws its own (English) result list when #oet-calc-form exists; this page uses #oet-ar-calc-form, so only the logic is reused. -->
+<script defer src="/assets/js/oet-score-calculator.js"></script>
+<script>
+/* Arabic result renderer for the shared OetScoreCalc logic. Same grade bands and regulator checks as the English page;
+   only the text differs. Names and notes returned by the logic are mapped below; an unmapped one falls back to the English string. */
+(function () {
+    "use strict";
+    var SKILL_AR = { L: "الاستماع", R: "القراءة", W: "الكتابة", S: "المحادثة" };
+    var NAME_AR = {
+        "NMC (UK nurses and midwives)": "NMC (التمريض والقبالة في بريطانيا)",
+        "GMC (UK doctors)": "GMC (الأطباء في بريطانيا)",
+        "Ahpra (Australia, all National Boards)": "Ahpra (أستراليا، كل المجالس الوطنية)",
+        "NMBI (Ireland, nurses and midwives)": "NMBI (التمريض والقبالة في أيرلندا)",
+        "Medical Council of Ireland (doctors)": "Medical Council of Ireland (الأطباء)",
+        "Nursing Council of New Zealand": "Nursing Council of New Zealand (التمريض في نيوزيلندا)",
+        "Medical Council of New Zealand": "Medical Council of New Zealand (الأطباء في نيوزيلندا)",
+        "GPhC (UK pharmacists)": "GPhC (الصيادلة في بريطانيا)",
+        "ECFMG 2027 Pathways (USA)": "ECFMG مسارات 2027 (أمريكا)",
+        "CGFNS VisaScreen (USA, registered nurses)": "CGFNS VisaScreen (الممرضون المسجلون في أمريكا)",
+        "Singapore Medical Council": "Singapore Medical Council (سنغافورة)"
+    };
+    var NOTE_AR = {
+        "Two sittings can be combined under NMC rules.": "يمكن دمج جلستين وفق قواعد NMC.",
+        "Medicine version, all four sub-tests in one sitting.": "نسخة الطب، والأجزاء الأربعة من جلسة واحدة.",
+        "Tests from 23 April 2026. Two sittings within 12 months allowed if no score falls below 320/340/350/350 (L/R/W/S). OET@Home not accepted.": "للاختبارات من 23 أبريل 2026. يُسمح بجلستين خلال 12 شهراً إذا لم تقل أي درجة عن 320/340/350/350 (استماع/قراءة/كتابة/محادثة). ولا يُقبل OET@Home.",
+        "One sitting only; OET@Home not accepted.": "جلسة واحدة فقط، ولا يُقبل OET@Home.",
+        "OET Medicine, one sitting; OET@Home not accepted.": "OET Medicine من جلسة واحدة، ولا يُقبل OET@Home.",
+        "More than one sitting allowed within 12 months; OET@Home not accepted.": "يُسمح بأكثر من جلسة خلال 12 شهراً، ولا يُقبل OET@Home.",
+        "One sitting or two within 12 months, no component below 300.": "جلسة واحدة أو جلستان خلال 12 شهراً، ولا يقل أي جزء عن 300.",
+        "OET Pharmacy, one sitting; paper or computer only.": "OET Pharmacy من جلسة واحدة، ورقياً أو بالكمبيوتر فقط.",
+        "OET Medicine, one sitting taken on or after 1 January 2025.": "OET Medicine من جلسة واحدة في 1 يناير 2025 أو بعده.",
+        "Tests taken on or after 12 May 2026; at-home tests not accepted.": "للاختبارات من 12 مايو 2026 فصاعداً، ولا تُقبل الاختبارات من المنزل.",
+        "One sitting, within 2 years of the test date.": "جلسة واحدة، خلال سنتين من تاريخ الاختبار."
+    };
+    function tr(map, s) { return Object.prototype.hasOwnProperty.call(map, s) ? map[s] : s; }
+    function esc(s) {
+        return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+    function init() {
+        var calc = window.OetScoreCalc;
+        var form = document.getElementById("oet-ar-calc-form");
+        var out = document.getElementById("oet-ar-calc-results");
+        if (!calc || !form || !out) { return; }
+
+        function render() {
+            var scores = {};
+            for (var i = 0; i < calc.SKILLS.length; i++) {
+                var k = calc.SKILLS[i][0];
+                var input = form.elements["oet-ar-" + k];
+                var v = Number(input.value);
+                if (input.value === "" || !isFinite(v) || v < 0 || v > 500) {
+                    out.innerHTML = '<p class="oet-calc-hint">أدخل درجة من 0 إلى 500 لكل جزء من الأجزاء الأربعة.</p>';
+                    return;
+                }
+                scores[k] = Math.round(v / 10) * 10; // OET reports scores in steps of 10, as the English page does
+            }
+            var grades = calc.SKILLS.map(function (s) {
+                return '<li><span>' + esc(tr(SKILL_AR, s[0])) + '</span><strong><bdi>' + scores[s[0]] + '</bdi> &middot; الدرجة <bdi dir="ltr">' + esc(calc.grade(scores[s[0]])) + '</bdi></strong></li>';
+            }).join("");
+            var rows = calc.check(scores).map(function (r) {
+                var label = r.ok ? "تحقق الحد الأدنى" : "أقل من الحد الأدنى في: " + r.short.map(function (k) { return tr(SKILL_AR, k); }).join("، ");
+                return '<tr class="' + (r.ok ? "is-ok" : "is-short") + '"><th scope="row">' + esc(tr(NAME_AR, r.rule.name)) + '</th><td>' + label +
+                    '<small>' + esc(tr(NOTE_AR, r.rule.note)) + " <a href='" + esc(r.rule.url) + "' target='_blank' rel='noopener noreferrer'>القواعد الرسمية</a></small></td></tr>";
+            }).join("");
+            out.innerHTML = '<ul class="oet-calc-grades">' + grades + '</ul>' +
+                '<table class="oet-calc-table"><thead><tr><th scope="col">الجهة</th><th scope="col">نتيجتك</th></tr></thead><tbody>' + rows + '</tbody></table>' +
+                '<p class="oet-calc-hint">للاسترشاد فقط. تأكد دائماً من القواعد الحالية لدى جهتك قبل الحجز أو التقديم.</p>';
+        }
+
+        // oet-analytics.js records every form submit (form_submit, form: "oet-ar-calc-form").
+        form.addEventListener("submit", function (e) { e.preventDefault(); render(); });
+        form.addEventListener("input", function () { if (out.innerHTML) { render(); } });
+    }
+    // Deferred scripts (the shared logic) run before DOMContentLoaded, so OetScoreCalc exists by then.
+    document.addEventListener("DOMContentLoaded", init);
+})();
+</script>

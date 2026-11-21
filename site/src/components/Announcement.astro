@@ -1,0 +1,5 @@
+---
+import { barHtml } from '../lib/announce.mjs';
+const { lang = 'en' } = Astro.props;
+---
+<Fragment set:html={barHtml(lang)} />

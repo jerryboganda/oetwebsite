@@ -18,6 +18,7 @@
         } catch (e) {}
       })();
     </script>
+    <script>(function(){try{var h=document.documentElement;if(Date.now()>Date.parse('2027-01-15T23:59:59Z'))h.classList.add('oet-news-expired');try{if(localStorage.getItem('oet_announce_paper-2027')==='1')h.classList.add('oet-bar-dismissed');}catch(e){}}catch(e){}})();</script>
     <script>
       // Signed-in hint set by the learner app (shared-domain cookie oet_signed_in=1, no token or PII).
       // Presentation only. The header and drawer CTA always READS "Login / Register" (owner brief
@@ -80,337 +81,10 @@
     <link rel="preload" href="/assets/fonts/cal-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="stylesheet" href="/assets/css/plugins/swiper-bundle.min.css?v=2d9bcdacff">
         <link rel="stylesheet" href="/assets/css/plugins/sal.css?v=52a59aec6a">
-                        <link rel="stylesheet" href="/assets/css/oet-core.css?v=1afdef3614">
+                        <link rel="stylesheet" href="/assets/css/oet-core.css?v=79cde4e606">
     <link rel="stylesheet" href="/assets/css/oet-hero.css?v=b3b893fabb">
-    ﻿<link rel="stylesheet" href="/assets/css/oet-promo-carousel.css?v=b62672c152">
-<style>
-body.oet-live-site .oet-services-tone .oet-service-icon-grid { display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
-            margin-left: 0;
-            margin-right: 0;
-            --bs-gutter-x: 0;
-            --bs-gutter-y: 0;
-            align-items: start; }
-body.oet-live-site .oet-services-tone .oet-service-icon-grid > [class*="col-"] { width: 100%;
-            max-width: 100%;
-            flex: none;
-            padding: 0;
-            margin: 0; }
-body.oet-live-site .oet-services-tone .oet-service-icon-grid > [class*="col-"]:last-child { grid-column: 1 / -1; }
-body.oet-live-site .oet-services-tone .oet-service-icon-grid .service__box10 { height: auto;
-            padding: 16px 14px 14px; }
-body.oet-live-site .oet-services-tone .oet-service-icon-grid .service__box10-icon span { width: 52px;
-            height: 52px;
-            line-height: 52px;
-            margin-bottom: 12px; }
-body.oet-live-site .oet-services-tone .oet-service-icon-grid .service__box10-content .title { font-size: 17px;
-            line-height: 1.25; }
-body.oet-live-site .oet-services-tone .oet-service-icon-grid .service__box10-content .para { padding-bottom: 10px;
-            margin-bottom: 0; }
-@media (min-width: 768px) and (max-width: 1199.98px) {
-  body.oet-live-site .oet-services-tone .oet-service-icon-grid { gap: 18px; }
-  body.oet-live-site .oet-services-tone .oet-service-icon-grid .service__box10 { padding: 20px 18px 16px; }
-}
-@media (min-width: 1200px) {
-  body.oet-live-site .oet-services-tone .oet-service-icon-grid { grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: 24px;
-                align-items: stretch; }
-  body.oet-live-site .oet-services-tone .oet-service-icon-grid > [class*="col-"]:last-child { grid-column: auto; }
-  body.oet-live-site .oet-services-tone .oet-service-icon-grid .service__box10 { height: 100%;
-                padding: 24px; }
-}
-body.oet-promo-popup-lock { overflow: hidden; }
-.oet-promo-popup { position: fixed;
-            inset: 0;
-            z-index: 2147483000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 22px;
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none; }
-.oet-promo-popup.is-open { opacity: 1;
-            visibility: visible;
-            pointer-events: auto; }
-.oet-promo-popup__overlay { position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at 18% 18%, rgba(124,58,237, 0.38), transparent 28%),
-                radial-gradient(circle at 86% 82%, rgba(35, 211, 102, 0.18), transparent 30%),
-                rgba(8, 10, 35, 0.82); }
-.oet-promo-popup__dialog { position: relative;
-            width: min(1040px, calc(100vw - 40px));
-            max-height: min(88vh, 860px);
-            border-radius: 30px;
-            background: linear-gradient(145deg, #ffffff 0%, #fbf9ff 48%, #efe9ff 100%);
-            box-shadow: 0 34px 100px rgba(8, 10, 35, 0.34);
-            border: 1px solid rgba(255, 255, 255, 0.82);
-            overflow: hidden;
-            transform: translateY(22px) scale(0.96);
-            opacity: 0; }
-.oet-promo-popup.is-open .oet-promo-popup__dialog { will-change: transform, opacity; }
-.oet-promo-popup__dialog::before, .oet-promo-popup__dialog::after { content: '';
-            position: absolute;
-            pointer-events: none;
-            border-radius: 999px;
-            opacity: 0.9; }
-.oet-promo-popup__dialog::before { width: 260px;
-            height: 260px;
-            right: -96px;
-            top: -120px;
-            background: radial-gradient(circle, rgba(124,58,237, 0.28), rgba(124,58,237, 0)); }
-.oet-promo-popup__dialog::after { width: 220px;
-            height: 220px;
-            left: -90px;
-            bottom: -110px;
-            background: radial-gradient(circle, rgba(35, 211, 102, 0.16), rgba(35, 211, 102, 0)); }
-.oet-promo-popup__close { position: absolute;
-            top: 16px;
-            right: 16px;
-            z-index: 8;
-            width: 44px;
-            height: 44px;
-            border: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.94);
-            color: #17152f;
-            box-shadow: 0 14px 34px rgba(17, 24, 39, 0.18);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease; }
-.oet-promo-popup__close i, .oet-promo-popup__nav i { display: none; }
-.oet-promo-popup__close::before, .oet-promo-popup__close::after { content: '';
-            position: absolute;
-            width: 17px;
-            height: 2.5px;
-            border-radius: 999px;
-            background: currentColor; }
-.oet-promo-popup__close::before { transform: rotate(45deg); }
-.oet-promo-popup__close::after { transform: rotate(-45deg); }
-.oet-promo-popup__close:hover, .oet-promo-popup__close:focus-visible { transform: translateY(-1px) rotate(8deg);
-            color: #ffffff;
-            background: #7c3aed;
-            animation-play-state: paused;
-            outline: none; }
-.oet-promo-popup__shell { position: relative;
-            z-index: 2;
-            padding: 18px; }
-.oet-promo-popup__topline { display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            padding: 4px 56px 14px 6px; }
-.oet-promo-popup__badge { display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            border-radius: 999px;
-            padding: 9px 14px;
-            color: #7c3aed;
-            background: rgba(124,58,237, 0.1);
-            font-size: 13px;
-            line-height: 1;
-            font-weight: 800; }
-.oet-promo-popup__hint { color: #5c5a72;
-            font-size: 13px;
-            line-height: 1.2;
-            font-weight: 700; }
-.oet-promo-popup__controls { display: inline-flex;
-            align-items: center;
-            justify-content: flex-end;
-            flex-wrap: wrap;
-            gap: 8px 12px; }
-.oet-promo-popup__frame { position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            background:
-                linear-gradient(135deg, rgba(124,58,237, 0.12), rgba(255, 255, 255, 0.7)),
-                #ffffff;
-            border: 1px solid rgba(124,58,237, 0.16);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 22px 60px rgba(124,58,237, 0.16);
-            transform: translate3d(0, 0, 0);
-            backface-visibility: hidden; }
-.oet-promo-popup__swiper { width: 100%;
-            height: min(68vh, 650px);
-            min-height: 500px;
-            transform: translate3d(0, 0, 0);
-            backface-visibility: hidden;
-            will-change: transform; }
-.oet-promo-popup__swiper .swiper-slide {
-            display: flex;
-            align-items: stretch;
-            justify-content: center;
-            height: auto; }
-.oet-promo-popup__slide-link { position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            box-sizing: border-box;
-            padding: 20px 20px 112px;
-            text-decoration: none;
-            background:
-                radial-gradient(circle at 20% 18%, rgba(124,58,237, 0.1), transparent 30%),
-                radial-gradient(circle at 80% 80%, rgba(35, 211, 102, 0.08), transparent 32%),
-                linear-gradient(145deg, #ffffff, #f8f6ff);
-            transform: translate3d(0, 0, 0);
-            backface-visibility: hidden; }
-.oet-promo-popup__image-wrap { position: relative;
-            width: 100%;
-            height: 100%;
-            min-height: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden; }
-.oet-promo-popup__image-wrap::before { display: none; }
-.oet-promo-popup__image-wrap picture { display: contents; }
-.oet-promo-popup__image { position: relative;
-            z-index: 2;
-            display: block;
-            width: 100%;
-            height: auto;
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            border-radius: 18px;
-            transform: translate3d(0, 0, 0);
-            backface-visibility: hidden;
-            will-change: transform; }
-.oet-promo-popup__cta { position: absolute;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            width: max-content;
-            bottom: 60px;
-            z-index: 4;
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            border-radius: 999px;
-            padding: 12px 18px;
-            color: #ffffff;
-            background: linear-gradient(135deg, #7c3aed 0%, #7c5cff 100%);
-            box-shadow: 0 16px 30px rgba(124,58,237, 0.28);
-            font-size: 14px;
-            line-height: 1;
-            font-weight: 900;
-            animation: oetPromoCtaFloat 2.8s ease-in-out infinite; }
-.oet-promo-popup__nav { position: absolute;
-            top: 50%;
-            z-index: 6;
-            width: 44px;
-            height: 44px;
-            margin-top: -22px;
-            border: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.92);
-            color: #17152f;
-            box-shadow: 0 14px 34px rgba(17, 24, 39, 0.16);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease; }
-.oet-promo-popup__nav::before { content: '';
-            display: block;
-            width: 11px;
-            height: 11px;
-            border-top: 2.5px solid currentColor;
-            border-right: 2.5px solid currentColor;
-            border-radius: 1px; }
-.oet-promo-popup__nav:hover, .oet-promo-popup__nav:focus-visible { transform: scale(1.06);
-            color: #ffffff;
-            background: #7c3aed;
-            animation-play-state: paused;
-            outline: none; }
-.oet-promo-popup__nav--prev { left: 18px;
-            animation-delay: 0.2s; }
-.oet-promo-popup__nav--prev::before { transform: translateX(2px) rotate(-135deg); }
-.oet-promo-popup__nav--next { right: 18px;
-            animation-delay: 0.55s; }
-.oet-promo-popup__nav--next::before { transform: translateX(-2px) rotate(45deg); }
-.oet-promo-popup__pagination { position: absolute;
-            left: 50% !important;
-            bottom: 14px !important;
-            z-index: 7;
-            width: auto !important;
-            max-width: calc(100% - 28px);
-            transform: translateX(-50%);
-            display: inline-flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 0;
-            border-radius: 999px;
-            padding: 8px 2px;
-            background: rgba(255, 255, 255, 0.78);
-            box-shadow: 0 12px 28px rgba(17, 24, 39, 0.12);
-            background-color: rgba(255, 255, 255, 0.94);
-            contain: layout style; }
-.oet-promo-popup__pagination .swiper-pagination-bullet { width: 8px;
-            height: 8px;
-            /* 8px padding on all sides grows the tap target to a WCAG-sized
-               24x24 box without enlarging the visible dot (background-clip
-               keeps the paint inside the original 8x8 content area). */
-            padding: 8px;
-            background-clip: content-box;
-            box-sizing: content-box;
-            margin: 0 !important;
-            opacity: 0.34;
-            background-color: #7c3aed;
-            transition: width 0.22s ease, opacity 0.22s ease; }
-.oet-promo-popup__pagination .swiper-pagination-bullet-active { width: 24px;
-            border-radius: 999px;
-            opacity: 1; }
-@keyframes oetPromoCtaFloat { 0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-4px);
-            } }
-@media (max-width: 767px) {
-  .oet-promo-popup { padding: 18px 14px; align-items: center; justify-content: center; }
-  .oet-promo-popup__dialog { width: min(100%, 620px);
-                max-height: min(86dvh, 760px);
-                border-radius: 24px; }
-  .oet-promo-popup__shell { padding: 10px 10px calc(10px + env(safe-area-inset-bottom)); }
-  .oet-promo-popup__topline { padding: 2px 48px 10px 2px; }
-  .oet-promo-popup__hint { display: none; }
-  .oet-promo-popup__shell .oet-promo-popup__swiper { height: min(68dvh, 600px) !important;
-                min-height: 0 !important; }
-  .oet-promo-popup__slide-link { padding: 12px 10px 128px; }
-  .oet-promo-popup__image { width: 100%;
-                height: auto;
-                max-height: 100%; }
-  .oet-promo-popup__close { top: 10px;
-                right: 10px;
-                width: 44px;
-                height: 44px; }
-  .oet-promo-popup__nav { width: 44px;
-                height: 44px;
-                margin-top: -22px; }
-  .oet-promo-popup__nav--prev { left: 8px; }
-  .oet-promo-popup__nav--next { right: 8px; }
-  .oet-promo-popup__cta { bottom: 80px;
-                padding: 10px 14px;
-                font-size: 13px; }
-}
-@media (max-width: 1023.98px) and (orientation: landscape) and (max-height: 500px) {
-  .oet-promo-popup__shell .oet-promo-popup__swiper { height: min(80dvh, 360px) !important; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .oet-promo-popup, .oet-promo-popup *, .oet-promo-popup *::before, .oet-promo-popup *::after { transition-duration: 0.01ms !important;
-                animation-duration: 0.01ms !important;
-                scroll-behavior: auto !important; }
-}
-.oet-home-tools { color: #4f4b7b; font-size: 15px; line-height: 1.9; margin: 14px 0 0; }
-.oet-home-tools a { color: #5b3ff1; font-weight: 700; }
-</style>
+    <link rel="stylesheet" href="/assets/css/oet-promo-carousel.css?v=b62672c152">
+<link rel="stylesheet" href="/assets/css/oet-home.css?v=1935832c97">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -509,6 +183,8 @@ body.oet-promo-popup-lock { overflow: hidden; }
 </head>
 <body class="oet-live-site">
     <a class="oet-skip-link" data-lenis-ignore-anchor href="#main-content">Skip to main content</a>
+<!--================= Announcement bar (data/announcement.json) =================-->
+    <aside class="oet-announce" data-oet-announce="paper-2027" lang="en" dir="ltr" aria-label="Announcement"><a class="oet-announce__link" href="/oet-paper-test-2027-changes.html">OET on Paper ends for 10 professions in January 2027. See what changes for you →</a><button class="oet-announce__close" type="button" aria-label="Dismiss announcement"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></aside>
 <!--================= Header section start =================-->
     <header>
         <div id="vl-header-sticky" class="vl-header-area vl-transparent-header">
@@ -823,6 +499,8 @@ body.oet-promo-popup-lock { overflow: hidden; }
                     </div>
                 </section>
                 <!--================= Hero section End =================-->
+
+                <section class="oet-news" data-oet-news="paper-2027" aria-label="Latest news"><div class="container"><a class="oet-news-card" href="/oet-paper-test-2027-changes.html"><span class="oet-news-card__badge">Exam update</span><span class="oet-news-card__body"><strong>OET on Paper ends for 10 professions in January 2027</strong><span>From January 2027 the OET Test on Paper continues for Nursing and Medicine only, in 16 countries. See who is affected, the country list and how to prepare for the computer test.</span></span><span class="oet-news-card__cta">See what changes for you →</span></a></div></section>
 
                 <!--================= Brand section start =================-->
                 <div class="brand-area vkl-gray-white-bg">
@@ -1700,6 +1378,16 @@ body.oet-promo-popup-lock { overflow: hidden; }
                             <a class="oet-home-route__link" href="/blog/">View All Articles <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
                         <div class="oet-blog-grid">
+<article class="oet-blog-card" data-category="exam-format" data-search="oet on paper ends for 10 professions in january 2027: what changes for you from january 2027 the oet test on paper continues for nursing and medicine only, in 16 countries. who is affected, the official country list, and how to prepare for the computer test. exam format">
+  <a class="oet-blog-card__media" href="/oet-paper-test-2027-changes.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/oet-paper-test-2027-changes.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
+  <div class="oet-blog-card__body">
+    <span class="oet-blog-card__tag"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Exam Format</span>
+    <h3 class="oet-blog-card__title"><a href="/oet-paper-test-2027-changes.html">OET on Paper ends for 10 professions in January 2027: what changes for you</a></h3>
+    <p class="oet-blog-card__summary">From January 2027 the OET Test on Paper continues for Nursing and Medicine only, in 16 countries. Who is affected, the official country list, and how to prepare for the computer test.</p>
+    <p class="oet-blog-card__meta">Dr Ahmed Hesham &middot; <time datetime="2026-11-21">21 Nov 2026</time> &middot; 5 min read</p>
+    <a class="oet-blog-card__link" href="/oet-paper-test-2027-changes.html" aria-label="Read article: OET on Paper ends for 10 professions in January 2027: what changes for you">Read article <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</article>
 <article class="oet-blog-card" data-category="writing" data-search="oet writing: referral letter structure and note selection organise a referral letter around the reader's next step: sort case notes into keep, summarise or omit, plan the paragraphs, and see a worked practice case. writing">
   <a class="oet-blog-card__media" href="/oet-writing-referral-letter-structure.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/oet-writing-referral-letter-structure.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
   <div class="oet-blog-card__body">
@@ -1718,16 +1406,6 @@ body.oet-promo-popup-lock { overflow: hidden; }
     <p class="oet-blog-card__summary">Make empathy sound genuine and signpost every topic change in OET role-plays, mapped to the clinical communication criteria, with weak vs stronger examples.</p>
     <p class="oet-blog-card__meta">Dr Ahmed Hesham &middot; <time datetime="2026-10-27">27 Oct 2026</time> &middot; 9 min read</p>
     <a class="oet-blog-card__link" href="/oet-speaking-empathy-signposting.html" aria-label="Read article: OET Speaking: Realistic Empathy and Signposting">Read article <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-  </div>
-</article>
-<article class="oet-blog-card" data-category="exam-format" data-search="oet on computer vs paper: preparation differences how paper, computer and oet@home differ for writing, reading and speaking, how to choose a mode, and a two-week practice plan for each format. exam format">
-  <a class="oet-blog-card__media" href="/oet-computer-vs-paper.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/oet-computer-vs-paper.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
-  <div class="oet-blog-card__body">
-    <span class="oet-blog-card__tag"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Exam Format</span>
-    <h3 class="oet-blog-card__title"><a href="/oet-computer-vs-paper.html">OET on Computer vs Paper: Preparation Differences</a></h3>
-    <p class="oet-blog-card__summary">How paper, computer and OET@Home differ for Writing, Reading and Speaking, how to choose a mode, and a two-week practice plan for each format.</p>
-    <p class="oet-blog-card__meta">Dr Ahmed Hesham &middot; <time datetime="2026-10-27">27 Oct 2026</time> &middot; 9 min read</p>
-    <a class="oet-blog-card__link" href="/oet-computer-vs-paper.html" aria-label="Read article: OET on Computer vs Paper: Preparation Differences">Read article <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
   </div>
 </article>
                         </div>
@@ -2010,7 +1688,11 @@ body.oet-promo-popup-lock { overflow: hidden; }
 <!-- bootstrap js -->
     <script defer src="/assets/js/plugins/bootstrap.min.js?v=6dae88aba8"></script>
     <!-- gsap js-->
-    <script>/* GSAP drives desktop motion only; lite-motion devices never use it. */if (!document.documentElement.classList.contains('oet-lite-motion')) document.write('<script defer src="/assets/js/plugins/gsap.min.js?v=47da594cbe"><\/script><script defer src="/assets/js/plugins/ScrollTrigger.min.js?v=ba1fa78eb4"><\/script>');</script>
+    <!-- gsap + scrollTrigger (desktop only): inert text/plain tags that nothing fetches; the build hashes their src, and the deferred
+         assets/js/oet-motion.js turns them into ordered scripts unless the page is in lite-motion mode. -->
+    <script type="text/plain" data-oet-motion src="/assets/js/plugins/gsap.min.js?v=47da594cbe"></script>
+    <script type="text/plain" data-oet-motion src="/assets/js/plugins/ScrollTrigger.min.js?v=ba1fa78eb4"></script>
+    <script defer src="/assets/js/oet-motion.js?v=631e6c29d6"></script>
     <!-- scrollTrigger js-->
 <!-- swiper js -->
     <script defer src="/assets/js/plugins/swiper-bundle.min.js?v=21bb0bba64"></script>
@@ -2022,178 +1704,10 @@ body.oet-promo-popup-lock { overflow: hidden; }
     <!-- ScrollSmoother js -->
     <script defer src="/assets/js/plugins/lenis.min.js?v=98598577bb"></script>
 <!-- Custom js -->
-<script defer src="/assets/js/main.js?v=ed4c53a6d8"></script>
-     <script defer src="/assets/js/oet-contact-widget.js?v=b34b83f460"></script>
+<script defer src="/assets/js/main.js?v=96ff1fca64"></script>
+     <script defer src="/assets/js/oet-contact-widget.js?v=2be5502ca7"></script>
     <script defer src="/assets/js/oet-promo-carousel.js?v=5589282b6a"></script>
-    <script>
-        window.addEventListener('load', function () {
-            var cta = document.querySelector('.oet-community-cta');
-            var fullText = 'Join Free Community!';
-
-            if (!cta || typeof gsap === 'undefined') return;
-            var contentEl = cta.querySelector('.oet-community-cta__content');
-            var textEl = contentEl ? contentEl.querySelector('.oet-community-cta__text') : null;
-            var cursorEl = contentEl ? contentEl.querySelector('.oet-community-cta__cursor') : null;
-            cta.setAttribute('aria-label', fullText);
-
-            if (!textEl || !cursorEl) {
-                cta.textContent = fullText;
-                return;
-            }
-
-            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                textEl.textContent = fullText;
-                cursorEl.style.display = 'none';
-                return;
-            }
-
-            // Types once and then settles. The previous version looped forever,
-            // rewriting text every frame inside the sticky header, so the
-            // browser re-laid-out and repainted the header for the entire
-            // session - main-thread work that competed with scrolling.
-            var state = { progress: 0 };
-            cursorEl.style.display = 'none';
-            textEl.textContent = '';
-
-            gsap.to(state, {
-                progress: fullText.length,
-                duration: 1.6,
-                ease: 'none',
-                onUpdate: function () {
-                    var next = fullText.slice(0, Math.floor(state.progress));
-                    if (next !== textEl.textContent) {
-                        textEl.textContent = next;
-                    }
-                },
-                onComplete: function () {
-                    textEl.textContent = fullText;
-                }
-            });
-        });
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            if (typeof gsap === 'undefined') {
-                return;
-            }
-
-            if (!window.matchMedia || !window.matchMedia('(min-width: 1200px)').matches) {
-                return;
-            }
-
-            var menuRoot = document.querySelector('.vl-main-menu');
-            if (!menuRoot) {
-                return;
-            }
-
-            var dropdownItems = menuRoot.querySelectorAll('li.has-dropdown');
-            dropdownItems.forEach(function (item) {
-                var submenu = Array.from(item.children).find(function (child) {
-                    return child.classList && child.classList.contains('sub-menu');
-                });
-                if (!submenu) {
-                    return;
-                }
-
-                var submenuItems = Array.from(submenu.children).filter(function (child) {
-                    return child.tagName === 'LI';
-                });
-                var closeTimer = null;
-                var openTimeline = null;
-                var closeTimeline = null;
-
-                function clearTimers() {
-                    if (closeTimer) {
-                        clearTimeout(closeTimer);
-                        closeTimer = null;
-                    }
-                }
-
-                function killActiveTweens() {
-                    gsap.killTweensOf([submenu].concat(submenuItems));
-                    if (openTimeline) {
-                        openTimeline.kill();
-                        openTimeline = null;
-                    }
-                    if (closeTimeline) {
-                        closeTimeline.kill();
-                        closeTimeline = null;
-                    }
-                }
-
-                function openDropdown() {
-                    clearTimers();
-                    killActiveTweens();
-                    gsap.set(submenu, { transformOrigin: 'top center' });
-
-                    openTimeline = gsap.timeline({
-                        defaults: { overwrite: 'auto' },
-                        onComplete: function () {
-                            openTimeline = null;
-                        }
-                    });
-
-                    openTimeline.fromTo(submenu, {
-                        autoAlpha: 0,
-                        y: 12,
-                        scale: 0.98
-                    }, {
-                        autoAlpha: 1,
-                        y: 0,
-                        scale: 1,
-                        duration: 0.3,
-                        ease: 'power3.out'
-                    }, 0).fromTo(submenuItems, {
-                        autoAlpha: 0,
-                        y: 8
-                    }, {
-                        autoAlpha: 1,
-                        y: 0,
-                        duration: 0.24,
-                        ease: 'power2.out',
-                        stagger: 0.03
-                    }, 0.04);
-                }
-
-                function closeDropdown() {
-                    clearTimers();
-                    closeTimer = window.setTimeout(function () {
-                        closeTimer = null;
-                        killActiveTweens();
-
-                        closeTimeline = gsap.timeline({
-                            defaults: { overwrite: 'auto' },
-                            onComplete: function () {
-                                gsap.set(submenu, { clearProps: 'opacity,visibility,transform' });
-                                gsap.set(submenuItems, { clearProps: 'opacity,transform' });
-                                closeTimeline = null;
-                            }
-                        });
-
-                        closeTimeline.to(submenuItems, {
-                            autoAlpha: 0,
-                            y: 6,
-                            duration: 0.16,
-                            ease: 'power2.in',
-                            stagger: {
-                                each: 0.015,
-                                from: 'end'
-                            }
-                        }, 0).to(submenu, {
-                            autoAlpha: 0,
-                            y: 10,
-                            scale: 0.98,
-                            duration: 0.2,
-                            ease: 'power3.in'
-                        }, 0.02);
-                    }, 90);
-                }
-
-                item.addEventListener('mouseenter', openDropdown);
-                item.addEventListener('mouseleave', closeDropdown);
-            });
-        });
-    </script>
+    <script defer src="/assets/js/oet-home-motion.js?v=696e378760"></script>
 
 
     <div class="oet-promo-popup" id="oet-promo-popup" aria-hidden="true">
@@ -2328,234 +1842,7 @@ body.oet-promo-popup-lock { overflow: hidden; }
     
 
 
-    <script id="oet-promo-popup-script">
-        (function () {
-            var popup = document.getElementById('oet-promo-popup');
-            if (!popup) return;
-
-            var closeButtons = popup.querySelectorAll('[data-oet-promo-close]');
-            var dialog = popup.querySelector('.oet-promo-popup__dialog');
-            var closeButton = popup.querySelector('.oet-promo-popup__close');
-            var swiperElement = popup.querySelector('.oet-promo-popup__swiper');
-            var focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
-            var storageKey = 'oetPromoPopupDismissedSession';
-            var lastFocused = null;
-            var promoSwiper = null;
-            var promoCtl = null;
-            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            var autoOpenScheduled = false;
-
-            function storageGet() {
-                try {
-                    if (window.sessionStorage.getItem(storageKey) === '1') return '1';
-
-                    // Clear stale legacy dismissals so the package slider can reappear even if
-                    // a browser previously stored a long-lived lock from an earlier build.
-                    if (window.localStorage.getItem('oetPromoClosedAt')) {
-                        window.localStorage.removeItem('oetPromoClosedAt');
-                    }
-                    return null;
-                } catch (error) { return null; }
-            }
-            function storageSet() {
-                try {
-                    window.sessionStorage.setItem(storageKey, '1');
-                    window.localStorage.removeItem('oetPromoClosedAt');
-                } catch (error) {}
-            }
-
-            function initSwiper() {
-                if (promoSwiper || !swiperElement || typeof Swiper === 'undefined') return;
-                promoSwiper = new Swiper(swiperElement, {
-                    loop: true,
-                    speed: reduceMotion ? 0 : 620,
-                    grabCursor: true,
-                    slidesPerView: 1,
-                    effect: 'slide',
-                    roundLengths: true,
-                    watchSlidesProgress: false,
-                    preloadImages: true,
-                    updateOnImagesReady: true,
-                    // 7 seconds (never 3), held on hover / focus and by the Pause / Play button, off under reduced motion:
-                    // all of that lives in assets/js/oet-promo-carousel.js; without it there is no autoplay at all
-                    autoplay: window.OetPromoCarousel ? { delay: window.OetPromoCarousel.DELAY, disableOnInteraction: false, pauseOnMouseEnter: false } : false,
-                    keyboard: {
-                        enabled: true,
-                        onlyInViewport: false
-                    },
-                    pagination: {
-                        el: '.oet-promo-popup__pagination',
-                        clickable: true
-                    },
-                    navigation: {
-                        nextEl: '.oet-promo-popup__nav--next',
-                        prevEl: '.oet-promo-popup__nav--prev'
-                    }
-                });
-                if (window.OetPromoCarousel) {
-                    promoCtl = window.OetPromoCarousel.attach(promoSwiper, popup.querySelector('.oet-promo-popup__shell') || popup, {
-                        isActive: function () { return popup.classList.contains('is-open'); }
-                    });
-                }
-            }
-
-            function animateActiveSlide() {
-                var cta = popup.querySelector('.swiper-slide-active .oet-promo-popup__cta');
-                if (!cta || reduceMotion || typeof gsap === 'undefined') return;
-                gsap.fromTo(cta, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.34, ease: 'power3.out' });
-            }
-
-            function refreshSlider() {
-                if (promoSwiper && typeof promoSwiper.update === 'function') {
-                    promoSwiper.update();
-                }
-            }
-
-            // The posters carry their real URLs in data-src / data-srcset (src/lib/promo.mjs) so that nothing is
-            // downloaded until the popup opens; copy them back BEFORE Swiper clones the looped slides.
-            function hydrateImages() {
-                popup.querySelectorAll('[data-src], [data-srcset]').forEach(function (el) {
-                    if (el.hasAttribute('data-srcset')) { el.setAttribute('srcset', el.getAttribute('data-srcset')); el.removeAttribute('data-srcset'); }
-                    if (el.hasAttribute('data-src')) { el.setAttribute('src', el.getAttribute('data-src')); el.removeAttribute('data-src'); }
-                });
-            }
-
-            function openPopup() {
-                if (popup.classList.contains('is-open')) return;
-                lastFocused = document.activeElement;
-                hydrateImages();
-                initSwiper();
-                refreshSlider();
-                var preloader = document.querySelector('.preloader');
-                if (preloader) {
-                    preloader.style.opacity = '0';
-                    preloader.style.visibility = 'hidden';
-                    preloader.style.pointerEvents = 'none';
-                    preloader.style.zIndex = '-1';
-                }
-                popup.classList.add('is-open');
-                popup.setAttribute('aria-hidden', 'false');
-                document.body.classList.add('oet-promo-popup-lock');
-                if (promoCtl) promoCtl.sync();
-
-                if (typeof gsap !== 'undefined' && !reduceMotion) {
-                    gsap.killTweensOf([popup, dialog]);
-                    gsap.set(popup, { autoAlpha: 1 });
-                    gsap.fromTo(dialog, { autoAlpha: 0, y: 28, scale: 0.955 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.58, ease: 'power4.out', onComplete: animateActiveSlide });
-                } else if (dialog) {
-                    dialog.style.opacity = '1';
-                    dialog.style.transform = 'translateY(0) scale(1)';
-                }
-
-                window.setTimeout(function () {
-                    refreshSlider();
-                    if (closeButton) closeButton.focus({ preventScroll: true });
-                }, 60);
-            }
-
-            function closePopup() {
-                if (!popup.classList.contains('is-open')) return;
-                storageSet();
-
-                function finishClose() {
-                    popup.classList.remove('is-open');
-                    popup.setAttribute('aria-hidden', 'true');
-                    document.body.classList.remove('oet-promo-popup-lock');
-                    if (typeof gsap !== 'undefined') {
-                        gsap.killTweensOf([popup, dialog]);
-                        gsap.set(popup, { clearProps: 'opacity,visibility' });
-                        if (dialog) gsap.set(dialog, { clearProps: 'opacity,visibility,transform' });
-                    } else {
-                        popup.style.opacity = '';
-                        popup.style.visibility = '';
-                        if (dialog) {
-                            dialog.style.opacity = '';
-                            dialog.style.visibility = '';
-                            dialog.style.transform = '';
-                        }
-                    }
-                    if (promoCtl) promoCtl.sync();
-                    else if (promoSwiper && promoSwiper.autoplay) promoSwiper.autoplay.stop();
-                    if (lastFocused && typeof lastFocused.focus === 'function') {
-                        lastFocused.focus({ preventScroll: true });
-                    }
-                }
-
-                if (typeof gsap !== 'undefined' && !reduceMotion && dialog) {
-                    gsap.to(dialog, { autoAlpha: 0, y: 18, scale: 0.97, duration: 0.24, ease: 'power2.in', onComplete: finishClose });
-                } else {
-                    finishClose();
-                }
-            }
-
-            closeButtons.forEach(function (button) {
-                button.addEventListener('click', closePopup);
-            });
-
-            document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape' && popup.classList.contains('is-open')) {
-                closePopup();
-                return;
-            }
-            if (event.key !== 'Tab' || !popup.classList.contains('is-open')) return;
-            var items = Array.prototype.filter.call(popup.querySelectorAll(focusableSelector), function (el) {
-                return el.offsetParent !== null;
-            });
-            if (!items.length) return;
-            var first = items[0];
-            var last = items[items.length - 1];
-            if (event.shiftKey && (document.activeElement === first || !popup.contains(document.activeElement))) {
-                event.preventDefault();
-                last.focus();
-            } else if (!event.shiftKey && (document.activeElement === last || !popup.contains(document.activeElement))) {
-                event.preventDefault();
-                first.focus();
-            }
-        });
-
-            window.addEventListener('resize', function () {
-                if (popup.classList.contains('is-open')) {
-                    refreshSlider();
-                }
-            });
-
-            function isMobileViewport() {
-                return !!(window.matchMedia && (
-                    window.matchMedia('(max-width: 1023.98px)').matches ||
-                    window.matchMedia('(pointer: coarse)').matches ||
-                    window.matchMedia('(hover: none)').matches
-                ));
-            }
-            function scheduleAutoOpen() {
-            if (autoOpenScheduled) return;
-            autoOpenScheduled = true;
-            if (storageGet() === '1') return;
-            var opened = false;
-            var timer = null;
-            function fire() {
-                if (opened) return;
-                opened = true;
-                if (timer) { window.clearTimeout(timer); }
-                window.removeEventListener('scroll', onScroll);
-                window.removeEventListener('pointerdown', onEngage);
-                window.removeEventListener('keydown', onEngage);
-                openPopup();
-            }
-            function onScroll() { if ((window.pageYOffset || document.documentElement.scrollTop) > 320) fire(); }
-            function onEngage() { window.setTimeout(fire, 900); }
-            window.addEventListener('scroll', onScroll, { passive: true });
-            window.addEventListener('pointerdown', onEngage, { once: true });
-            window.addEventListener('keydown', onEngage, { once: true });
-            timer = window.setTimeout(fire, 8000);
-        }
-
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', scheduleAutoOpen, { once: true });
-            } else {
-                scheduleAutoOpen();
-            }
-        })();
-    </script>
+    <script defer src="/assets/js/oet-promo-popup.js?v=eaa827c247"></script>
 
     
 
@@ -2665,120 +1952,10 @@ body.oet-promo-popup-lock { overflow: hidden; }
         </div>
     </div>
 
-    <script id="oet-community-popup-script">
-        (function () {
-            var popup = document.getElementById('oet-community-popup');
-            var triggers = document.querySelectorAll('.oet-community-cta');
-            if (!popup || !triggers.length) return;
-
-            var closeButtons = popup.querySelectorAll('[data-oet-community-close]');
-            var scrollBody = popup.querySelector('.oet-community-popup__body');
-            var focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
-            var lastTrigger = null;
-            var lastTouchY = 0;
-
-            function firstFocusable() {
-                return popup.querySelector(focusableSelector);
-            }
-
-            function openPopup(trigger) {
-                lastTrigger = trigger || null;
-                popup.classList.add('is-open');
-                popup.setAttribute('aria-hidden', 'false');
-                document.body.classList.add('oet-community-popup-lock');
-                window.setTimeout(function () {
-                    var target = firstFocusable();
-                    if (target) target.focus({ preventScroll: true });
-                }, 30);
-            }
-
-            function closePopup() {
-                popup.classList.remove('is-open');
-                popup.setAttribute('aria-hidden', 'true');
-                document.body.classList.remove('oet-community-popup-lock');
-                if (lastTrigger && typeof lastTrigger.focus === 'function') {
-                    lastTrigger.focus({ preventScroll: true });
-                }
-            }
-
-            triggers.forEach(function (trigger) {
-                trigger.setAttribute('href', '#oet-community-popup');
-                trigger.setAttribute('aria-haspopup', 'dialog');
-                trigger.setAttribute('aria-controls', 'oet-community-popup');
-                trigger.removeAttribute('target');
-                trigger.removeAttribute('rel');
-                trigger.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    openPopup(trigger);
-                });
-            });
-
-            closeButtons.forEach(function (button) {
-                button.addEventListener('click', closePopup);
-            });
-
-            // Shareable direct links: /community (served as the homepage by .htaccess) and /#oet-community-popup
-            // open the same popup on load, so a pinned post or in-app browser needs no second tap.
-            function openedByUrl() {
-                var path = window.location.pathname.replace(/\/+$/, '').toLowerCase();
-                return path === '/community' || window.location.hash === '#oet-community-popup';
-            }
-            if (openedByUrl()) openPopup(null);
-            window.addEventListener('hashchange', function () {
-                if (window.location.hash === '#oet-community-popup') openPopup(null);
-            });
-
-            if (scrollBody) {
-                scrollBody.addEventListener('wheel', function (event) {
-                    event.stopPropagation();
-                }, { passive: true });
-
-                scrollBody.addEventListener('touchstart', function (event) {
-                    if (event.touches && event.touches.length) {
-                        lastTouchY = event.touches[0].clientY;
-                    }
-                }, { passive: true });
-
-                scrollBody.addEventListener('touchmove', function (event) {
-                    if (!event.touches || !event.touches.length) return;
-                    var currentY = event.touches[0].clientY;
-                    var deltaY = lastTouchY - currentY;
-                    var atTop = scrollBody.scrollTop <= 0;
-                    var atBottom = Math.ceil(scrollBody.scrollTop + scrollBody.clientHeight) >= scrollBody.scrollHeight;
-
-                    if ((atTop && deltaY < 0) || (atBottom && deltaY > 0)) {
-                        event.preventDefault();
-                    }
-
-                    event.stopPropagation();
-                    lastTouchY = currentY;
-                }, { passive: false });
-            }
-
-            document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape' && popup.classList.contains('is-open')) {
-                closePopup();
-                return;
-            }
-            if (event.key !== 'Tab' || !popup.classList.contains('is-open')) return;
-            var items = Array.prototype.filter.call(popup.querySelectorAll(focusableSelector), function (el) {
-                return el.offsetParent !== null;
-            });
-            if (!items.length) return;
-            var first = items[0];
-            var last = items[items.length - 1];
-            if (event.shiftKey && (document.activeElement === first || !popup.contains(document.activeElement))) {
-                event.preventDefault();
-                last.focus();
-            } else if (!event.shiftKey && (document.activeElement === last || !popup.contains(document.activeElement))) {
-                event.preventDefault();
-                first.focus();
-            }
-        });
-        })();
-    </script>
+    <script defer src="/assets/js/oet-community-popup.js?v=b73488d264"></script>
     <script src="/assets/js/oet-analytics.js?v=ace7c639cf" defer></script>
     <script src="/assets/js/oet-cookie-consent.js?v=e9753196cd" defer></script>
     <script src="/assets/js/oet-search.js?v=ddf57f5228" defer></script>
+    <script src="/assets/js/oet-announce.js?v=b1609a8182" defer></script>
 </body>
 </html>

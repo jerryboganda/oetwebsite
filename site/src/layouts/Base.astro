@@ -2,7 +2,9 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CommunityPopup from '../components/CommunityPopup.astro';
+import Announcement from '../components/Announcement.astro';
 import { enrichPage } from '../lib/page.mjs';
+import { loadAnnouncement } from '../lib/announce.mjs';
 
 interface Props {
   meta: string;
@@ -27,6 +29,11 @@ const {
   showApps = false,
   lang = 'en',
 } = Astro.props;
+
+// Announcement bar state, applied before first paint: expired (after `until`, end of day UTC) or dismissed by the
+// visitor (localStorage). The bar and the homepage news card hide themselves from these two html classes (oet-redesign.css).
+const announce = loadAnnouncement();
+const announceState = `(function(){try{var h=document.documentElement;if(Date.now()>Date.parse('${announce.until}T23:59:59Z'))h.classList.add('oet-news-expired');try{if(localStorage.getItem('oet_announce_${announce.id}')==='1')h.classList.add('oet-bar-dismissed');}catch(e){}}catch(e){}})();`;
 
 // Site-wide build markers, entity nodes, dates byline, author box, related articles and derived head tags
 // (src/lib/page.mjs). Runs after the page wrapper's own injections (pricing, bundles, promo, story counts).
@@ -56,6 +63,7 @@ const { meta, headExtra, main, tail } = enrichPage({
         } catch (e) {}
       })();
     </script>
+    <script is:inline set:html={announceState}></script>
     <script is:inline>
       // Signed-in hint set by the learner app (shared-domain cookie oet_signed_in=1, no token or PII).
       // Presentation only. The header and drawer CTA always READS "Login / Register" (owner brief
@@ -108,6 +116,8 @@ const { meta, headExtra, main, tail } = enrichPage({
 </head>
 <body class={bodyClass || undefined}>
     <a class="oet-skip-link" data-lenis-ignore-anchor href="#main-content">Skip to main content</a>
+<!--================= Announcement bar (data/announcement.json) =================-->
+    <Announcement lang={lang} />
 <!--================= Header section start =================-->
     <Header showApps={showApps} />
 <!--================= Header section End =================-->
@@ -120,5 +130,6 @@ const { meta, headExtra, main, tail } = enrichPage({
     <script src="/assets/js/oet-analytics.js" defer is:inline></script>
     <script src="/assets/js/oet-cookie-consent.js" defer is:inline></script>
     <script src="/assets/js/oet-search.js" defer is:inline></script>
+    <script src="/assets/js/oet-announce.js" defer is:inline></script>
 </body>
 </html>

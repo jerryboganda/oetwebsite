@@ -2,11 +2,11 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-const source = readFileSync(new URL('../src/partials/index/tail.html', import.meta.url), 'utf8');
-const scriptMatch = source.match(/<script id="oet-promo-popup-script">([\s\S]*?)<\/script>/);
-assert.ok(scriptMatch, 'Promo popup script should exist in the homepage partial');
-
-const script = scriptMatch[1];
+// the popup script is an external deferred file (it used to be inline in the homepage tail partial; SEO brief 21 Nov 2026)
+const tail = readFileSync(new URL('../src/partials/index/tail.html', import.meta.url), 'utf8');
+assert.ok(tail.includes('<script defer src="/assets/js/oet-promo-popup.js"></script>'), 'The homepage tail should load the promo popup script');
+const script = readFileSync(new URL('../../assets/js/oet-promo-popup.js', import.meta.url), 'utf8');
+assert.ok(script.includes("getElementById('oet-promo-popup')"), 'Promo popup script should drive #oet-promo-popup');
 const mobileCss = readFileSync(new URL('../../assets/css/oet-mobile.css', import.meta.url), 'utf8');
 
 test('promo popup auto-open is not blocked on mobile or tablet viewports', () => {

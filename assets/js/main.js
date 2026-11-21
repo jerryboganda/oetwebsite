@@ -54,6 +54,21 @@
 
 
 /*----------------------------------------*/
+/*  desktop motion (GSAP) readiness
+/*----------------------------------------*/
+// Pages that load GSAP do it through assets/js/oet-motion.js, which marks html[data-oet-motion] "pending" until GSAP and
+// ScrollTrigger have loaded (then "ready", or "off" when motion is not used). Code that needs GSAP runs through this helper:
+// immediately on every other page and once the libraries have settled on the pages that load them. oet-motion.js defines the
+// same function; whichever script runs first wins.
+window.oetWhenMotionReady = window.oetWhenMotionReady || function (fn) {
+    if (document.documentElement.getAttribute("data-oet-motion") === "pending") {
+        document.addEventListener("oet-motion-ready", function () { fn(); }, { once: true });
+    } else {
+        fn();
+    }
+};
+
+/*----------------------------------------*/
 /*  01.sal js
 /*----------------------------------------*/
 
@@ -394,12 +409,14 @@ if (typeof sal === 'function') {
 
     window.OETSmoothScroll = scrollManager;
 
+    // The smooth-scroll ticker prefers gsap.ticker: wait for GSAP when the page is still loading it (see oet-motion.js).
+    function startScrollManager() {
+        window.oetWhenMotionReady(function () { scrollManager.init(); });
+    }
     if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", function () {
-            scrollManager.init();
-        });
+        document.addEventListener("DOMContentLoaded", startScrollManager);
     } else {
-        scrollManager.init();
+        startScrollManager();
     }
 })(window, document);
 
@@ -772,7 +789,7 @@ if (typeof sal === 'function') {
         function render(el, value) {
             var rounded = Math.round(value);
             el.textContent = el.classList.contains("oet-countup")
-                ? rounded.toLocaleString()
+                ? rounded.toLocaleString("en-GB")
                 : String(rounded);
         }
 
@@ -1185,28 +1202,37 @@ if (typeof sal === 'function') {
         window.matchMedia("(pointer: coarse)").matches
     );
 
-    if (reduceMotion || typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
-        showAll();
-        return;
-    }
+    // GSAP may still be loading (oet-motion.js): decide once it has settled
+    function run() {
+        if (reduceMotion || typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
+            showAll();
+            return;
+        }
 
-    try {
-        gsap.registerPlugin(ScrollTrigger);
-        containers.forEach(function (container) {
-            var image = container.querySelector("img");
-            var tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: container,
-                    toggleActions: "play none none none"
+        try {
+            gsap.registerPlugin(ScrollTrigger);
+            containers.forEach(function (container) {
+                var image = container.querySelector("img");
+                var tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: container,
+                        toggleActions: "play none none none"
+                    }
+                });
+                tl.set(container, { autoAlpha: 1 });
+                tl.from(container, { xPercent: -100, duration: 1.5, ease: "power2.out" });
+                if (image) {
+                    tl.from(image, { xPercent: 100, scale: 1.3, duration: 1.5, ease: "power2.out" }, "<");
                 }
             });
-            tl.set(container, { autoAlpha: 1 });
-            tl.from(container, { xPercent: -100, duration: 1.5, ease: "power2.out" });
-            if (image) {
-                tl.from(image, { xPercent: 100, scale: 1.3, duration: 1.5, ease: "power2.out" }, "<");
-            }
-        });
-    } catch (err) {
+        } catch (err) {
+            showAll();
+        }
+    }
+
+    if (reduceMotion) {
         showAll();
+    } else {
+        window.oetWhenMotionReady(run);
     }
 })();

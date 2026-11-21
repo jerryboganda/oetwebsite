@@ -328,6 +328,23 @@
       "category": "speaking",
       "professions": [],
       "summary": "Every free OET role-play card in one place, by profession, with how to practise them and how Speaking is marked."
+    },
+    {
+      "slug": "oet-paper-test-2027-changes",
+      "category": "exam-format",
+      "featured": true,
+      "professions": [],
+      "summary": "From January 2027 the OET Test on Paper continues for Nursing and Medicine only, in 16 countries. Who is affected, the official country list, and how to prepare for the computer test."
+    }
+  ],
+  "arabicPosts": [
+    {
+      "slug": "ar/oet-paper-test-2027-changes",
+      "twin": "oet-paper-test-2027-changes",
+      "category": "exam-format",
+      "categoryLabelAr": "شكل الامتحان",
+      "image": "/assets/img/blog/oet-paper-test-2027-changes.webp",
+      "summary": "من يناير 2027 امتحان OET الورقي هيفضل للتمريض والطب بس وفي 16 دولة. اعرف مين اللي هيتأثر وقايمة الدول وإزاي تحضّر على الكمبيوتر."
     }
   ]
 }

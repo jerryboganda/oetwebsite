@@ -4,10 +4,11 @@
 import Base from '../../layouts/Base.astro';
 import headExtra from '../../partials/oet-writing-tips/head-extra.html?raw';
 import tail from '../../partials/oet-writing-tips/tail.html?raw';
-import { loadBlog, latestPosts, renderCard, escapeHtml } from '../../lib/blog.mjs';
+import { loadBlog, latestPosts, renderCard, renderArabicCard, escapeHtml } from '../../lib/blog.mjs';
 
 const SITE = 'https://oetwithdrhesham.co.uk';
-const { categories, posts } = loadBlog();
+const { categories, posts, arabicPosts } = loadBlog();
+const articleCount = posts.length + arabicPosts.length;
 const latest = latestPosts(posts);
 const description =
   'Practical OET advice for Listening, Reading, Writing and Speaking, plus exam format and pathway guides for doctors, nurses and allied health professionals.';
@@ -31,7 +32,17 @@ const ld = [
       image: `${SITE}${p.image}`,
       articleSection: p.categoryLabel,
       author: { '@type': 'Person', '@id': `${SITE}/#drhesham`, name: 'Dr Ahmed Hesham', url: `${SITE}/about.html` },
-    })),
+    })).concat(arabicPosts.map((p) => ({
+      '@type': 'BlogPosting',
+      headline: p.title,
+      url: `${SITE}${p.url}`,
+      inLanguage: 'ar',
+      datePublished: p.datePublished,
+      dateModified: p.dateModified,
+      image: `${SITE}${p.image}`,
+      articleSection: p.categoryLabelAr,
+      author: { '@type': 'Person', '@id': `${SITE}/#drhesham`, name: 'Dr Ahmed Hesham', url: `${SITE}/about.html` },
+    }))),
   },
   {
     '@context': 'https://schema.org',
@@ -61,11 +72,12 @@ ${JSON.stringify(ld, null, 2)}
     </script>`;
 
 const chips = [
-  `<li><a class="oet-blog-chip" href="#all-articles">All Articles <span>${posts.length}</span></a></li>`,
+  `<li><a class="oet-blog-chip" href="#all-articles">All Articles <span>${articleCount}</span></a></li>`,
   ...categories.map((c) => {
     const n = posts.filter((p) => p.category === c.id).length;
     return `<li><a class="oet-blog-chip" href="#${c.id}">${escapeHtml(c.label)} <span>${n}</span></a></li>`;
   }),
+  ...(arabicPosts.length ? [`<li><a class="oet-blog-chip" href="#arabic">Arabic <span>${arabicPosts.length}</span></a></li>`] : []),
 ].join('');
 
 const sections = categories
@@ -79,6 +91,16 @@ ${list.map((p) => renderCard(p)).join('\n')}
     </section>`;
   })
   .join('\n');
+
+// Articles written in Arabic: their own section (cards are right-to-left, lang="ar"); the search box filters them too.
+const arabicSection = arabicPosts.length
+  ? `<section class="oet-blog-section" id="arabic" aria-labelledby="arabic-title">
+      <div class="oet-blog-section__head"><h2 id="arabic-title">Articles in Arabic &middot; <span lang="ar">مقالات بالعربية</span></h2><p>Guides written in Arabic for candidates across Egypt and the Gulf.</p></div>
+      <div class="oet-blog-grid">
+${arabicPosts.map((p) => renderArabicCard(p)).join('\n')}
+      </div>
+    </section>`
+  : '';
 
 const main = `    <main id="main-content" class="oet-blog" tabindex="-1">
         <section class="oet-resource-hero oet-skill-hero oet-blog-hero">
@@ -96,7 +118,7 @@ const main = `    <main id="main-content" class="oet-blog" tabindex="-1">
                             <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
                             <input id="oet-blog-search-input" type="search" name="q" placeholder="e.g. referral letter, Part A" autocomplete="off" aria-describedby="oet-blog-search-status">
                         </div>
-                        <p id="oet-blog-search-status" class="oet-blog-search__status" aria-live="polite">${posts.length} articles</p>
+                        <p id="oet-blog-search-status" class="oet-blog-search__status" aria-live="polite">${articleCount} articles</p>
                     </form>
                 </div>
                 <nav class="oet-blog-chips" aria-label="Article categories"><ul>${chips}</ul></nav>
@@ -111,6 +133,7 @@ ${latest.map((p) => renderCard(p, { eager: true })).join('\n')}
                 </div>
             </section>
 ${sections}
+${arabicSection}
             <p class="oet-blog-empty" hidden>No articles match your search. Try a skill such as Writing or a part such as Part A.</p>
             <section class="oet-blog-next" aria-label="Practise what you read">
                 <h2>Put the advice into practice</h2>

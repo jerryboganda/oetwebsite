@@ -1,0 +1,233 @@
+    <!-- js file -->
+
+    <!-- jquery js-->
+<!-- gsap js-->
+<!-- scrollTrigger js-->
+<!-- fontawesome -->
+<!-- counter js -->
+<!-- waypoints js-->
+<!-- sal js-->
+    <!-- ScrollSmoother js -->
+    <script defer src="/assets/js/plugins/lenis.min.js"></script>
+<!-- Custom js -->
+<script defer src="/assets/js/main.js"></script>
+
+<script>
+(function () {
+    const PAGE_SIZE = 40;
+    const manifestUrl = '/assets/img/success-stories/success-stories.json?v=watermarked-20261004';
+    const tabs = Array.from(document.querySelectorAll('.success-tab'));
+    const gallery = document.getElementById('success-gallery');
+    const empty = document.getElementById('success-empty');
+    const loading = document.getElementById('success-loading');
+    const pagination = document.getElementById('success-pagination');
+    const summary = document.getElementById('success-results-summary');
+    const lightbox = document.getElementById('success-lightbox');
+    const panel = lightbox.querySelector('.success-lightbox__panel');
+    const img = document.getElementById('success-lightbox-img');
+    const countLabel = document.getElementById('success-lightbox-count');
+    const yearLabel = document.getElementById('success-lightbox-year');
+    const platformLabel = document.getElementById('success-lightbox-platform');
+    const originalLink = document.getElementById('success-lightbox-original');
+    let stories = [];
+    let filtered = [];
+    let page = 1;
+    let pageOffset = 0;
+    let currentYear = 'All';
+    let currentVisible = [];
+    let current = 0;
+    let lastFocus = null;
+
+    // Western digits on an Arabic page whatever the visitor's browser locale is.
+    const num = value => Number(value).toLocaleString('en-GB');
+    // The manifest paths are relative to the site root; this page lives under /ar/.
+    const src = path => (path ? '/' + String(path).replace(/^\/+/, '') : path);
+    // Brand names (WhatsApp, Facebook) stay in Latin script; only "Other" needs translating.
+    const platformName = platform => (platform === 'Other' ? 'أخرى' : platform);
+    const storyAlt = story => `بطاقة درجات OET موثقة شاركها أحد الطلاب في ${story.year}`;
+
+    function escapeHtml(value) {
+        return String(value || '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
+    }
+
+    function filterStories() {
+        filtered = currentYear === 'All' ? stories.slice() : stories.filter(story => story.year === currentYear);
+        const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+        if (page > totalPages) page = totalPages;
+        pageOffset = (page - 1) * PAGE_SIZE;
+        currentVisible = filtered.slice(pageOffset, pageOffset + PAGE_SIZE);
+        renderGallery();
+        renderPagination(totalPages);
+        empty.classList.toggle('is-visible', filtered.length === 0);
+        const from = filtered.length ? pageOffset + 1 : 0;
+        const to = Math.min(pageOffset + PAGE_SIZE, filtered.length);
+        summary.textContent = filtered.length ? `عرض ${from} إلى ${to} من ${num(filtered.length)} قصة` : 'لا توجد قصص لهذه السنة';
+    }
+
+    function renderGallery() {
+        gallery.innerHTML = currentVisible.map((story, localIndex) => `
+            <article class="success-card" data-visible-index="${localIndex}">
+                <button class="success-card__button" type="button" aria-label="فتح ${escapeHtml(storyAlt(story))}">
+                    <span class="success-card__media">
+                        <img src="${escapeHtml(src(story.thumbSrc || story.optimizedSrc))}" alt="${escapeHtml(storyAlt(story))}"${(story.thumbWidth || story.width) && (story.thumbHeight || story.height) ? ` width="${story.thumbWidth || story.width}" height="${story.thumbHeight || story.height}"` : ''} loading="lazy" decoding="async">
+                    </span>
+                    <span class="success-card__meta">
+                        <span><i class="fa-solid fa-calendar-check"></i> ${escapeHtml(story.year)}</span>
+                        <span><i class="fa-solid fa-share-nodes"></i> ${escapeHtml(platformName(story.platform))}</span>
+                    </span>
+                </button>
+            </article>`).join('');
+        gallery.querySelectorAll('.success-card').forEach((card, index) => {
+            card.style.animationDelay = `${Math.min(index, 11) * 35}ms`;
+            requestAnimationFrame(() => card.classList.add('is-visible'));
+        });
+        gallery.querySelectorAll('.success-card__button').forEach((button, index) => {
+            button.addEventListener('click', () => openAt(pageOffset + index));
+        });
+    }
+
+    function pageButton(label, target, active, disabled) {
+        return `<button class="success-page-btn${active ? ' is-active' : ''}" type="button" data-page="${target}"${disabled ? ' disabled' : ''}>${label}</button>`;
+    }
+
+    // The pagination row is a flex row, so under dir="rtl" "السابق" sits on the right, then 1, 2, 3 ... and "التالي" on the left.
+    function renderPagination(totalPages) {
+        if (filtered.length <= PAGE_SIZE) {
+            pagination.innerHTML = '';
+            return;
+        }
+        const pages = new Set([1, totalPages, page, page - 1, page + 1, page - 2, page + 2]);
+        const list = Array.from(pages).filter(n => n >= 1 && n <= totalPages).sort((a, b) => a - b);
+        let html = pageButton('السابق', page - 1, false, page === 1);
+        let prev = 0;
+        for (const n of list) {
+            if (prev && n - prev > 1) html += '<span class="success-page-btn" aria-hidden="true">...</span>';
+            html += pageButton(n, n, n === page, false);
+            prev = n;
+        }
+        html += pageButton('التالي', page + 1, false, page === totalPages);
+        pagination.innerHTML = html;
+        pagination.querySelectorAll('button[data-page]').forEach(button => {
+            button.addEventListener('click', () => {
+                const next = Number(button.dataset.page);
+                if (!next || next === page || button.disabled) return;
+                page = next;
+                filterStories();
+                document.querySelector('.success-gallery-section').scrollIntoView({behavior: 'smooth', block: 'start'});
+            });
+        });
+    }
+
+    function preloadNeighbours(globalIndex) {
+        [globalIndex - 1, globalIndex + 1].forEach(n => {
+            const neighbour = filtered[(n + filtered.length) % filtered.length];
+            if (neighbour) { const pre = new Image(); pre.src = src(neighbour.optimizedSrc); }
+        });
+    }
+
+    function openAt(globalIndex) {
+        const story = filtered[globalIndex];
+        if (!story) return;
+        const wasOpen = lightbox.classList.contains('is-open');
+        current = globalIndex;
+        img.classList.remove('is-loaded');
+        img.src = src(story.optimizedSrc);
+        img.alt = storyAlt(story);
+        if (img.complete) { img.classList.add('is-loaded'); }
+        countLabel.textContent = `${num(globalIndex + 1)} من ${num(filtered.length)}`;
+        yearLabel.textContent = story.year;
+        platformLabel.textContent = platformName(story.platform);
+        originalLink.href = src(story.originalSrc || story.optimizedSrc);
+        if (!wasOpen) {
+            lastFocus = document.activeElement;
+            lightbox.classList.add('is-open');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            document.getElementById('success-close').focus();
+            if (window.oetAnalytics) { window.oetAnalytics.track('success_lightbox_open', { year: story.year }); }
+        }
+        preloadNeighbours(globalIndex);
+    }
+
+    img.addEventListener('load', () => img.classList.add('is-loaded'));
+
+    function close() {
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (lastFocus && typeof lastFocus.focus === 'function') { lastFocus.focus(); }
+        lastFocus = null;
+    }
+
+    function step(delta) {
+        if (!filtered.length) return;
+        openAt((current + delta + filtered.length) % filtered.length);
+    }
+
+    function activateYear(year, fromHash) {
+        const tab = tabs.find(item => item.dataset.year === year);
+        if (!tab || tab.disabled) return;
+        currentYear = year;
+        page = 1;
+        tabs.forEach(item => { const on = item === tab; item.classList.toggle('is-active', on); item.setAttribute('aria-selected', on ? 'true' : 'false'); });
+        if (stories.length) filterStories();
+        if (!fromHash && window.history && window.history.replaceState) {
+            window.history.replaceState(null, '', year === 'All' ? window.location.pathname : '#year-' + year);
+        }
+    }
+
+    tabs.forEach(tab => tab.addEventListener('click', () => activateYear(tab.dataset.year, false)));
+
+    document.getElementById('success-close').addEventListener('click', close);
+    document.getElementById('success-prev').addEventListener('click', () => step(-1));
+    document.getElementById('success-next').addEventListener('click', () => step(1));
+    lightbox.addEventListener('click', event => { if (event.target === lightbox) close(); });
+
+    // RTL: "previous" is on the right (ArrowRight), "next" on the left (ArrowLeft); the chevrons in the markup are mirrored to match.
+    document.addEventListener('keydown', event => {
+        if (!lightbox.classList.contains('is-open')) return;
+        if (event.key === 'Escape') close();
+        if (event.key === 'ArrowRight') step(-1);
+        if (event.key === 'ArrowLeft') step(1);
+        if (event.key === 'Tab') {
+            const focusables = panel.querySelectorAll('a[href], button:not([disabled])');
+            if (!focusables.length) return;
+            const first = focusables[0];
+            const last = focusables[focusables.length - 1];
+            if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+            else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+        }
+    });
+
+    // RTL swipe: dragging towards the right reveals the next story, towards the left the previous one.
+    let touchX = null, touchY = null;
+    lightbox.addEventListener('touchstart', event => {
+        if (event.touches.length === 1) { touchX = event.touches[0].clientX; touchY = event.touches[0].clientY; }
+    }, { passive: true });
+    lightbox.addEventListener('touchend', event => {
+        if (touchX === null) return;
+        const dx = event.changedTouches[0].clientX - touchX;
+        const dy = event.changedTouches[0].clientY - touchY;
+        touchX = touchY = null;
+        if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.5) { step(dx > 0 ? 1 : -1); }
+    }, { passive: true });
+
+    const hashYear = (window.location.hash.match(/^#year-(\d{4})$/) || [])[1];
+    if (hashYear) activateYear(hashYear, true);
+
+    fetch(manifestUrl)
+        .then(response => {
+            if (!response.ok) throw new Error('Unable to load success stories manifest');
+            return response.json();
+        })
+        .then(data => {
+            stories = data;
+            loading.style.display = 'none';
+            filterStories();
+        })
+        .catch(error => {
+            loading.innerHTML = '<span class="success-loading-error">تعذّر تحميل أرشيف قصص النجاح. يرجى تحديث الصفحة.</span>';
+            console.error(error);
+        });
+})();
+</script>

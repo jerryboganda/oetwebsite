@@ -819,7 +819,8 @@
             updateBadge();
             setOpen(false);
             setChatOpen(false);
-            startAttentionAnimation();
+            // GSAP may still be loading on pages that load it through oet-motion.js: start the attention pulse once it has settled
+            if (window.oetWhenMotionReady) window.oetWhenMotionReady(startAttentionAnimation); else startAttentionAnimation();
 
             document.addEventListener('keydown', function (event) {
                 if (event.key === 'Escape' && isOpen) {

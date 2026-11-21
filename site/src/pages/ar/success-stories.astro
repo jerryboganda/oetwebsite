@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import metaRaw from '../../partials/ar/success-stories/meta.html?raw';
+import headExtraRaw from '../../partials/ar/success-stories/head-extra.html?raw';
+import mainRaw from '../../partials/ar/success-stories/main.html?raw';
+import tailRaw from '../../partials/ar/success-stories/tail.html?raw';
+import stories from '../../../../assets/img/success-stories/success-stories.json';
+import { applyStoryCounts, applyStorySample, STORY_AR } from '../../lib/inject.mjs';
+import { rewriteJsonLd, mapNodes } from '../../lib/schema.mjs';
+
+// Arabic twin of /success-stories.html. Year-tab counts, the two animated counters, numberOfItems and the crawlable
+// sample of real score cards (4 per year, Arabic alt text) are all derived from success-stories.json at build time.
+const parts = applyStorySample(
+  applyStoryCounts({ meta: metaRaw, headExtra: headExtraRaw, main: mainRaw, tail: tailRaw }, stories, STORY_AR),
+  stories, rewriteJsonLd, mapNodes, STORY_AR,
+);
+---
+<Base
+  meta={parts.meta}
+  headExtra={parts.headExtra}
+  main={parts.main}
+  tail={parts.tail}
+  bodyClass="oet-live-site oet-resource-page"
+  lang="ar"
+/>

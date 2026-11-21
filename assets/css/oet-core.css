@@ -2969,3 +2969,35 @@ body.oet-live-site .vl-offcanvas-menu ul li.active > .vl-menu-close i {
 .oet-official-strip { background: #f6f3ff; border-top: 1px solid #e4dcff; padding: 22px 0; }
 .oet-official-strip p { color: #2d2748; font-size: 15px; line-height: 1.7; margin: 0; text-align: center; }
 .oet-official-strip a { color: #5b3ff1; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Announcement bar (every page) + homepage news card (owner SEO brief 21 Nov 2026). Data: site/src/data/announcement.json.
+   The bar sits IN FLOW above the header; the transparent header is position:absolute, so it is pushed down by the bar's
+   fixed height (--oet-bar-h) until it turns sticky (position:fixed; top:0, class header-sticky). The bar has a fixed height
+   (one line from 576px, two clamped lines below) so the offset never depends on JavaScript. The head script in
+   layouts/Base.astro adds html.oet-bar-dismissed / html.oet-news-expired before first paint. */
+:root { --oet-bar-h: 40px; }
+@media (max-width: 575.98px) { :root { --oet-bar-h: 56px; } }
+html.oet-bar-dismissed, html.oet-news-expired { --oet-bar-h: 0px; }
+.oet-announce { position: relative; z-index: 1000; box-sizing: border-box; height: var(--oet-bar-h); display: flex; align-items: center; justify-content: center; padding-block: 0; padding-inline: 48px; background: #fff4d6; border-bottom: 1px solid #f0d58a; color: #4a3300; overflow: hidden; }
+html.oet-bar-dismissed .oet-announce, html.oet-news-expired .oet-announce { display: none; }
+.oet-announce__link { display: block; max-width: 100%; color: inherit; font-size: 14px; font-weight: 700; line-height: 1.35; text-align: center; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.oet-announce__link:hover, .oet-announce__link:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+.oet-announce__link:focus-visible, .oet-announce__close:focus-visible { outline: 2px solid #4a3300; outline-offset: 2px; border-radius: 4px; }
+.oet-announce__close { position: absolute; inset-block: 0; inset-inline-end: 8px; margin-block: auto; width: 32px; height: 32px; padding: 0; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 50%; background: transparent; color: #4a3300; font-size: 15px; cursor: pointer; }
+.oet-announce__close:hover { background: rgba(74, 51, 0, .12); }
+@media (max-width: 575.98px) {
+  .oet-announce { padding-inline: 12px 44px; }
+  .oet-announce[dir="rtl"] { padding-inline: 12px 44px; }
+  .oet-announce__link { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; white-space: normal; font-size: 12px; line-height: 1.4; text-align: start; }
+}
+#vl-header-sticky.vl-transparent-header:not(.header-sticky) { top: var(--oet-bar-h); }
+.oet-news { background: #fff; padding: 20px 0 8px; }
+html.oet-news-expired .oet-news { display: none; }
+.oet-news-card { display: flex; align-items: center; gap: 16px; padding: 16px 20px; border: 1px solid #e4dcff; border-radius: 16px; background: linear-gradient(135deg, #f6f3ff 0%, #fff 70%); box-shadow: 0 8px 24px rgba(31, 21, 88, .07); color: #2d2748; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+.oet-news-card:hover, .oet-news-card:focus-visible { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(31, 21, 88, .12); color: #2d2748; }
+.oet-news-card__badge { flex: none; padding: 6px 12px; border-radius: 999px; background: #5b3ff1; color: #fff; font-size: 12px; font-weight: 800; line-height: 1; }
+.oet-news-card__body { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.oet-news-card__body strong { font-size: 17px; line-height: 1.35; }
+.oet-news-card__body span { color: #4b4570; font-size: 14.5px; line-height: 1.55; }
+.oet-news-card__cta { flex: none; color: #5b3ff1; font-size: 14.5px; font-weight: 800; white-space: nowrap; }
+@media (max-width: 767.98px) { .oet-news-card { flex-direction: column; align-items: flex-start; gap: 10px; } .oet-news-card__cta { white-space: normal; } }

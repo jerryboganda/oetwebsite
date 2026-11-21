@@ -166,8 +166,10 @@ RedirectMatch 404 ^/\.claude/
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
     Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
     Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
-    # Browsers ignore HSTS over plain HTTP, so this is safe to send unconditionally.
-    Header always set Strict-Transport-Security "max-age=15552000; includeSubDomains"
+    # No Strict-Transport-Security header here on purpose: Nginx Proxy Manager (openresty), which terminates TLS in front of
+    # this container, already sends "max-age=63072000;includeSubDomains; preload". Setting a second, different value here made
+    # the site send two conflicting HSTS headers (SEO audit, 21 Nov 2026). If the site ever moves to a host without that proxy,
+    # set HSTS once, at the edge (scripts/verify.mjs fails if this file sets it again).
     # CSP: local-first site; GA4/Umami + YouTube facade allowed explicitly. connect-src also allows the web app's public
     # API origin (api.oetwithdrhesham.co.uk): pricing.html and the course pages fetch GET /v1/catalog/bundles to refresh the
     # Full / Crash Course prices live (assets/js/oet-bundles.js; the build-time defaults stay on any failure).

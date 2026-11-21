@@ -116,6 +116,20 @@ const PAGES = [
   ['ar/oet-course-kuwait.html', '/ar/oet-course-kuwait.html', 'monthly', '0.7'],
   ['oet-course-oman.html', '/oet-course-oman.html', 'monthly', '0.8'],
   ['ar/oet-course-oman.html', '/ar/oet-course-oman.html', 'monthly', '0.7'],
+  // SEO brief of 21 Nov 2026: the January 2027 paper-test news (EN + AR) and the Arabic section expansion
+  ['oet-paper-test-2027-changes.html', '/oet-paper-test-2027-changes.html', 'weekly', '0.9'],
+  ['ar/oet-paper-test-2027-changes.html', '/ar/oet-paper-test-2027-changes.html', 'weekly', '0.8'],
+  ['ar/pricing.html', '/ar/pricing.html', 'weekly', '0.8'],
+  ['ar/success-stories.html', '/ar/success-stories.html', 'weekly', '0.8'],
+  ['ar/oet-writing-sample-nursing-referral.html', '/ar/oet-writing-sample-nursing-referral.html', 'monthly', '0.7'],
+  ['ar/oet-writing-sample-nursing.html', '/ar/oet-writing-sample-nursing.html', 'monthly', '0.7'],
+  ['ar/oet-writing-sample-medicine.html', '/ar/oet-writing-sample-medicine.html', 'monthly', '0.7'],
+  ['ar/oet-writing-sample-medicine-discharge.html', '/ar/oet-writing-sample-medicine-discharge.html', 'monthly', '0.7'],
+  ['ar/oet-writing-sample-pharmacy.html', '/ar/oet-writing-sample-pharmacy.html', 'monthly', '0.7'],
+  ['ar/oet-writing-sample-physiotherapy.html', '/ar/oet-writing-sample-physiotherapy.html', 'monthly', '0.7'],
+  ['ar/oet-speaking-role-play-cards.html', '/ar/oet-speaking-role-play-cards.html', 'monthly', '0.7'],
+  ['ar/oet-mock-test.html', '/ar/oet-mock-test.html', 'monthly', '0.8'],
+  ['ar/oet-score-calculator.html', '/ar/oet-score-calculator.html', 'monthly', '0.7'],
   ['404.html', null, null, null],
 ];
 
@@ -336,17 +350,18 @@ function buildLlmsFull(entries) {
 
 const xml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 function buildFeed(ctx) {
-  const posts = [...ctx.blog.posts].sort((a, b) => b.dateModified.localeCompare(a.dateModified) || b.datePublished.localeCompare(a.datePublished) || a.order - b.order);
+  // English posts and the Arabic articles (blog.json "arabicPosts"; their entries carry xml:lang="ar")
+  const posts = [...ctx.blog.posts, ...ctx.blog.arabicPosts].sort((a, b) => b.dateModified.localeCompare(a.dateModified) || b.datePublished.localeCompare(a.datePublished) || (a.lang === 'ar') - (b.lang === 'ar') || a.order - b.order);
   const updated = posts.reduce((m, p) => (p.dateModified > m ? p.dateModified : m), '');
   const t = (d) => `${d}T00:00:00Z`;
-  const entries = posts.map((p) => `  <entry>
+  const entries = posts.map((p) => `  <entry${p.lang === 'ar' ? ' xml:lang="ar"' : ''}>
     <title>${xml(p.title)}</title>
     <link rel="alternate" type="text/html" href="${ORIGIN}${p.url}"/>
     <id>${ORIGIN}${p.url}</id>
     <published>${t(p.datePublished)}</published>
     <updated>${t(p.dateModified)}</updated>
     <author><name>${xml(ctx.person.name)}</name><uri>${ctx.person.url}</uri></author>
-    <category term="${xml(p.category)}" label="${xml(p.categoryLabel)}"/>
+    <category term="${xml(p.category)}" label="${xml(p.lang === 'ar' ? p.categoryLabelAr : p.categoryLabel)}"/>
     <summary>${xml(p.summary)}</summary>
   </entry>`);
   return `<?xml version="1.0" encoding="utf-8"?>

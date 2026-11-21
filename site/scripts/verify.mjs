@@ -37,6 +37,11 @@ const PAGES = [
   // SEO pass of 7 Nov 2026: pages for queries Search Console showed landing on the wrong page, plus the two hubs
   'what-is-oet.html', 'oet-exam-fees.html', 'oet-cancellation-refund-policy.html', 'oet-passing-score.html', 'oet-writing-samples.html', 'oet-speaking-role-play-cards.html',
   'ar/what-is-oet.html', 'ar/oet-exam-fees.html', 'ar/oet-passing-score.html', 'official-information.html', 'ar/official-information.html', 'oet-course-egypt.html', 'ar/oet-course-egypt.html', 'oet-course-saudi-arabia.html', 'ar/oet-course-saudi-arabia.html', 'oet-course-uae.html', 'ar/oet-course-uae.html', 'oet-course-qatar.html', 'ar/oet-course-qatar.html', 'oet-course-kuwait.html', 'ar/oet-course-kuwait.html', 'oet-course-oman.html', 'ar/oet-course-oman.html',
+  // SEO brief of 21 Nov 2026: the January 2027 paper-test news (EN + AR) and the Arabic section expansion
+  'oet-paper-test-2027-changes.html', 'ar/oet-paper-test-2027-changes.html', 'ar/pricing.html', 'ar/success-stories.html',
+  'ar/oet-writing-sample-nursing-referral.html', 'ar/oet-writing-sample-nursing.html', 'ar/oet-writing-sample-medicine.html',
+  'ar/oet-writing-sample-medicine-discharge.html', 'ar/oet-writing-sample-pharmacy.html', 'ar/oet-writing-sample-physiotherapy.html',
+  'ar/oet-speaking-role-play-cards.html', 'ar/oet-mock-test.html', 'ar/oet-score-calculator.html',
 ];
 
 let failures = 0;
@@ -652,10 +657,12 @@ if (distHtml['pricing.html']) {
     // behaviour: 7 seconds (never 3), an accessible Pause / Play button with aria-pressed, hover and focus hold, none under reduced motion, no stale hint
     const helper = readFileSync(path.join(ROOT, 'assets/js/oet-promo-carousel.js'), 'utf8');
     if (!/var DELAY = 7000;/.test(helper) || !helper.includes('prefers-reduced-motion: reduce') || !helper.includes("'aria-pressed'") || !helper.includes("'focusin'") || !helper.includes("'mouseenter'")) fail('oet-promo-carousel.js: autoplay must be 7000 ms with a Pause / Play toggle (aria-pressed), hover + focus hold and reduced-motion handling');
-    for (const [page, html] of [['pricing.html', ph], ['index.html', distHtml['index.html'] || '']]) {
+    // the homepage popup script is an external deferred file since P6 (SEO brief 21 Nov 2026); the pricing slider script is still inline
+    const popupJs = readFileSync(path.join(ROOT, 'assets/js/oet-promo-popup.js'), 'utf8');
+    for (const [page, html, code] of [['pricing.html', ph, ph], ['index.html', distHtml['index.html'] || '', popupJs]]) {
       if (!/<button class="oet-carousel-toggle" type="button" data-oet-carousel-toggle aria-pressed="false" hidden>/.test(html) || !html.includes('/assets/js/oet-promo-carousel.js?v=') || !html.includes('/assets/css/oet-promo-carousel.css?v=')) fail(`${page}: the carousel needs the Pause / Play button (aria-pressed) and the shared oet-promo-carousel.js / .css`);
-      if (/delay:\s*3000|every 3 seconds|Hover to pause/.test(html)) fail(`${page}: the 3-second autoplay and its hint text are gone (owner 30 Oct 2026: 7 seconds, pausable)`);
-      if (!html.includes('window.OetPromoCarousel') || !/\.DELAY\b/.test(html) || !/\.attach\(/.test(html)) fail(`${page}: the carousel script must take its delay and pause control from OetPromoCarousel`);
+      if (/delay:\s*3000|every 3 seconds|Hover to pause/.test(html + code)) fail(`${page}: the 3-second autoplay and its hint text are gone (owner 30 Oct 2026: 7 seconds, pausable)`);
+      if (!code.includes('window.OetPromoCarousel') || !/\.DELAY\b/.test(code) || !/\.attach\(/.test(code)) fail(`${page}: the carousel script must take its delay and pause control from OetPromoCarousel`);
     }
     if (!/keyboard: \{ enabled: true/.test(ph) || !ph.includes('pagination:') || !ph.includes('navigation:')) fail('pricing.html: hero slider must keep keyboard control, dots and arrows');
     const js = readFileSync(path.join(ROOT, 'assets/js/oet-bundles.js'), 'utf8');
@@ -733,7 +740,7 @@ if (distHtml['pricing.html']) {
     for (const [page, html] of Object.entries(distHtml)) {
       if (/Nursing Course \+ Assessment|nursing-course-plus-assessment|Full Crash Course (?:-|&ndash;|\+) ?(?:General|3 Writing|5 Writing)|full-crash-course-(?:general|plus)|View the Crash Course\b|crash-course options/i.test(html.replace(/&amp;/g, '&')))
         fail(`${page}: the Nursing Course + Assessment Package and the legacy Full Crash GBP 65 / 75 / 85 were removed from sale and must not be named, linked or priced`);
-      if (/<!--oet:/.test(html)) fail(`${page}: an unreplaced <!--oet:...--> build marker leaked into the page`);
+      if (/<!--oet:|\\u003c!--oet:/.test(html)) fail(`${page}: an unreplaced <!--oet:...--> build marker leaked into the page (also checked in its JSON-LD-escaped form \\u003c!--oet:)`);
       // the former GBP 140 Full Condensed Recorded Course + TutorBook (Medicine) was retired; its place is the Complete OET Bundle + TutorBook (the legacy Classic Medicine keeps its own sign-in slug, which is not matched here)
       // (2 Nov 2026: also the "Full condensed recorded Medicine" Course description; bare "condensed" stays legal on the Classic cards)
       if (/Condensed Recorded Course|Full condensed recorded|Medicine Condensed|full-condensed-medicine-tbook/i.test(html.replace(/&amp;/g, '&'))) fail(`${page}: the retired Full Condensed Recorded Course + TutorBook must not be named or linked (the Complete OET Bundle + TutorBook replaces it)`);
@@ -945,6 +952,12 @@ if (distHtml['pricing.html']) {
     ['oet-writing-tips.html', 'ar/oet-writing-tips.html'], ['oet-speaking-tips.html', 'ar/oet-speaking-tips.html'], ['oet-sample-tests.html', 'ar/oet-sample-tests.html'],
     ['gulf-pathway-guide.html', 'ar/gulf-pathway-guide.html'],
     ['what-is-oet.html', 'ar/what-is-oet.html'], ['oet-exam-fees.html', 'ar/oet-exam-fees.html'], ['oet-passing-score.html', 'ar/oet-passing-score.html'], ['official-information.html', 'ar/official-information.html'], ['oet-course-egypt.html', 'ar/oet-course-egypt.html'], ['oet-course-saudi-arabia.html', 'ar/oet-course-saudi-arabia.html'], ['oet-course-uae.html', 'ar/oet-course-uae.html'], ['oet-course-qatar.html', 'ar/oet-course-qatar.html'], ['oet-course-kuwait.html', 'ar/oet-course-kuwait.html'], ['oet-course-oman.html', 'ar/oet-course-oman.html'],
+    // SEO brief of 21 Nov 2026
+    ['oet-paper-test-2027-changes.html', 'ar/oet-paper-test-2027-changes.html'], ['pricing.html', 'ar/pricing.html'], ['success-stories.html', 'ar/success-stories.html'],
+    ['oet-writing-sample-nursing-referral.html', 'ar/oet-writing-sample-nursing-referral.html'], ['oet-writing-sample-nursing.html', 'ar/oet-writing-sample-nursing.html'],
+    ['oet-writing-sample-medicine.html', 'ar/oet-writing-sample-medicine.html'], ['oet-writing-sample-medicine-discharge.html', 'ar/oet-writing-sample-medicine-discharge.html'],
+    ['oet-writing-sample-pharmacy.html', 'ar/oet-writing-sample-pharmacy.html'], ['oet-writing-sample-physiotherapy.html', 'ar/oet-writing-sample-physiotherapy.html'],
+    ['oet-speaking-role-play-cards.html', 'ar/oet-speaking-role-play-cards.html'], ['oet-mock-test.html', 'ar/oet-mock-test.html'], ['oet-score-calculator.html', 'ar/oet-score-calculator.html'],
   ];
   const paired = new Map(HREFLANG_PAIRS.flatMap(([en, ar]) => [[en, [en, ar]], [ar, [en, ar]]]));
   for (const [page, html] of Object.entries(distHtml)) {
@@ -1164,6 +1177,163 @@ if (distHtml['pricing.html']) {
         fail(`${page}: articles need og:type article, article:published_time / modified_time from the JSON-LD and the author meta`);
     }
   }
+}
+
+// ---- SEO implementation brief, 21 Nov 2026 ------------------------------------------------------------------------------
+// P1 counters, P4 honest "free" wording, P5 Arabic section, P6 homepage weight, P7 HSTS, and the January 2027 paper-test news
+// (two posts, the announcement bar on every page, the homepage cards). P2 (a public recalls page) is NOT built: owner decision.
+{
+  const ORIGIN = 'https://oetwithdrhesham.co.uk';
+  const { loadBlog } = await import('../src/lib/blog.mjs');
+  const { loadAnnouncement } = await import('../src/lib/announce.mjs');
+  const { arabicPosts } = loadBlog();
+  const ann = loadAnnouncement();
+  const mainOf = (html) => (html.match(/<main[\s\S]*<\/main>/) || [''])[0];
+  const read = (rel) => readFileSync(path.join(ROOT, rel), 'utf8');
+  const srcOf = (rel) => readFileSync(path.join(SITE, 'src', rel), 'utf8');
+
+  // P1: every animated counter carries its final value as text (crawlers and no-JS visitors), never "0"
+  for (const [page, html] of Object.entries(distHtml)) {
+    for (const m of html.matchAll(/<span class="oet-countup" data-count="(\d+)"[^>]*>([^<]*)<\/span>/g))
+      if (m[2] !== Number(m[1]).toLocaleString('en-GB')) fail(`${page}: counter data-count="${m[1]}" must render "${Number(m[1]).toLocaleString('en-GB')}" as text, found "${m[2]}"`);
+  }
+  for (const page of ['success-stories.html', 'ar/success-stories.html']) {
+    const html = distHtml[page] || '';
+    const cards = html.match(/<span class="oet-countup" data-count="(\d+)">/g) || [];
+    if (cards.length !== 2) fail(`${page}: expected the two success counters (score cards, latest additions), found ${cards.length}`);
+  }
+
+  // Arabic success stories: a crawlable sample of real score cards with honest Arabic alt text, mirrored in associatedMedia
+  {
+    const html = distHtml['ar/success-stories.html'] || '';
+    const gallery = (html.match(/<div class="success-masonry" id="success-gallery">([\s\S]*?)<\/div>\s*<nav class="success-pagination"/) || [, ''])[1];
+    const imgs = [...gallery.matchAll(/<img src="([^"]+)" alt="([^"]+)" width="\d+" height="\d+" loading="lazy"/g)];
+    if (imgs.length < 24) fail(`ar/success-stories.html: expected at least 24 score cards in the HTML (found ${imgs.length})`);
+    for (const [, src, alt] of imgs) {
+      if (!existsSync(path.join(ROOT, src.slice(1)))) fail(`ar/success-stories.html: sample image missing on disk ${src}`);
+      if (!/^بطاقة درجات OET موثقة شاركها أحد الطلاب في \d{4} \(\d+ من [\d,]+ في ذلك العام\)$/.test(alt)) fail(`ar/success-stories.html: sample alt text must be the honest Arabic description, found "${alt}"`);
+    }
+    const gal = nodesOfType(ldBlocks(html), 'ImageGallery')[0];
+    if (!gal || (gal.associatedMedia || []).length !== imgs.length) fail('ar/success-stories.html: ImageGallery associatedMedia must list the sample images');
+  }
+
+  // announcement bar: on EVERY page, in flow before the header, language-matched, verbatim, dismissible; the state script is in <head>
+  for (const [page, html] of Object.entries(distHtml)) {
+    const ar = page.startsWith('ar/');
+    const t = ar ? ann.ar : ann.en;
+    const bars = html.match(/<aside class="oet-announce"[^>]*>[\s\S]*?<\/aside>/g) || [];
+    if (bars.length !== 1) { fail(`${page}: expected exactly one announcement bar, found ${bars.length}`); continue; }
+    const want = `<a class="oet-announce__link" href="${t.href}">${t.bar}</a>`;
+    if (!bars[0].includes(want)) fail(`${page}: the announcement bar must read "${t.bar}" and link ${t.href}`);
+    if (!/<button class="oet-announce__close" type="button" aria-label="[^"]+">/.test(bars[0])) fail(`${page}: the announcement bar needs its dismiss button`);
+    if (!new RegExp(`lang="${ar ? 'ar' : 'en'}" dir="${ar ? 'rtl' : 'ltr'}"`).test(bars[0])) fail(`${page}: the announcement bar must carry lang/dir for its language`);
+    if (html.indexOf('<aside class="oet-announce"') > html.indexOf('<header>')) fail(`${page}: the announcement bar must sit before the header`);
+    const head = html.slice(0, html.indexOf('</head>'));
+    if (!head.includes(`Date.parse('${ann.until}T23:59:59Z')`) || !head.includes(`oet_announce_${ann.id}`)) fail(`${page}: the head script that hides the bar after ${ann.until} or when dismissed is missing`);
+    if (!html.includes('/assets/js/oet-announce.js?v=')) fail(`${page}: oet-announce.js (dismiss button) is not loaded`);
+  }
+  if (ann.until !== '2027-01-15') fail('announcement.json: the bar runs until 15 January 2027 (owner brief)');
+  // homepage news cards: directly under the hero, language-matched
+  for (const [page, t, hero] of [['index.html', ann.en, '<section class="oet-hero">'], ['ar/index.html', ann.ar, '<section class="oet-resource-hero oet-skill-hero">']]) {
+    const html = distHtml[page] || '';
+    const cards = html.match(/<section class="oet-news"[^>]*>[\s\S]*?<\/section>/g) || [];
+    if (cards.length !== 1 || !cards[0].includes(`href="${t.href}"`) || !cards[0].includes(t.title)) fail(`${page}: expected one homepage news card linking ${t.href}`);
+    if (!(html.indexOf(hero) !== -1 && html.indexOf(hero) < html.indexOf('<section class="oet-news"'))) fail(`${page}: the news card must come right after the hero`);
+  }
+  for (const [page, html] of Object.entries(distHtml)) if (!['index.html', 'ar/index.html'].includes(page) && html.includes('class="oet-news"')) fail(`${page}: only the two homepages carry the news card`);
+
+  // the two paper-test posts: the 16 countries (owner-confirmed list, verbatim from the OET customer-care email) in a table, the video slot, the sources
+  {
+    const COUNTRIES = { en: ['Australia', 'Canada', 'Egypt', 'Ghana', 'India', 'Ireland', 'Kenya', 'Nepal', 'New Zealand', 'Pakistan', 'Philippines', 'Saudi Arabia', 'Sri Lanka', 'Turkey', 'United Arab Emirates', 'United Kingdom'],
+      ar: ['أستراليا', 'كندا', 'مصر', 'غانا', 'الهند', 'أيرلندا', 'كينيا', 'نيبال', 'نيوزيلندا', 'باكستان', 'الفلبين', 'السعودية', 'سريلانكا', 'تركيا', 'الإمارات', 'المملكة المتحدة'] };
+    for (const [page, lang] of [['oet-paper-test-2027-changes.html', 'en'], ['ar/oet-paper-test-2027-changes.html', 'ar']]) {
+      const html = distHtml[page] || '';
+      const cells = [...((html.match(/<table class="pathway-table">[\s\S]*?<\/table>/) || [''])[0].matchAll(/<td>([^<]*)<\/td>/g))].map((m) => m[1]);
+      if (cells.join('|') !== COUNTRIES[lang].join('|')) fail(`${page}: the 16-country table must list exactly ${COUNTRIES[lang].join(', ')} (found ${cells.length} cells)`);
+      if (!html.includes('<!-- VIDEO SLOT')) fail(`${page}: the video embed slot under the H1 must stay until the video is added`);
+      if (!html.includes('https://oet.com/post/oet-test-on-paper-update-2027')) fail(`${page}: must cite the official OET announcement`);
+      if (!/nursing and medicine only|التمريض والطب/.test(visibleText(mainOf(html)))) fail(`${page}: must state that paper continues for Nursing and Medicine only`);
+      if (!/Cambridge Boxhill Language Assessment/.test(html)) fail(`${page}: the country list must be attributed to the OET customer-care email (Cambridge Boxhill Language Assessment)`);
+    }
+    if (!/<h1[^>]*>OET on Paper ends for 10 professions in January 2027: what changes for you<\/h1>/.test(distHtml['oet-paper-test-2027-changes.html'] || '')) fail('oet-paper-test-2027-changes.html: H1 is the owner-approved headline');
+    if (!blogHtmlFor('blog/index.html').includes('href="/ar/oet-paper-test-2027-changes.html"') || !blogHtmlFor('blog/index.html').includes('href="/oet-paper-test-2027-changes.html"')) fail('blog/index.html: must list both paper-test posts');
+    function blogHtmlFor(p) { return distHtml[p] || ''; }
+  }
+  // Arabic articles in blog.json "arabicPosts": thumbnail, feed entry (xml:lang="ar"), article head tags
+  {
+    const feed = existsSync(path.join(DIST, 'feed.xml')) ? readFileSync(path.join(DIST, 'feed.xml'), 'utf8') : '';
+    if ((feed.match(/<entry[ >]/g) || []).length !== loadBlog().posts.length + arabicPosts.length) fail(`feed.xml: ${(feed.match(/<entry[ >]/g) || []).length} entries for ${loadBlog().posts.length + arabicPosts.length} posts (English + Arabic)`);
+    for (const p of arabicPosts) {
+      const html = distHtml[p.url.slice(1)] || '';
+      if (!existsSync(path.join(ROOT, p.image.slice(1)))) fail(`blog: thumbnail missing ${p.image}`);
+      if (!feed.includes(`<entry xml:lang="ar">`) || !feed.includes(`<id>${ORIGIN}${p.url}</id>`)) fail(`feed.xml: no Arabic entry for ${p.url}`);
+      if (!html.includes('<meta property="og:type" content="article">') || !html.includes(`<meta property="article:published_time" content="${p.datePublished}">`)) fail(`${p.url}: Arabic articles need og:type article and article:published_time`);
+      if (!nodesOfType(ldBlocks(html), 'BlogPosting').length) fail(`${p.url}: BlogPosting JSON-LD missing`);
+    }
+  }
+
+  // inbound links: every new page has >= 3 links from other pages' <main> (SEO brief checklist item 6)
+  {
+    const NEW = ['oet-paper-test-2027-changes.html', 'ar/oet-paper-test-2027-changes.html', 'ar/pricing.html', 'ar/success-stories.html', 'ar/oet-writing-sample-nursing-referral.html',
+      'ar/oet-writing-sample-nursing.html', 'ar/oet-writing-sample-medicine.html', 'ar/oet-writing-sample-medicine-discharge.html', 'ar/oet-writing-sample-pharmacy.html',
+      'ar/oet-writing-sample-physiotherapy.html', 'ar/oet-speaking-role-play-cards.html', 'ar/oet-mock-test.html', 'ar/oet-score-calculator.html'];
+    const inbound = new Map();
+    for (const [page, html] of Object.entries(distHtml))
+      for (const t of new Set([...mainOf(html).matchAll(/href="(\/[^"#?]*)/g)].map((m) => m[1].slice(1)))) if (t !== page) inbound.set(t, (inbound.get(t) || 0) + 1);
+    for (const page of NEW) if ((inbound.get(page) || 0) < 3) fail(`${page}: only ${inbound.get(page) || 0} inbound links from other pages (min 3)`);
+  }
+
+  // P5: every Arabic page links the Arabic sample-tests page with one of the four keyword anchors (homepage, what-is-oet and passing-score first)
+  {
+    const ANCHORS = ['اختبار OET تجريبي مجاني', 'نموذج امتحان OET مجاني', 'حمل نماذج OET الرسمية', 'جرب نفسك في OET قبل الحجز'];
+    const used = new Set();
+    for (const page of Object.keys(distHtml)) {
+      if (!page.startsWith('ar/') || page === 'ar/oet-sample-tests.html') continue;
+      const hit = ANCHORS.find((a) => mainOf(distHtml[page]).includes(`<a href="/ar/oet-sample-tests.html">${a}</a>`));
+      if (!hit) fail(`${page}: must link /ar/oet-sample-tests.html with one of the four rotating keyword anchors`);
+      else used.add(hit);
+    }
+    if (used.size !== ANCHORS.length) fail('the four Arabic sample-tests anchors must all be in use (rotate them)');
+  }
+
+  // P5: the Arabic pricing page shows every package price from the data files (markers, never typed) and no struck-out comparison prices
+  {
+    const src = srcOf('partials/ar/pricing/main.html');
+    const pricing = JSON.parse(srcOf('data/pricing.json'));
+    for (const c of pricing) if ((src.split(`<!--oet:price:${c.kicker}-->`).length - 1) < 1) fail(`ar/pricing.html: ${c.kicker} (${c.title}) is missing from the Arabic pricing page`);
+    for (const key of ['full-practice', 'full-tutorbook', 'ultimate', 'crash-essential', 'crash-letters', 'crash-complete'])
+      if (!src.includes(`<!--oet:bundle-price:${key}-->`)) fail(`ar/pricing.html: the ${key} tier price is missing`);
+    if (/£\s?\d|&pound;\s?\d/.test(src.replace(/<!--[\s\S]*?-->/g, ''))) fail('ar/pricing.html: no price may be typed (use the build markers)');
+    if (/oet-price-slash|line-through|<del\b/.test(distHtml['ar/pricing.html'] || '')) fail('ar/pricing.html: no struck-out comparison prices on the Arabic page');
+  }
+
+  // P4: "free" is only claimed where it is true (the full mocks are paid packages); the page leads with the genuinely free material
+  {
+    const html = distHtml['oet-mock-test.html'] || '';
+    const title = (html.match(/<title>([^<]*)<\/title>/) || [, ''])[1];
+    if (/\bfree\b/i.test(title)) fail(`oet-mock-test.html: the title must not say "free" (the full mocks are paid): ${title}`);
+    if (!html.includes('id="free-first"') || !html.includes('Is there a free OET mock test online?')) fail('oet-mock-test.html: the "Start free" section and the honest free-mock FAQ are required');
+    if (/مجاني|مجانا|مجاناً/.test((distHtml['ar/oet-mock-test.html'] || '').match(/<title>([^<]*)<\/title>/)[1])) fail('ar/oet-mock-test.html: the title must not claim a free mock');
+  }
+
+  // P6: the homepage no longer inlines its popup / motion scripts or styles, and GSAP is not loaded with document.write
+  {
+    const html = distHtml['index.html'] || '';
+    if (/document\.write/.test(html)) fail('index.html: document.write is gone (GSAP loads through assets/js/oet-motion.js)');
+    if (/oet-promo-popup-script|oet-community-popup-script/.test(html)) fail('index.html: the popup scripts must be external deferred files');
+    for (const f of ['oet-promo-popup.js', 'oet-community-popup.js', 'oet-home-motion.js', 'oet-motion.js']) if (!html.includes(`<script defer src="/assets/js/${f}?v=`)) fail(`index.html: must load /assets/js/${f} deferred`);
+    if (!html.includes('<link rel="stylesheet" href="/assets/css/oet-home.css?v=') || /<style>\s*body\.oet-live-site \.oet-services-tone/.test(html)) fail('index.html: the homepage styles must come from /assets/css/oet-home.css');
+    if (!/<script type="text\/plain" data-oet-motion src="\/assets\/js\/plugins\/gsap\.min\.js\?v=[0-9a-f]{10}"><\/script>\s*<script type="text\/plain" data-oet-motion src="\/assets\/js\/plugins\/ScrollTrigger\.min\.js\?v=[0-9a-f]{10}"><\/script>/.test(html)) fail('index.html: the inert gsap / ScrollTrigger tags (data-oet-motion) are missing');
+    for (const [page, h] of Object.entries(distHtml)) if (/oet-community-popup-script/.test(h)) fail(`${page}: the community popup script must be external (assets/js/oet-community-popup.js)`);
+    // regression guard: 223,380 bytes before the brief. The brief's 100 KB target cannot be met without removing crawlable content (the nav, footer
+    // and sections are server-rendered on purpose); this keeps what was won.
+    if (Buffer.byteLength(html) > 195000) fail(`index.html: ${Buffer.byteLength(html)} bytes (guard 195000; was 223,380 before the brief)`);
+    const motion = read('assets/js/main.js');
+    if (!motion.includes('window.oetWhenMotionReady')) fail('main.js: GSAP-dependent code must wait for oetWhenMotionReady');
+  }
+
+  // P7: HSTS is sent once, by the proxy (NPM); the Apache config must not add a second, different value
+  if (/Strict-Transport-Security/i.test(read('.htaccess').replace(/^\s*#.*$/gm, ''))) fail('.htaccess: must not set Strict-Transport-Security (the proxy already does; a second value made two conflicting headers)');
 }
 
 if (failures) {

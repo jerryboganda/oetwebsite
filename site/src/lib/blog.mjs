@@ -83,7 +83,56 @@ export function loadBlog() {
       image: `/assets/img/blog/${p.slug}.webp`,
     };
   });
-  return { categories: data.categories, posts };
+  // Arabic articles (blog.json "arabicPosts"): listed on /blog/ and in feed.xml, but kept apart from `posts` so the
+  // English-only article rules (byline, author box, related articles, homepage cards) never apply to them.
+  const arabicPosts = (data.arabicPosts || []).map((p, order) => {
+    const category = categories.get(p.category);
+    if (!category) throw new Error(`blog: ${p.slug} has unknown category ${p.category}`);
+    if (seen.has(p.slug)) throw new Error(`blog: duplicate slug ${p.slug}`);
+    seen.add(p.slug);
+    const all = `${read(p.slug, 'meta')}\n${read(p.slug, 'head-extra')}\n${read(p.slug, 'main')}`;
+    const h1 = all.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/);
+    const published = all.match(/"datePublished"\s*:\s*"(\d{4}-\d{2}-\d{2})/);
+    const modified = all.match(/"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})/);
+    if (!h1 || !published) throw new Error(`blog: ${p.slug} needs an <h1> and a datePublished in its JSON-LD`);
+    if (!p.categoryLabelAr || !p.image || !p.summary) throw new Error(`blog: ${p.slug} needs categoryLabelAr, image and summary`);
+    const body = read(p.slug, 'main').replace(/<nav\b[\s\S]*?<\/nav>/g, ' ').replace(/<section class="oet-related"[\s\S]*?<\/section>/g, ' ');
+    return {
+      ...p,
+      order,
+      lang: 'ar',
+      url: `/${p.slug}.html`,
+      title: text(h1[1]),
+      category: p.category,
+      categoryLabel: category.label,
+      icon: ICONS[p.category],
+      datePublished: published[1],
+      dateModified: modified ? modified[1] : published[1],
+      minutes: Math.max(1, Math.round(text(body).split(' ').filter(Boolean).length / 200)),
+    };
+  });
+  return { categories: data.categories, posts, arabicPosts };
+}
+
+const MONTHS_AR = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
+
+/** A /blog/ card for an Arabic article: same markup as renderCard, right-to-left, Arabic labels. */
+export function renderArabicCard(post, { headingLevel = 3 } = {}) {
+  const h = `h${headingLevel}`;
+  const [y, m, d] = post.datePublished.split('-').map(Number);
+  const mins = post.minutes >= 3 && post.minutes <= 10 ? 'دقائق' : 'دقيقة';
+  return `<article class="oet-blog-card" data-category="arabic" lang="ar" dir="rtl" data-search="${escapeHtml(
+    `${post.title} ${post.summary} ${post.categoryLabelAr} arabic`.toLowerCase(),
+  )}">
+  <a class="oet-blog-card__media" href="${post.url}" tabindex="-1" aria-hidden="true"><img src="${post.image}" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
+  <div class="oet-blog-card__body">
+    <span class="oet-blog-card__tag"><i class="fa-solid fa-${post.icon}" aria-hidden="true"></i> ${escapeHtml(post.categoryLabelAr)}</span>
+    <${h} class="oet-blog-card__title"><a href="${post.url}">${escapeHtml(post.title)}</a></${h}>
+    <p class="oet-blog-card__summary">${escapeHtml(post.summary)}</p>
+    <p class="oet-blog-card__meta">د. أحمد هشام &middot; <time datetime="${post.datePublished}">${d} ${MONTHS_AR[m - 1]} ${y}</time> &middot; ${post.minutes} ${mins} قراءة</p>
+    <a class="oet-blog-card__link" href="${post.url}" aria-label="اقرأ المقال: ${escapeHtml(post.title)}">اقرأ المقال <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+  </div>
+</article>`;
 }
 
 /** Newest first; featured posts win ties so the homepage picks are stable. */

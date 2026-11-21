@@ -1,0 +1,21 @@
+{
+  "_comment": "Site-wide announcement bar (every page) and homepage news card (/ and /ar/). Owner SEO brief 21 Nov 2026: show from publication until 15 January 2027, then remove. The bar and card hide themselves in the browser after `until` (assets/js/oet-announce.js + the head script in layouts/Base.astro), so the static HTML never depends on the build date. To remove them for good: delete this file, src/components/Announcement.astro, src/lib/announce.mjs, the <!--oet:news-card--> markers in partials/index/main.html and partials/ar/main.html, and the Announcement lines in layouts/Base.astro; then rebuild.",
+  "id": "paper-2027",
+  "until": "2027-01-15",
+  "en": {
+    "bar": "OET on Paper ends for 10 professions in January 2027. See what changes for you →",
+    "href": "/oet-paper-test-2027-changes.html",
+    "badge": "Exam update",
+    "title": "OET on Paper ends for 10 professions in January 2027",
+    "summary": "From January 2027 the OET Test on Paper continues for Nursing and Medicine only, in 16 countries. See who is affected, the country list and how to prepare for the computer test.",
+    "cta": "See what changes for you →"
+  },
+  "ar": {
+    "bar": "امتحان OET الورقي بيتوقف لعشر مهن في يناير 2027. اعرف اللي بيتغير عليك ←",
+    "href": "/ar/oet-paper-test-2027-changes.html",
+    "badge": "تحديث مهم",
+    "title": "امتحان OET الورقي هيتوقف لعشر مهن في يناير 2027",
+    "summary": "من يناير 2027 امتحان OET الورقي هيفضل للتمريض والطب بس، وفي 16 دولة. اعرف مين اللي هيتأثر وقايمة الدول وإزاي تحضّر على الكمبيوتر.",
+    "cta": "اعرف اللي بيتغير عليك ←"
+  }
+}

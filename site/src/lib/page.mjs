@@ -14,6 +14,7 @@ import { applyPriceMarkers } from './inject.mjs';
 import { loadPerson, applyEntityNodes, authorBox, yearsCoaching, numberWord } from './schema.mjs';
 import { loadBlog, applyRelatedGuides, pageDates, renderDates } from './blog.mjs';
 import { deriveHeadTags } from './head.mjs';
+import { newsCardHtml } from './announce.mjs';
 
 const SITE = process.cwd();
 let data; // the build is one process: read the data files once
@@ -21,7 +22,8 @@ function shared() {
   if (!data) {
     const read = (f) => JSON.parse(fs.readFileSync(path.join(SITE, 'src', 'data', f), 'utf8'));
     const stories = JSON.parse(fs.readFileSync(path.join(path.dirname(SITE), 'assets', 'img', 'success-stories', 'success-stories.json'), 'utf8'));
-    data = { pricing: read('pricing.json'), bundles: read('bundles.json'), person: loadPerson(), posts: loadBlog().posts, stories: stories.length };
+    const blog = loadBlog();
+    data = { pricing: read('pricing.json'), bundles: read('bundles.json'), person: loadPerson(), posts: blog.posts, arabicPosts: blog.arabicPosts, stories: stories.length };
   }
   return data;
 }
@@ -41,12 +43,20 @@ function replaceMarker(parts, marker, render) {
   return Object.fromEntries(Object.entries(parts).map(([k, html]) => [k, html.split(marker).join(value)]));
 }
 
-export function enrichPage(input) {
-  const { pricing, bundles, person, posts, stories } = shared();
+// rewriteJsonLd (schema.mjs) re-serialises a JSON-LD block with "<" written as <, so a marker inside a JSON-LD string
+// (for example <!--oet:story-count--> in a description) reaches us as <!--oet:story-count-->. Turn those back
+// into real markers first, otherwise the literal escaped text ships in the structured data.
+const ESCAPED_MARKER = /\\u003c!--(oet:[a-z-]+(?::[^"\\]*?)?)-->/g;
+
+export function enrichPage(raw) {
+  const { pricing, bundles, person, posts, arabicPosts, stories } = shared();
+  const input = Object.fromEntries(Object.entries(raw).map(([k, html]) => [k, html.replace(ESCAPED_MARKER, '<!--$1-->')]));
   const key = pageKey(input.meta);
   let parts = applyPriceMarkers(input, pricing, bundles);
   // "1,750+ verified score cards": the count of the success-stories manifest, never a typed number
   parts = replaceMarker(parts, '<!--oet:story-count-->', () => stories.toLocaleString('en-GB'));
+  // homepage news card (data/announcement.json): the English homepage ("index") and the Arabic one ("ar/index")
+  parts = replaceMarker(parts, '<!--oet:news-card-->', () => newsCardHtml(key && key.startsWith('ar/') ? 'ar' : 'en'));
   parts = replaceMarker(parts, '<!--oet:years-->', () => String(yearsCoaching(person)));
   parts = replaceMarker(parts, '<!--oet:years-word-->', () => numberWord(yearsCoaching(person)));
   parts = applyEntityNodes(parts, person);
@@ -59,6 +69,6 @@ export function enrichPage(input) {
   parts = { ...parts, main: parts.main.replace(DATES, (_, cls) => renderDates(dates, person.byline, cls)) };
   parts = replaceMarker(parts, '<!--oet:author-box-->', () => authorBox(person));
   if (key) parts = applyRelatedGuides(parts, key, posts);
-  const isArticle = !!key && posts.some((p) => p.slug === key);
+  const isArticle = !!key && [...posts, ...arabicPosts].some((p) => p.slug === key);
   return { ...parts, meta: deriveHeadTags(parts.meta, ld, { isArticle, dates, person }) };
 }
