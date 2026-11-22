@@ -216,7 +216,7 @@
     <updated>2026-11-07T00:00:00Z</updated>
     <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
     <category term="exam-format" label="معلومات الامتحان"/>
-    <summary>امتحان OET هو اختبار اللغة الإنجليزية للعاملين في المجال الصحي: 12 مهنة و4 أجزاء ودرجات من 500. تعرف على نظام الامتحان وتكلفته ومن يقبله.</summary>
+    <summary>امتحان OET هو اختبار الإنجليزية للعاملين في المجال الصحي: 12 مهنة، و4 أجزاء، ودرجة من 0 إلى 500 لكل جزء، ورسومه 587 دولاراً أسترالياً. من يقبله وطرق أدائه.</summary>
   </entry>
   <entry xml:lang="ar">
     <title>درجة النجاح في امتحان OET: كم تحتاج لتنجح؟</title>
@@ -226,7 +226,7 @@
     <updated>2026-11-07T00:00:00Z</updated>
     <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
     <category term="exam-format" label="معلومات الامتحان"/>
-    <summary>درجة النجاح المعتادة في OET هي B أي 350 من 500، وعادةً 30 من 42 في الاستماع والقراءة. جدول الدرجات والحد الأدنى للأطباء والممرضين حسب كل جهة.</summary>
+    <summary>ما درجة النجاح في OET؟ عادةً الدرجة B أي 350 من 500 في كل جزء، و30 من 42 تقريباً في الاستماع والقراءة. وتقبل NMC وNMBI وECFMG درجة 300 (C+) في الكتابة.</summary>
   </entry>
   <entry>
     <title>OET Study Plan: 4, 8 and 12-Week Schedules</title>
@@ -626,7 +626,7 @@
     <updated>2026-10-24T00:00:00Z</updated>
     <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
     <category term="exam-format" label="معلومات الامتحان"/>
-    <summary>الفرق بين OET وIELTS للتمريض والأطباء: معادلة درجات OET بالـ IELTS من جداول OET الرسمية، وقبول كل اختبار عند NMC وGMC وAhpra، وأيهما أنسب لك.</summary>
+    <summary>الفرق بين OET وIELTS للتمريض والأطباء: الدرجة B في OET (350 فأكثر) تعادل IELTS 7.0 إلى 7.5 حسب جداول OET الرسمية، وقبول كل اختبار عند NMC وGMC وAhpra، وأيهما أنسب لك.</summary>
   </entry>
   <entry xml:lang="ar">
     <title>درجات OET المطلوبة لكل جهة ترخيص (2026)</title>
@@ -636,6 +636,6 @@
     <updated>2026-10-24T00:00:00Z</updated>
     <author><name>Dr Ahmed Hesham</name><uri>https://oetwithdrhesham.co.uk/about.html</uri></author>
     <category term="pathways" label="أدلة الترخيص"/>
-    <summary>درجات OET المطلوبة 2026 في بريطانيا وأيرلندا وأستراليا ونيوزيلندا وأمريكا: الحد الأدنى لكل جزء وعدد الجلسات وقبول OET@Home ومدة الصلاحية.</summary>
+    <summary>التمريض في بريطانيا (NMC): 350 في الاستماع والقراءة والمحادثة و300 في الكتابة. الأطباء (GMC): 350 في الأجزاء الأربعة. ومتطلبات Ahpra وNMBI وECFMG والجلسات وOET@Home.</summary>
   </entry>
 </feed>
