@@ -361,6 +361,10 @@ and a FAQ. Operating guide, brief-vs-reality notes and the open items: `docs/rec
   "OET Blog": "Recalls" / "الريكولز") and footer (Resources & Guides: "OET Recalls" / "ريكولز OET") is language-matched and is NOT rendered on those two pages
   (`layouts/Base.astro`, keyed on the canonical via `pageKey`), because their markup is this same chrome. `verify.mjs` fails if either landing page mentions the page.
   Their SHA-256 was identical before and after the change. Putting the link on the homepage needs the owner to lift the freeze.
+  **Narrow exception, owner 22 Nov 2026:** the header **Webinars** tab (EN "Webinars", AR "الندوات", -> `https://app.oetwithdrhesham.co.uk/webinars`) is on EVERY page, the two
+  landing pages included, because it vanished whenever a visitor returned to the homepage (`components/Header.astro` adds it unconditionally; `verify.mjs` fails if any page
+  lacks it). Only that one nav `<li>` changed on the landing pages (no banner, footer link, script, CSS or content; the `?v=` asset hashes are unchanged). The Recalls link
+  rule above is untouched: still not on the landing pages.
 - **Canonical host is the apex** `https://oetwithdrhesham.co.uk` (the brief typed `www.`, which 301-redirects to the apex; a `www` canonical would point at a redirect).
 - **Arabic = `<html lang="ar" dir="rtl">`** (new `dir` prop on `Base.astro`, set only by this page, so no other page changes) plus `<main dir="rtl">`. The shared English
   header, drawer, popups and footer are not translated, so `html[dir=rtl] body{direction:ltr}` in `assets/css/oet-recalls.css` keeps them left to right exactly as on

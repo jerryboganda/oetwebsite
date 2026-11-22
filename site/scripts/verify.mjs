@@ -870,6 +870,9 @@ if (distHtml['pricing.html']) {
     if (found.join('|') !== wantTop.join('|')) fail(`${page}: main nav must be ${wantTop.join(' / ')} (found ${found.join(' / ')})`);
     if (!FROZEN_HOME.includes(page) && !nav.includes(`<li><a href="/blog/">OET Blog</a></li><li><a href="${rl.href}"${rl.lang}>${rl.nav}</a></li>`)) fail(`${page}: the Recalls nav link (${rl.nav} -> ${rl.href}) must follow "OET Blog" directly`);
     if (!nav.includes('<li><a href="/blog/">OET Blog</a></li>')) fail(`${page}: main nav must keep the plain "OET Blog" link to /blog/`);
+    // Webinars (owner, 22 Nov 2026): a permanent menu tab on EVERY page, the two landing pages included (the desktop nav and the cloned mobile menu share this <nav>)
+    const { WEBINARS_URL } = await import('../src/lib/webinars.mjs');
+    if (!nav.includes(`<a href="${WEBINARS_URL}"`)) fail(`${page}: the Webinars menu link (${WEBINARS_URL}) must be in the main nav on every page, the landing pages included`);
     // the side menu is this nav cloned by main.js; only the inline desktop nav keeps the Contact row
     if (!nav.includes('<li class="oet-nav-desktop-only"><a href="/contact.html">Contact</a></li>')) fail(`${page}: the inline nav's Contact row must carry oet-nav-desktop-only (main.js removes it from the side menu)`);
     if (/oet-drawer-actions|oet-footer-group-toggle|oet-footer-grid|oet-auth-cta__long/.test(html)) fail(`${page}: withdrawn 26 Oct redesign chrome is back (drawer actions / its footer markup / short login label)`);
