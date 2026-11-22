@@ -164,7 +164,7 @@ ${otherPages}
             return k + (match ? ' مقالاً مطابقاً' : ' مقالاً');
         }
         function run() {
-            var terms = oetNorm(input.value).split(' ').filter(Boolean);
+            var terms = oetTerms(input.value);
             var shown = 0;
             root.querySelectorAll('.oet-blog-section').forEach(function (section) {
                 var visible = 0;

@@ -1520,7 +1520,7 @@ if (distHtml['pricing.html']) {
 // docs/seo-brief-2026-11-22.md has the evidence and the open items. Each gate below is one acceptance line of the brief.
 {
   const ORIGIN = 'https://oetwithdrhesham.co.uk';
-  const { loadBlog, ARABIC_LIBRARY, normalizeSearch } = await import('../src/lib/blog.mjs');
+  const { loadBlog, ARABIC_LIBRARY, normalizeSearch, searchTerms, SEARCH_NORMALIZE_JS } = await import('../src/lib/blog.mjs');
   const { categories, posts, arabicPosts, arabicPages } = loadBlog();
   const mainOf = (html) => (html.match(/<main[\s\S]*<\/main>/) || [''])[0];
   const FROZEN = ['index.html', 'ar/index.html'];
@@ -1619,6 +1619,19 @@ if (distHtml['pricing.html']) {
     for (const g of arabicPages) for (const p of g.pages) if (!lib.includes(`<li><a href="${p.url}">`)) fail(`ar/blog/index.html: "other Arabic pages" must link ${p.url}`);
     if (/data-category="arabic"/.test(blog + lib)) fail('blog cards: language and topic are separate (data-lang="ar" + the topic), never data-category="arabic"');
     if (!/function oetNorm\(s\)/.test(lib) || !/function oetNorm\(s\)/.test(blog)) fail('the /blog/ and /ar/blog/ search must fold Arabic spelling (oetNorm)');
+    if (!/var terms = oetTerms\(input\.value\)/.test(lib) || !/var terms = oetTerms\(input\.value\)/.test(blog)) fail('the /blog/ and /ar/blog/ search must read the query with oetTerms (Arabic article folding)');
+    // the browser twins must agree with the build functions, and every example in the library's placeholder must find a guide
+    const [jsNorm, jsTerms] = new Function(`${SEARCH_NORMALIZE_JS};return [oetNorm, oetTerms];`)();
+    for (const s of ['الحجز', 'والكتابة للتمريض', 'أسعار OET', 'الف', 'Booking ٱلإنجليزية']) {
+      if (jsNorm(s) !== normalizeSearch(s) || JSON.stringify(jsTerms(s)) !== JSON.stringify(searchTerms(s))) fail(`search: the browser and the build fold "${s}" differently`);
+    }
+    if (JSON.stringify(searchTerms('الحجز والكتابة')) !== JSON.stringify(['حجز', 'كتابه'])) fail('search: a leading Arabic article must be dropped from query words');
+    const placeholder = (lib.match(/id="oet-blog-search-input"[^>]*placeholder="([^"]+)"/) || [])[1];
+    if (!placeholder) fail('ar/blog/index.html: the library search box needs its example placeholder');
+    else for (const ex of placeholder.replace(/^مثلاً:\s*/, '').split(/\s+أو\s+/)) {
+      const terms = searchTerms(ex);
+      if (!libCards.some((c) => terms.every((t) => c[2].includes(t)))) fail(`ar/blog/index.html: the placeholder example "${ex}" finds no guide`);
+    }
   }
 
   // 6. Reciprocal, visible language switches on every English / Arabic guide pair

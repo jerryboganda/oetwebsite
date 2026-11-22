@@ -171,7 +171,13 @@ export function normalizeSearch(s) {
     .replace(/\s+/g, ' ')
     .trim();
 }
-export const SEARCH_NORMALIZE_JS = `function oetNorm(s){return String(s).toLowerCase().replace(/[\\u064B-\\u065F\\u0670\\u0640]/g,'').replace(/[\\u0622\\u0623\\u0625\\u0671]/g,'\\u0627').replace(/\\u0649/g,'\\u064A').replace(/\\u0629/g,'\\u0647').replace(/\\s+/g,' ').trim();}`;
+export const SEARCH_NORMALIZE_JS = `function oetNorm(s){return String(s).toLowerCase().replace(/[\\u064B-\\u065F\\u0670\\u0640]/g,'').replace(/[\\u0622\\u0623\\u0625\\u0671]/g,'\\u0627').replace(/\\u0649/g,'\\u064A').replace(/\\u0629/g,'\\u0647').replace(/\\s+/g,' ').trim();}function oetTerms(q){return oetNorm(q).split(' ').filter(Boolean).map(function(t){return t.replace(/^(?:[\\u0648\\u0641\\u0628\\u0643]?\\u0627\\u0644|\\u0644\\u0644)(?=[\\u0621-\\u064A]{2})/,'');});}`;
+// The words a reader types: folded as above, and each loses a leading Arabic article (ال, وال, بال, فال, كال, لل) when two or
+// more letters remain, so "الحجز" finds "حجز" and "بالحجز" (cards keep their full words; matching is a substring match).
+// oetTerms in SEARCH_NORMALIZE_JS is the browser twin; verify.mjs checks that both agree.
+export function searchTerms(q) {
+  return normalizeSearch(q).split(' ').filter(Boolean).map((t) => t.replace(/^(?:[وفبك]?ال|لل)(?=[ء-ي]{2})/, ''));
+}
 
 // ---- The Arabic library link in the shared chrome (brief of 22 Nov 2026) -----------------------------------------
 // Header: the FIRST item of the "Free Resources" dropdown (desktop dropdown, and the mobile menu main.js clones from the same nav).

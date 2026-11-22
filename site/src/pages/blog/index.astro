@@ -161,7 +161,7 @@ ${arabicSection}
         var total = root.querySelectorAll('.oet-blog-section:not(.oet-blog-latest) .oet-blog-card').length;
         function run() {
             // the same spelling folds as the build (src/lib/blog.mjs normalizeSearch), so Arabic titles match however they are typed
-            var terms = oetNorm(input.value).split(' ').filter(Boolean);
+            var terms = oetTerms(input.value);
             var shown = 0;
             root.querySelectorAll('.oet-blog-section:not(.oet-blog-latest)').forEach(function (section) {
                 var visible = 0;
