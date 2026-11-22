@@ -1936,6 +1936,7 @@ OET Exam Guide
 OET Score Requirements by Regulator (2026)
 There is no single OET pass mark. Each regulator sets its own minimum score for each sub-test: most ask for grade B (350), several accept C+ (300) in Writing, and Ahpra raised its minimums for tests taken from 23 April 2026. This guide lists the scores, sitting rules, OET@Home acceptance and validity for each major regulator.
 By Dr Ahmed Hesham , medical doctor and founder of OET with Dr Hesham · Published 24 Oct 2026
+Also in Arabic: اقرأ هذا الدليل بالعربية
 Checked against official regulator pages on 24 October 2026. Rules change — confirm before you book.
 Check your scores Ask on WhatsApp
 At a glance
@@ -2063,19 +2064,20 @@ About the author Dr Ahmed Hesham is a medical doctor and OET educator who has co
 
 URL: https://oetwithdrhesham.co.uk/oet-test-dates-and-fees.html
 
-OET test dates for 2027 (computer, January to June) and 2026, booking deadlines and results dates, plus the AU$587 fee, re-sit and rescheduling costs.
+OET test dates 2027 (computer January to June, paper in January for Nursing and Medicine) and 2026, booking deadlines, results dates and the AU$587 fee.
 
 OET exam guide
 OET Test Dates 2027 and 2026, Fees and Results
-OET has published computer test dates from 4 January to 29 June 2027, with sessions Monday to Saturday in most weeks. No 2027 paper dates are out yet: the last paper sessions listed are 18 and 19 December 2026. The full test costs AU$587 (US$455 for computer and OET@Home tests in the USA). Computer results can arrive in 48 hours; paper results take from 13 days.
-By Dr Ahmed Hesham , medical doctor and founder of OET with Dr Hesham · Published 24 Oct 2026 · Updated 7 Nov 2026
+OET has published computer test dates from 4 January to 29 June 2027, with sessions Monday to Saturday in most weeks, and January 2027 paper sessions for Nursing and Medicine only: 23 and 30 January (Global) and 22, 23, 29 and 30 January (Americas). The last 2026 paper sessions are 18 and 19 December. The full test costs AU$587 (US$455 for computer and OET@Home tests in the USA). Computer results can arrive in 48 hours; paper results take from 13 days.
+By Dr Ahmed Hesham , medical doctor and founder of OET with Dr Hesham · Published 24 Oct 2026 · Updated 22 Nov 2026
+Also in Arabic: اقرأ هذا الدليل بالعربية
 Start the free placement test Official date finder Ask on WhatsApp
 At a glance Key dates and costs
-Checked against oet.com on 7 November 2026.
+Checked against oet.com on 22 November 2026.
 AU$ AU$587 full test US$455 for computer and OET@Home in the USA.
-27 Computer dates out to 29 June 2027 Booking opened on 5 November 2026. No 2027 paper dates yet.
+27 Computer dates out to 29 June 2027 Booking opened on 5 November 2026. Paper in 2027: 23 and 30 January (Global), Nursing and Medicine only.
 24 Paper booking closes 24 days before Computer and OET@Home close 7 days before.
-19 Last paper date: 19 December Nursing and Medicine only; booking closes 25 November.
+19 Last 2026 paper date: 19 December Nursing and Medicine only; booking closes 25 November. Paper continues in 2027 for Nursing and Medicine.
 Update: paper test changes from January 2027 From January 2027 the OET Test on Paper continues for Nursing and Medicine only, in 16 countries; every other profession sits the OET Test on Computer. See what changes and who is affected .
 Which OET test mode should you book?
 OET is delivered in three ways. The mode changes which professions you can book, how Speaking works, when bookings close and how fast results arrive. For a side-by-side guide to the two venue formats, read OET on computer vs paper .
@@ -2088,7 +2090,17 @@ Single sub-test re-sit Yes, after a full test (not in the USA) No No
 Before you book OET@Home, check that your regulator accepts it. The NMC and the GMC accept OET@Home. Ahpra , the HCPC , the GPhC , NMBI , the Medical Council of Ireland , the Nursing Council of New Zealand and CGFNS VisaScreen do not. ECFMG allows OET@Home only if there is no physical test venue in your country.
 Sources: OET on Paper , OET on Computer , OET@Home , OET booking page .
 OET test dates 2027
-OET opened bookings for its first 2027 computer dates on 5 November 2026. As of 7 November 2026 the official list runs from Monday 4 January to Tuesday 29 June 2027. OET has not published any 2027 paper dates yet , so treat any 2027 paper calendar you see elsewhere as a guess.
+OET opened bookings for its first 2027 computer dates on 5 November 2026 and for its January 2027 paper sessions on 6 November 2026. As of 22 November 2026 the official computer list runs from Monday 4 January to Tuesday 29 June 2027, and the paper list has January 2027 sessions for Nursing and Medicine only. No paper date after January 2027 is listed yet, so treat any later 2027 paper calendar you see elsewhere as a guess.
+OET on Paper dates, January 2027 (Nursing and Medicine only)
+From January 2027 the OET Test on Paper continues for Nursing and Medicine only. These are the paper sessions OET lists for January 2027. Global sessions and Americas sessions are separate calendars.
+Session Test date Booking closes Results scheduled
+Global Sat 23 Jan 2027 Wed 30 Dec 2026 Tue 9 Feb 2027
+Global Sat 30 Jan 2027 Wed 6 Jan 2027 Tue 16 Feb 2027
+Americas Fri 22 Jan 2027 Tue 29 Dec 2026 Tue 9 Feb 2027
+Americas Sat 23 Jan 2027 Wed 30 Dec 2026 Tue 9 Feb 2027
+Americas Fri 29 Jan 2027 Tue 5 Jan 2027 Tue 16 Feb 2027
+Americas Sat 30 Jan 2027 Wed 6 Jan 2027 Tue 16 Feb 2027
+Nursing and Medicine only. Booking for these sessions opened on 6 November 2026. They are published session dates, not a guarantee of a seat at a particular venue, and the results dates are indicative, not guarantees. The Americas rows are OET's calendar for test venues in the Americas: they are not dates for venues in Egypt, Saudi Arabia or the Gulf, so search your own city in the official date finder . Who keeps paper from 2027 is explained in the January 2027 paper-test changes .
 OET on Computer dates, January to June 2027 (Global)
 Sessions run Monday to Saturday in each week below, for all 12 professions. Each date closes for booking 7 days before, at 11:59 pm UTC. Results are published no later than the date shown, and often sooner. OET@Home follows the same booking rule.
 Test week (2027) Booking closes Results by
@@ -2119,7 +2131,7 @@ Test week (2027) Booking closes Results by
 21 to 26 Jun 14 to 19 Jun Fri 2 Jul
 28 and 29 Jun (listed so far) 21 and 22 Jun Fri 9 Jul
 Note on 22 to 27 February: OET's list shows results on Friday 26 February for this week, which is before its last test day, so confirm that date when you book. Venues and start times vary by country, so a date in this table may not be offered near you: use the official date finder .
-Applying for the 2027 Match? See OET for ECFMG : your scores must reach ECFMG by 31 January 2027, so a late January test date is too late for most candidates.
+Applying for the 2027 Match? See OET for ECFMG : ECFMG must receive your scores from OET by 31 January 2027 and advises testing on or before the last scheduled December 2026 date. The January 2027 paper sessions have results scheduled for 9 and 16 February 2027, after that date.
 OET paper test dates 2026
 OET on paper runs on fixed dates. Global sessions are on Saturdays, about two a month, and Americas sessions are on the Friday before each Global date. Paper bookings close 24 days before the test, which falls on a Wednesday for Global sessions and a Tuesday for Americas sessions.
 Month Global sessions (Saturday) Americas sessions (Friday)
@@ -2135,8 +2147,8 @@ September Sat 5 Sep and Sat 19 Sep Fri 4 Sep and Fri 18 Sep
 October Sat 3 Oct and Sat 17 Oct Fri 2 Oct and Fri 16 Oct
 November Sat 7 Nov and Sat 21 Nov Fri 6 Nov and Fri 20 Nov
 December Sat 5 Dec and Sat 19 Dec Fri 4 Dec and Fri 18 Dec
-Sessions alternate between dates open to all seven paper professions and dates for Nursing and Medicine only. The 19 December 2026 session is Nursing and Medicine only. Check each date in the official date finder before you plan around it.
-Checked against oet.com on 7 November 2026. Dates and fees can change — confirm on the official booking page .
+Sessions alternate between dates open to all seven paper professions and dates for Nursing and Medicine only. The 19 December 2026 session is Nursing and Medicine only. From January 2027 every paper session is for Nursing and Medicine only (see the January 2027 paper dates ). Check each date in the official date finder before you plan around it.
+Checked against oet.com on 22 November 2026. Dates and fees can change — confirm on the official booking page .
 Remaining OET paper dates in 2026
 These are the last Global paper sessions of 2026, with booking deadlines worked out from OET's 24-day closing rule.
 Global session Booking closes Notes
@@ -2144,7 +2156,7 @@ Sat 7 Nov 2026 Wed 14 Oct (already closed) All seven paper professions; results 
 Sat 21 Nov 2026 Wed 28 Oct (already closed) Nursing and Medicine only; results Tue 8 Dec
 Sat 5 Dec 2026 Wed 11 Nov All seven paper professions; results Tue 22 Dec
 Sat 19 Dec 2026 Wed 25 Nov Nursing and Medicine only; results Tue 5 Jan 2027
-The matching Americas session is the day before each date. The last one is Friday 18 December 2026: bookings close on Tuesday 24 November and results are due on 5 January 2027. Both December sessions are the final chance in 2026 to sit OET on paper.
+The matching Americas session is the day before each date. The last one is Friday 18 December 2026: bookings close on Tuesday 24 November and results are due on 5 January 2027. Both December sessions are the final chance in 2026 to sit OET on paper. They are not the end of paper testing: paper continues in January 2027 for Nursing and Medicine.
 OET on Computer and OET@Home dates
 OET on Computer does not follow the paper calendar. On OET's booking page, Global computer sessions run Monday to Saturday in most weeks for all 12 professions, and each date shows a results date, usually the Friday of the following week. In 2026 they continue to Wednesday 30 December (results by Monday 4 January 2027), and they resume on Monday 4 January 2027 (see the 2027 table ).
 Computer and OET@Home bookings close 7 days before the test at 11:59 pm UTC, so you can book much closer to your exam than on paper. Dates and venues vary by country. Use the official OET date finder to see what is available where you live.
@@ -2186,20 +2198,20 @@ Do not book OET@Home unless your regulator accepts it. Ahpra, NMBI, the GPhC and
 Leave room for a re-sit
 If your regulator needs all four sub-tests in one sitting, plan a second full test date in case one sub-test falls short.
 Applying for the 2027 Match?
-Sit OET Medicine by the last December 2026 date. ECFMG must receive your scores by 31 January 2027. OET for ECFMG .
+Sit OET Medicine by the last December 2026 date. ECFMG must receive your scores by 31 January 2027, and January 2027 paper results are scheduled for February. OET for ECFMG .
 Not sure you are ready for the date you want? Take the free placement test , then follow the OET course for nurses or the OET course for doctors .
 OET test dates and fees FAQ
 Short answers to the questions candidates ask before booking. More exam questions are on the full OET FAQ page .
 When are the OET test dates in 2026?
-OET on paper runs on fixed Saturdays roughly every two weeks, with an Americas session on the Friday before each one. OET on Computer runs on many more dates, often Monday to Saturday in most weeks, depending on your country. The last 2026 paper sessions are Friday 18 December (Americas) and Saturday 19 December (Global).
+OET on paper runs on fixed Saturdays roughly every two weeks, with an Americas session on the Friday before each one. OET on Computer runs on many more dates, often Monday to Saturday in most weeks, depending on your country. The last 2026 paper sessions are Friday 18 December (Americas) and Saturday 19 December (Global). They are not the end of paper testing: paper continues in January 2027 for Nursing and Medicine.
 How much does the OET exam cost?
 The full OET test costs AU$587 in every mode. In the USA, OET on Computer and OET@Home cost US$455. A paper re-sit of one, two or three sub-tests costs AU$315, AU$415 or AU$515 after a full test, but not in the USA.
 How long do OET results take?
 Computer and OET@Home results can arrive in as little as 48 hours, and 95% of OET on Computer results are released within 6 calendar days. Paper results arrive from 13 days after the test, or from 5 days in India and the Philippines. OET describes these timeframes as indicative.
 Are the 2027 OET test dates available?
-Partly. OET has published computer dates from 4 January to 29 June 2027, and booking opened on 5 November 2026. As of 7 November 2026 it has not published any 2027 paper dates. The official booking page lists each date with its booking deadline and results date.
+Yes, in part. OET has published computer dates from 4 January to 29 June 2027 (booking opened on 5 November 2026) and January 2027 paper sessions for Nursing and Medicine only: 23 and 30 January (Global) and 22, 23, 29 and 30 January (Americas), with booking open since 6 November 2026. As of 22 November 2026 no paper date after January 2027 is listed. The official booking page lists each date with its booking deadline and results date.
 When is the first OET test in January 2027?
-On computer, the first date is Monday 4 January 2027: booking closes on 28 December 2026 and results are due by 15 January 2027. No January 2027 paper date has been published yet.
+On computer, the first date is Monday 4 January 2027: booking closes on 28 December 2026 and results are due by 15 January 2027. On paper, for Nursing and Medicine only, the first Global session is Saturday 23 January 2027 (booking closes on 30 December 2026, results scheduled for 9 February 2027); in the Americas the first paper session is Friday 22 January 2027 (booking closes on 29 December 2026).
 Can I retake only one OET sub-test?
 Only on paper, only after a full OET test, and not in the USA. Many regulators will not accept it: the NMC, Ahpra, the Medical Council of New Zealand and ECFMG all need all four sub-tests in each sitting.
 Before you book Book the date you can actually pass on
@@ -2224,6 +2236,7 @@ Test comparison
 OET vs IELTS: Which Test Should Nurses and Doctors Take?
 For nurses and doctors registering with a healthcare regulator, OET is usually the better fit: its Writing and Speaking tasks are written for your profession, and regulators such as the NMC, GMC and Ahpra accept it. IELTS tests general or academic English and is also used outside healthcare. In OET's own benchmarking, grade B (350–390) compares with IELTS 7.0.
 By Dr Ahmed Hesham , medical doctor and founder of OET with Dr Hesham · Published 24 Oct 2026
+Also in Arabic: اقرأ هذا الدليل بالعربية
 Start the free placement test Check score requirements Ask on WhatsApp
 At a glance OET grade B and IELTS
 From OET's published benchmarking tables.
@@ -2317,13 +2330,13 @@ ECFMG needs OET Medicine: 350 in Listening, Reading and Speaking, 300 in Writing
 OET for ECFMG
 OET for ECFMG Certification: 2027 Pathways Guide
 For the 2027 Pathways, ECFMG asks for OET Medicine with at least 350 in Listening, Reading and Speaking and 300 in Writing, all in one sitting taken on or after 1 January 2025. Results released from 14 May 2026 reach ECFMG through your MyIntealth ID, and ECFMG must receive them by 31 January 2027.
-By Dr Ahmed Hesham , medical doctor and founder of OET with Dr Hesham · Published 24 Oct 2026
-Checked against official regulator pages on 24 October 2026. Rules change — confirm before you book.
+By Dr Ahmed Hesham , medical doctor and founder of OET with Dr Hesham · Published 24 Oct 2026 · Updated 22 Nov 2026
+Checked against official regulator pages on 22 November 2026. Rules change — confirm before you book.
 OET course for doctors Ask on WhatsApp
 Deadlines
 Key dates for the 2027 Match
 01 25 Nov 2026 Booking closes for the last Global paper session.
-02 19 Dec 2026 Last Global paper session; results scheduled for 5 January 2027.
+02 19 Dec 2026 Last Global paper session of 2026; results scheduled for 5 January 2027.
 03 31 Jan 2027 ECFMG must receive your scores from OET.
 Who needs OET for ECFMG?
 International medical graduates on the 2027 Pathways need OET Medicine.
@@ -2343,7 +2356,7 @@ Source: ECFMG: OET Medicine for the 2027 Pathways (last updated 14 May 2026).
 Enter your own scores in the OET score calculator to see whether they meet the ECFMG minimums.
 Which OET test mode can you use?
 Paper and computer at a venue are the default; OET@Home is the exception.
-OET on paper: all four sub-tests on one day at a test centre. Paper bookings close 24 days before the test date.
+OET on paper: all four sub-tests on one day at a test centre. Paper bookings close 24 days before the test date. From January 2027 paper continues for Nursing and Medicine only, so OET Medicine can still be taken on paper.
 OET on computer: Listening, Reading and Writing at a venue, with Speaking usually taken online on a different day. Bookings close 7 days before the test, and results can arrive in as little as 48 hours, with 95% released within 6 calendar days.
 OET@Home: accepted by ECFMG only if there is no physical test venue in your country. You must sit it in the country you booked and show proof of presence at check-in.
 OET lists the full test at AU$587, or US$455 for the computer and at-home tests in the USA. See OET test dates and fees for booking details.
@@ -2355,15 +2368,17 @@ Results released before 14 May 2026 under a USMLE ID are matched within 3 busine
 Allow 3 business days for a passing result to update in your Pathways application.
 Source: ECFMG OET page .
 What are the deadlines for the 2027 Match?
-Work back from 31 January 2027 and leave room for one retake.
+Work back from 31 January 2027: ECFMG advises testing on or before the last scheduled December 2026 date.
 Date What happens
 Tue 24 Nov 2026 Booking closes for the last Americas paper session
 Wed 25 Nov 2026 Booking closes for the last Global paper session
-Fri 18 Dec 2026 Last Americas paper session (Nursing and Medicine)
-Sat 19 Dec 2026 Last Global paper session (Nursing and Medicine)
+Fri 18 Dec 2026 Last Americas paper session of 2026 (Nursing and Medicine)
+Sat 19 Dec 2026 Last Global paper session of 2026 (Nursing and Medicine)
 Tue 5 Jan 2027 Scheduled results for the 18 and 19 December paper sessions
+22 to 30 Jan 2027 January paper sessions for Nursing and Medicine: Global on 23 and 30 January, Americas on 22, 23, 29 and 30 January
 31 Jan 2027 ECFMG must have received your scores from OET; Pathways application and documents due (US Eastern Time)
-ECFMG advises taking OET Medicine on or before the last scheduled test date in December 2026. Results that arrive later are still processed but may be too late for the 2027 Match. ECFMG says results are typically released about 10 business days after the test. Computer dates vary by country, so check the official OET date finder for sessions near you.
+Tue 9 and Tue 16 Feb 2027 Scheduled results for the January 2027 paper sessions, after the 31 January target
+ECFMG advises taking OET Medicine on or before the last scheduled test date in December 2026. Results that arrive later are still processed but may be too late for the 2027 Match. ECFMG says results are typically released about 10 business days after the test. Paper continues for Medicine in 2027, but the January 2027 paper sessions have results scheduled for 9 and 16 February 2027, after ECFMG’s 31 January 2027 target. Booking a January 2027 computer test does not guarantee that your result is released, reaches ECFMG and is processed in time, or that your Pathways application is approved, so do not plan on it as a fallback. Computer dates vary by country, so check the official OET date finder for sessions near you.
 Step-by-step checklist
 Follow this order to avoid a result that arrives too late or never reaches ECFMG.
 01 Get your MyIntealth ID Create or confirm your MyIntealth account and check your name and date of birth.
@@ -2379,6 +2394,7 @@ A mismatched date of birth: if your details do not match, OET cannot release you
 Booking OET@Home with a venue nearby: ECFMG accepts OET@Home only when your country has no test venue.
 Counting on two sittings: ECFMG needs all four minimums in one test administration; a strong Writing score from an earlier sitting cannot be carried over.
 Using an old result: the passing test must be taken on or after 1 January 2025.
+Counting on a January 2027 sitting: the January paper results are scheduled for February, after 31 January 2027, and a January computer result is not guaranteed to reach ECFMG in time either.
 Leaving no time for a retake: paper bookings close 24 days before the test and results can take around two weeks, so the last December dates leave no room to try again before 31 January 2027.
 How should doctors prepare for OET Medicine?
 Listening and Reading are the same for every profession; Writing and Speaking are where doctors usually need targeted work.
@@ -2397,6 +2413,8 @@ What is the MyIntealth ID used for?
 If your OET Medicine results are released on or after 14 May 2026, you must give OET your MyIntealth ID, not your USMLE ID, so your scores reach ECFMG. If the ID or date of birth does not match, the results are not released to ECFMG.
 When should I take OET for the 2027 Match?
 ECFMG advises taking OET Medicine on or before the last scheduled test date in December 2026. ECFMG must receive your scores directly from OET by 31 January 2027.
+Can I take OET Medicine in January 2027 for the 2027 Match?
+Paper continues for Medicine in 2027, but the January 2027 paper sessions have results scheduled for 9 and 16 February 2027, after ECFMG’s 31 January 2027 target. ECFMG advises taking OET Medicine on or before the last scheduled December 2026 test date, and a January computer test does not guarantee that your scores reach ECFMG in time.
 What happens if I miss the score in one sub-test?
 You must retake all four sub-tests in a new test administration. ECFMG does not limit the number of retakes, and OET does not offer single sub-test resits in the USA.
 Aiming for the 2027 Match?
@@ -2416,6 +2434,7 @@ OET Nursing Writing
 OET Writing Sample for Nurses: Discharge Letter
 This OET writing sample for nurses gives you a complete practice task: realistic discharge case notes, the writing instructions, a model letter to a district nurse and a criterion-by-criterion explanation of why it works. Write your own letter first, then compare.
 By Dr Ahmed Hesham , medical doctor and founder of OET with Dr Hesham · Published 24 Oct 2026
+Also in Arabic: اقرأ هذا الدليل بالعربية
 Get your letter marked
 Read the case notes
 Ask on WhatsApp
@@ -2562,6 +2581,7 @@ OET Medicine Writing
 OET Writing Sample for Doctors: Referral Letter
 This OET writing sample for doctors gives you a complete Medicine practice task: GP consultation notes, the writing instructions, a model referral letter to a cardiologist and a criterion-by-criterion explanation of why it works. Write your own letter first, then compare.
 By Dr Ahmed Hesham , medical doctor and founder of OET with Dr Hesham · Published 24 Oct 2026
+Also in Arabic: اقرأ هذا الدليل بالعربية
 Get your letter marked
 Read the case notes
 Ask on WhatsApp
@@ -2710,6 +2730,7 @@ OET Pharmacy Writing
 OET Writing Sample for Pharmacists: Letter to a GP
 This OET writing sample for pharmacists gives you a complete practice task: community pharmacy case notes from a medication review, the writing instructions, a model letter to the patient's GP and a criterion-by-criterion explanation of why it works. Write your own letter first, then compare.
 By Dr Ahmed Hesham , medical doctor and founder of OET with Dr Hesham · Published 24 Oct 2026
+Also in Arabic: اقرأ هذا الدليل بالعربية
 Get your letter marked
 Read the case notes
 Ask on WhatsApp
@@ -2855,6 +2876,7 @@ OET Physiotherapy Writing
 OET Writing Sample for Physiotherapists: Discharge Letter
 This OET writing sample for physiotherapists gives you a complete practice task: inpatient rehabilitation notes after a knee replacement, the writing instructions, a model letter to a community physiotherapist and a criterion-by-criterion explanation of why it works. Write your own letter first, then compare.
 By Dr Ahmed Hesham , medical doctor and founder of OET with Dr Hesham · Published 24 Oct 2026
+Also in Arabic: اقرأ هذا الدليل بالعربية
 Get your letter marked
 Read the case notes
 Ask on WhatsApp
@@ -3591,16 +3613,16 @@ NMC (بريطانيا) 350 350 300 350 جلستان خلال 12 شهراً بح�
 Ahpra / NMBA (أستراليا) 350 360 350 360 للاختبارات من 23 أبريل 2026، ولا يقبل OET@Home
 NMBI (أيرلندا) 350 350 300 350 جلسة واحدة فقط، ولا يقبل OET@Home
 Nursing Council NZ (نيوزيلندا) 350 350 300 350 أكثر من جلسة خلال 12 شهراً، ولا يقبل OET@Home
-للخليج راجع دليل OET للترخيص الصحي في الخليج ، ولكل الجهات OET Score Requirements .
+للخليج راجع دليل OET للترخيص الصحي في الخليج ، ولكل الجهات درجات OET المطلوبة .
 ماذا تشمل باقات التمريض؟
 باقتان للتمريض، وكلتاهما بصلاحية 6 أشهر من تاريخ الشراء.
 كورس التمريض الكلاسيكي
 الكورس المسجل الكامل لمن يريد الدروس ومواد التدريب دون تقييمات شخصية مضمنة: أكثر من 30 ساعة مسجلة في المهارات الأربع، ورسائل تمريض مبنية على الريكولز مع إجابات نموذجية، وبطاقات محادثة تمريضية مع الأفكار المتوقعة، ومكتبة تدريب للاستماع والقراءة، و5 أرصدة تدريب، ودعم مستمر للأسئلة، ورفيق التعلّم SAMI على مدار الساعة.
-Classic Nursing OET Course
+كورس التمريض الكلاسيكي
 الباقة المميزة للتمريض (الموصى بها)
 كل ما في الكورس الكلاسيكي، مع 5 تقييمات شخصية لرسائل الكتابة بتصحيح تفصيلي وملاحظات صوتية على واتساب، وجلسة محادثة فردية مباشرة مع تقييم شخصي، وكورس الإنجليزي التأسيسي الكامل (أكثر من 11 ساعة)، وكتاب TutorBook المبني على ريكولز 2026 بعشرة امتحانات كاملة وإجابات نموذجية.
-Nursing Premium Bundle
-قارن الباقات في صفحة Pricing . ويمكنك إضافة تقييمات كتابة (3 أو 5 أو 7 أو 10 رسائل) أو جلسات محادثة لأي كورس نشط.
+الباقة المميزة للتمريض
+قارن الباقات في صفحة الأسعار . ويمكنك إضافة تقييمات كتابة (3 أو 5 أو 7 أو 10 رسائل) أو جلسات محادثة لأي كورس نشط.
 كيف تنجح في كتابة OET للتمريض؟
 مهمة الكتابة 5 دقائق قراءة ثم 40 دقيقة لكتابة رسالة واحدة في حدود 180 إلى 200 كلمة. في التمريض غالباً تكون رسالة خروج مريض أو نقل أو تحويل لممرضة مجتمعية أو دار رعاية.
 اختر ما يحتاجه القارئ
@@ -3609,7 +3631,7 @@ Nursing Premium Bundle
 اكتب سبب الرسالة والمطلوب من القارئ بوضوح في الفقرة الأولى، فهذا يرفع درجة Purpose مباشرة.
 رتب حسب الأولوية
 ابدأ بالأهم للرعاية الحالية، ثم الخلفية المفيدة، واختم بطلب محدد وتاريخ المتابعة.
-شاهد مثالاً كاملاً بحالة وإجابة نموذجية: OET Writing Sample for Nurses ، ثم أرسل رسالتك للتصحيح عبر OET Writing Correction .
+شاهد مثالاً كاملاً بحالة وإجابة نموذجية: نموذج رسالة OET للتمريض ، ثم أرسل رسالتك للتصحيح عبر OET Writing Correction .
 كيف تتدرب على محادثة OET للتمريض؟
 المحادثة حوالي 20 دقيقة، فيها لعب أدوار مرتين، لكل منهما 3 دقائق تحضير وحوالي 5 دقائق حوار، والممتحن يلعب دور المريض أو أحد أقاربه.
 مواقف تمريضية متكررة
@@ -3618,7 +3640,7 @@ Nursing Premium Bundle
 معايير لغوية (الوضوح والطلاقة ومناسبة اللغة والقواعد) ومعايير تواصل إكلينيكي (بناء العلاقة وفهم وجهة نظر المريض وتنظيم الحوار وجمع المعلومات وإعطاؤها).
 تدرّب مع تصحيح
 جلسة المحادثة الفردية 1:1 تكشف الأخطاء التي لا تراها بنفسك، مثل المصطلحات الطبية الصعبة على المريض أو إغلاق الحوار بلا خطة.
-OET Speaking Tips
+شرح Speaking في OET
 خطوات التحضير لـ OET للتمريض
 خطة عملية من أول يوم حتى حجز الامتحان.
 اعرف مستواك مجاناً. اختبار تحديد المستوى يقيس المهارات الأربع ويعطيك مستوى CEFR تقريبياً. Free placement test .
@@ -3679,7 +3701,7 @@ GMC (بريطانيا) 350 350 350 350 جلسة واحدة، ويقبل OET@Home
 ECFMG (أمريكا، مسارات 2027) 350 350 300 350 جلسة واحدة بعد 1 يناير 2025، وOET@Home فقط إذا لم يوجد مركز في بلدك
 Ahpra / Medical Board (أستراليا) 350 360 350 360 للاختبارات من 23 أبريل 2026، ولا يقبل OET@Home
 Medical Council of Ireland (أيرلندا) 350 350 350 350 جلسة واحدة خلال سنتين، ولا يقبل OET@Home
-للخليج راجع دليل OET للترخيص الصحي في الخليج ، ولكل الجهات OET Score Requirements .
+للخليج راجع دليل OET للترخيص الصحي في الخليج ، ولكل الجهات درجات OET المطلوبة .
 ماذا يشمل كورس OET للأطباء؟
 ثلاثة مستويات بنفس الكورس المسجل: الكورس الكلاسيكي، ثم الكورس مع ممارسة الموقع، ثم الباقة الشاملة + TutorBook الموصى بها. وصلاحية الكورس 6 أشهر من تاريخ الشراء.
 الكورس الكامل الكلاسيكي + SAMI للطب
@@ -3688,8 +3710,8 @@ Medical Council of Ireland (أيرلندا) 350 350 350 350 جلسة واحدة 
 المسار الموصى به للأطباء: الكورس المسجل مع ممارسة الموقع وكتاب TutorBook لعام 2026 في باقة واحدة. تشمل كل ما في الكورس مع ممارسة الموقع، و5 رسائل كتابة شخصية من د. أحمد هشام وجلسة محادثة فردية مع خبير، وتدريب الكتابة والمحادثة على الموقع، و12 امتحان استماع و12 امتحان قراءة على الموقع للمتقدمين للامتحان على الكمبيوتر، ورفيق SAMI، وكتاب TutorBook المبني على ريكولز 2026 بعشرة امتحانات كاملة مع وصول دائم.
 إضافات حسب الحاجة
 تقييمات كتابة إضافية (3 أو 5 أو 7 أو 10 رسائل)، وجلسات محادثة فردية، وامتحانات تجريبية كاملة يُقيَّم فيها الكتابة والمحادثة بالتفصيل.
-Add-ons
-قارن الباقات في صفحة Pricing .
+الإضافات
+قارن الباقات في صفحة الأسعار .
 كيف تكتب رسالة تحويل قوية في OET Medicine؟
 مهمة الكتابة 5 دقائق قراءة ثم 40 دقيقة لكتابة رسالة واحدة في حدود 180 إلى 200 كلمة، وغالباً تكون رسالة تحويل إلى أخصائي أو طبيب عام.
 سبب التحويل أولاً
@@ -3698,7 +3720,7 @@ Add-ons
 النتائج غير الطبيعية والأدوية الحالية وعوامل الخطورة أهم من كل تفاصيل التاريخ المرضي. ما لا يغير قرار الطبيب المستقبل لا مكان له.
 لغة مهنية مختصرة
 جمل كاملة واضحة بلا اختصارات غير مفهومة، وتنظيم منطقي من الأهم للأقل أهمية.
-شاهد مثالاً كاملاً: OET Writing Sample for Doctors ، ثم أرسل رسالتك للتصحيح عبر OET Writing Correction .
+شاهد مثالاً كاملاً: نموذج رسالة OET للأطباء ، ثم أرسل رسالتك للتصحيح عبر OET Writing Correction .
 كيف تتعامل مع محادثة OET للأطباء؟
 المحادثة حوالي 20 دقيقة، فيها لعب أدوار مرتين، لكل منهما 3 دقائق تحضير وحوالي 5 دقائق حوار، والممتحن يلعب دور المريض أو أحد أقاربه.
 مواقف متكررة للأطباء
@@ -3707,7 +3729,7 @@ Add-ons
 استخدام مصطلحات طبية بدون شرح، والتحدث أكثر من المريض، وتجاهل مخاوفه، وإنهاء الحوار بلا خطة متفق عليها.
 تدرّب مع تقييم
 جلسة المحادثة الفردية 1:1 تمنحك تقييماً تفصيلياً للأداء على عدة بطاقات.
-OET Speaking Tips
+شرح Speaking في OET
 خطوات التحضير لـ OET للأطباء
 خطة عملية تناسب الطبيب المشغول.
 اعرف مستواك مجاناً. اختبار تحديد المستوى يقيس المهارات الأربع ويعطيك مستوى CEFR تقريبياً. Free placement test .
@@ -4385,7 +4407,7 @@ C 250 - 290 6.0 B2
 C 200 - 240 5.5 B2
 D 100 - 190 أقل من 5.5 -
 E 0 - 90 أقل من 5.5 -
-المصدر: جداول المقارنة التي ينشرها OET على OET results and scoring . احسب درجاتك وقارنها بالجهات مباشرة عبر OET Score Calculator .
+المصدر: جداول المقارنة التي ينشرها OET على OET results and scoring . احسب درجاتك وقارنها بالجهات مباشرة عبر حاسبة درجات OET .
 جدول درجات OET المطلوبة (2026)
 هذا الجدول يجمع الحد الأدنى لكل جزء وعدد الجلسات المسموح وقبول OET@Home ومدة الصلاحية لأهم جهات الترخيص، وكل جهة مرتبطة بصفحتها الرسمية.
 الجهة Listening Reading Writing Speaking الجلسات OET@Home الصلاحية
@@ -4458,7 +4480,7 @@ CGFNS VisaScreen للممرضين
 TruMerit VisaScreen
 سنغافورة ودول الخليج
 يطلب Singapore Medical Council من الأطباء الذين لم يدرسوا الطب بالإنجليزية الدرجة B في كل جزء من جلسة واحدة، خلال سنتين من تاريخ الاختبار. أما في الخليج فتختلف المتطلبات حسب الجهة والمهنة، ولم نجد أرقاماً رسمية منشورة يمكن التحقق منها، لذلك راجع DHP في قطر وDHA في دبي وSCFHS في السعودية مباشرة قبل الحجز.
-Singapore Medical Council · Gulf Pathway Guide
+Singapore Medical Council · دليل الترخيص في الخليج
 هل يمكن دمج نتيجتين من جلستين مختلفتين؟
 الدمج يعني استخدام أفضل درجات من جلستين كاملتين، وليس إعادة جزء واحد. بعض الجهات تسمح به بشروط صارمة وأخرى لا تسمح أبداً.
 جهات تسمح بالدمج بشروط
@@ -4498,12 +4520,12 @@ OET@Home
 
 URL: https://oetwithdrhesham.co.uk/ar/oet-test-dates-and-fees.html
 
-مواعيد امتحان OET 2027 على الكمبيوتر والورقي 2026، وآخر موعد للحجز، ورسوم الامتحان وإعادة جزء واحد، وموعد ظهور النتيجة لكل طريقة.
+مواعيد امتحان OET 2027 على الكمبيوتر والورقي (يناير للتمريض والطب) و2026، وآخر موعد للحجز، ورسوم الامتحان وإعادة جزء واحد، وموعد ظهور النتيجة.
 
 OET Test Dates & Fees
 مواعيد امتحان OET 2027 و2026 والرسوم وموعد النتيجة
-نشر OET مواعيد الامتحان على الكمبيوتر من 4 يناير حتى 29 يونيو 2027، ولم ينشر مواعيد الامتحان الورقي لعام 2027 بعد. يُعقد الورقي في 2026 يوم السبت مرتين تقريباً كل شهر، ويُغلق الحجز قبل الموعد بـ 24 يوماً، بينما يُغلق حجز امتحان الكمبيوتر وOET@Home قبل 7 أيام. رسوم الامتحان الكامل 587 دولاراً أسترالياً (AUD 587)، وقد تظهر نتيجة امتحان الكمبيوتر خلال 48 ساعة، و95% من النتائج تصدر خلال 6 أيام.
-بقلم د. أحمد هشام ، طبيب ومؤسس OET with Dr Hesham · تحديث 2 نوفمبر 2026 Read in English
+نشر OET مواعيد الامتحان على الكمبيوتر من 4 يناير حتى 29 يونيو 2027، ومواعيد الامتحان الورقي في يناير 2027 للتمريض والطب فقط: 23 و30 يناير للجلسات العالمية، و22 و23 و29 و30 يناير لجلسات الأمريكتين. يُعقد الورقي في 2026 يوم السبت مرتين تقريباً كل شهر، ويُغلق الحجز قبل الموعد بـ 24 يوماً، بينما يُغلق حجز امتحان الكمبيوتر وOET@Home قبل 7 أيام. رسوم الامتحان الكامل 587 دولاراً أسترالياً (AUD 587)، وقد تظهر نتيجة امتحان الكمبيوتر خلال 48 ساعة، و95% من النتائج تصدر خلال 6 أيام.
+بقلم د. أحمد هشام ، طبيب ومؤسس OET with Dr Hesham · تحديث 22 نوفمبر 2026 Read in English
 ابدأ اختبار تحديد المستوى المجاني
 اسأل على واتساب
 الباقات
@@ -4535,7 +4557,7 @@ OET Test Dates & Fees
 أكتوبر 3 و17
 نوفمبر 7 و21
 ديسمبر 5 و19
-تمت المراجعة على المواقع الرسمية في 2 نوفمبر 2026. القواعد تتغير، لذلك تأكد قبل الحجز. OET: book a test
+تمت المراجعة على موقع OET الرسمي في 22 نوفمبر 2026. القواعد تتغير، لذلك تأكد قبل الحجز. OET: book a test
 المواعيد المتبقية في 2026
 يُغلق حجز الامتحان الورقي قبل الموعد بـ 24 يوماً، لذلك إذا كنت تريد اللحاق بامتحان هذا العام فاحجز الآن.
 الموعد (السبت) إغلاق الحجز (الأربعاء) ملاحظات
@@ -4543,12 +4565,22 @@ OET Test Dates & Fees
 21 نوفمبر 2026 28 أكتوبر (أُغلق) التمريض والطب فقط، والنتيجة الثلاثاء 8 ديسمبر
 5 ديسمبر 2026 11 نوفمبر المهن السبع، والنتيجة الثلاثاء 22 ديسمبر
 19 ديسمبر 2026 25 نوفمبر التمريض والطب فقط، والنتيجة الثلاثاء 5 يناير 2027
-مواعيد الإغلاق محسوبة بقاعدة الـ 24 يوماً، وموعد 25 نوفمبر منشور رسمياً. جلسة الأمريكتين الأخيرة يوم الجمعة 18 ديسمبر 2026 ويُغلق حجزها الثلاثاء 24 نوفمبر.
+مواعيد الإغلاق محسوبة بقاعدة الـ 24 يوماً، وموعد 25 نوفمبر منشور رسمياً. جلسة الأمريكتين الأخيرة في 2026 يوم الجمعة 18 ديسمبر ويُغلق حجزها الثلاثاء 24 نوفمبر. جلستا 18 و19 ديسمبر هما آخر مواعيد الورقي في 2026، وليستا نهاية الامتحان الورقي: يستمر الورقي في يناير 2027 للتمريض والطب.
 مواعيد امتحان OET على الكمبيوتر
 مواعيد الكمبيوتر أكثر بكثير من الورقي: في الفترة المتاحة على صفحة الحجز كانت الجلسات من الإثنين إلى السبت في معظم الأسابيع، مع أسابيع قليلة بلا مواعيد، ولكل المهن الـ 12. تُنشر النتيجة في موعد أقصاه عادةً يوم الجمعة من الأسبوع التالي. ابحث عن مركز قريب منك في صفحة الحجز الرسمية لأن المواعيد تختلف حسب الدولة.
 OET: find a test
 مواعيد OET 2027
-نشر OET مواعيد الاختبار على الكمبيوتر من الاثنين 4 يناير حتى الثلاثاء 29 يونيو 2027، وفتح الحجز لها في 5 نوفمبر 2026. الجلسات من الاثنين إلى السبت في معظم الأسابيع ولكل المهن الاثنتي عشرة، ويغلق حجز كل موعد قبله بسبعة أيام. أما مواعيد الامتحان الورقي لعام 2027 فلم تُنشر بعد حتى 7 نوفمبر 2026، فلا تعتمد على جداول غير رسمية منشورة على الإنترنت.
+نشر OET مواعيد الاختبار على الكمبيوتر من الاثنين 4 يناير حتى الثلاثاء 29 يونيو 2027، وفتح الحجز لها في 5 نوفمبر 2026. الجلسات من الاثنين إلى السبت في معظم الأسابيع ولكل المهن الاثنتي عشرة، ويغلق حجز كل موعد قبله بسبعة أيام. ونشر OET أيضاً مواعيد الامتحان الورقي في يناير 2027 للتمريض والطب فقط، وفتح الحجز لها في 6 نوفمبر 2026. حتى 22 نوفمبر 2026 لا يوجد موعد ورقي منشور بعد يناير 2027، فلا تعتمد على جداول غير رسمية منشورة على الإنترنت.
+مواعيد OET الورقي في يناير 2027 (التمريض والطب فقط)
+الجلسة تاريخ الامتحان إغلاق الحجز موعد النتيجة المقرر
+العالمية السبت 23 يناير 2027 الأربعاء 30 ديسمبر 2026 الثلاثاء 9 فبراير 2027
+العالمية السبت 30 يناير 2027 الأربعاء 6 يناير 2027 الثلاثاء 16 فبراير 2027
+الأمريكتان الجمعة 22 يناير 2027 الثلاثاء 29 ديسمبر 2026 الثلاثاء 9 فبراير 2027
+الأمريكتان السبت 23 يناير 2027 الأربعاء 30 ديسمبر 2026 الثلاثاء 9 فبراير 2027
+الأمريكتان الجمعة 29 يناير 2027 الثلاثاء 5 يناير 2027 الثلاثاء 16 فبراير 2027
+الأمريكتان السبت 30 يناير 2027 الأربعاء 6 يناير 2027 الثلاثاء 16 فبراير 2027
+للتمريض والطب فقط. فُتح الحجز لهذه الجلسات في 6 نوفمبر 2026. هذه مواعيد جلسات منشورة وليست ضماناً لمقعد في مركز معين، ومواعيد النتائج تقريبية وليست مضمونة. صفوف الأمريكتين هي تقويم OET لمراكز منطقة الأمريكتين، وليست مواعيد لمراكز مصر أو السعودية أو الخليج، فابحث عن مدينتك في صفحة الحجز الرسمية . خطوات الحجز على myOET أو بوابة OET في دليل حجز امتحان OET خطوة بخطوة .
+أسابيع امتحان الكمبيوتر في 2027
 أسبوع الاختبار على الكمبيوتر (2027) إغلاق الحجز النتيجة قبل
 4 إلى 9 يناير 28 ديسمبر إلى 2 يناير 15 يناير
 11 إلى 16 يناير 4 إلى 9 يناير 22 يناير
@@ -4582,8 +4614,8 @@ OET for ECFMG
 كيف تختار موعد امتحانك؟
 اختيار الموعد الصحيح يوفر عليك رسوم إعادة الامتحان ووقتاً في إجراءات الترخيص.
 اعرف درجتك المطلوبة. كل جهة لها حد أدنى وقواعد دمج وصلاحية مختلفة. درجات OET المطلوبة لكل جهة .
-احجز مبكراً. حجز الامتحان الورقي يُغلق قبل 24 يوماً، والكمبيوتر قبل 7 أيام، والمواعيد القريبة تمتلئ.
-اربط الموعد بمواعيد جهتك. إذا كنت تستهدف Match 2027 عبر ECFMG فاختبر في آخر موعد في ديسمبر 2026 أو قبله، ويجب أن تصل النتيجة إلى ECFMG بحلول 31 يناير 2027. OET for ECFMG .
+احجز مبكراً. حجز الامتحان الورقي يُغلق قبل 24 يوماً، والكمبيوتر قبل 7 أيام، والمواعيد القريبة تمتلئ. خطوات الحجز للورقي والكمبيوتر في دليل حجز امتحان OET خطوة بخطوة .
+اربط الموعد بمواعيد جهتك. إذا كنت تستهدف Match 2027 عبر ECFMG فاختبر في آخر موعد في ديسمبر 2026 أو قبله، ويجب أن تصل النتيجة إلى ECFMG بحلول 31 يناير 2027، ونتائج جلسات يناير 2027 الورقية مقررة في 9 و16 فبراير، أي بعد هذا الموعد. OET for ECFMG .
 لا تحجز قبل أن تكون جاهزاً. احجز عندما تحقق درجتك المستهدفة في الامتحانات التجريبية بشكل ثابت، خاصة في الكتابة والمحادثة.
 ابدأ بمعرفة مستواك. اختبار تحديد المستوى المجاني ثم كورس OET للتمريض أو كورس OET للأطباء .
 أسئلة شائعة عن مواعيد ورسوم OET
@@ -4597,7 +4629,9 @@ OET for ECFMG
 هل يمكن إعادة جزء واحد فقط من OET؟
 نعم في الامتحان الورقي فقط وبعد إكمال امتحان كامل، وليس في أمريكا، والرسوم 315 دولاراً أسترالياً لجزء واحد. لكن جهات مثل NMC وAhpra وECFMG تطلب الأجزاء الأربعة في كل جلسة، فتأكد من جهتك أولاً.
 هل مواعيد OET لعام 2027 متاحة؟
-جزئياً. نشر OET مواعيد الكمبيوتر من 4 يناير حتى 29 يونيو 2027، وفتح الحجز في 5 نوفمبر 2026، ولم ينشر مواعيد الامتحان الورقي لعام 2027 حتى 7 نوفمبر 2026. تابع صفحة الحجز الرسمية على موقع OET.
+نعم جزئياً. نشر OET مواعيد الكمبيوتر من 4 يناير حتى 29 يونيو 2027 وفتح الحجز لها في 5 نوفمبر 2026، ونشر مواعيد الامتحان الورقي في يناير 2027 للتمريض والطب فقط: 23 و30 يناير للجلسات العالمية، و22 و23 و29 و30 يناير لجلسات الأمريكتين، والحجز مفتوح لها منذ 6 نوفمبر 2026. حتى 22 نوفمبر 2026 لا يوجد موعد ورقي منشور بعد يناير 2027. تابع صفحة الحجز الرسمية على موقع OET.
+متى أول امتحان OET ورقي في يناير 2027؟
+للتمريض والطب فقط، أول جلسة عالمية يوم السبت 23 يناير 2027، ويُغلق حجزها الأربعاء 30 ديسمبر 2026، والنتيجة مقررة الثلاثاء 9 فبراير 2027. وفي الأمريكتين أول جلسة ورقية يوم الجمعة 22 يناير 2027، ويُغلق حجزها الثلاثاء 29 ديسمبر 2026.
 ابدأ تحضيرك لـ OET اليوم
 اعرف مستواك مجاناً، ثم اختر الباقة المناسبة لمهنتك، أو راسل فريق د. أحمد هشام على واتساب بمهنتك وموعد امتحانك والدولة المستهدفة.
 اختبار تحديد المستوى المجاني واتساب
@@ -4890,7 +4924,7 @@ OET أم IELTS: الإجابة المختصرة
 250 - 290 (C) 6.0 B2
 200 - 240 (C) 5.5 B2
 0 - 190 (D وE) أقل من 5.5 غير موجود في جدول OET
-المصدر: جداول المقارنة التي ينشرها OET على OET results and scoring . كل جهة تحدد معادلتها الخاصة، فمثلاً تعتبر NMC درجة B مع C+ في الكتابة معادلة لـ IELTS 7 مع 6.5 في الكتابة. احسب درجاتك عبر OET Score Calculator .
+المصدر: جداول المقارنة التي ينشرها OET على OET results and scoring . كل جهة تحدد معادلتها الخاصة، فمثلاً تعتبر NMC درجة B مع C+ في الكتابة معادلة لـ IELTS 7 مع 6.5 في الكتابة. احسب درجاتك عبر حاسبة درجات OET .
 ما الفرق بين OET و IELTS؟
 الفرق الأكبر في المحتوى: OET يقيس الإنجليزية التي تستخدمها في عملك الصحي، وIELTS يقيس الإنجليزية العامة أو الأكاديمية.
 البند OET IELTS
@@ -5017,19 +5051,19 @@ OET لا يكافئ نسخ كل الـ case notes، بل يكافئ معرفة �
 أفضل طريقة للتطبيق: اكتب رسالتك على حالة كاملة في الوقت المحدد، ثم قارنها بالإجابة النموذجية. النماذج التالية باللغة الإنجليزية مثل الامتحان.
 رسالة خروج للتمريض
 رسالة إلى ممرضة المجتمع لمريضة تخرج من المستشفى، مع الإجابة النموذجية وشرح كل اختيار.
-Nursing writing sample
+نموذج رسالة التمريض
 رسالة تحويل للأطباء
 طبيب عام يحوّل مريضاً إلى عيادة متخصصة، مع الإجابة النموذجية وشرح المعايير.
-Medicine writing sample
+نموذج رسالة الطب
 رسالة نقل للتمريض
 نقل مريض من المستشفى إلى دار رعاية بعد جلطة دماغية، مع الإجابة النموذجية.
 Nursing transfer letter
 رسالة صيدلي إلى طبيب عام
 رسالة بعد مراجعة أدوية مريض، مع الإجابة النموذجية وشرح الاختيارات.
-Pharmacy writing sample
+نموذج رسالة الصيدلة
 رسالة خروج للعلاج الطبيعي
 رسالة إلى أخصائي علاج طبيعي في المجتمع بعد عملية تغيير مفصل الركبة.
-Physiotherapy writing sample
+نموذج رسالة العلاج الطبيعي
 صحّح رسالتك
 أرسل رسالتك واحصل على درجة تقديرية وتصحيح تفصيلي وملاحظات صوتية على واتساب.
 OET writing correction
@@ -5063,6 +5097,7 @@ OET Nursing Writing
 OET Nursing Referral Letter Sample: Referral to a Specialist Nurse
 This OET nursing referral letter sample gives you a complete practice task: practice nurse case notes from a diabetes review, the writing instructions, a model referral to a diabetes specialist nurse and a criterion-by-criterion explanation of why it works. Write your own letter first, then compare.
 By Dr Ahmed Hesham , medical doctor and founder of OET with Dr Hesham · Published 24 Oct 2026
+Also in Arabic: اقرأ هذا الدليل بالعربية
 Get your letter marked
 Read the case notes
 Ask on WhatsApp
@@ -5205,6 +5240,7 @@ OET Medicine Writing
 OET Medicine Discharge Letter Sample: Hospital to GP
 This OET medicine discharge letter sample gives you a complete practice task: hospital case notes for a patient treated for pneumonia, the writing instructions, a model discharge letter to the GP and a criterion-by-criterion explanation of why it works. Write your own letter first, then compare.
 By Dr Ahmed Hesham , medical doctor and founder of OET with Dr Hesham · Published 24 Oct 2026
+Also in Arabic: اقرأ هذا الدليل بالعربية
 Get your letter marked
 Read the case notes
 Ask on WhatsApp
@@ -5626,19 +5662,19 @@ OET Sample Tests
 حالات تدريبية كاملة مكتوبة بالإنجليزية مثل الامتحان، مع case notes والمهمة والإجابة النموذجية وشرح كل اختيار على المعايير الستة.
 رسالة خروج للتمريض
 رسالة إلى ممرضة المجتمع مع الإجابة النموذجية.
-Nursing writing sample
+نموذج رسالة التمريض
 رسالة نقل للتمريض
 نقل مريض من المستشفى إلى دار رعاية مع الإجابة النموذجية.
 Nursing transfer letter
 رسالة تحويل للأطباء
 طبيب عام يحوّل مريضاً إلى عيادة متخصصة مع الإجابة النموذجية.
-Medicine writing sample
+نموذج رسالة الطب
 رسالة صيدلي إلى طبيب عام
 رسالة بعد مراجعة أدوية مريض مع الإجابة النموذجية.
-Pharmacy writing sample
+نموذج رسالة الصيدلة
 رسالة خروج للعلاج الطبيعي
 رسالة بعد عملية تغيير مفصل الركبة مع الإجابة النموذجية.
-Physiotherapy writing sample
+نموذج رسالة العلاج الطبيعي
 مواقف Role-play للمحادثة
 بطاقات تدريبية للمرشح والمحاور، مع حوار نموذجي مشروح وعبارات مفيدة لكل مرحلة.
 Role-play للتمريض
@@ -5660,7 +5696,7 @@ Physiotherapy role-play cards
 ابدأ الاختبار
 حاسبة درجات OET
 أدخل درجاتك الأربع واعرف الحرف المقابل لكل درجة والجهات التي تحقق متطلباتها.
-OET score calculator
+حاسبة درجات OET
 شرح كتابة رسالة OET
 المعايير الستة وخطوات الكتابة والأخطاء الشائعة بالعربي.
 شرح الكتابة
@@ -6245,6 +6281,7 @@ Join Free Community
 B+ Built for Grade B and above letter technique
 45 Minutes where selection and structure matter
 By Dr Ahmed Hesham , medical doctor and founder of OET with Dr Hesham · Published 18 May 2026 · Updated 27 Oct 2026
+Also in Arabic: اقرأ هذا الدليل بالعربية
 Letter-focused route
 Do not write more. Write with purpose, selection and control.
 OET Writing rewards a focused professional letter, not a long case-note dump. The strongest candidates identify the task, choose the right information, organise it for the reader, and review before submitting.
@@ -6347,6 +6384,7 @@ Join Free Community
 2-way Patient-centred healthcare communication
 20 Minutes where structure and clinical clarity matter
 By Dr Ahmed Hesham , medical doctor and founder of OET with Dr Hesham · Published 18 May 2026 · Updated 27 Oct 2026
+Also in Arabic: اقرأ هذا الدليل بالعربية
 Role-play route
 Do not memorise scripts. Train the conversation skills examiners score.
 OET Speaking is a short professional healthcare conversation. The score improves when your opening, questions, explanations, empathy, concern-handling and timing follow a safe repeatable method.
@@ -7191,6 +7229,7 @@ OET for Gulf licensing: Qatar DHP verification and qualifying exam steps, UAE PQ
 Gulf Pathway Guide - Qatar Focus Gulf Pathway Guide for OET Healthcare Professionals
 A practical Gulf pathway guide for doctors, nurses, pharmacists and physiotherapists, with detailed Qatar DHP steps and a wider Gulf licensing overview.
 By Dr Ahmed Hesham , medical doctor and founder of OET with Dr Hesham · Published 19 May 2026 · Updated 2 Nov 2026
+Also in Arabic: اقرأ هذا الدليل بالعربية
 Message on WhatsApp for Pathway Guidance Join Free Community
 Apply on the regulator's online system
 Complete primary source verification
@@ -7516,7 +7555,7 @@ Articles by Dr Ahmed Hesham
 OET Blog: Tips, Practice & Exam Guides
 Practical advice for Listening, Reading, Writing, Speaking and OET preparation on computer or paper.
 Search articles
-46 articles
+63 articles
 Latest articles
 New guides and the most useful places to start.
 Exam Format
@@ -7712,7 +7751,7 @@ Read article
 Exam Format
 OET Test Dates 2027 and 2026, Fees and Results
 Paper and computer test dates, fees, re-sit and rescheduling costs, booking deadlines and results timing.
-Dr Ahmed Hesham · 24 Oct 2026 · 13 min read
+Dr Ahmed Hesham · 24 Oct 2026 · 15 min read
 Read article
 Exam Format
 What Is the OET Exam? Format, Scoring and Who Accepts It
@@ -7759,7 +7798,7 @@ Read article
 Pathway Guides
 OET for ECFMG Certification: 2027 Pathways Guide
 Required OET Medicine scores for the 2027 ECFMG Pathways, the one-sitting rule and key deadlines.
-Dr Ahmed Hesham · 24 Oct 2026 · 7 min read
+Dr Ahmed Hesham · 24 Oct 2026 · 8 min read
 Read article
 Pathway Guides
 Australia Pathway Guide for OET Candidates
@@ -7772,11 +7811,100 @@ Qatar DHP, Sheryan, DataFlow and Prometric steps for doctors, nurses, pharmacist
 Dr Ahmed Hesham · 19 May 2026 · 12 min read
 Read article
 Articles in Arabic · مقالات بالعربية
-Guides written in Arabic for candidates across Egypt and the Gulf.
-شكل الامتحان
+18 guides written in Arabic for candidates across Egypt and the Gulf, by topic. Browse them in Arabic on the مقالات OET بالعربي page.
+Writing · الكتابة (7)
+الكتابة (Writing)
+شرح كتابة رسالة OET: نصائح عملية للحصول على B
+شرح كتابة رسالة OET خطوة بخطوة: المدة وعدد الكلمات والمعايير الستة، وكيف تختار المعلومات من الـ case notes، وأخطاء شائعة تمنعك من الدرجة B.
+د. أحمد هشام · 24 أكتوبر 2026 · 5 دقائق قراءة
+اقرأ المقال
+الكتابة (Writing)
+نموذج رسالة OET للتمريض: رسالة خروج إلى ممرضة المجتمع
+نموذج مجاني لرسالة OET Writing للتمريض: ملاحظات حالة خروج واقعية، وإجابة نموذجية بالإنجليزية إلى ممرضة المجتمع، وشرح كل معيار من المعايير الستة.
+د. أحمد هشام · 21 نوفمبر 2026 · 9 دقائق قراءة
+اقرأ المقال
+الكتابة (Writing)
+نموذج رسالة OET للتمريض: رسالة تحويل إلى ممرضة متخصصة
+نموذج مجاني لرسالة تحويل تمريضية في OET: ملاحظات حالة من ممرضة عيادة، وإجابة نموذجية بالإنجليزية للتحويل إلى ممرضة متخصصة في السكري، وملاحظات التصحيح.
+د. أحمد هشام · 21 نوفمبر 2026 · 9 دقائق قراءة
+اقرأ المقال
+الكتابة (Writing)
+نموذج رسالة OET للأطباء: رسالة تحويل إلى استشاري القلب
+نموذج مجاني لرسالة OET Writing للأطباء: ملاحظات استشارة طبيب عام، وإجابة نموذجية بالإنجليزية لتحويل مريض إلى استشاري قلب، وشرح كل قرار في اختيار المعلومات.
+د. أحمد هشام · 21 نوفمبر 2026 · 9 دقائق قراءة
+اقرأ المقال
+الكتابة (Writing)
+نموذج رسالة خروج OET للأطباء: من المستشفى إلى الطبيب العام
+نموذج رسالة خروج في OET Writing للأطباء: ملاحظات حالة التهاب رئوي، ورسالة نموذجية من المستشفى إلى الطبيب العام، وشرح كل قرار اختيار على المعايير الستة.
+د. أحمد هشام · 21 نوفمبر 2026 · 9 دقائق قراءة
+اقرأ المقال
+الكتابة (Writing)
+نموذج OET Writing للصيادلة: رسالة إلى الطبيب العام
+نموذج كتابة OET للصيادلة: case notes مراجعة أدوية، ورسالة نموذجية من الصيدلي إلى الطبيب العام، وشرح كل قرار اختيار على المعايير الستة.
+د. أحمد هشام · 21 نوفمبر 2026 · 9 دقائق قراءة
+اقرأ المقال
+الكتابة (Writing)
+نموذج OET Writing لأخصائيي العلاج الطبيعي: رسالة خروج
+نموذج كتابة OET للعلاج الطبيعي: case notes بعد استبدال مفصل الركبة، ورسالة نموذجية إلى أخصائي علاج طبيعي في المجتمع، وملاحظات التصحيح على المعايير الستة.
+د. أحمد هشام · 21 نوفمبر 2026 · 9 دقائق قراءة
+اقرأ المقال
+Speaking · المحادثة (2)
+المحادثة (Speaking)
+شرح Speaking في OET: نصائح عملية للـ Role-play
+شرح Speaking في OET: مدة الامتحان والـ role-plays ومعايير التقييم التسعة، وعبارات إنجليزية مفيدة لكل مرحلة، وأخطاء شائعة تمنعك من الدرجة B.
+د. أحمد هشام · 24 أكتوبر 2026 · 6 دقائق قراءة
+اقرأ المقال
+المحادثة (Speaking)
+بطاقات Role-play لامتحان Speaking في OET حسب المهنة
+بطاقات role-play لمحادثة OET للأطباء والممرضين والصيادلة وأخصائيي العلاج الطبيعي، مع إجابات نموذجية، وكيف يُحتسب وقت الموقفين وكيف يُقيَّم الأداء.
+د. أحمد هشام · 21 نوفمبر 2026 · 4 دقائق قراءة
+اقرأ المقال
+Exam Format · معلومات الامتحان (7)
+معلومات الامتحان
+حجز امتحان OET خطوة بخطوة: الورقي والكمبيوتر والرسوم
+اعرف الفرق بين بوابة حجز OET الورقي والكمبيوتر، وخطوات اختيار المركز والموعد، والرسوم والهوية المطلوبة قبل الدفع، بروابط OET الرسمية.
+د. أحمد هشام · 22 نوفمبر 2026 · 4 دقائق قراءة
+اقرأ المقال
+معلومات الامتحان
+مواعيد امتحان OET 2027 و2026 والرسوم وموعد النتيجة
+مواعيد امتحان OET 2027 على الكمبيوتر والورقي (يناير للتمريض والطب) و2026، وآخر موعد للحجز، ورسوم الامتحان وإعادة جزء واحد، وموعد ظهور النتيجة.
+د. أحمد هشام · 24 أكتوبر 2026 · 9 دقائق قراءة
+اقرأ المقال
+معلومات الامتحان
+سعر امتحان OET 2026: كم تكلفة الامتحان؟
+سعر امتحان OET الكامل 587 دولاراً أسترالياً، أي حوالي 21,730 جنيهاً مصرياً أو 1,510 ريالاً سعودياً. التكلفة حسب الدولة ورسوم الإعادة والتأجيل.
+د. أحمد هشام · 7 نوفمبر 2026 · 2 دقيقة قراءة
+اقرأ المقال
+معلومات الامتحان
+ما هو امتحان OET؟ نظامه ودرجاته ومن يقبله
+امتحان OET هو اختبار اللغة الإنجليزية للعاملين في المجال الصحي: 12 مهنة و4 أجزاء ودرجات من 500. تعرف على نظام الامتحان وتكلفته ومن يقبله.
+د. أحمد هشام · 7 نوفمبر 2026 · 4 دقائق قراءة
+اقرأ المقال
+معلومات الامتحان
+درجة النجاح في امتحان OET: كم تحتاج لتنجح؟
+درجة النجاح المعتادة في OET هي B أي 350 من 500، وعادةً 30 من 42 في الاستماع والقراءة. جدول الدرجات والحد الأدنى للأطباء والممرضين حسب كل جهة.
+د. أحمد هشام · 7 نوفمبر 2026 · 3 دقائق قراءة
+اقرأ المقال
+معلومات الامتحان
+OET أم IELTS: أيهما أنسب للتمريض والأطباء؟
+الفرق بين OET وIELTS للتمريض والأطباء: معادلة درجات OET بالـ IELTS من جداول OET الرسمية، وقبول كل اختبار عند NMC وGMC وAhpra، وأيهما أنسب لك.
+د. أحمد هشام · 24 أكتوبر 2026 · 7 دقائق قراءة
+اقرأ المقال
+معلومات الامتحان
 امتحان OET الورقي هيتوقف لعشر مهن في يناير 2027: إيه اللي هيتغير عليك
 من يناير 2027 امتحان OET الورقي هيفضل للتمريض والطب بس وفي 16 دولة. اعرف مين اللي هيتأثر وقايمة الدول وإزاي تحضّر على الكمبيوتر.
 د. أحمد هشام · 21 نوفمبر 2026 · 5 دقائق قراءة
+اقرأ المقال
+Pathway Guides · أدلة الترخيص (2)
+أدلة الترخيص
+درجات OET المطلوبة لكل جهة ترخيص (2026)
+درجات OET المطلوبة 2026 في بريطانيا وأيرلندا وأستراليا ونيوزيلندا وأمريكا: الحد الأدنى لكل جزء وعدد الجلسات وقبول OET@Home ومدة الصلاحية.
+د. أحمد هشام · 24 أكتوبر 2026 · 10 دقائق قراءة
+اقرأ المقال
+أدلة الترخيص
+دليل OET للترخيص الصحي في الخليج
+دليل OET للترخيص الصحي في الخليج: ما تأكدنا منه على مواقع DHP في قطر وSCFHS في السعودية وجهات الإمارات، من التحقق والاختبار إلى درجة OET المطلوبة.
+د. أحمد هشام · 2 نوفمبر 2026 · 9 دقائق قراءة
 اقرأ المقال
 No articles match your search. Try a skill such as Writing or a part such as Part A.
 Put the advice into practice
@@ -10046,18 +10174,18 @@ UK Pathway Guide
 الجهة Listening Reading Writing Speaking ملاحظات
 GPhC (بريطانيا) B B B B OET Pharmacy من جلسة واحدة، على الورق أو الكمبيوتر فقط ولا يقبل OET@Home، والنتيجة عادة خلال آخر سنتين، وتشاركها عبر myOET
 Ahpra / Pharmacy Board (أستراليا) 350 360 350 360 للاختبارات من 23 أبريل 2026. يمكن الجمع بين جلستين خلال 12 شهراً إذا لم تقل أي درجة عن 320 و340 و350 و350، ولا يقبل OET@Home
-كل جزء في OET يُقيَّم من 0 إلى 500، والدرجة B تقابل 350. للخليج راجع دليل OET للترخيص الصحي في الخليج ، ولكل الجهات درجات OET المطلوبة ، وجرّب درجاتك على OET Score Calculator .
+كل جزء في OET يُقيَّم من 0 إلى 500، والدرجة B تقابل 350. للخليج راجع دليل OET للترخيص الصحي في الخليج ، ولكل الجهات درجات OET المطلوبة ، وجرّب درجاتك على حاسبة درجات OET .
 ماذا تشمل باقات OET للصيادلة؟
 ثلاثة مستويات: الكورس الكلاسيكي للصيدلة، ثم الكورس مع ممارسة الموقع، ثم الباقة الشاملة + TutorBook الموصى بها. وصلاحية كل منها 6 أشهر من تاريخ الشراء.
 الكورس الكامل الكلاسيكي + SAMI للصيدلة
 أكثر من 25 ساعة مسجلة في المهارات الأربع مبنية على مواقف صيدلانية: التعامل مع الشكاوى، ومشكلات الجرعات، وسلامة الدواء، واختلاف تواريخ انتهاء الصلاحية، والتداخلات الدوائية، والاستشارة الدوائية. ومعها أمثلة كتابة صيدلانية بإجابات نموذجية، وبطاقات محادثة صيدلانية بالأفكار المتوقعة والعبارات المفيدة، وموارد تدريب مبنية على الريكولز، و5 أرصدة تدريب، ودعم مستمر للأسئلة، وSAMI 24/7، مساعدك الدراسي على مدار الساعة. لا يشمل تقييمات كتابة شخصية ولا امتحانات التدريب الإضافية على الموقع.
-Classic Full Course + SAMI - Pharmacy
+الكورس الكامل الكلاسيكي + SAMI للصيدلة
 الكورس مع ممارسة الموقع
 الكورس المسجل الكامل مع 5 رسائل كتابة شخصية يقيّمها د. أحمد هشام، وجلسة محادثة فردية مع مدرّس خبير، وتدريب الكتابة والمحادثة على الموقع، وامتحانات استماع وقراءة على الموقع لمن يختار الامتحان على الكمبيوتر، مع SAMI 24/7.
 الباقة الشاملة + TutorBook
 المسار الموصى به: كل ما في الكورس مع ممارسة الموقع، مع كتاب TutorBook لعام 2026 المبني على الريكولز بعشرة امتحانات كاملة وإجابات نموذجية وتحديثات دائمة.
 قارن باقات الصيدلة إضافات الكتابة والمحادثة
-ويمكنك إضافة تقييمات كتابة (3 أو 5 أو 7 أو 10 رسائل) أو جلسات محادثة فردية أو Full mock exams إلى أي كورس نشط.
+ويمكنك إضافة تقييمات كتابة (3 أو 5 أو 7 أو 10 رسائل) أو جلسات محادثة فردية أو الامتحانات التجريبية الكاملة إلى أي كورس نشط.
 كيف ينجح الصيدلي في كتابة OET؟
 مهمة الكتابة 5 دقائق قراءة ثم 40 دقيقة لكتابة رسالة واحدة من ملاحظات الحالة، والإرشاد الرسمي أن تكون في حدود 180 إلى 200 كلمة. وتُصحح بستة معايير، منها وضوح الغرض (Purpose) واللغة (Language).
 رسائل عن مشكلة دوائية
@@ -10073,7 +10201,7 @@ I am writing regarding your patient, who started clarithromycin three days ago w
 أبقِ الدواءين وتاريخ بدء المضاد الحيوي والعرض الجديد وما تطلبه بالتحديد. واحذف ما لا يغير قرار الطبيب، مثل أدوية قديمة متوقفة لا علاقة لها بالمشكلة أو تفاصيل اجتماعية لا تؤثر على الخطة.
 الخطأ الأكثر شيوعاً
 نسخ كل دواء وكل تاريخ من الملاحظات بدلاً من اختيار ما يحتاجه القارئ ليتصرف. هذا يضعف الإيجاز والوضوح ويخفي الغرض من الرسالة.
-شاهد مثالاً كاملاً: OET Writing Sample for Pharmacists ، واقرأ شرح كتابة رسالة OET ، ثم أرسل رسالتك للتصحيح عبر OET Writing Correction .
+شاهد مثالاً كاملاً: نموذج رسالة OET للصيادلة ، واقرأ شرح كتابة رسالة OET ، ثم أرسل رسالتك للتصحيح عبر OET Writing Correction .
 كيف يتعامل الصيدلي مع محادثة OET؟
 المحادثة حوالي 20 دقيقة، فيها لعب أدوار مرتين، كل دور حوالي 5 دقائق مع المحاور الذي يؤدي الدور المقابل في البطاقة. ويُقيَّم أداؤك بمعايير لغوية ومعايير تواصل إكلينيكي.
 مواقف صيدلانية متكررة
@@ -10168,13 +10296,13 @@ VisaScreen / TruMerit (أمريكا) الحد الأدنى يختلف حسب ا�
 ثلاثة مستويات: الكورس الكلاسيكي، ثم الكورس مع ممارسة الموقع، ثم الباقة الشاملة + TutorBook الموصى بها. وصلاحية كل منها 6 أشهر من تاريخ الشراء.
 الكورس الكامل الكلاسيكي + SAMI للعلاج الطبيعي
 أكثر من 40 ساعة مسجلة في المهارات الأربع، وأكثر من 160 امتحان استماع، وأكثر من 100 امتحان قراءة بالإجابات والشرح، وأكثر من 90 مهمة كتابة بأنواع الرسائل الرئيسية، وأكثر من 100 بطاقة محادثة، وريكولز حديثة وقديمة منذ 2023، و5 تقييمات كتابة شخصية، وجلسة محادثة فردية، و5 أرصدة تدريب، ودعم مستمر للأسئلة، وSAMI 24/7، مساعدك الدراسي على مدار الساعة. لا يشمل امتحانات التدريب الإضافية على الموقع.
-Classic Full Course + SAMI - Physiotherapy
+الكورس الكامل الكلاسيكي + SAMI للعلاج الطبيعي
 الكورس مع ممارسة الموقع
 الكورس المسجل الكامل مع 5 رسائل كتابة شخصية يقيّمها د. أحمد هشام، وجلسة محادثة فردية مع مدرّس خبير، وتدريب الكتابة والمحادثة على الموقع، وامتحانات استماع وقراءة على الموقع لمن يختار الامتحان على الكمبيوتر، مع SAMI 24/7.
 الباقة الشاملة + TutorBook
 المسار الموصى به: كل ما في الكورس مع ممارسة الموقع، مع كتاب TutorBook لعام 2026 المبني على الريكولز بعشرة امتحانات كاملة وإجابات نموذجية وتحديثات دائمة.
 قارن باقات العلاج الطبيعي إضافات الكتابة والمحادثة
-ويمكنك إضافة تقييمات كتابة (3 أو 5 أو 7 أو 10 رسائل) أو جلسات محادثة فردية أو Full mock exams إلى أي كورس نشط.
+ويمكنك إضافة تقييمات كتابة (3 أو 5 أو 7 أو 10 رسائل) أو جلسات محادثة فردية أو الامتحانات التجريبية الكاملة إلى أي كورس نشط.
 كيف تنجح في كتابة OET للعلاج الطبيعي؟
 مهمة الكتابة 5 دقائق قراءة ثم 40 دقيقة لكتابة رسالة واحدة من ملاحظات الحالة، والإرشاد الرسمي أن تكون في حدود 180 إلى 200 كلمة. وتُصحح بستة معايير، منها وضوح الغرض (Purpose) واللغة (Language).
 رسائل الخروج
@@ -10190,7 +10318,7 @@ I am writing to hand over the care of your patient, who is being discharged home
 أبقِ مدى الحركة الحالي، والمسافة التي تمشيها والأداة التي تستخدمها، وبرنامج التمارين المنزلية، والاحتياطات، وموعد المراجعة المطلوب. واحذف تفاصيل كل جلسة يوماً بيوم، فالقارئ يحتاج الصورة الحالية لا سجل الجلسات.
 الخطأ الأكثر شيوعاً
 سرد كل جلسة علاج بدلاً من تلخيص التقدم الذي يحتاجه القارئ. هذا يطيل الرسالة ويخفي المطلوب، ويضعف الإيجاز والتنظيم معاً.
-شاهد مثالاً كاملاً: OET Writing Sample for Physiotherapists ، وقارن بين Referral vs Discharge Letters ، ثم أرسل رسالتك للتصحيح عبر OET Writing Correction .
+شاهد مثالاً كاملاً: نموذج رسالة OET للعلاج الطبيعي ، وقارن بين Referral vs Discharge Letters ، ثم أرسل رسالتك للتصحيح عبر OET Writing Correction .
 ما مواقف المحادثة التي تتدرب عليها؟
 المحادثة حوالي 20 دقيقة، فيها لعب أدوار مرتين، كل دور حوالي 5 دقائق مع المحاور الذي يؤدي الدور المقابل في البطاقة. ويُقيَّم أداؤك بمعايير لغوية ومعايير تواصل إكلينيكي.
 مواقف متكررة في العلاج الطبيعي
@@ -10375,6 +10503,7 @@ OET exam guide
 What Is the OET Exam? Format, Scoring and Who Accepts It
 OET, the Occupational English Test, is an English language test for healthcare professionals. It has four sub-tests (Listening, Reading, Writing and Speaking), is offered for 12 professions and reports each sub-test on a scale from 0 to 500. Regulators in the UK, Ireland, Australia, New Zealand and the USA accept it for registration and certification.
 By Dr Ahmed Hesham , medical doctor and founder of OET with Dr Hesham · Published 7 Nov 2026
+Also in Arabic: اقرأ هذا الدليل بالعربية
 OET test dates Free placement test
 OET at a glance The exam in four numbers
 Checked against oet.com on 7 November 2026.
@@ -10461,6 +10590,7 @@ OET exam guide
 OET Exam Fees 2026: How Much Does OET Cost?
 The full OET test costs AU$587 in every test mode, which was about £302 on 7 November 2026. The published exception is the USA, where OET on Computer and OET@Home cost US$455. OET lists its international fee in Australian dollars, so what you pay in your own currency depends on your bank's rate on the day.
 By Dr Ahmed Hesham , medical doctor and founder of OET with Dr Hesham · Published 7 Nov 2026
+Also in Arabic: اقرأ هذا الدليل بالعربية
 Cost by country OET test dates
 The main fees What you pay OET
 Checked against oet.com on 7 November 2026.
@@ -10622,6 +10752,7 @@ OET exam guide
 OET Passing Score: What Score Do You Need to Pass OET?
 OET has no single pass mark, because each regulator sets its own. The usual target is grade B, which is 350 out of 500, in every sub-test. In Listening and Reading that typically means at least 30 correct answers out of 42. Several regulators accept 300 (grade C+) in Writing, and Ahpra in Australia asks for more.
 By Dr Ahmed Hesham , medical doctor and founder of OET with Dr Hesham · Published 7 Nov 2026
+Also in Arabic: اقرأ هذا الدليل بالعربية
 Check your scores Pass marks by regulator
 The usual targets The three numbers to know
 OET scoring from oet.com; regulator minimums from each regulator.
@@ -10779,6 +10910,7 @@ Free Speaking practice
 OET Speaking Role-Play Cards by Profession
 Here are all our free OET Speaking role-play cards, sorted by profession, each with a model answer and useful phrases. The real test has two role-plays of about 5 minutes each, with 3 minutes to prepare each card. Practise under that timing, out loud, with a partner if you can.
 By Dr Ahmed Hesham , medical doctor and founder of OET with Dr Hesham · Published 7 Nov 2026
+Also in Arabic: اقرأ هذا الدليل بالعربية
 Browse the cards Practise 1:1 online
 OET Speaking What the test is
 From OET's Speaking guidance.
@@ -10931,7 +11063,7 @@ OET exam fees
 إعادة التصحيح 120 دولاراً أسترالياً لكل جزء خلال 72 ساعة من النتيجة، وتُرد إذا تغيرت الدرجة
 تأجيل الموعد 120 أو 200 دولار أسترالي 120 حتى موعد إغلاق الحجز، و200 بعده
 إلغاء الحجز 120 أو 200 دولار أسترالي تُخصم من المبلغ المسترد
-إعادة جزء واحد أرخص لكنها لا تفيد إذا كانت جهتك تطلب الأجزاء الأربعة في كل جلسة. المصدر: لوائح اختبار OET .
+إعادة جزء واحد أرخص لكنها لا تفيد إذا كانت جهتك تطلب الأجزاء الأربعة في كل جلسة. المصدر: لوائح اختبار OET . وطريقة الدفع والحجز خطوة بخطوة للورقي والكمبيوتر في دليل حجز امتحان OET خطوة بخطوة .
 هل يختلف السعر حسب المهنة؟
 لا. ينشر OET سعراً واحداً للامتحان الكامل ولا يذكر سعراً مختلفاً حسب المهنة، فامتحان الطب والتمريض والصيدلة وغيرها بالسعر نفسه. المهنة تغير مهام الكتابة والمحادثة فقط. لتجنب دفع الرسوم مرتين، ابدأ بـ اختبار تحديد المستوى المجاني ، واطلع على درجة النجاح و مواعيد الامتحان قبل الحجز.
 أسئلة شائعة
@@ -11296,7 +11428,7 @@ OET في مصر
 الأكاديمية العربية (AASTMT)، فرع ميامي، الإسكندرية: ورقي
 المركز الأمريكي، الأزاريطة، الإسكندرية: ورقي وعلى الكمبيوتر
 في مصر مراكز امتحان، ولم يظهر في البحث خيار OET@Home، فخطّط لدخول الامتحان في مركز.
-المراكز كما أظهرها باحث المراكز في موقع OET في 19 نوفمبر 2026. يُغلق الحجز قبل 24 يوماً من الامتحان الورقي وقبل 7 أيام من الامتحان على الكمبيوتر. المراكز والمواعيد والمقاعد تتغير، فتأكد من الباحث قبل ترتيب السفر. للمواعيد راجع مواعيد ورسوم OET .
+المراكز كما أظهرها باحث المراكز في موقع OET في 19 نوفمبر 2026. يُغلق الحجز قبل 24 يوماً من الامتحان الورقي وقبل 7 أيام من الامتحان على الكمبيوتر. المراكز والمواعيد والمقاعد تتغير، فتأكد من الباحث قبل ترتيب السفر. للمواعيد راجع مواعيد ورسوم OET ، ولخطوات الحجز على myOET للورقي وبوابة OET للكمبيوتر راجع دليل حجز امتحان OET خطوة بخطوة .
 هل OET مطلوب داخل مصر؟
 لم نجد صفحة لوزارة الصحة والسكان أو نقابة الأطباء أو المجلس الصحي المصري تطلب OET أو تقبله. الأطباء والممرضون والصيادلة في مصر يدخلون OET لأن الجهة المنظِّمة في البلد الذي ينتقلون إليه تطلبه.
 ملاحظة مهمة للأطباء المتقدمين إلى ECFMG: لا تقبل OET@Home إلا ممن لا يوجد في بلده مركز امتحان. في مصر مراكز، فادخل الامتحان في أحدها.
@@ -11448,7 +11580,7 @@ OET في السعودية
 الخبر: مركز واحد على الكمبيوتر
 الطائف وحائل وتبوك وسكاكا: مراكز على الكمبيوتر، وفي عدد منها مركز للرجال وآخر للنساء
 السعودية ضمن قائمة OET للدول التي يمكن فيها أداء جزء المحادثة في المركز بدلاً من المنزل لمن يمتحن على الكمبيوتر. تأكد أن الجهة التي تتقدم إليها تقبل طريقة المحادثة التي تختارها.
-المراكز كما أظهرها باحث المراكز في موقع OET في 19 نوفمبر 2026. يُغلق الحجز قبل 24 يوماً من الامتحان الورقي وقبل 7 أيام من الامتحان على الكمبيوتر. المراكز والمواعيد والمقاعد تتغير، فتأكد من الباحث قبل ترتيب السفر. للمواعيد راجع مواعيد ورسوم OET .
+المراكز كما أظهرها باحث المراكز في موقع OET في 19 نوفمبر 2026. يُغلق الحجز قبل 24 يوماً من الامتحان الورقي وقبل 7 أيام من الامتحان على الكمبيوتر. المراكز والمواعيد والمقاعد تتغير، فتأكد من الباحث قبل ترتيب السفر. للمواعيد راجع مواعيد ورسوم OET ، ولخطوات الحجز على myOET للورقي وبوابة OET للكمبيوتر راجع دليل حجز امتحان OET خطوة بخطوة .
 هل تطلب الهيئة السعودية للتخصصات الصحية OET؟
 صفحات متطلبات التصنيف والتسجيل في الهيئة التي راجعناها في 19 نوفمبر 2026 لا تذكر أي اختبار لغة إنجليزية. القاعدة اللغوية الوحيدة التي وجدناها أن تكون المستندات بالعربية أو الإنجليزية. وقد يضع صاحب العمل شرطاً خاصاً به، فاطلبه مكتوباً.
 مسار الترخيص نفسه يتم عبر منصة ممارس بلس: تُوثَّق الشهادات الصادرة من خارج المملكة من مصدرها عبر DataFlow، وتُحجز اختبارات الترخيص (مثل SMLE للأطباء وSNLE للتمريض وSPLE للصيادلة) في مراكز برومترك داخل المملكة أو خارجها. تذكر أدلة المتقدمين 200 سؤال اختيار من متعدد وحتى أربع محاولات في السنة.
@@ -12095,6 +12227,7 @@ OET on Paper ends for 10 professions in January 2027: what changes for you
 On 16 November 2026, OET published an official update: from January 2027, the OET Test on Paper will continue for Nursing and Medicine only. Every other profession, including Pharmacy, Physiotherapy, Dentistry and the rest of the 12 OET professions, moves to the OET Test on Computer at approved venues.
 This is the biggest delivery change since OET@Home launched, and it lands in the middle of thousands of preparation plans. Here is exactly what was announced, who is affected, and what to do next.
 By Dr Ahmed Hesham , medical doctor and founder of OET with Dr Hesham · Published 21 Nov 2026
+Also in Arabic: اقرأ هذا الدليل بالعربية
 See the 16 countries Practise on computer
 At a glance
 From January 2027
@@ -14080,3 +14213,213 @@ Marathon runner with fracture wants to run again
 ألاقي ريكولز وبنوك كلمات أكتر فين؟
 الصفحة المجانية بتعرض مواضيع الكتابة والمحادثة الأخيرة. الطلاب المسجلين عندهم مكتبة الريكولز الكاملة، وريكولز الكلمات الصوتية، والكورسات الكاملة، وتصحيح الكتابة على منصتنا — دوس على «سجّل على منصتنا» فوق عشان تشترك.
 إخلاء مسؤولية. جميع المواضيع في هذه الصفحة مُبلَّغة من طلابنا من تجربتهم الشخصية في الامتحان، ومشاركتها لأغراض التدريب فقط. هذا ليس محتوى رسمياً من OET، ولم تتم مراجعته أو اعتماده أو دعمه من OET أو Cambridge Boxhill Language Assessment.
+
+---
+
+## مقالات OET بالعربي: الكتابة والمحادثة والمواعيد | د. أحمد هشام
+
+URL: https://oetwithdrhesham.co.uk/ar/blog/
+
+كل أدلة OET المكتوبة بالعربي من د. أحمد هشام: شرح الكتابة والمحادثة ونماذج رسائل لكل مهنة، ومواعيد ورسوم الامتحان وطريقة الحجز ودرجات النجاح.
+
+أدلة د. أحمد هشام بالعربي
+مقالات OET بالعربي
+كل أدلة OET التي كتبها د. أحمد هشام بالعربي في مكان واحد: شرح الكتابة والمحادثة، ونماذج رسائل لكل مهنة، ومعلومات الامتحان من المواعيد والرسوم إلى طريقة الحجز، وأدلة الترخيص. نصوص الامتحان والإجابات النموذجية تبقى بالإنجليزية لأنها ما ستقرؤه وتكتبه في الامتحان.
+ابحث في المقالات
+18 مقالاً
+الكتابة (Writing) (7 مقالات)
+طريقة كتابة الرسالة واختيار المعلومات من الـ case notes، ونماذج رسائل لكل مهنة بإجابة نموذجية وشرح التصحيح.
+الكتابة (Writing)
+شرح كتابة رسالة OET: نصائح عملية للحصول على B
+شرح كتابة رسالة OET خطوة بخطوة: المدة وعدد الكلمات والمعايير الستة، وكيف تختار المعلومات من الـ case notes، وأخطاء شائعة تمنعك من الدرجة B.
+د. أحمد هشام · 24 أكتوبر 2026 · 5 دقائق قراءة
+اقرأ المقال
+الكتابة (Writing)
+نموذج رسالة OET للتمريض: رسالة خروج إلى ممرضة المجتمع
+نموذج مجاني لرسالة OET Writing للتمريض: ملاحظات حالة خروج واقعية، وإجابة نموذجية بالإنجليزية إلى ممرضة المجتمع، وشرح كل معيار من المعايير الستة.
+د. أحمد هشام · 21 نوفمبر 2026 · 9 دقائق قراءة
+اقرأ المقال
+الكتابة (Writing)
+نموذج رسالة OET للتمريض: رسالة تحويل إلى ممرضة متخصصة
+نموذج مجاني لرسالة تحويل تمريضية في OET: ملاحظات حالة من ممرضة عيادة، وإجابة نموذجية بالإنجليزية للتحويل إلى ممرضة متخصصة في السكري، وملاحظات التصحيح.
+د. أحمد هشام · 21 نوفمبر 2026 · 9 دقائق قراءة
+اقرأ المقال
+الكتابة (Writing)
+نموذج رسالة OET للأطباء: رسالة تحويل إلى استشاري القلب
+نموذج مجاني لرسالة OET Writing للأطباء: ملاحظات استشارة طبيب عام، وإجابة نموذجية بالإنجليزية لتحويل مريض إلى استشاري قلب، وشرح كل قرار في اختيار المعلومات.
+د. أحمد هشام · 21 نوفمبر 2026 · 9 دقائق قراءة
+اقرأ المقال
+الكتابة (Writing)
+نموذج رسالة خروج OET للأطباء: من المستشفى إلى الطبيب العام
+نموذج رسالة خروج في OET Writing للأطباء: ملاحظات حالة التهاب رئوي، ورسالة نموذجية من المستشفى إلى الطبيب العام، وشرح كل قرار اختيار على المعايير الستة.
+د. أحمد هشام · 21 نوفمبر 2026 · 9 دقائق قراءة
+اقرأ المقال
+الكتابة (Writing)
+نموذج OET Writing للصيادلة: رسالة إلى الطبيب العام
+نموذج كتابة OET للصيادلة: case notes مراجعة أدوية، ورسالة نموذجية من الصيدلي إلى الطبيب العام، وشرح كل قرار اختيار على المعايير الستة.
+د. أحمد هشام · 21 نوفمبر 2026 · 9 دقائق قراءة
+اقرأ المقال
+الكتابة (Writing)
+نموذج OET Writing لأخصائيي العلاج الطبيعي: رسالة خروج
+نموذج كتابة OET للعلاج الطبيعي: case notes بعد استبدال مفصل الركبة، ورسالة نموذجية إلى أخصائي علاج طبيعي في المجتمع، وملاحظات التصحيح على المعايير الستة.
+د. أحمد هشام · 21 نوفمبر 2026 · 9 دقائق قراءة
+اقرأ المقال
+المحادثة (Speaking) (مقالان)
+خطوات الـ role-play ومعايير التقييم، وبطاقات تدريب لكل مهنة.
+المحادثة (Speaking)
+شرح Speaking في OET: نصائح عملية للـ Role-play
+شرح Speaking في OET: مدة الامتحان والـ role-plays ومعايير التقييم التسعة، وعبارات إنجليزية مفيدة لكل مرحلة، وأخطاء شائعة تمنعك من الدرجة B.
+د. أحمد هشام · 24 أكتوبر 2026 · 6 دقائق قراءة
+اقرأ المقال
+المحادثة (Speaking)
+بطاقات Role-play لامتحان Speaking في OET حسب المهنة
+بطاقات role-play لمحادثة OET للأطباء والممرضين والصيادلة وأخصائيي العلاج الطبيعي، مع إجابات نموذجية، وكيف يُحتسب وقت الموقفين وكيف يُقيَّم الأداء.
+د. أحمد هشام · 21 نوفمبر 2026 · 4 دقائق قراءة
+اقرأ المقال
+معلومات الامتحان (7 مقالات)
+نظام الامتحان ومواعيده ورسومه، وطريقة الحجز، ودرجة النجاح، والمقارنة مع IELTS.
+معلومات الامتحان
+حجز امتحان OET خطوة بخطوة: الورقي والكمبيوتر والرسوم
+اعرف الفرق بين بوابة حجز OET الورقي والكمبيوتر، وخطوات اختيار المركز والموعد، والرسوم والهوية المطلوبة قبل الدفع، بروابط OET الرسمية.
+د. أحمد هشام · 22 نوفمبر 2026 · 4 دقائق قراءة
+اقرأ المقال
+معلومات الامتحان
+مواعيد امتحان OET 2027 و2026 والرسوم وموعد النتيجة
+مواعيد امتحان OET 2027 على الكمبيوتر والورقي (يناير للتمريض والطب) و2026، وآخر موعد للحجز، ورسوم الامتحان وإعادة جزء واحد، وموعد ظهور النتيجة.
+د. أحمد هشام · 24 أكتوبر 2026 · 9 دقائق قراءة
+اقرأ المقال
+معلومات الامتحان
+سعر امتحان OET 2026: كم تكلفة الامتحان؟
+سعر امتحان OET الكامل 587 دولاراً أسترالياً، أي حوالي 21,730 جنيهاً مصرياً أو 1,510 ريالاً سعودياً. التكلفة حسب الدولة ورسوم الإعادة والتأجيل.
+د. أحمد هشام · 7 نوفمبر 2026 · 2 دقيقة قراءة
+اقرأ المقال
+معلومات الامتحان
+ما هو امتحان OET؟ نظامه ودرجاته ومن يقبله
+امتحان OET هو اختبار اللغة الإنجليزية للعاملين في المجال الصحي: 12 مهنة و4 أجزاء ودرجات من 500. تعرف على نظام الامتحان وتكلفته ومن يقبله.
+د. أحمد هشام · 7 نوفمبر 2026 · 4 دقائق قراءة
+اقرأ المقال
+معلومات الامتحان
+درجة النجاح في امتحان OET: كم تحتاج لتنجح؟
+درجة النجاح المعتادة في OET هي B أي 350 من 500، وعادةً 30 من 42 في الاستماع والقراءة. جدول الدرجات والحد الأدنى للأطباء والممرضين حسب كل جهة.
+د. أحمد هشام · 7 نوفمبر 2026 · 3 دقائق قراءة
+اقرأ المقال
+معلومات الامتحان
+OET أم IELTS: أيهما أنسب للتمريض والأطباء؟
+الفرق بين OET وIELTS للتمريض والأطباء: معادلة درجات OET بالـ IELTS من جداول OET الرسمية، وقبول كل اختبار عند NMC وGMC وAhpra، وأيهما أنسب لك.
+د. أحمد هشام · 24 أكتوبر 2026 · 7 دقائق قراءة
+اقرأ المقال
+معلومات الامتحان
+امتحان OET الورقي هيتوقف لعشر مهن في يناير 2027: إيه اللي هيتغير عليك
+من يناير 2027 امتحان OET الورقي هيفضل للتمريض والطب بس وفي 16 دولة. اعرف مين اللي هيتأثر وقايمة الدول وإزاي تحضّر على الكمبيوتر.
+د. أحمد هشام · 21 نوفمبر 2026 · 5 دقائق قراءة
+اقرأ المقال
+أدلة الترخيص (مقالان)
+الدرجات التي تطلبها كل جهة ترخيص، وخطوات الترخيص الصحي في الخليج.
+أدلة الترخيص
+درجات OET المطلوبة لكل جهة ترخيص (2026)
+درجات OET المطلوبة 2026 في بريطانيا وأيرلندا وأستراليا ونيوزيلندا وأمريكا: الحد الأدنى لكل جزء وعدد الجلسات وقبول OET@Home ومدة الصلاحية.
+د. أحمد هشام · 24 أكتوبر 2026 · 10 دقائق قراءة
+اقرأ المقال
+أدلة الترخيص
+دليل OET للترخيص الصحي في الخليج
+دليل OET للترخيص الصحي في الخليج: ما تأكدنا منه على مواقع DHP في قطر وSCFHS في السعودية وجهات الإمارات، من التحقق والاختبار إلى درجة OET المطلوبة.
+د. أحمد هشام · 2 نوفمبر 2026 · 9 دقائق قراءة
+اقرأ المقال
+لا توجد مقالات مطابقة لبحثك. جرّب كلمة مثل الكتابة أو الحجز أو المواعيد.
+القراءة (Reading) والاستماع (Listening)
+لا توجد أدلة عربية لهذين الجزأين حتى الآن. اقرأ الأدلة الإنجليزية:
+OET Reading Part B: workplace texts and purpose questions
+OET Reading Part A: scanning under time pressure
+OET Reading Part C: inference and distractors
+OET Reading Tips 2026: 10 Expert Strategies for Healthcare Professionals
+OET Listening Parts B and C: prediction, opinion and distractors
+OET Listening Part A: note-taking and spelling
+OET Listening Tips 2026: 10 Expert Strategies for Healthcare Professionals
+طبّق ما قرأته
+ابدأ بـ نموذج امتحان OET مجاني لكل جزء، واعرف مستواك قبل أن تختار الكورس المناسب لمهنتك.
+اختبار تحديد المستوى المجاني كورس OET بالعربي
+صفحات أخرى بالعربية
+كورسات وأسعار وأدوات مجانية: صفحات مفيدة لكنها ليست مقالات، لذلك لا تدخل في عدد المقالات.
+كورسات OET حسب المهنة
+كورس OET أونلاين للأطباء والتمريض مع د. أحمد هشام
+كورس OET للأطباء أونلاين
+كورس OET للتمريض أونلاين
+كورس OET للصيادلة أونلاين
+كورس OET للعلاج الطبيعي أونلاين
+كورس OET حسب الدولة
+كورس التحضير لامتحان OET في مصر
+كورس التحضير لامتحان OET في السعودية
+كورس التحضير لامتحان OET في الإمارات
+كورس التحضير لامتحان OET في قطر
+كورس التحضير لامتحان OET في الكويت
+كورس التحضير لامتحان OET في عُمان
+أدوات ومصادر مجانية
+نماذج امتحان OET المجانية ومواد التدريب
+اختبار OET تجريبي أونلاين: امتحانات كاملة بالتوقيت الرسمي
+حاسبة درجات OET
+ريكولز OET: مواضيع الامتحان الأخيرة
+الأسعار والنتائج والمعلومات الرسمية
+أسعار كورس OET: الكورسات والتقييمات والتدريب والامتحانات التجريبية
+نتائج وقصص نجاح طلاب OET
+OET مع د. أحمد هشام: الموقع الرسمي والتطبيق والروابط
+
+---
+
+## حجز امتحان OET خطوة بخطوة: الورقي والكمبيوتر والرسوم | د. أحمد هشام
+
+URL: https://oetwithdrhesham.co.uk/ar/oet-test-fee-booking-2027.html
+
+اعرف الفرق بين بوابة حجز OET الورقي والكمبيوتر، وخطوات اختيار المركز والموعد، والرسوم والهوية المطلوبة قبل الدفع، بروابط OET الرسمية.
+
+معلومات الامتحان
+حجز امتحان OET خطوة بخطوة: الورقي والكمبيوتر والرسوم
+محتار تدخل منين عشان تحجز OET؟ أهم نقطة إن فيه بداية واحدة تقدر تستخدمها على موقع OET الرسمي، لكن بوابة إتمام الحجز بتختلف حسب نوع الامتحان: الورقي على myOET ، والكمبيوتر أو OET@Home على بوابة OET للحجز. عشان كده لازم تتأكد إنك داخل المكان المناسب لنوع امتحانك.
+المعلومات دي تمت مراجعتها على صفحات OET الرسمية يوم 22 نوفمبر 2026. الشاشات والمواعيد ممكن تتغير، فراجع التفاصيل الظاهرة في الحجز قبل الدفع.
+بقلم د. أحمد هشام ، طبيب ومؤسس OET with Dr Hesham · نُشر في 22 نوفمبر 2026
+صفحة الحجز الرسمية مواعيد ورسوم OET
+نظرة سريعة
+بوابتين للحجز
+البداية واحدة على oet.com، والإتمام حسب نوع الامتحان.
+01 ابدأ من Find a test على صفحة الحجز الرسمية في oet.com.
+02 الورقي: myOET للتمريض والطب فقط من يناير 2027.
+03 الكمبيوتر وOET@Home على بوابة OET للحجز، لكل المهن الـ12.
+قبل ما تختار ورقي ولا كمبيوتر
+راجع الجهة اللي هتقدم لها: هل بتقبل نوع الامتحان اللي اخترته؟ وإيه الدرجات المطلوبة؟ مش كل الجهات بتقبل OET@Home . التفاصيل في درجات OET المطلوبة لكل جهة .
+من يناير 2027، امتحان الورقي مستمر للطب والتمريض فقط. راجع توافره لمهنتك ودولتك على الموقع الرسمي. الكمبيوتر متاح لكل المهن الـ12 حسب توافر المراكز والمواعيد. اعرف التفاصيل في تغيير الامتحان الورقي من يناير 2027 .
+جهز مستند هوية مقبول وساري، واكتب اسمك مطابقًا للمستند اللي هتدخل بيه الامتحان. متفترضش إن أي بطاقة محلية مقبولة في كل دولة.
+ابدأ من صفحة الحجز الرسمية
+افتح صفحة OET الرسمية: https://oet.com/test/book-a-test
+اكتب المدينة والدولة، واضغط Find a test .
+راجع النتائج، واستخدم فلتر نوع الامتحان Test Mode لو محتاج.
+اختار المركز المناسب، واضغط Book now . هتنتقل لبوابة الحجز المناسبة لنوع الامتحان.
+لو هتحجز OET الورقي
+البوابة الرسمية للورقي هي myOET : https://registration.myoet.com/login.jsp
+سجل دخولك، أو أنشئ حسابًا لو دي أول مرة. لو بتسجل حساب جديد، افتح رسالة تفعيل الحساب وراجع مجلد الرسائل غير المرغوب فيها لو مش لاقيها.
+من لوحة الحساب اختار Apply for the test ، وكمل البيانات المطلوبة للمهنة والدولة والمركز والموعد.
+جهز صورة شخصية مطابقة لمواصفات OET، وراجع متطلبات الهوية الخاصة بدولتك ونوع امتحانك.
+راجع ملخص الحجز والرسوم وسياسة التغيير والإلغاء قبل الدفع. تعليمات OET الحالية بتطلب إكمال بيانات الدفع خلال 15 دقيقة لتأمين الحجز.
+مواعيد يناير 2027 الورقية مواعيد يناير 2027 الورقية المنشورة للطب والتمريض تشمل 23 و30 يناير للمواعيد العالمية، و22 و23 و29 و30 يناير لجلسات الأمريكتين. ده مش معناه إن كل موعد متاح في كل مركز. راجع جدول المواعيد عندنا و صفحة المواعيد والحجز الرسمية .
+لو هتحجز OET على الكمبيوتر أو OET@Home
+بوابة الحجز الرسمية هي: https://booking.oet-global.com/
+سجل دخولك أو اتبع خطوات إنشاء الحساب في البوابة المناسبة. لو عندك حجز سابق، اختار Book Now أو Book Your Test من لوحة حسابك حسب الظاهر لك.
+اختار المهنة وطريقة الامتحان والمكان والموعد، وراجع تفاصيل المحادثة Speaking بعناية. مكانها أو يومها ممكن يختلف عن باقي الأجزاء، حسب الخيارات المتاحة.
+اتبع تعليمات رفع مستند الهوية. لو اخترت OET@Home ، راجع شروط الأهلية والتجهيزات التقنية وقبول الجهة قبل ما تكمل.
+بعد اختيار موعد الامتحان، بيكون عندك 15 دقيقة لإكمال الحجز حسب تعليمات OET. راجع البيانات والعملة والمبلغ النهائي، وبعدها كمل الدفع لو كل حاجة صحيحة.
+رسوم الامتحان كام؟
+بحسب مركز مساعدة OET وقت المراجعة، الامتحان الكامل بالأجزاء الأربعة سعره 587 دولارًا أستراليًا. داخل الولايات المتحدة، الكمبيوتر و OET@Home بسعر 455 دولارًا أمريكيًا. دي رسوم الامتحان الرسمي، مش سعر كورس التحضير.
+المبلغ النهائي والعملة بيظهروا في بوابة الحجز قبل الدفع. تحويل العملة ورسوم البنك ممكن يأثروا على المبلغ اللي يخصم منك، فمتعتبرش أي رقم بالجنيه المصري أو الريال السعودي سعرًا ثابتًا. تفاصيل الرسوم في صفحة سعر امتحان OET ، والمواعيد في صفحة المواعيد والرسوم على موقعنا.
+بعد الدفع: إيه اللي تتأكد منه؟
+استنى رسالة تأكيد الحجز من OET وراجع البريد غير المرغوب فيه. اتأكد من الاسم والمهنة ونوع الامتحان والمركز وتوقيت كل جزء. لو التأكيد مش واصلك، راجع حالة الحجز وتواصل مع دعم OET بدل ما تدفع تاني وتعمل حجزًا مكررًا.
+أسئلة بتتكرر
+يعني الورقي والكمبيوتر على موقعين مختلفين؟
+بوابة إتمام الحجز مختلفة: الورقي على myOET، والكمبيوتر وOET@Home على بوابة OET للحجز. لكن تقدر تبدأ في الحالتين من صفحة البحث الرسمية عن الامتحان على oet.com.
+هل الكمبيوتر أصعب من الورقي؟
+معايير الامتحان واحدة، لكن طريقة الأداء مختلفة. اختيارك يعتمد على قبول الجهة وتوافر المواعيد وراحتك في الكتابة على الكمبيوتر أو الورق، مش على توقع إن نسخة أسهل من التانية.
+هل ممكن أعيد جزء واحد فقط؟
+OET بيتيح حجز أجزاء منفصلة في الورقي بشروط، منها إنك تكون دخلت الامتحان الكامل قبل كده، والتوافر بيختلف حسب المركز. لازم تتأكد إن الجهة اللي هتقدم لها بتقبل النتائج دي. متحجزش إعادة جزء واحد اعتمادًا على السعر بس.
+أحجز أولًا ولا أبدأ التحضير؟
+اعرف مستواك والدرجة المطلوبة والوقت المتاح قبل ما تدفع. ابدأ باختبار تحديد المستوى المجاني على موقعنا، وشوف الكورس المناسب لمهنتك لو محتاج تحضير. اختبار تحديد المستوى مش بديل عن امتحان OET الرسمي.
+اختبار تحديد المستوى المجاني الكورس المناسب لمهنتك
+المصادر الرسمية
+صفحة حجز OET ، ومقال How do I book the OET Test? ، وخطوات تسجيل حساب myOET ، و لوائح الامتحان ، و صفحة الرسوم الرسمية . تمت المراجعة يوم 22 نوفمبر 2026. الدليل ده بيشرح الخطوات المنشورة على صفحات OET العامة، ومش بيتضمن صور من حساب مرشح أو عملية دفع.
+قبل ما تدفع رسوم الامتحان جرب الامتحان بنفسك الأول: جرب نفسك في OET قبل الحجز بالنماذج الرسمية المجانية، أو شوف درجة النجاح في OET عشان تعرف هدفك.

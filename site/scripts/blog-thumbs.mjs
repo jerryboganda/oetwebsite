@@ -82,3 +82,43 @@ for (const post of posts) {
   made += 1;
 }
 console.log(`blog-thumbs: ${made} generated, ${posts.length - made} already present (use --force to redraw)`);
+
+// Every Arabic guide (blog.json "arabicPosts") gets its own card image, assets/img/blog/ar-<slug>.webp: the same design, right to
+// left, with the Arabic title and topic (brief of 22 Nov 2026: the Arabic library shows Arabic cards, not the English twins' images).
+function svgAr(post) {
+  const [a, b] = THEMES[post.category];
+  let size = 64;
+  let lines = wrap(post.title, 26);
+  if (lines.length > 4) {
+    size = 52;
+    lines = wrap(post.title, 32);
+  }
+  const lh = Math.round(size * 1.35);
+  const top = 300 - ((lines.length - 1) * lh) / 2;
+  const font = "'Segoe UI', Tahoma, Arial, sans-serif";
+  const pill = 60 + post.categoryLabelAr.length * 20;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><linearGradient id="g" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <circle cx="110" cy="90" r="210" fill="#ffffff" fill-opacity=".06"/>
+  <circle cx="50" cy="560" r="140" fill="#ffffff" fill-opacity=".05"/>
+  <rect x="${1128 - pill}" y="64" width="${pill}" height="48" rx="24" fill="#ffffff" fill-opacity=".16"/>
+  <text x="${1128 - pill / 2}" y="97" text-anchor="middle" direction="rtl" font-family="${font}" font-size="24" font-weight="700" fill="#ffffff">${esc(post.categoryLabelAr)}</text>
+  ${lines
+    .map((l, i) => `<text x="1128" y="${Math.round(top + i * lh)}" text-anchor="start" direction="rtl" font-family="${font}" font-size="${size}" font-weight="700" fill="#ffffff">${esc(l)}</text>`)
+    .join('\n  ')}
+  <text x="1128" y="566" text-anchor="start" direction="rtl" font-family="${font}" font-size="28" font-weight="700" fill="#ffffff" fill-opacity=".9">مقالات OET بالعربي · د. أحمد هشام</text>
+</svg>`;
+}
+const { arabicPosts } = loadBlog();
+let madeAr = 0;
+for (const post of arabicPosts) {
+  const file = path.join(ROOT, post.image.replace(/^\//, ''));
+  if (fs.existsSync(file) && !force) continue;
+  await sharp(Buffer.from(svgAr(post)))
+    .composite([{ input: logo, left: 72, top: 630 - 72 - 68 }])
+    .webp({ quality: 82 })
+    .toFile(file);
+  madeAr += 1;
+}
+console.log(`blog-thumbs: ${madeAr} Arabic guide thumbnail(s) generated`);

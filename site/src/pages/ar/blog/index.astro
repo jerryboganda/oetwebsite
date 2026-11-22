@@ -1,0 +1,196 @@
+---
+// Arabic OET library (/ar/blog/), brief of 22 Nov 2026: every Arabic guide in one place, generated from the SAME inventory as the
+// /blog/ Arabic section (src/data/blog.json "arabicPosts", language and topic stored separately). Cards, topic counts, search and
+// the "other Arabic pages" list are all built from loadBlog(); nothing here is a hand-kept list. Commercial, location and tool
+// pages (blog.json "arabicPages") are listed apart and never counted as articles.
+import Base from '../../../layouts/Base.astro';
+import headExtraRtl from '../../../partials/ar/oet-paper-test-2027-changes/head-extra.html?raw';
+import tail from '../../../partials/ar/oet-paper-test-2027-changes/tail.html?raw';
+import { loadBlog, renderArabicCard, escapeHtml, SEARCH_NORMALIZE_JS } from '../../../lib/blog.mjs';
+
+const SITE = 'https://oetwithdrhesham.co.uk';
+const { categories, posts, arabicPosts, arabicPages } = loadBlog();
+const topics = categories.map((c) => ({ ...c, list: arabicPosts.filter((p) => p.category === c.id) }));
+const filled = topics.filter((t) => t.list.length);
+for (const t of filled) if (!t.introAr) throw new Error(`ar/blog: category ${t.id} has Arabic guides, so it needs an introAr in blog.json`);
+const gaps = topics.filter((t) => !t.list.length);
+const count = arabicPosts.length;
+const n = (k) => (k === 1 ? 'مقال واحد' : k === 2 ? 'مقالان' : k >= 3 && k <= 10 ? `${k} مقالات` : `${k} مقالاً`);
+
+const title = 'مقالات OET بالعربي: الكتابة والمحادثة والمواعيد | د. أحمد هشام';
+const description = 'كل أدلة OET المكتوبة بالعربي من د. أحمد هشام: شرح الكتابة والمحادثة ونماذج رسائل لكل مهنة، ومواعيد ورسوم الامتحان وطريقة الحجز ودرجات النجاح.';
+
+const ld = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': `${SITE}/ar/blog/#blog`,
+    name: 'مقالات OET بالعربي',
+    url: `${SITE}/ar/blog/`,
+    description,
+    inLanguage: 'ar',
+    publisher: { '@type': 'Organization', '@id': `${SITE}/#organization`, name: 'OET with Dr Hesham', url: `${SITE}/` },
+    blogPost: arabicPosts.map((p) => ({
+      '@type': 'BlogPosting',
+      headline: p.title,
+      url: `${SITE}${p.url}`,
+      inLanguage: 'ar',
+      datePublished: p.datePublished,
+      dateModified: p.dateModified,
+      image: `${SITE}${p.image}`,
+      articleSection: p.categoryLabelAr,
+      author: { '@type': 'Person', '@id': `${SITE}/#drhesham`, name: 'Dr Ahmed Hesham', url: `${SITE}/about.html` },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: `${SITE}/ar/` },
+      { '@type': 'ListItem', position: 2, name: 'مقالات OET بالعربي', item: `${SITE}/ar/blog/` },
+    ],
+  },
+];
+
+const meta = `<title>${escapeHtml(title)}</title>
+    <meta name="description" content="${escapeHtml(description)}">
+    <link rel="canonical" href="${SITE}/ar/blog/">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="OET with Dr Ahmed Hesham">
+    <meta property="og:locale" content="ar_AR">
+    <meta property="og:url" content="${SITE}/ar/blog/">
+    <meta property="og:title" content="${escapeHtml(title)}">
+    <meta property="og:description" content="${escapeHtml(description)}">
+    <meta property="og:image" content="${SITE}/assets/img/og/og-tips.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+${JSON.stringify(ld, null, 2)}
+    </script>`;
+
+const headExtra = `${headExtraRtl}
+<style>
+main[dir=rtl].oet-blog .oet-blog-search__field i { left: auto; right: 16px; }
+main[dir=rtl].oet-blog .oet-blog-search__field input { padding-left: 16px; padding-right: 44px; text-align: right; }
+main[dir=rtl].oet-blog .oet-blog-card__tag { letter-spacing: 0; text-transform: none; }
+.oet-ar-lib-gap { background: var(--oet-lav-100, #f1edff); border-radius: 16px; padding: 18px 20px; margin: 8px 0 32px; }
+.oet-ar-lib-gap h2 { font-size: 20px; margin: 0 0 6px; }
+.oet-ar-lib-gap ul, .oet-ar-lib-pages ul { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.oet-ar-lib-gap a, .oet-ar-lib-pages a { color: #5b3ff1; font-weight: 700; }
+.oet-ar-lib-pages { border-top: 1px solid #e6e1fb; margin-top: 8px; padding-top: 32px; }
+.oet-ar-lib-pages h3 { font-size: 18px; margin: 18px 0 4px; }
+</style>`;
+
+const chips = [
+  `<li><a class="oet-blog-chip" href="#all-guides">كل المقالات <span>${count}</span></a></li>`,
+  ...filled.map((t) => `<li><a class="oet-blog-chip" href="#${t.id}">${escapeHtml(t.labelAr)} <span>${t.list.length}</span></a></li>`),
+  `<li><a class="oet-blog-chip" href="/blog/" lang="en" hreflang="en" dir="ltr">OET Blog in English <span>${posts.length}</span></a></li>`,
+].join('');
+
+const sections = filled
+  .map((t) => `<section class="oet-blog-section" id="${t.id}" aria-labelledby="${t.id}-title" data-topic="${t.id}">
+      <div class="oet-blog-section__head"><h2 id="${t.id}-title">${escapeHtml(t.labelAr)} <span class="oet-ar-lib-count">(${n(t.list.length)})</span></h2><p>${escapeHtml(t.introAr)}</p></div>
+      <div class="oet-blog-grid">
+${t.list.map((p) => renderArabicCard(p)).join('\n')}
+      </div>
+    </section>`)
+  .join('\n');
+
+// Topics with no Arabic guide yet (Reading, Listening): say so and point to the English guides rather than leave a silent gap.
+const gapBox = gaps.length
+  ? `<aside class="oet-ar-lib-gap" aria-labelledby="gap-title"><h2 id="gap-title">${gaps.map((t) => escapeHtml(t.labelAr)).join(' و')}</h2><p>لا توجد أدلة عربية لهذين الجزأين حتى الآن. اقرأ الأدلة الإنجليزية:</p><ul>${gaps
+      .flatMap((t) => posts.filter((p) => p.category === t.id))
+      .map((p) => `<li><a href="${p.url}" lang="en" dir="ltr">${escapeHtml(p.title)}</a></li>`)
+      .join('')}</ul></aside>`
+  : '';
+
+const otherPages = `<section class="oet-ar-lib-pages" aria-labelledby="pages-title">
+      <h2 id="pages-title">صفحات أخرى بالعربية</h2>
+      <p>كورسات وأسعار وأدوات مجانية: صفحات مفيدة لكنها ليست مقالات، لذلك لا تدخل في عدد المقالات.</p>
+${arabicPages.map((g) => `      <h3>${escapeHtml(g.labelAr)}</h3><ul>${g.pages.map((p) => `<li><a href="${p.url}">${escapeHtml(p.title)}</a></li>`).join('')}</ul>`).join('\n')}
+    </section>`;
+
+const main = `    <main id="main-content" class="oet-blog" tabindex="-1" dir="rtl" lang="ar">
+        <section class="oet-resource-hero oet-skill-hero oet-blog-hero">
+            <div class="container">
+                <nav class="oet-breadcrumbs" aria-label="مسار التصفح"><ol><li><a href="/ar/">الرئيسية</a></li><li aria-current="page">مقالات OET بالعربي</li></ol></nav>
+                <div class="oet-blog-hero__grid">
+                    <div>
+                        <span class="oet-resource-eyebrow"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i> أدلة د. أحمد هشام بالعربي</span>
+                        <h1 class="oet-resource-title">مقالات OET بالعربي</h1>
+                        <p class="oet-resource-lead">كل أدلة OET التي كتبها د. أحمد هشام بالعربي في مكان واحد: شرح الكتابة والمحادثة، ونماذج رسائل لكل مهنة، ومعلومات الامتحان من المواعيد والرسوم إلى طريقة الحجز، وأدلة الترخيص. نصوص الامتحان والإجابات النموذجية تبقى بالإنجليزية لأنها ما ستقرؤه وتكتبه في الامتحان.</p>
+                    </div>
+                    <form class="oet-blog-search" role="search" action="/ar/blog/" onsubmit="return false;">
+                        <label for="oet-blog-search-input">ابحث في المقالات</label>
+                        <div class="oet-blog-search__field">
+                            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                            <input id="oet-blog-search-input" type="search" name="q" placeholder="مثلاً: رسالة تحويل أو الحجز" autocomplete="off" aria-describedby="oet-blog-search-status" dir="auto">
+                        </div>
+                        <p id="oet-blog-search-status" class="oet-blog-search__status" aria-live="polite">${n(count)}</p>
+                    </form>
+                </div>
+                <nav class="oet-blog-chips" aria-label="مواضيع المقالات"><ul>${chips}</ul></nav>
+            </div>
+        </section>
+
+        <div class="container oet-blog-body" id="all-guides">
+${sections}
+            <p class="oet-blog-empty" hidden>لا توجد مقالات مطابقة لبحثك. جرّب كلمة مثل الكتابة أو الحجز أو المواعيد.</p>
+${gapBox}
+            <section class="oet-blog-next" aria-label="طبّق ما قرأته">
+                <h2>طبّق ما قرأته</h2>
+                <p>ابدأ بـ<a href="/ar/oet-sample-tests.html">نموذج امتحان OET مجاني</a> لكل جزء، واعرف مستواك قبل أن تختار الكورس المناسب لمهنتك.</p>
+                <div class="oet-resource-actions"><a class="oet-resource-btn" href="/english-placement-test">اختبار تحديد المستوى المجاني <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a><a class="oet-resource-btn oet-resource-btn--light" href="/ar/">كورس OET بالعربي</a></div>
+            </section>
+${otherPages}
+        </div>
+    </main>
+    <script>
+    (function () {
+        ${SEARCH_NORMALIZE_JS}
+        var input = document.getElementById('oet-blog-search-input');
+        var status = document.getElementById('oet-blog-search-status');
+        var root = document.querySelector('.oet-blog');
+        if (!input || !root) return;
+        var empty = root.querySelector('.oet-blog-empty');
+        var gap = root.querySelector('.oet-ar-lib-gap');
+        var total = root.querySelectorAll('.oet-blog-section .oet-blog-card').length;
+        function label(k, match) {
+            if (k === 1) return match ? 'مقال واحد مطابق' : 'مقال واحد';
+            if (k === 2) return match ? 'مقالان مطابقان' : 'مقالان';
+            if (k <= 10) return k + (match ? ' مقالات مطابقة' : ' مقالات');
+            return k + (match ? ' مقالاً مطابقاً' : ' مقالاً');
+        }
+        function run() {
+            var terms = oetNorm(input.value).split(' ').filter(Boolean);
+            var shown = 0;
+            root.querySelectorAll('.oet-blog-section').forEach(function (section) {
+                var visible = 0;
+                section.querySelectorAll('.oet-blog-card').forEach(function (card) {
+                    var hay = card.getAttribute('data-search') || '';
+                    var match = terms.every(function (t) { return hay.indexOf(t) !== -1; });
+                    card.hidden = !match;
+                    if (match) visible++;
+                });
+                section.hidden = visible === 0;
+                shown += visible;
+            });
+            if (empty) empty.hidden = shown !== 0;
+            if (gap) gap.hidden = terms.length > 0;
+            status.textContent = terms.length ? (shown ? label(shown, true) : 'لا توجد نتائج') : label(total, false);
+        }
+        input.addEventListener('input', run);
+    })();
+    </script>`;
+---
+<Base
+  meta={meta}
+  headExtra={headExtra}
+  main={main}
+  tail={tail}
+  bodyClass="oet-live-site oet-resource-page"
+  salCss={true}
+  lang="ar"
+/>

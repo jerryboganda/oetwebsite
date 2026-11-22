@@ -11,7 +11,7 @@ enrollment **web app** lives at app./api.oetwithdrhesham.co.uk (repo
 OUTPUT, committed for parity/deploy. Never hand-edit root HTML — edit the
 partials/data and rebuild.**
 
-- `site/src/pages/*.astro` — 117 thin wrappers incl. 404 (one per page; `ar/` = Arabic, `lang="ar"`), each importing
+- `site/src/pages/*.astro` — 119 thin wrappers incl. 404 (one per page; `ar/` = Arabic, `lang="ar"`), each importing
   its page partials `?raw` and rendering through `site/src/layouts/Base.astro`.
 - `site/src/partials/<page>/{meta,head-extra,main,tail}.html` — byte-preserved
   page bodies. This is where page content/CSS edits happen.
@@ -130,7 +130,7 @@ partials/data and rebuild.**
   `[page: …]` labels: the source page is tracked by `oet-analytics.js`), generates
   `sitemap.xml` (per-page git dates), `assets/search-index.json`, `llms.txt`,
   `llms-full.txt` and `feed.xml` (see "SEO + AI-search layer" below), copies the
-  117 built pages + sitemap + generated files to the repo root. `--check-root` asserts root ==
+  119 built pages + sitemap + generated files to the repo root. `--check-root` asserts root ==
   dist for the pages, `oet-core.css` and the three generated files (CI parity). New page = add it to
   `PAGES` here and in `verify.mjs`, and to `LLMS_GROUPS` here unless it is a blog post (posts are grouped by category).
 - `site/scripts/verify.mjs` — asserts pages/assets/JSON-LD/sitemap/pricing, one
@@ -379,6 +379,40 @@ and a FAQ. Operating guide, brief-vs-reality notes and the open items: `docs/rec
   rule is needed (`verify.mjs` asserts the rule and both targets). Sitemap entries carry `xhtml:link` hreflang annotations (the only ones in the sitemap; the page `<head>`
   hreflang is the site-wide pattern). `og-recalls.png` (1200x630, bilingual) was rendered once from the site's own logo and font.
 - **Not in the brief, so not added:** no link or banner anywhere else (homepage body, pricing, blog templates), no audio, no pop-up or sticky bar.
+
+## Consolidated SEO / booking / Arabic library brief (22 Nov 2026; built 22 Nov 2026)
+
+Status, official-source checks, release evidence and open owner items: `docs/seo-brief-2026-11-22.md`. Screenshots: `docs/qa/2026-11-22/`
+(regenerate with `node scripts/qa-brief-2026-11-22.mjs`, which also tests locale links and the analytics consent replay). `verify.mjs` block
+"Brief of 22 Nov 2026" gates every point below.
+
+- **2027 dates**: both dates pages carry the official January 2027 paper table (`#sec-paper-2027`, Nursing and Medicine only, Global 23/30 Jan,
+  Americas 22/23/29/30 Jan, results 9/16 Feb) in the copy, the FAQ and its FAQPage twin; December is "the last 2026 paper date". The ECFMG
+  guide says January paper results arrive after ECFMG's 31 Jan 2027 target and never promises a January (computer) rescue. Re-check oet.com
+  and ECFMG before changing either; `verify.mjs` fails if "no 2027 paper dates" returns anywhere.
+- **One Arabic inventory** (`blog.json`): `arabicPosts` = every Arabic guide, language and topic (`category`) separate, title/dates/summary
+  read from the page, card image `assets/img/blog/ar-<slug>.webp` (`npm run thumbs` draws it); `arabicPages` = the non-article Arabic pages
+  (courses, countries, tools, pricing/results/official). A new Arabic page goes into exactly one of the two lists (verify fails otherwise).
+  Both `/blog/` (Arabic section by topic) and the Arabic library **`/ar/blog/`** (`pages/ar/blog/index.astro`) render from it; search folds
+  Arabic spelling (`normalizeSearch` / `SEARCH_NORMALIZE_JS` in `lib/blog.mjs`, same code at build and in the browser).
+- **Language switches**: an English guide whose Arabic twin is in `arabicPosts` gets "Also in Arabic" under its byline automatically
+  (`languageSwitch` in `lib/page.mjs`); Arabic guides keep their typed "Read in English" (`class="oet-ar-en"`).
+- **Navigation**: "مقالات OET بالعربي" is the FIRST item of the Free Resources menu (`addArabicLibraryLink` in `lib/blog.mjs`, used by
+  `Header.astro`/`Footer.astro`) and in the footer Resources & Guides group, NOT a top-level item (the inline nav overflowed by 83px at
+  1500px), and not on the two frozen landing pages. On Arabic pages the header "Pricing" and "Download App" open `/ar/pricing.html`.
+- **Arabic pages link Arabic pages**: no contextual link from an Arabic page to an English page that has an Arabic version, except the
+  "Read in English" switch (`oet-ar-en` / `hreflang="en"`) and the allow-list in `verify.mjs`. Map English pricing anchors to anchors that
+  exist on `/ar/pricing.html` (`#tier-*`, `#classic-courses`, `#writing-packages`, `#speaking-packages`, `#mock-packages`, `#crash-courses`).
+  Arabic breadcrumbs start at `الرئيسية` -> `/ar/`; guides go `الرئيسية › مقالات OET بالعربي (/ar/blog/) › page`.
+- **Arabic booking guide** `/ar/oet-test-fee-booking-2027.html` (no English twin, so no hreflang): official portals only, no screenshots;
+  the draft URL `/ar/blog/oet-test-fee-booking-2027` 301s to it. Linked from the Arabic fees, dates, Egypt and Saudi pages.
+- **Analytics** (`assets/js/oet-analytics.js`): `/ar/pricing.html` is page_type `pricing`; `grantAnalytics` / `grantMarketing` replay the
+  course view and the delivered contact lead once after a late consent (`pageEvents`, `firstTime`, `oncePerSession`). This changed the
+  `?v=` hash of `oet-analytics.js` inside the two frozen landing pages: their only byte change.
+- **Performance**: no change (field CWV passed, PSI lab 100 on home, Arabic Egypt, pricing, nurses; baseline in the doc). Change only a
+  measured LCP/INP/CLS problem; compare before/after with `node scripts/perf-lab.mjs` (same machine) and pagespeed.web.dev.
+- Open (owner/team): Search Console baseline and indexing checks, the website-to-app purchase test, the Arabic library link on the frozen
+  `/ar/` page, Arabic Reading/Listening guides. See the doc.
 
 ## Growth brief: Search Visibility & Brand Discovery (owner, 15 Nov 2026; built 19 Nov 2026)
 

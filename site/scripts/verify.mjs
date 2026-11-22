@@ -44,6 +44,8 @@ const PAGES = [
   'ar/oet-speaking-role-play-cards.html', 'ar/oet-mock-test.html', 'ar/oet-score-calculator.html',
   // OET Recalls (owner brief v2, 21 Nov 2026)
   'oet-recalls.html', 'ar/oet-recalls.html',
+  // Brief of 22 Nov 2026: the Arabic library and the Arabic booking guide
+  'ar/blog/index.html', 'ar/oet-test-fee-booking-2027.html',
 ];
 
 let failures = 0;
@@ -1149,7 +1151,8 @@ if (distHtml['pricing.html']) {
     if (keys.length !== 1) fail(`IndexNow: expected exactly one <32-hex>.txt key file in the repo root, found ${keys.length}`);
     else if (readFileSync(path.join(ROOT, keys[0]), 'utf8').trim() !== keys[0].slice(0, 32)) fail(`IndexNow: ${keys[0]} must contain its own key`);
     const ht = readFileSync(path.join(ROOT, '.htaccess'), 'utf8');
-    if (!ht.includes('RewriteRule ^(privacy|terms|refund-policy|cookie-policy|ar|blog)/index\\.html$ https://%{HTTP_HOST}/$1/ [R=301,L]')) fail('.htaccess: /<folder>/index.html must 301 to /<folder>/');
+    if (!ht.includes('RewriteRule ^(privacy|terms|refund-policy|cookie-policy|ar|blog|ar/blog)/index\\.html$ https://%{HTTP_HOST}/$1/ [R=301,L]')
+      || !ht.includes('RewriteRule ^(privacy|terms|refund-policy|cookie-policy|ar|blog|ar/blog)$ https://%{HTTP_HOST}/$1/ [R=301,L]')) fail('.htaccess: /<folder> and /<folder>/index.html must 301 to /<folder>/ (ar/blog included)');
     if (!ht.includes('ExpiresByType text/plain "access plus 1 day"') || !ht.includes('application/atom+xml')) fail('.htaccess: text/plain caching and the Atom feed type are required');
   }
 
@@ -1290,7 +1293,10 @@ if (distHtml['pricing.html']) {
       if (!existsSync(path.join(ROOT, p.image.slice(1)))) fail(`blog: thumbnail missing ${p.image}`);
       if (!feed.includes(`<entry xml:lang="ar">`) || !feed.includes(`<id>${ORIGIN}${p.url}</id>`)) fail(`feed.xml: no Arabic entry for ${p.url}`);
       if (!html.includes('<meta property="og:type" content="article">') || !html.includes(`<meta property="article:published_time" content="${p.datePublished}">`)) fail(`${p.url}: Arabic articles need og:type article and article:published_time`);
-      if (!nodesOfType(ldBlocks(html), 'BlogPosting').length) fail(`${p.url}: BlogPosting JSON-LD missing`);
+      // a guide carries BlogPosting or Article data, or (the Gulf pathway guide) a WebPage node with its author and datePublished
+      const ldn = ldBlocks(html);
+      if (!nodesOfType(ldn, 'BlogPosting').length && !nodesOfType(ldn, 'Article').length && !nodesOfType(ldn, 'WebPage').some((w) => w.datePublished && w.author))
+        fail(`${p.url}: Arabic guides need BlogPosting / Article JSON-LD (or a dated, authored WebPage)`);
     }
   }
 
@@ -1507,6 +1513,159 @@ if (distHtml['pricing.html']) {
     const f = path.join(ROOT, 'assets/img/og/og-recalls.png');
     if (!existsSync(f)) fail('assets/img/og/og-recalls.png is missing');
     else { const b = readFileSync(f); if (b.readUInt32BE(16) !== 1200 || b.readUInt32BE(20) !== 630) fail('og-recalls.png must be 1200x630'); }
+  }
+}
+
+// ---- Brief of 22 Nov 2026: 2027 dates + ECFMG, Arabic journeys, Arabic library, booking guide, analytics -----------------
+// docs/seo-brief-2026-11-22.md has the evidence and the open items. Each gate below is one acceptance line of the brief.
+{
+  const ORIGIN = 'https://oetwithdrhesham.co.uk';
+  const { loadBlog, ARABIC_LIBRARY, normalizeSearch } = await import('../src/lib/blog.mjs');
+  const { categories, posts, arabicPosts, arabicPages } = loadBlog();
+  const mainOf = (html) => (html.match(/<main[\s\S]*<\/main>/) || [''])[0];
+  const FROZEN = ['index.html', 'ar/index.html'];
+  const urlToPage = (u) => (u === '/' ? 'index.html' : u.endsWith('/') ? `${u.slice(1)}index.html` : u.slice(1));
+
+  // 1. January 2027 paper dates (official OET booking page, checked 22 Nov 2026) on both dates pages, FAQ included; the stale
+  //    "no 2027 paper dates" claim is gone everywhere; December is the last 2026 paper date, not the end of paper testing.
+  {
+    const ROWS = {
+      'oet-test-dates-and-fees.html': [['Global', 'Sat 23 Jan 2027', 'Wed 30 Dec 2026', 'Tue 9 Feb 2027'], ['Global', 'Sat 30 Jan 2027', 'Wed 6 Jan 2027', 'Tue 16 Feb 2027'],
+        ['Americas', 'Fri 22 Jan 2027', 'Tue 29 Dec 2026', 'Tue 9 Feb 2027'], ['Americas', 'Sat 23 Jan 2027', 'Wed 30 Dec 2026', 'Tue 9 Feb 2027'],
+        ['Americas', 'Fri 29 Jan 2027', 'Tue 5 Jan 2027', 'Tue 16 Feb 2027'], ['Americas', 'Sat 30 Jan 2027', 'Wed 6 Jan 2027', 'Tue 16 Feb 2027']],
+      'ar/oet-test-dates-and-fees.html': [['العالمية', 'السبت 23 يناير 2027', 'الأربعاء 30 ديسمبر 2026', 'الثلاثاء 9 فبراير 2027'], ['العالمية', 'السبت 30 يناير 2027', 'الأربعاء 6 يناير 2027', 'الثلاثاء 16 فبراير 2027'],
+        ['الأمريكتان', 'الجمعة 22 يناير 2027', 'الثلاثاء 29 ديسمبر 2026', 'الثلاثاء 9 فبراير 2027'], ['الأمريكتان', 'السبت 23 يناير 2027', 'الأربعاء 30 ديسمبر 2026', 'الثلاثاء 9 فبراير 2027'],
+        ['الأمريكتان', 'الجمعة 29 يناير 2027', 'الثلاثاء 5 يناير 2027', 'الثلاثاء 16 فبراير 2027'], ['الأمريكتان', 'السبت 30 يناير 2027', 'الأربعاء 6 يناير 2027', 'الثلاثاء 16 فبراير 2027']],
+    };
+    for (const [page, rows] of Object.entries(ROWS)) {
+      const html = distHtml[page] || '';
+      for (const r of rows) if (!html.includes(`<tr><td>${r.join('</td><td>')}</td></tr>`)) fail(`${page}: the January 2027 paper table must list ${r.join(' | ')}`);
+      const faq = nodesOfType(ldBlocks(html), 'Question').map((q) => `${q.name} ${q.acceptedAnswer?.text}`).join(' ');
+      if (!/23 (January|يناير)/.test(faq)) fail(`${page}: the FAQ (and its FAQPage twin) must give the January 2027 paper dates`);
+      const mod = nodesOfType(ldBlocks(html), 'Article').map((a) => a.dateModified).sort().pop();
+      if (!mod || mod < '2026-11-22') fail(`${page}: dateModified must be the 22 Nov 2026 review date or later (found ${mod})`);
+      if (!/Nursing and Medicine only|للتمريض والطب فقط/.test(html)) fail(`${page}: the January 2027 sessions are for Nursing and Medicine only`);
+    }
+    const STALE = /No 2027 paper dates|not published any 2027 paper dates|No January 2027 paper date|has not published any 2027 paper|لم ينشر مواعيد الامتحان الورقي لعام 2027|مواعيد الامتحان الورقي لعام 2027 فلم تُنشر|Last paper date: 19 December/;
+    for (const [page, html] of Object.entries(distHtml)) if (STALE.test(html)) fail(`${page}: the stale "2027 paper dates not published / last paper date" claim is back (OET lists January 2027 paper sessions)`);
+  }
+
+  // 2. ECFMG: 19 Dec is the last Global paper session OF 2026, January paper results (9 and 16 Feb) come after the 31 Jan target,
+  //    and nothing promises that a January computer test (or a retake) makes the 2027 Match.
+  {
+    const html = distHtml['oet-for-ecfmg.html'] || '';
+    const v = visibleText(mainOf(html));
+    for (const need of ['last global paper session of 2026', '9 and 16 february 2027', 'on or before the last scheduled test date in december 2026', 'does not guarantee'])
+      if (!v.includes(need)) fail(`oet-for-ecfmg.html: must say "${need}"`);
+    if (/leave room for (?:one|a) retake|fast computer results leave room/i.test(v)) fail('oet-for-ecfmg.html: no suggestion that a January (computer) test leaves room for a retake before the 2027 Match');
+  }
+
+  // 3. Arabic pages keep Arabic visitors in Arabic: no contextual link to an English page that has an Arabic version, except the
+  //    explicit "Read in English" switch (class oet-ar-en / hreflang="en") and two documented hand-offs (the full 2027 computer table,
+  //    the English pricing selector). The frozen Arabic landing page is out of scope (owner freeze).
+  {
+    const twinOf = (u) => { const p = urlToPage(u); return distHtml[`ar/${p}`] ? `ar/${p}` : null; };
+    // (and the official site URL listed as a brand fact on the Arabic official-information page, next to its /ar/ row)
+    const ALLOW = [['ar/oet-test-dates-and-fees.html', '/oet-test-dates-and-fees.html#sec-2027'], ['ar/pricing.html', '/pricing.html#full-oet-courses'], ['ar/official-information.html', '/']];
+    for (const [page, html] of Object.entries(distHtml)) {
+      if (!page.startsWith('ar/') || FROZEN.includes(page)) continue;
+      for (const m of mainOf(html).matchAll(/<a\b([^>]*)href="(\/(?!ar\/)[^"#?]*)([?#][^"]*)?"([^>]*)>/g)) {
+        const attrs = m[1] + m[4];
+        if (!twinOf(m[2]) || /class="oet-ar-en"|hreflang="en"/.test(attrs)) continue;
+        if (ALLOW.some(([p, h]) => p === page && h === m[2] + (m[3] || ''))) continue;
+        fail(`${page}: links the English ${m[2]}${m[3] || ''} although /${twinOf(m[2])} exists (keep Arabic visitors in Arabic)`);
+      }
+    }
+  }
+
+  // 4. Arabic breadcrumbs start at the Arabic home (/ar/); the guides go through the Arabic library (/ar/blog/)
+  {
+    const guides = new Set(arabicPosts.map((p) => `${p.slug}.html`));
+    for (const [page, html] of Object.entries(distHtml)) {
+      if (!page.startsWith('ar/') || FROZEN.includes(page)) continue;
+      const items = nodesOfType(ldBlocks(html), 'BreadcrumbList')[0]?.itemListElement || [];
+      const vis = (html.match(/<nav class="oet-breadcrumbs" aria-label="[^"]+"><ol>([\s\S]*?)<\/ol><\/nav>/) || [, ''])[1];
+      if (items[0]?.item !== `${ORIGIN}/ar/` || !vis.startsWith('<li><a href="/ar/">الرئيسية</a></li>')) fail(`${page}: the Arabic breadcrumb must start at الرئيسية -> /ar/ (visible and BreadcrumbList)`);
+      if (guides.has(page) && (items[1]?.item !== `${ORIGIN}${ARABIC_LIBRARY.href}` || !vis.includes(`<li><a href="${ARABIC_LIBRARY.href}">مقالات OET بالعربي</a></li>`))) fail(`${page}: an Arabic guide's breadcrumb goes الرئيسية > مقالات OET بالعربي (/ar/blog/)`);
+    }
+  }
+
+  // 5. One inventory: every Arabic page is either a guide (arabicPosts: language + topic) or a non-article page (arabicPages);
+  //    the Arabic library and the /blog/ Arabic section show every guide, by topic, with matching counts, and search finds Arabic titles.
+  {
+    const listed = new Set([...arabicPosts.map((p) => `${p.slug}.html`), ...arabicPages.flatMap((g) => g.pages.map((p) => urlToPage(p.url))), 'ar/blog/index.html']);
+    for (const page of PAGES) if (page.startsWith('ar/') && !listed.has(page)) fail(`${page}: add it to blog.json (arabicPosts if it is a guide, arabicPages otherwise)`);
+    const lib = distHtml['ar/blog/index.html'] || '';
+    const blog = distHtml['blog/index.html'] || '';
+    const libCards = [...lib.matchAll(/<article class="oet-blog-card" data-lang="ar" data-category="([a-z-]+)" lang="ar" dir="rtl" data-search="([^"]*)">[\s\S]*?<a class="oet-blog-card__media" href="([^"]+)"/g)];
+    if (libCards.length !== arabicPosts.length) fail(`ar/blog/index.html: ${libCards.length} guide cards for ${arabicPosts.length} Arabic guides`);
+    for (const p of arabicPosts) {
+      const card = libCards.find((c) => c[3] === p.url);
+      if (!card) { fail(`ar/blog/index.html: no card for ${p.url}`); continue; }
+      if (card[1] !== p.category) fail(`ar/blog/index.html: ${p.url} card topic ${card[1]} != ${p.category}`);
+      if (!card[2].includes(normalizeSearch(p.title))) fail(`ar/blog/index.html: searching the Arabic title of ${p.url} would not find it`);
+      if (!blog.includes(`href="${p.url}"`)) fail(`blog/index.html: the Arabic section must list ${p.url}`);
+    }
+    for (const c of categories) {
+      const n = arabicPosts.filter((p) => p.category === c.id).length;
+      if (!n) continue;
+      if (!lib.includes(`<a class="oet-blog-chip" href="#${c.id}">${c.labelAr} <span>${n}</span></a>`)) fail(`ar/blog/index.html: the ${c.id} chip must count ${n} guides`);
+      const sec = (lib.match(new RegExp(`<section class="oet-blog-section" id="${c.id}"[\\s\\S]*?</section>`)) || [''])[0];
+      if ((sec.match(/class="oet-blog-card"/g) || []).length !== n) fail(`ar/blog/index.html: the ${c.id} section must hold ${n} cards`);
+      if (!blog.includes(`<span class="oet-blog-subgroup__count">(${n})</span>`)) fail(`blog/index.html: the Arabic ${c.id} group must show its count (${n})`);
+    }
+    if (!lib.includes(`<a class="oet-blog-chip" href="#all-guides">كل المقالات <span>${arabicPosts.length}</span></a>`)) fail('ar/blog/index.html: the "all" chip must count every Arabic guide');
+    if (!blog.includes(`<a class="oet-blog-chip" href="#arabic">Arabic <span>${arabicPosts.length}</span></a>`)) fail('blog/index.html: the Arabic chip must count every Arabic guide');
+    for (const g of arabicPages) for (const p of g.pages) if (!lib.includes(`<li><a href="${p.url}">`)) fail(`ar/blog/index.html: "other Arabic pages" must link ${p.url}`);
+    if (/data-category="arabic"/.test(blog + lib)) fail('blog cards: language and topic are separate (data-lang="ar" + the topic), never data-category="arabic"');
+    if (!/function oetNorm\(s\)/.test(lib) || !/function oetNorm\(s\)/.test(blog)) fail('the /blog/ and /ar/blog/ search must fold Arabic spelling (oetNorm)');
+  }
+
+  // 6. Reciprocal, visible language switches on every English / Arabic guide pair
+  for (const p of arabicPosts.filter((x) => x.twin)) {
+    const en = distHtml[`${p.twin}.html`] || '';
+    const ar = distHtml[`${p.slug}.html`] || '';
+    if (!mainOf(en).includes(`<a href="${p.url}" lang="ar" hreflang="ar">`)) fail(`${p.twin}.html: needs the visible switch to its Arabic version ${p.url}`);
+    if (!new RegExp(`<a class="oet-ar-en" href="/${p.twin}\\.html" lang="en" hreflang="en">Read in English</a>`).test(mainOf(ar))) fail(`${p.slug}.html: needs the visible "Read in English" switch to /${p.twin}.html`);
+  }
+
+  // 7. Navigation: the Arabic library as the first "Free Resources" item of the header nav (desktop dropdown and the mobile menu main.js
+  //    clones) and in the footer, on every page except the frozen pair. Not a top-level item: the inline nav has no room left at 1500px.
+  const { ARABIC_LIBRARY_NAV_ITEM, ARABIC_LIBRARY_FOOTER_ITEM } = await import('../src/lib/blog.mjs');
+  for (const [page, html] of Object.entries(distHtml)) {
+    const nav = (html.match(/<nav class="vl-mobile-menu-active"[\s\S]*?<\/nav>/) || [''])[0];
+    const footer = (html.match(/<footer\b[\s\S]*?<\/footer>/) || [''])[0];
+    if (FROZEN.includes(page)) { if (html.includes(`href="${ARABIC_LIBRARY.href}"`)) fail(`${page}: the frozen landing page must not change (no Arabic library link without the owner lifting the freeze)`); continue; }
+    if (!/<li class="has-dropdown"><a href="\/oet-tips\.html">Free Resources\b[\s\S]*?<ul class="sub-menu">(<li>[\s\S]*?<\/li>)/.test(nav) || nav.match(/<li class="has-dropdown"><a href="\/oet-tips\.html">Free Resources\b[\s\S]*?<ul class="sub-menu">(<li>[\s\S]*?<\/li>)/)[1] !== ARABIC_LIBRARY_NAV_ITEM)
+      fail(`${page}: "${ARABIC_LIBRARY.label}" -> ${ARABIC_LIBRARY.href} must be the first item of the Free Resources menu`);
+    if (!footer.includes(ARABIC_LIBRARY_FOOTER_ITEM)) fail(`${page}: the footer Resources & Guides group needs "${ARABIC_LIBRARY.label}" -> ${ARABIC_LIBRARY.href}`);
+    if (page.startsWith('ar/') && (!html.includes('<a class="oet-pricing-nav-link" href="/ar/pricing.html#download-app">Download App</a>') || !html.includes('<a class="oet-pricing-nav-link" href="/ar/pricing.html">Pricing</a>')))
+      fail(`${page}: on Arabic pages the header "Pricing" and "Download App" items open the Arabic pricing page`);
+  }
+
+  // 8. The Arabic booking guide: one reviewed article (no English pair, so no hreflang), both official portals, dated Article data,
+  //    linked from the Arabic fees, dates, Egypt and Saudi pages, and the draft URL 301s to it.
+  {
+    const page = 'ar/oet-test-fee-booking-2027.html';
+    const html = distHtml[page] || '';
+    for (const need of ['https://oet.com/test/book-a-test', 'https://registration.myoet.com/login.jsp', 'https://booking.oet-global.com/', 'https://support.oet.com/articles/Knowledge/How-do-I-book-OET', 'https://support.oet.com/articles/Knowledge/How-much-does-OET-cost', 'https://oet.com/test-regulations'])
+      if (!html.includes(`href="${need}"`)) fail(`${page}: must link the official source ${need}`);
+    const post = nodesOfType(ldBlocks(html), 'BlogPosting')[0];
+    if (!post || post.datePublished !== '2026-11-22' || !post.author) fail(`${page}: BlogPosting with its real review date (2026-11-22) and author`);
+    if (/hreflang=/.test(html.slice(0, html.indexOf('</head>')))) fail(`${page}: no hreflang (it has no English twin)`);
+    if (/<img[^>]+(dashboard|screenshot)/i.test(mainOf(html))) fail(`${page}: no portal or dashboard screenshots`);
+    for (const from of ['ar/oet-exam-fees.html', 'ar/oet-test-dates-and-fees.html', 'ar/oet-course-egypt.html', 'ar/oet-course-saudi-arabia.html'])
+      if (!mainOf(distHtml[from] || '').includes('href="/ar/oet-test-fee-booking-2027.html"')) fail(`${from}: must link the Arabic booking guide`);
+    if (!readFileSync(path.join(ROOT, '.htaccess'), 'utf8').includes('RewriteRule ^ar/blog/oet-test-fee-booking-2027(?:\\.html)?/?$ https://%{HTTP_HOST}/ar/oet-test-fee-booking-2027.html [R=301,L]')) fail('.htaccess: the draft URL /ar/blog/oet-test-fee-booking-2027 must 301 to the guide');
+  }
+
+  // 9. Analytics (repair, not reinstall): the Arabic pricing page is a "pricing" page, and the course view / delivered lead are sent
+  //    once after a late consent, never before it.
+  {
+    const js = readFileSync(path.join(ROOT, 'assets/js/oet-analytics.js'), 'utf8');
+    if (!js.includes('/^\\/(ar\\/)?pricing(\\.html)?\\/?$/')) fail('oet-analytics.js: pageType must classify /ar/pricing.html as "pricing"');
+    if (!/grantAnalytics: function \(\) \{ loadGA4\(\); pageEvents\(\); \}/.test(js) || !/grantMarketing: function \(\) \{ grantMarketing\(\); pageEvents\(\); \}/.test(js)) fail('oet-analytics.js: a consent given after load must replay the page events (pageEvents)');
+    if (!/firstTime\("view_item"\)/.test(js) || !/firstTime\("ViewContent"\)/.test(js) || !/oncePerSession\("oet_lead_sent"\)/.test(js)) fail('oet-analytics.js: the replayed events must be sent at most once');
   }
 }
 

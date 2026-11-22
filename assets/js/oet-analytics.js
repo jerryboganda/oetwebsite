@@ -72,7 +72,8 @@
 
   function pageType() {
     var p = location.pathname;
-    if (/^\/pricing(\.html)?\/?$/.test(p)) return "pricing";
+    // the English and the Arabic pricing page (/pricing.html, /ar/pricing.html) are both "pricing"
+    if (/^\/(ar\/)?pricing(\.html)?\/?$/.test(p)) return "pricing";
     if (/^\/(ar\/)?oet-course-for-/.test(p) || /^\/oet-for-allied-health/.test(p)) return "course_detail";
     return "other";
   }
@@ -152,9 +153,11 @@
     } catch (e) { /* never break the page for analytics */ }
   }
 
+  // The consent banner calls these when the visitor accepts. A choice made AFTER the page loaded also replays the page's own
+  // one-off events (course view, delivered contact lead) once, for the provider just allowed: never before consent, never twice.
   window.oetAnalytics = {
-    grantAnalytics: loadGA4,
-    grantMarketing: grantMarketing,
+    grantAnalytics: function () { loadGA4(); pageEvents(); },
+    grantMarketing: function () { grantMarketing(); pageEvents(); },
     track: track,
     trackMeta: trackMeta
   };
@@ -239,23 +242,39 @@
     }
   }, true);
 
-  /* A course page was shown. */
-  if (pageType() === "course_detail") {
-    var slug = location.pathname.replace(/^\/|\.html$|\/$/g, "").replace(/\//g, "_");
-    track("view_item", { item_id: slug, item_name: document.title.slice(0, 100), page_type: "course_detail" });
-    trackMeta("ViewContent", { content_ids: [slug], content_name: document.title.slice(0, 100), content_type: "product" });
+  /* ---------- One-off page events ----------
+   * Sent on load when consent already exists, otherwise replayed by grantAnalytics / grantMarketing when the visitor accepts on
+   * this page. Each provider gets each event at most once per page view; nothing is queued or sent before consent. */
+  var sentOnPage = {};
+  function firstTime(key) {
+    if (sentOnPage[key]) return false;
+    sentOnPage[key] = true;
+    return true;
   }
-
-  /* The contact form really delivered: contact.php adds v=1 only then, so bot and rate-limited redirects are not leads. */
-  if (/(^|[?&])sent=1(&|$)/.test(location.search) && /(^|[?&])v=1(&|$)/.test(location.search) && (allowed("analytics") || allowed("marketing"))) {
-    var leadKey = "oet_lead_sent";
-    var already = false;
-    try { already = !!sessionStorage.getItem(leadKey); sessionStorage.setItem(leadKey, "1"); } catch (e) { already = false; }
-    if (!already) {
-      track("generate_lead", { form: "contact", page: location.pathname });
-      trackMeta("Lead", {}, "lead_" + Date.now());
+  function oncePerSession(key) {
+    // a reload of the "message sent" page is not a second lead (falls back to once per page when storage is blocked)
+    try {
+      if (sessionStorage.getItem(key)) return false;
+      sessionStorage.setItem(key, "1");
+      return true;
+    } catch (e) { return firstTime("session:" + key); }
+  }
+  function pageEvents() {
+    var gaOn = allowed("analytics") && ga4Loaded;
+    var metaOn = allowed("marketing") && pixelLoaded;
+    /* A course page was shown. */
+    if (pageType() === "course_detail") {
+      var slug = location.pathname.replace(/^\/|\.html$|\/$/g, "").replace(/\//g, "_");
+      if (gaOn && firstTime("view_item")) track("view_item", { item_id: slug, item_name: document.title.slice(0, 100), page_type: "course_detail" });
+      if (metaOn && firstTime("ViewContent")) trackMeta("ViewContent", { content_ids: [slug], content_name: document.title.slice(0, 100), content_type: "product" });
+    }
+    /* The contact form really delivered: contact.php adds v=1 only then, so bot and rate-limited redirects are not leads. */
+    if (/(^|[?&])sent=1(&|$)/.test(location.search) && /(^|[?&])v=1(&|$)/.test(location.search)) {
+      if (gaOn && firstTime("generate_lead") && oncePerSession("oet_lead_sent")) track("generate_lead", { form: "contact", page: location.pathname });
+      if (metaOn && firstTime("Lead") && oncePerSession("oet_lead_sent_meta")) trackMeta("Lead", {}, "lead_" + Date.now());
     }
   }
+  pageEvents();
 
   /* Scroll depth: one-shot 50% / 90% */
   var sent50 = false, sent90 = false;

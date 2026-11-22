@@ -4,7 +4,7 @@
 import Base from '../../layouts/Base.astro';
 import headExtra from '../../partials/oet-writing-tips/head-extra.html?raw';
 import tail from '../../partials/oet-writing-tips/tail.html?raw';
-import { loadBlog, latestPosts, renderCard, renderArabicCard, escapeHtml } from '../../lib/blog.mjs';
+import { loadBlog, latestPosts, renderCard, renderArabicCard, escapeHtml, SEARCH_NORMALIZE_JS } from '../../lib/blog.mjs';
 
 const SITE = 'https://oetwithdrhesham.co.uk';
 const { categories, posts, arabicPosts } = loadBlog();
@@ -86,19 +86,26 @@ const sections = categories
     return `<section class="oet-blog-section" id="${c.id}" aria-labelledby="${c.id}-title">
       <div class="oet-blog-section__head"><h2 id="${c.id}-title">${escapeHtml(c.label)}</h2><p>${escapeHtml(c.intro)}</p></div>
       <div class="oet-blog-grid">
-${list.map((p) => renderCard(p)).join('\n')}
+${list.map((p) => renderCard(p, { library: true })).join('\n')}
       </div>
     </section>`;
   })
   .join('\n');
 
-// Articles written in Arabic: their own section (cards are right-to-left, lang="ar"); the search box filters them too.
+// Guides written in Arabic (blog.json "arabicPosts", the same inventory as /ar/blog/): one section, grouped by topic with a count per
+// topic (language and topic are separate: data-lang="ar" + data-category="<topic>"). The search box filters them too.
+const arabicGroups = categories
+  .map((c) => ({ ...c, list: arabicPosts.filter((p) => p.category === c.id) }))
+  .filter((g) => g.list.length);
 const arabicSection = arabicPosts.length
   ? `<section class="oet-blog-section" id="arabic" aria-labelledby="arabic-title">
-      <div class="oet-blog-section__head"><h2 id="arabic-title">Articles in Arabic &middot; <span lang="ar">مقالات بالعربية</span></h2><p>Guides written in Arabic for candidates across Egypt and the Gulf.</p></div>
-      <div class="oet-blog-grid">
-${arabicPosts.map((p) => renderArabicCard(p)).join('\n')}
-      </div>
+      <div class="oet-blog-section__head"><h2 id="arabic-title">Articles in Arabic &middot; <span lang="ar">مقالات بالعربية</span></h2><p>${arabicPosts.length} guides written in Arabic for candidates across Egypt and the Gulf, by topic. Browse them in Arabic on the <a href="/ar/blog/" lang="ar">مقالات OET بالعربي</a> page.</p></div>
+${arabicGroups.map((g) => `      <div class="oet-blog-subgroup" data-topic="${g.id}">
+        <h3 class="oet-blog-subgroup__title">${escapeHtml(g.label)} &middot; <span lang="ar">${escapeHtml(g.labelAr.replace(/\s*\([^)]*\)\s*$/, ''))}</span> <span class="oet-blog-subgroup__count">(${g.list.length})</span></h3>
+        <div class="oet-blog-grid">
+${g.list.map((p) => renderArabicCard(p, { headingLevel: 4 })).join('\n')}
+        </div>
+      </div>`).join('\n')}
     </section>`
   : '';
 
@@ -129,7 +136,7 @@ const main = `    <main id="main-content" class="oet-blog" tabindex="-1">
             <section class="oet-blog-section oet-blog-latest" id="all-articles" aria-labelledby="latest-title">
                 <div class="oet-blog-section__head"><h2 id="latest-title">Latest articles</h2><p>New guides and the most useful places to start.</p></div>
                 <div class="oet-blog-grid">
-${latest.map((p) => renderCard(p, { eager: true })).join('\n')}
+${latest.map((p) => renderCard(p, { eager: true, library: true })).join('\n')}
                 </div>
             </section>
 ${sections}
@@ -144,6 +151,7 @@ ${arabicSection}
     </main>
     <script>
     (function () {
+        ${SEARCH_NORMALIZE_JS}
         var input = document.getElementById('oet-blog-search-input');
         var status = document.getElementById('oet-blog-search-status');
         var root = document.querySelector('.oet-blog');
@@ -152,7 +160,8 @@ ${arabicSection}
         var empty = root.querySelector('.oet-blog-empty');
         var total = root.querySelectorAll('.oet-blog-section:not(.oet-blog-latest) .oet-blog-card').length;
         function run() {
-            var terms = input.value.toLowerCase().trim().split(/\\s+/).filter(Boolean);
+            // the same spelling folds as the build (src/lib/blog.mjs normalizeSearch), so Arabic titles match however they are typed
+            var terms = oetNorm(input.value).split(' ').filter(Boolean);
             var shown = 0;
             root.querySelectorAll('.oet-blog-section:not(.oet-blog-latest)').forEach(function (section) {
                 var visible = 0;
@@ -161,6 +170,9 @@ ${arabicSection}
                     var match = terms.every(function (t) { return hay.indexOf(t) !== -1; });
                     card.hidden = !match;
                     if (match) visible++;
+                });
+                section.querySelectorAll('.oet-blog-subgroup').forEach(function (group) {
+                    group.hidden = !group.querySelector('.oet-blog-card:not([hidden])');
                 });
                 section.hidden = visible === 0;
                 shown += visible;
@@ -175,7 +187,14 @@ ${arabicSection}
 ---
 <Base
   meta={meta}
-  headExtra={headExtra}
+  headExtra={`${headExtra}
+<style>
+.oet-blog-subgroup { margin: 4px 0 28px; }
+.oet-blog-subgroup__title { font-size: 20px; margin: 0 0 14px; color: var(--oet-ink); }
+.oet-blog-subgroup__count { color: var(--oet-muted); font-weight: 600; }
+.oet-blog-card[lang=ar], .oet-blog-subgroup__title [lang=ar] { font-family: "Segoe UI", Tahoma, "Noto Naskh Arabic", "Noto Sans Arabic", Arial, sans-serif; }
+.oet-blog-card[lang=ar] .oet-blog-card__tag { letter-spacing: 0; text-transform: none; }
+</style>`}
   main={main}
   tail={tail}
   bodyClass="oet-live-site oet-resource-page"

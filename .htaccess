@@ -99,13 +99,13 @@ RewriteEngine On
 # --- Canonical URLs (301, one hop, always https) ---
 # Behind the TLS proxy Apache sees plain http, so mod_dir's own trailing-slash
 # redirect would point at http:// and chain through a second redirect.
-RewriteRule ^(privacy|terms|refund-policy|cookie-policy|ar|blog)$ https://%{HTTP_HOST}/$1/ [R=301,L]
+RewriteRule ^(privacy|terms|refund-policy|cookie-policy|ar|blog|ar/blog)$ https://%{HTTP_HOST}/$1/ [R=301,L]
 # THE_REQUEST guards stop these firing on DirectoryIndex / clean-URL internal rewrites.
 RewriteCond %{THE_REQUEST} \s/index\.html[\s?]
 RewriteRule ^index\.html$ https://%{HTTP_HOST}/ [R=301,L]
 # Same for the folder pages: /blog/index.html etc. would otherwise answer 200 as a duplicate of /blog/.
-RewriteCond %{THE_REQUEST} \s/(privacy|terms|refund-policy|cookie-policy|ar|blog)/index\.html[\s?]
-RewriteRule ^(privacy|terms|refund-policy|cookie-policy|ar|blog)/index\.html$ https://%{HTTP_HOST}/$1/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/(privacy|terms|refund-policy|cookie-policy|ar|blog|ar/blog)/index\.html[\s?]
+RewriteRule ^(privacy|terms|refund-policy|cookie-policy|ar|blog|ar/blog)/index\.html$ https://%{HTTP_HOST}/$1/ [R=301,L]
 RewriteCond %{THE_REQUEST} \s/english-placement-test\.html[\s?]
 RewriteRule ^english-placement-test\.html$ https://%{HTTP_HOST}/english-placement-test [R=301,L]
 # /favicon.ico and /apple-touch-icon.png are real files at the web root (emblem-only icon, 9 Nov 2026), no rewrite needed.
@@ -142,6 +142,8 @@ RewriteRule ^english-placement-test/?$ /english-placement-test.html [L]
 
 # Old or mistyped page URLs that Google or other sites still request
 RewriteRule ^oet-writing\.html$ https://%{HTTP_HOST}/oet-writing-tips.html [R=301,L]
+# The Arabic booking guide's draft URL (brief of 22 Nov 2026) -> the published page, which follows the site's .html rule
+RewriteRule ^ar/blog/oet-test-fee-booking-2027(?:\.html)?/?$ https://%{HTTP_HOST}/ar/oet-test-fee-booking-2027.html [R=301,L]
 RewriteRule ^(.+\.html)/$ https://%{HTTP_HOST}/$1 [R=301,L]
 # A page URL shared without .html goes to the real page
 RewriteCond %{DOCUMENT_ROOT}/$1.html -f

@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="ar" class="oet-live-site">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <script>
+      (function () {
+        try {
+          var m = window.matchMedia;
+          if (m && (
+            m('(max-width:1023.98px)').matches ||
+            m('(pointer:coarse)').matches ||
+            m('(hover:none)').matches ||
+            m('(prefers-reduced-motion:reduce)').matches
+          )) {
+            document.documentElement.classList.add('oet-lite-motion');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <script>(function(){try{var h=document.documentElement;if(Date.now()>Date.parse('2027-01-15T23:59:59Z'))h.classList.add('oet-news-expired');try{if(localStorage.getItem('oet_announce_paper-2027')==='1')h.classList.add('oet-bar-dismissed');}catch(e){}}catch(e){}})();</script>
+    <script>
+      // Signed-in hint set by the learner app (shared-domain cookie oet_signed_in=1, no token or PII).
+      // Presentation only. The header and drawer CTA always READS "Login / Register" (owner brief
+      // 28 Oct 2026); the hint only decides where it points: the app dashboard when the cookie exists
+      // (so a signed-in visitor is not sent back through sign-in), the sign-in entry otherwise.
+      // sync() is idempotent and runs: now, on DOMContentLoaded (the nav anchors exist and the deferred
+      // main.js has already cloned the nav into the mobile drawer; a clone copies whatever href it
+      // finds, and this pass fixes it), and on a bfcache restore (pageshow persisted) so Back after
+      // sign-in or sign-out never leaves a stale target. The guest href is remembered in
+      // data-login-href the first time an anchor is seen.
+      (function () {
+        var d = document;
+        function sync() {
+          try {
+            var on = /(?:^|;\s*)oet_signed_in=1(?:;|$)/.test(d.cookie);
+            d.querySelectorAll('a[data-dashboard-href]').forEach(function (a) {
+              if (!a.hasAttribute('data-login-href')) a.setAttribute('data-login-href', a.getAttribute('href'));
+              a.setAttribute('href', a.getAttribute(on ? 'data-dashboard-href' : 'data-login-href'));
+            });
+          } catch (e) {}
+        }
+        sync();
+        d.addEventListener('DOMContentLoaded', sync);
+        window.addEventListener('pageshow', function (e) { if (e.persisted) sync(); });
+      })();
+    </script>
+    <title>مقالات OET بالعربي: الكتابة والمحادثة والمواعيد | د. أحمد هشام</title>
+    <meta name="description" content="كل أدلة OET المكتوبة بالعربي من د. أحمد هشام: شرح الكتابة والمحادثة ونماذج رسائل لكل مهنة، ومواعيد ورسوم الامتحان وطريقة الحجز ودرجات النجاح.">
+    <link rel="canonical" href="https://oetwithdrhesham.co.uk/ar/blog/">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="OET with Dr Ahmed Hesham">
+    <meta property="og:locale" content="ar_AR">
+    <meta property="og:url" content="https://oetwithdrhesham.co.uk/ar/blog/">
+    <meta property="og:title" content="مقالات OET بالعربي: الكتابة والمحادثة والمواعيد | د. أحمد هشام">
+    <meta property="og:description" content="كل أدلة OET المكتوبة بالعربي من د. أحمد هشام: شرح الكتابة والمحادثة ونماذج رسائل لكل مهنة، ومواعيد ورسوم الامتحان وطريقة الحجز ودرجات النجاح.">
+    <meta property="og:image" content="https://oetwithdrhesham.co.uk/assets/img/og/og-tips.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": "https://oetwithdrhesham.co.uk/ar/blog/#blog",
+    "name": "مقالات OET بالعربي",
+    "url": "https://oetwithdrhesham.co.uk/ar/blog/",
+    "description": "كل أدلة OET المكتوبة بالعربي من د. أحمد هشام: شرح الكتابة والمحادثة ونماذج رسائل لكل مهنة، ومواعيد ورسوم الامتحان وطريقة الحجز ودرجات النجاح.",
+    "inLanguage": "ar",
+    "publisher": {
+      "@type": "EducationalOrganization",
+      "@id": "https://oetwithdrhesham.co.uk/#organization",
+      "name": "OET with Dr Ahmed Hesham",
+      "alternateName": [
+        "OET with Dr Hesham",
+        "Dr Hesham OET",
+        "OET مع د. أحمد هشام",
+        "د. أحمد هشام OET"
+      ],
+      "url": "https://oetwithdrhesham.co.uk/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://oetwithdrhesham.co.uk/assets/img/logo/platform-logo.png",
+        "width": 320,
+        "height": 90
+      },
+      "email": "support@oetwithdrhesham.co.uk",
+      "telephone": "+447961725989",
+      "founder": {
+        "@id": "https://oetwithdrhesham.co.uk/#drhesham"
+      },
+      "knowsLanguage": [
+        "en",
+        "ar"
+      ],
+      "sameAs": [
+        "https://www.youtube.com/@drhesham222",
+        "https://t.me/Oet_with_Hesham",
+        "https://t.me/OET_Nursing_DrHesham",
+        "https://www.facebook.com/groups/649430742699879",
+        "https://www.instagram.com/oetwith.drhesham"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "telephone": "+447961725989",
+        "email": "support@oetwithdrhesham.co.uk",
+        "availableLanguage": [
+          "English",
+          "Arabic"
+        ]
+      }
+    },
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "شرح كتابة رسالة OET: نصائح عملية للحصول على B",
+        "url": "https://oetwithdrhesham.co.uk/ar/oet-writing-tips.html",
+        "inLanguage": "ar",
+        "datePublished": "2026-10-24",
+        "dateModified": "2026-10-24",
+        "image": "https://oetwithdrhesham.co.uk/assets/img/blog/ar-oet-writing-tips.webp",
+        "articleSection": "الكتابة (Writing)",
+        "author": {
+          "@type": "Person",
+          "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+          "name": "Dr Ahmed Hesham",
+          "alternateName": [
+            "Dr Hesham",
+            "د. أحمد هشام"
+          ],
+          "honorificPrefix": "Dr",
+          "jobTitle": "Medical Doctor & OET Educator",
+          "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+          "url": "https://oetwithdrhesham.co.uk/about.html",
+          "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+          "worksFor": {
+            "@id": "https://oetwithdrhesham.co.uk/#organization"
+          },
+          "knowsAbout": [
+            "OET preparation",
+            "Medical English",
+            "OET Writing",
+            "OET Speaking",
+            "Healthcare professional registration"
+          ],
+          "knowsLanguage": [
+            "en",
+            "ar"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+            "https://www.youtube.com/@drhesham222"
+          ]
+        }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "نموذج رسالة OET للتمريض: رسالة خروج إلى ممرضة المجتمع",
+        "url": "https://oetwithdrhesham.co.uk/ar/oet-writing-sample-nursing.html",
+        "inLanguage": "ar",
+        "datePublished": "2026-11-21",
+        "dateModified": "2026-11-21",
+        "image": "https://oetwithdrhesham.co.uk/assets/img/blog/ar-oet-writing-sample-nursing.webp",
+        "articleSection": "الكتابة (Writing)",
+        "author": {
+          "@type": "Person",
+          "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+          "name": "Dr Ahmed Hesham",
+          "alternateName": [
+            "Dr Hesham",
+            "د. أحمد هشام"
+          ],
+          "honorificPrefix": "Dr",
+          "jobTitle": "Medical Doctor & OET Educator",
+          "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+          "url": "https://oetwithdrhesham.co.uk/about.html",
+          "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+          "worksFor": {
+            "@id": "https://oetwithdrhesham.co.uk/#organization"
+          },
+          "knowsAbout": [
+            "OET preparation",
+            "Medical English",
+            "OET Writing",
+            "OET Speaking",
+            "Healthcare professional registration"
+          ],
+          "knowsLanguage": [
+            "en",
+            "ar"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+            "https://www.youtube.com/@drhesham222"
+          ]
+        }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "نموذج رسالة OET للتمريض: رسالة تحويل إلى ممرضة متخصصة",
+        "url": "https://oetwithdrhesham.co.uk/ar/oet-writing-sample-nursing-referral.html",
+        "inLanguage": "ar",
+        "datePublished": "2026-11-21",
+        "dateModified": "2026-11-21",
+        "image": "https://oetwithdrhesham.co.uk/assets/img/blog/ar-oet-writing-sample-nursing-referral.webp",
+        "articleSection": "الكتابة (Writing)",
+        "author": {
+          "@type": "Person",
+          "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+          "name": "Dr Ahmed Hesham",
+          "alternateName": [
+            "Dr Hesham",
+            "د. أحمد هشام"
+          ],
+          "honorificPrefix": "Dr",
+          "jobTitle": "Medical Doctor & OET Educator",
+          "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+          "url": "https://oetwithdrhesham.co.uk/about.html",
+          "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+          "worksFor": {
+            "@id": "https://oetwithdrhesham.co.uk/#organization"
+          },
+          "knowsAbout": [
+            "OET preparation",
+            "Medical English",
+            "OET Writing",
+            "OET Speaking",
+            "Healthcare professional registration"
+          ],
+          "knowsLanguage": [
+            "en",
+            "ar"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+            "https://www.youtube.com/@drhesham222"
+          ]
+        }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "نموذج رسالة OET للأطباء: رسالة تحويل إلى استشاري القلب",
+        "url": "https://oetwithdrhesham.co.uk/ar/oet-writing-sample-medicine.html",
+        "inLanguage": "ar",
+        "datePublished": "2026-11-21",
+        "dateModified": "2026-11-21",
+        "image": "https://oetwithdrhesham.co.uk/assets/img/blog/ar-oet-writing-sample-medicine.webp",
+        "articleSection": "الكتابة (Writing)",
+        "author": {
+          "@type": "Person",
+          "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+          "name": "Dr Ahmed Hesham",
+          "alternateName": [
+            "Dr Hesham",
+            "د. أحمد هشام"
+          ],
+          "honorificPrefix": "Dr",
+          "jobTitle": "Medical Doctor & OET Educator",
+          "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+          "url": "https://oetwithdrhesham.co.uk/about.html",
+          "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+          "worksFor": {
+            "@id": "https://oetwithdrhesham.co.uk/#organization"
+          },
+          "knowsAbout": [
+            "OET preparation",
+            "Medical English",
+            "OET Writing",
+            "OET Speaking",
+            "Healthcare professional registration"
+          ],
+          "knowsLanguage": [
+            "en",
+            "ar"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+            "https://www.youtube.com/@drhesham222"
+          ]
+        }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "نموذج رسالة خروج OET للأطباء: من المستشفى إلى الطبيب العام",
+        "url": "https://oetwithdrhesham.co.uk/ar/oet-writing-sample-medicine-discharge.html",
+        "inLanguage": "ar",
+        "datePublished": "2026-11-21",
+        "dateModified": "2026-11-21",
+        "image": "https://oetwithdrhesham.co.uk/assets/img/blog/ar-oet-writing-sample-medicine-discharge.webp",
+        "articleSection": "الكتابة (Writing)",
+        "author": {
+          "@type": "Person",
+          "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+          "name": "Dr Ahmed Hesham",
+          "alternateName": [
+            "Dr Hesham",
+            "د. أحمد هشام"
+          ],
+          "honorificPrefix": "Dr",
+          "jobTitle": "Medical Doctor & OET Educator",
+          "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+          "url": "https://oetwithdrhesham.co.uk/about.html",
+          "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+          "worksFor": {
+            "@id": "https://oetwithdrhesham.co.uk/#organization"
+          },
+          "knowsAbout": [
+            "OET preparation",
+            "Medical English",
+            "OET Writing",
+            "OET Speaking",
+            "Healthcare professional registration"
+          ],
+          "knowsLanguage": [
+            "en",
+            "ar"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+            "https://www.youtube.com/@drhesham222"
+          ]
+        }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "نموذج OET Writing للصيادلة: رسالة إلى الطبيب العام",
+        "url": "https://oetwithdrhesham.co.uk/ar/oet-writing-sample-pharmacy.html",
+        "inLanguage": "ar",
+        "datePublished": "2026-11-21",
+        "dateModified": "2026-11-21",
+        "image": "https://oetwithdrhesham.co.uk/assets/img/blog/ar-oet-writing-sample-pharmacy.webp",
+        "articleSection": "الكتابة (Writing)",
+        "author": {
+          "@type": "Person",
+          "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+          "name": "Dr Ahmed Hesham",
+          "alternateName": [
+            "Dr Hesham",
+            "د. أحمد هشام"
+          ],
+          "honorificPrefix": "Dr",
+          "jobTitle": "Medical Doctor & OET Educator",
+          "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+          "url": "https://oetwithdrhesham.co.uk/about.html",
+          "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+          "worksFor": {
+            "@id": "https://oetwithdrhesham.co.uk/#organization"
+          },
+          "knowsAbout": [
+            "OET preparation",
+            "Medical English",
+            "OET Writing",
+            "OET Speaking",
+            "Healthcare professional registration"
+          ],
+          "knowsLanguage": [
+            "en",
+            "ar"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+            "https://www.youtube.com/@drhesham222"
+          ]
+        }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "نموذج OET Writing لأخصائيي العلاج الطبيعي: رسالة خروج",
+        "url": "https://oetwithdrhesham.co.uk/ar/oet-writing-sample-physiotherapy.html",
+        "inLanguage": "ar",
+        "datePublished": "2026-11-21",
+        "dateModified": "2026-11-21",
+        "image": "https://oetwithdrhesham.co.uk/assets/img/blog/ar-oet-writing-sample-physiotherapy.webp",
+        "articleSection": "الكتابة (Writing)",
+        "author": {
+          "@type": "Person",
+          "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+          "name": "Dr Ahmed Hesham",
+          "alternateName": [
+            "Dr Hesham",
+            "د. أحمد هشام"
+          ],
+          "honorificPrefix": "Dr",
+          "jobTitle": "Medical Doctor & OET Educator",
+          "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+          "url": "https://oetwithdrhesham.co.uk/about.html",
+          "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+          "worksFor": {
+            "@id": "https://oetwithdrhesham.co.uk/#organization"
+          },
+          "knowsAbout": [
+            "OET preparation",
+            "Medical English",
+            "OET Writing",
+            "OET Speaking",
+            "Healthcare professional registration"
+          ],
+          "knowsLanguage": [
+            "en",
+            "ar"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+            "https://www.youtube.com/@drhesham222"
+          ]
+        }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "شرح Speaking في OET: نصائح عملية للـ Role-play",
+        "url": "https://oetwithdrhesham.co.uk/ar/oet-speaking-tips.html",
+        "inLanguage": "ar",
+        "datePublished": "2026-10-24",
+        "dateModified": "2026-10-24",
+        "image": "https://oetwithdrhesham.co.uk/assets/img/blog/ar-oet-speaking-tips.webp",
+        "articleSection": "المحادثة (Speaking)",
+        "author": {
+          "@type": "Person",
+          "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+          "name": "Dr Ahmed Hesham",
+          "alternateName": [
+            "Dr Hesham",
+            "د. أحمد هشام"
+          ],
+          "honorificPrefix": "Dr",
+          "jobTitle": "Medical Doctor & OET Educator",
+          "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+          "url": "https://oetwithdrhesham.co.uk/about.html",
+          "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+          "worksFor": {
+            "@id": "https://oetwithdrhesham.co.uk/#organization"
+          },
+          "knowsAbout": [
+            "OET preparation",
+            "Medical English",
+            "OET Writing",
+            "OET Speaking",
+            "Healthcare professional registration"
+          ],
+          "knowsLanguage": [
+            "en",
+            "ar"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+            "https://www.youtube.com/@drhesham222"
+          ]
+        }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "بطاقات Role-play لامتحان Speaking في OET حسب المهنة",
+        "url": "https://oetwithdrhesham.co.uk/ar/oet-speaking-role-play-cards.html",
+        "inLanguage": "ar",
+        "datePublished": "2026-11-21",
+        "dateModified": "2026-11-21",
+        "image": "https://oetwithdrhesham.co.uk/assets/img/blog/ar-oet-speaking-role-play-cards.webp",
+        "articleSection": "المحادثة (Speaking)",
+        "author": {
+          "@type": "Person",
+          "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+          "name": "Dr Ahmed Hesham",
+          "alternateName": [
+            "Dr Hesham",
+            "د. أحمد هشام"
+          ],
+          "honorificPrefix": "Dr",
+          "jobTitle": "Medical Doctor & OET Educator",
+          "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+          "url": "https://oetwithdrhesham.co.uk/about.html",
+          "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+          "worksFor": {
+            "@id": "https://oetwithdrhesham.co.uk/#organization"
+          },
+          "knowsAbout": [
+            "OET preparation",
+            "Medical English",
+            "OET Writing",
+            "OET Speaking",
+            "Healthcare professional registration"
+          ],
+          "knowsLanguage": [
+            "en",
+            "ar"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+            "https://www.youtube.com/@drhesham222"
+          ]
+        }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "حجز امتحان OET خطوة بخطوة: الورقي والكمبيوتر والرسوم",
+        "url": "https://oetwithdrhesham.co.uk/ar/oet-test-fee-booking-2027.html",
+        "inLanguage": "ar",
+        "datePublished": "2026-11-22",
+        "dateModified": "2026-11-22",
+        "image": "https://oetwithdrhesham.co.uk/assets/img/blog/ar-oet-test-fee-booking-2027.webp",
+        "articleSection": "معلومات الامتحان",
+        "author": {
+          "@type": "Person",
+          "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+          "name": "Dr Ahmed Hesham",
+          "alternateName": [
+            "Dr Hesham",
+            "د. أحمد هشام"
+          ],
+          "honorificPrefix": "Dr",
+          "jobTitle": "Medical Doctor & OET Educator",
+          "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+          "url": "https://oetwithdrhesham.co.uk/about.html",
+          "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+          "worksFor": {
+            "@id": "https://oetwithdrhesham.co.uk/#organization"
+          },
+          "knowsAbout": [
+            "OET preparation",
+            "Medical English",
+            "OET Writing",
+            "OET Speaking",
+            "Healthcare professional registration"
+          ],
+          "knowsLanguage": [
+            "en",
+            "ar"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+            "https://www.youtube.com/@drhesham222"
+          ]
+        }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "مواعيد امتحان OET 2027 و2026 والرسوم وموعد النتيجة",
+        "url": "https://oetwithdrhesham.co.uk/ar/oet-test-dates-and-fees.html",
+        "inLanguage": "ar",
+        "datePublished": "2026-10-24",
+        "dateModified": "2026-11-22",
+        "image": "https://oetwithdrhesham.co.uk/assets/img/blog/ar-oet-test-dates-and-fees.webp",
+        "articleSection": "معلومات الامتحان",
+        "author": {
+          "@type": "Person",
+          "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+          "name": "Dr Ahmed Hesham",
+          "alternateName": [
+            "Dr Hesham",
+            "د. أحمد هشام"
+          ],
+          "honorificPrefix": "Dr",
+          "jobTitle": "Medical Doctor & OET Educator",
+          "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+          "url": "https://oetwithdrhesham.co.uk/about.html",
+          "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+          "worksFor": {
+            "@id": "https://oetwithdrhesham.co.uk/#organization"
+          },
+          "knowsAbout": [
+            "OET preparation",
+            "Medical English",
+            "OET Writing",
+            "OET Speaking",
+            "Healthcare professional registration"
+          ],
+          "knowsLanguage": [
+            "en",
+            "ar"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+            "https://www.youtube.com/@drhesham222"
+          ]
+        }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "سعر امتحان OET 2026: كم تكلفة الامتحان؟",
+        "url": "https://oetwithdrhesham.co.uk/ar/oet-exam-fees.html",
+        "inLanguage": "ar",
+        "datePublished": "2026-11-07",
+        "dateModified": "2026-11-07",
+        "image": "https://oetwithdrhesham.co.uk/assets/img/blog/ar-oet-exam-fees.webp",
+        "articleSection": "معلومات الامتحان",
+        "author": {
+          "@type": "Person",
+          "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+          "name": "Dr Ahmed Hesham",
+          "alternateName": [
+            "Dr Hesham",
+            "د. أحمد هشام"
+          ],
+          "honorificPrefix": "Dr",
+          "jobTitle": "Medical Doctor & OET Educator",
+          "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+          "url": "https://oetwithdrhesham.co.uk/about.html",
+          "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+          "worksFor": {
+            "@id": "https://oetwithdrhesham.co.uk/#organization"
+          },
+          "knowsAbout": [
+            "OET preparation",
+            "Medical English",
+            "OET Writing",
+            "OET Speaking",
+            "Healthcare professional registration"
+          ],
+          "knowsLanguage": [
+            "en",
+            "ar"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+            "https://www.youtube.com/@drhesham222"
+          ]
+        }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "ما هو امتحان OET؟ نظامه ودرجاته ومن يقبله",
+        "url": "https://oetwithdrhesham.co.uk/ar/what-is-oet.html",
+        "inLanguage": "ar",
+        "datePublished": "2026-11-07",
+        "dateModified": "2026-11-07",
+        "image": "https://oetwithdrhesham.co.uk/assets/img/blog/ar-what-is-oet.webp",
+        "articleSection": "معلومات الامتحان",
+        "author": {
+          "@type": "Person",
+          "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+          "name": "Dr Ahmed Hesham",
+          "alternateName": [
+            "Dr Hesham",
+            "د. أحمد هشام"
+          ],
+          "honorificPrefix": "Dr",
+          "jobTitle": "Medical Doctor & OET Educator",
+          "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+          "url": "https://oetwithdrhesham.co.uk/about.html",
+          "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+          "worksFor": {
+            "@id": "https://oetwithdrhesham.co.uk/#organization"
+          },
+          "knowsAbout": [
+            "OET preparation",
+            "Medical English",
+            "OET Writing",
+            "OET Speaking",
+            "Healthcare professional registration"
+          ],
+          "knowsLanguage": [
+            "en",
+            "ar"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+            "https://www.youtube.com/@drhesham222"
+          ]
+        }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "درجة النجاح في امتحان OET: كم تحتاج لتنجح؟",
+        "url": "https://oetwithdrhesham.co.uk/ar/oet-passing-score.html",
+        "inLanguage": "ar",
+        "datePublished": "2026-11-07",
+        "dateModified": "2026-11-07",
+        "image": "https://oetwithdrhesham.co.uk/assets/img/blog/ar-oet-passing-score.webp",
+        "articleSection": "معلومات الامتحان",
+        "author": {
+          "@type": "Person",
+          "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+          "name": "Dr Ahmed Hesham",
+          "alternateName": [
+            "Dr Hesham",
+            "د. أحمد هشام"
+          ],
+          "honorificPrefix": "Dr",
+          "jobTitle": "Medical Doctor & OET Educator",
+          "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+          "url": "https://oetwithdrhesham.co.uk/about.html",
+          "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+          "worksFor": {
+            "@id": "https://oetwithdrhesham.co.uk/#organization"
+          },
+          "knowsAbout": [
+            "OET preparation",
+            "Medical English",
+            "OET Writing",
+            "OET Speaking",
+            "Healthcare professional registration"
+          ],
+          "knowsLanguage": [
+            "en",
+            "ar"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+            "https://www.youtube.com/@drhesham222"
+          ]
+        }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "OET أم IELTS: أيهما أنسب للتمريض والأطباء؟",
+        "url": "https://oetwithdrhesham.co.uk/ar/oet-vs-ielts.html",
+        "inLanguage": "ar",
+        "datePublished": "2026-10-24",
+        "dateModified": "2026-10-24",
+        "image": "https://oetwithdrhesham.co.uk/assets/img/blog/ar-oet-vs-ielts.webp",
+        "articleSection": "معلومات الامتحان",
+        "author": {
+          "@type": "Person",
+          "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+          "name": "Dr Ahmed Hesham",
+          "alternateName": [
+            "Dr Hesham",
+            "د. أحمد هشام"
+          ],
+          "honorificPrefix": "Dr",
+          "jobTitle": "Medical Doctor & OET Educator",
+          "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+          "url": "https://oetwithdrhesham.co.uk/about.html",
+          "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+          "worksFor": {
+            "@id": "https://oetwithdrhesham.co.uk/#organization"
+          },
+          "knowsAbout": [
+            "OET preparation",
+            "Medical English",
+            "OET Writing",
+            "OET Speaking",
+            "Healthcare professional registration"
+          ],
+          "knowsLanguage": [
+            "en",
+            "ar"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+            "https://www.youtube.com/@drhesham222"
+          ]
+        }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "امتحان OET الورقي هيتوقف لعشر مهن في يناير 2027: إيه اللي هيتغير عليك",
+        "url": "https://oetwithdrhesham.co.uk/ar/oet-paper-test-2027-changes.html",
+        "inLanguage": "ar",
+        "datePublished": "2026-11-21",
+        "dateModified": "2026-11-21",
+        "image": "https://oetwithdrhesham.co.uk/assets/img/blog/ar-oet-paper-test-2027-changes.webp",
+        "articleSection": "معلومات الامتحان",
+        "author": {
+          "@type": "Person",
+          "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+          "name": "Dr Ahmed Hesham",
+          "alternateName": [
+            "Dr Hesham",
+            "د. أحمد هشام"
+          ],
+          "honorificPrefix": "Dr",
+          "jobTitle": "Medical Doctor & OET Educator",
+          "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+          "url": "https://oetwithdrhesham.co.uk/about.html",
+          "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+          "worksFor": {
+            "@id": "https://oetwithdrhesham.co.uk/#organization"
+          },
+          "knowsAbout": [
+            "OET preparation",
+            "Medical English",
+            "OET Writing",
+            "OET Speaking",
+            "Healthcare professional registration"
+          ],
+          "knowsLanguage": [
+            "en",
+            "ar"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+            "https://www.youtube.com/@drhesham222"
+          ]
+        }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "درجات OET المطلوبة لكل جهة ترخيص (2026)",
+        "url": "https://oetwithdrhesham.co.uk/ar/oet-score-requirements.html",
+        "inLanguage": "ar",
+        "datePublished": "2026-10-24",
+        "dateModified": "2026-10-24",
+        "image": "https://oetwithdrhesham.co.uk/assets/img/blog/ar-oet-score-requirements.webp",
+        "articleSection": "أدلة الترخيص",
+        "author": {
+          "@type": "Person",
+          "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+          "name": "Dr Ahmed Hesham",
+          "alternateName": [
+            "Dr Hesham",
+            "د. أحمد هشام"
+          ],
+          "honorificPrefix": "Dr",
+          "jobTitle": "Medical Doctor & OET Educator",
+          "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+          "url": "https://oetwithdrhesham.co.uk/about.html",
+          "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+          "worksFor": {
+            "@id": "https://oetwithdrhesham.co.uk/#organization"
+          },
+          "knowsAbout": [
+            "OET preparation",
+            "Medical English",
+            "OET Writing",
+            "OET Speaking",
+            "Healthcare professional registration"
+          ],
+          "knowsLanguage": [
+            "en",
+            "ar"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+            "https://www.youtube.com/@drhesham222"
+          ]
+        }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "دليل OET للترخيص الصحي في الخليج",
+        "url": "https://oetwithdrhesham.co.uk/ar/gulf-pathway-guide.html",
+        "inLanguage": "ar",
+        "datePublished": "2026-11-02",
+        "dateModified": "2026-11-02",
+        "image": "https://oetwithdrhesham.co.uk/assets/img/blog/ar-gulf-pathway-guide.webp",
+        "articleSection": "أدلة الترخيص",
+        "author": {
+          "@type": "Person",
+          "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+          "name": "Dr Ahmed Hesham",
+          "alternateName": [
+            "Dr Hesham",
+            "د. أحمد هشام"
+          ],
+          "honorificPrefix": "Dr",
+          "jobTitle": "Medical Doctor & OET Educator",
+          "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+          "url": "https://oetwithdrhesham.co.uk/about.html",
+          "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-960.webp",
+          "worksFor": {
+            "@id": "https://oetwithdrhesham.co.uk/#organization"
+          },
+          "knowsAbout": [
+            "OET preparation",
+            "Medical English",
+            "OET Writing",
+            "OET Speaking",
+            "Healthcare professional registration"
+          ],
+          "knowsLanguage": [
+            "en",
+            "ar"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+            "https://www.youtube.com/@drhesham222"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "الرئيسية",
+        "item": "https://oetwithdrhesham.co.uk/ar/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "مقالات OET بالعربي",
+        "item": "https://oetwithdrhesham.co.uk/ar/blog/"
+      }
+    ]
+  }
+]
+    </script>
+    <meta property="og:image:alt" content="مقالات OET بالعربي: الكتابة والمحادثة والمواعيد | د. أحمد هشام">
+    <meta name="author" content="Dr Ahmed Hesham">
+    <link rel="alternate" type="application/atom+xml" title="OET Blog by Dr Hesham" href="/feed.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="facebook-domain-verification" content="4j7vanqeax6mvmydb4sod34bj388dv">
+    <link rel="icon" href="/favicon.ico?v=20261109" sizes="32x32">
+    <link rel="icon" href="/assets/img/logo/fav-icon.svg?v=20261109" type="image/svg+xml">
+    <link rel="icon" href="/assets/img/logo/favicon-32x32.png?v=20261109" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/img/logo/favicon-16x16.png?v=20261109" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261109" sizes="180x180">
+    <link rel="manifest" href="/site.webmanifest?v=20261109">
+    <link rel="preload" href="/assets/fonts/mulish-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/cal-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+        
+        <link rel="stylesheet" href="/assets/css/plugins/sal.css?v=52a59aec6a">
+                        <link rel="stylesheet" href="/assets/css/oet-core.css?v=79cde4e606">
+    
+    <link rel="stylesheet" href="/assets/css/oet-pathway.css?v=ff5d90a514">
+<style>
+@media (max-width: 767px) {
+  .oet-resource-hero .oet-tips-hero-copy[data-sal], .oet-resource-hero .oet-tips-hero-copy [data-sal], .oet-resource-hero .oet-tips-hero-panel[data-sal] { opacity: 1 !important;
+                transform: none !important; }
+}
+</style>
+    <style>
+.oet-final-cta-icon { display: grid !important;
+            place-items: center !important;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px !important;
+            font-weight: 900;
+            line-height: 1 !important;
+            color: #ffffff !important; }
+</style>
+    <link rel="stylesheet" href="/assets/css/oet-resource.css?v=d24f259e0a">
+    <style>
+@media (min-width: 1200px) {
+  .oet-skill-hero { padding-top: 240px !important; }
+}
+</style>
+
+<style>
+main[dir=rtl] :is(h1, h2, h3, h4, p, li, td, th, a, span, strong, small, summary, label, button) { font-family: "Segoe UI", Tahoma, "Noto Naskh Arabic", "Noto Sans Arabic", Arial, sans-serif; }
+main[dir=rtl], main[dir=rtl] * { letter-spacing: 0 !important; }
+main[dir=rtl] p, main[dir=rtl] li, main[dir=rtl] td { line-height: 1.9; }
+main[dir=rtl] h1, main[dir=rtl] h2, main[dir=rtl] h3, main[dir=rtl] p, main[dir=rtl] li, main[dir=rtl] th, main[dir=rtl] td { text-align: right; }
+main[dir=rtl] .oet-resource-card li { padding-left: 0; padding-right: 24px; }
+main[dir=rtl] .oet-resource-card li:before { left: auto; right: 0; }
+main[dir=rtl] .oet-ar-steps { margin: 0; padding: 0 22px 0 0; }
+main[dir=rtl] .oet-ar-steps li { margin-bottom: 12px; }
+main[dir=rtl] .oet-breadcrumbs li + li::before { content: "\2039"; }
+main[dir=rtl] .fa-arrow-left, main[dir=rtl] .fa-arrow-right { display: inline-block; }
+main[dir=rtl] .oet-related-card:hover .oet-related-arrow { transform: translateX(-4px); }
+main[dir=rtl] .oet-ar-en { font-size: 14px; font-weight: 700; margin-inline-start: 8px; }
+main[dir=rtl] .oet-ar-note { color: #5f5a7b; font-size: 14px; margin-top: 14px; }
+main[dir=rtl] .oet-ar-note a, main[dir=rtl] .oet-resource-heading a, main[dir=rtl] .oet-resource-card a, main[dir=rtl] .pathway-table a, main[dir=rtl] .oet-ar-steps a { color: #5b3ff1; font-weight: 700; }
+</style>
+
+<style>
+main[dir=rtl].oet-blog .oet-blog-search__field i { left: auto; right: 16px; }
+main[dir=rtl].oet-blog .oet-blog-search__field input { padding-left: 16px; padding-right: 44px; text-align: right; }
+main[dir=rtl].oet-blog .oet-blog-card__tag { letter-spacing: 0; text-transform: none; }
+.oet-ar-lib-gap { background: var(--oet-lav-100, #f1edff); border-radius: 16px; padding: 18px 20px; margin: 8px 0 32px; }
+.oet-ar-lib-gap h2 { font-size: 20px; margin: 0 0 6px; }
+.oet-ar-lib-gap ul, .oet-ar-lib-pages ul { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.oet-ar-lib-gap a, .oet-ar-lib-pages a { color: #5b3ff1; font-weight: 700; }
+.oet-ar-lib-pages { border-top: 1px solid #e6e1fb; margin-top: 8px; padding-top: 32px; }
+.oet-ar-lib-pages h3 { font-size: 18px; margin: 18px 0 4px; }
+</style>
+</head>
+<body class="oet-live-site oet-resource-page">
+    <a class="oet-skip-link" data-lenis-ignore-anchor href="#main-content">Skip to main content</a>
+<!--================= Announcement bar (data/announcement.json) =================-->
+    <aside class="oet-announce" data-oet-announce="paper-2027" lang="ar" dir="rtl" aria-label="إعلان"><a class="oet-announce__link" href="/ar/oet-paper-test-2027-changes.html">امتحان OET الورقي بيتوقف لعشر مهن في يناير 2027. اعرف اللي بيتغير عليك ←</a><button class="oet-announce__close" type="button" aria-label="إغلاق الإعلان"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></aside>
+<!--================= Header section start =================-->
+    <header>
+        <div id="vl-header-sticky" class="vl-header-area vl-transparent-header">
+            <!-- header top ribbon -->
+            <div class="vl-header-top-area d-none d-xl-block">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="vl-header-top-text">
+                                <span class="vl-header-top-badge"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Free OET Prep for Doctors &amp; Nurses</span>
+                                <a class="oet-community-cta" href="#oet-community-popup" aria-label="Join Free Community!" aria-haspopup="dialog" aria-controls="oet-community-popup">
+                                    <span class="oet-community-cta__sizer" aria-hidden="true"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Join Free Community!</span>
+                                    <span class="oet-community-cta__content" aria-hidden="true">
+                                        <span class="oet-community-cta__text"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Join Free Community!</span>
+                                        <span class="oet-community-cta__cursor">|</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- header top icon list -->
+                            <div class="header-top">
+                                <ul>
+                                    <li><a href="mailto:support@oetwithdrhesham.co.uk"><span class="header-top-icon"><i class="fa-regular fa-envelope" aria-hidden="true"></i></span><span>support@oetwithdrhesham.co.uk</span></a></li>
+                                    <li><a href="tel:+447961725989"><span class="header-top-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span><span>+44 7961 725989</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vl-header-main-area">
+                <div class="container">
+                    <div class="header-border-bottom">
+                        <div class="row align-items-center">
+                            <div class="col-xl-2 col-md-6 col-6">
+                                <div class="vl-logo">
+                                    <a href="/" title="OET with Dr Hesham | The Pathway to UK" aria-label="OET with Dr Hesham Homepage"><img width="320" height="90" decoding="async" src="/assets/img/logo/platform-logo.webp" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-7 d-none d-xl-block">
+                                <div class="vl-main-menu text-center">
+                                    <nav class="vl-mobile-menu-active" aria-label="Main navigation">
+                                        <ul>
+                                            <li class="has-dropdown"><a href="/about.html">About <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="/about.html"><span class="submenu-icon"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></span><span class="submenu-text">About Dr. Hesham</span></a></li>
+                                                    <li><a href="https://www.youtube.com/watch?v=kL91eG32Uok" data-youtube-url="https://www.youtube.com/watch?v=kL91eG32Uok" data-oet-inline-video="true" class="popup-video" aria-label="Play Why OET video" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span><span class="submenu-text">Why OET</span></a></li>
+                                                    <li><a href="/teaching-approach.html"><span class="submenu-icon"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i></span><span class="submenu-text">Teaching Approach</span></a></li>
+                                                    <li><a href="/oet-writing-correction.html"><span class="submenu-icon"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i></span><span class="submenu-text">Writing Corrections</span></a></li>
+                                                    <li><a href="/pricing.html"><span class="submenu-icon"><i class="fa-solid fa-tags" aria-hidden="true"></i></span><span class="submenu-text">Packages &amp; Offers</span></a></li>
+                                                    <li><a href="/success-stories.html"><span class="submenu-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span><span class="submenu-text">Success Stories</span></a></li>
+                                                    <li><a href="/faq.html"><span class="submenu-icon"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span><span class="submenu-text">FAQ</span></a></li>
+                                                    <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span><span class="submenu-text">Telegram Materials</span></a></li>
+                                                    <li class="has-dropdown"><a href="/blog/#pathways"><span class="submenu-icon"><i class="fa-solid fa-route" aria-hidden="true"></i></span><span class="submenu-text">Pathway Guidelines</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                        <ul class="sub-menu">
+                                                            <li><a href="/uk-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-flag" aria-hidden="true"></i></span><span class="submenu-text">UK Pathway Guide</span></a></li>
+                                                            <li><a href="/usa-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span><span class="submenu-text">USA Pathway Guide</span></a></li>
+                                                            <li><a href="/australia-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-earth-oceania" aria-hidden="true"></i></span><span class="submenu-text">Australia Pathway Guide</span></a></li>
+                                                            <li><a href="/gulf-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-compass" aria-hidden="true"></i></span><span class="submenu-text">Gulf Pathway Guide</span></a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><a class="oet-pricing-nav-link" href="/ar/pricing.html">Pricing</a></li><li><a class="oet-pricing-nav-link" href="/ar/pricing.html#download-app">Download App</a></li>
+                                        <li class="has-dropdown"><a href="/service.html">OET Courses <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                            <ul class="sub-menu">
+                                               <li><a href="/oet-course-for-nurses.html"><span class="submenu-icon"><i class="fa-solid fa-notes-medical" aria-hidden="true"></i></span><span class="submenu-text">OET for Nurses</span></a></li>
+                                               <li><a href="/oet-course-for-doctors.html"><span class="submenu-icon"><i class="fa-solid fa-stethoscope" aria-hidden="true"></i></span><span class="submenu-text">OET for Doctors</span></a></li>
+                                               <li><a href="/oet-writing-correction.html"><span class="submenu-icon"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i></span><span class="submenu-text">Writing Correction</span></a></li>
+                                               <li><a href="/ar/" lang="ar"><span class="submenu-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span><span class="submenu-text">OET بالعربية</span></a></li>
+                                               <li><a href="/oet-course-for-pharmacists.html"><span class="submenu-icon"><i class="fa-solid fa-pills" aria-hidden="true"></i></span><span class="submenu-text">OET for Pharmacists</span></a></li>
+                                               <li><a href="/oet-course-for-physiotherapists.html"><span class="submenu-icon"><i class="fa-solid fa-person-walking" aria-hidden="true"></i></span><span class="submenu-text">OET for Physiotherapists</span></a></li>
+                                               <li><a href="/oet-for-allied-health.html"><span class="submenu-icon"><i class="fa-solid fa-briefcase-medical" aria-hidden="true"></i></span><span class="submenu-text">OET for Allied Health</span></a></li>
+                                               <li><a href="/pricing.html"><span class="submenu-icon"><i class="fa-solid fa-box-open" aria-hidden="true"></i></span><span class="submenu-text">OET Packages</span></a></li>
+                                            </ul>
+                                        </li>
+                                        
+                                        <li class="has-dropdown"><a href="/oet-tips.html">Free Resources <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                            <ul class="sub-menu"><li><a href="/ar/blog/" lang="ar"><span class="submenu-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span><span class="submenu-text" dir="rtl">مقالات OET بالعربي</span></a></li>
+                                               <li class="has-dropdown"><a href="/oet-tips.html"><span class="submenu-icon"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></span><span class="submenu-text">OET Tips</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                   <ul class="sub-menu">
+                                                       <li><a href="/oet-writing-tips.html"><span class="submenu-icon"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></span><span class="submenu-text">Writing Tips</span></a></li>
+                                                       <li><a href="/oet-reading-tips.html"><span class="submenu-icon"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i></span><span class="submenu-text">Reading Tips</span></a></li>
+                                                       <li><a href="/oet-listening-tips.html"><span class="submenu-icon"><i class="fa-solid fa-headphones" aria-hidden="true"></i></span><span class="submenu-text">Listening Tips</span></a></li>
+                                                       <li><a href="/oet-speaking-tips.html"><span class="submenu-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span><span class="submenu-text">Speaking Tips</span></a></li>
+                                                   </ul>
+                                               </li>
+                                               <li class="has-dropdown"><a href="/oet-score-requirements.html"><span class="submenu-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><span class="submenu-text">OET Exam Guide</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                   <ul class="sub-menu">
+                                                       <li><a href="/oet-sample-tests.html"><span class="submenu-icon"><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i></span><span class="submenu-text">Free Sample Tests</span></a></li>
+                                                       <li><a href="/oet-score-calculator.html"><span class="submenu-icon"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></span><span class="submenu-text">OET Score Calculator</span></a></li>
+                                                       <li><a href="/oet-score-requirements.html"><span class="submenu-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><span class="submenu-text">Score Requirements</span></a></li>
+                                                       <li><a href="/oet-test-dates-and-fees.html"><span class="submenu-icon"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></span><span class="submenu-text">Test Dates &amp; Fees</span></a></li>
+                                                       <li><a href="/oet-vs-ielts.html"><span class="submenu-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span><span class="submenu-text">OET vs IELTS</span></a></li>
+                                                       <li><a href="/oet-for-ecfmg.html"><span class="submenu-icon"><i class="fa-solid fa-flag" aria-hidden="true"></i></span><span class="submenu-text">OET for ECFMG</span></a></li>
+                                                       <li><a href="/oet-writing-sample-nursing.html"><span class="submenu-icon"><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i></span><span class="submenu-text">Writing Sample: Nursing</span></a></li>
+                                                       <li><a href="/oet-writing-sample-medicine.html"><span class="submenu-icon"><i class="fa-solid fa-file-waveform" aria-hidden="true"></i></span><span class="submenu-text">Writing Sample: Medicine</span></a></li>
+                                                       <li><a href="/oet-speaking-role-play-nursing.html"><span class="submenu-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span><span class="submenu-text">Speaking Role-Plays: Nursing</span></a></li>
+                                                       <li><a href="/oet-speaking-role-play-medicine.html"><span class="submenu-icon"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i></span><span class="submenu-text">Speaking Role-Plays: Medicine</span></a></li>
+                                                   </ul>
+                                               </li>
+                                               <li class="has-dropdown"><a href="/oet-materials-support.html"><span class="submenu-icon"><i class="fa-solid fa-folder-open" aria-hidden="true"></i></span><span class="submenu-text">Materials &amp; Support</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                   <ul class="sub-menu">
+                                                       <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span><span class="submenu-text">Telegram Materials</span></a></li>
+                                                       <li><a href="#oet-community-popup" class="oet-community-cta"><span class="submenu-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span><span class="submenu-text">Join Free Community</span></a></li>
+                                                       <li><a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><span class="submenu-text">WhatsApp Support</span></a></li>
+                                                   </ul>
+                                               </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="/blog/">OET Blog</a></li><li><a href="/ar/oet-recalls.html" lang="ar">الريكولز</a></li><li><a href="https://app.oetwithdrhesham.co.uk/webinars" lang="ar">الندوات</a></li>
+                                        <li><a href="/english-placement-test">Free Placement Test</a></li>
+                                        <li class="oet-nav-desktop-only"><a href="/contact.html">Contact</a></li>
+                                        <li class="oet-nav-cta-item"><a class="oet-header-cta-btn" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F" data-dashboard-href="https://app.oetwithdrhesham.co.uk/"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>Login / Register</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-6">
+                            <div class="vl-header-right">
+                                <!-- header btn -->
+                                <div class="vl-header-search d-none d-xl-block">
+                                    <button type="button" class="oet-search-btn" aria-label="Search this site" aria-controls="vl-header-search" aria-expanded="false"><img aria-hidden="true" loading="lazy" decoding="async" class="vl-search-toggle" src="/assets/img/icon/vl-search-1.1.svg" alt=""></button>
+                                </div>
+                                <!-- header social area -->
+                                <div class="social-area social-area-headerTop d-none d-xl-block">
+                                    <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                                    <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                                    <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
+                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+                                    <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                                    <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+                                </div>
+                            </div>
+
+                            <!-- action btn -->
+                            <div class="vl-header-action-item d-block d-xl-none">
+                                <a class="oet-header-login" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F" data-dashboard-href="https://app.oetwithdrhesham.co.uk/">Login / Register</a>
+                                <button type="button" class="vl-offcanvas-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="vl-offcanvas-menu">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" aria-hidden="true" focusable="false">
+                                        <path d="M1.5 2.5h21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M1.5 9h21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M1.5 15.5h21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>    <!-- vl header search  -->
+    <div id="vl-header-search" class="vl-header-search-bar d-flex align-items-center">
+        <button class="vl-search-close" aria-label="Close search">&times;</button>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="vl-search-bar text-center">
+                        <h2 class="vl-search-bar-title mb-30">Search OET tips, writing, speaking, UK pathway</h2>
+                        <div class="contact-form-box contact-search-form-box">
+                            <form action="#">
+                                <input type="search" aria-label="Search this site" placeholder="Search OET preparation, writing, speaking...">
+                                <button type="submit"><i class="far fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- vl header search end -->
+
+    <!-- offcanvas menu start -->
+    <div id="vl-offcanvas-menu" class="vl-offcanvas">
+        <div class="vl-offcanvas-wrapper">
+            <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-50">
+                <div class="vl-offcanvas-logo">
+                    <a href="/" title="OET with Dr Hesham | The Pathway to UK"><img width="320" height="90" decoding="async" src="/assets/img/logo/platform-logo.webp" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                </div>
+                <div class="vl-offcanvas-close">
+                    <button class="vl-offcanvas-toggle" type="button" aria-label="Close menu"><span aria-hidden="true">&times;</span></button>
+                </div>
+            </div>
+
+            <div class="vl-offcanvas-menu d-lg-block mb-40">
+                <nav aria-label="Mobile navigation"></nav>
+            </div>
+            <div class="vl-offcanvas-info mb-40">
+                <h3 class="vl-offcanvas-sm-title mb-20">Support &amp; Community</h3>
+                <a href="#oet-community-popup" class="oet-community-cta"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.1.svg" width="24" height="24" alt=""></span> Join Free Community</a>
+                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.3.svg" width="24" height="24" alt=""></span> WhatsApp Support</a>
+                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.2.svg" width="24" height="24" alt=""></span> Telegram Channel</a>
+            </div>
+
+            <div class="vl-offcanvas-social mb-40">
+                <h3 class="vl-offcanvas-sm-title mb-20">Follow the Journey</h3>
+                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fab fa-youtube"></i></a>
+                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fab fa-telegram"></i></a>
+                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+            </div>
+        </div>
+    </div>
+    <div class="vl-offcanvas-overlay"></div>
+
+    <!-- offcanvas menu end -->
+
+<!--================= Header section End =================-->
+    <main id="main-content" class="oet-blog" tabindex="-1" dir="rtl" lang="ar">
+        <section class="oet-resource-hero oet-skill-hero oet-blog-hero">
+            <div class="container">
+                <nav class="oet-breadcrumbs" aria-label="مسار التصفح"><ol><li><a href="/ar/">الرئيسية</a></li><li aria-current="page">مقالات OET بالعربي</li></ol></nav>
+                <div class="oet-blog-hero__grid">
+                    <div>
+                        <span class="oet-resource-eyebrow"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i> أدلة د. أحمد هشام بالعربي</span>
+                        <h1 class="oet-resource-title">مقالات OET بالعربي</h1>
+                        <p class="oet-resource-lead">كل أدلة OET التي كتبها د. أحمد هشام بالعربي في مكان واحد: شرح الكتابة والمحادثة، ونماذج رسائل لكل مهنة، ومعلومات الامتحان من المواعيد والرسوم إلى طريقة الحجز، وأدلة الترخيص. نصوص الامتحان والإجابات النموذجية تبقى بالإنجليزية لأنها ما ستقرؤه وتكتبه في الامتحان.</p>
+                    </div>
+                    <form class="oet-blog-search" role="search" action="/ar/blog/" onsubmit="return false;">
+                        <label for="oet-blog-search-input">ابحث في المقالات</label>
+                        <div class="oet-blog-search__field">
+                            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                            <input id="oet-blog-search-input" type="search" name="q" placeholder="مثلاً: رسالة تحويل أو الحجز" autocomplete="off" aria-describedby="oet-blog-search-status" dir="auto">
+                        </div>
+                        <p id="oet-blog-search-status" class="oet-blog-search__status" aria-live="polite">18 مقالاً</p>
+                    </form>
+                </div>
+                <nav class="oet-blog-chips" aria-label="مواضيع المقالات"><ul><li><a class="oet-blog-chip" href="#all-guides">كل المقالات <span>18</span></a></li><li><a class="oet-blog-chip" href="#writing">الكتابة (Writing) <span>7</span></a></li><li><a class="oet-blog-chip" href="#speaking">المحادثة (Speaking) <span>2</span></a></li><li><a class="oet-blog-chip" href="#exam-format">معلومات الامتحان <span>7</span></a></li><li><a class="oet-blog-chip" href="#pathways">أدلة الترخيص <span>2</span></a></li><li><a class="oet-blog-chip" href="/blog/" lang="en" hreflang="en" dir="ltr">OET Blog in English <span>45</span></a></li></ul></nav>
+            </div>
+        </section>
+
+        <div class="container oet-blog-body" id="all-guides">
+<section class="oet-blog-section" id="writing" aria-labelledby="writing-title" data-topic="writing">
+      <div class="oet-blog-section__head"><h2 id="writing-title">الكتابة (Writing) <span class="oet-ar-lib-count">(7 مقالات)</span></h2><p>طريقة كتابة الرسالة واختيار المعلومات من الـ case notes، ونماذج رسائل لكل مهنة بإجابة نموذجية وشرح التصحيح.</p></div>
+      <div class="oet-blog-grid">
+<article class="oet-blog-card" data-lang="ar" data-category="writing" lang="ar" dir="rtl" data-search="شرح كتابه رساله oet: نصائح عمليه للحصول علي b شرح كتابه رساله oet خطوه بخطوه: المده وعدد الكلمات والمعايير السته، وكيف تختار المعلومات من ال case notes، واخطاء شائعه تمنعك من الدرجه b. الكتابه (writing) writing arabic عربي العربيه">
+  <a class="oet-blog-card__media" href="/ar/oet-writing-tips.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/ar-oet-writing-tips.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
+  <div class="oet-blog-card__body">
+    <span class="oet-blog-card__tag"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i> الكتابة (Writing)</span>
+    <h3 class="oet-blog-card__title"><a href="/ar/oet-writing-tips.html">شرح كتابة رسالة OET: نصائح عملية للحصول على B</a></h3>
+    <p class="oet-blog-card__summary">شرح كتابة رسالة OET خطوة بخطوة: المدة وعدد الكلمات والمعايير الستة، وكيف تختار المعلومات من الـ case notes، وأخطاء شائعة تمنعك من الدرجة B.</p>
+    <p class="oet-blog-card__meta">د. أحمد هشام &middot; <time datetime="2026-10-24">24 أكتوبر 2026</time> &middot; 5 دقائق قراءة</p>
+    <a class="oet-blog-card__link" href="/ar/oet-writing-tips.html" aria-label="اقرأ المقال: شرح كتابة رسالة OET: نصائح عملية للحصول على B">اقرأ المقال <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+  </div>
+</article>
+<article class="oet-blog-card" data-lang="ar" data-category="writing" lang="ar" dir="rtl" data-search="نموذج رساله oet للتمريض: رساله خروج الي ممرضه المجتمع نموذج مجاني لرساله oet writing للتمريض: ملاحظات حاله خروج واقعيه، واجابه نموذجيه بالانجليزيه الي ممرضه المجتمع، وشرح كل معيار من المعايير السته. الكتابه (writing) writing arabic عربي العربيه">
+  <a class="oet-blog-card__media" href="/ar/oet-writing-sample-nursing.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/ar-oet-writing-sample-nursing.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
+  <div class="oet-blog-card__body">
+    <span class="oet-blog-card__tag"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i> الكتابة (Writing)</span>
+    <h3 class="oet-blog-card__title"><a href="/ar/oet-writing-sample-nursing.html">نموذج رسالة OET للتمريض: رسالة خروج إلى ممرضة المجتمع</a></h3>
+    <p class="oet-blog-card__summary">نموذج مجاني لرسالة OET Writing للتمريض: ملاحظات حالة خروج واقعية، وإجابة نموذجية بالإنجليزية إلى ممرضة المجتمع، وشرح كل معيار من المعايير الستة.</p>
+    <p class="oet-blog-card__meta">د. أحمد هشام &middot; <time datetime="2026-11-21">21 نوفمبر 2026</time> &middot; 9 دقائق قراءة</p>
+    <a class="oet-blog-card__link" href="/ar/oet-writing-sample-nursing.html" aria-label="اقرأ المقال: نموذج رسالة OET للتمريض: رسالة خروج إلى ممرضة المجتمع">اقرأ المقال <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+  </div>
+</article>
+<article class="oet-blog-card" data-lang="ar" data-category="writing" lang="ar" dir="rtl" data-search="نموذج رساله oet للتمريض: رساله تحويل الي ممرضه متخصصه نموذج مجاني لرساله تحويل تمريضيه في oet: ملاحظات حاله من ممرضه عياده، واجابه نموذجيه بالانجليزيه للتحويل الي ممرضه متخصصه في السكري، وملاحظات التصحيح. الكتابه (writing) writing arabic عربي العربيه">
+  <a class="oet-blog-card__media" href="/ar/oet-writing-sample-nursing-referral.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/ar-oet-writing-sample-nursing-referral.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
+  <div class="oet-blog-card__body">
+    <span class="oet-blog-card__tag"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i> الكتابة (Writing)</span>
+    <h3 class="oet-blog-card__title"><a href="/ar/oet-writing-sample-nursing-referral.html">نموذج رسالة OET للتمريض: رسالة تحويل إلى ممرضة متخصصة</a></h3>
+    <p class="oet-blog-card__summary">نموذج مجاني لرسالة تحويل تمريضية في OET: ملاحظات حالة من ممرضة عيادة، وإجابة نموذجية بالإنجليزية للتحويل إلى ممرضة متخصصة في السكري، وملاحظات التصحيح.</p>
+    <p class="oet-blog-card__meta">د. أحمد هشام &middot; <time datetime="2026-11-21">21 نوفمبر 2026</time> &middot; 9 دقائق قراءة</p>
+    <a class="oet-blog-card__link" href="/ar/oet-writing-sample-nursing-referral.html" aria-label="اقرأ المقال: نموذج رسالة OET للتمريض: رسالة تحويل إلى ممرضة متخصصة">اقرأ المقال <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+  </div>
+</article>
+<article class="oet-blog-card" data-lang="ar" data-category="writing" lang="ar" dir="rtl" data-search="نموذج رساله oet للاطباء: رساله تحويل الي استشاري القلب نموذج مجاني لرساله oet writing للاطباء: ملاحظات استشاره طبيب عام، واجابه نموذجيه بالانجليزيه لتحويل مريض الي استشاري قلب، وشرح كل قرار في اختيار المعلومات. الكتابه (writing) writing arabic عربي العربيه">
+  <a class="oet-blog-card__media" href="/ar/oet-writing-sample-medicine.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/ar-oet-writing-sample-medicine.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
+  <div class="oet-blog-card__body">
+    <span class="oet-blog-card__tag"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i> الكتابة (Writing)</span>
+    <h3 class="oet-blog-card__title"><a href="/ar/oet-writing-sample-medicine.html">نموذج رسالة OET للأطباء: رسالة تحويل إلى استشاري القلب</a></h3>
+    <p class="oet-blog-card__summary">نموذج مجاني لرسالة OET Writing للأطباء: ملاحظات استشارة طبيب عام، وإجابة نموذجية بالإنجليزية لتحويل مريض إلى استشاري قلب، وشرح كل قرار في اختيار المعلومات.</p>
+    <p class="oet-blog-card__meta">د. أحمد هشام &middot; <time datetime="2026-11-21">21 نوفمبر 2026</time> &middot; 9 دقائق قراءة</p>
+    <a class="oet-blog-card__link" href="/ar/oet-writing-sample-medicine.html" aria-label="اقرأ المقال: نموذج رسالة OET للأطباء: رسالة تحويل إلى استشاري القلب">اقرأ المقال <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+  </div>
+</article>
+<article class="oet-blog-card" data-lang="ar" data-category="writing" lang="ar" dir="rtl" data-search="نموذج رساله خروج oet للاطباء: من المستشفي الي الطبيب العام نموذج رساله خروج في oet writing للاطباء: ملاحظات حاله التهاب رئوي، ورساله نموذجيه من المستشفي الي الطبيب العام، وشرح كل قرار اختيار علي المعايير السته. الكتابه (writing) writing arabic عربي العربيه">
+  <a class="oet-blog-card__media" href="/ar/oet-writing-sample-medicine-discharge.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/ar-oet-writing-sample-medicine-discharge.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
+  <div class="oet-blog-card__body">
+    <span class="oet-blog-card__tag"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i> الكتابة (Writing)</span>
+    <h3 class="oet-blog-card__title"><a href="/ar/oet-writing-sample-medicine-discharge.html">نموذج رسالة خروج OET للأطباء: من المستشفى إلى الطبيب العام</a></h3>
+    <p class="oet-blog-card__summary">نموذج رسالة خروج في OET Writing للأطباء: ملاحظات حالة التهاب رئوي، ورسالة نموذجية من المستشفى إلى الطبيب العام، وشرح كل قرار اختيار على المعايير الستة.</p>
+    <p class="oet-blog-card__meta">د. أحمد هشام &middot; <time datetime="2026-11-21">21 نوفمبر 2026</time> &middot; 9 دقائق قراءة</p>
+    <a class="oet-blog-card__link" href="/ar/oet-writing-sample-medicine-discharge.html" aria-label="اقرأ المقال: نموذج رسالة خروج OET للأطباء: من المستشفى إلى الطبيب العام">اقرأ المقال <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+  </div>
+</article>
+<article class="oet-blog-card" data-lang="ar" data-category="writing" lang="ar" dir="rtl" data-search="نموذج oet writing للصيادله: رساله الي الطبيب العام نموذج كتابه oet للصيادله: case notes مراجعه ادويه، ورساله نموذجيه من الصيدلي الي الطبيب العام، وشرح كل قرار اختيار علي المعايير السته. الكتابه (writing) writing arabic عربي العربيه">
+  <a class="oet-blog-card__media" href="/ar/oet-writing-sample-pharmacy.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/ar-oet-writing-sample-pharmacy.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
+  <div class="oet-blog-card__body">
+    <span class="oet-blog-card__tag"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i> الكتابة (Writing)</span>
+    <h3 class="oet-blog-card__title"><a href="/ar/oet-writing-sample-pharmacy.html">نموذج OET Writing للصيادلة: رسالة إلى الطبيب العام</a></h3>
+    <p class="oet-blog-card__summary">نموذج كتابة OET للصيادلة: case notes مراجعة أدوية، ورسالة نموذجية من الصيدلي إلى الطبيب العام، وشرح كل قرار اختيار على المعايير الستة.</p>
+    <p class="oet-blog-card__meta">د. أحمد هشام &middot; <time datetime="2026-11-21">21 نوفمبر 2026</time> &middot; 9 دقائق قراءة</p>
+    <a class="oet-blog-card__link" href="/ar/oet-writing-sample-pharmacy.html" aria-label="اقرأ المقال: نموذج OET Writing للصيادلة: رسالة إلى الطبيب العام">اقرأ المقال <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+  </div>
+</article>
+<article class="oet-blog-card" data-lang="ar" data-category="writing" lang="ar" dir="rtl" data-search="نموذج oet writing لاخصائيي العلاج الطبيعي: رساله خروج نموذج كتابه oet للعلاج الطبيعي: case notes بعد استبدال مفصل الركبه، ورساله نموذجيه الي اخصائي علاج طبيعي في المجتمع، وملاحظات التصحيح علي المعايير السته. الكتابه (writing) writing arabic عربي العربيه">
+  <a class="oet-blog-card__media" href="/ar/oet-writing-sample-physiotherapy.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/ar-oet-writing-sample-physiotherapy.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
+  <div class="oet-blog-card__body">
+    <span class="oet-blog-card__tag"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i> الكتابة (Writing)</span>
+    <h3 class="oet-blog-card__title"><a href="/ar/oet-writing-sample-physiotherapy.html">نموذج OET Writing لأخصائيي العلاج الطبيعي: رسالة خروج</a></h3>
+    <p class="oet-blog-card__summary">نموذج كتابة OET للعلاج الطبيعي: case notes بعد استبدال مفصل الركبة، ورسالة نموذجية إلى أخصائي علاج طبيعي في المجتمع، وملاحظات التصحيح على المعايير الستة.</p>
+    <p class="oet-blog-card__meta">د. أحمد هشام &middot; <time datetime="2026-11-21">21 نوفمبر 2026</time> &middot; 9 دقائق قراءة</p>
+    <a class="oet-blog-card__link" href="/ar/oet-writing-sample-physiotherapy.html" aria-label="اقرأ المقال: نموذج OET Writing لأخصائيي العلاج الطبيعي: رسالة خروج">اقرأ المقال <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+  </div>
+</article>
+      </div>
+    </section>
+<section class="oet-blog-section" id="speaking" aria-labelledby="speaking-title" data-topic="speaking">
+      <div class="oet-blog-section__head"><h2 id="speaking-title">المحادثة (Speaking) <span class="oet-ar-lib-count">(مقالان)</span></h2><p>خطوات الـ role-play ومعايير التقييم، وبطاقات تدريب لكل مهنة.</p></div>
+      <div class="oet-blog-grid">
+<article class="oet-blog-card" data-lang="ar" data-category="speaking" lang="ar" dir="rtl" data-search="شرح speaking في oet: نصائح عمليه لل role-play شرح speaking في oet: مده الامتحان وال role-plays ومعايير التقييم التسعه، وعبارات انجليزيه مفيده لكل مرحله، واخطاء شائعه تمنعك من الدرجه b. المحادثه (speaking) speaking arabic عربي العربيه">
+  <a class="oet-blog-card__media" href="/ar/oet-speaking-tips.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/ar-oet-speaking-tips.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
+  <div class="oet-blog-card__body">
+    <span class="oet-blog-card__tag"><i class="fa-solid fa-comments" aria-hidden="true"></i> المحادثة (Speaking)</span>
+    <h3 class="oet-blog-card__title"><a href="/ar/oet-speaking-tips.html">شرح Speaking في OET: نصائح عملية للـ Role-play</a></h3>
+    <p class="oet-blog-card__summary">شرح Speaking في OET: مدة الامتحان والـ role-plays ومعايير التقييم التسعة، وعبارات إنجليزية مفيدة لكل مرحلة، وأخطاء شائعة تمنعك من الدرجة B.</p>
+    <p class="oet-blog-card__meta">د. أحمد هشام &middot; <time datetime="2026-10-24">24 أكتوبر 2026</time> &middot; 6 دقائق قراءة</p>
+    <a class="oet-blog-card__link" href="/ar/oet-speaking-tips.html" aria-label="اقرأ المقال: شرح Speaking في OET: نصائح عملية للـ Role-play">اقرأ المقال <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+  </div>
+</article>
+<article class="oet-blog-card" data-lang="ar" data-category="speaking" lang="ar" dir="rtl" data-search="بطاقات role-play لامتحان speaking في oet حسب المهنه بطاقات role-play لمحادثه oet للاطباء والممرضين والصيادله واخصائيي العلاج الطبيعي، مع اجابات نموذجيه، وكيف يحتسب وقت الموقفين وكيف يقيم الاداء. المحادثه (speaking) speaking arabic عربي العربيه">
+  <a class="oet-blog-card__media" href="/ar/oet-speaking-role-play-cards.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/ar-oet-speaking-role-play-cards.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
+  <div class="oet-blog-card__body">
+    <span class="oet-blog-card__tag"><i class="fa-solid fa-comments" aria-hidden="true"></i> المحادثة (Speaking)</span>
+    <h3 class="oet-blog-card__title"><a href="/ar/oet-speaking-role-play-cards.html">بطاقات Role-play لامتحان Speaking في OET حسب المهنة</a></h3>
+    <p class="oet-blog-card__summary">بطاقات role-play لمحادثة OET للأطباء والممرضين والصيادلة وأخصائيي العلاج الطبيعي، مع إجابات نموذجية، وكيف يُحتسب وقت الموقفين وكيف يُقيَّم الأداء.</p>
+    <p class="oet-blog-card__meta">د. أحمد هشام &middot; <time datetime="2026-11-21">21 نوفمبر 2026</time> &middot; 4 دقائق قراءة</p>
+    <a class="oet-blog-card__link" href="/ar/oet-speaking-role-play-cards.html" aria-label="اقرأ المقال: بطاقات Role-play لامتحان Speaking في OET حسب المهنة">اقرأ المقال <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+  </div>
+</article>
+      </div>
+    </section>
+<section class="oet-blog-section" id="exam-format" aria-labelledby="exam-format-title" data-topic="exam-format">
+      <div class="oet-blog-section__head"><h2 id="exam-format-title">معلومات الامتحان <span class="oet-ar-lib-count">(7 مقالات)</span></h2><p>نظام الامتحان ومواعيده ورسومه، وطريقة الحجز، ودرجة النجاح، والمقارنة مع IELTS.</p></div>
+      <div class="oet-blog-grid">
+<article class="oet-blog-card" data-lang="ar" data-category="exam-format" lang="ar" dir="rtl" data-search="حجز امتحان oet خطوه بخطوه: الورقي والكمبيوتر والرسوم اعرف الفرق بين بوابه حجز oet الورقي والكمبيوتر، وخطوات اختيار المركز والموعد، والرسوم والهويه المطلوبه قبل الدفع، بروابط oet الرسميه. معلومات الامتحان exam format arabic عربي العربيه">
+  <a class="oet-blog-card__media" href="/ar/oet-test-fee-booking-2027.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/ar-oet-test-fee-booking-2027.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
+  <div class="oet-blog-card__body">
+    <span class="oet-blog-card__tag"><i class="fa-solid fa-desktop" aria-hidden="true"></i> معلومات الامتحان</span>
+    <h3 class="oet-blog-card__title"><a href="/ar/oet-test-fee-booking-2027.html">حجز امتحان OET خطوة بخطوة: الورقي والكمبيوتر والرسوم</a></h3>
+    <p class="oet-blog-card__summary">اعرف الفرق بين بوابة حجز OET الورقي والكمبيوتر، وخطوات اختيار المركز والموعد، والرسوم والهوية المطلوبة قبل الدفع، بروابط OET الرسمية.</p>
+    <p class="oet-blog-card__meta">د. أحمد هشام &middot; <time datetime="2026-11-22">22 نوفمبر 2026</time> &middot; 4 دقائق قراءة</p>
+    <a class="oet-blog-card__link" href="/ar/oet-test-fee-booking-2027.html" aria-label="اقرأ المقال: حجز امتحان OET خطوة بخطوة: الورقي والكمبيوتر والرسوم">اقرأ المقال <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+  </div>
+</article>
+<article class="oet-blog-card" data-lang="ar" data-category="exam-format" lang="ar" dir="rtl" data-search="مواعيد امتحان oet 2027 و2026 والرسوم وموعد النتيجه مواعيد امتحان oet 2027 علي الكمبيوتر والورقي (يناير للتمريض والطب) و2026، واخر موعد للحجز، ورسوم الامتحان واعاده جزء واحد، وموعد ظهور النتيجه. معلومات الامتحان exam format arabic عربي العربيه">
+  <a class="oet-blog-card__media" href="/ar/oet-test-dates-and-fees.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/ar-oet-test-dates-and-fees.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
+  <div class="oet-blog-card__body">
+    <span class="oet-blog-card__tag"><i class="fa-solid fa-desktop" aria-hidden="true"></i> معلومات الامتحان</span>
+    <h3 class="oet-blog-card__title"><a href="/ar/oet-test-dates-and-fees.html">مواعيد امتحان OET 2027 و2026 والرسوم وموعد النتيجة</a></h3>
+    <p class="oet-blog-card__summary">مواعيد امتحان OET 2027 على الكمبيوتر والورقي (يناير للتمريض والطب) و2026، وآخر موعد للحجز، ورسوم الامتحان وإعادة جزء واحد، وموعد ظهور النتيجة.</p>
+    <p class="oet-blog-card__meta">د. أحمد هشام &middot; <time datetime="2026-10-24">24 أكتوبر 2026</time> &middot; 9 دقائق قراءة</p>
+    <a class="oet-blog-card__link" href="/ar/oet-test-dates-and-fees.html" aria-label="اقرأ المقال: مواعيد امتحان OET 2027 و2026 والرسوم وموعد النتيجة">اقرأ المقال <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+  </div>
+</article>
+<article class="oet-blog-card" data-lang="ar" data-category="exam-format" lang="ar" dir="rtl" data-search="سعر امتحان oet 2026: كم تكلفه الامتحان؟ سعر امتحان oet الكامل 587 دولارا استراليا، اي حوالي 21,730 جنيها مصريا او 1,510 ريالا سعوديا. التكلفه حسب الدوله ورسوم الاعاده والتاجيل. معلومات الامتحان exam format arabic عربي العربيه">
+  <a class="oet-blog-card__media" href="/ar/oet-exam-fees.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/ar-oet-exam-fees.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
+  <div class="oet-blog-card__body">
+    <span class="oet-blog-card__tag"><i class="fa-solid fa-desktop" aria-hidden="true"></i> معلومات الامتحان</span>
+    <h3 class="oet-blog-card__title"><a href="/ar/oet-exam-fees.html">سعر امتحان OET 2026: كم تكلفة الامتحان؟</a></h3>
+    <p class="oet-blog-card__summary">سعر امتحان OET الكامل 587 دولاراً أسترالياً، أي حوالي 21,730 جنيهاً مصرياً أو 1,510 ريالاً سعودياً. التكلفة حسب الدولة ورسوم الإعادة والتأجيل.</p>
+    <p class="oet-blog-card__meta">د. أحمد هشام &middot; <time datetime="2026-11-07">7 نوفمبر 2026</time> &middot; 2 دقيقة قراءة</p>
+    <a class="oet-blog-card__link" href="/ar/oet-exam-fees.html" aria-label="اقرأ المقال: سعر امتحان OET 2026: كم تكلفة الامتحان؟">اقرأ المقال <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+  </div>
+</article>
+<article class="oet-blog-card" data-lang="ar" data-category="exam-format" lang="ar" dir="rtl" data-search="ما هو امتحان oet؟ نظامه ودرجاته ومن يقبله امتحان oet هو اختبار اللغه الانجليزيه للعاملين في المجال الصحي: 12 مهنه و4 اجزاء ودرجات من 500. تعرف علي نظام الامتحان وتكلفته ومن يقبله. معلومات الامتحان exam format arabic عربي العربيه">
+  <a class="oet-blog-card__media" href="/ar/what-is-oet.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/ar-what-is-oet.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
+  <div class="oet-blog-card__body">
+    <span class="oet-blog-card__tag"><i class="fa-solid fa-desktop" aria-hidden="true"></i> معلومات الامتحان</span>
+    <h3 class="oet-blog-card__title"><a href="/ar/what-is-oet.html">ما هو امتحان OET؟ نظامه ودرجاته ومن يقبله</a></h3>
+    <p class="oet-blog-card__summary">امتحان OET هو اختبار اللغة الإنجليزية للعاملين في المجال الصحي: 12 مهنة و4 أجزاء ودرجات من 500. تعرف على نظام الامتحان وتكلفته ومن يقبله.</p>
+    <p class="oet-blog-card__meta">د. أحمد هشام &middot; <time datetime="2026-11-07">7 نوفمبر 2026</time> &middot; 4 دقائق قراءة</p>
+    <a class="oet-blog-card__link" href="/ar/what-is-oet.html" aria-label="اقرأ المقال: ما هو امتحان OET؟ نظامه ودرجاته ومن يقبله">اقرأ المقال <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+  </div>
+</article>
+<article class="oet-blog-card" data-lang="ar" data-category="exam-format" lang="ar" dir="rtl" data-search="درجه النجاح في امتحان oet: كم تحتاج لتنجح؟ درجه النجاح المعتاده في oet هي b اي 350 من 500، وعاده 30 من 42 في الاستماع والقراءه. جدول الدرجات والحد الادني للاطباء والممرضين حسب كل جهه. معلومات الامتحان exam format arabic عربي العربيه">
+  <a class="oet-blog-card__media" href="/ar/oet-passing-score.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/ar-oet-passing-score.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
+  <div class="oet-blog-card__body">
+    <span class="oet-blog-card__tag"><i class="fa-solid fa-desktop" aria-hidden="true"></i> معلومات الامتحان</span>
+    <h3 class="oet-blog-card__title"><a href="/ar/oet-passing-score.html">درجة النجاح في امتحان OET: كم تحتاج لتنجح؟</a></h3>
+    <p class="oet-blog-card__summary">درجة النجاح المعتادة في OET هي B أي 350 من 500، وعادةً 30 من 42 في الاستماع والقراءة. جدول الدرجات والحد الأدنى للأطباء والممرضين حسب كل جهة.</p>
+    <p class="oet-blog-card__meta">د. أحمد هشام &middot; <time datetime="2026-11-07">7 نوفمبر 2026</time> &middot; 3 دقائق قراءة</p>
+    <a class="oet-blog-card__link" href="/ar/oet-passing-score.html" aria-label="اقرأ المقال: درجة النجاح في امتحان OET: كم تحتاج لتنجح؟">اقرأ المقال <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+  </div>
+</article>
+<article class="oet-blog-card" data-lang="ar" data-category="exam-format" lang="ar" dir="rtl" data-search="oet ام ielts: ايهما انسب للتمريض والاطباء؟ الفرق بين oet وielts للتمريض والاطباء: معادله درجات oet بال ielts من جداول oet الرسميه، وقبول كل اختبار عند nmc وgmc وahpra، وايهما انسب لك. معلومات الامتحان exam format arabic عربي العربيه">
+  <a class="oet-blog-card__media" href="/ar/oet-vs-ielts.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/ar-oet-vs-ielts.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
+  <div class="oet-blog-card__body">
+    <span class="oet-blog-card__tag"><i class="fa-solid fa-desktop" aria-hidden="true"></i> معلومات الامتحان</span>
+    <h3 class="oet-blog-card__title"><a href="/ar/oet-vs-ielts.html">OET أم IELTS: أيهما أنسب للتمريض والأطباء؟</a></h3>
+    <p class="oet-blog-card__summary">الفرق بين OET وIELTS للتمريض والأطباء: معادلة درجات OET بالـ IELTS من جداول OET الرسمية، وقبول كل اختبار عند NMC وGMC وAhpra، وأيهما أنسب لك.</p>
+    <p class="oet-blog-card__meta">د. أحمد هشام &middot; <time datetime="2026-10-24">24 أكتوبر 2026</time> &middot; 7 دقائق قراءة</p>
+    <a class="oet-blog-card__link" href="/ar/oet-vs-ielts.html" aria-label="اقرأ المقال: OET أم IELTS: أيهما أنسب للتمريض والأطباء؟">اقرأ المقال <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+  </div>
+</article>
+<article class="oet-blog-card" data-lang="ar" data-category="exam-format" lang="ar" dir="rtl" data-search="امتحان oet الورقي هيتوقف لعشر مهن في يناير 2027: ايه اللي هيتغير عليك من يناير 2027 امتحان oet الورقي هيفضل للتمريض والطب بس وفي 16 دوله. اعرف مين اللي هيتاثر وقايمه الدول وازاي تحضر علي الكمبيوتر. معلومات الامتحان exam format arabic عربي العربيه">
+  <a class="oet-blog-card__media" href="/ar/oet-paper-test-2027-changes.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/ar-oet-paper-test-2027-changes.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
+  <div class="oet-blog-card__body">
+    <span class="oet-blog-card__tag"><i class="fa-solid fa-desktop" aria-hidden="true"></i> معلومات الامتحان</span>
+    <h3 class="oet-blog-card__title"><a href="/ar/oet-paper-test-2027-changes.html">امتحان OET الورقي هيتوقف لعشر مهن في يناير 2027: إيه اللي هيتغير عليك</a></h3>
+    <p class="oet-blog-card__summary">من يناير 2027 امتحان OET الورقي هيفضل للتمريض والطب بس وفي 16 دولة. اعرف مين اللي هيتأثر وقايمة الدول وإزاي تحضّر على الكمبيوتر.</p>
+    <p class="oet-blog-card__meta">د. أحمد هشام &middot; <time datetime="2026-11-21">21 نوفمبر 2026</time> &middot; 5 دقائق قراءة</p>
+    <a class="oet-blog-card__link" href="/ar/oet-paper-test-2027-changes.html" aria-label="اقرأ المقال: امتحان OET الورقي هيتوقف لعشر مهن في يناير 2027: إيه اللي هيتغير عليك">اقرأ المقال <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+  </div>
+</article>
+      </div>
+    </section>
+<section class="oet-blog-section" id="pathways" aria-labelledby="pathways-title" data-topic="pathways">
+      <div class="oet-blog-section__head"><h2 id="pathways-title">أدلة الترخيص <span class="oet-ar-lib-count">(مقالان)</span></h2><p>الدرجات التي تطلبها كل جهة ترخيص، وخطوات الترخيص الصحي في الخليج.</p></div>
+      <div class="oet-blog-grid">
+<article class="oet-blog-card" data-lang="ar" data-category="pathways" lang="ar" dir="rtl" data-search="درجات oet المطلوبه لكل جهه ترخيص (2026) درجات oet المطلوبه 2026 في بريطانيا وايرلندا واستراليا ونيوزيلندا وامريكا: الحد الادني لكل جزء وعدد الجلسات وقبول oet@home ومده الصلاحيه. ادله الترخيص pathway guides arabic عربي العربيه">
+  <a class="oet-blog-card__media" href="/ar/oet-score-requirements.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/ar-oet-score-requirements.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
+  <div class="oet-blog-card__body">
+    <span class="oet-blog-card__tag"><i class="fa-solid fa-route" aria-hidden="true"></i> أدلة الترخيص</span>
+    <h3 class="oet-blog-card__title"><a href="/ar/oet-score-requirements.html">درجات OET المطلوبة لكل جهة ترخيص (2026)</a></h3>
+    <p class="oet-blog-card__summary">درجات OET المطلوبة 2026 في بريطانيا وأيرلندا وأستراليا ونيوزيلندا وأمريكا: الحد الأدنى لكل جزء وعدد الجلسات وقبول OET@Home ومدة الصلاحية.</p>
+    <p class="oet-blog-card__meta">د. أحمد هشام &middot; <time datetime="2026-10-24">24 أكتوبر 2026</time> &middot; 10 دقائق قراءة</p>
+    <a class="oet-blog-card__link" href="/ar/oet-score-requirements.html" aria-label="اقرأ المقال: درجات OET المطلوبة لكل جهة ترخيص (2026)">اقرأ المقال <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+  </div>
+</article>
+<article class="oet-blog-card" data-lang="ar" data-category="pathways" lang="ar" dir="rtl" data-search="دليل oet للترخيص الصحي في الخليج دليل oet للترخيص الصحي في الخليج: ما تاكدنا منه علي مواقع dhp في قطر وscfhs في السعوديه وجهات الامارات، من التحقق والاختبار الي درجه oet المطلوبه. ادله الترخيص pathway guides arabic عربي العربيه">
+  <a class="oet-blog-card__media" href="/ar/gulf-pathway-guide.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/blog/ar-gulf-pathway-guide.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"></a>
+  <div class="oet-blog-card__body">
+    <span class="oet-blog-card__tag"><i class="fa-solid fa-route" aria-hidden="true"></i> أدلة الترخيص</span>
+    <h3 class="oet-blog-card__title"><a href="/ar/gulf-pathway-guide.html">دليل OET للترخيص الصحي في الخليج</a></h3>
+    <p class="oet-blog-card__summary">دليل OET للترخيص الصحي في الخليج: ما تأكدنا منه على مواقع DHP في قطر وSCFHS في السعودية وجهات الإمارات، من التحقق والاختبار إلى درجة OET المطلوبة.</p>
+    <p class="oet-blog-card__meta">د. أحمد هشام &middot; <time datetime="2026-11-02">2 نوفمبر 2026</time> &middot; 9 دقائق قراءة</p>
+    <a class="oet-blog-card__link" href="/ar/gulf-pathway-guide.html" aria-label="اقرأ المقال: دليل OET للترخيص الصحي في الخليج">اقرأ المقال <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+  </div>
+</article>
+      </div>
+    </section>
+            <p class="oet-blog-empty" hidden>لا توجد مقالات مطابقة لبحثك. جرّب كلمة مثل الكتابة أو الحجز أو المواعيد.</p>
+<aside class="oet-ar-lib-gap" aria-labelledby="gap-title"><h2 id="gap-title">القراءة (Reading) والاستماع (Listening)</h2><p>لا توجد أدلة عربية لهذين الجزأين حتى الآن. اقرأ الأدلة الإنجليزية:</p><ul><li><a href="/oet-reading-part-b-workplace-texts.html" lang="en" dir="ltr">OET Reading Part B: workplace texts and purpose questions</a></li><li><a href="/oet-reading-part-a-scanning.html" lang="en" dir="ltr">OET Reading Part A: scanning under time pressure</a></li><li><a href="/oet-reading-part-c-inference.html" lang="en" dir="ltr">OET Reading Part C: inference and distractors</a></li><li><a href="/oet-reading-tips.html" lang="en" dir="ltr">OET Reading Tips 2026: 10 Expert Strategies for Healthcare Professionals</a></li><li><a href="/oet-listening-parts-b-c.html" lang="en" dir="ltr">OET Listening Parts B and C: prediction, opinion and distractors</a></li><li><a href="/oet-listening-part-a-note-taking.html" lang="en" dir="ltr">OET Listening Part A: note-taking and spelling</a></li><li><a href="/oet-listening-tips.html" lang="en" dir="ltr">OET Listening Tips 2026: 10 Expert Strategies for Healthcare Professionals</a></li></ul></aside>
+            <section class="oet-blog-next" aria-label="طبّق ما قرأته">
+                <h2>طبّق ما قرأته</h2>
+                <p>ابدأ بـ<a href="/ar/oet-sample-tests.html">نموذج امتحان OET مجاني</a> لكل جزء، واعرف مستواك قبل أن تختار الكورس المناسب لمهنتك.</p>
+                <div class="oet-resource-actions"><a class="oet-resource-btn" href="/english-placement-test">اختبار تحديد المستوى المجاني <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a><a class="oet-resource-btn oet-resource-btn--light" href="/ar/">كورس OET بالعربي</a></div>
+            </section>
+<section class="oet-ar-lib-pages" aria-labelledby="pages-title">
+      <h2 id="pages-title">صفحات أخرى بالعربية</h2>
+      <p>كورسات وأسعار وأدوات مجانية: صفحات مفيدة لكنها ليست مقالات، لذلك لا تدخل في عدد المقالات.</p>
+      <h3>كورسات OET حسب المهنة</h3><ul><li><a href="/ar/">كورس OET أونلاين للأطباء والتمريض مع د. أحمد هشام</a></li><li><a href="/ar/oet-course-for-doctors.html">كورس OET للأطباء أونلاين</a></li><li><a href="/ar/oet-course-for-nurses.html">كورس OET للتمريض أونلاين</a></li><li><a href="/ar/oet-course-for-pharmacists.html">كورس OET للصيادلة أونلاين</a></li><li><a href="/ar/oet-course-for-physiotherapists.html">كورس OET للعلاج الطبيعي أونلاين</a></li></ul>
+      <h3>كورس OET حسب الدولة</h3><ul><li><a href="/ar/oet-course-egypt.html">كورس التحضير لامتحان OET في مصر</a></li><li><a href="/ar/oet-course-saudi-arabia.html">كورس التحضير لامتحان OET في السعودية</a></li><li><a href="/ar/oet-course-uae.html">كورس التحضير لامتحان OET في الإمارات</a></li><li><a href="/ar/oet-course-qatar.html">كورس التحضير لامتحان OET في قطر</a></li><li><a href="/ar/oet-course-kuwait.html">كورس التحضير لامتحان OET في الكويت</a></li><li><a href="/ar/oet-course-oman.html">كورس التحضير لامتحان OET في عُمان</a></li></ul>
+      <h3>أدوات ومصادر مجانية</h3><ul><li><a href="/ar/oet-sample-tests.html">نماذج امتحان OET المجانية ومواد التدريب</a></li><li><a href="/ar/oet-mock-test.html">اختبار OET تجريبي أونلاين: امتحانات كاملة بالتوقيت الرسمي</a></li><li><a href="/ar/oet-score-calculator.html">حاسبة درجات OET</a></li><li><a href="/ar/oet-recalls.html">ريكولز OET: مواضيع الامتحان الأخيرة</a></li></ul>
+      <h3>الأسعار والنتائج والمعلومات الرسمية</h3><ul><li><a href="/ar/pricing.html">أسعار كورس OET: الكورسات والتقييمات والتدريب والامتحانات التجريبية</a></li><li><a href="/ar/success-stories.html">نتائج وقصص نجاح طلاب OET</a></li><li><a href="/ar/official-information.html">OET مع د. أحمد هشام: الموقع الرسمي والتطبيق والروابط</a></li></ul>
+    </section>
+        </div>
+    </main>
+    <script>
+    (function () {
+        function oetNorm(s){return String(s).toLowerCase().replace(/[\u064B-\u065F\u0670\u0640]/g,'').replace(/[\u0622\u0623\u0625\u0671]/g,'\u0627').replace(/\u0649/g,'\u064A').replace(/\u0629/g,'\u0647').replace(/\s+/g,' ').trim();}
+        var input = document.getElementById('oet-blog-search-input');
+        var status = document.getElementById('oet-blog-search-status');
+        var root = document.querySelector('.oet-blog');
+        if (!input || !root) return;
+        var empty = root.querySelector('.oet-blog-empty');
+        var gap = root.querySelector('.oet-ar-lib-gap');
+        var total = root.querySelectorAll('.oet-blog-section .oet-blog-card').length;
+        function label(k, match) {
+            if (k === 1) return match ? 'مقال واحد مطابق' : 'مقال واحد';
+            if (k === 2) return match ? 'مقالان مطابقان' : 'مقالان';
+            if (k <= 10) return k + (match ? ' مقالات مطابقة' : ' مقالات');
+            return k + (match ? ' مقالاً مطابقاً' : ' مقالاً');
+        }
+        function run() {
+            var terms = oetNorm(input.value).split(' ').filter(Boolean);
+            var shown = 0;
+            root.querySelectorAll('.oet-blog-section').forEach(function (section) {
+                var visible = 0;
+                section.querySelectorAll('.oet-blog-card').forEach(function (card) {
+                    var hay = card.getAttribute('data-search') || '';
+                    var match = terms.every(function (t) { return hay.indexOf(t) !== -1; });
+                    card.hidden = !match;
+                    if (match) visible++;
+                });
+                section.hidden = visible === 0;
+                shown += visible;
+            });
+            if (empty) empty.hidden = shown !== 0;
+            if (gap) gap.hidden = terms.length > 0;
+            status.textContent = terms.length ? (shown ? label(shown, true) : 'لا توجد نتائج') : label(total, false);
+        }
+        input.addEventListener('input', run);
+    })();
+    </script>
+<!--================= Footer section start =================-->
+    <footer class="vl-footer-10 fix vkl-gray-bg-19 pt-60 oet-footer">
+                <div class="container">
+                    <div class="oet-footer-cols">
+                        <div class="oet-footer-brand vl-footer-widget-1">
+                            <div class="vl-footer-logo">
+                                <a href="/"><img width="320" height="90" loading="lazy" decoding="async" src="/assets/img/logo/footer-logo.webp" alt="OET with Dr Hesham"></a>
+                            </div>
+                            <div class="vl-footer-content vl-footer-content-6">
+                                <p class="para pt-16 pb-24">We help nurses, doctors, pharmacists, and allied health professionals prepare for OET with practical guidance, focused feedback, and clear UK pathway support.</p>
+                            </div>
+
+                            <!-- social area -->
+                            <div class="social-area-footer-10">
+                                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+                                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram"></i></a>
+                                <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                                <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+                            </div>
+                        </div>
+
+                        <details class="oet-footer-group oet-footer-group--courses">
+                            <summary><h3 class="vl-footer-widget-title vl-footer-widget-title-6 oet-footer-group__title">Courses &amp; Practice</h3></summary>
+                            <div class="vl-footer-menu vl-footer-menu-10">
+                                <ul>
+                                    <li><a href="/service.html">OET Courses</a></li>
+                                    <li><a href="/oet-course-for-nurses.html">OET Course for Nurses</a></li>
+                                    <li><a href="/oet-course-for-doctors.html">OET Course for Doctors</a></li>
+                                    <li><a href="/oet-writing-correction.html">OET Writing Correction</a></li>
+                                    <li><a href="/pricing.html">Pricing</a></li>
+                                    <li><a href="/ar/" lang="ar">كورس OET بالعربية</a></li>
+<li><a href="/pricing.html#download-app">Download Candidates App</a></li>                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="oet-footer-group oet-footer-group--resources">
+                            <summary><h3 class="vl-footer-widget-title vl-footer-widget-title-6 oet-footer-group__title">Resources &amp; Guides</h3></summary>
+                            <div class="vl-footer-menu vl-footer-menu-10">
+                                <ul>
+                                    <li><a href="/blog/">OET Blog</a></li><li><a href="/ar/oet-recalls.html" lang="ar">ريكولز OET</a></li><li><a href="/ar/blog/" lang="ar" dir="rtl">مقالات OET بالعربي</a></li>
+                                    <li><a href="/oet-sample-tests.html">Free OET Sample Tests</a></li>
+                                    <li><a href="/oet-materials-support.html">Free Resources</a></li>
+                                    <li><a href="/oet-speaking-tips.html">Speaking Tips</a></li>
+                                    <li><a href="/oet-score-calculator.html">OET Score Calculator</a></li>
+                                    <li><a href="/oet-score-requirements.html">OET Score Requirements</a></li>
+                                    <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">Telegram Materials</a></li>
+                                    <li><a href="/uk-pathway-guide.html">UK Pathway Guide</a></li>
+                                    <li><a href="/usa-pathway-guide.html">USA Pathway Guide</a></li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="oet-footer-group oet-footer-group--support">
+                            <summary><h3 class="vl-footer-widget-title vl-footer-widget-title-6 oet-footer-group__title">About &amp; Support</h3></summary>
+                            <div class="vl-footer-menu vl-footer-menu-10">
+                                <ul>
+                                    <li><a href="/about.html">About Dr. Hesham</a></li>
+                                    <li><a href="/teaching-approach.html">Teaching Approach</a></li>
+                                    <li><a href="https://www.youtube.com/watch?v=hlD1BXfijWs" data-youtube-url="https://www.youtube.com/watch?v=hlD1BXfijWs" data-oet-inline-video="true" target="_blank" rel="noopener noreferrer">OET Programs</a></li>
+                                    <li><a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
+                                    <li><a href="mailto:support@oetwithdrhesham.co.uk">Email Support</a></li>
+                                    <li><a href="/faq.html">FAQ</a></li>
+                                    <li><a href="/contact.html">Contact</a></li>
+                                    <li><a href="/success-stories.html">Success Stories</a></li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="oet-footer-group oet-footer-group--connect">
+                            <summary><h3 class="vl-footer-widget-title vl-footer-widget-title-6 oet-footer-group__title">Stay Connected</h3></summary>
+                            <!-- Newslater -->
+                            <div class="vl-footer-newslate10 oet-footer-updates">
+                                <p class="oet-updates-copy">Free tips, live class alerts and course updates &mdash; straight from Dr Hesham.</p>
+                                <div class="oet-footer-subscribe-buttons">
+                                    <a class="oet-footer-btn oet-footer-btn--telegram" href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">
+                                        <span class="oet-footer-btn__icon"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span>
+                                        <span class="oet-footer-btn__text">Join Telegram Channel</span>
+                                    </a>
+                                    <a class="oet-footer-btn oet-footer-btn--youtube" href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer">
+                                        <span class="oet-footer-btn__icon"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                                        <span class="oet-footer-btn__text">Subscribe on YouTube</span>
+                                    </a>
+                                    <a class="oet-footer-btn oet-footer-btn--facebook" href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer">
+                                        <span class="oet-footer-btn__icon"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span>
+                                        <span class="oet-footer-btn__text">Join Facebook Community</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="vl-copy-righ1t vl-copy-righ1t-10">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 mb-30">
+                                    <div class="vl-footer-copy-right-widget vl-footer-copy-right-widget-6">
+                                        <p class="para">&copy; Copyright 2026 - OET with Dr Hesham. All Rights Reserved</p>
+                                        <p class="para oet-footer-company-support">OET with Dr Hesham is a digital education platform supported by ProHealth Digital LLC, Wyoming, USA.</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 mb-30">
+                                    <div class="vl-copy-right-menu vl-copy-right-menu-10">
+                                        <ul aria-label="Legal">
+                                            <li><strong>Legal</strong></li>
+                                            <li><a href="/terms/">Terms &amp; Conditions</a></li>
+                                            <li><a href="/privacy/">Privacy Policy</a></li>
+                                            <li><a href="/refund-policy/">Refund Policy</a></li>
+                                            <li><a href="/cookie-policy/">Cookie Policy</a></li>
+                                            <li><a href="/cookie-policy/" onclick="oetCookieSettings();return false;">Cookie settings</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+<!--================= Footer section End =================-->
+
+
+    <!-- js file -->
+
+    <!-- jquery js-->
+<!-- gsap js-->
+<!-- scrollTrigger js-->
+<!-- fontawesome -->
+<!-- counter js -->
+<!-- waypoints js-->
+<!-- sal js-->
+    <script defer src="/assets/js/plugins/sal.min.js?v=3ff9a5f201"></script>
+    <!-- ScrollSmoother js -->
+    <script defer src="/assets/js/plugins/lenis.min.js?v=98598577bb"></script>
+<!-- Custom js -->
+<script defer src="/assets/js/main.js?v=96ff1fca64"></script>
+
+    
+
+
+    
+
+
+
+
+    
+
+    <div class="oet-community-popup" id="oet-community-popup" aria-hidden="true">
+        <div class="oet-community-popup__overlay" data-oet-community-close></div>
+        <div class="oet-community-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="oet-community-popup-title" aria-describedby="oet-community-popup-intro">
+            <button class="oet-community-popup__close" type="button" data-oet-community-close aria-label="Close community popup">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+            <div class="oet-community-popup__body">
+                <span class="oet-community-popup__eyebrow"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Free OET support</span>
+                <h2 class="oet-community-popup__title" id="oet-community-popup-title">Join Our Free OET Communities</h2>
+                <p class="oet-community-popup__intro" id="oet-community-popup-intro">Choose the group or resource that matches your profession, language preference, or preparation stage. Each link opens in a new tab so you can join instantly.</p>
+
+                <h3 class="oet-community-popup__section-title">WhatsApp Groups</h3>
+                <div class="oet-community-popup__grid">
+                    <a class="oet-community-popup__card" href="https://chat.whatsapp.com/LPSFtrljYdjAYGpBStpMz5" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Exam Recalls Group 1</span>
+                        <span class="oet-community-popup__hint">Recent exam recall discussions</span>
+                    </a>
+                    <a class="oet-community-popup__card" href="https://chat.whatsapp.com/CzVgwnH73Vn8PupWxPrhkz" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Exam Recalls Group 2</span>
+                        <span class="oet-community-popup__hint">Backup recalls community</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/GwXdSX6v38F3EjNzC4wS2F?mode=hq1tsha" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET Nursing Free Community-New</span>
+                        <span class="oet-community-popup__hint">Highlighted nursing community</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/CeJmvXO5dJA50OKBGtZcuD?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET Medicine Free Community</span>
+                        <span class="oet-community-popup__hint">Free orientation sessions for medicine</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/IuCFuWFXFrQHtK6qICP4jg?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET English Only-Non-Arabic Speakers</span>
+                        <span class="oet-community-popup__hint">English-only practice community</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/Kz8zXv7GpoCJBAHpfDygPW?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET Pharmacy Free Community</span>
+                        <span class="oet-community-popup__hint">Pharmacy OET support</span>
+                    </a>
+                    <a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/E6AkDZhctn95XP7Do1RYgc?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET Physiotherapy Free Community</span>
+                        <span class="oet-community-popup__hint">Free OET community for physiotherapy</span>
+                    </a>
+                </div>
+
+                <h3 class="oet-community-popup__section-title">Free Orientation &amp; Resources</h3>
+                <div class="oet-community-popup__resources">
+                    <a class="oet-community-popup__resource" href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET with Dr Ahmed Hesham-Official Telegram Channel</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://t.me/OET_Nursing_DrHesham" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Telegram Nursing Channel</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET with Dr Ahmed Hesham - Main Facebook Group</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://www.facebook.com/share/1EMpS7pDau/" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET with Dr Ahmed Hesham-Official Facebook Page</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></span>
+                        <span class="oet-community-popup__name">Instagram</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--linkedin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></span>
+                        <span class="oet-community-popup__name">LinkedIn</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/kL91eG32Uok?si=Q464XynULlIxpiav" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/kL91eG32Uok?si=Q464XynULlIxpiav" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Doctors Arabic Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/3aBIQq_p3MQ?si=eNwqS82aYuYBaifr" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/3aBIQq_p3MQ?si=eNwqS82aYuYBaifr" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Doctors Non-Arabic Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/rbNsB7Olxts?si=RNoigvu5kz_bUVYI" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/rbNsB7Olxts?si=RNoigvu5kz_bUVYI" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Course Feedback</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/hlD1BXfijWs?si=EQFjYcWKTBOvltPI" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/hlD1BXfijWs?si=EQFjYcWKTBOvltPI" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">Nursing Orientation</span>
+                    </a>
+                    <a class="oet-community-popup__resource" href="https://youtu.be/MCPZb589zdY?si=vSLShtttUOEH89rx" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/MCPZb589zdY?si=vSLShtttUOEH89rx" data-oet-inline-video="true">
+                        <span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                        <span class="oet-community-popup__name">OET &amp; UK Nursing Live</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script defer src="/assets/js/oet-community-popup.js?v=b73488d264"></script>
+    <script src="/assets/js/oet-analytics.js?v=d6500c3d4b" defer></script>
+    <script src="/assets/js/oet-cookie-consent.js?v=e9753196cd" defer></script>
+    <script src="/assets/js/oet-search.js?v=ddf57f5228" defer></script>
+    <script src="/assets/js/oet-announce.js?v=b1609a8182" defer></script>
+</body>
+</html>

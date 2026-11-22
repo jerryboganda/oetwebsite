@@ -133,6 +133,9 @@ const PAGES = [
   // OET Recalls (owner brief v2, 21 Nov 2026): the only sitemap entries with xhtml:link hreflang annotations (the 5th element: en, ar)
   ['oet-recalls.html', '/oet-recalls.html', 'weekly', '0.8', ['/oet-recalls.html', '/ar/oet-recalls.html']],
   ['ar/oet-recalls.html', '/ar/oet-recalls.html', 'weekly', '0.8', ['/oet-recalls.html', '/ar/oet-recalls.html']],
+  // Brief of 22 Nov 2026: the Arabic library (built from blog.json, like /blog/) and the Arabic booking guide (no English pair)
+  ['ar/blog/index.html', '/ar/blog/', 'weekly', '0.8'],
+  ['ar/oet-test-fee-booking-2027.html', '/ar/oet-test-fee-booking-2027.html', 'monthly', '0.8'],
   ['404.html', null, null, null],
 ];
 
@@ -182,9 +185,9 @@ function prefillWhatsApp(html) {
 // --- 2. sitemap --------------------------------------------------------------
 function lastmodFor(distRel) {
   const key = distRel === '404.html' ? '404' : distRel.replace(/\/index\.html$|\.html$/, '');
-  // The blog index has no partials: pages/blog/index.astro generates it from blog.json.
-  const partials = key === 'blog'
-    ? path.join(SITE, 'src', 'pages', 'blog')
+  // The two blog indexes have no partials: pages/blog/index.astro and pages/ar/blog/index.astro generate them from blog.json.
+  const partials = key === 'blog' || key === 'ar/blog'
+    ? path.join(SITE, 'src', 'pages', key)
     : path.join(SITE, 'src', 'partials', key);
   // Visible prices on pricing.html come from the data file, not the partials;
   // the blog index and the homepage "Latest from the OET Blog" cards come from blog.json.
@@ -199,6 +202,7 @@ function lastmodFor(distRel) {
     'oet-course-for-physiotherapists': bundles,
     'oet-for-allied-health': bundles,
     blog: [path.join(SITE, 'src', 'data', 'blog.json')],
+    'ar/blog': [path.join(SITE, 'src', 'data', 'blog.json')],
     index: [path.join(SITE, 'src', 'data', 'blog.json')],
     // the Recalls topics and dates live in the data file: adding a month bumps the lastmod of both versions
     'oet-recalls': [path.join(SITE, 'src', 'data', 'recalls.json')],

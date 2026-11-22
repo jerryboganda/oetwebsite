@@ -3,32 +3,44 @@
     {
       "id": "writing",
       "label": "Writing",
-      "intro": "Letter structure, case-note selection, model letters and profession-specific Writing tasks."
+      "labelAr": "الكتابة (Writing)",
+      "intro": "Letter structure, case-note selection, model letters and profession-specific Writing tasks.",
+      "introAr": "طريقة كتابة الرسالة واختيار المعلومات من الـ case notes، ونماذج رسائل لكل مهنة بإجابة نموذجية وشرح التصحيح."
     },
     {
       "id": "speaking",
       "label": "Speaking",
-      "intro": "Patient-centred role-plays, clinical communication and model answers by profession."
+      "labelAr": "المحادثة (Speaking)",
+      "intro": "Patient-centred role-plays, clinical communication and model answers by profession.",
+      "introAr": "خطوات الـ role-play ومعايير التقييم، وبطاقات تدريب لكل مهنة."
     },
     {
       "id": "reading",
       "label": "Reading",
-      "intro": "Part A scanning, Part B workplace texts and Part C inference under time pressure."
+      "labelAr": "القراءة (Reading)",
+      "intro": "Part A scanning, Part B workplace texts and Part C inference under time pressure.",
+      "introAr": ""
     },
     {
       "id": "listening",
       "label": "Listening",
-      "intro": "Note-taking, prediction and spelling accuracy for Parts A, B and C."
+      "labelAr": "الاستماع (Listening)",
+      "intro": "Note-taking, prediction and spelling accuracy for Parts A, B and C.",
+      "introAr": ""
     },
     {
       "id": "exam-format",
       "label": "Exam Format",
-      "intro": "Computer vs paper, test dates and fees, study plans, retakes, and how OET compares with IELTS and PTE."
+      "labelAr": "معلومات الامتحان",
+      "intro": "Computer vs paper, test dates and fees, study plans, retakes, and how OET compares with IELTS and PTE.",
+      "introAr": "نظام الامتحان ومواعيده ورسومه، وطريقة الحجز، ودرجة النجاح، والمقارنة مع IELTS."
     },
     {
       "id": "pathways",
       "label": "Pathway Guides",
-      "intro": "Score requirements and registration steps for the UK, USA, Australia and the Gulf."
+      "labelAr": "أدلة الترخيص",
+      "intro": "Score requirements and registration steps for the UK, USA, Australia and the Gulf.",
+      "introAr": "الدرجات التي تطلبها كل جهة ترخيص، وخطوات الترخيص الصحي في الخليج."
     }
   ],
   "posts": [
@@ -339,12 +351,139 @@
   ],
   "arabicPosts": [
     {
+      "slug": "ar/oet-writing-tips",
+      "twin": "oet-writing-tips",
+      "category": "writing"
+    },
+    {
+      "slug": "ar/oet-writing-sample-nursing",
+      "twin": "oet-writing-sample-nursing",
+      "category": "writing"
+    },
+    {
+      "slug": "ar/oet-writing-sample-nursing-referral",
+      "twin": "oet-writing-sample-nursing-referral",
+      "category": "writing"
+    },
+    {
+      "slug": "ar/oet-writing-sample-medicine",
+      "twin": "oet-writing-sample-medicine",
+      "category": "writing"
+    },
+    {
+      "slug": "ar/oet-writing-sample-medicine-discharge",
+      "twin": "oet-writing-sample-medicine-discharge",
+      "category": "writing"
+    },
+    {
+      "slug": "ar/oet-writing-sample-pharmacy",
+      "twin": "oet-writing-sample-pharmacy",
+      "category": "writing"
+    },
+    {
+      "slug": "ar/oet-writing-sample-physiotherapy",
+      "twin": "oet-writing-sample-physiotherapy",
+      "category": "writing"
+    },
+    {
+      "slug": "ar/oet-speaking-tips",
+      "twin": "oet-speaking-tips",
+      "category": "speaking"
+    },
+    {
+      "slug": "ar/oet-speaking-role-play-cards",
+      "twin": "oet-speaking-role-play-cards",
+      "category": "speaking"
+    },
+    {
+      "slug": "ar/oet-test-fee-booking-2027",
+      "category": "exam-format",
+      "featured": true
+    },
+    {
+      "slug": "ar/oet-test-dates-and-fees",
+      "twin": "oet-test-dates-and-fees",
+      "category": "exam-format"
+    },
+    {
+      "slug": "ar/oet-exam-fees",
+      "twin": "oet-exam-fees",
+      "category": "exam-format"
+    },
+    {
+      "slug": "ar/what-is-oet",
+      "twin": "what-is-oet",
+      "category": "exam-format"
+    },
+    {
+      "slug": "ar/oet-passing-score",
+      "twin": "oet-passing-score",
+      "category": "exam-format"
+    },
+    {
+      "slug": "ar/oet-vs-ielts",
+      "twin": "oet-vs-ielts",
+      "category": "exam-format"
+    },
+    {
       "slug": "ar/oet-paper-test-2027-changes",
       "twin": "oet-paper-test-2027-changes",
       "category": "exam-format",
-      "categoryLabelAr": "شكل الامتحان",
-      "image": "/assets/img/blog/oet-paper-test-2027-changes.webp",
       "summary": "من يناير 2027 امتحان OET الورقي هيفضل للتمريض والطب بس وفي 16 دولة. اعرف مين اللي هيتأثر وقايمة الدول وإزاي تحضّر على الكمبيوتر."
+    },
+    {
+      "slug": "ar/oet-score-requirements",
+      "twin": "oet-score-requirements",
+      "category": "pathways"
+    },
+    {
+      "slug": "ar/gulf-pathway-guide",
+      "twin": "gulf-pathway-guide",
+      "category": "pathways"
+    }
+  ],
+  "arabicPages": [
+    {
+      "group": "courses",
+      "labelAr": "كورسات OET حسب المهنة",
+      "pages": [
+        "ar/index",
+        "ar/oet-course-for-doctors",
+        "ar/oet-course-for-nurses",
+        "ar/oet-course-for-pharmacists",
+        "ar/oet-course-for-physiotherapists"
+      ]
+    },
+    {
+      "group": "countries",
+      "labelAr": "كورس OET حسب الدولة",
+      "pages": [
+        "ar/oet-course-egypt",
+        "ar/oet-course-saudi-arabia",
+        "ar/oet-course-uae",
+        "ar/oet-course-qatar",
+        "ar/oet-course-kuwait",
+        "ar/oet-course-oman"
+      ]
+    },
+    {
+      "group": "tools",
+      "labelAr": "أدوات ومصادر مجانية",
+      "pages": [
+        "ar/oet-sample-tests",
+        "ar/oet-mock-test",
+        "ar/oet-score-calculator",
+        "ar/oet-recalls"
+      ]
+    },
+    {
+      "group": "about",
+      "labelAr": "الأسعار والنتائج والمعلومات الرسمية",
+      "pages": [
+        "ar/pricing",
+        "ar/success-stories",
+        "ar/official-information"
+      ]
     }
   ]
 }

@@ -48,6 +48,11 @@ function replaceMarker(parts, marker, render) {
 // into real markers first, otherwise the literal escaped text ships in the structured data.
 const ESCAPED_MARKER = /\\u003c!--(oet:[a-z-]+(?::[^"\\]*?)?)-->/g;
 
+/** The visible English -> Arabic switch under an English guide's byline (same paragraph style as the byline). */
+export function languageSwitch(arabic, cls = 'oet-guide-meta') {
+  return `<p class="${cls || 'oet-guide-meta'} oet-lang-switch"><i class="fa-solid fa-language" aria-hidden="true"></i> Also in Arabic: <a href="${arabic.url}" lang="ar" hreflang="ar">اقرأ هذا الدليل بالعربية</a></p>`;
+}
+
 export function enrichPage(raw) {
   const { pricing, bundles, person, posts, arabicPosts, stories } = shared();
   const input = Object.fromEntries(Object.entries(raw).map(([k, html]) => [k, html.replace(ESCAPED_MARKER, '<!--$1-->')]));
@@ -66,7 +71,11 @@ export function enrichPage(raw) {
   const DATES = /<!--oet:dates(?: class="([a-z-]+)")?-->/g;
   const dateHits = parts.main.match(DATES) || [];
   if (dateHits.length > 1) throw new Error(`page: <!--oet:dates--> found ${dateHits.length} times on ${key}`);
-  parts = { ...parts, main: parts.main.replace(DATES, (_, cls) => renderDates(dates, person.byline, cls)) };
+  // An English guide with an Arabic version (blog.json arabicPosts "twin") shows a visible switch to it right under the byline;
+  // the Arabic page carries the matching "Read in English" link in its own byline.
+  const arabic = key ? arabicPosts.find((p) => p.twin === key) : null;
+  if (arabic && dateHits.length !== 1) throw new Error(`page: ${key} has an Arabic version, so it needs the <!--oet:dates--> byline for the language switch`);
+  parts = { ...parts, main: parts.main.replace(DATES, (_, cls) => renderDates(dates, person.byline, cls) + (arabic ? languageSwitch(arabic, cls) : '')) };
   parts = replaceMarker(parts, '<!--oet:author-box-->', () => authorBox(person));
   if (key) parts = applyRelatedGuides(parts, key, posts);
   const isArticle = !!key && [...posts, ...arabicPosts].some((p) => p.slug === key);
