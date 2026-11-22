@@ -39,3 +39,6 @@ storage/oet-chat/ratelimit/
 
 # Per-machine tool state (project identifier) — never commit
 .freebuff/
+
+# Owner-only analytics exports (Search Console etc.). The repository is public: never commit these.
+docs/private/
