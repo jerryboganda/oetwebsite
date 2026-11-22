@@ -1644,12 +1644,21 @@ if (distHtml['pricing.html']) {
 
   // 7. Navigation: the Arabic library as the first "Free Resources" item of the header nav (desktop dropdown and the mobile menu main.js
   //    clones) and in the footer, on every page except the frozen pair. Not a top-level item: the inline nav has no room left at 1500px.
+  //    Owner, 22 Nov 2026: the freeze on /ar/ is lifted for the header link ONLY (no footer link, Recalls or Arabic pricing links there);
+  //    the English homepage stays without it.
   const { ARABIC_LIBRARY_NAV_ITEM, ARABIC_LIBRARY_FOOTER_ITEM } = await import('../src/lib/blog.mjs');
+  const FREE_RESOURCES_FIRST = /<li class="has-dropdown"><a href="\/oet-tips\.html">Free Resources\b[\s\S]*?<ul class="sub-menu">(<li>[\s\S]*?<\/li>)/;
   for (const [page, html] of Object.entries(distHtml)) {
     const nav = (html.match(/<nav class="vl-mobile-menu-active"[\s\S]*?<\/nav>/) || [''])[0];
     const footer = (html.match(/<footer\b[\s\S]*?<\/footer>/) || [''])[0];
+    const firstFree = (nav.match(FREE_RESOURCES_FIRST) || [])[1];
+    if (page === 'ar/index.html') {
+      if (firstFree !== ARABIC_LIBRARY_NAV_ITEM) fail(`${page}: "${ARABIC_LIBRARY.label}" must be the first item of the Free Resources menu (owner, 22 Nov 2026)`);
+      if (html.split(`href="${ARABIC_LIBRARY.href}"`).length !== 2) fail(`${page}: the freeze is lifted for the one header link only; no other link to ${ARABIC_LIBRARY.href} on the frozen page`);
+      continue;
+    }
     if (FROZEN.includes(page)) { if (html.includes(`href="${ARABIC_LIBRARY.href}"`)) fail(`${page}: the frozen landing page must not change (no Arabic library link without the owner lifting the freeze)`); continue; }
-    if (!/<li class="has-dropdown"><a href="\/oet-tips\.html">Free Resources\b[\s\S]*?<ul class="sub-menu">(<li>[\s\S]*?<\/li>)/.test(nav) || nav.match(/<li class="has-dropdown"><a href="\/oet-tips\.html">Free Resources\b[\s\S]*?<ul class="sub-menu">(<li>[\s\S]*?<\/li>)/)[1] !== ARABIC_LIBRARY_NAV_ITEM)
+    if (firstFree !== ARABIC_LIBRARY_NAV_ITEM)
       fail(`${page}: "${ARABIC_LIBRARY.label}" -> ${ARABIC_LIBRARY.href} must be the first item of the Free Resources menu`);
     if (!footer.includes(ARABIC_LIBRARY_FOOTER_ITEM)) fail(`${page}: the footer Resources & Guides group needs "${ARABIC_LIBRARY.label}" -> ${ARABIC_LIBRARY.href}`);
     if (page.startsWith('ar/') && (!html.includes('<a class="oet-pricing-nav-link" href="/ar/pricing.html#download-app">Download App</a>') || !html.includes('<a class="oet-pricing-nav-link" href="/ar/pricing.html">Pricing</a>')))

@@ -365,6 +365,9 @@ and a FAQ. Operating guide, brief-vs-reality notes and the open items: `docs/rec
   landing pages included, because it vanished whenever a visitor returned to the homepage (`components/Header.astro` adds it unconditionally; `verify.mjs` fails if any page
   lacks it). Only that one nav `<li>` changed on the landing pages (no banner, footer link, script, CSS or content; the `?v=` asset hashes are unchanged). The Recalls link
   rule above is untouched: still not on the landing pages.
+  **Second narrow exception, owner 22 Nov 2026 (`/ar/` only):** the header link "مقالات OET بالعربي" -> `/ar/blog/` (first item of Free Resources, so also
+  in the mobile drawer) is on `ar/index.html` (`arabicLibrary` in `layouts/Base.astro`). Only that one nav `<li>` changed there: no footer library link, no
+  Recalls link, and its Pricing / Download App still open the English pricing page. The English homepage `index.html` stays without it (`verify.mjs`).
 - **Canonical host is the apex** `https://oetwithdrhesham.co.uk` (the brief typed `www.`, which 301-redirects to the apex; a `www` canonical would point at a redirect).
 - **Arabic = `<html lang="ar" dir="rtl">`** (new `dir` prop on `Base.astro`, set only by this page, so no other page changes) plus `<main dir="rtl">`. The shared English
   header, drawer, popups and footer are not translated, so `html[dir=rtl] body{direction:ltr}` in `assets/css/oet-recalls.css` keeps them left to right exactly as on
@@ -399,7 +402,8 @@ Status, official-source checks, release evidence and open owner items: `docs/seo
   (`languageSwitch` in `lib/page.mjs`); Arabic guides keep their typed "Read in English" (`class="oet-ar-en"`).
 - **Navigation**: "مقالات OET بالعربي" is the FIRST item of the Free Resources menu (`addArabicLibraryLink` in `lib/blog.mjs`, used by
   `Header.astro`/`Footer.astro`) and in the footer Resources & Guides group, NOT a top-level item (the inline nav overflowed by 83px at
-  1500px), and not on the two frozen landing pages. On Arabic pages the header "Pricing" and "Download App" open `/ar/pricing.html`.
+  1500px). Not on the English homepage; on `/ar/` only the header link (owner lifted the freeze for it on 22 Nov 2026, see "OET Recalls
+  page"). On Arabic pages except `/ar/` the header "Pricing" and "Download App" open `/ar/pricing.html`.
 - **Arabic pages link Arabic pages**: no contextual link from an Arabic page to an English page that has an Arabic version, except the
   "Read in English" switch (`oet-ar-en` / `hreflang="en"`) and the allow-list in `verify.mjs`. Map English pricing anchors to anchors that
   exist on `/ar/pricing.html` (`#tier-*`, `#classic-courses`, `#writing-packages`, `#speaking-packages`, `#mock-packages`, `#crash-courses`).
@@ -411,8 +415,8 @@ Status, official-source checks, release evidence and open owner items: `docs/seo
   `?v=` hash of `oet-analytics.js` inside the two frozen landing pages: their only byte change.
 - **Performance**: no change (field CWV passed, PSI lab 100 on home, Arabic Egypt, pricing, nurses; baseline in the doc). Change only a
   measured LCP/INP/CLS problem; compare before/after with `node scripts/perf-lab.mjs` (same machine) and pagespeed.web.dev.
-- Open (owner/team): Search Console baseline and indexing checks, the website-to-app purchase test, the Arabic library link on the frozen
-  `/ar/` page, Arabic Reading/Listening guides. See the doc.
+- Open (owner/team): Search Console baseline and indexing checks, the website-to-app purchase test, Arabic Reading/Listening guides.
+  See the doc.
 
 ## Growth brief: Search Visibility & Brand Discovery (owner, 15 Nov 2026; built 19 Nov 2026)
 
