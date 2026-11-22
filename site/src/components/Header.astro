@@ -3,8 +3,12 @@ import part1 from '../partials/chrome/header-1.html?raw';
 import part2 from '../partials/chrome/header-2.html?raw';
 import offcanvas from '../partials/chrome/offcanvas.html?raw';
 import { addRecallsLink } from '../lib/recalls.mjs';
+import { addWebinarsLink } from '../lib/webinars.mjs';
 const { showApps = false, lang = 'en', recalls = true } = Astro.props;
 // "Recalls" / "الريكولز" directly after "OET Blog"; main.js clones this nav into the mobile menu, so the menu gets it in the same position.
-const nav = recalls ? addRecallsLink(part2, lang === 'ar' ? 'ar' : 'en', 'header') : part2;
+// "Webinars" (owner brief 21 Nov 2026) is inserted first so Recalls still directly follows "OET Blog" (Blog, Recalls, Webinars);
+// same pages as Recalls: never on the two frozen landing pages.
+const withWebinars = recalls ? addWebinarsLink(part2, lang === 'ar' ? 'ar' : 'en') : part2;
+const nav = recalls ? addRecallsLink(withWebinars, lang === 'ar' ? 'ar' : 'en', 'header') : withWebinars;
 ---
 <Fragment set:html={part1} /><li><a class="oet-pricing-nav-link" href={showApps ? "#download-app" : "/pricing.html#download-app"}>Download App</a></li><Fragment set:html={nav} /><Fragment set:html={offcanvas} />
