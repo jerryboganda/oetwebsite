@@ -978,3 +978,16 @@ body.oet-live-site .blog-padding-bottom10 .blog__wrap10{
   text-align:center;
 }
 .breadcrumb-shape img{object-fit:contain}
+
+/* Join Free Community popup: five sections rendered from site/src/data/community.json (owner brief 22 Nov 2026) */
+.oet-community-popup__section + .oet-community-popup__section{margin-top:26px}
+.oet-community-popup__section .oet-community-popup__grid{margin-bottom:0}
+.oet-community-popup__icon{flex:0 0 auto}
+.oet-community-popup__text{align-items:center;display:flex;flex:0 1 auto;flex-direction:column;gap:6px;min-width:0}
+.oet-community-popup__name{overflow-wrap:break-word}
+.oet-community-popup__card .oet-community-popup__icon svg{height:28px;width:28px}
+.oet-community-popup__icon--tiktok{background:linear-gradient(135deg,#2b2b33,#000);box-shadow:0 12px 26px rgba(0,0,0,.24)}
+.oet-community-popup__icon--behance{background:linear-gradient(135deg,#3b8bff,#0057ff);box-shadow:0 12px 26px rgba(0,87,255,.24)}
+.oet-community-popup__icon--linktree{background:linear-gradient(135deg,#5df07a,#2fc653);box-shadow:0 12px 26px rgba(47,198,83,.26);color:#0b2e14}
+.oet-community-popup__card:focus-visible,.oet-community-popup__resource:focus-visible,.oet-community-popup__close:focus-visible{outline:3px solid var(--oet-purple-2);outline-offset:3px}
+@media (max-width:575px){.oet-community-popup__text{align-items:flex-start;flex:1 1 auto;text-align:left}.oet-community-popup__card--featured:before{right:12px;top:-10px}}

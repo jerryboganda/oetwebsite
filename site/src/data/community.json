@@ -1,0 +1,63 @@
+{
+  "_note": "Single source of truth for the Join Free Community popup (owner brief 'Free Community update', 22 Nov 2026). Section order and item order = display order. Rendered by src/lib/community.mjs into components/CommunityPopup.astro; checked by the 'Free Community popup' block of scripts/verify.mjs. layout: 'cards' = the larger group card (optional hint, optional featured ribbon), 'resources' = the compact row card. video: true keeps the inline-video attributes the YouTube resource cards already carry. Never add an account, admin, sign-in or profile-edit URL. Medicine and Physiotherapy WhatsApp invites are kept as they were until the owner confirms them (docs/community-popup-2026-11-22.md).",
+  "sections": [
+    {
+      "id": "follow",
+      "title": "Follow & explore",
+      "layout": "resources",
+      "items": [
+        { "label": "TikTok", "href": "https://www.tiktok.com/@dr.ahmedheshamuk", "icon": "tiktok" },
+        { "label": "Instagram", "href": "https://www.instagram.com/oetwith.drhesham", "icon": "instagram" },
+        { "label": "YouTube channel", "href": "https://www.youtube.com/@drhesham222", "icon": "youtube" },
+        { "label": "All links (Linktree)", "href": "https://linktr.ee/drahmedhesham222", "icon": "linktree" }
+      ]
+    },
+    {
+      "id": "communities",
+      "title": "Join a study community",
+      "layout": "cards",
+      "items": [
+        { "label": "OET Nursing Free Community", "href": "https://chat.whatsapp.com/GwXdSX6v38F3EjNzC4wS2F?mode=hq1tsha", "icon": "whatsapp", "hint": "Highlighted nursing community", "featured": true },
+        { "label": "OET Medicine Free Community", "href": "https://chat.whatsapp.com/CeJmvXO5dJA50OKBGtZcuD?mode=gi_t", "icon": "whatsapp", "hint": "Free orientation sessions for medicine", "featured": true },
+        { "label": "OET English Only - Non-Arabic Speakers", "href": "https://chat.whatsapp.com/IuCFuWFXFrQHtK6qICP4jg?mode=gi_t", "icon": "whatsapp", "hint": "English-only practice community", "featured": true },
+        { "label": "OET Pharmacy Free Community", "href": "https://chat.whatsapp.com/Kz8zXv7GpoCJBAHpfDygPW?mode=gi_t", "icon": "whatsapp", "hint": "Pharmacy OET support", "featured": true },
+        { "label": "OET Physiotherapy Free Community", "href": "https://chat.whatsapp.com/E6AkDZhctn95XP7Do1RYgc?s=cl&p=a&mlu=4&ilr=4", "icon": "whatsapp", "hint": "Free OET community for physiotherapy", "featured": true },
+        { "label": "Exam Recalls Group 1", "href": "https://chat.whatsapp.com/LPSFtrljYdjAYGpBStpMz5", "icon": "whatsapp", "hint": "Recent exam recall discussions" },
+        { "label": "Exam Recalls Group 2", "href": "https://chat.whatsapp.com/CzVgwnH73Vn8PupWxPrhkz", "icon": "whatsapp", "hint": "Backup recalls community" },
+        { "label": "Main Facebook Group", "href": "https://www.facebook.com/groups/649430742699879/?ref=share", "icon": "facebook" }
+      ]
+    },
+    {
+      "id": "orientation",
+      "title": "Free orientation & resources",
+      "layout": "resources",
+      "items": [
+        { "label": "Doctors Arabic Orientation", "href": "https://youtu.be/kL91eG32Uok?si=Q464XynULlIxpiav", "icon": "youtube", "video": true },
+        { "label": "Doctors Non-Arabic Orientation", "href": "https://youtu.be/3aBIQq_p3MQ?si=eNwqS82aYuYBaifr", "icon": "youtube", "video": true },
+        { "label": "Nursing Orientation", "href": "https://youtu.be/hlD1BXfijWs?si=EQFjYcWKTBOvltPI", "icon": "youtube", "video": true },
+        { "label": "Pharmacy Arabic Orientation", "href": "https://youtu.be/wgJUsFT9HUA?si=asdHpYWHmHHAam-q", "icon": "youtube", "video": true },
+        { "label": "Course Feedback", "href": "https://youtu.be/rbNsB7Olxts?si=RNoigvu5kz_bUVYI", "icon": "youtube", "video": true },
+        { "label": "OET & UK Nursing Live", "href": "https://youtu.be/MCPZb589zdY?si=vSLShtttUOEH89rx", "icon": "youtube", "video": true }
+      ]
+    },
+    {
+      "id": "channels",
+      "title": "Updates & channels",
+      "layout": "resources",
+      "items": [
+        { "label": "Official Telegram Channel", "href": "https://t.me/Oet_with_Hesham", "icon": "telegram" },
+        { "label": "Telegram Nursing Channel", "href": "https://t.me/OET_Nursing_DrHesham", "icon": "telegram" },
+        { "label": "Official Facebook Page", "href": "https://www.facebook.com/share/1EMpS7pDau/", "icon": "facebook" }
+      ]
+    },
+    {
+      "id": "profiles",
+      "title": "Professional profiles",
+      "layout": "resources",
+      "items": [
+        { "label": "LinkedIn", "href": "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3", "icon": "linkedin" },
+        { "label": "Behance portfolio", "href": "https://www.behance.net/drahme222", "icon": "behance" }
+      ]
+    }
+  ]
+}

@@ -1691,6 +1691,72 @@ if (distHtml['pricing.html']) {
   }
 }
 
+// ---- Free Community popup (owner brief "Free Community update", 22 Nov 2026) ----------------------------------------------
+// The popup is on every page; the register below is the brief's pages 1-4 typed independently of src/data/community.json,
+// so a drifted label, order, section or destination fails the build. Medicine and Physiotherapy WhatsApp invites stay as
+// they were until the owner confirms them (docs/community-popup-2026-11-22.md); no account, admin, sign-in or edit URL.
+{
+  const FOLLOW = 'Follow & explore', GROUPS = 'Join a study community', ORIENT = 'Free orientation & resources', CHANNELS = 'Updates & channels', PROFILES = 'Professional profiles';
+  const REGISTER = [
+    [FOLLOW, 'TikTok', 'https://www.tiktok.com/@dr.ahmedheshamuk'],
+    [FOLLOW, 'Instagram', 'https://www.instagram.com/oetwith.drhesham'],
+    [FOLLOW, 'YouTube channel', 'https://www.youtube.com/@drhesham222'],
+    [FOLLOW, 'All links (Linktree)', 'https://linktr.ee/drahmedhesham222'],
+    [GROUPS, 'OET Nursing Free Community', 'https://chat.whatsapp.com/GwXdSX6v38F3EjNzC4wS2F?mode=hq1tsha'],
+    [GROUPS, 'OET Medicine Free Community', 'https://chat.whatsapp.com/CeJmvXO5dJA50OKBGtZcuD?mode=gi_t'],
+    [GROUPS, 'OET English Only - Non-Arabic Speakers', 'https://chat.whatsapp.com/IuCFuWFXFrQHtK6qICP4jg?mode=gi_t'],
+    [GROUPS, 'OET Pharmacy Free Community', 'https://chat.whatsapp.com/Kz8zXv7GpoCJBAHpfDygPW?mode=gi_t'],
+    [GROUPS, 'OET Physiotherapy Free Community', 'https://chat.whatsapp.com/E6AkDZhctn95XP7Do1RYgc?s=cl&p=a&mlu=4&ilr=4'],
+    [GROUPS, 'Exam Recalls Group 1', 'https://chat.whatsapp.com/LPSFtrljYdjAYGpBStpMz5'],
+    [GROUPS, 'Exam Recalls Group 2', 'https://chat.whatsapp.com/CzVgwnH73Vn8PupWxPrhkz'],
+    [GROUPS, 'Main Facebook Group', 'https://www.facebook.com/groups/649430742699879/?ref=share'],
+    [ORIENT, 'Doctors Arabic Orientation', 'https://youtu.be/kL91eG32Uok?si=Q464XynULlIxpiav'],
+    [ORIENT, 'Doctors Non-Arabic Orientation', 'https://youtu.be/3aBIQq_p3MQ?si=eNwqS82aYuYBaifr'],
+    [ORIENT, 'Nursing Orientation', 'https://youtu.be/hlD1BXfijWs?si=EQFjYcWKTBOvltPI'],
+    [ORIENT, 'Pharmacy Arabic Orientation', 'https://youtu.be/wgJUsFT9HUA?si=asdHpYWHmHHAam-q'],
+    [ORIENT, 'Course Feedback', 'https://youtu.be/rbNsB7Olxts?si=RNoigvu5kz_bUVYI'],
+    [ORIENT, 'OET & UK Nursing Live', 'https://youtu.be/MCPZb589zdY?si=vSLShtttUOEH89rx'],
+    [CHANNELS, 'Official Telegram Channel', 'https://t.me/Oet_with_Hesham'],
+    [CHANNELS, 'Telegram Nursing Channel', 'https://t.me/OET_Nursing_DrHesham'],
+    [CHANNELS, 'Official Facebook Page', 'https://www.facebook.com/share/1EMpS7pDau/'],
+    [PROFILES, 'LinkedIn', 'https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3'],
+    [PROFILES, 'Behance portfolio', 'https://www.behance.net/drahme222'],
+  ];
+  const SECTIONS = [FOLLOW, GROUPS, ORIENT, CHANNELS, PROFILES];
+  const unesc = (s) => s.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
+  const FORBIDDEN = /indeed\.com|\/(log-?in|sign-?in|signup|accounts?|admin|settings|edit|dashboard)(\/|\?|$)|[?&]next=/i;
+  const want = JSON.stringify(REGISTER.map(([s, l, h]) => [s, l, h]));
+  for (const page of PAGES) {
+    const html = distHtml[page] || '';
+    const popup = (html.match(/<div class="oet-community-popup" id="oet-community-popup"[\s\S]*?<script defer src="\/assets\/js\/oet-community-popup\.js/) || [''])[0];
+    if (!popup) { fail(`${page}: the Free Community popup is missing`); continue; }
+    const titles = [...popup.matchAll(/<h3 class="oet-community-popup__section-title" id="[^"]+">([^<]*)<\/h3>/g)].map((m) => unesc(m[1]));
+    if (JSON.stringify(titles) !== JSON.stringify(SECTIONS)) fail(`${page}: Free Community sections must be ${SECTIONS.join(' / ')} in that order, found ${titles.join(' / ')}`);
+    const got = [];
+    for (const sec of popup.matchAll(/<section class="oet-community-popup__section"[\s\S]*?<\/section>/g)) {
+      const title = unesc((sec[0].match(/section-title" id="[^"]+">([^<]*)</) || [, ''])[1]);
+      for (const a of sec[0].matchAll(/<a class="oet-community-popup__(card|resource)([^"]*)" ([^>]*)>([\s\S]*?)<\/a>/g)) {
+        const attrs = a[3];
+        const href = unesc((attrs.match(/\bhref="([^"]*)"/) || [, ''])[1]);
+        const label = unesc((a[4].match(/oet-community-popup__name">([^<]*)</) || [, ''])[1]);
+        got.push([title, label, href]);
+        if (!/\btarget="_blank"/.test(attrs) || !/\brel="noopener noreferrer"/.test(attrs)) fail(`${page}: "${label}" must open in a new tab with rel="noopener noreferrer"`);
+        if (!label.trim()) fail(`${page}: a Free Community card has no visible text label`);
+        if (!/class="oet-community-popup__icon[^"]*">(<i class="fa-brands [^"]+" aria-hidden="true"><\/i>|<svg [^>]*aria-hidden="true"[\s\S]*?<\/svg>)<\/span>/.test(a[4])) fail(`${page}: "${label}" needs its brand icon (decorative, label stays visible)`);
+        if (FORBIDDEN.test(href)) fail(`${page}: "${label}" must not point at an account, admin, sign-in, profile-edit or Indeed URL (${href})`);
+        if ((a[1] === 'card') !== (title === GROUPS)) fail(`${page}: "${label}" is in the wrong card layout for its section`);
+        const isVideo = /^https:\/\/youtu\.be\//.test(href);
+        if (isVideo !== /data-oet-inline-video="true"/.test(attrs)) fail(`${page}: "${label}": individual video cards (and only those) keep the inline-video attributes`);
+      }
+    }
+    if (JSON.stringify(got) !== want) fail(`${page}: Free Community cards must match the brief's 23 destinations, labels, sections and order (TikTok first; Instagram and LinkedIn once each)`);
+    if (/Free Community-New|Indeed/i.test(popup)) fail(`${page}: the popup must not carry the retired "-New" label or an Indeed card`);
+  }
+  const css = readFileSync(path.join(ROOT, 'assets/css/oet-common.css'), 'utf8');
+  for (const need of ['.oet-community-popup__text{', '.oet-community-popup__icon--tiktok{', '.oet-community-popup__icon--behance{', '.oet-community-popup__icon--linktree{', '.oet-community-popup__card--featured:before{right:12px;top:-10px}', '.oet-community-popup__card:focus-visible,.oet-community-popup__resource:focus-visible,.oet-community-popup__close:focus-visible{outline:3px solid'])
+    if (!css.includes(need)) fail(`oet-common.css: the Free Community popup rule "${need}" is missing`);
+}
+
 if (failures) {
   console.error(`\nverify: ${failures} failure(s)`);
   process.exit(1);

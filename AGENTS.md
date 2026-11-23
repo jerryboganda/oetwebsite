@@ -418,6 +418,20 @@ Status, official-source checks, release evidence and open owner items: `docs/seo
 - Open (owner/team): Search Console baseline and indexing checks, the website-to-app purchase test, Arabic Reading/Listening guides.
   See the doc.
 
+## Free Community popup update (owner brief "Free Community update", 22 Nov 2026; built 23 Nov 2026)
+
+Status, the open invite checks and the evidence: `docs/community-popup-2026-11-22.md`. The popup's cards now come from ONE data file,
+`site/src/data/community.json` (label, href, icon, section, order, hint, featured, video), validated and rendered by
+`site/src/lib/community.mjs` into `components/CommunityPopup.astro`; `partials/chrome/community-popup.html` is only the dialog shell
+(marker `<!--oet:community-links-->`). Five sections (Follow & explore, Join a study community, Free orientation & resources,
+Updates & channels, Professional profiles), 23 cards, TikTok first. Never hand-write cards into the partial, never add an account, admin,
+sign-in, profile-edit or Indeed URL, one card per destination (Instagram and LinkedIn exist once). Medicine and Physiotherapy WhatsApp
+invites are unconfirmed: change them only on the owner's say-so (the alternate Physiotherapy invite is in the doc). The "Free Community
+popup" block at the end of `verify.mjs` holds the brief's register typed independently, so editing the JSON alone fails the build until
+the register is updated on purpose. The popup is on every page, the two frozen landing pages included (it is the owner's requested
+change to shared chrome, not a Recalls/banner change). New brand icons: Simple Icons (CC0) inline SVG in `community.mjs` `ICONS`, or a
+Font Awesome class that exists in `assets/css/oet-icons.css`.
+
 ## Growth brief: Search Visibility & Brand Discovery (owner, 15 Nov 2026; built 19 Nov 2026)
 
 Status, registers and plans: `docs/growth-brief-2026-11/README.md` (read it before any SEO, brand or claims work).
