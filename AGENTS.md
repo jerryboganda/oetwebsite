@@ -330,7 +330,33 @@ Articles, before the FAQ), the `/blog/` library and its articles, and a plain
 restored chrome). No further redesign of the menu, blog or homepage without the
 owner's explicit approval. Evidence: `docs/qa/restore-2026-10-qa.md` (+ before/
 after composites in `docs/qa/2026-10-restore/compare/`). History of the withdrawn
-redesign: `docs/qa/redesign-2026-10-qa.md`.
+redesign: `docs/qa/redesign-2026-10-qa.md`. The homepage HERO was redesigned with
+that explicit approval on 26 Nov 2026 (see "Homepage hero" below); the rest of the
+homepage, the menu and the blog are unchanged and the rule still holds for them.
+
+## Homepage hero: "Wordmark Orbit" (owner, 26 Nov 2026)
+
+Decision record, checks and before/after numbers: `docs/hero-2026-11-26.md`.
+
+- **Portrait** (owner brief "Landing Page Hero Image Update"): `assets/img/hero/dr-hesham-2026-{480,720,960,1122}.{avif,webp}`, made
+  from the transparent PNG embedded in the owner's PDF (1122x1402) and only RESIZED: never retouch, recolour, crop or replace it
+  (facial features, natural hair and the OET logo on the scrubs must stay exactly as supplied). The old `dr-hesham-<w>` files are
+  deleted; new names because images are served `immutable` for a year. `person.json` `image` and every page's Person node use
+  `dr-hesham-2026-960.webp`.
+- **Design**: the owner asked for a more modern hero without the empty space, chose option D of four previews ("Wordmark Orbit"):
+  a giant outlined OET wordmark behind the portrait, three service chips (Recorded courses, Writing correction, 1:1 speaking) on a
+  dashed orbit (992 px and up only), the accent "trusted by thousands" on a slanted purple band, big open numbers, and the placement
+  test as a ticket. Markup: the hero in `partials/index/main.html`; CSS: `assets/css/oet-hero.css` (homepage only, `heroCss`).
+  Class names stay in the `oet-hero__*` namespace, so `main.js` counters (`.counter` inside `.oet-hero__stats`), the community popup
+  trigger (`oet-community-cta`) and the years gate keep working. The 26 px top offset stays in `oet-home.css`.
+- **Rules**: no card or chip may cover his face, hair or the OET logo at any width (320 to 2560 px); the positions were measured
+  against the cutout's own pixels. Re-run that check after moving any card. The wordmark and the orbit chips are `aria-hidden`
+  decoration (their words are in the lead). The headline and portrait enter with a transform only (an opacity fade would delay
+  LCP); every animation sits inside `prefers-reduced-motion: no-preference`; `html.oet-lite-motion` stops the orbit and chips.
+  The `<picture>` `sizes` and the preload `imagesizes` in `partials/index/meta.html` must stay identical (they follow the rendered
+  widths; phones declare 360 px so a 2.6x Android screen fetches the 960 file, not the 1122 one). The OET wordmark can be the LCP
+  element on phones, so its entrance is transform-only too. `verify.mjs` block "Homepage hero" enforces all of this plus every
+  hero text and link.
 
 ## SEO implementation brief (external audit of 21 Nov 2026; built 21 Nov 2026)
 
