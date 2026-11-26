@@ -1757,19 +1757,19 @@ if (distHtml['pricing.html']) {
     if (!css.includes(need)) fail(`oet-common.css: the Free Community popup rule "${need}" is missing`);
 }
 
-// Homepage hero "Wordmark Orbit" (owner choice of 26 Nov 2026, option D of four previews; brief "Landing Page Hero Image Update"):
-// the 2026 portrait everywhere and the old one gone, the LCP preload identical to the <picture> AVIF source, the headline kept as a
-// transform-only entrance (no fade, so it never delays Largest Contentful Paint), and nothing of the hero's content or links dropped.
+// Homepage hero portrait (owner brief "Landing Page Hero Image Update", 26 Nov 2026): the ORIGINAL hero design with the 2026 portrait.
+// The "Wordmark Orbit" redesign is parked in docs/pending/hero-wordmark-orbit-2026-11-26/ (owner, 26 Nov 2026). Checks: new files present,
+// old files and references gone, the LCP preload identical to the <picture> AVIF source, person.json on the new photo.
 {
   const home = (distHtml['index.html'] || '').replace(/\r\n?/g, '\n');
   const hero = (home.match(/<section class="oet-hero">[\s\S]*?<\/section>/) || [''])[0];
   if (!hero) fail('index.html: the hero section (<section class="oet-hero">) is missing');
   const W = ['480', '720', '960', '1122'];
-  const SIZES = '(max-width: 389px) 92vw, (max-width: 767px) 360px, (max-width: 991px) 352px, (max-width: 1199px) 432px, (max-width: 1272px) 448px, (max-width: 1545px) 35.2vw, 544px';
+  const SIZES = '(max-width: 575px) 62vw, (max-width: 767px) 260px, (max-width: 991px) 320px, (max-width: 1199px) 400px, 34vw';
   const set = (ext) => W.map((w) => `/assets/img/hero/dr-hesham-2026-${w}.${ext} ${w}w`).join(', ');
-  if (!hero.includes(`<source type="image/avif" srcset="${set('avif')}" sizes="${SIZES}">`)) fail('index.html: the hero AVIF source must list the four dr-hesham-2026 widths with the measured sizes');
-  if (!hero.includes(`<source type="image/webp" srcset="${set('webp')}" sizes="${SIZES}">`)) fail('index.html: the hero WebP source must list the four dr-hesham-2026 widths with the measured sizes');
-  if (!/<img class="oet-hero-doctor" src="\/assets\/img\/hero\/dr-hesham-2026-960\.webp" width="1122" height="1402" fetchpriority="high" decoding="async" alt="[^"]+">/.test(hero)) fail('index.html: the hero portrait <img> (dr-hesham-2026-960.webp, 1122x1402, fetchpriority high, alt) changed');
+  if (!hero.includes(`<source type="image/avif" srcset="${set('avif')}" sizes="${SIZES}">`)) fail('index.html: the hero AVIF source must list the four dr-hesham-2026 widths');
+  if (!hero.includes(`<source type="image/webp" srcset="${set('webp')}" sizes="${SIZES}">`)) fail('index.html: the hero WebP source must list the four dr-hesham-2026 widths');
+  if (!/<img class="oet-hero-doctor" src="\/assets\/img\/hero\/dr-hesham-2026-960\.webp" width="1122" height="1402" fetchpriority="high" decoding="async" alt="[^"]+">/.test(hero)) fail('index.html: the hero portrait <img> must be dr-hesham-2026-960.webp (1122x1402, fetchpriority high)');
   if (!home.includes(`<link rel="preload" as="image" type="image/avif" imagesrcset="${set('avif')}" imagesizes="${SIZES}"`)) fail('index.html: the portrait preload must equal the hero AVIF srcset and sizes, or the browser downloads the photo twice');
   for (const w of W) for (const ext of ['avif', 'webp']) {
     if (!existsSync(path.join(ROOT, `assets/img/hero/dr-hesham-2026-${w}.${ext}`))) fail(`assets/img/hero/dr-hesham-2026-${w}.${ext} is missing`);
@@ -1778,29 +1778,6 @@ if (distHtml['pricing.html']) {
   for (const page of PAGES) if (/\/assets\/img\/hero\/dr-hesham-(480|720|960|1122)\./.test(distHtml[page] || '')) fail(`${page}: still points at the retired portrait (use dr-hesham-2026-*)`);
   const personFile = JSON.parse(readFileSync(path.join(SITE, 'src/data/person.json'), 'utf8'));
   if (personFile.image !== 'https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-2026-960.webp') fail('person.json: image must be the 2026 portrait (dr-hesham-2026-960.webp)');
-  for (const need of [
-    '<h1 class="oet-hero__title oet-hero__rise" style="--d:60ms">Online OET course <span class="oet-hero__accent"><span>trusted by thousands</span></span> of nurses &amp; doctors</h1>',
-    'recorded courses, personal writing correction and 1:1 speaking practice for nurses, doctors, pharmacists and allied health professionals heading to the UK, USA, Australia, Canada and Qatar.</p>',
-    '<a href="#oet-community-popup" class="oet-hero__cta oet-hero__cta--primary oet-community-cta" aria-haspopup="dialog" aria-controls="oet-community-popup">Join Free Community ',
-    '<a href="/pricing.html" class="oet-hero__cta oet-hero__cta--ghost">See pricing &amp; packages</a>',
-    '<a class="oet-hero__chip oet-hero__chip--wa" href="https://wa.me/447961725989',
-    '<a class="oet-hero__chip oet-hero__chip--tg" href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">',
-    '<a class="oet-hero__chip oet-hero__chip--fb" href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer">',
-    '<span class="counter">20</span><span>K+</span>', '<span class="counter">500</span><span>+</span>',
-    'title="Source: the official YouTube channel" href="https://www.youtube.com/@drhesham222"',
-    '<span class="oet-hero__badge-sub">Rated 5.0 on Google</span>', '<span class="oet-hero__badge-top">7,000+</span>',
-    'title="Source: the official Telegram channel" href="https://t.me/Oet_with_Hesham"',
-    '<h2 class="oet-hero__placement-title">Free General English Placement Test</h2>',
-    'href="https://app.oetwithdrhesham.co.uk/placement-test?next=%2Fplacement-test&amp;utm_source=website&amp;utm_medium=hero&amp;utm_campaign=placement_test">Start Free Placement Test ',
-    '<p class="oet-hero__placement-note">Free account required. Results saved to your profile.</p>',
-  ]) if (!hero.includes(need)) fail(`index.html: the hero lost "${need.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 80)}"`);
-  // the orbit chips and the OET wordmark repeat what the lead already says: decoration only
-  if ((hero.match(/<span class="oet-hero__pill oet-hero__pill--[a-z]+" aria-hidden="true">/g) || []).length !== 3) fail('index.html: the three orbit chips must stay aria-hidden decorations');
-  if (!hero.includes('<span class="oet-hero__word" aria-hidden="true">OET</span>')) fail('index.html: the OET wordmark must stay an aria-hidden decoration');
-  const heroCss = readFileSync(path.join(ROOT, 'assets/css/oet-hero.css'), 'utf8').replace(/\r\n?/g, '\n');
-  if (!/@media \(prefers-reduced-motion: no-preference\) \{\n    \.oet-hero__anim \{[^}]*\}\n    \.oet-hero__rise \{ animation: oet-hero-slide /.test(heroCss)) fail('oet-hero.css: hero animations must stay inside the prefers-reduced-motion: no-preference block');
-  if (!/@keyframes oet-hero-slide \{ from \{ transform: translateY\(18px\); \} to \{ transform: none; \} \}/.test(heroCss)) fail('oet-hero.css: the headline/portrait entrance (oet-hero-slide) must stay transform-only (an opacity fade delays LCP)');
-  if (!/@keyframes oet-hero-word \{ from \{ transform: [^;{}]+; \} to \{ transform: [^;{}]+; \} \}/.test(heroCss)) fail('oet-hero.css: the OET wordmark entrance must stay transform-only (it can be the LCP element on phones)');
 }
 
 if (failures) {

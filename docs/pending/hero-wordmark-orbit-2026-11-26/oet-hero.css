@@ -1,0 +1,644 @@
+/* ==========================================================================
+   OET homepage hero: "Wordmark Orbit" (owner choice, 26 Nov 2026; option D of
+   four previews). Loaded only by the homepage (index.astro heroCss).
+
+   A giant outlined OET wordmark behind the portrait, the three services
+   orbiting him (desktop and laptop), the accent set on a slanted purple band,
+   big open numbers, and the placement test as a ticket.
+
+   The cards are placed so that no card or chip covers his face, hair or the
+   OET logo on his scrubs at any width from 320 to 2560 px (measured against
+   the cutout's own pixels before approval). Move them only with the same check.
+
+   Breakpoints: <768 phone | 768-991 tablet | 992-1199 laptop | 1200+ desktop
+   ========================================================================== */
+.oet-hero {
+    --hero-ink: #16213e;
+    --hero-body: #514a78;
+    --hero-purple: #7c3aed;
+    --hero-deep: #5b21b6;
+    --hero-line: rgba(124, 58, 237, .16);
+    --hero-field: #f2edff;
+    --hero-pt: 168px;
+    --hero-pb: 56px;
+    position: relative;
+    z-index: 1;
+    isolation: isolate;
+    padding: var(--hero-pt) 0 var(--hero-pb);
+    overflow: hidden;
+    overflow: clip;
+    background: var(--hero-field);
+    color: var(--hero-ink);
+    font-family: "Mulish", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@media (min-width: 1200px) and (min-height: 901px) {
+    .oet-hero { --hero-pt: 184px; --hero-pb: 64px; }
+}
+
+.oet-hero *, .oet-hero *::before, .oet-hero *::after { box-sizing: border-box; }
+
+.oet-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(50% 65% at 78% 40%, rgba(255, 255, 255, .95) 0%, rgba(255, 255, 255, 0) 70%),
+        linear-gradient(180deg, #f8f5ff 0%, #f2edff 60%, #efe8ff 100%);
+}
+
+.oet-hero .container { position: relative; z-index: 2; }
+
+.oet-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+    align-items: center;
+}
+
+.oet-hero__copy { min-width: 0; }
+
+.oet-hero .oet-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 22px;
+    color: var(--hero-deep);
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: .1em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.oet-hero__eyebrow-dot {
+    flex: 0 0 26px;
+    width: 26px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--hero-purple);
+}
+
+.oet-hero .oet-hero__title {
+    position: relative;
+    z-index: 0;
+    margin: 0 0 22px;
+    color: var(--hero-ink);
+    font-family: "Cal Sans", "Mulish", sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.2rem, 1.1rem + 3.3vw, 4.3rem);
+    line-height: 1.06;
+    letter-spacing: -.026em;
+    text-wrap: balance;
+}
+
+.oet-hero__accent {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0 .1em;
+    color: #fff;
+}
+
+.oet-hero__accent::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -.04em;
+    right: -.04em;
+    top: .1em;
+    bottom: .02em;
+    border-radius: .16em;
+    background: linear-gradient(100deg, #6d28d9 0%, #8b5cf6 55%, #a855f7 100%);
+    box-shadow: 0 .18em .5em -.2em rgba(109, 40, 217, .6);
+    transform: skewX(-7deg) rotate(-1.2deg);
+    transform-origin: left center;
+}
+
+.oet-hero .oet-hero__lead {
+    max-width: 55ch;
+    margin: 0 0 28px;
+    color: var(--hero-body);
+    font-size: clamp(1rem, .95rem + .22vw, 1.125rem);
+    font-weight: 500;
+    line-height: 1.66;
+    text-wrap: pretty;
+}
+
+.oet-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0 0 22px;
+}
+
+.oet-hero .oet-hero__cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 54px;
+    padding: 14px 26px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.oet-hero .oet-hero__cta--primary {
+    border: 0;
+    background: var(--hero-ink);
+    color: #fff;
+    box-shadow: 0 16px 30px -14px rgba(22, 33, 62, .7);
+}
+
+.oet-hero .oet-hero__cta--primary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+
+.oet-hero .oet-hero__cta--primary > * { position: relative; }
+.oet-hero .oet-hero__cta--primary { isolation: isolate; }
+.oet-hero .oet-hero__cta--primary::before { z-index: -1; }
+
+.oet-hero .oet-hero__cta--primary:hover,
+.oet-hero .oet-hero__cta--primary:focus-visible {
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 20px 36px -14px rgba(109, 40, 217, .8);
+}
+
+.oet-hero .oet-hero__cta--primary:hover::before,
+.oet-hero .oet-hero__cta--primary:focus-visible::before { opacity: 1; }
+
+.oet-hero .oet-hero__cta--ghost {
+    border: 1.5px solid rgba(22, 33, 62, .2);
+    background: transparent;
+    color: var(--hero-ink);
+}
+
+.oet-hero .oet-hero__cta--ghost:hover,
+.oet-hero .oet-hero__cta--ghost:focus-visible {
+    border-color: var(--hero-purple);
+    color: var(--hero-deep);
+    background: #fff;
+    transform: translateY(-2px);
+}
+
+.oet-hero .oet-hero__cta:focus-visible,
+.oet-hero .oet-hero__chip:focus-visible {
+    outline: 3px solid var(--hero-deep);
+    outline-offset: 3px;
+}
+
+.oet-hero .oet-hero__cta svg { flex: 0 0 auto; transition: transform .2s ease; }
+.oet-hero .oet-hero__cta:hover svg { transform: translateX(3px); }
+
+.oet-hero__reach {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 10px;
+    margin: 0 0 32px;
+}
+
+.oet-hero__reach-label {
+    margin-right: 2px;
+    color: var(--hero-body);
+    font-size: 13.5px;
+    font-weight: 700;
+}
+
+.oet-hero .oet-hero__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 8px 15px 8px 12px;
+    border: 1px solid var(--hero-line);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--hero-ink);
+    font-size: 13.5px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.oet-hero .oet-hero__chip i { font-size: 17px; line-height: 1; }
+.oet-hero__chip--wa i { color: #23d366; }
+.oet-hero__chip--tg i { color: #2aaeef; }
+.oet-hero__chip--fb i { color: #1877f2; }
+
+.oet-hero .oet-hero__chip:hover,
+.oet-hero .oet-hero__chip:focus-visible {
+    color: var(--hero-ink);
+    border-color: rgba(124, 58, 237, .4);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -14px rgba(31, 21, 88, .4);
+}
+
+.oet-hero .oet-hero__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.oet-hero__stat {
+    min-width: 0;
+    padding: 0 clamp(16px, 2vw, 30px);
+    border-left: 2px solid var(--hero-line);
+}
+
+.oet-hero__stat:first-child { padding-left: 0; border-left: 0; }
+
+.oet-hero__stat-num {
+    display: block;
+    color: var(--hero-ink);
+    font-family: "Cal Sans", "Mulish", sans-serif;
+    font-size: clamp(1.9rem, 1.2rem + 1.7vw, 2.9rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -.025em;
+    font-variant-numeric: tabular-nums;
+}
+
+.oet-hero__stat-num span:last-child { color: var(--hero-purple); }
+
+.oet-hero__stat-label {
+    display: block;
+    margin-top: 6px;
+    color: var(--hero-body);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.oet-hero .oet-hero__stat-label a,
+.oet-hero .oet-hero__badge-sub a {
+    color: inherit;
+    text-decoration: underline dotted;
+    text-underline-offset: 3px;
+}
+
+/* Visual */
+.oet-hero__stage {
+    position: relative;
+    min-width: 0;
+    height: clamp(560px, 44vw, 680px);
+}
+
+.oet-hero__word {
+    position: absolute;
+    left: 50%;
+    top: 3%;
+    transform: translateX(-50%);
+    color: transparent;
+    font-family: "Cal Sans", "Mulish", sans-serif;
+    font-size: clamp(210px, 22vw, 370px);
+    font-weight: 700;
+    line-height: .82;
+    letter-spacing: -.04em;
+    white-space: nowrap;
+    background: linear-gradient(180deg, rgba(124, 58, 237, .2) 0%, rgba(124, 58, 237, .04) 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-stroke: 2px rgba(124, 58, 237, .32);
+    user-select: none;
+}
+
+.oet-hero__orbit {
+    position: absolute;
+    left: 50%;
+    top: 47%;
+    width: 112%;
+    transform: translate(-50%, -50%) rotate(-12deg);
+    overflow: visible;
+}
+
+.oet-hero__orbit ellipse {
+    stroke: rgba(124, 58, 237, .34);
+    stroke-width: 1.2;
+    stroke-dasharray: 4 7;
+    vector-effect: non-scaling-stroke;
+}
+
+.oet-hero__portrait {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    height: 100%;
+    transform: translateX(-48%);
+    z-index: 2;
+    line-height: 0;
+}
+
+.oet-hero__portrait picture { display: block; height: 100%; }
+
+.oet-hero .oet-hero-doctor {
+    display: block;
+    width: auto;
+    height: 100%;
+    max-width: none;
+    -webkit-mask-image: linear-gradient(to bottom, #000 84%, rgba(0, 0, 0, .5) 93%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 84%, rgba(0, 0, 0, .5) 93%, transparent 100%);
+}
+
+.oet-hero__pill {
+    position: absolute;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 7px 14px 7px 7px;
+    border: 1px solid rgba(255, 255, 255, .9);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .92);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 16px 32px -18px rgba(31, 21, 88, .55);
+    color: var(--hero-ink);
+    font-size: 13.5px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.oet-hero__pill i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--hero-purple);
+    color: #fff;
+    font-size: 11px;
+}
+
+.oet-hero__pill--courses { top: 25%; left: -9%; }
+.oet-hero__pill--writing { top: 41%; right: -7%; }
+.oet-hero__pill--speaking { top: 63%; left: -12%; }
+.oet-hero__pill--writing i { background: #0ea5e9; }
+.oet-hero__pill--speaking i { background: #10b981; }
+
+.oet-hero__badge {
+    position: absolute;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    gap: 2px 8px;
+    padding: 11px 15px;
+    border-radius: 16px;
+    background: var(--hero-ink);
+    color: #fff;
+    box-shadow: 0 20px 40px -18px rgba(22, 33, 62, .75);
+    line-height: 1.15;
+    white-space: nowrap;
+}
+
+.oet-hero__badge--rating { top: 7%; right: -3%; }
+
+.oet-hero__badge--community {
+    right: -6%;
+    bottom: 11%;
+    display: flex;
+    gap: 10px;
+    background: #fff;
+    color: var(--hero-ink);
+    box-shadow: 0 20px 40px -20px rgba(31, 21, 88, .5);
+}
+
+.oet-hero__stars { display: inline-flex; gap: 2px; color: #fbbf24; font-size: 12px; }
+.oet-hero__badge-top { font-size: 17px; font-weight: 900; }
+.oet-hero__badge--rating .oet-hero__badge-sub { grid-column: 1 / -1; color: #c9c4e6; }
+.oet-hero__badge-sub { display: block; margin-top: 2px; color: var(--hero-body); font-size: 12px; font-weight: 700; }
+
+.oet-hero__avatars { display: inline-flex; align-items: center; }
+
+.oet-hero__avatars span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin-right: -9px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+    color: #fff;
+    font-size: 10.5px;
+    font-weight: 900;
+}
+
+.oet-hero__avatars span:last-child { margin-right: 0; background: linear-gradient(135deg, #34d399, #059669); }
+
+/* Ticket */
+.oet-hero__placement {
+    position: relative;
+    display: grid;
+    grid-template-columns: 170px minmax(0, 1fr) auto;
+    align-items: stretch;
+    margin-top: 34px;
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 0 24px 50px -30px rgba(31, 21, 88, .45), 0 0 0 1px var(--hero-line);
+}
+
+.oet-hero__placement-stub {
+    position: relative;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: 10px;
+    padding: 18px 14px;
+    border-radius: 22px 0 0 22px;
+    background: linear-gradient(160deg, #8b5cf6 0%, #5b21b6 100%);
+    color: #fff;
+    text-align: center;
+}
+
+.oet-hero__placement-stub::before,
+.oet-hero__placement-stub::after {
+    content: "";
+    position: absolute;
+    right: -11px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--hero-field);
+    box-shadow: inset 0 0 0 1px var(--hero-line);
+}
+
+.oet-hero__placement-stub::before { top: -11px; }
+.oet-hero__placement-stub::after { bottom: -11px; }
+
+.oet-hero__placement-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, .18);
+    font-size: 20px;
+}
+
+.oet-hero .oet-hero__placement-kicker {
+    margin: 0;
+    color: #fff;
+    font-size: 11.5px;
+    font-weight: 900;
+    letter-spacing: .08em;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.oet-hero__placement-body {
+    min-width: 0;
+    padding: 20px 24px;
+    border-left: 2px dashed rgba(124, 58, 237, .25);
+    align-self: center;
+}
+
+.oet-hero .oet-hero__placement-title {
+    margin: 0 0 4px;
+    color: var(--hero-ink);
+    font-family: "Cal Sans", "Mulish", sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.oet-hero .oet-hero__placement-copy {
+    margin: 0;
+    color: var(--hero-body);
+    font-size: 14.5px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.oet-hero .oet-hero__placement-note {
+    margin: 2px 0 0;
+    color: #6f6a90;
+    font-size: 12.5px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.oet-hero .oet-hero__placement-cta { align-self: center; margin: 0 22px 0 0; }
+
+@media (min-width: 1200px) {
+    .oet-hero__inner { grid-template-columns: minmax(0, 1.06fr) minmax(0, .94fr); gap: clamp(40px, 4vw, 72px); }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .oet-hero { --hero-pt: 92px; --hero-pb: 48px; }
+    .oet-hero__inner { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 30px; }
+    .oet-hero .oet-hero__title { font-size: clamp(2.3rem, 1rem + 2.9vw, 3rem); }
+    .oet-hero__stage { height: 540px; }
+    .oet-hero__pill--courses { left: -4%; }
+    .oet-hero__pill--speaking { left: -6%; }
+    .oet-hero__pill--writing { top: 55%; right: -4%; }
+    .oet-hero__badge--rating { top: 2%; right: -5%; }
+    .oet-hero__badge--community { right: -2%; }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .oet-hero { --hero-pt: 84px; --hero-pb: 44px; }
+    .oet-hero__inner { grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); gap: 22px; }
+    .oet-hero .oet-hero__title { font-size: clamp(2rem, 1rem + 2.8vw, 2.55rem); }
+    .oet-hero .oet-hero__lead { font-size: 15.5px; margin-bottom: 22px; }
+    .oet-hero .oet-hero__cta { min-height: 48px; padding: 12px 20px; font-size: 15px; }
+    .oet-hero__stage { height: 440px; }
+    .oet-hero__word { font-size: 200px; }
+    .oet-hero__pill { display: none; }
+    .oet-hero__badge { padding: 9px 12px; }
+    .oet-hero__badge-top { font-size: 14px; }
+    .oet-hero__badge-sub { font-size: 10.5px; }
+    .oet-hero__badge--rating { top: 34%; right: auto; left: -8%; }
+    .oet-hero__badge--community { right: -8%; bottom: 8%; }
+    .oet-hero__avatars span { width: 25px; height: 25px; font-size: 9px; }
+    .oet-hero__placement { grid-template-columns: 130px minmax(0, 1fr); }
+    .oet-hero .oet-hero__placement-cta { grid-column: 2; justify-self: start; margin: 0 24px 20px; }
+}
+
+@media (max-width: 767.98px) {
+    .oet-hero { --hero-pt: 70px; --hero-pb: 34px; }
+    .oet-hero__inner { gap: 8px; }
+    .oet-hero__copy { display: contents; }
+    .oet-hero .oet-hero__eyebrow { order: 1; margin-bottom: 8px; font-size: 11.5px; }
+    .oet-hero .oet-hero__title { order: 2; margin-bottom: 8px; font-size: clamp(2.05rem, 8.6vw, 2.6rem); line-height: 1.1; }
+    .oet-hero .oet-hero__lead { order: 3; margin-bottom: 10px; font-size: 15.5px; line-height: 1.6; }
+    .oet-hero__actions { order: 4; margin-bottom: 4px; }
+    .oet-hero .oet-hero__cta { flex: 1 1 100%; min-height: 52px; }
+    .oet-hero__stage { order: 5; height: min(118vw, 460px); }
+    .oet-hero__reach { order: 6; margin: 8px 0 22px; }
+    .oet-hero__reach-label { flex: 1 1 100%; }
+    .oet-hero .oet-hero__stats { order: 7; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .oet-hero__stat { padding: 0 10px; }
+    .oet-hero__stat-label { font-size: 11.5px; }
+    .oet-hero__word { font-size: 50vw; top: 6%; }
+    .oet-hero__orbit { width: 118%; }
+    .oet-hero__pill { display: none; }
+    .oet-hero__badge { padding: 8px 11px; gap: 2px 7px; border-radius: 13px; }
+    .oet-hero__badge-top { font-size: 14px; }
+    .oet-hero__badge-sub { font-size: 10px; }
+    .oet-hero__stars { font-size: 9.5px; }
+    .oet-hero__avatars span { width: 22px; height: 22px; margin-right: -7px; font-size: 8.5px; }
+    .oet-hero__badge--rating { top: 34%; right: auto; left: 0; }
+    .oet-hero__badge--community { right: 0; bottom: 12%; }
+    .oet-hero__placement { grid-template-columns: minmax(0, 1fr); margin-top: 24px; }
+    .oet-hero__placement-stub { grid-auto-flow: column; justify-content: start; align-items: center; padding: 12px 18px; border-radius: 22px 22px 0 0; }
+    .oet-hero__placement-icon { width: 40px; height: 40px; font-size: 18px; }
+    .oet-hero__placement-stub::before, .oet-hero__placement-stub::after { top: auto; bottom: -11px; right: auto; }
+    .oet-hero__placement-stub::before { left: -11px; }
+    .oet-hero__placement-stub::after { right: -11px; }
+    .oet-hero__placement-body { border-left: 0; border-top: 2px dashed rgba(124, 58, 237, .25); padding: 18px; }
+    .oet-hero .oet-hero__placement-title { font-size: 18.5px; }
+    .oet-hero .oet-hero__placement-cta { margin: 0 18px 18px; }
+}
+
+@media (max-width: 359.98px) {
+    .oet-hero__badge-sub { display: none; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .oet-hero__anim { animation: oet-hero-fade .75s cubic-bezier(.2, .7, .2, 1) both; animation-delay: var(--d, 0ms); }
+    .oet-hero__rise { animation: oet-hero-slide .85s cubic-bezier(.2, .7, .2, 1) both; animation-delay: var(--d, 0ms); }
+    .oet-hero__accent::before { animation: oet-hero-band .7s .35s cubic-bezier(.6, 0, .2, 1) both; }
+    .oet-hero__word { animation: oet-hero-word 1.2s .1s cubic-bezier(.2, .7, .2, 1) both; }
+    .oet-hero__orbit ellipse { animation: oet-hero-dash 40s linear infinite; }
+    .oet-hero__pill--courses { animation: oet-hero-float 6s 1s ease-in-out infinite; }
+    .oet-hero__pill--writing { animation: oet-hero-float 7s 1.4s ease-in-out infinite reverse; }
+    .oet-hero__pill--speaking { animation: oet-hero-float 6.5s 1.8s ease-in-out infinite; }
+    .oet-hero__badge--rating { animation: oet-hero-float 8s 1.2s ease-in-out infinite reverse; }
+}
+
+/* Ambient loops are the expensive part on a phone; the entrance is not. */
+html.oet-lite-motion .oet-hero__orbit ellipse,
+html.oet-lite-motion .oet-hero__pill {
+    animation: none;
+}
+
+@keyframes oet-hero-fade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes oet-hero-slide { from { transform: translateY(18px); } to { transform: none; } }
+@keyframes oet-hero-band { from { transform: skewX(-7deg) rotate(-1.2deg) scaleX(0); } to { transform: skewX(-7deg) rotate(-1.2deg) scaleX(1); } }
+/* Transform only: the wordmark can be the largest element on a phone, and an opacity fade would delay LCP. */
+@keyframes oet-hero-word { from { transform: translateX(-50%) scale(1.07); } to { transform: translateX(-50%) scale(1); } }
+@keyframes oet-hero-dash { to { stroke-dashoffset: -220; } }
+@keyframes oet-hero-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
