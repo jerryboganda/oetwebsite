@@ -3,9 +3,15 @@ import part1 from '../partials/chrome/footer-1.html?raw';
 import part2 from '../partials/chrome/footer-2.html?raw';
 import { addRecallsLink } from '../lib/recalls.mjs';
 import { addArabicLibraryLink } from '../lib/blog.mjs';
+import { localiseFooter } from '../lib/arabic-nav.mjs';
 const { showApps = false, lang = 'en', recalls = true } = Astro.props;
 // "OET Recalls" / "ريكولز OET" in the Resources & Guides group, directly after "OET Blog", then "مقالات OET بالعربي" (the Arabic
 // library, brief of 22 Nov 2026). Neither is rendered on the two frozen landing pages.
 const links = recalls ? addArabicLibraryLink(addRecallsLink(part2, lang === 'ar' ? 'ar' : 'en', 'footer'), 'footer') : part2;
+// SEO handoff #3 (27 Nov 2026, items 2.1 and 2.2): on EVERY Arabic page, /ar/ included (the owner's handoff lifts the freeze for
+// this), the footer links that have an Arabic twin open the twin, the logo opens /ar/, and the Arabic free-resources page is linked.
+const APP = '<li><a href="/pricing.html#download-app">Download Candidates App</a></li>';
+const whole = `${part1}${APP}${links}`;
+const footer = lang === 'ar' ? localiseFooter(whole) : whole;
 ---
-<Fragment set:html={part1} /><li><a href="/pricing.html#download-app">Download Candidates App</a></li><Fragment set:html={links} />
+<Fragment set:html={footer} />

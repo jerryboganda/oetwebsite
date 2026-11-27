@@ -4,8 +4,8 @@ import part2 from '../partials/chrome/header-2.html?raw';
 import offcanvas from '../partials/chrome/offcanvas.html?raw';
 import { addRecallsLink } from '../lib/recalls.mjs';
 import { addWebinarsLink } from '../lib/webinars.mjs';
-import { addArabicLibraryLink } from '../lib/blog.mjs';
-import { localiseNav } from '../lib/arabic-nav.mjs';
+import { addArabicLibraryLink, ARABIC_LIBRARY_NAV_ITEM } from '../lib/blog.mjs';
+import { localiseNav, addArabicFreeNav } from '../lib/arabic-nav.mjs';
 const { showApps = false, lang = 'en', recalls = true, arabicLibrary = recalls } = Astro.props;
 // "Recalls" / "الريكولز" directly after "OET Blog"; main.js clones this nav into the mobile menu, so the menu gets it in the same position.
 // "Webinars" (owner brief 21 Nov 2026) is inserted first so Recalls still directly follows "OET Blog" (Blog, Recalls, Webinars).
@@ -25,7 +25,8 @@ const arabic = lang === 'ar';
 const PRICING = '<a class="oet-pricing-nav-link" href="/pricing.html">Pricing</a>';
 if (part1.split(PRICING).length !== 2) throw new Error('Header: expected exactly one top-level "Pricing" link in header-1.html');
 const head = arabic ? localiseNav(part1) : part1;
-const menu = arabic ? localiseNav(nav) : nav;
+// Handoff #3 (27 Nov 2026, item 2.2): the Arabic free-resources page follows the Arabic library item on every Arabic page.
+const menu = arabic ? localiseNav(addArabicFreeNav(nav, ARABIC_LIBRARY_NAV_ITEM)) : nav;
 const drawer = arabic ? localiseNav(offcanvas) : offcanvas;
 const appHref = showApps ? '#download-app' : arabic ? '/ar/pricing.html#download-app' : '/pricing.html#download-app';
 ---

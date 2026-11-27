@@ -903,7 +903,10 @@ if (distHtml['pricing.html']) {
       : FOOTER_GROUPS.map(([t, l]) => (t === 'Resources & Guides' ? [t, [...l, [rl.footer, rl.href]]] : [t, l]));
     groupsHere.forEach(([title, links], i) => {
       const body = groups[i] ? groups[i][2] : '';
-      for (const [text, href] of links) {
+      for (const [text, href0] of links) {
+        // Arabic pages (handoff #3 of 27 Nov 2026, item 2.1): a footer link whose page has an Arabic twin opens the twin, same label
+        const twin = page.startsWith('ar/') && /^\/[a-z0-9-]+\.html(#|$)/.test(href0) && distHtml[`ar${href0.split('#')[0]}`];
+        const href = twin ? `/ar${href0}` : href0;
         // postbuild appends a clean ?text= prefill to bare wa.me links
         const target = esc(href).replace(/&/g, '(?:&|&amp;)') + (href.startsWith('https://wa.me/') ? '(?:\\?text=[^"]*)?' : '');
         const re = new RegExp(`<a\\b[^>]*\\bhref="${target}"[^>]*>(?:\\s*<[^>]+>)*\\s*${esc(text)}\\s*(?:</[^>]+>\\s*)*</a>`);
@@ -1725,6 +1728,44 @@ if (distHtml['pricing.html']) {
       fail(`${page}: an English page's menu must keep its English targets (only the "OET بالعربية" and Arabic library entries point into /ar/)`);
     }
   }
+}
+
+// ---- SEO handoff #3 (verification, 27 Nov 2026), items 2.1 and 2.2 --------------------------------------------------------
+// 2.1: no chrome link of an Arabic page (header, drawer, FOOTER) opens an English page that has an Arabic twin, and the Arabic home
+// page's own content does not either (the audit counted its footer and body links). 2.2: /ar/oet-free-resources.html is linked from
+// the menu and the footer of every Arabic page, the Arabic home page included. English pages keep their English footer.
+{
+  const { ARABIC_FREE, ARABIC_FREE_NAV_ITEM, ARABIC_FREE_FOOTER_ITEM } = await import('../src/lib/arabic-nav.mjs');
+  const { ARABIC_LIBRARY_NAV_ITEM: LIBRARY_ITEM } = await import('../src/lib/blog.mjs');
+  const englishWithTwin = (block) => [...block.matchAll(/href="(\/(?!ar\/)[a-z0-9-]+\.html)(?:[#?][^"]*)?"/g)].map((m) => m[1]).filter((h) => distHtml[`ar${h}`]);
+  const HANDOFF3 = ['pricing', 'success-stories', 'oet-writing-tips', 'oet-speaking-tips', 'oet-sample-tests', 'oet-score-calculator', 'oet-score-requirements',
+    'oet-test-dates-and-fees', 'oet-writing-correction', 'oet-course-for-doctors', 'oet-course-for-nurses', 'oet-test-centres', 'gulf-pathway-guide'];
+  if (!distHtml[ARABIC_FREE.href.slice(1)]) fail(`${ARABIC_FREE.href}: the Arabic free-resources page must be built`);
+  for (const [page, html] of Object.entries(distHtml)) {
+    const footer = (html.match(/<footer\b[\s\S]*?<\/footer>/) || [''])[0];
+    const nav = (html.match(/<nav class="vl-mobile-menu-active"[\s\S]*?<\/nav>/) || [''])[0];
+    if (!footer) { fail(`${page}: footer not found`); continue; }
+    if (!page.startsWith('ar/')) {
+      if (html.includes(ARABIC_FREE_NAV_ITEM) || footer.includes(ARABIC_FREE.href)) fail(`${page}: the Arabic free-resources chrome link belongs to Arabic pages only`);
+      if ([...footer.matchAll(/href="(\/ar\/[^"]*)"/g)].some((m) => !['/ar/', '/ar/blog/', '/ar/oet-recalls.html'].includes(m[1]))) fail(`${page}: an English page's footer must keep its English targets`);
+      if (!footer.includes('<a href="/"><img')) fail(`${page}: the English footer logo opens /`);
+      continue;
+    }
+    for (const h of englishWithTwin(footer)) fail(`${page}: the footer links the English ${h} although /ar${h} exists (handoff #3, item 2.1)`);
+    if (!footer.includes('<a href="/ar/"><img')) fail(`${page}: the footer logo must open /ar/ on Arabic pages`);
+    if (!footer.includes('<li><a href="/ar/pricing.html#download-app">Download Candidates App</a></li>')) fail(`${page}: the footer "Download Candidates App" link must open the Arabic pricing page`);
+    if (!nav.includes(`${LIBRARY_ITEM}${ARABIC_FREE_NAV_ITEM}`)) fail(`${page}: the Free Resources menu must link ${ARABIC_FREE.href} directly after the Arabic library item (handoff #3, item 2.2)`);
+    if (footer.split(ARABIC_FREE_FOOTER_ITEM).length !== 2) fail(`${page}: the footer Resources & Guides group must link ${ARABIC_FREE.href} once (handoff #3, item 2.2)`);
+    for (const m of footer.matchAll(/href="\/ar\/pricing\.html#([^"]+)"/g)) if (!distHtml['ar/pricing.html'].includes(`id="${m[1]}"`)) fail(`${page}: footer anchor #${m[1]} does not exist on /ar/pricing.html`);
+  }
+  const home = distHtml['ar/index.html'] || '';
+  const homeMain = (home.match(/<main[\s\S]*<\/main>/) || [''])[0];
+  for (const h of englishWithTwin(homeMain)) fail(`ar/index.html: the page content links the English ${h} although /ar${h} exists (handoff #3, item 2.1)`);
+  for (const slug of HANDOFF3) {
+    if (new RegExp(`href="/${slug}\\.html["#?]`).test(home)) fail(`ar/index.html: still links the English /${slug}.html (handoff #3, item 2.1)`);
+    if (!home.includes(`href="/ar/${slug}.html`)) fail(`ar/index.html: must link /ar/${slug}.html (handoff #3 acceptance check)`);
+  }
+  for (const m of homeMain.matchAll(/href="\/ar\/pricing\.html#([^"]+)"/g)) if (!distHtml['ar/pricing.html'].includes(`id="${m[1]}"`)) fail(`ar/index.html: anchor #${m[1]} does not exist on /ar/pricing.html`);
 }
 
 // ---- Free Community popup (owner brief "Free Community update", 22 Nov 2026) ----------------------------------------------

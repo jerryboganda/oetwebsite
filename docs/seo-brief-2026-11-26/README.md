@@ -93,3 +93,23 @@ Team:
   list now opens upwards, `.oet-submenu-up`); the homepage practice block shows five links. Screenshots: `docs/qa/2026-11-26/`.
 - Not tested: live GA4 / Meta events, Search Console, and the production redirects for the folder-style test-centre URLs (they take effect
   on deploy; check `curl -I https://oetwithdrhesham.co.uk/oet-test-centres/paper-2027/` afterwards).
+
+## 5. SEO handoff #3 (verification, 27 Nov 2026; built 28 Nov 2026)
+
+The handoff confirmed handoff #2 on the live site and left two open items. Both are built; `verify.mjs` block "SEO handoff #3" gates them.
+
+- **2.1 Arabic menu (13 English URLs with Arabic twins).** The header and drawer were already Arabic-first on the live site (handoff #2,
+  `localiseNav`). What the audit still counted on `/ar/` was the **footer** (shared English chrome on every Arabic page) and the
+  **body links of the Arabic home page**. Now: on every Arabic page the footer links that have an Arabic twin open the twin
+  (`localiseFooter` in `site/src/lib/arabic-nav.mjs`, called by `Footer.astro`), the footer logo opens `/ar/` and "Download Candidates App"
+  opens `/ar/pricing.html#download-app`; in `partials/ar/main.html` ten hrefs were retargeted (the three pricing anchors map to
+  `#classic-courses`, `#speaking-packages`, `#mock-packages`). Labels are unchanged. Result on `/ar/`: 0 links to any of the 13 English
+  URLs, every one of the 13 `/ar/` URLs linked. Links with no Arabic twin (About, FAQ, Contact, OET Courses, the non-Gulf pathway
+  guides, Who Accepts OET, Reading / Listening tips, ECFMG, role-plays) stay English, as the handoff says.
+- **2.2 `/ar/oet-free-resources.html` had no internal link.** Every Arabic page, `/ar/` included, now links it twice: second item of the
+  Free Resources menu ("مصادر OET المجانية", directly after the Arabic library item, so the mobile drawer has it too) and in the footer
+  Resources & Guides group directly after "Free Resources". English pages do not carry it.
+- **2.3** (D1-D4, analytics check): no dev action; still in section 3 above.
+- Evidence: build 136 pages, `verify.mjs` passes, `--check-root` matches, `qa-redesign.mjs` passes (its stale footer link count for
+  the English homepage, 9, was corrected to 10: "OET Test Centres" was added by handoff #2). Only the 44 Arabic pages and `sitemap.xml`
+  changed; no English page changed.
