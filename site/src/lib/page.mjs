@@ -7,6 +7,7 @@
 //   5. author box              <!--oet:author-box-->                                         (schema.mjs)
 //   6. related articles        <!--oet:related-guides-->                                     (blog.mjs)
 //   7. derived head tags       og:image:alt, author, article:*, Atom link                    (head.mjs)
+//   8. venue / regulator data  <!--oet:venue-directory-->, <!--oet:home-acceptance-->, ...           (regdata.mjs)
 // verify.mjs fails if any <!--oet:…--> marker survives into dist.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -15,6 +16,7 @@ import { loadPerson, applyEntityNodes, authorBox, yearsCoaching, numberWord } fr
 import { loadBlog, applyRelatedGuides, pageDates, renderDates } from './blog.mjs';
 import { deriveHeadTags } from './head.mjs';
 import { newsCardHtml } from './announce.mjs';
+import { applyRegData } from './regdata.mjs';
 
 const SITE = process.cwd();
 let data; // the build is one process: read the data files once
@@ -58,6 +60,8 @@ export function enrichPage(raw) {
   const input = Object.fromEntries(Object.entries(raw).map(([k, html]) => [k, html.replace(ESCAPED_MARKER, '<!--$1-->')]));
   const key = pageKey(input.meta);
   let parts = applyPriceMarkers(input, pricing, bundles);
+  // venue and regulator tables rendered from src/data/test-centres.json and regulators.json (lib/regdata.mjs)
+  parts = applyRegData(parts, key);
   // "1,750+ verified score cards": the count of the success-stories manifest, never a typed number
   parts = replaceMarker(parts, '<!--oet:story-count-->', () => stories.toLocaleString('en-GB'));
   // homepage news card (data/announcement.json): the English homepage ("index") and the Arabic one ("ar/index")

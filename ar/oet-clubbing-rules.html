@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="ar" class="oet-live-site">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <script>
+      (function () {
+        try {
+          var m = window.matchMedia;
+          if (m && (
+            m('(max-width:1023.98px)').matches ||
+            m('(pointer:coarse)').matches ||
+            m('(hover:none)').matches ||
+            m('(prefers-reduced-motion:reduce)').matches
+          )) {
+            document.documentElement.classList.add('oet-lite-motion');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <script>(function(){try{var h=document.documentElement;if(Date.now()>Date.parse('2027-01-15T23:59:59Z'))h.classList.add('oet-news-expired');try{if(localStorage.getItem('oet_announce_paper-2027')==='1')h.classList.add('oet-bar-dismissed');}catch(e){}}catch(e){}})();</script>
+    <script>
+      // Signed-in hint set by the learner app (shared-domain cookie oet_signed_in=1, no token or PII).
+      // Presentation only. The header and drawer CTA always READS "Login / Register" (owner brief
+      // 28 Oct 2026); the hint only decides where it points: the app dashboard when the cookie exists
+      // (so a signed-in visitor is not sent back through sign-in), the sign-in entry otherwise.
+      // sync() is idempotent and runs: now, on DOMContentLoaded (the nav anchors exist and the deferred
+      // main.js has already cloned the nav into the mobile drawer; a clone copies whatever href it
+      // finds, and this pass fixes it), and on a bfcache restore (pageshow persisted) so Back after
+      // sign-in or sign-out never leaves a stale target. The guest href is remembered in
+      // data-login-href the first time an anchor is seen.
+      (function () {
+        var d = document;
+        function sync() {
+          try {
+            var on = /(?:^|;\s*)oet_signed_in=1(?:;|$)/.test(d.cookie);
+            d.querySelectorAll('a[data-dashboard-href]').forEach(function (a) {
+              if (!a.hasAttribute('data-login-href')) a.setAttribute('data-login-href', a.getAttribute('href'));
+              a.setAttribute('href', a.getAttribute(on ? 'data-dashboard-href' : 'data-login-href'));
+            });
+          } catch (e) {}
+        }
+        sync();
+        d.addEventListener('DOMContentLoaded', sync);
+        window.addEventListener('pageshow', function (e) { if (e.persisted) sync(); });
+      })();
+    </script>
+    <title>دمج نتائج جلستين في OET (Clubbing): القواعد حسب الجهة 2027</title>
+    <meta name="description" content="من يقبل دمج نتائج جلستين في OET؟ قواعد NMC و Ahpra و ANMAC و CORU ونيوزيلندا: الدرجات، الحد الأدنى في كل جلسة، المدة بين الجلستين، وحكم إعادة جزء واحد.">
+    <link rel="canonical" href="https://oetwithdrhesham.co.uk/ar/oet-clubbing-rules.html">
+    <link rel="alternate" hreflang="en" href="https://oetwithdrhesham.co.uk/oet-clubbing-rules.html">
+    <link rel="alternate" hreflang="ar" href="https://oetwithdrhesham.co.uk/ar/oet-clubbing-rules.html">
+    <link rel="alternate" hreflang="x-default" href="https://oetwithdrhesham.co.uk/oet-clubbing-rules.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="OET with Dr Ahmed Hesham">
+    <meta property="og:locale" content="ar_AR">
+    <meta property="og:url" content="https://oetwithdrhesham.co.uk/ar/oet-clubbing-rules.html">
+    <meta property="og:title" content="دمج نتائج جلستين في OET (Clubbing): القواعد حسب الجهة 2027">
+    <meta property="og:description" content="من يقبل دمج نتائج جلستين في OET؟ قواعد NMC و Ahpra و ANMAC و CORU ونيوزيلندا: الدرجات، الحد الأدنى في كل جلسة، المدة بين الجلستين، وحكم إعادة جزء واحد.">
+    <meta property="og:image" content="https://oetwithdrhesham.co.uk/assets/img/blog/ar-oet-clubbing-rules.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="دمج نتائج جلستين في OET (Clubbing): القواعد حسب الجهة 2027">
+    <meta name="twitter:description" content="من يقبل دمج نتائج جلستين في OET؟ قواعد NMC و Ahpra و ANMAC و CORU ونيوزيلندا: الدرجات، الحد الأدنى في كل جلسة، المدة بين الجلستين، وحكم إعادة جزء واحد.">
+    <meta name="twitter:image" content="https://oetwithdrhesham.co.uk/assets/img/blog/ar-oet-clubbing-rules.webp">
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "دمج نتائج جلستين في OET (Clubbing): من يقبله وبأي شروط في 2027",
+    "description": "من يقبل دمج نتائج جلستين في OET؟ قواعد NMC و Ahpra و ANMAC و CORU ونيوزيلندا: الدرجات، الحد الأدنى في كل جلسة، المدة بين الجلستين، وحكم إعادة جزء واحد.",
+    "image": "https://oetwithdrhesham.co.uk/assets/img/blog/ar-oet-clubbing-rules.webp",
+    "datePublished": "2026-11-27",
+    "dateModified": "2026-11-27",
+    "inLanguage": "ar",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://oetwithdrhesham.co.uk/ar/oet-clubbing-rules.html"
+    },
+    "articleSection": "مسارات التسجيل",
+    "author": {
+      "@type": "Person",
+      "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+      "name": "Dr Ahmed Hesham",
+      "alternateName": [
+        "Dr Hesham",
+        "د. أحمد هشام"
+      ],
+      "honorificPrefix": "Dr",
+      "jobTitle": "Medical Doctor & OET Educator",
+      "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+      "url": "https://oetwithdrhesham.co.uk/about.html",
+      "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-2026-960.webp",
+      "worksFor": {
+        "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "knowsAbout": [
+        "OET preparation",
+        "Medical English",
+        "OET Writing",
+        "OET Speaking",
+        "Healthcare professional registration"
+      ],
+      "knowsLanguage": [
+        "en",
+        "ar"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+        "https://www.youtube.com/@drhesham222"
+      ]
+    },
+    "publisher": {
+      "@type": "EducationalOrganization",
+      "@id": "https://oetwithdrhesham.co.uk/#organization",
+      "name": "OET with Dr Ahmed Hesham",
+      "alternateName": [
+        "OET with Dr Hesham",
+        "Dr Hesham OET",
+        "OET مع د. أحمد هشام",
+        "د. أحمد هشام OET"
+      ],
+      "url": "https://oetwithdrhesham.co.uk/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://oetwithdrhesham.co.uk/assets/img/logo/platform-logo.png",
+        "width": 320,
+        "height": 90
+      },
+      "email": "support@oetwithdrhesham.co.uk",
+      "telephone": "+447961725989",
+      "founder": {
+        "@id": "https://oetwithdrhesham.co.uk/#drhesham"
+      },
+      "knowsLanguage": [
+        "en",
+        "ar"
+      ],
+      "sameAs": [
+        "https://www.youtube.com/@drhesham222",
+        "https://t.me/Oet_with_Hesham",
+        "https://t.me/OET_Nursing_DrHesham",
+        "https://www.facebook.com/groups/649430742699879",
+        "https://www.instagram.com/oetwith.drhesham"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "telephone": "+447961725989",
+        "email": "support@oetwithdrhesham.co.uk",
+        "availableLanguage": [
+          "English",
+          "Arabic"
+        ]
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "الرئيسية",
+        "item": "https://oetwithdrhesham.co.uk/ar/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "مقالات OET بالعربي",
+        "item": "https://oetwithdrhesham.co.uk/ar/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "دمج نتائج جلستين في OET",
+        "item": "https://oetwithdrhesham.co.uk/ar/oet-clubbing-rules.html"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "ما معنى دمج نتائج OET أو Clubbing؟",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "الدمج معناه استخدام نتيجتي جلستين من OET معاً لتحقيق شرط الدرجات عند جهة واحدة. OET لا يقرر هل هو مسموح: كل جهة تضع قاعدتها، وجهات كثيرة تقبل جلسة واحدة فقط."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ما الجهات التي تقبل دمج نتائج OET؟",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "في الصفحات التي قرأناها يوم 27 نوفمبر 2026، تنشر NMC و Ahpra و ANMAC قواعد لجلستين. وكذلك CORU في أيرلندا، وفي نيوزيلندا المجلس الطبي ومجلس التمريض ومجلس الصيدلة ومجلس العلاج الطبيعي ومجلس العلاج الوظيفي. ولكل جهة شروط مختلفة."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "هل يمكن دمج نتيجتين عند GMC؟",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "لا. GMC يطلب B على الأقل في كل جزء من الأربعة في نفس الامتحان، ومن أحدث جلسة لك."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "كم المدة المسموحة بين الجلستين؟",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "حسب الجهة. NMC و Ahpra و ANMAC والمجلس الطبي في نيوزيلندا تحدد 12 شهراً. و CORU ومجلس العلاج الطبيعي في نيوزيلندا يحددان ستة أشهر."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "هل يمكن إعادة جزء واحد فقط من OET؟",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OET يسمح بحجز أقل من أربعة أجزاء بعد أول امتحان كامل، لكن أغلب الجهات لا تقبل النتيجة. NMC و Ahpra و ANMAC والمجلس الطبي في نيوزيلندا و CORU تريد الأجزاء الأربعة في كل جلسة. و HCPC هي الجهة الوحيدة التي وجدناها تقبل إعادة جزء واحد، خلال ستة أشهر من الامتحان الأصلي."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "هل يصدر OET شهادة واحدة للجلستين؟",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "غير مؤكد. صفحات OET المنشورة لا تقول إنه يجمع جلستين في Statement of Results واحد. قراءتنا أن كل جلسة تحتفظ بنتيجتها والجهة هي التي تدمج. تأكد من جهتك."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "هل يمكن دمج جلسة OET مع جلسة IELTS؟",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "لم نجد جهة تسمح بذلك. NMC و Ahpra و ANMAC و CORU ومجلس التمريض في نيوزيلندا كلها تقول إن النتيجتين لازم تكونا من نفس الاختبار."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "هل تُحسب جلسة OET@Home في الدمج؟",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "عند NMC نعم: تقبل OET@Home وتسمح بدمجه مع جلسة ورقية أو كمبيوتر. أما Ahpra و ANMAC ومجلس التمريض في نيوزيلندا فلا تقبل OET@Home أصلاً."
+        }
+      }
+    ]
+  }
+]
+    </script>
+
+    <meta property="og:image:alt" content="دمج نتائج جلستين في OET (Clubbing): القواعد حسب الجهة 2027">
+    <meta name="author" content="Dr Ahmed Hesham">
+    <meta property="article:published_time" content="2026-11-27">
+    <meta property="article:modified_time" content="2026-11-27">
+    <meta property="article:author" content="https://oetwithdrhesham.co.uk/about.html">
+    <link rel="alternate" type="application/atom+xml" title="OET Blog by Dr Hesham" href="/feed.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="facebook-domain-verification" content="4j7vanqeax6mvmydb4sod34bj388dv">
+    <link rel="icon" href="/favicon.ico?v=20261109" sizes="32x32">
+    <link rel="icon" href="/assets/img/logo/fav-icon.svg?v=20261109" type="image/svg+xml">
+    <link rel="icon" href="/assets/img/logo/favicon-32x32.png?v=20261109" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/img/logo/favicon-16x16.png?v=20261109" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261109" sizes="180x180">
+    <link rel="manifest" href="/site.webmanifest?v=20261109">
+    <link rel="preload" href="/assets/fonts/mulish-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/cal-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+        
+        <link rel="stylesheet" href="/assets/css/plugins/sal.css?v=52a59aec6a">
+                        <link rel="stylesheet" href="/assets/css/oet-core.css?v=728d49f0c8">
+    
+    <link rel="stylesheet" href="/assets/css/oet-pathway.css?v=ff5d90a514">
+<style>
+@media (max-width: 767px) {
+  .oet-resource-hero .oet-tips-hero-copy[data-sal], .oet-resource-hero .oet-tips-hero-copy [data-sal], .oet-resource-hero .oet-tips-hero-panel[data-sal] { opacity: 1 !important;
+                transform: none !important; }
+}
+</style>
+    <style>
+.oet-final-cta-icon { display: grid !important;
+            place-items: center !important;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px !important;
+            font-weight: 900;
+            line-height: 1 !important;
+            color: #ffffff !important; }
+</style>
+    <link rel="stylesheet" href="/assets/css/oet-resource.css?v=d24f259e0a">
+    <style>
+@media (min-width: 1200px) {
+  .oet-skill-hero { padding-top: 240px !important; }
+}
+</style>
+
+<style>
+main[dir=rtl] :is(h1, h2, h3, h4, p, li, td, th, a, span, strong, small, summary, label, button) { font-family: "Segoe UI", Tahoma, "Noto Naskh Arabic", "Noto Sans Arabic", Arial, sans-serif; }
+main[dir=rtl], main[dir=rtl] * { letter-spacing: 0 !important; }
+main[dir=rtl] p, main[dir=rtl] li, main[dir=rtl] td { line-height: 1.9; }
+main[dir=rtl] h1, main[dir=rtl] h2, main[dir=rtl] h3, main[dir=rtl] p, main[dir=rtl] li, main[dir=rtl] th, main[dir=rtl] td { text-align: right; }
+main[dir=rtl] .oet-resource-card li { padding-left: 0; padding-right: 24px; }
+main[dir=rtl] .oet-resource-card li:before { left: auto; right: 0; }
+main[dir=rtl] .oet-ar-steps { margin: 0; padding: 0 22px 0 0; }
+main[dir=rtl] .oet-ar-steps li { margin-bottom: 12px; }
+main[dir=rtl] .oet-breadcrumbs li + li::before { content: "\2039"; }
+main[dir=rtl] .fa-arrow-left, main[dir=rtl] .fa-arrow-right { display: inline-block; }
+main[dir=rtl] .oet-related-card:hover .oet-related-arrow { transform: translateX(-4px); }
+main[dir=rtl] .oet-ar-en { font-size: 14px; font-weight: 700; margin-inline-start: 8px; }
+main[dir=rtl] .oet-ar-note { color: #5f5a7b; font-size: 14px; margin-top: 14px; }
+main[dir=rtl] .oet-ar-note a, main[dir=rtl] .oet-resource-heading a, main[dir=rtl] .oet-resource-card a, main[dir=rtl] .pathway-table a, main[dir=rtl] .oet-ar-steps a { color: #5b3ff1; font-weight: 700; }
+</style>
+
+<link rel="stylesheet" href="/assets/css/oet-directory.css?v=cd4e0aff5a">
+</head>
+<body class="oet-live-site oet-resource-page">
+    <a class="oet-skip-link" data-lenis-ignore-anchor href="#main-content">Skip to main content</a>
+<!--================= Announcement bar (data/announcement.json) =================-->
+    <aside class="oet-announce" data-oet-announce="paper-2027" lang="ar" dir="rtl" aria-label="إعلان"><a class="oet-announce__link" href="/ar/oet-paper-test-2027-changes.html">امتحان OET الورقي بيتوقف لعشر مهن في يناير 2027. اعرف اللي بيتغير عليك ←</a><button class="oet-announce__close" type="button" aria-label="إغلاق الإعلان"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></aside>
+<!--================= Header section start =================-->
+    <header>
+        <div id="vl-header-sticky" class="vl-header-area vl-transparent-header">
+            <!-- header top ribbon -->
+            <div class="vl-header-top-area d-none d-xl-block">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="vl-header-top-text">
+                                <span class="vl-header-top-badge"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Free OET Prep for Doctors &amp; Nurses</span>
+                                <a class="oet-community-cta" href="#oet-community-popup" aria-label="Join Free Community!" aria-haspopup="dialog" aria-controls="oet-community-popup">
+                                    <span class="oet-community-cta__sizer" aria-hidden="true"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Join Free Community!</span>
+                                    <span class="oet-community-cta__content" aria-hidden="true">
+                                        <span class="oet-community-cta__text"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Join Free Community!</span>
+                                        <span class="oet-community-cta__cursor">|</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- header top icon list -->
+                            <div class="header-top">
+                                <ul>
+                                    <li><a href="mailto:support@oetwithdrhesham.co.uk"><span class="header-top-icon"><i class="fa-regular fa-envelope" aria-hidden="true"></i></span><span>support@oetwithdrhesham.co.uk</span></a></li>
+                                    <li><a href="tel:+447961725989"><span class="header-top-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span><span>+44 7961 725989</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vl-header-main-area">
+                <div class="container">
+                    <div class="header-border-bottom">
+                        <div class="row align-items-center">
+                            <div class="col-xl-2 col-md-6 col-6">
+                                <div class="vl-logo">
+                                    <a href="/ar/" title="OET with Dr Hesham | The Pathway to UK" aria-label="OET with Dr Hesham Homepage"><img width="320" height="90" decoding="async" src="/assets/img/logo/platform-logo.webp" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-7 d-none d-xl-block">
+                                <div class="vl-main-menu text-center">
+                                    <nav class="vl-mobile-menu-active" aria-label="Main navigation">
+                                        <ul>
+                                            <li class="has-dropdown"><a href="/about.html">About <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="/about.html"><span class="submenu-icon"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></span><span class="submenu-text">About Dr. Hesham</span></a></li>
+                                                    <li><a href="https://www.youtube.com/watch?v=kL91eG32Uok" data-youtube-url="https://www.youtube.com/watch?v=kL91eG32Uok" data-oet-inline-video="true" class="popup-video" aria-label="Play Why OET video" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span><span class="submenu-text">Why OET</span></a></li>
+                                                    <li><a href="/teaching-approach.html"><span class="submenu-icon"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i></span><span class="submenu-text">Teaching Approach</span></a></li>
+                                                    <li><a href="/ar/oet-writing-correction.html"><span class="submenu-icon"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i></span><span class="submenu-text">Writing Corrections</span></a></li>
+                                                    <li><a href="/ar/pricing.html"><span class="submenu-icon"><i class="fa-solid fa-tags" aria-hidden="true"></i></span><span class="submenu-text">Packages &amp; Offers</span></a></li>
+                                                    <li><a href="/ar/success-stories.html"><span class="submenu-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span><span class="submenu-text">Success Stories</span></a></li>
+                                                    <li><a href="/faq.html"><span class="submenu-icon"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span><span class="submenu-text">FAQ</span></a></li>
+                                                    <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span><span class="submenu-text">Telegram Materials</span></a></li>
+                                                    <li class="has-dropdown oet-submenu-up"><a href="/blog/#pathways"><span class="submenu-icon"><i class="fa-solid fa-route" aria-hidden="true"></i></span><span class="submenu-text">Pathway Guidelines</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                        <ul class="sub-menu">
+                                                            <li><a href="/uk-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-flag" aria-hidden="true"></i></span><span class="submenu-text">UK Pathway Guide</span></a></li>
+                                                            <li><a href="/usa-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span><span class="submenu-text">USA Pathway Guide</span></a></li>
+                                                            <li><a href="/australia-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-earth-oceania" aria-hidden="true"></i></span><span class="submenu-text">Australia Pathway Guide</span></a></li>
+                                                            <li><a href="/ar/gulf-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-compass" aria-hidden="true"></i></span><span class="submenu-text">Gulf Pathway Guide</span></a></li>
+                                                            <li><a href="/ireland-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-flag" aria-hidden="true"></i></span><span class="submenu-text">Ireland Pathway Guide</span></a></li>
+                                                            <li><a href="/canada-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span><span class="submenu-text">Canada Pathway Guide</span></a></li>
+                                                            <li><a href="/new-zealand-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-earth-oceania" aria-hidden="true"></i></span><span class="submenu-text">New Zealand Pathway Guide</span></a></li>
+                                                            <li><a href="/singapore-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-compass" aria-hidden="true"></i></span><span class="submenu-text">Singapore Pathway Guide</span></a></li>
+                                                            <li><a href="/oet-recognition-by-country.html"><span class="submenu-icon"><i class="fa-solid fa-passport" aria-hidden="true"></i></span><span class="submenu-text">Who Accepts OET</span></a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><a class="oet-pricing-nav-link" href="/ar/pricing.html">Pricing</a></li><li><a class="oet-pricing-nav-link" href="/ar/pricing.html#download-app">Download App</a></li>
+                                        <li class="has-dropdown"><a href="/service.html">OET Courses <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                            <ul class="sub-menu">
+                                               <li><a href="/ar/oet-course-for-nurses.html"><span class="submenu-icon"><i class="fa-solid fa-notes-medical" aria-hidden="true"></i></span><span class="submenu-text">OET for Nurses</span></a></li>
+                                               <li><a href="/ar/oet-course-for-doctors.html"><span class="submenu-icon"><i class="fa-solid fa-stethoscope" aria-hidden="true"></i></span><span class="submenu-text">OET for Doctors</span></a></li>
+                                               <li><a href="/ar/oet-writing-correction.html"><span class="submenu-icon"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i></span><span class="submenu-text">Writing Correction</span></a></li>
+                                               <li><a href="/ar/" lang="ar"><span class="submenu-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span><span class="submenu-text">OET بالعربية</span></a></li>
+                                               <li><a href="/ar/oet-course-for-pharmacists.html"><span class="submenu-icon"><i class="fa-solid fa-pills" aria-hidden="true"></i></span><span class="submenu-text">OET for Pharmacists</span></a></li>
+                                               <li><a href="/ar/oet-course-for-physiotherapists.html"><span class="submenu-icon"><i class="fa-solid fa-person-walking" aria-hidden="true"></i></span><span class="submenu-text">OET for Physiotherapists</span></a></li>
+                                               <li><a href="/oet-for-allied-health.html"><span class="submenu-icon"><i class="fa-solid fa-briefcase-medical" aria-hidden="true"></i></span><span class="submenu-text">OET for Allied Health</span></a></li>
+                                               <li><a href="/ar/pricing.html"><span class="submenu-icon"><i class="fa-solid fa-box-open" aria-hidden="true"></i></span><span class="submenu-text">OET Packages</span></a></li>
+                                            </ul>
+                                        </li>
+                                        
+                                        <li class="has-dropdown"><a href="/oet-tips.html">Free Resources <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                            <ul class="sub-menu"><li><a href="/ar/blog/" lang="ar"><span class="submenu-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span><span class="submenu-text" dir="rtl">مقالات OET بالعربي</span></a></li>
+                                               <li class="has-dropdown"><a href="/oet-tips.html"><span class="submenu-icon"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></span><span class="submenu-text">OET Tips</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                   <ul class="sub-menu">
+                                                       <li><a href="/ar/oet-writing-tips.html"><span class="submenu-icon"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></span><span class="submenu-text">Writing Tips</span></a></li>
+                                                       <li><a href="/oet-reading-tips.html"><span class="submenu-icon"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i></span><span class="submenu-text">Reading Tips</span></a></li>
+                                                       <li><a href="/oet-listening-tips.html"><span class="submenu-icon"><i class="fa-solid fa-headphones" aria-hidden="true"></i></span><span class="submenu-text">Listening Tips</span></a></li>
+                                                       <li><a href="/ar/oet-speaking-tips.html"><span class="submenu-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span><span class="submenu-text">Speaking Tips</span></a></li>
+                                                   </ul>
+                                               </li>
+                                               <li class="has-dropdown"><a href="/ar/oet-score-requirements.html"><span class="submenu-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><span class="submenu-text">OET Exam Guide</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                   <ul class="sub-menu">
+                                                       <li><a href="/ar/oet-sample-tests.html"><span class="submenu-icon"><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i></span><span class="submenu-text">Free Sample Tests</span></a></li>
+                                                       <li><a href="/ar/oet-score-calculator.html"><span class="submenu-icon"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></span><span class="submenu-text">OET Score Calculator</span></a></li>
+                                                       <li><a href="/ar/oet-score-requirements.html"><span class="submenu-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><span class="submenu-text">Score Requirements</span></a></li>
+                                                       <li><a href="/ar/oet-test-dates-and-fees.html"><span class="submenu-icon"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></span><span class="submenu-text">Test Dates &amp; Fees</span></a></li>
+                                                       <li><a href="/ar/oet-vs-ielts.html"><span class="submenu-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span><span class="submenu-text">OET vs IELTS</span></a></li>
+                                                       <li><a href="/oet-for-ecfmg.html"><span class="submenu-icon"><i class="fa-solid fa-flag" aria-hidden="true"></i></span><span class="submenu-text">OET for ECFMG</span></a></li>
+                                                       <li><a href="/ar/oet-writing-sample-nursing.html"><span class="submenu-icon"><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i></span><span class="submenu-text">Writing Sample: Nursing</span></a></li>
+                                                       <li><a href="/ar/oet-writing-sample-medicine.html"><span class="submenu-icon"><i class="fa-solid fa-file-waveform" aria-hidden="true"></i></span><span class="submenu-text">Writing Sample: Medicine</span></a></li>
+                                                       <li><a href="/oet-speaking-role-play-nursing.html"><span class="submenu-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span><span class="submenu-text">Speaking Role-Plays: Nursing</span></a></li>
+                                                       <li><a href="/oet-speaking-role-play-medicine.html"><span class="submenu-icon"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i></span><span class="submenu-text">Speaking Role-Plays: Medicine</span></a></li>
+                                                   </ul>
+                                               </li>
+                                               <li class="has-dropdown"><a href="/ar/oet-test-centres.html"><span class="submenu-icon"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i></span><span class="submenu-text">Test Centres &amp; Rules</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                   <ul class="sub-menu">
+                                                       <li><a href="/ar/oet-test-centres.html"><span class="submenu-icon"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i></span><span class="submenu-text">OET Test Centres</span></a></li>
+                                                       <li><a href="/ar/oet-paper-test-centres-2027.html"><span class="submenu-icon"><i class="fa-solid fa-flag" aria-hidden="true"></i></span><span class="submenu-text">Paper Test Centres 2027</span></a></li>
+                                                       <li><a href="/ar/oet-at-home.html"><span class="submenu-icon"><i class="fa-solid fa-desktop" aria-hidden="true"></i></span><span class="submenu-text">OET@Home Guide</span></a></li>
+                                                       <li><a href="/ar/oet-clubbing-rules.html"><span class="submenu-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span><span class="submenu-text">OET Clubbing Rules</span></a></li>
+                                                       <li><a href="/oet-recognition-by-country.html"><span class="submenu-icon"><i class="fa-solid fa-passport" aria-hidden="true"></i></span><span class="submenu-text">Who Accepts OET</span></a></li>
+                                                   </ul>
+                                               </li>
+                                               <li class="has-dropdown"><a href="/oet-materials-support.html"><span class="submenu-icon"><i class="fa-solid fa-folder-open" aria-hidden="true"></i></span><span class="submenu-text">Materials &amp; Support</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                   <ul class="sub-menu">
+                                                       <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span><span class="submenu-text">Telegram Materials</span></a></li>
+                                                       <li><a href="#oet-community-popup" class="oet-community-cta"><span class="submenu-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span><span class="submenu-text">Join Free Community</span></a></li>
+                                                       <li><a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><span class="submenu-text">WhatsApp Support</span></a></li>
+                                                   </ul>
+                                               </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="/blog/">OET Blog</a></li><li><a href="/ar/oet-recalls.html" lang="ar">الريكولز</a></li><li><a href="https://app.oetwithdrhesham.co.uk/webinars" lang="ar">الندوات</a></li>
+                                        <li><a href="/english-placement-test">Free Placement Test</a></li>
+                                        <li class="oet-nav-desktop-only"><a href="/contact.html">Contact</a></li>
+                                        <li class="oet-nav-cta-item"><a class="oet-header-cta-btn" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F" data-dashboard-href="https://app.oetwithdrhesham.co.uk/"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>Login / Register</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-6">
+                            <div class="vl-header-right">
+                                <!-- header btn -->
+                                <div class="vl-header-search d-none d-xl-block">
+                                    <button type="button" class="oet-search-btn" aria-label="Search this site" aria-controls="vl-header-search" aria-expanded="false"><img aria-hidden="true" loading="lazy" decoding="async" class="vl-search-toggle" src="/assets/img/icon/vl-search-1.1.svg" alt=""></button>
+                                </div>
+                                <!-- header social area -->
+                                <div class="social-area social-area-headerTop d-none d-xl-block">
+                                    <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                                    <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                                    <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
+                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+                                    <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                                    <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+                                </div>
+                            </div>
+
+                            <!-- action btn -->
+                            <div class="vl-header-action-item d-block d-xl-none">
+                                <a class="oet-header-login" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F" data-dashboard-href="https://app.oetwithdrhesham.co.uk/">Login / Register</a>
+                                <button type="button" class="vl-offcanvas-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="vl-offcanvas-menu">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" aria-hidden="true" focusable="false">
+                                        <path d="M1.5 2.5h21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M1.5 9h21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M1.5 15.5h21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>    <!-- vl header search  -->
+    <div id="vl-header-search" class="vl-header-search-bar d-flex align-items-center">
+        <button class="vl-search-close" aria-label="Close search">&times;</button>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="vl-search-bar text-center">
+                        <h2 class="vl-search-bar-title mb-30">Search OET tips, writing, speaking, UK pathway</h2>
+                        <div class="contact-form-box contact-search-form-box">
+                            <form action="#">
+                                <input type="search" aria-label="Search this site" placeholder="Search OET preparation, writing, speaking...">
+                                <button type="submit"><i class="far fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- vl header search end -->
+
+    <!-- offcanvas menu start -->
+    <div id="vl-offcanvas-menu" class="vl-offcanvas">
+        <div class="vl-offcanvas-wrapper">
+            <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-50">
+                <div class="vl-offcanvas-logo">
+                    <a href="/ar/" title="OET with Dr Hesham | The Pathway to UK"><img width="320" height="90" decoding="async" src="/assets/img/logo/platform-logo.webp" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                </div>
+                <div class="vl-offcanvas-close">
+                    <button class="vl-offcanvas-toggle" type="button" aria-label="Close menu"><span aria-hidden="true">&times;</span></button>
+                </div>
+            </div>
+
+            <div class="vl-offcanvas-menu d-lg-block mb-40">
+                <nav aria-label="Mobile navigation"></nav>
+            </div>
+            <div class="vl-offcanvas-info mb-40">
+                <h3 class="vl-offcanvas-sm-title mb-20">Support &amp; Community</h3>
+                <a href="#oet-community-popup" class="oet-community-cta"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.1.svg" width="24" height="24" alt=""></span> Join Free Community</a>
+                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.3.svg" width="24" height="24" alt=""></span> WhatsApp Support</a>
+                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.2.svg" width="24" height="24" alt=""></span> Telegram Channel</a>
+            </div>
+
+            <div class="vl-offcanvas-social mb-40">
+                <h3 class="vl-offcanvas-sm-title mb-20">Follow the Journey</h3>
+                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fab fa-youtube"></i></a>
+                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fab fa-telegram"></i></a>
+                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+            </div>
+        </div>
+    </div>
+    <div class="vl-offcanvas-overlay"></div>
+
+    <!-- offcanvas menu end -->
+
+<!--================= Header section End =================-->
+    <main id="main-content" tabindex="-1" dir="rtl" lang="ar">
+
+        <section class="oet-resource-hero oet-skill-hero">
+            <div class="container">
+                <nav class="oet-breadcrumbs" aria-label="مسار التصفح"><ol><li><a href="/ar/">الرئيسية</a></li><li><a href="/ar/blog/">مقالات OET بالعربي</a></li><li aria-current="page">دمج نتائج جلستين في OET</li></ol></nav>
+                <div class="oet-tips-hero-grid">
+                    <div class="oet-tips-hero-copy">
+                        <span class="oet-resource-eyebrow"><i class="fa-solid fa-route" aria-hidden="true"></i> مسارات التسجيل</span>
+                        <h1 class="oet-resource-title">دمج نتائج جلستين في OET (Clubbing): من يقبله وبأي شروط في 2027</h1>
+                        <p class="oet-resource-lead">دمج النتائج، أو ما يسميه المرشحون Clubbing، معناه أن تستخدم نتيجتي جلستين من امتحان OET معاً لتحقيق شرط الدرجات عند جهة واحدة. القرار ليس عند OET، بل عند الجهة التي ستقرأ نتيجتك. بعض الجهات تنشر قواعد واضحة للدمج، وجهات كثيرة تشترط جلسة واحدة فقط، والشروط تختلف من جهة لأخرى.</p>
+                        <p class="oet-resource-lead">في هذا الدليل نعرض، جهة بجهة، ما يقوله الموقع الرسمي لكل جهة عن الدمج: الدرجات المطلوبة، والحد الأدنى في كل جلسة، والمدة المسموحة بين الجلستين، وحكم إعادة جزء واحد من الامتحان. وما لم تذكره الجهة نكتب أمامه «غير مؤكد» ولا نخمّن.</p>
+                        <p class="oet-guide-meta">بقلم <a href="/about.html">د. أحمد هشام</a>، طبيب ومؤسس OET with Dr Hesham &middot; نُشر في 27 نوفمبر 2026 <a class="oet-ar-en" href="/oet-clubbing-rules.html" lang="en" hreflang="en">Read in English</a></p>
+                        <p class="oet-guide-meta">آخر مراجعة: 27 نوفمبر 2026، من الصفحة الرسمية لكل جهة. القواعد قد تتغير دون إعلان، فافتح رابط المصدر قبل أن تحجز.</p>
+                        <div class="oet-resource-actions"><a class="oet-resource-btn" href="#rules-table">جدول القواعد <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a><a class="oet-resource-btn oet-resource-btn--light" href="/ar/oet-score-calculator.html">احسب درجاتك <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></a></div>
+                    </div>
+                    <aside class="oet-tips-hero-panel" aria-label="نظرة سريعة">
+                        <span class="oet-tips-panel-kicker"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> نظرة سريعة</span>
+                        <h2>ثلاثة أنواع من القواعد</h2>
+                        <p>ما قالته الصفحات الرسمية للجهات يوم 27 نوفمبر 2026.</p>
+                        <div class="oet-tips-roadmap"><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">01</span><div><strong>تقبل جلستين</strong><span>NMC و Ahpra و ANMAC و CORU وخمس جهات في نيوزيلندا، ولكل جهة شروطها.</span></div></div><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">02</span><div><strong>جلسة واحدة فقط</strong><span>GMC و GPhC و ECFMG والمجلس الطبي الأيرلندي و NMBI و PSI وغيرها.</span></div></div><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">03</span><div><strong>إعادة جزء واحد</strong><span>HCPC فقط، خلال ستة أشهر من الامتحان الأصلي.</span></div></div></div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+        <nav class="oet-toc" aria-label="في هذا المقال"><div class="container"><span class="oet-toc-label">في هذا المقال</span><div class="oet-toc-links"><a href="#short-answer">الإجابة المختصرة</a><a href="#what-clubbing-means">معنى الدمج</a><a href="#rules-table">جدول القواعد</a><a href="#regulator-by-regulator">جهة بجهة</a><a href="#worked-examples">مثالان</a><a href="#single-sub-test">إعادة جزء واحد</a><a href="#one-sitting">جلسة واحدة فقط</a><a href="#mistakes">أخطاء شائعة</a><a href="#not-confirmed">غير مؤكد</a><a href="#plan">خطة الجلسة الثانية</a><a href="#faq">أسئلة شائعة</a><a href="#sources">المصادر</a></div></div></nav>
+
+        <section class="oet-resource-section"><div class="container"><div class="oet-resource-heading"><h2 id="short-answer">الإجابة المختصرة</h2><p>هل يمكنك دمج نتيجتي جلستين؟ الإجابة تتوقف على الجهة التي ستقدّم لها فقط. هذه الصورة في نظرة واحدة.</p></div>
+            <div class="oet-resource-grid">
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></span><h3>جهات تنشر قاعدة لجلستين</h3><ul>
+                    <li><strong>بريطانيا:</strong> NMC (التمريض والقبالة ومساعدو التمريض).</li>
+                    <li><strong>أستراليا:</strong> Ahpra والمجالس الوطنية، و ANMAC (تقييم مهارات التمريض للهجرة).</li>
+                    <li><strong>أيرلندا:</strong> CORU (العلاج الطبيعي، العلاج الوظيفي، التغذية العلاجية، البصريات، علاج القدم، الأشعة، علاج النطق واللغة).</li>
+                    <li><strong>نيوزيلندا:</strong> المجلس الطبي، مجلس التمريض، مجلس الصيدلة، مجلس العلاج الطبيعي، مجلس العلاج الوظيفي.</li>
+                    <li><strong>كندا:</strong> جهة التمريض في مانيتوبا (CRNM) تذكر جلستين، لكن درجات OET عندها غير مؤكدة.</li>
+                </ul></article>
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i></span><h3>جهات تشترط جلسة واحدة</h3><ul>
+                    <li><strong>بريطانيا:</strong> GMC (الأطباء) و GPhC (الصيادلة).</li>
+                    <li><strong>أمريكا:</strong> ECFMG (الأطباء).</li>
+                    <li><strong>أيرلندا:</strong> المجلس الطبي، و NMBI (التمريض والقبالة)، و PSI (الصيادلة).</li>
+                    <li><strong>نيوزيلندا:</strong> مجلس طب الأسنان، ومجلس البصريات، والمجلس البيطري.</li>
+                    <li><strong>كندا:</strong> CPSBC (الأطباء في بريتش كولومبيا)، و CNO (التمريض في أونتاريو)، وسياسة NAPRA النموذجية للصيادلة.</li>
+                    <li><strong>سنغافورة:</strong> مجالس الطب والصيدلة وطب الأسنان والمهن الصحية المساعدة.</li>
+                </ul></article>
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span><h3>حالة مختلفة أو لا يوجد نص</h3><ul>
+                    <li><strong>HCPC (بريطانيا):</strong> تقبل إعادة جزء واحد خلال ستة أشهر. أما دمج جلستين كاملتين فغير مذكور.</li>
+                    <li><strong>غير مؤكد:</strong> وزارة الشؤون الداخلية الأسترالية (التأشيرات)، و TruMerit (تمريض أمريكا)، و NABP (صيادلة أمريكا)، وعدد من المجالس الأصغر: لا تذكر شيئاً عن دمج جلسات OET.</li>
+                </ul></article>
+            </div>
+            <div class="oet-snippet"><strong>قبل أن تعتمد على أي معلومة هنا</strong><p>أي جهة قد تغيّر شرط اللغة في أي وقت. اعتبر هذه الصفحة خريطة، ثم اقرأ صفحة الجهة نفسها (الرابط في كل قسم) يوم الحجز ومرة أخرى يوم التقديم.</p></div>
+        </div></section>
+
+        <section class="oet-resource-section oet-resource-section--soft"><div class="container"><div class="oet-resource-heading"><h2 id="what-clubbing-means">ما معنى الدمج، وما موقف OET؟</h2><p>كلمة Clubbing يستخدمها المرشحون، و OET يستخدمها أيضاً. في <a href="https://oet.com/en-us/test-regulations" target="_blank" rel="noopener noreferrer" lang="en">Test Regulations</a> يقول OET إن بعض الجهات تقبل دمج درجات امتحانات في تواريخ مختلفة، ويطلب من المرشح أن يسأل الجهة التي يقدّم لها هل تشترط أن تكون النتائج من جلسة واحدة.</p></div>
+            <div class="oet-resource-grid oet-resource-grid--two">
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><h3>ما يقوله OET</h3><ul>
+                    <li>القرار للجهة التي تعترف بالامتحان، وليس لـ OET.</li>
+                    <li>أول مرة تدخل الامتحان لازم تكون بالأجزاء الأربعة كلها (Listening و Reading و Writing و Speaking)، وإلا فلن تحصل على نتيجة.</li>
+                    <li>كل جلسة لها Statement of Results خاص بها، بدرجة من 0 إلى 500 لكل جزء.</li>
+                    <li>تشارك نتيجتك مع الجهة من حسابك على موقع OET.</li>
+                    <li>مدة صلاحية النتيجة تحددها الجهة التي تعترف بها، وليس OET.</li>
+                </ul></article>
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span><h3>ما لا يقوله OET</h3><ul>
+                    <li><strong>شهادة واحدة مدمجة: غير مؤكد.</strong> لا لوائح الامتحان ولا <a href="https://oet.com/test/after-the-test" target="_blank" rel="noopener noreferrer">صفحة النتائج</a> تقول إن OET يجمع جلستين في مستند واحد.</li>
+                    <li>قراءتنا نحن، وهي استنتاج وليست تصريحاً من OET: كل جلسة تحتفظ بنتيجتها، وأنت تشارك كل نتيجة، والجهة هي التي تدمج.</li>
+                    <li>لم نجد مقالاً في مركز مساعدة OET يشرح الدمج خطوة بخطوة. اسأل الجهة كيف تريد استلام نتيجتي الجلستين.</li>
+                </ul></article>
+            </div>
+            <div class="oet-snippet"><strong>الحروف والأرقام</strong><p>NMC تنشر النطاقات هكذا: B من 350 إلى 440، و C+ من 300 إلى 340، و C من 250 إلى 290. بعض الجهات تكتب حروفاً وبعضها أرقاماً، وجهات قليلة تستخدم أرقاماً داخل النطاق مثل 360 أو 320.</p></div>
+        </div></section>
+
+        <section class="oet-resource-section"><div class="container"><div class="oet-resource-heading"><h2 id="rules-table">قواعد دمج نتائج OET حسب الجهة</h2><p>الجدول يعرض كل جهة قرأنا صفحتها: هل تقبل جلستين، وكم جلسة، والمدة بينهما، والحد الأدنى في كل جلسة، وهل تقبل إعادة جزء واحد. «غير مؤكد» معناها أن صفحة الجهة لا تذكر النقطة أو لم نتمكن من قراءتها.</p></div>
+            <div class="oet-data-wrap" tabindex="0" role="region" aria-label="هل يُقبل دمج جلستين؟"><table class="oet-data-table oet-clubbing-table"><thead><tr><th scope="col">الجهة</th><th scope="col">المهن</th><th scope="col">أقل درجات OET (L / R / W / S)</th><th scope="col">هل يُقبل دمج جلستين؟</th><th scope="col">المدة</th><th scope="col">أقل درجة مسموحة في كل جلسة (L / R / W / S)</th><th scope="col">ملاحظة</th><th scope="col">المصدر الرسمي</th></tr></thead><tbody>
+<tr data-combine="yes"><td><strong lang="en" dir="ltr">NMC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Nursing and Midwifery Council</span><br><span class="oet-data-sub">المملكة المتحدة</span></td><td>التمريض</td><td><span dir="ltr">350 / 350 / 300 / 350</span><br>الدرجة B (350) في Listening و Reading و Speaking، والدرجة C+ (300) في Writing.</td><td><span class="oet-status oet-status--accepted">نعم</span></td><td>جلستان بحد أقصى, خلال 12 شهراً</td><td><span dir="ltr">300 / 300 / 250 / 300</span></td><td>جلستان بينهما 12 شهرا على الأكثر؛ المهارات الأربع في كل جلسة؛ لا تقل أي جلسة عن C+ (300) في Listening و Reading و Speaking ولا عن C (250) في Writing؛ لا تُعاد مهارة واحدة منفردة؛ ولا يُجمع OET مع IELTS.</td><td><a href="https://www.nmc.org.uk/registration/joining-the-register/english-language-requirements/accepted-english-language-tests/oet/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">NMC: Accepted English language tests, OET (last updated 08/03/2024)</a></td></tr>
+<tr data-combine="yes"><td><strong lang="en" dir="ltr">CORU</strong><br><span class="oet-data-sub" lang="en" dir="ltr">CORU (Physiotherapists, Occupational Therapists, Dietitians, Optical and Podiatrists Registration Boards)</span><br><span class="oet-data-sub">أيرلندا</span></td><td>العلاج الطبيعي، العلاج الوظيفي، التغذية العلاجية، البصريات، علاج القدم</td><td>الدرجة B (350) في ثلاث مهارات و C+ (300) على الأقل في مهارة واحدة.</td><td><span class="oet-status oet-status--accepted">نعم</span></td><td>جلستان بحد أقصى, خلال 6 شهراً</td><td><span dir="ltr">300 / 300 / 300 / 300</span></td><td>جلستان على الأكثر؛ الإعادة لدى الجهة نفسها وخلال ستة أشهر من الاختبار الأول؛ لا تقل أي مهارة في OET عن C+ (300)؛ وتضيف الصفحة أن الحد الأدنى العام يجب تحقيقه في الجلستين. لا تُقبل إعادة مهارة واحدة منفردة.</td><td><a href="https://www.coru.ie/health-and-social-care-professionals/registration/registration-requirements/language/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">CORU: Language requirements</a></td></tr>
+<tr data-combine="yes"><td><strong lang="en" dir="ltr">CORU</strong><br><span class="oet-data-sub" lang="en" dir="ltr">CORU (Radiographers Registration Board)</span><br><span class="oet-data-sub">أيرلندا</span></td><td>التصوير الإشعاعي</td><td><span dir="ltr">350 / 350 / 350 / 350</span><br>الدرجة B (350 على الأقل) في جميع المهارات.</td><td><span class="oet-status oet-status--accepted">نعم</span></td><td>جلستان بحد أقصى, خلال 6 شهراً</td><td><span dir="ltr">300 / 300 / 300 / 300</span></td><td>جلستان على الأكثر؛ الإعادة لدى الجهة نفسها وخلال ستة أشهر من الاختبار الأول؛ لا تقل أي مهارة في OET عن C+ (300)؛ وتضيف الصفحة أن الحد الأدنى العام يجب تحقيقه في الجلستين. لا تُقبل إعادة مهارة واحدة منفردة.</td><td><a href="https://www.coru.ie/health-and-social-care-professionals/registration/registration-requirements/language/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">CORU: Language requirements</a></td></tr>
+<tr data-combine="yes"><td><strong lang="en" dir="ltr">CORU</strong><br><span class="oet-data-sub" lang="en" dir="ltr">CORU (Speech and Language Therapists Registration Board)</span><br><span class="oet-data-sub">أيرلندا</span></td><td>علاج النطق والتخاطب</td><td>الدرجة B (400) في ثلاث مهارات و B (350) في مهارة واحدة.</td><td><span class="oet-status oet-status--accepted">نعم</span></td><td>جلستان بحد أقصى, خلال 6 شهراً</td><td><span dir="ltr">300 / 300 / 300 / 300</span></td><td>جلستان على الأكثر؛ الإعادة لدى الجهة نفسها وخلال ستة أشهر من الاختبار الأول؛ لا تقل أي مهارة في OET عن C+ (300)؛ وتضيف الصفحة أن الحد الأدنى العام يجب تحقيقه في الجلستين. لا تُقبل إعادة مهارة واحدة منفردة.</td><td><a href="https://www.coru.ie/health-and-social-care-professionals/registration/registration-requirements/language/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">CORU: Language requirements</a></td></tr>
+<tr data-combine="yes"><td><strong lang="en" dir="ltr">Ahpra</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Australian Health Practitioner Regulation Agency and the National Boards</span><br><span class="oet-data-sub">أستراليا</span></td><td>كل المهن المنظَّمة</td><td><span dir="ltr">350 / 360 / 350 / 360</span><br>للاختبارات المؤداة من 23 أبريل 2026. الاختبارات حتى 22 أبريل 2026 يطبق عليها الجدول السابق: B في Listening و Reading و Speaking و C+ في Writing. تاريخ الاختبار هو الذي يحدد الجدول.</td><td><span class="oet-status oet-status--accepted">نعم</span></td><td>جلستان بحد أقصى, خلال 12 شهراً</td><td><span dir="ltr">320 / 340 / 350 / 350</span></td><td>جلستان على الأكثر خلال 12 شهرا؛ المهارات الأربع في كل جلسة؛ لا تقل أي مهارة في أي جلسة عن 320 Listening و340 Reading و350 Writing و350 Speaking (الجدول السابق: لا شيء أقل من C+). لا إعادة لمهارة واحدة في OET، ولا يُجمع اختباران من جهتين مختلفتين.</td><td><a href="https://www.ahpra.gov.au/Registration/Registration-Standards/English-language-skills/Accepted-English-language-tests.aspx" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Ahpra: Accepted English language tests (page reviewed 23/04/2026)</a></td></tr>
+<tr data-combine="yes"><td><strong lang="en" dir="ltr">ANMAC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Australian Nursing and Midwifery Accreditation Council</span><br><span class="oet-data-sub">أستراليا</span></td><td>التمريض</td><td><span dir="ltr">350 / 350 / 300 / 350</span><br>صفحة ANMAC تذكر الحروف: B في Listening و Reading و Speaking و C+ في Writing. الأرقام هي أدنى درجات النطاق في OET؛ ANMAC لم ينشر درجات رقمية، وتطبيقه لدرجات Ahpra الصادرة في 23 أبريل 2026 غير مؤكد.</td><td><span class="oet-status oet-status--accepted">نعم</span></td><td>جلستان بحد أقصى, خلال 12 شهراً</td><td><span dir="ltr">300 / 300 / 300 / 300</span></td><td>جلسة واحدة أو جلستان على الأكثر خلال 12 شهرا؛ المهارات الأربع في كل جلسة؛ لا تقل أي مهارة في أي جلسة عن C+؛ ومن جهة الاختبار نفسها.</td><td><a href="https://www.anmac.org.au/skilled-migrants/apply/full-skills-assessment" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">ANMAC: Full skills assessment</a></td></tr>
+<tr data-combine="yes"><td><strong lang="en" dir="ltr">MCNZ</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Medical Council of New Zealand</span><br><span class="oet-data-sub">نيوزيلندا</span></td><td>الطب</td><td><span dir="ltr">350 / 350 / 300 / 350</span></td><td><span class="oet-status oet-status--accepted">نعم</span></td><td>جلستان بحد أقصى, خلال 12 شهراً</td><td><span dir="ltr">300 / 300 / 300 / 300</span></td><td>جلسة واحدة أو جلستان على الأكثر خلال 12 شهرا، مع أداء المهارات الأربع في كل مرة، وألا تقل أي مهارة في أي جلسة عن 300.</td><td><a href="https://www.mcnz.org.nz/assets/Policies/English-language-policy.pdf" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">MCNZ: Policy on English language requirements (September 2026)</a></td></tr>
+<tr data-combine="yes"><td><strong lang="en" dir="ltr">NCNZ</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Nursing Council of New Zealand</span><br><span class="oet-data-sub">نيوزيلندا</span></td><td>التمريض</td><td><span dir="ltr">350 / 350 / 300 / 350</span></td><td><span class="oet-status oet-status--accepted">نعم</span></td><td>خلال 12 شهراً</td><td></td><td>يمكن تحقيق الدرجات على أكثر من جلسة OET: جميع الدرجات المطلوبة خلال 12 شهرا من أول جلسة، وجميع الجلسات خلال ثلاث سنوات من بدء الطلب. لا يوجد حد أدنى منشور لكل جلسة. لا يُجمع OET مع IELTS.</td><td><a href="https://nursingcouncil.org.nz/IQN/IQN/H5.aspx" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Nursing Council of New Zealand: IQN requirements (English language)</a></td></tr>
+<tr data-combine="yes"><td><strong lang="en" dir="ltr">PCNZ</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Pharmacy Council of New Zealand</span><br><span class="oet-data-sub">نيوزيلندا</span></td><td>الصيدلة</td><td><span dir="ltr">350 / 350 / 350 / 350</span><br>الدرجة A أو B في كل مهارة من المهارات الأربع. الجهة تذكر الحروف فقط، و350 هي أدنى درجة في نطاق B في OET.</td><td><span class="oet-status oet-status--accepted">نعم</span></td><td>خلال 24 شهراً</td><td></td><td>تُقبل نتائج اختبارات OET السابقة خلال فترة سنتين إذا لم تتحقق كل الدرجات في جلسة واحدة. لا يوجد عدد جلسات أو حد أدنى لكل جلسة منشور.</td><td><a href="https://pharmacycouncil.org.nz/pharmacy_registries/english-language-requirements/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Pharmacy Council of New Zealand: English language requirements</a></td></tr>
+<tr data-combine="yes"><td><strong lang="en" dir="ltr">PBNZ</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Physiotherapy Board of New Zealand</span><br><span class="oet-data-sub">نيوزيلندا</span></td><td>العلاج الطبيعي</td><td><span dir="ltr">350 / 350 / 300 / 350</span></td><td><span class="oet-status oet-status--accepted">نعم</span></td><td>جلستان بحد أقصى, خلال 6 شهراً</td><td></td><td>يمكن تحقيق درجات OET على جلستين خلال ستة أشهر. أما هل تُؤدى كل الأجزاء في الجلستين، وأقل درجة مسموحة في كل جلسة، فغير مؤكد: اسأل المجلس.</td><td><a href="https://pbnz.helpscoutdocs.com/article/35-english-proficiency-evidence" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Physiotherapy Board of New Zealand help portal: English proficiency evidence (last updated 5 June 2025)</a></td></tr>
+<tr data-combine="yes"><td><strong lang="en" dir="ltr">OTBNZ</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Occupational Therapy Board of New Zealand</span><br><span class="oet-data-sub">نيوزيلندا</span></td><td>العلاج الوظيفي</td><td><span dir="ltr">350 / 350 / 350 / 350</span><br>الدرجة B في كل مهارة. الجهة تذكر الحرف فقط، و350 هي أدنى درجة في نطاق B في OET.</td><td><span class="oet-status oet-status--accepted">نعم</span></td><td>خلال 12 شهراً</td><td></td><td>يجوز جمع نتائج أكثر من محاولة (clubbing)، على أن يتحقق المستوى المطلوب خلال 12 شهرا من أول اختبار. لا يوجد حد أدنى منشور لكل جلسة.</td><td><a href="https://otboard.org.nz/document/8497/704%20English%20language%20policy%20for%20registration.pdf" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">OTBNZ: English language policy for registration (Policy 704, version 2.0)</a></td></tr>
+<tr data-combine="one-subtest-retake"><td><strong lang="en" dir="ltr">HCPC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Health and Care Professions Council</span><br><span class="oet-data-sub">المملكة المتحدة</span></td><td>علاج القدم، التغذية العلاجية، العلاج الوظيفي، العلاج الطبيعي، التصوير الإشعاعي</td><td>المجموع 1400<br>مجموع 1400 في المهارات الأربع على ألا تقل أي مهارة عن 300.</td><td><span class="oet-status oet-status--conditional">إعادة جزء واحد فقط</span></td><td></td><td></td><td>HCPC يقبل إعادة مهارة واحدة فقط خلال ستة أشهر من تاريخ الاختبار الأصلي. جمع جلستين كاملتين غير مذكور في الصفحة: غير مؤكد.</td><td><a href="https://www.hcpc-uk.org/registration/getting-on-the-register/international-applications/english-language-proficiency/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">HCPC: English language proficiency (page updated 05/11/2026)</a></td></tr>
+<tr data-combine="one-subtest-retake"><td><strong lang="en" dir="ltr">HCPC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Health and Care Professions Council (speech and language therapy)</span><br><span class="oet-data-sub">المملكة المتحدة</span></td><td>علاج النطق والتخاطب</td><td>المجموع 1800<br>مجموع 1800 في المهارات الأربع على ألا تقل أي مهارة عن 400.</td><td><span class="oet-status oet-status--conditional">إعادة جزء واحد فقط</span></td><td></td><td></td><td>HCPC يقبل إعادة مهارة واحدة فقط خلال ستة أشهر من تاريخ الاختبار الأصلي. جمع جلستين كاملتين غير مذكور في الصفحة: غير مؤكد.</td><td><a href="https://www.hcpc-uk.org/registration/getting-on-the-register/international-applications/english-language-proficiency/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">HCPC: English language proficiency (page updated 05/11/2026)</a></td></tr>
+<tr data-combine="no"><td><strong lang="en" dir="ltr">GMC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">General Medical Council</span><br><span class="oet-data-sub">المملكة المتحدة</span></td><td>الطب</td><td><span dir="ltr">350 / 350 / 350 / 350</span><br>الدرجة B في كل مهارة. الجهة تذكر الحرف فقط، و350 هي أدنى درجة في نطاق B في OET.</td><td><span class="oet-status oet-status--not-accepted">لا، جلسة واحدة</span></td><td></td><td></td><td>يجب أن تكون الدرجات الأربع من الاختبار نفسه، ومن آخر جلسة أديتها.</td><td><a href="https://www.gmc-uk.org/registration-and-licensing/join-our-registers/before-you-apply/evidence-of-your-knowledge-of-english/using-your-oet-certificate" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">GMC: Using your OET certificate</a></td></tr>
+<tr data-combine="no"><td><strong lang="en" dir="ltr">GPhC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">General Pharmaceutical Council</span><br><span class="oet-data-sub">المملكة المتحدة</span></td><td>الصيدلة</td><td><span dir="ltr">350 / 350 / 350 / 350</span><br>الدرجة B في كل مهارة. الجهة تذكر الحرف فقط، و350 هي أدنى درجة في نطاق B في OET.</td><td><span class="oet-status oet-status--not-accepted">لا، جلسة واحدة</span></td><td></td><td></td><td>B على الأقل في كل مهارة من الأربع في جلسة واحدة.</td><td><a href="https://assets.pharmacyregulation.org/files/2025-06/gphc-guidance-on-evidence-of-english-language-skills-june-2025_0.pdf" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">GPhC: Guidance on evidence of English language skills (June 2025)</a></td></tr>
+<tr data-combine="no"><td><strong lang="en" dir="ltr">NMBI</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Nursing and Midwifery Board of Ireland</span><br><span class="oet-data-sub">أيرلندا</span></td><td>التمريض</td><td>الدرجة B في ثلاث مهارات و C+ في مهارة واحدة. جدول الصفحة يُظهر Writing كمهارة C+ (300-340)، لكن نص القاعدة لا يسمي المهارة.</td><td><span class="oet-status oet-status--not-accepted">لا، جلسة واحدة</span></td><td></td><td></td><td>NMBI يقبل نتيجة اختبار واحدة فقط ولا يقبل النتائج المجمعة.</td><td><a href="https://www.nmbi.ie/Registration/Qualified-outside-the-EU/Application-Process/English-Language-Requirements" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">NMBI: English Language Requirements</a></td></tr>
+<tr data-combine="no"><td><strong lang="en" dir="ltr">Medical Council</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Medical Council (Ireland)</span><br><span class="oet-data-sub">أيرلندا</span></td><td>الطب</td><td><span dir="ltr">350 / 350 / 350 / 350</span><br>الدرجة B في كل مهارة. الجهة تذكر الحرف فقط، و350 هي أدنى درجة في نطاق B في OET.</td><td><span class="oet-status oet-status--not-accepted">لا، جلسة واحدة</span></td><td></td><td></td><td>الدرجة B في كل مهارة في جلسة واحدة.</td><td><a href="https://www.medicalcouncil.ie/registration-applications/first-time-applicants/english-language.html" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Medical Council: English language</a></td></tr>
+<tr data-combine="no"><td><strong lang="en" dir="ltr">DCNZ</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Dental Council (New Zealand)</span><br><span class="oet-data-sub">نيوزيلندا</span></td><td>طب الأسنان</td><td><span dir="ltr">350 / 350 / 350 / 350</span><br>الدرجة A أو B في كل مهارة من المهارات الأربع. الجهة تذكر الحروف فقط، و350 هي أدنى درجة في نطاق B في OET.</td><td><span class="oet-status oet-status--not-accepted">لا، جلسة واحدة</span></td><td></td><td></td><td>يجب اجتياز الاختبار في جلسة واحدة؛ ولا تُقبل إعادة مهارة واحدة.</td><td><a href="https://dcnz.org.nz/i-want-to-practise-in-new-zealand/registration-what-you-need-to-know" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Dental Council: Registration, what you need to know</a></td></tr>
+<tr data-combine="no"><td><strong lang="en" dir="ltr">VCNZ</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Veterinary Council of New Zealand</span><br><span class="oet-data-sub">نيوزيلندا</span></td><td>الطب البيطري</td><td><span dir="ltr">350 / 350 / 350 / 350</span><br>الدرجة A أو B في كل مهارة من المهارات الأربع. الجهة تذكر الحروف فقط، و350 هي أدنى درجة في نطاق B في OET.</td><td><span class="oet-status oet-status--not-accepted">لا، جلسة واحدة</span></td><td></td><td></td><td>A أو B في كل قسم من الأربعة في جلسة واحدة.</td><td><a href="https://vetcouncil.org.nz/common/Uploaded%20files/Web/Publications/Policies%20and%20Statements/EnglishCompetence.pdf" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">VCNZ: Policy on English Competence and English Tests (last reviewed December 2017)</a></td></tr>
+<tr data-combine="no"><td><strong lang="en" dir="ltr">ODOB</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Optometrists and Dispensing Opticians Board</span><br><span class="oet-data-sub">نيوزيلندا</span></td><td>البصريات</td><td><span dir="ltr">350 / 350 / 350 / 350</span><br>B على الأقل (أو 350) في كل مهارة من الأربع، في نتيجة واحدة.</td><td><span class="oet-status oet-status--not-accepted">لا، جلسة واحدة</span></td><td></td><td></td><td>يجب تحقيق المستوى في نتيجة واحدة.</td><td><a href="https://www.odob.health.nz/document/8136/O.%20English%20language%20requirements%20(v1).pdf" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">ODOB: English Language Policy for Registration (POL-00020, v1.3)</a></td></tr>
+<tr data-combine="no"><td><strong lang="en" dir="ltr">ECFMG</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Educational Commission for Foreign Medical Graduates</span><br><span class="oet-data-sub">الولايات المتحدة</span></td><td>الطب</td><td><span dir="ltr">350 / 350 / 300 / 350</span></td><td><span class="oet-status oet-status--not-accepted">لا، جلسة واحدة</span></td><td></td><td></td><td>جميع الدرجات في جلسة اختبار واحدة؛ إذا نقصت أي مهارة تُعاد الأربع معا. لا حد لعدد المحاولات.</td><td><a href="https://www.ecfmg.org/certification-pathways/oet.html" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">ECFMG: Requirements for 2027 Pathways, OET Medicine</a></td></tr>
+<tr data-combine="no"><td><strong lang="en" dir="ltr">CPSBC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">College of Physicians and Surgeons of British Columbia</span><br><span class="oet-data-sub">كندا</span></td><td>الطب</td><td><span dir="ltr">350 / 350 / 350 / 350</span><br>الدرجة B في كل مهارة. الجهة تذكر الحرف فقط، و350 هي أدنى درجة في نطاق B في OET.</td><td><span class="oet-status oet-status--not-accepted">لا، جلسة واحدة</span></td><td></td><td></td><td>B في كل مهارة في جلسة واحدة؛ ولا تُقبل الدرجات المجمعة من محاولات متعددة.</td><td><a href="https://www.cpsbc.ca/files/pdf/LIC-P-English-Language-Proficiency-Requirements.pdf" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">CPSBC: English Language Proficiency Requirements (version 2.2)</a></td></tr>
+<tr data-combine="no"><td><strong lang="en" dir="ltr">CNO</strong><br><span class="oet-data-sub" lang="en" dir="ltr">College of Nurses of Ontario</span><br><span class="oet-data-sub">كندا</span></td><td>التمريض</td><td><span dir="ltr">350 / 330 / 320 / 350</span><br>كما تنشرها CNO: Writing C+ (320) و Speaking B (350) و Listening B (350) و Reading C+ (330).</td><td><span class="oet-status oet-status--not-accepted">لا، جلسة واحدة</span></td><td></td><td></td><td>يجب تحقيق الحد الأدنى في جميع المهارات في محاولة كاملة واحدة.</td><td><a href="https://cno.org/become-a-nurse/registration-requirements/proficiency-in-english-or-french/types-of-evidence" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">CNO: Proficiency in English or French, types of evidence</a></td></tr>
+<tr data-combine="no"><td><strong lang="en" dir="ltr">NAPRA</strong><br><span class="oet-data-sub" lang="en" dir="ltr">National Association of Pharmacy Regulatory Authorities (model language policy)</span><br><span class="oet-data-sub">كندا</span></td><td>الصيدلة</td><td><span dir="ltr">350 / 350 / 300 / 350</span><br>السياسة تذكر الحروف للصيادلة: Reading B و Listening B و Speaking B و Writing C+. الأرقام هي أدنى درجات النطاق في OET.</td><td><span class="oet-status oet-status--not-accepted">لا، جلسة واحدة</span></td><td></td><td></td><td>المهارات الأربع في جلسة اختبار واحدة مع درجة النجاح في كل منها.</td><td><a href="https://www.napra.ca/wp-content/uploads/2024/02/NAPRA-Language-Proficiency-Requirement-Policy-February-2024-EN.pdf" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">NAPRA: Language Proficiency Requirement Policy (February 2024)</a></td></tr>
+<tr data-combine="no"><td><strong lang="en" dir="ltr">SMC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Singapore Medical Council</span><br><span class="oet-data-sub">سنغافورة</span></td><td>الطب</td><td><span dir="ltr">350 / 350 / 350 / 350</span><br>الدرجة B في كل مهارة. الجهة تذكر الحرف فقط، و350 هي أدنى درجة في نطاق B في OET.</td><td><span class="oet-status oet-status--not-accepted">لا، جلسة واحدة</span></td><td></td><td></td><td>يجب الحصول على النتائج في جلسة واحدة.</td><td><a href="https://www.smc.gov.sg/for-professionals/apply-for-registration/documents-for-submission-and-processing-time/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">SMC: Documents for submission and processing time (last updated 2 September 2026)</a></td></tr>
+<tr data-combine="no"><td><strong lang="en" dir="ltr">SPC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Singapore Pharmacy Council</span><br><span class="oet-data-sub">سنغافورة</span></td><td>الصيدلة</td><td><span dir="ltr">350 / 350 / 350 / 350</span><br>350 على الأقل في كل مهارة من الأربع.</td><td><span class="oet-status oet-status--not-accepted">لا، جلسة واحدة</span></td><td></td><td></td><td>يجب الحصول على النتائج في جلسة واحدة.</td><td><a href="https://www.spc.gov.sg/becoming-a-pharmacist/for-foreign-trained-pharmacy-graduates-pharmacists/evidence-of-proficiency-in-english-language" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">SPC: Evidence of proficiency in English language (last updated 15 July 2026)</a></td></tr>
+<tr data-combine="no"><td><strong lang="en" dir="ltr">SDC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Singapore Dental Council</span><br><span class="oet-data-sub">سنغافورة</span></td><td>طب الأسنان</td><td><span dir="ltr">350 / 350 / 350 / 350</span><br>الدرجة B في كل مهارة. الجهة تذكر الحرف فقط، و350 هي أدنى درجة في نطاق B في OET.</td><td><span class="oet-status oet-status--not-accepted">لا، جلسة واحدة</span></td><td></td><td></td><td>يجب الحصول على الدرجات في جلسة واحدة.</td><td><a href="https://www.sdc.gov.sg/for-professionals/registered-dentists/qualifying-examination/criteria-for-qe/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">SDC: Criteria for the Qualifying Examination (last updated 6 May 2026)</a></td></tr>
+<tr data-combine="no"><td><strong lang="en" dir="ltr">AHPC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Allied Health Professions Council (physiotherapy)</span><br><span class="oet-data-sub">سنغافورة</span></td><td>العلاج الطبيعي</td><td><span dir="ltr">350 / 350 / 350 / 350</span><br>«Grade B أو أعلى» في جدول AHPC. و350 هي أدنى درجة في نطاق B في OET.</td><td><span class="oet-status oet-status--not-accepted">لا، جلسة واحدة</span></td><td></td><td></td><td>يجب تحقيق جميع المهارات في جلسة اختبار واحدة؛ ولا حد لعدد المحاولات.</td><td><a href="https://www.ahpc.gov.sg/for-professionals/apply-for-registration/requirements-for-registration-application/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">AHPC: Requirements for registration application (last updated 24 July 2026)</a></td></tr>
+<tr data-combine="no"><td><strong lang="en" dir="ltr">AHPC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Allied Health Professions Council (occupational therapy, diagnostic radiography, radiation therapy)</span><br><span class="oet-data-sub">سنغافورة</span></td><td>العلاج الوظيفي، التصوير الإشعاعي</td><td><span dir="ltr">350 / 350 / 350 / 350</span><br>«Grade B أو أعلى» في جدول AHPC. و350 هي أدنى درجة في نطاق B في OET.</td><td><span class="oet-status oet-status--not-accepted">لا، جلسة واحدة</span></td><td></td><td></td><td>يجب تحقيق جميع المهارات في جلسة اختبار واحدة؛ ولا حد لعدد المحاولات.</td><td><a href="https://www.ahpc.gov.sg/for-professionals/apply-for-registration/requirements-for-registration-application/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">AHPC: Requirements for registration application (last updated 24 July 2026)</a></td></tr>
+<tr data-combine="no"><td><strong lang="en" dir="ltr">AHPC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Allied Health Professions Council (speech-language therapy)</span><br><span class="oet-data-sub">سنغافورة</span></td><td>علاج النطق والتخاطب</td><td>الدرجة B (400) في ثلاث مهارات و B (350) في مهارة واحدة.</td><td><span class="oet-status oet-status--not-accepted">لا، جلسة واحدة</span></td><td></td><td></td><td>يجب تحقيق جميع المهارات في جلسة اختبار واحدة؛ ولا حد لعدد المحاولات.</td><td><a href="https://www.ahpc.gov.sg/for-professionals/apply-for-registration/requirements-for-registration-application/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">AHPC: Requirements for registration application (last updated 24 July 2026)</a></td></tr>
+<tr data-combine="not-stated"><td><strong lang="en" dir="ltr">INZ</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Immigration New Zealand</span><br><span class="oet-data-sub">نيوزيلندا</span></td><td>كل المهن المنظَّمة</td><td><span dir="ltr">300 / 300 / 300 / 300</span><br>C+ أو أعلى في المهارات الأربع للمتقدم الرئيسي؛ و300 هي أدنى درجة في نطاق C+ في OET. المتقدمون غير الرئيسيين: C أو أعلى في المهارات الأربع.</td><td><span class="oet-status oet-status--not-stated">غير مذكور</span></td><td></td><td></td><td></td><td><a href="https://www.immigration.govt.nz/process-to-apply/applying-for-a-visa/providing-evidence-and-documents-to-support-your-visa-application/english-language-requirements/english-language-requirements-for-skilled-residence-visas/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Immigration New Zealand: English language requirements for skilled residence visas</a></td></tr>
+<tr data-combine="not-stated"><td><strong lang="en" dir="ltr">OCP</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Ontario College of Pharmacists</span><br><span class="oet-data-sub">كندا</span></td><td>الصيدلة</td><td><span dir="ltr">350 / 350 / 300 / 350</span><br>OCP تذكر الحروف: Reading B و Writing C+ و Listening B و Speaking B. الأرقام هي أدنى درجات النطاق في OET.</td><td><span class="oet-status oet-status--not-stated">غير مذكور</span></td><td></td><td></td><td>غير مذكور في صفحة OCP. سياسة NAPRA النموذجية تطلب جلسة اختبار واحدة.</td><td><a href="https://ocpinfo.com/applicants/registration-requirements/language-proficiency/acceptable-language-proficiency-tests-and-cut-scores-for-applicants-effective-january-1-2026/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">OCP: Acceptable language proficiency tests and cut scores (effective 1 January 2026)</a></td></tr>
+<tr data-combine="not-confirmed"><td><strong lang="en" dir="ltr">PSI</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Pharmaceutical Society of Ireland</span><br><span class="oet-data-sub">أيرلندا</span></td><td>الصيدلة</td><td><span dir="ltr">350 / 350 / 300 / 350</span></td><td><span class="oet-status oet-status--not-confirmed">غير مؤكد</span></td><td></td><td></td><td>يجب أداء جميع المهارات في الجلسة نفسها ولا تُقبل إعادة مهارة واحدة. الصفحة تذكر أيضا «درجات أساسية للـ super-scoring» (OET 300 لكل مهارة)، لكن قاعدة super-scoring نفسها لم تُقرأ كاملة: غير مؤكد.</td><td><a href="https://www.psi.ie/registration/pharmacists/first-time-registration/language-requirements" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">PSI: Language requirements</a></td></tr>
+<tr data-combine="not-confirmed"><td><strong lang="en" dir="ltr">Dental Council</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Dental Council of Ireland</span><br><span class="oet-data-sub">أيرلندا</span></td><td>طب الأسنان</td><td><span dir="ltr">350 / 350 / 350 / 350</span><br>الدرجة B في كل مهارة. الجهة تذكر الحرف فقط، و350 هي أدنى درجة في نطاق B في OET.</td><td><span class="oet-status oet-status--not-confirmed">غير مؤكد</span></td><td></td><td></td><td>الصفحة لا تذكر هل يمكن جمع الجلسات: غير مؤكد.</td><td><a href="https://www.dentalcouncil.ie/registration/language-proficiency" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Dental Council: Language proficiency</a></td></tr>
+<tr data-combine="not-confirmed"><td><strong lang="en" dir="ltr">Home Affairs</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Department of Home Affairs (Australia)</span><br><span class="oet-data-sub">أستراليا</span></td><td>كل المهن المنظَّمة</td><td><span dir="ltr">290 / 310 / 290 / 330</span><br>مستوى Competent English للاختبارات من 7 أغسطس 2025. الاختبارات حتى 6 أغسطس 2025: B في كل مهارة.</td><td><span class="oet-status oet-status--not-confirmed">غير مؤكد</span></td><td></td><td></td><td>الصفحات لا تذكر جمع جلسات OET؛ أنظمة الإعادة مذكورة لاختبارات أخرى فقط. غير مؤكد.</td><td><a href="https://immi.homeaffairs.gov.au/help-support/meeting-our-requirements/english-language/competent-english" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Department of Home Affairs: Competent English</a></td></tr>
+<tr data-combine="not-confirmed"><td><strong lang="en" dir="ltr">MRTB</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Medical Radiation Technologists Board</span><br><span class="oet-data-sub">نيوزيلندا</span></td><td>التصوير الإشعاعي</td><td><span dir="ltr">350 / 350 / 350 / 350</span><br>الدرجة B في كل مهارة. الجهة تذكر الحرف فقط، و350 هي أدنى درجة في نطاق B في OET.</td><td><span class="oet-status oet-status--not-confirmed">غير مؤكد</span></td><td></td><td></td><td>السياسة لا تذكر قاعدة جلسات لاختبار OET (الجلسة الواحدة مذكورة لـ IELTS فقط): غير مؤكد.</td><td><a href="https://www.mrtboard.org.nz/assets_mrtb/Uploads/2024-Aug-English-Language-Policy.pdf" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">MRTB: Policy, English language proficiency (August 2024)</a></td></tr>
+<tr data-combine="not-confirmed"><td><strong lang="en" dir="ltr">Dietitians Board</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Dietitians Board (New Zealand)</span><br><span class="oet-data-sub">نيوزيلندا</span></td><td>التغذية العلاجية</td><td><span dir="ltr">350 / 350 / 350 / 350</span><br>الدرجة A أو B في كل مهارة من المهارات الأربع. الجهة تذكر الحروف فقط، و350 هي أدنى درجة في نطاق B في OET.</td><td><span class="oet-status oet-status--not-confirmed">غير مؤكد</span></td><td></td><td></td><td>الصفحة لا تتناول جمع الجلسات: غير مؤكد.</td><td><a href="https://dietitiansboard.org.nz/Public/Public/Registration/English-Language-Requirements.aspx" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Dietitians Board: English Language Requirements</a></td></tr>
+<tr data-combine="not-confirmed"><td><strong lang="en" dir="ltr">PBNZ (Podiatry)</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Podiatrists Board of New Zealand</span><br><span class="oet-data-sub">نيوزيلندا</span></td><td>علاج القدم</td><td>نموذج التسجيل يطلب شهادة OET «بالدرجتين A و B»؛ ولا يذكر درجة لكل مهارة.</td><td><span class="oet-status oet-status--not-confirmed">غير مؤكد</span></td><td></td><td></td><td>النموذج لا يذكر قاعدة للجلسات: غير مؤكد.</td><td><a href="https://podiatristsboard.org.nz/wp-content/uploads/2024/10/Application-for-PBNZ-Registration.updated-Aug2024.pdf" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Podiatrists Board: Application for PBNZ Registration (updated August 2024)</a></td></tr>
+<tr data-combine="not-confirmed"><td><strong lang="en" dir="ltr">TruMerit</strong><br><span class="oet-data-sub" lang="en" dir="ltr">TruMerit (formerly CGFNS International)</span><br><span class="oet-data-sub">الولايات المتحدة</span></td><td>التمريض</td><td><span dir="ltr">320 / 340 / 350 / 360</span><br>كما في صفحة Certification Program لدى TruMerit؛ وتطبق على الاختبارات من 12 مايو 2026. جدول HRSA الفيدرالي نفسه تعذر فتحه: غير مؤكد من hrsa.gov.</td><td><span class="oet-status oet-status--not-confirmed">غير مؤكد</span></td><td></td><td></td><td>صفحات TruMerit لا تذكر جمع الجلسات ولا إعادة مهارة واحدة: غير مؤكد. OET ينصح بسؤال جهة الاعتماد.</td><td><a href="https://www.trumerit.org/services/certification/cgfns-certification-program/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">TruMerit: CGFNS Certification Program</a></td></tr>
+<tr data-combine="not-confirmed"><td><strong lang="en" dir="ltr">NABP FPGEC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">National Association of Boards of Pharmacy, Foreign Pharmacy Graduate Examination Committee</span><br><span class="oet-data-sub">الولايات المتحدة</span></td><td>الصيدلة</td><td>لم تُنشر بعد حتى 27 نوفمبر 2026</td><td><span class="oet-status oet-status--not-confirmed">غير مؤكد</span></td><td></td><td></td><td>NABP لا يذكر جمع جلسات OET ولا قاعدة الجلسة الواحدة لـ OET: غير مؤكد.</td><td><a href="https://read.nxtbook.com/nabp/bulletin/fpgec_bulletin/step_3.html" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">NABP: FPGEC Candidate Application Bulletin, Step 3 (October 2026)</a></td></tr>
+<tr data-combine="not-confirmed"><td><strong lang="en" dir="ltr">FCCPT</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Foreign Credentialing Commission on Physical Therapy</span><br><span class="oet-data-sub">الولايات المتحدة</span></td><td>العلاج الطبيعي</td><td><span dir="ltr">320 / 340 / 350 / 360</span><br>مذكورة لـ «Type 1 for Immigration» اعتبارا من 12 مايو 2026.</td><td><span class="oet-status oet-status--not-confirmed">غير مؤكد</span></td><td></td><td></td><td>غير مذكور في الصفحة: غير مؤكد.</td><td><a href="https://www.fccpt.org/services/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">FCCPT: Services</a></td></tr>
+<tr data-combine="not-confirmed"><td><strong lang="en" dir="ltr">CPSA</strong><br><span class="oet-data-sub" lang="en" dir="ltr">College of Physicians and Surgeons of Alberta</span><br><span class="oet-data-sub">كندا</span></td><td>الطب</td><td><span dir="ltr">350 / 350 / 350 / 350</span><br>الدرجة B في كل مهارة. الجهة تذكر الحرف فقط، و350 هي أدنى درجة في نطاق B في OET.</td><td><span class="oet-status oet-status--not-confirmed">غير مؤكد</span></td><td></td><td></td><td>صفحة CPSA التي قرأناها لا تذكر هل يجب أن تكون الدرجات الأربع من جلسة واحدة: غير مؤكد.</td><td><a href="https://cpsa.ca/physicians/registration/apply-to-practise/english-language-proficiency/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">CPSA: English language proficiency</a></td></tr>
+<tr data-combine="not-confirmed"><td><strong lang="en" dir="ltr">BCCNM</strong><br><span class="oet-data-sub" lang="en" dir="ltr">British Columbia College of Nurses and Midwives</span><br><span class="oet-data-sub">كندا</span></td><td>التمريض</td><td><span dir="ltr">350 / 300 / 300 / 350</span><br>BCCNM تذكر الحروف: Reading C+ و Listening B و Writing C+ و Speaking B. الأرقام هي أدنى درجات النطاق في OET (B 350 و C+ 300).</td><td><span class="oet-status oet-status--not-confirmed">غير مؤكد</span></td><td></td><td></td><td>غير مذكور في الصفحة: غير مؤكد.</td><td><a href="https://www.bccnm.ca/RN/applications_registration/Pages/English_proficiency.aspx" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">BCCNM: English proficiency (updated 24 November 2026)</a></td></tr>
+</tbody></table></div>
+            <p class="oet-guide-meta">آخر مراجعة لبيانات الجهات: 27 نوفمبر 2026. كل صف فيه رابط لصفحة الجهة.</p>
+        </div></section>
+
+        <section class="oet-resource-section oet-resource-section--soft"><div class="container"><div class="oet-resource-heading"><h2 id="regulator-by-regulator">الجهات التي تسمح بالدمج، واحدة واحدة</h2><p>الدرجات مكتوبة بترتيب Listening ثم Reading ثم Writing ثم Speaking، إلا إذا ذُكر غير ذلك.</p></div>
+            <div class="oet-resource-grid oet-resource-grid--two">
+                <article class="oet-resource-card" id="nmc"><span class="oet-resource-icon"><i class="fa-solid fa-user-nurse" aria-hidden="true"></i></span><h3>NMC (بريطانيا): التمريض والقبالة</h3><ul>
+                    <li><strong>المطلوب:</strong> B (350 أو أكثر) في Listening و Reading و Speaking، و C+ (300 أو أكثر) في Writing. عند الدمج تحتاج B في كل جزء من الثلاثة مرة واحدة على الأقل، ودرجة Writing واحدة لا تقل عن C+.</li>
+                    <li><strong>الحد الأدنى في كل جلسة:</strong> C+ (300) على الأقل في Listening و Reading و Speaking، و C (250) على الأقل في Writing.</li>
+                    <li><strong>عدد الجلسات والمدة:</strong> جلستان، بينهما 12 شهراً على الأكثر.</li>
+                    <li><strong>الأجزاء الأربعة في كل مرة:</strong> نعم. لا يمكن دخول أو إعادة جزء واحد.</li>
+                    <li><strong>شكل الامتحان:</strong> الورقي والكمبيوتر و OET@Home، ويمكن دمج OET@Home مع جلسة ورقية أو كمبيوتر. امتحان OET Nursing فقط، ولا يُدمج OET مع IELTS.</li>
+                    <li><strong>الصلاحية:</strong> الدرجات صالحة سنتين، ولازم تكون الجلستان داخل السنتين السابقتين لتقييم NMC لطلبك المكتمل.</li>
+                    <li><strong>المصدر:</strong> <a href="https://www.nmc.org.uk/registration/joining-the-register/english-language-requirements/accepted-english-language-tests/oet/" target="_blank" rel="noopener noreferrer">صفحة NMC عن OET</a> (آخر تحديث 8 مارس 2024).</li>
+                </ul></article>
+                <article class="oet-resource-card" id="ahpra"><span class="oet-resource-icon"><i class="fa-solid fa-stethoscope" aria-hidden="true"></i></span><h3>Ahpra والمجالس الوطنية (أستراليا)</h3><ul>
+                    <li><strong>المطلوب للامتحانات من 23 أبريل 2026:</strong> Listening 350، Reading 360، Writing 350، Speaking 360.</li>
+                    <li><strong>الحد الأدنى في كل جلسة لنفس الامتحانات:</strong> Listening 320، Reading 340، Writing 350، Speaking 350.</li>
+                    <li><strong>الامتحانات حتى 22 أبريل 2026:</strong> B في Listening و Reading و Speaking و C+ في Writing، ولا يقل أي جزء عن C+ في أي جلسة. الجدول الذي ينطبق عليك يحدده تاريخ الامتحان، لا تاريخ التقديم.</li>
+                    <li><strong>عدد الجلسات والمدة:</strong> جلسة واحدة، أو جلستان على الأكثر خلال 12 شهراً.</li>
+                    <li><strong>الأجزاء الأربعة في كل مرة:</strong> نعم. Ahpra تقبل إعادة مهارة واحدة في IELTS فقط، وليس في OET.</li>
+                    <li><strong>شكل الامتحان:</strong> ورقي، أو كمبيوتر في مركز اختبار. OET@Home غير مقبول. ولا يُدمج امتحانان من جهتين مختلفتين.</li>
+                    <li><strong>الصلاحية:</strong> سنتان قبل تاريخ تقديم الطلب. ومع جلستين تُحسب السنتان من الجلسة الأقدم.</li>
+                    <li><strong>المهن:</strong> نفس الدرجات لكل المجالس الوطنية، ما عدا Aboriginal and Torres Strait Islander Health Practice Board.</li>
+                    <li><strong>المصدر:</strong> <a href="https://www.ahpra.gov.au/Registration/Registration-Standards/English-language-skills/Accepted-English-language-tests" target="_blank" rel="noopener noreferrer">صفحة Ahpra للاختبارات المقبولة</a> (روجعت 23 أبريل 2026).</li>
+                </ul></article>
+                <article class="oet-resource-card" id="anmac"><span class="oet-resource-icon"><i class="fa-solid fa-passport" aria-hidden="true"></i></span><h3>ANMAC (أستراليا): تقييم مهارات التمريض والقبالة</h3><ul>
+                    <li><strong>المطلوب:</strong> B في Listening و Reading و Speaking و C+ في Writing. الصفحة ما زالت تكتب الدرجات بالحروف.</li>
+                    <li><strong>الحد الأدنى في كل جلسة:</strong> لا يقل أي جزء عن C+.</li>
+                    <li><strong>عدد الجلسات والمدة:</strong> جلسة واحدة، أو جلستان على الأكثر خلال 12 شهراً.</li>
+                    <li><strong>الأجزاء الأربعة في كل مرة:</strong> نعم.</li>
+                    <li><strong>شكل الامتحان:</strong> ورقي أو كمبيوتر في مركز اختبار معتمد، ومن نفس جهة الامتحان.</li>
+                    <li><strong>الصلاحية:</strong> النتيجة عمرها أقل من سنتين.</li>
+                    <li><strong>غير مؤكد:</strong> هل تطبق ANMAC الآن أرقام Ahpra الصادرة في 23 أبريل 2026. صفحتها لم تنشر مقابلاً رقمياً وتعلن عن تغييرات قادمة، فراجعها قبل التقديم.</li>
+                    <li><strong>المصدر:</strong> <a href="https://www.anmac.org.au/skilled-migrants/apply/full-skills-assessment" target="_blank" rel="noopener noreferrer">صفحة ANMAC للتقييم الكامل</a> (بدون تاريخ).</li>
+                </ul></article>
+                <article class="oet-resource-card" id="coru"><span class="oet-resource-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><h3>CORU (أيرلندا): سبع مهن صحية</h3><ul>
+                    <li><strong>المطلوب:</strong> B (350) في ثلاثة أجزاء و C+ (300) في جزء واحد للعلاج الطبيعي والعلاج الوظيفي والتغذية العلاجية والبصريات وعلاج القدم. الأشعة تحتاج B (350) في الأجزاء الأربعة. علاج النطق واللغة يحتاج B بدرجة 400 في ثلاثة أجزاء و B بدرجة 350 في جزء واحد.</li>
+                    <li><strong>الحد الأدنى في كل جلسة:</strong> لا يقل أي جزء في OET عن C+. الصفحة تضيف أن الحد الأدنى الإجمالي لازم يتحقق في الجلستين. اسأل CORU كيف تطبق هذه الجملة على درجاتك.</li>
+                    <li><strong>عدد الجلسات والمدة:</strong> جلستان على الأكثر. الإعادة لازم تكون مع نفس جهة الامتحان، وخلال ستة أشهر من الامتحان الأول.</li>
+                    <li><strong>الأجزاء الأربعة في كل مرة:</strong> نعم. CORU لا تقبل أجزاء OET المنفردة.</li>
+                    <li><strong>شكل الامتحان:</strong> جملة الصفحة عن الامتحان من المنزل غير واضحة، لذلك قبول OET@Home غير مؤكد.</li>
+                    <li><strong>الصلاحية:</strong> شهادة تاريخها خلال سنتين من يوم تقديم طلب التسجيل.</li>
+                    <li><strong>المصدر:</strong> <a href="https://www.coru.ie/health-and-social-care-professionals/registration/registration-requirements/language/" target="_blank" rel="noopener noreferrer">صفحة CORU لمتطلبات اللغة</a> (بدون تاريخ).</li>
+                </ul></article>
+                <article class="oet-resource-card" id="mcnz"><span class="oet-resource-icon"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></span><h3>المجلس الطبي في نيوزيلندا (MCNZ): الأطباء</h3><ul>
+                    <li><strong>المطلوب:</strong> Speaking 350، Listening 350، Reading 350، Writing 300، في امتحان OET Medicine.</li>
+                    <li><strong>الحد الأدنى في كل جلسة:</strong> لا يقل أي جزء عن 300.</li>
+                    <li><strong>عدد الجلسات والمدة:</strong> جلسة واحدة، أو جلستان على الأكثر خلال 12 شهراً.</li>
+                    <li><strong>الأجزاء الأربعة في كل مرة:</strong> نعم.</li>
+                    <li><strong>شكل الامتحان:</strong> السياسة لا تذكر OET@Home ولا امتحان الكمبيوتر: غير مؤكد.</li>
+                    <li><strong>الصلاحية:</strong> خلال سنتين من طلب التسجيل، أو من موعد امتحان NZREX Clinical.</li>
+                    <li><strong>المصدر:</strong> <a href="https://www.mcnz.org.nz/assets/Policies/English-language-policy.pdf" target="_blank" rel="noopener noreferrer">سياسة MCNZ لمتطلبات اللغة الإنجليزية</a> (سبتمبر 2026).</li>
+                </ul></article>
+                <article class="oet-resource-card" id="ncnz"><span class="oet-resource-icon"><i class="fa-solid fa-user-nurse" aria-hidden="true"></i></span><h3>مجلس التمريض في نيوزيلندا</h3><ul>
+                    <li><strong>المطلوب:</strong> 350 في Reading و Listening و Speaking، و 300 في Writing.</li>
+                    <li><strong>الحد الأدنى في كل جلسة:</strong> غير منشور.</li>
+                    <li><strong>عدد الجلسات والمدة:</strong> يمكن تحقيق الدرجات في أكثر من جلسة. لازم تتحقق كل الدرجات المطلوبة خلال 12 شهراً من أول جلسة، وتكون كل الجلسات خلال ثلاث سنوات من بدء طلبك.</li>
+                    <li><strong>شكل الامتحان:</strong> في مركز اختبار OET، ورقي أو كمبيوتر. OET@Home غير مقبول. ولا تُخلط نتائج OET مع IELTS.</li>
+                    <li><strong>المصدر:</strong> <a href="https://nursingcouncil.org.nz/common/Uploaded%20files/Public/Nursing/IQN/English%20Language%20Competence%20Policy%20Guidance.pdf" target="_blank" rel="noopener noreferrer">إرشادات مجلس التمريض لكفاءة اللغة الإنجليزية</a> (19 أغسطس 2022).</li>
+                </ul></article>
+                <article class="oet-resource-card" id="otbnz"><span class="oet-resource-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><h3>مجلس العلاج الوظيفي في نيوزيلندا (OTBNZ)</h3><ul>
+                    <li><strong>المطلوب:</strong> B في كل جزء من الأربعة، في امتحان OET Occupational Therapy.</li>
+                    <li><strong>عدد الجلسات والمدة:</strong> يمكن دمج نتائج أكثر من محاولة، بشرط تحقيق المستوى المطلوب خلال 12 شهراً من أول امتحان.</li>
+                    <li><strong>الحد الأدنى في كل جلسة:</strong> غير منشور.</li>
+                    <li><strong>الصلاحية:</strong> نتائج لا يزيد عمرها على 24 شهراً عند تقديمها. قبول OET@Home غير مؤكد.</li>
+                    <li><strong>المصدر:</strong> <a href="https://otboard.org.nz/document/8497/704%20English%20language%20policy%20for%20registration.pdf" target="_blank" rel="noopener noreferrer">سياسة OTBNZ رقم 704</a> (الإصدار 2.0).</li>
+                </ul></article>
+                <article class="oet-resource-card" id="nz-pharmacy-physio"><span class="oet-resource-icon"><i class="fa-solid fa-pills" aria-hidden="true"></i></span><h3>نيوزيلندا: مجلس الصيدلة ومجلس العلاج الطبيعي</h3><ul>
+                    <li><strong>مجلس الصيدلة:</strong> A أو B في كل جزء من الأربعة خلال سنتين من تاريخ الطلب. إذا لم تحقق كل الدرجات في جلسة واحدة، تُقبل نتائج امتحانات OET سابقة خلال فترة سنتين. الصفحة لا تذكر حداً أدنى لكل جلسة ولا عدد الجلسات. <a href="https://pharmacycouncil.org.nz/pharmacy_registries/english-language-requirements/" target="_blank" rel="noopener noreferrer">المصدر</a>.</li>
+                    <li><strong>مجلس العلاج الطبيعي:</strong> 350 في Reading و Listening و Speaking و 300 في Writing، من نتائج عمرها أقل من سنتين. يمكن الحصول على درجات OET من جلستين خلال ستة أشهر. <a href="https://pbnz.helpscoutdocs.com/article/35-english-proficiency-evidence" target="_blank" rel="noopener noreferrer">المصدر</a> (بوابة المساعدة، آخر تحديث 5 يونيو 2025).</li>
+                    <li><strong>غير مؤكد لمجلس العلاج الطبيعي:</strong> تفصيلة أن الأجزاء الأربعة لازم تُمتحن في الجلستين وألا يقل أي جزء عن 300. قرأناها في مقتطف بحث فقط لأن صفحة المجلس نفسها لم تفتح معنا. وبوابة المساعدة تقول أيضاً إن المجلس لا يقبل نتائج مركّبة من امتحانات متعددة، فاطلب من المجلس تأكيداً قبل أن تبني خطتك على جلستين.</li>
+                </ul></article>
+            </div>
+            <div class="oet-snippet"><strong>كندا: إشارة واحدة إلى جلستين</strong><p><a href="https://www.crnm.mb.ca/wp-content/uploads/2025/01/Accepted-Measures-of-Language-Proficiency-Apr26.pdf" target="_blank" rel="noopener noreferrer">وثيقة المقاييس المقبولة</a> عند كلية الممرضين المسجلين في مانيتوبا (سارية من 26 مارس 2025) تطلب اختبار لغة خلال السنتين الأخيرتين وتذكر تحقيق الحد الأدنى من الدرجات عبر جلستين من نفس الاختبار. الوثيقة لا تذكر قائمة الاختبارات ولا درجات OET، فكلاهما غير مؤكد. أما باقي الجهات الكندية التي تمكّنا من قراءة قاعدتها فتشترط جلسة واحدة.</p></div>
+        </div></section>
+
+        <section class="oet-resource-section"><div class="container"><div class="oet-resource-heading"><h2 id="worked-examples">مثالان تطبيقيان</h2><p>المرشحان هنا من تأليفنا لتوضيح القواعد فقط. ليسا طالبين حقيقيين، والدرجات ليست نتائج حقيقية.</p></div>
+            <div class="oet-resource-grid oet-resource-grid--two">
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></span><h3>مثال توضيحي 1: ممرضة تستوفي قاعدة NMC</h3><p>مريم دخلت OET Nursing مرتين بينهما ستة أشهر، وبالأجزاء الأربعة في كل مرة.</p>
+                    <div class="pathway-table-wrap"><table class="pathway-table"><thead><tr><th>الجلسة</th><th>Listening</th><th>Reading</th><th>Writing</th><th>Speaking</th></tr></thead><tbody>
+                        <tr><td>الأولى</td><td>360</td><td>330</td><td>310</td><td>350</td></tr>
+                        <tr><td>الثانية</td><td>340</td><td>350</td><td>290</td><td>360</td></tr>
+                    </tbody></table></div>
+                    <ul>
+                    <li>لا تكفي أي جلسة وحدها: Reading في الأولى 330، و Listening في الثانية 340.</li>
+                    <li>الحد الأدنى: Listening و Reading و Speaking 300 أو أكثر في الجلستين، و Writing 250 أو أكثر في الجلستين (310 و 290).</li>
+                    <li>المطلوب: Listening 360 (الأولى)، Reading 350 (الثانية)، Speaking 350 (الأولى)، Writing 310 (الأولى).</li>
+                    <li>المدة: ستة أشهر، أي داخل الـ 12 شهراً.</li>
+                    <li>النتيجة: الجلستان تستوفيان قاعدة الدمج المنشورة عند NMC، بشرط أن تظلا داخل السنتين السابقتين لتقييم NMC لطلبها المكتمل.</li>
+                </ul></article>
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i></span><h3>مثال توضيحي 2: أخصائي علاج طبيعي لا يستوفي الحد الأدنى عند Ahpra</h3><p>عمر دخل OET Physiotherapy مرتين في مركز اختبار، بينهما أربعة أشهر، وكلتاهما بعد 23 أبريل 2026.</p>
+                    <div class="pathway-table-wrap"><table class="pathway-table"><thead><tr><th>الجلسة</th><th>Listening</th><th>Reading</th><th>Writing</th><th>Speaking</th></tr></thead><tbody>
+                        <tr><td>الأولى</td><td>360</td><td>370</td><td>340</td><td>360</td></tr>
+                        <tr><td>الثانية</td><td>350</td><td>360</td><td>360</td><td>350</td></tr>
+                    </tbody></table></div>
+                    <ul>
+                    <li>بين الجلستين وصل لكل درجة مطلوبة مرة: Listening 360، Reading 370، Writing 360، Speaking 360.</li>
+                    <li>لكن الحد الأدنى لـ Writing في كل جلسة هو 350، وفي جلسته الأولى Writing 340.</li>
+                    <li>النتيجة: قاعدة Ahpra المنشورة لا تسمح بدمج هاتين الجلستين. والجلسة الثانية لا تكفي وحدها أيضاً، لأن Speaking فيها 350 والمطلوب 360.</li>
+                    <li>ما يبقى له: جلسته الثانية تستوفي كل حد أدنى (350 و 360 و 360 و 350 مقابل 320 و 340 و 350 و 350). جلسة ثالثة خلال 12 شهراً منها، بالأجزاء الأربعة، مع استيفاء كل حد أدنى و Speaking 360 أو أكثر، يمكن دمجها معها.</li>
+                    <li>الدرس: في جدول الامتحانات من 23 أبريل 2026، الحد الأدنى لـ Writing يساوي الدرجة المطلوبة نفسها. تحتاج 350 في Writing في الجلستين.</li>
+                </ul></article>
+            </div>
+            <p class="oet-guide-meta">راجعنا المثالين على صفحتي NMC و Ahpra المذكورتين أعلاه. هما لتوضيح طريقة عمل القواعد المنشورة، وليسا حكماً على أي طلب حقيقي: القرار للجهة وحدها.</p>
+        </div></section>
+
+        <section class="oet-resource-section oet-resource-section--soft"><div class="container"><div class="oet-resource-heading"><h2 id="single-sub-test">إعادة جزء واحد ليست هي الدمج</h2><p>الدمج يجمع جلستين كاملتين. أما إعادة جزء واحد فمعناها أن تدخل جزءاً واحداً فقط مرة أخرى، مثل Writing وحده. OET يتيح ذلك، لكن أغلب الجهات لا تقبله.</p></div>
+            <div class="oet-resource-grid oet-resource-grid--two">
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></span><h3>ما يتيحه OET</h3><ul>
+                    <li>بعد أول امتحان بالأجزاء الأربعة، لوائح OET تسمح للمرشح أن يحجز أقل من أربعة أجزاء في محاولة لاحقة، حسب شروط الجهة التي يقدّم لها.</li>
+                    <li>في <a href="https://oet.com/post/smarter-pathway-for-nurses" target="_blank" rel="noopener noreferrer">خبر بتاريخ 29 أكتوبر 2026</a> أكد OET وجود خيار إعادة جزء منفرد، وطلب من الممرضين التأكد من أن جهة الاعتماد ومجلس التمريض في الولاية يقبلان ذلك.</li>
+                    <li>من يناير 2027، <a href="https://oet.com/post/oet-test-on-paper-update-2027" target="_blank" rel="noopener noreferrer">امتحان OET الورقي مستمر للتمريض والطب فقط</a>. فأي خيار إعادة مرتبط بالامتحان الورقي يصبح متاحاً لهاتين المهنتين فقط، والباقون يحجزون على الكمبيوتر.</li>
+                </ul></article>
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><h3>ما تقبله الجهات</h3><ul>
+                    <li><strong>HCPC (بريطانيا):</strong> الجهة الوحيدة التي وجدناها تقول إنها تقبل إعادة جزء واحد من OET. ولازم تتم الإعادة خلال ستة أشهر من تاريخ الامتحان الأصلي. <a href="https://www.hcpc-uk.org/registration/getting-on-the-register/international-applications/english-language-proficiency/" target="_blank" rel="noopener noreferrer">المصدر</a> (آخر تحديث 5 نوفمبر 2026).</li>
+                    <li><strong>غير مقبول:</strong> NMC و Ahpra و ANMAC والمجلس الطبي في نيوزيلندا و CORU كلها تشترط الأجزاء الأربعة في كل جلسة. و PSI في أيرلندا ومجلس طب الأسنان في نيوزيلندا يقولان إنهما لا يقبلان إعادة مهارة واحدة.</li>
+                    <li><strong>غير مؤكد:</strong> TruMerit ومجالس التمريض في الولايات الأمريكية. صفحات TruMerit لا تذكر شيئاً، ولم نبحث مجالس الولايات واحداً واحداً.</li>
+                </ul></article>
+            </div>
+            <div class="oet-snippet"><strong>درجات HCPC للمرجعية</strong><p>HCPC تذكر OET لعلاج القدم والتغذية العلاجية والعلاج الوظيفي والعلاج الطبيعي والأشعة بمجموع 1400 ولا يقل أي جزء عن 300، ولعلاج النطق واللغة بمجموع 1800 ولا يقل أي جزء عن 400. وتذكر امتحان الكمبيوتر والورقي. أما OET@Home ودمج جلستين كاملتين فغير مذكورين في صفحتها: غير مؤكد.</p></div>
+        </div></section>
+
+        <section class="oet-resource-section"><div class="container"><div class="oet-resource-heading"><h2 id="one-sitting">الجهات التي تشترط جلسة واحدة</h2><p>عند هذه الجهات لازم تأتي كل الدرجات المطلوبة من نفس الامتحان. درجة قوية في جلسة سابقة لا تُحسب.</p></div>
+            <div class="pathway-table-wrap"><table class="pathway-table"><thead><tr><th>الجهة</th><th>لمن</th><th>ما تقوله صفحتها</th><th>المصدر</th></tr></thead><tbody>
+                <tr><td>GMC (بريطانيا)</td><td>الأطباء</td><td>B على الأقل في كل جزء من الأربعة، في نفس الامتحان، ومن أحدث جلسة لك. الصلاحية سنتان. تقبل الورقي والكمبيوتر و OET@Home.</td><td><a href="https://www.gmc-uk.org/registration-and-licensing/join-our-registers/before-you-apply/evidence-of-your-knowledge-of-english/using-your-oet-certificate" target="_blank" rel="noopener noreferrer">GMC</a></td></tr>
+                <tr><td>GPhC (بريطانيا العظمى)</td><td>الصيادلة</td><td>B على الأقل في كل جزء من الأربعة في جلسة واحدة، ونتيجة عمرها أقل من سنتين. ورقي أو كمبيوتر. OET@Home غير مقبول.</td><td><a href="https://assets.pharmacyregulation.org/files/2025-06/gphc-guidance-on-evidence-of-english-language-skills-june-2025_0.pdf" target="_blank" rel="noopener noreferrer">إرشادات GPhC، يونيو 2025</a></td></tr>
+                <tr><td>ECFMG (أمريكا)</td><td>الأطباء، مسارات 2027</td><td>350 في Listening و Reading و Speaking و 300 في Writing في جلسة امتحان واحدة. إذا نقص أي جزء تعيد الأجزاء الأربعة. لا حد لعدد المحاولات.</td><td><a href="https://www.ecfmg.org/certification-pathways/oet.html" target="_blank" rel="noopener noreferrer">ECFMG</a></td></tr>
+                <tr><td>المجلس الطبي (أيرلندا)</td><td>الأطباء</td><td>B في كل جزء من OET Medicine في جلسة واحدة خلال آخر سنتين. OET@Home غير مقبول.</td><td><a href="https://www.medicalcouncil.ie/registration-applications/first-time-applicants/english-language.html" target="_blank" rel="noopener noreferrer">Medical Council</a></td></tr>
+                <tr><td>NMBI (أيرلندا)</td><td>التمريض والقبالة</td><td>B في ثلاثة أجزاء و C+ في جزء واحد. نتيجة امتحان واحدة فقط، ولا تُقبل النتائج المدمجة. عمر النتيجة أقل من سنتين. OET@Home غير مقبول.</td><td><a href="https://www.nmbi.ie/Registration/Qualified-outside-the-EU/Application-Process/English-Language-Requirements" target="_blank" rel="noopener noreferrer">NMBI</a></td></tr>
+                <tr><td>PSI (أيرلندا)</td><td>الصيادلة</td><td>Listening 350، Reading 350، Writing 300، Speaking 350، وكل الأجزاء في نفس الجلسة. لا تقبل إعادة مهارة واحدة. الصفحة تذكر أيضاً «درجات أساس» لنظام اسمه super-scoring، لكننا لم نتمكن من قراءة القاعدة كاملة: غير مؤكد.</td><td><a href="https://www.psi.ie/registration/pharmacists/first-time-registration/language-requirements" target="_blank" rel="noopener noreferrer">PSI</a></td></tr>
+                <tr><td>مجلس طب الأسنان (نيوزيلندا)</td><td>مهن طب الأسنان</td><td>A أو B في كل جزء من الأربعة، في جلسة واحدة. لا يقبل إعادة مهارة واحدة.</td><td><a href="https://dcnz.org.nz/i-want-to-practise-in-new-zealand/registration-what-you-need-to-know" target="_blank" rel="noopener noreferrer">Dental Council</a></td></tr>
+                <tr><td>مجلس البصريات (نيوزيلندا)</td><td>أخصائيو البصريات</td><td>B (350) في كل جزء من الأربعة، في نتيجة واحدة. الامتحان بالحضور الشخصي فقط.</td><td><a href="https://www.odob.health.nz/document/8136/O.%20English%20language%20requirements%20(v1).pdf" target="_blank" rel="noopener noreferrer">سياسة ODOB</a></td></tr>
+                <tr><td>المجلس البيطري (نيوزيلندا)</td><td>الأطباء البيطريون</td><td>A أو B في كل جزء من الأربعة في جلسة واحدة. السياسة روجعت آخر مرة في ديسمبر 2017، فتأكد أنها ما زالت سارية.</td><td><a href="https://vetcouncil.org.nz/common/Uploaded%20files/Web/Publications/Policies%20and%20Statements/EnglishCompetence.pdf" target="_blank" rel="noopener noreferrer">سياسة VCNZ</a></td></tr>
+                <tr><td>CPSBC (بريتش كولومبيا)</td><td>الأطباء</td><td>B في كل جزء في جلسة واحدة. لا تُقبل درجات مدمجة من محاولات متعددة.</td><td><a href="https://www.cpsbc.ca/files/pdf/LIC-P-English-Language-Proficiency-Requirements.pdf" target="_blank" rel="noopener noreferrer">سياسة CPSBC</a></td></tr>
+                <tr><td>CNO (أونتاريو)</td><td>التمريض</td><td>Writing C+ (320)، Speaking B (350)، Listening B (350)، Reading C+ (330)، كلها في محاولة واحدة كاملة.</td><td><a href="https://cno.org/become-a-nurse/registration-requirements/proficiency-in-english-or-french/types-of-evidence" target="_blank" rel="noopener noreferrer">CNO</a></td></tr>
+                <tr><td>سياسة NAPRA النموذجية (كندا)</td><td>الصيادلة</td><td>Reading B، Listening B، Speaking B، Writing C+، والأجزاء الأربعة في جلسة امتحان واحدة. وهي توصية تتبناها أو تعدّلها الجهات في المقاطعات.</td><td><a href="https://www.napra.ca/wp-content/uploads/2024/02/NAPRA-Language-Proficiency-Requirement-Policy-February-2024-EN.pdf" target="_blank" rel="noopener noreferrer">سياسة NAPRA</a></td></tr>
+                <tr><td>مجالس سنغافورة</td><td>الأطباء والصيادلة وأطباء الأسنان والمهن الصحية المساعدة</td><td>المجلس الطبي ومجلس الصيدلة ومجلس طب الأسنان ومجلس المهن الصحية المساعدة في سنغافورة: كل منها يطلب الدرجات في جلسة واحدة.</td><td><a href="/singapore-pathway-guide.html">دليل سنغافورة (بالإنجليزية)</a></td></tr>
+            </tbody></table></div>
+        </div></section>
+
+        <section class="oet-resource-section oet-resource-section--soft"><div class="container"><div class="oet-resource-heading"><h2 id="mistakes">أخطاء شائعة</h2></div>
+            <div class="oet-resource-grid oet-resource-grid--two">
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></span><h3>أخطاء في فهم القاعدة</h3><ul>
+                    <li><strong>افتراض أن كل الجهات تقبل الدمج.</strong> GMC و GPhC و ECFMG وجهات كثيرة غيرها لا تقبله.</li>
+                    <li><strong>نقل الحد الأدنى من جهة لأخرى.</strong> عند NMC الحد هو C+ و C+ و C في Writing و C+. عند Ahpra هو 320 و 340 و 350 و 350. وعند ANMAC لا شيء أقل من C+.</li>
+                    <li><strong>قراءة الدرجة المطلوبة ونسيان الحد الأدنى.</strong> جزء واحد ضعيف في الجلسة الأولى قد يجعلها غير صالحة للدمج.</li>
+                    <li><strong>خلط OET مع IELTS.</strong> الجهات التي تقبل الدمج تريد النتيجتين من نفس الاختبار.</li>
+                </ul></article>
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-clock" aria-hidden="true"></i></span><h3>أخطاء في التوقيت وشكل الامتحان</h3><ul>
+                    <li><strong>تجاوز المدة.</strong> 12 شهراً عند NMC و Ahpra و ANMAC والمجلس الطبي في نيوزيلندا. وستة أشهر عند CORU ومجلس العلاج الطبيعي في نيوزيلندا.</li>
+                    <li><strong>نسيان مدة الصلاحية.</strong> عند Ahpra تُحسب السنتان من الجلسة الأقدم، فتأخير الجلسة الثانية يقلل الوقت الباقي للتقديم.</li>
+                    <li><strong>حجز جزء واحد فقط.</strong> إعادة جزء واحد لا تُحسب عند NMC ولا عند Ahpra.</li>
+                    <li><strong>استخدام OET@Home عند جهة لا تقبله.</strong> NMC تقبله. أما Ahpra و ANMAC ومجلس التمريض في نيوزيلندا فلا تقبله.</li>
+                    <li><strong>استيفاء التسجيل دون التأشيرة.</strong> وزارة الشؤون الداخلية الأسترالية تطلب Writing 380 لمستوى Proficient English، بينما تسجيل Ahpra يطلب Writing 350.</li>
+                </ul></article>
+            </div>
+        </div></section>
+
+        <section class="oet-resource-section"><div class="container"><div class="oet-resource-heading"><h2 id="not-confirmed">ما هو غير مؤكد</h2><p>لم نتمكن من تأكيد هذه النقاط من صفحات الجهات نفسها يوم 27 نوفمبر 2026. لا تبنِ خطتك عليها قبل أن تحصل على رد مكتوب من الجهة.</p></div>
+            <div class="oet-resource-grid oet-resource-grid--two">
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span><h3>OET وبريطانيا</h3><ul>
+                    <li>هل يصدر OET شهادة واحدة مدمجة لجلستين.</li>
+                    <li>HCPC: دمج جلستين كاملتين، وقبول OET@Home.</li>
+                    <li>GDC: إرشاداته تذكر IELTS فقط ولا تذكر OET أصلاً.</li>
+                </ul></article>
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span><h3>أستراليا وأمريكا وغيرهما</h3><ul>
+                    <li>وزارة الشؤون الداخلية الأسترالية (التأشيرات): دمج جلسات OET. صفحاتها تذكر أنظمة إعادة لاختبارات أخرى فقط.</li>
+                    <li>ANMAC: الدرجات بالأرقام، وهل تنطبق أرقام Ahpra الصادرة في 23 أبريل 2026.</li>
+                    <li>TruMerit ومجالس التمريض في الولايات الأمريكية: الدمج وإعادة جزء واحد.</li>
+                    <li>NABP (صيادلة أمريكا): تقبل OET للامتحانات من 11 يناير 2027، لكن الحد الأدنى للدرجات وقواعد الجلسات والصلاحية لم تكن منشورة وقت مراجعتنا.</li>
+                    <li>نظام super-scoring عند PSI، ومجلس طب الأسنان الأيرلندي، والمجلس البيطري الأيرلندي، ومجالس الأشعة والتغذية وعلاج القدم في نيوزيلندا: لم نتمكن من قراءة قاعدة دمج خاصة بـ OET.</li>
+                    <li>جهات الخليج: لم نجد شرطاً منشوراً لـ OET على مواقعها، فلا توجد قاعدة دمج نذكرها.</li>
+                </ul></article>
+            </div>
+        </div></section>
+
+        <section class="oet-resource-section oet-resource-section--soft"><div class="container"><div class="oet-resource-heading"><h2 id="plan">كيف تخطط لجلسة ثانية</h2><p>إذا كانت نتيجتك الأولى قريبة، فالجلسة الثانية قد تكمل المطلوب، بشرط أن تُبنى الخطة على قاعدة جهتك أنت.</p></div>
+            <div class="oet-resource-grid oet-resource-grid--two">
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-route" aria-hidden="true"></i></span><h3>خمس خطوات</h3><ol class="oet-ar-steps">
+                    <li><strong>حدّد جهتك.</strong> اقرأ درجاتها الحالية في <a href="/ar/oet-score-requirements.html">متطلبات درجات OET</a>، وافهم معنى كل درجة من <a href="/ar/oet-passing-score.html">درجة النجاح في OET</a>. ومصفوفة المهن والدول موجودة بالإنجليزية في <a href="/oet-recognition-by-country.html" lang="en" hreflang="en">Who Accepts OET?</a></li>
+                    <li><strong>قارن جلستك الأولى بالحد الأدنى.</strong> إذا كان جزء واحد تحت الحد، فهذه الجلسة لا تصلح للدمج. ضع أرقامك في <a href="/ar/oet-score-calculator.html">حاسبة درجات OET</a>.</li>
+                    <li><strong>احسب المدة بين الجلستين ومدة الصلاحية.</strong> اختر موعداً من <a href="/ar/oet-test-dates-and-fees.html">مواعيد وتكلفة امتحان OET</a> يقع داخل الاثنتين.</li>
+                    <li><strong>اختر شكل امتحان تقبله جهتك.</strong> اقرأ <a href="/ar/oet-at-home.html">دليل OET@Home</a> قبل أن تحجز من المنزل، وتذكّر أن الورقي من يناير 2027 للتمريض والطب فقط.</li>
+                    <li><strong>احجز الأجزاء الأربعة</strong> إلا إذا قالت جهتك كتابةً إنها تقبل إعادة جزء واحد.</li>
+                </ol></article>
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i></span><h3>ذاكر الجزء الذي أوقفك</h3><p>الجلسة الثانية لا تفيد إلا إذا تحركت الدرجة الضعيفة. دليلنا <a href="/oet-retake-after-near-miss.html" lang="en" hreflang="en">Retaking OET after a near miss</a> (بالإنجليزية) يشرح كيف تقرأ نتيجتك وتبني خطة قصيرة.</p><ul>
+                    <li>ابدأ بـ <a href="/ar/oet-sample-tests.html">نماذج OET المجانية</a> ثم <a href="/ar/oet-mock-test.html">امتحان OET التجريبي</a>.</li>
+                    <li>الكورسات حسب المهنة: <a href="/ar/oet-course-for-nurses.html">التمريض</a>، <a href="/ar/oet-course-for-doctors.html">الأطباء</a>، <a href="/ar/oet-course-for-pharmacists.html">الصيادلة</a>، <a href="/ar/oet-course-for-physiotherapists.html">العلاج الطبيعي</a>.</li>
+                    <li>قارن الباقات في <a href="/ar/pricing.html">صفحة الأسعار</a>.</li>
+                </ul></article>
+            </div>
+        </div></section>
+
+        <section class="oet-resource-section" id="faq"><div class="container"><div class="oet-resource-heading"><h2 id="sec-faq">أسئلة شائعة</h2></div>
+            <div class="oet-faq-item"><h3>ما معنى دمج نتائج OET أو Clubbing؟</h3><p>الدمج معناه استخدام نتيجتي جلستين من OET معاً لتحقيق شرط الدرجات عند جهة واحدة. OET لا يقرر هل هو مسموح: كل جهة تضع قاعدتها، وجهات كثيرة تقبل جلسة واحدة فقط.</p></div>
+            <div class="oet-faq-item"><h3>ما الجهات التي تقبل دمج نتائج OET؟</h3><p>في الصفحات التي قرأناها يوم 27 نوفمبر 2026، تنشر NMC و Ahpra و ANMAC قواعد لجلستين. وكذلك CORU في أيرلندا، وفي نيوزيلندا المجلس الطبي ومجلس التمريض ومجلس الصيدلة ومجلس العلاج الطبيعي ومجلس العلاج الوظيفي. ولكل جهة شروط مختلفة.</p></div>
+            <div class="oet-faq-item"><h3>هل يمكن دمج نتيجتين عند GMC؟</h3><p>لا. GMC يطلب B على الأقل في كل جزء من الأربعة في نفس الامتحان، ومن أحدث جلسة لك.</p></div>
+            <div class="oet-faq-item"><h3>كم المدة المسموحة بين الجلستين؟</h3><p>حسب الجهة. NMC و Ahpra و ANMAC والمجلس الطبي في نيوزيلندا تحدد 12 شهراً. و CORU ومجلس العلاج الطبيعي في نيوزيلندا يحددان ستة أشهر.</p></div>
+            <div class="oet-faq-item"><h3>هل يمكن إعادة جزء واحد فقط من OET؟</h3><p>OET يسمح بحجز أقل من أربعة أجزاء بعد أول امتحان كامل، لكن أغلب الجهات لا تقبل النتيجة. NMC و Ahpra و ANMAC والمجلس الطبي في نيوزيلندا و CORU تريد الأجزاء الأربعة في كل جلسة. و HCPC هي الجهة الوحيدة التي وجدناها تقبل إعادة جزء واحد، خلال ستة أشهر من الامتحان الأصلي.</p></div>
+            <div class="oet-faq-item"><h3>هل يصدر OET شهادة واحدة للجلستين؟</h3><p>غير مؤكد. صفحات OET المنشورة لا تقول إنه يجمع جلستين في Statement of Results واحد. قراءتنا أن كل جلسة تحتفظ بنتيجتها والجهة هي التي تدمج. تأكد من جهتك.</p></div>
+            <div class="oet-faq-item"><h3>هل يمكن دمج جلسة OET مع جلسة IELTS؟</h3><p>لم نجد جهة تسمح بذلك. NMC و Ahpra و ANMAC و CORU ومجلس التمريض في نيوزيلندا كلها تقول إن النتيجتين لازم تكونا من نفس الاختبار.</p></div>
+            <div class="oet-faq-item"><h3>هل تُحسب جلسة OET@Home في الدمج؟</h3><p>عند NMC نعم: تقبل OET@Home وتسمح بدمجه مع جلسة ورقية أو كمبيوتر. أما Ahpra و ANMAC ومجلس التمريض في نيوزيلندا فلا تقبل OET@Home أصلاً.</p></div>
+        </div></section>
+
+        <section class="oet-resource-section oet-resource-section--soft" id="sources"><div class="container"><div class="oet-resource-heading"><h2>المصادر</h2><p>كل قاعدة في هذه الصفحة مأخوذة من موقع الجهة نفسها أو وثيقتها الرسمية، وقُرئت يوم 27 نوفمبر 2026.</p></div>
+            <div class="oet-resource-grid oet-resource-grid--two">
+                <article class="oet-resource-card"><h3>OET وبريطانيا وأمريكا</h3><ul>
+                    <li>OET: <a href="https://oet.com/en-us/test-regulations" target="_blank" rel="noopener noreferrer" lang="en">Test Regulations</a>، <a href="https://oet.com/test/after-the-test" target="_blank" rel="noopener noreferrer" lang="en">After the test</a>، <a href="https://oet.com/post/smarter-pathway-for-nurses" target="_blank" rel="noopener noreferrer">خبر 29 أكتوبر 2026</a>، <a href="https://oet.com/post/oet-test-on-paper-update-2027" target="_blank" rel="noopener noreferrer">تحديث الورقي 16 نوفمبر 2026</a>.</li>
+                    <li><a href="https://www.nmc.org.uk/registration/joining-the-register/english-language-requirements/accepted-english-language-tests/" target="_blank" rel="noopener noreferrer" lang="en">NMC: accepted English language tests</a>.</li>
+                    <li><a href="https://www.gmc-uk.org/registration-and-licensing/join-our-registers/before-you-apply/evidence-of-your-knowledge-of-english/using-your-oet-certificate" target="_blank" rel="noopener noreferrer" lang="en">GMC: using your OET certificate</a>.</li>
+                    <li><a href="https://assets.pharmacyregulation.org/files/2025-06/gphc-guidance-on-evidence-of-english-language-skills-june-2025_0.pdf" target="_blank" rel="noopener noreferrer" lang="en">GPhC: guidance on evidence of English language skills</a>.</li>
+                    <li><a href="https://www.hcpc-uk.org/registration/getting-on-the-register/international-applications/english-language-proficiency/" target="_blank" rel="noopener noreferrer" lang="en">HCPC: English language proficiency</a>.</li>
+                    <li><a href="https://www.gdc-uk.org/registration/route-to-registration/english-language-controls" target="_blank" rel="noopener noreferrer" lang="en">GDC: English language controls</a>.</li>
+                    <li><a href="https://www.ecfmg.org/certification-pathways/oet.html" target="_blank" rel="noopener noreferrer" lang="en">ECFMG: OET Medicine</a>.</li>
+                    <li><a href="https://www.trumerit.org/services/certification/cgfns-certification-program/" target="_blank" rel="noopener noreferrer" lang="en">TruMerit: Certification Program</a>.</li>
+                    <li><a href="https://nabp.pharmacy/news/news-releases/nabp-expands-communication-skills-options-for-fpgec-certification/" target="_blank" rel="noopener noreferrer" lang="en">NABP: FPGEC news release</a>.</li>
+                </ul></article>
+                <article class="oet-resource-card"><h3>أستراليا وأيرلندا ونيوزيلندا وكندا</h3><ul>
+                    <li><a href="https://www.ahpra.gov.au/Registration/Registration-Standards/English-language-skills/Accepted-English-language-tests" target="_blank" rel="noopener noreferrer" lang="en">Ahpra: accepted English language tests</a>.</li>
+                    <li><a href="https://www.anmac.org.au/skilled-migrants/apply/full-skills-assessment" target="_blank" rel="noopener noreferrer" lang="en">ANMAC: full skills assessment</a>.</li>
+                    <li><a href="https://immi.homeaffairs.gov.au/help-support/meeting-our-requirements/english-language/proficient-english" target="_blank" rel="noopener noreferrer" lang="en">Department of Home Affairs: Proficient English</a>.</li>
+                    <li>أيرلندا: <a href="https://www.coru.ie/health-and-social-care-professionals/registration/registration-requirements/language/" target="_blank" rel="noopener noreferrer">CORU</a>، <a href="https://www.medicalcouncil.ie/registration-applications/first-time-applicants/english-language.html" target="_blank" rel="noopener noreferrer" lang="en">Medical Council</a>، <a href="https://www.nmbi.ie/Registration/Qualified-outside-the-EU/Application-Process/English-Language-Requirements" target="_blank" rel="noopener noreferrer">NMBI</a>، <a href="https://www.psi.ie/registration/pharmacists/first-time-registration/language-requirements" target="_blank" rel="noopener noreferrer">PSI</a>.</li>
+                    <li>نيوزيلندا: <a href="https://www.mcnz.org.nz/assets/Policies/English-language-policy.pdf" target="_blank" rel="noopener noreferrer">MCNZ</a>، <a href="https://nursingcouncil.org.nz/common/Uploaded%20files/Public/Nursing/IQN/English%20Language%20Competence%20Policy%20Guidance.pdf" target="_blank" rel="noopener noreferrer" lang="en">Nursing Council</a>، <a href="https://pharmacycouncil.org.nz/pharmacy_registries/english-language-requirements/" target="_blank" rel="noopener noreferrer" lang="en">Pharmacy Council</a>، <a href="https://pbnz.helpscoutdocs.com/article/35-english-proficiency-evidence" target="_blank" rel="noopener noreferrer" lang="en">Physiotherapy Board</a>، <a href="https://otboard.org.nz/document/8497/704%20English%20language%20policy%20for%20registration.pdf" target="_blank" rel="noopener noreferrer">OTBNZ</a>، <a href="https://dcnz.org.nz/i-want-to-practise-in-new-zealand/registration-what-you-need-to-know" target="_blank" rel="noopener noreferrer" lang="en">Dental Council</a>.</li>
+                    <li>كندا: <a href="https://www.cpsbc.ca/files/pdf/LIC-P-English-Language-Proficiency-Requirements.pdf" target="_blank" rel="noopener noreferrer">CPSBC</a>، <a href="https://cno.org/become-a-nurse/registration-requirements/proficiency-in-english-or-french/types-of-evidence" target="_blank" rel="noopener noreferrer">CNO</a>، <a href="https://www.crnm.mb.ca/wp-content/uploads/2025/01/Accepted-Measures-of-Language-Proficiency-Apr26.pdf" target="_blank" rel="noopener noreferrer">CRNM</a>، <a href="https://www.napra.ca/wp-content/uploads/2024/02/NAPRA-Language-Proficiency-Requirement-Policy-February-2024-EN.pdf" target="_blank" rel="noopener noreferrer">NAPRA</a>.</li>
+                </ul></article>
+            </div>
+            <div class="oet-snippet"><strong>إرشاد مستقل وليس قراراً رسمياً</strong><p>OET with Dr Hesham خدمة تدريب مستقلة. لسنا تابعين لـ OET ولا لأي جهة ترخيص ولا لأي مركز اختبار، ولا نحجز الامتحان لأحد. الحجز يتم على موقع oet.com، والتقديم للجهة تقوم به أنت. هذه الصفحة معلومات عامة وليست استشارة قانونية أو استشارة هجرة، والجهة وحدها هي التي تؤكد هل نتائجك تستوفي قاعدتها.</p></div>
+        </div></section>
+
+        <section class="oet-resource-section"><div class="container"><div class="oet-snippet"><strong>نماذج OET المجانية</strong><p>ابدأ بتجربة صيغة الامتحان الفعلية: <a href="/ar/oet-sample-tests.html">اختبار OET تجريبي مجاني</a> من النماذج الرسمية التي ينشرها OET لكل مهنة.</p></div></div></section>
+        <section class="oet-related" aria-label="صفحات ذات صلة"><div class="container"><h2 class="oet-related-title">صفحات ذات صلة</h2><div class="oet-related-grid"><a class="oet-related-card" href="/ar/oet-score-requirements.html"><span class="oet-related-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><span class="oet-related-body"><strong>متطلبات درجات OET</strong><span>الدرجات التي تطلبها كل جهة.</span></span><i class="fa-solid fa-arrow-left oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/ar/oet-score-calculator.html"><span class="oet-related-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><span class="oet-related-body"><strong>حاسبة درجات OET</strong><span>قارن درجاتك بشروط الجهات.</span></span><i class="fa-solid fa-arrow-left oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/ar/oet-at-home.html"><span class="oet-related-icon"><i class="fa-solid fa-desktop" aria-hidden="true"></i></span><span class="oet-related-body"><strong>امتحان OET@Home</strong><span>من يستطيع حجزه ومن يقبله.</span></span><i class="fa-solid fa-arrow-left oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/ar/oet-test-dates-and-fees.html"><span class="oet-related-icon"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></span><span class="oet-related-body"><strong>مواعيد وتكلفة امتحان OET</strong><span>المواعيد والحجز والرسوم.</span></span><i class="fa-solid fa-arrow-left oet-related-arrow" aria-hidden="true"></i></a></div></div></section>
+</main>
+
+<!--================= Footer section start =================-->
+    <footer class="vl-footer-10 fix vkl-gray-bg-19 pt-60 oet-footer">
+                <div class="container">
+                    <div class="oet-footer-cols">
+                        <div class="oet-footer-brand vl-footer-widget-1">
+                            <div class="vl-footer-logo">
+                                <a href="/"><img width="320" height="90" loading="lazy" decoding="async" src="/assets/img/logo/footer-logo.webp" alt="OET with Dr Hesham"></a>
+                            </div>
+                            <div class="vl-footer-content vl-footer-content-6">
+                                <p class="para pt-16 pb-24">We help nurses, doctors, pharmacists, and allied health professionals prepare for OET with practical guidance, focused feedback, and clear UK pathway support.</p>
+                            </div>
+
+                            <!-- social area -->
+                            <div class="social-area-footer-10">
+                                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+                                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram"></i></a>
+                                <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                                <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+                            </div>
+                        </div>
+
+                        <details class="oet-footer-group oet-footer-group--courses">
+                            <summary><h3 class="vl-footer-widget-title vl-footer-widget-title-6 oet-footer-group__title">Courses &amp; Practice</h3></summary>
+                            <div class="vl-footer-menu vl-footer-menu-10">
+                                <ul>
+                                    <li><a href="/service.html">OET Courses</a></li>
+                                    <li><a href="/oet-course-for-nurses.html">OET Course for Nurses</a></li>
+                                    <li><a href="/oet-course-for-doctors.html">OET Course for Doctors</a></li>
+                                    <li><a href="/oet-writing-correction.html">OET Writing Correction</a></li>
+                                    <li><a href="/pricing.html">Pricing</a></li>
+                                    <li><a href="/ar/" lang="ar">كورس OET بالعربية</a></li>
+<li><a href="/pricing.html#download-app">Download Candidates App</a></li>                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="oet-footer-group oet-footer-group--resources">
+                            <summary><h3 class="vl-footer-widget-title vl-footer-widget-title-6 oet-footer-group__title">Resources &amp; Guides</h3></summary>
+                            <div class="vl-footer-menu vl-footer-menu-10">
+                                <ul>
+                                    <li><a href="/blog/">OET Blog</a></li><li><a href="/ar/oet-recalls.html" lang="ar">ريكولز OET</a></li><li><a href="/ar/blog/" lang="ar" dir="rtl">مقالات OET بالعربي</a></li>
+                                    <li><a href="/oet-sample-tests.html">Free OET Sample Tests</a></li>
+                                    <li><a href="/oet-materials-support.html">Free Resources</a></li>
+                                    <li><a href="/oet-speaking-tips.html">Speaking Tips</a></li>
+                                    <li><a href="/oet-score-calculator.html">OET Score Calculator</a></li>
+                                    <li><a href="/oet-score-requirements.html">OET Score Requirements</a></li>
+                                    <li><a href="/oet-test-centres.html">OET Test Centres</a></li>
+                                    <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">Telegram Materials</a></li>
+                                    <li><a href="/uk-pathway-guide.html">UK Pathway Guide</a></li>
+                                    <li><a href="/usa-pathway-guide.html">USA Pathway Guide</a></li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="oet-footer-group oet-footer-group--support">
+                            <summary><h3 class="vl-footer-widget-title vl-footer-widget-title-6 oet-footer-group__title">About &amp; Support</h3></summary>
+                            <div class="vl-footer-menu vl-footer-menu-10">
+                                <ul>
+                                    <li><a href="/about.html">About Dr. Hesham</a></li>
+                                    <li><a href="/teaching-approach.html">Teaching Approach</a></li>
+                                    <li><a href="https://www.youtube.com/watch?v=hlD1BXfijWs" data-youtube-url="https://www.youtube.com/watch?v=hlD1BXfijWs" data-oet-inline-video="true" target="_blank" rel="noopener noreferrer">OET Programs</a></li>
+                                    <li><a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
+                                    <li><a href="mailto:support@oetwithdrhesham.co.uk">Email Support</a></li>
+                                    <li><a href="/faq.html">FAQ</a></li>
+                                    <li><a href="/contact.html">Contact</a></li>
+                                    <li><a href="/success-stories.html">Success Stories</a></li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="oet-footer-group oet-footer-group--connect">
+                            <summary><h3 class="vl-footer-widget-title vl-footer-widget-title-6 oet-footer-group__title">Stay Connected</h3></summary>
+                            <!-- Newslater -->
+                            <div class="vl-footer-newslate10 oet-footer-updates">
+                                <p class="oet-updates-copy">Free tips, live class alerts and course updates &mdash; straight from Dr Hesham.</p>
+                                <div class="oet-footer-subscribe-buttons">
+                                    <a class="oet-footer-btn oet-footer-btn--telegram" href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">
+                                        <span class="oet-footer-btn__icon"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span>
+                                        <span class="oet-footer-btn__text">Join Telegram Channel</span>
+                                    </a>
+                                    <a class="oet-footer-btn oet-footer-btn--youtube" href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer">
+                                        <span class="oet-footer-btn__icon"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                                        <span class="oet-footer-btn__text">Subscribe on YouTube</span>
+                                    </a>
+                                    <a class="oet-footer-btn oet-footer-btn--facebook" href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer">
+                                        <span class="oet-footer-btn__icon"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span>
+                                        <span class="oet-footer-btn__text">Join Facebook Community</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="vl-copy-righ1t vl-copy-righ1t-10">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 mb-30">
+                                    <div class="vl-footer-copy-right-widget vl-footer-copy-right-widget-6">
+                                        <p class="para">&copy; Copyright 2026 - OET with Dr Hesham. All Rights Reserved</p>
+                                        <p class="para oet-footer-company-support">OET with Dr Hesham is a digital education platform supported by ProHealth Digital LLC, Wyoming, USA.</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 mb-30">
+                                    <div class="vl-copy-right-menu vl-copy-right-menu-10">
+                                        <ul aria-label="Legal">
+                                            <li><strong>Legal</strong></li>
+                                            <li><a href="/terms/">Terms &amp; Conditions</a></li>
+                                            <li><a href="/privacy/">Privacy Policy</a></li>
+                                            <li><a href="/refund-policy/">Refund Policy</a></li>
+                                            <li><a href="/cookie-policy/">Cookie Policy</a></li>
+                                            <li><a href="/cookie-policy/" onclick="oetCookieSettings();return false;">Cookie settings</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+<!--================= Footer section End =================-->
+
+
+    <!-- js file -->
+
+    <!-- jquery js-->
+<!-- gsap js-->
+<!-- scrollTrigger js-->
+<!-- fontawesome -->
+<!-- counter js -->
+<!-- waypoints js-->
+<!-- sal js-->
+    <script defer src="/assets/js/plugins/sal.min.js?v=3ff9a5f201"></script>
+    <!-- ScrollSmoother js -->
+    <script defer src="/assets/js/plugins/lenis.min.js?v=98598577bb"></script>
+<!-- Custom js -->
+<script defer src="/assets/js/main.js?v=96ff1fca64"></script>
+
+    
+
+
+    
+
+
+
+
+    
+
+    <div class="oet-community-popup" id="oet-community-popup" aria-hidden="true">
+        <div class="oet-community-popup__overlay" data-oet-community-close></div>
+        <div class="oet-community-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="oet-community-popup-title" aria-describedby="oet-community-popup-intro">
+            <button class="oet-community-popup__close" type="button" data-oet-community-close aria-label="Close community popup">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+            <div class="oet-community-popup__body">
+                <span class="oet-community-popup__eyebrow"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Free OET support</span>
+                <h2 class="oet-community-popup__title" id="oet-community-popup-title">Join Our Free OET Communities</h2>
+                <p class="oet-community-popup__intro" id="oet-community-popup-intro">Choose the group or resource that matches your profession, language preference, or preparation stage. Each link opens in a new tab so you can join instantly.</p>
+
+                <section class="oet-community-popup__section" aria-labelledby="oet-community-follow"><h3 class="oet-community-popup__section-title" id="oet-community-follow">Follow &amp; explore</h3><div class="oet-community-popup__resources"><a class="oet-community-popup__resource" href="https://www.tiktok.com/@dr.ahmedheshamuk" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon oet-community-popup__icon--tiktok"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">TikTok</span></span></a><a class="oet-community-popup__resource" href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon oet-community-popup__icon--instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Instagram</span></span></a><a class="oet-community-popup__resource" href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">YouTube channel</span></span></a><a class="oet-community-popup__resource" href="https://linktr.ee/drahmedhesham222" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon oet-community-popup__icon--linktree"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="m13.73635 5.85251 4.00467-4.11665 2.3248 2.3808-4.20064 4.00466h5.9085v3.30473h-5.9365l4.22865 4.10766-2.3248 2.3338L12.0005 12.099l-5.74052 5.76852-2.3248-2.3248 4.22864-4.10766h-5.9375V8.12132h5.9085L3.93417 4.11666l2.3248-2.3808 4.00468 4.11665V0h3.4727zm-3.4727 10.30614h3.4727V24h-3.4727z"/></svg></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">All links (Linktree)</span></span></a></div></section>
+<section class="oet-community-popup__section" aria-labelledby="oet-community-communities"><h3 class="oet-community-popup__section-title" id="oet-community-communities">Join a study community</h3><div class="oet-community-popup__grid"><a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/GwXdSX6v38F3EjNzC4wS2F?mode=hq1tsha" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">OET Nursing Free Community</span><span class="oet-community-popup__hint">Highlighted nursing community</span></span></a><a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/CeJmvXO5dJA50OKBGtZcuD?mode=gi_t" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">OET Medicine Free Community</span><span class="oet-community-popup__hint">Free orientation sessions for medicine</span></span></a><a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/IuCFuWFXFrQHtK6qICP4jg?mode=gi_t" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">OET English Only - Non-Arabic Speakers</span><span class="oet-community-popup__hint">English-only practice community</span></span></a><a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/Kz8zXv7GpoCJBAHpfDygPW?mode=gi_t" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">OET Pharmacy Free Community</span><span class="oet-community-popup__hint">Pharmacy OET support</span></span></a><a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/E6AkDZhctn95XP7Do1RYgc?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">OET Physiotherapy Free Community</span><span class="oet-community-popup__hint">Free OET community for physiotherapy</span></span></a><a class="oet-community-popup__card" href="https://chat.whatsapp.com/LPSFtrljYdjAYGpBStpMz5" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Exam Recalls Group 1</span><span class="oet-community-popup__hint">Recent exam recall discussions</span></span></a><a class="oet-community-popup__card" href="https://chat.whatsapp.com/CzVgwnH73Vn8PupWxPrhkz" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Exam Recalls Group 2</span><span class="oet-community-popup__hint">Backup recalls community</span></span></a><a class="oet-community-popup__card" href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon oet-community-popup__icon--facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Main Facebook Group</span></span></a></div></section>
+<section class="oet-community-popup__section" aria-labelledby="oet-community-orientation"><h3 class="oet-community-popup__section-title" id="oet-community-orientation">Free orientation &amp; resources</h3><div class="oet-community-popup__resources"><a class="oet-community-popup__resource" href="https://youtu.be/kL91eG32Uok?si=Q464XynULlIxpiav" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/kL91eG32Uok?si=Q464XynULlIxpiav" data-oet-inline-video="true"><span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Doctors Arabic Orientation</span></span></a><a class="oet-community-popup__resource" href="https://youtu.be/3aBIQq_p3MQ?si=eNwqS82aYuYBaifr" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/3aBIQq_p3MQ?si=eNwqS82aYuYBaifr" data-oet-inline-video="true"><span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Doctors Non-Arabic Orientation</span></span></a><a class="oet-community-popup__resource" href="https://youtu.be/hlD1BXfijWs?si=EQFjYcWKTBOvltPI" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/hlD1BXfijWs?si=EQFjYcWKTBOvltPI" data-oet-inline-video="true"><span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Nursing Orientation</span></span></a><a class="oet-community-popup__resource" href="https://youtu.be/wgJUsFT9HUA?si=asdHpYWHmHHAam-q" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/wgJUsFT9HUA?si=asdHpYWHmHHAam-q" data-oet-inline-video="true"><span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Pharmacy Arabic Orientation</span></span></a><a class="oet-community-popup__resource" href="https://youtu.be/rbNsB7Olxts?si=RNoigvu5kz_bUVYI" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/rbNsB7Olxts?si=RNoigvu5kz_bUVYI" data-oet-inline-video="true"><span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Course Feedback</span></span></a><a class="oet-community-popup__resource" href="https://youtu.be/MCPZb589zdY?si=vSLShtttUOEH89rx" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/MCPZb589zdY?si=vSLShtttUOEH89rx" data-oet-inline-video="true"><span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">OET &amp; UK Nursing Live</span></span></a></div></section>
+<section class="oet-community-popup__section" aria-labelledby="oet-community-channels"><h3 class="oet-community-popup__section-title" id="oet-community-channels">Updates &amp; channels</h3><div class="oet-community-popup__resources"><a class="oet-community-popup__resource" href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon oet-community-popup__icon--telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Official Telegram Channel</span></span></a><a class="oet-community-popup__resource" href="https://t.me/OET_Nursing_DrHesham" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon oet-community-popup__icon--telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Telegram Nursing Channel</span></span></a><a class="oet-community-popup__resource" href="https://www.facebook.com/share/1EMpS7pDau/" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon oet-community-popup__icon--facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Official Facebook Page</span></span></a></div></section>
+<section class="oet-community-popup__section" aria-labelledby="oet-community-profiles"><h3 class="oet-community-popup__section-title" id="oet-community-profiles">Professional profiles</h3><div class="oet-community-popup__resources"><a class="oet-community-popup__resource" href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon oet-community-popup__icon--linkedin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">LinkedIn</span></span></a><a class="oet-community-popup__resource" href="https://www.behance.net/drahme222" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon oet-community-popup__icon--behance"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M16.969 16.927a2.561 2.561 0 0 0 1.901.677 2.501 2.501 0 0 0 1.531-.475c.362-.235.636-.584.779-.99h2.585a5.091 5.091 0 0 1-1.9 2.896 5.292 5.292 0 0 1-3.091.88 5.839 5.839 0 0 1-2.284-.433 4.871 4.871 0 0 1-1.723-1.211 5.657 5.657 0 0 1-1.08-1.874 7.057 7.057 0 0 1-.383-2.393c-.005-.8.129-1.595.396-2.349a5.313 5.313 0 0 1 5.088-3.604 4.87 4.87 0 0 1 2.376.563c.661.362 1.231.87 1.668 1.485a6.2 6.2 0 0 1 .943 2.133c.194.821.263 1.666.205 2.508h-7.699c-.063.79.184 1.574.688 2.187ZM6.947 4.084a8.065 8.065 0 0 1 1.928.198 4.29 4.29 0 0 1 1.49.638c.418.303.748.711.958 1.182.241.579.357 1.203.341 1.83a3.506 3.506 0 0 1-.506 1.961 3.726 3.726 0 0 1-1.503 1.287 3.588 3.588 0 0 1 2.027 1.437c.464.747.697 1.615.67 2.494a4.593 4.593 0 0 1-.423 2.032 3.945 3.945 0 0 1-1.163 1.413 5.114 5.114 0 0 1-1.683.807 7.135 7.135 0 0 1-1.928.259H0V4.084h6.947Zm-.235 12.9c.308.004.616-.029.916-.099a2.18 2.18 0 0 0 .766-.332c.228-.158.411-.371.534-.619.142-.317.208-.663.191-1.009a2.08 2.08 0 0 0-.642-1.715 2.618 2.618 0 0 0-1.696-.505h-3.54v4.279h3.471Zm13.635-5.967a2.13 2.13 0 0 0-1.654-.619 2.336 2.336 0 0 0-1.163.259 2.474 2.474 0 0 0-.738.62 2.359 2.359 0 0 0-.396.792c-.074.239-.12.485-.137.734h4.769a3.239 3.239 0 0 0-.679-1.785l-.002-.001Zm-13.813-.648a2.254 2.254 0 0 0 1.423-.433c.399-.355.607-.88.56-1.413a1.916 1.916 0 0 0-.178-.891 1.298 1.298 0 0 0-.495-.533 1.851 1.851 0 0 0-.711-.274 3.966 3.966 0 0 0-.835-.073H3.241v3.631h3.293v-.014ZM21.62 5.122h-5.976v1.527h5.976V5.122Z"/></svg></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Behance portfolio</span></span></a></div></section>
+            </div>
+        </div>
+    </div>
+
+    <script defer src="/assets/js/oet-community-popup.js?v=b73488d264"></script>
+    <script src="/assets/js/oet-analytics.js?v=d6500c3d4b" defer></script>
+    <script src="/assets/js/oet-cookie-consent.js?v=e9753196cd" defer></script>
+    <script src="/assets/js/oet-search.js?v=ddf57f5228" defer></script>
+    <script src="/assets/js/oet-announce.js?v=b1609a8182" defer></script>
+</body>
+</html>

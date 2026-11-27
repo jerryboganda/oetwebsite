@@ -1,0 +1,192 @@
+<link rel="stylesheet" href="/assets/css/oet-pathway.css">
+    <style>
+body.oet-live-site footer.vl-footer-10 { margin-top: 32px !important;
+            padding-top: 100px !important;
+            position: relative;
+            z-index: 1; }
+</style>
+    <style id="pathway-upgrade-css">
+    .pathway-hero { padding-top: 170px; }
+    .pathway-last-updated { margin-top: 18px; color: #6a648a; font-weight: 700; font-size: 14px; }
+    .pathway-trust-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 26px; }
+    .pathway-trust-card { background: rgba(255,255,255,0.86); border: 1px solid rgba(124,58,237,0.14); border-radius: 16px; padding: 16px; box-shadow: 0 16px 32px rgba(16,19,79,0.07); }
+    .pathway-trust-card strong { display: block; color: #7c3aed; font-size: 28px; line-height: 1; margin-bottom: 8px; }
+    .pathway-trust-card span { color: #5f5a82; font-weight: 700; line-height: 1.35; }
+    .pathway-mini-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; background: #f0ebff; color: #7c3aed; font-weight: 800; font-size: 13px; margin-bottom: 14px; }
+    .pathway-section-kicker { color: #7c3aed; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; margin-bottom: 10px; }
+    .pathway-profession-card { background: #ffffff; border: 1px solid rgba(124,58,237,0.14); border-radius: 18px; padding: 28px; height: 100%; box-shadow: 0 18px 38px rgba(16,19,79,0.06); }
+    .pathway-profession-card h3 { color: #10134f; font-size: 26px; margin: 10px 0 12px; }
+    .pathway-profession-meta { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 18px; }
+    .pathway-profession-meta span { padding: 8px 10px; border-radius: 10px; background: #f7f4ff; color: #4f3bf0; font-weight: 800; font-size: 13px; }
+    .pathway-step-list { counter-reset: pathwayStep; display: grid; gap: 14px; margin: 20px 0 0; }
+    .pathway-step { counter-increment: pathwayStep; display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 14px; align-items: start; background: #ffffff; border: 1px solid rgba(124,58,237,0.13); border-radius: 16px; padding: 16px; box-shadow: 0 12px 24px rgba(16,19,79,0.05); }
+    .pathway-step::before { content: counter(pathwayStep, decimal-leading-zero); width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; color: #ffffff; background: linear-gradient(135deg, #7c3aed, #8b5cf6); font-weight: 900; }
+    .pathway-step strong { display: block; color: #10134f; margin-bottom: 4px; }
+    .pathway-step span { color: #5f5a82; line-height: 1.55; }
+    .pathway-focus-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 24px; }
+    .pathway-focus-card { background: #ffffff; border: 1px solid rgba(124,58,237,0.13); border-radius: 16px; padding: 20px; height: 100%; }
+    .pathway-focus-card h4 { color: #10134f; font-size: 18px; margin: 12px 0 8px; }
+    .pathway-focus-card p { color: #5f5a82; line-height: 1.55; margin: 0; }
+    .pathway-warning { background: #fff8ee; border: 1px solid rgba(218,140,26,0.26); color: #5d4212; border-radius: 16px; padding: 18px; line-height: 1.6; }
+    .pathway-source-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
+    .pathway-source-link { display: flex; gap: 12px; align-items: flex-start; min-height: 74px; padding: 16px; border-radius: 14px; background: #ffffff; border: 1px solid rgba(124,58,237,0.14); color: #10134f; font-weight: 800; text-decoration: none; box-shadow: 0 12px 24px rgba(16,19,79,0.05); }
+    .pathway-source-link i { color: #7c3aed; margin-top: 4px; }
+    .pathway-source-link small { display: block; color: #6a648a; font-weight: 600; margin-top: 4px; line-height: 1.35; }
+    .pathway-btn.oet-community-cta { cursor: pointer; }
+    @media (max-width: 1199px) { .pathway-focus-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 767px) {
+        .pathway-hero { padding-top: 120px; }
+        .pathway-trust-grid, .pathway-focus-grid, .pathway-source-grid { grid-template-columns: 1fr; }
+        .pathway-profession-card { padding: 22px; }
+        .pathway-step { grid-template-columns: 42px minmax(0, 1fr); }
+        .pathway-step::before { width: 42px; height: 42px; border-radius: 12px; }
+    }
+</style>
+    <style>
+    .pathway-table-wrap { overflow-x: auto; }
+    .pathway-table--wide td, .pathway-table--wide th { padding: 13px 12px; font-size: 15px; line-height: 1.5; }
+    .pathway-table a, .pathway-warning a, .pathway-disclaimer a, .pathway-card a, .pathway-muted a, .pathway-list a, .pathway-step a { color: #5b3ff1; font-weight: 700; }
+    .pathway-profession-card h2 { color: #10134f; font-size: 26px; line-height: 1.25; margin: 10px 0 12px; }
+    .pathway-profession-card .pathway-table-wrap { margin: 6px 0 22px; }
+    .pathway-source-link:hover { border-color: rgba(124,58,237,0.32); }
+</style>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Canada Pathway Guide 2027: Where OET Is Accepted",
+    "url": "https://oetwithdrhesham.co.uk/canada-pathway-guide.html",
+    "description": "Canada pathway guide for OET candidates: which provincial regulators accept OET for doctors, nurses and pharmacists, which do not, and why IRCC is separate.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "OET with Dr Ahmed Hesham",
+      "url": "https://oetwithdrhesham.co.uk"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Canada Pathway Guide 2027: Where OET Is Accepted",
+    "description": "Canada pathway guide for OET candidates: which provincial regulators accept OET for doctors, nurses and pharmacists, which do not, and why IRCC is separate.",
+    "image": "https://oetwithdrhesham.co.uk/assets/img/blog/canada-pathway-guide.webp",
+    "datePublished": "2026-11-27",
+    "dateModified": "2026-11-27",
+    "author": {
+      "@type": "Person",
+      "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+      "name": "Dr Ahmed Hesham",
+      "url": "https://oetwithdrhesham.co.uk/about.html",
+      "jobTitle": "Medical Doctor & OET Educator",
+      "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-2026-960.webp",
+      "sameAs": [
+        "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+        "https://www.youtube.com/@drhesham222"
+      ]
+    },
+    "publisher": {
+      "@type": "Organization",
+      "@id": "https://oetwithdrhesham.co.uk/#organization",
+      "name": "OET with Dr Hesham",
+      "url": "https://oetwithdrhesham.co.uk/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://oetwithdrhesham.co.uk/assets/img/logo/platform-logo.png"
+      }
+    },
+    "mainEntityOfPage": "https://oetwithdrhesham.co.uk/canada-pathway-guide.html"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://oetwithdrhesham.co.uk/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "OET Blog",
+        "item": "https://oetwithdrhesham.co.uk/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Pathway Guides",
+        "item": "https://oetwithdrhesham.co.uk/blog/#pathways"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Canada Pathway Guide",
+        "item": "https://oetwithdrhesham.co.uk/canada-pathway-guide.html"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Canada accept OET?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There is no single answer, because health licensing in Canada is provincial. Some regulators accept OET, for example CPSBC and CPSA for doctors, CNO and BCCNM for nurses and the Ontario College of Pharmacists. Others do not, so check your own regulator before booking."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use OET for Express Entry?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. IRCC's Express Entry page lists CELPIP, IELTS and PTE Core for English, and OET is not on that list. If you need both immigration and registration, you may need two different tests."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What OET score do nurses need in Ontario?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The College of Nurses of Ontario prints Writing C+ (320), Speaking B (350), Listening B (350) and Reading C+ (330), all in one complete attempt, with the test written within two years of registering."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do nurses in Alberta or British Columbia need OET?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CRNA in Alberta lists only CELBAN and IELTS Academic, so OET is not accepted there. BCCNM in British Columbia accepts OET with Reading C+, Listening B, Writing C+ and Speaking B, in person only."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What OET score do doctors need in British Columbia and Alberta?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CPSBC asks for OET Medicine with at least grade B in each component in one sitting, valid for two years from the test date. CPSA asks for at least grade B in each component, taken within 24 months before the application."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is OET accepted for pharmacists in Canada?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "NAPRA's model policy recommends OET with Reading B, Listening B, Speaking B and Writing C+ in a single testing session, and each provincial regulator decides whether to adopt it. Ontario applies those cut scores from 1 January 2026 and accepts OET on Paper, OET on Computer and OET@Home."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do physiotherapists, occupational therapists, dentists or vets need OET for Canada?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. CAPR, ACOTRO, the Royal College of Dental Surgeons of Ontario and the CVMA National Examining Board publish lists of approved English tests, and OET is not on them. Book one of the tests they list instead."
+        }
+      }
+    ]
+  }
+]
+    </script>

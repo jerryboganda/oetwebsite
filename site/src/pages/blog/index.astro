@@ -7,7 +7,7 @@ import tail from '../../partials/oet-writing-tips/tail.html?raw';
 import { loadBlog, latestPosts, renderCard, renderArabicCard, escapeHtml, SEARCH_NORMALIZE_JS } from '../../lib/blog.mjs';
 
 const SITE = 'https://oetwithdrhesham.co.uk';
-const { categories, posts, arabicPosts } = loadBlog();
+const { categories, posts, arabicPosts, arabicPages } = loadBlog();
 const articleCount = posts.length + arabicPosts.length;
 const latest = latestPosts(posts);
 const description =
@@ -97,6 +97,17 @@ ${list.map((p) => renderCard(p, { library: true })).join('\n')}
 const arabicGroups = categories
   .map((c) => ({ ...c, list: arabicPosts.filter((p) => p.category === c.id) }))
   .filter((g) => g.list.length);
+// Free tools that exist in Arabic (blog.json "arabicPages", group "tools": sample tests, mock test, score calculator, recalls...).
+// They are not articles, so they are listed apart with an "Arabic" label and never counted (SEO handoff #2 of 25 Nov 2026, item 1.2).
+const toolPages = (arabicPages.find((g) => g.group === 'tools') || { pages: [] }).pages;
+const arabicTools = toolPages.length
+  ? `      <div class="oet-blog-tools" aria-labelledby="arabic-tools-title">
+        <h3 class="oet-blog-subgroup__title" id="arabic-tools-title">Free tools in Arabic &middot; <span lang="ar">أدوات مجانية بالعربية</span></h3>
+        <ul class="oet-blog-tools__list">
+${toolPages.map((p) => `          <li><a href="${p.url}" lang="ar" hreflang="ar"><span class="oet-blog-tools__badge" lang="en">Arabic</span><span dir="rtl">${escapeHtml(p.title)}</span></a></li>`).join('\n')}
+        </ul>
+      </div>`
+  : '';
 const arabicSection = arabicPosts.length
   ? `<section class="oet-blog-section" id="arabic" aria-labelledby="arabic-title">
       <div class="oet-blog-section__head"><h2 id="arabic-title">Articles in Arabic &middot; <span lang="ar">مقالات بالعربية</span></h2><p>${arabicPosts.length} guides written in Arabic for candidates across Egypt and the Gulf, by topic. Browse them in Arabic on the <a href="/ar/blog/" lang="ar">مقالات OET بالعربي</a> page.</p></div>
@@ -106,6 +117,7 @@ ${arabicGroups.map((g) => `      <div class="oet-blog-subgroup" data-topic="${g.
 ${g.list.map((p) => renderArabicCard(p, { headingLevel: 4 })).join('\n')}
         </div>
       </div>`).join('\n')}
+${arabicTools}
     </section>`
   : '';
 
@@ -194,6 +206,11 @@ ${arabicSection}
 .oet-blog-subgroup__count { color: var(--oet-muted); font-weight: 600; }
 .oet-blog-card[lang=ar], .oet-blog-subgroup__title [lang=ar] { font-family: "Segoe UI", Tahoma, "Noto Naskh Arabic", "Noto Sans Arabic", Arial, sans-serif; }
 .oet-blog-card[lang=ar] .oet-blog-card__tag { letter-spacing: 0; text-transform: none; }
+.oet-blog-tools { margin: 4px 0 28px; }
+.oet-blog-tools__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+.oet-blog-tools__list a { display: flex; align-items: center; gap: 10px; min-height: 56px; padding: 12px 16px; border: 1px solid rgba(91, 63, 241, .2); border-radius: 14px; background: #fff; color: var(--oet-ink); font-weight: 700; text-decoration: none; font-family: "Segoe UI", Tahoma, "Noto Naskh Arabic", "Noto Sans Arabic", Arial, sans-serif; }
+.oet-blog-tools__list a:hover, .oet-blog-tools__list a:focus-visible { border-color: #5b3ff1; box-shadow: 0 6px 18px rgba(91, 63, 241, .12); }
+.oet-blog-tools__badge { flex: none; padding: 3px 9px; border-radius: 999px; background: #efeaff; color: #4b2bd1; font: 700 12px/1.4 Mulish, Arial, sans-serif; letter-spacing: .02em; }
 </style>`}
   main={main}
   tail={tail}

@@ -330,3 +330,14 @@ body.oet-promo-popup-lock { overflow: hidden; }
    i.e. one blank 26px line above the hero (hidden under the transparent header). The BOM is gone (it also pushed the announcement bar down by
    that line); this margin keeps the hero exactly where it always was. */
 .oet-hero { margin-top: 26px; }
+/* "Practise OET Online" block (SEO handoff #2 of 25 Nov 2026, R3 / R6): links to the practice pages, in the homepage section style. */
+.oet-home-practice { background: #fff; }
+.oet-home-practice__grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; grid-template-columns: 1fr; }
+.oet-home-practice__grid a { display: flex; flex-direction: column; gap: 6px; height: 100%; padding: 22px 20px; border: 1px solid #e4dcff; border-radius: 18px; background: #fbf9ff; color: #4f4b7b; text-decoration: none; transition: border-color .2s, box-shadow .2s, transform .2s; }
+.oet-home-practice__grid a:hover, .oet-home-practice__grid a:focus-visible { border-color: var(--oet-purple); box-shadow: 0 12px 28px rgba(124, 58, 237, .14); transform: translateY(-2px); }
+.oet-home-practice__grid i { font-size: 22px; color: var(--oet-purple); }
+.oet-home-practice__grid strong { font-size: 18px; line-height: 1.3; color: var(--oet-ink); }
+.oet-home-practice__grid span { font-size: 15px; line-height: 1.55; }
+@media (min-width: 576px) { .oet-home-practice__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 992px) { .oet-home-practice__grid { grid-template-columns: repeat(5, minmax(0, 1fr)); } .oet-home-practice__grid strong { font-size: 17px; } }
+@media (prefers-reduced-motion: reduce) { .oet-home-practice__grid a { transition: none; } .oet-home-practice__grid a:hover { transform: none; } }

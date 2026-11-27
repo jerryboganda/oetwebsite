@@ -145,6 +145,10 @@ RewriteRule ^oet-writing\.html$ https://%{HTTP_HOST}/oet-writing-tips.html [R=30
 # The Arabic booking guide's draft URL (brief of 22 Nov 2026) -> the published page, which follows the site's .html rule
 RewriteRule ^ar/blog/oet-test-fee-booking-2027(?:\.html)?/?$ https://%{HTTP_HOST}/ar/oet-test-fee-booking-2027.html [R=301,L]
 RewriteRule ^(.+\.html)/$ https://%{HTTP_HOST}/$1 [R=301,L]
+# Test-centre directory (brief of 26 Nov 2026): the folder-style URLs the brief suggested go to the published pages, which follow
+# the site's flat .html rule. /oet-test-centres/<country>/ opens that country's section of the directory.
+RewriteRule ^(ar/)?oet-test-centres/paper-2027/?$ https://%{HTTP_HOST}/$1oet-paper-test-centres-2027.html [R=301,L]
+RewriteRule ^(ar/)?oet-test-centres/([a-z-]+)/?$ https://%{HTTP_HOST}/$1oet-test-centres.html#$2 [R=301,NE,L]
 # A page URL shared without .html goes to the real page
 RewriteCond %{DOCUMENT_ROOT}/$1.html -f
 RewriteRule ^([a-z0-9-]+(?:/[a-z0-9-]+)?)/?$ https://%{HTTP_HOST}/$1.html [R=301,L]

@@ -61,15 +61,19 @@ export function applyPricing(parts, data) {
 export function applyPriceMarkers(parts, data, bundles) {
   const byKicker = new Map(data.map((c) => [c.kicker, c.price]));
   const byTier = new Map((bundles?.families || []).flatMap((f) => f.tiers.map((t) => [t.key, t.price])));
-  return Object.fromEntries(Object.entries(parts).map(([k, html]) => [k, html
+  // Inside a JSON-LD block the price is written with the character itself ("£30"): JSON-LD is not HTML, so an entity would ship
+  // literally. Everywhere else it is the "&pound;30" entity the pages have always used.
+  const fill = (html, sign) => html
     .replace(/<!--oet:price:(Package \d+)-->/g, (_, kicker) => {
       if (!byKicker.has(kicker)) throw new Error(`inject: price marker for unknown package "${kicker}"`);
-      return `&pound;${byKicker.get(kicker)}`;
+      return `${sign}${byKicker.get(kicker)}`;
     })
     .replace(/<!--oet:bundle-price:([a-z-]+)-->/g, (_, key) => {
       if (!byTier.has(key)) throw new Error(`inject: bundle price marker for unknown tier "${key}"`);
-      return `&pound;${byTier.get(key)}`;
-    })]));
+      return `${sign}${byTier.get(key)}`;
+    });
+  return Object.fromEntries(Object.entries(parts).map(([k, html]) => [k,
+    fill(html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, (block) => fill(block, '\u00a3')), '&pound;')]));
 }
 
 /**

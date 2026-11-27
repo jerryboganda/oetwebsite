@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en" class="oet-live-site">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <script>
+      (function () {
+        try {
+          var m = window.matchMedia;
+          if (m && (
+            m('(max-width:1023.98px)').matches ||
+            m('(pointer:coarse)').matches ||
+            m('(hover:none)').matches ||
+            m('(prefers-reduced-motion:reduce)').matches
+          )) {
+            document.documentElement.classList.add('oet-lite-motion');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <script>(function(){try{var h=document.documentElement;if(Date.now()>Date.parse('2027-01-15T23:59:59Z'))h.classList.add('oet-news-expired');try{if(localStorage.getItem('oet_announce_paper-2027')==='1')h.classList.add('oet-bar-dismissed');}catch(e){}}catch(e){}})();</script>
+    <script>
+      // Signed-in hint set by the learner app (shared-domain cookie oet_signed_in=1, no token or PII).
+      // Presentation only. The header and drawer CTA always READS "Login / Register" (owner brief
+      // 28 Oct 2026); the hint only decides where it points: the app dashboard when the cookie exists
+      // (so a signed-in visitor is not sent back through sign-in), the sign-in entry otherwise.
+      // sync() is idempotent and runs: now, on DOMContentLoaded (the nav anchors exist and the deferred
+      // main.js has already cloned the nav into the mobile drawer; a clone copies whatever href it
+      // finds, and this pass fixes it), and on a bfcache restore (pageshow persisted) so Back after
+      // sign-in or sign-out never leaves a stale target. The guest href is remembered in
+      // data-login-href the first time an anchor is seen.
+      (function () {
+        var d = document;
+        function sync() {
+          try {
+            var on = /(?:^|;\s*)oet_signed_in=1(?:;|$)/.test(d.cookie);
+            d.querySelectorAll('a[data-dashboard-href]').forEach(function (a) {
+              if (!a.hasAttribute('data-login-href')) a.setAttribute('data-login-href', a.getAttribute('href'));
+              a.setAttribute('href', a.getAttribute(on ? 'data-dashboard-href' : 'data-login-href'));
+            });
+          } catch (e) {}
+        }
+        sync();
+        d.addEventListener('DOMContentLoaded', sync);
+        window.addEventListener('pageshow', function (e) { if (e.persisted) sync(); });
+      })();
+    </script>
+    <title>OET@Home 2027: Who Can Book It and Who Accepts It</title>
+    <meta name="description" content="OET@Home is offered only where no test venue is available, and many regulators refuse it. Who can book it, who accepts it, and the equipment and ID rules.">
+    <link rel="canonical" href="https://oetwithdrhesham.co.uk/oet-at-home.html">
+    <link rel="alternate" hreflang="en" href="https://oetwithdrhesham.co.uk/oet-at-home.html">
+    <link rel="alternate" hreflang="ar" href="https://oetwithdrhesham.co.uk/ar/oet-at-home.html">
+    <link rel="alternate" hreflang="x-default" href="https://oetwithdrhesham.co.uk/oet-at-home.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="OET with Dr Ahmed Hesham">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:url" content="https://oetwithdrhesham.co.uk/oet-at-home.html">
+    <meta property="og:title" content="OET@Home 2027: Who Can Book It and Who Accepts It">
+    <meta property="og:description" content="OET@Home is offered only where no test venue is available, and many regulators refuse it. Who can book it, who accepts it, and the equipment and ID rules.">
+    <meta property="og:image" content="https://oetwithdrhesham.co.uk/assets/img/blog/oet-at-home.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OET@Home 2027: Who Can Book It and Who Accepts It">
+    <meta name="twitter:description" content="OET@Home is offered only where no test venue is available, and many regulators refuse it. Who can book it, who accepts it, and the equipment and ID rules.">
+    <meta name="twitter:image" content="https://oetwithdrhesham.co.uk/assets/img/blog/oet-at-home.webp">
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "OET@Home in 2027: who can book it, and which regulators accept it",
+    "description": "OET@Home is offered only where no test venue is available, and many regulators refuse it. Who can book it, who accepts it, and the equipment and ID rules.",
+    "image": "https://oetwithdrhesham.co.uk/assets/img/blog/oet-at-home.webp",
+    "datePublished": "2026-11-27",
+    "dateModified": "2026-11-27",
+    "inLanguage": "en-GB",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://oetwithdrhesham.co.uk/oet-at-home.html"
+    },
+    "articleSection": "Exam Format",
+    "author": {
+      "@type": "Person",
+      "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+      "name": "Dr Ahmed Hesham",
+      "alternateName": [
+        "Dr Hesham",
+        "د. أحمد هشام"
+      ],
+      "honorificPrefix": "Dr",
+      "jobTitle": "Medical Doctor & OET Educator",
+      "description": "Medical doctor and OET educator who has coached thousands of doctors and nurses to OET success since 2018.",
+      "url": "https://oetwithdrhesham.co.uk/about.html",
+      "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-2026-960.webp",
+      "worksFor": {
+        "@id": "https://oetwithdrhesham.co.uk/#organization"
+      },
+      "knowsAbout": [
+        "OET preparation",
+        "Medical English",
+        "OET Writing",
+        "OET Speaking",
+        "Healthcare professional registration"
+      ],
+      "knowsLanguage": [
+        "en",
+        "ar"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+        "https://www.youtube.com/@drhesham222"
+      ]
+    },
+    "publisher": {
+      "@type": "EducationalOrganization",
+      "@id": "https://oetwithdrhesham.co.uk/#organization",
+      "name": "OET with Dr Ahmed Hesham",
+      "alternateName": [
+        "OET with Dr Hesham",
+        "Dr Hesham OET",
+        "OET مع د. أحمد هشام",
+        "د. أحمد هشام OET"
+      ],
+      "url": "https://oetwithdrhesham.co.uk/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://oetwithdrhesham.co.uk/assets/img/logo/platform-logo.png",
+        "width": 320,
+        "height": 90
+      },
+      "email": "support@oetwithdrhesham.co.uk",
+      "telephone": "+447961725989",
+      "founder": {
+        "@id": "https://oetwithdrhesham.co.uk/#drhesham"
+      },
+      "knowsLanguage": [
+        "en",
+        "ar"
+      ],
+      "sameAs": [
+        "https://www.youtube.com/@drhesham222",
+        "https://t.me/Oet_with_Hesham",
+        "https://t.me/OET_Nursing_DrHesham",
+        "https://www.facebook.com/groups/649430742699879",
+        "https://www.instagram.com/oetwith.drhesham"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "telephone": "+447961725989",
+        "email": "support@oetwithdrhesham.co.uk",
+        "availableLanguage": [
+          "English",
+          "Arabic"
+        ]
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://oetwithdrhesham.co.uk/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "OET Blog",
+        "item": "https://oetwithdrhesham.co.uk/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Exam Format",
+        "item": "https://oetwithdrhesham.co.uk/blog/#exam-format"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "OET@Home",
+        "item": "https://oetwithdrhesham.co.uk/oet-at-home.html"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is OET@Home?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OET@Home is the full OET test taken at home on your own computer with remote proctoring. It is one of three delivery modes, next to the OET Test on Paper and the OET Test on Computer at a venue, and it has the same content, timing and marking."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I take OET@Home from any country?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. OET offers OET@Home where taking the test at a venue is not yet available, or as an exception approved case by case. OET publishes no country list, so check the official booking tool for your city. If your country has a test venue, plan to sit at a venue."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which professions can take OET@Home?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The official sources disagree. OET's own page lists all 12 professions, while the Cambridge English overview lists four: Medicine, Nursing, Pharmacy and Physiotherapy. Check your profession in the booking tool before you rely on OET@Home."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which regulators accept OET@Home?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "On their own pages, the GMC and the NMC accept it, and ECFMG accepts it only when your country has no physical test venue. CORU says at-home versions are accepted for OET without naming OET@Home, so we list it as not confirmed. The GPhC, NMBI, the Medical Council of Ireland, the PSI, Ahpra, the Australian Department of Home Affairs, the Nursing Council of New Zealand, TruMerit, NABP and BCCNM do not. For many others it is not confirmed, so ask your regulator in writing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is online Speaking the same as OET@Home?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. On the OET Test on Computer you sit Listening, Reading and Writing at a venue, and Speaking may be taken at home or at a venue depending on the country. That is still a venue-based test. OET@Home means all four sub-tests are taken at home."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does OET@Home cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OET shows a fee of AU$587 for OET@Home, the same as the paper and computer tests. In the United States the fee is US$455. OET does not publish local-currency prices or say whether tax is added."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How fast are OET@Home results?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OET says results can arrive as early as 48 hours after you complete all sub-tests. That is the earliest case, not a guarantee, so leave a margin before any registration deadline."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What equipment do I need for OET@Home?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A computer with a camera, speakers and a microphone, Prometric's ProProctor application, a wired headset for Listening and a single screen. You must be alone in a quiet, walled, well-lit room and show the original ID you used to book."
+        }
+      }
+    ]
+  }
+]
+    </script>
+
+    <meta property="og:image:alt" content="OET@Home 2027: Who Can Book It and Who Accepts It">
+    <meta name="author" content="Dr Ahmed Hesham">
+    <meta property="article:published_time" content="2026-11-27">
+    <meta property="article:modified_time" content="2026-11-27">
+    <meta property="article:author" content="https://oetwithdrhesham.co.uk/about.html">
+    <link rel="alternate" type="application/atom+xml" title="OET Blog by Dr Hesham" href="/feed.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="facebook-domain-verification" content="4j7vanqeax6mvmydb4sod34bj388dv">
+    <link rel="icon" href="/favicon.ico?v=20261109" sizes="32x32">
+    <link rel="icon" href="/assets/img/logo/fav-icon.svg?v=20261109" type="image/svg+xml">
+    <link rel="icon" href="/assets/img/logo/favicon-32x32.png?v=20261109" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/img/logo/favicon-16x16.png?v=20261109" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261109" sizes="180x180">
+    <link rel="manifest" href="/site.webmanifest?v=20261109">
+    <link rel="preload" href="/assets/fonts/mulish-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/cal-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+        
+        <link rel="stylesheet" href="/assets/css/plugins/sal.css?v=52a59aec6a">
+                        <link rel="stylesheet" href="/assets/css/oet-core.css?v=728d49f0c8">
+    
+    <link rel="stylesheet" href="/assets/css/oet-pathway.css?v=ff5d90a514">
+<style>
+@media (max-width: 767px) {
+  .oet-resource-hero .oet-tips-hero-copy[data-sal], .oet-resource-hero .oet-tips-hero-copy [data-sal], .oet-resource-hero .oet-tips-hero-panel[data-sal] { opacity: 1 !important;
+                transform: none !important; }
+}
+</style>
+    <style>
+.oet-final-cta-icon { display: grid !important;
+            place-items: center !important;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px !important;
+            font-weight: 900;
+            line-height: 1 !important;
+            color: #ffffff !important; }
+</style>
+    <link rel="stylesheet" href="/assets/css/oet-resource.css?v=d24f259e0a">
+    <style>
+@media (min-width: 1200px) {
+  .oet-skill-hero { padding-top: 240px !important; }
+}
+</style>
+
+<link rel="stylesheet" href="/assets/css/oet-directory.css?v=cd4e0aff5a">
+</head>
+<body class="oet-live-site oet-resource-page">
+    <a class="oet-skip-link" data-lenis-ignore-anchor href="#main-content">Skip to main content</a>
+<!--================= Announcement bar (data/announcement.json) =================-->
+    <aside class="oet-announce" data-oet-announce="paper-2027" lang="en" dir="ltr" aria-label="Announcement"><a class="oet-announce__link" href="/oet-paper-test-2027-changes.html">OET on Paper ends for 10 professions in January 2027. See what changes for you →</a><button class="oet-announce__close" type="button" aria-label="Dismiss announcement"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></aside>
+<!--================= Header section start =================-->
+    <header>
+        <div id="vl-header-sticky" class="vl-header-area vl-transparent-header">
+            <!-- header top ribbon -->
+            <div class="vl-header-top-area d-none d-xl-block">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="vl-header-top-text">
+                                <span class="vl-header-top-badge"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Free OET Prep for Doctors &amp; Nurses</span>
+                                <a class="oet-community-cta" href="#oet-community-popup" aria-label="Join Free Community!" aria-haspopup="dialog" aria-controls="oet-community-popup">
+                                    <span class="oet-community-cta__sizer" aria-hidden="true"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Join Free Community!</span>
+                                    <span class="oet-community-cta__content" aria-hidden="true">
+                                        <span class="oet-community-cta__text"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Join Free Community!</span>
+                                        <span class="oet-community-cta__cursor">|</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- header top icon list -->
+                            <div class="header-top">
+                                <ul>
+                                    <li><a href="mailto:support@oetwithdrhesham.co.uk"><span class="header-top-icon"><i class="fa-regular fa-envelope" aria-hidden="true"></i></span><span>support@oetwithdrhesham.co.uk</span></a></li>
+                                    <li><a href="tel:+447961725989"><span class="header-top-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span><span>+44 7961 725989</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vl-header-main-area">
+                <div class="container">
+                    <div class="header-border-bottom">
+                        <div class="row align-items-center">
+                            <div class="col-xl-2 col-md-6 col-6">
+                                <div class="vl-logo">
+                                    <a href="/" title="OET with Dr Hesham | The Pathway to UK" aria-label="OET with Dr Hesham Homepage"><img width="320" height="90" decoding="async" src="/assets/img/logo/platform-logo.webp" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-7 d-none d-xl-block">
+                                <div class="vl-main-menu text-center">
+                                    <nav class="vl-mobile-menu-active" aria-label="Main navigation">
+                                        <ul>
+                                            <li class="has-dropdown"><a href="/about.html">About <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="/about.html"><span class="submenu-icon"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></span><span class="submenu-text">About Dr. Hesham</span></a></li>
+                                                    <li><a href="https://www.youtube.com/watch?v=kL91eG32Uok" data-youtube-url="https://www.youtube.com/watch?v=kL91eG32Uok" data-oet-inline-video="true" class="popup-video" aria-label="Play Why OET video" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span><span class="submenu-text">Why OET</span></a></li>
+                                                    <li><a href="/teaching-approach.html"><span class="submenu-icon"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i></span><span class="submenu-text">Teaching Approach</span></a></li>
+                                                    <li><a href="/oet-writing-correction.html"><span class="submenu-icon"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i></span><span class="submenu-text">Writing Corrections</span></a></li>
+                                                    <li><a href="/pricing.html"><span class="submenu-icon"><i class="fa-solid fa-tags" aria-hidden="true"></i></span><span class="submenu-text">Packages &amp; Offers</span></a></li>
+                                                    <li><a href="/success-stories.html"><span class="submenu-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span><span class="submenu-text">Success Stories</span></a></li>
+                                                    <li><a href="/faq.html"><span class="submenu-icon"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span><span class="submenu-text">FAQ</span></a></li>
+                                                    <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span><span class="submenu-text">Telegram Materials</span></a></li>
+                                                    <li class="has-dropdown oet-submenu-up"><a href="/blog/#pathways"><span class="submenu-icon"><i class="fa-solid fa-route" aria-hidden="true"></i></span><span class="submenu-text">Pathway Guidelines</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                        <ul class="sub-menu">
+                                                            <li><a href="/uk-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-flag" aria-hidden="true"></i></span><span class="submenu-text">UK Pathway Guide</span></a></li>
+                                                            <li><a href="/usa-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span><span class="submenu-text">USA Pathway Guide</span></a></li>
+                                                            <li><a href="/australia-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-earth-oceania" aria-hidden="true"></i></span><span class="submenu-text">Australia Pathway Guide</span></a></li>
+                                                            <li><a href="/gulf-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-compass" aria-hidden="true"></i></span><span class="submenu-text">Gulf Pathway Guide</span></a></li>
+                                                            <li><a href="/ireland-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-flag" aria-hidden="true"></i></span><span class="submenu-text">Ireland Pathway Guide</span></a></li>
+                                                            <li><a href="/canada-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span><span class="submenu-text">Canada Pathway Guide</span></a></li>
+                                                            <li><a href="/new-zealand-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-earth-oceania" aria-hidden="true"></i></span><span class="submenu-text">New Zealand Pathway Guide</span></a></li>
+                                                            <li><a href="/singapore-pathway-guide.html"><span class="submenu-icon"><i class="fa-solid fa-compass" aria-hidden="true"></i></span><span class="submenu-text">Singapore Pathway Guide</span></a></li>
+                                                            <li><a href="/oet-recognition-by-country.html"><span class="submenu-icon"><i class="fa-solid fa-passport" aria-hidden="true"></i></span><span class="submenu-text">Who Accepts OET</span></a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><a class="oet-pricing-nav-link" href="/pricing.html">Pricing</a></li><li><a class="oet-pricing-nav-link" href="/pricing.html#download-app">Download App</a></li>
+                                        <li class="has-dropdown"><a href="/service.html">OET Courses <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                            <ul class="sub-menu">
+                                               <li><a href="/oet-course-for-nurses.html"><span class="submenu-icon"><i class="fa-solid fa-notes-medical" aria-hidden="true"></i></span><span class="submenu-text">OET for Nurses</span></a></li>
+                                               <li><a href="/oet-course-for-doctors.html"><span class="submenu-icon"><i class="fa-solid fa-stethoscope" aria-hidden="true"></i></span><span class="submenu-text">OET for Doctors</span></a></li>
+                                               <li><a href="/oet-writing-correction.html"><span class="submenu-icon"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i></span><span class="submenu-text">Writing Correction</span></a></li>
+                                               <li><a href="/ar/" lang="ar"><span class="submenu-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span><span class="submenu-text">OET بالعربية</span></a></li>
+                                               <li><a href="/oet-course-for-pharmacists.html"><span class="submenu-icon"><i class="fa-solid fa-pills" aria-hidden="true"></i></span><span class="submenu-text">OET for Pharmacists</span></a></li>
+                                               <li><a href="/oet-course-for-physiotherapists.html"><span class="submenu-icon"><i class="fa-solid fa-person-walking" aria-hidden="true"></i></span><span class="submenu-text">OET for Physiotherapists</span></a></li>
+                                               <li><a href="/oet-for-allied-health.html"><span class="submenu-icon"><i class="fa-solid fa-briefcase-medical" aria-hidden="true"></i></span><span class="submenu-text">OET for Allied Health</span></a></li>
+                                               <li><a href="/pricing.html"><span class="submenu-icon"><i class="fa-solid fa-box-open" aria-hidden="true"></i></span><span class="submenu-text">OET Packages</span></a></li>
+                                            </ul>
+                                        </li>
+                                        
+                                        <li class="has-dropdown"><a href="/oet-tips.html">Free Resources <span class="downarrow"><i class="fa-solid fa-angle-down" aria-hidden="true"></i></span></a>
+                                            <ul class="sub-menu"><li><a href="/ar/blog/" lang="ar"><span class="submenu-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span><span class="submenu-text" dir="rtl">مقالات OET بالعربي</span></a></li>
+                                               <li class="has-dropdown"><a href="/oet-tips.html"><span class="submenu-icon"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></span><span class="submenu-text">OET Tips</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                   <ul class="sub-menu">
+                                                       <li><a href="/oet-writing-tips.html"><span class="submenu-icon"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></span><span class="submenu-text">Writing Tips</span></a></li>
+                                                       <li><a href="/oet-reading-tips.html"><span class="submenu-icon"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i></span><span class="submenu-text">Reading Tips</span></a></li>
+                                                       <li><a href="/oet-listening-tips.html"><span class="submenu-icon"><i class="fa-solid fa-headphones" aria-hidden="true"></i></span><span class="submenu-text">Listening Tips</span></a></li>
+                                                       <li><a href="/oet-speaking-tips.html"><span class="submenu-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span><span class="submenu-text">Speaking Tips</span></a></li>
+                                                   </ul>
+                                               </li>
+                                               <li class="has-dropdown"><a href="/oet-score-requirements.html"><span class="submenu-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><span class="submenu-text">OET Exam Guide</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                   <ul class="sub-menu">
+                                                       <li><a href="/oet-sample-tests.html"><span class="submenu-icon"><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i></span><span class="submenu-text">Free Sample Tests</span></a></li>
+                                                       <li><a href="/oet-score-calculator.html"><span class="submenu-icon"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></span><span class="submenu-text">OET Score Calculator</span></a></li>
+                                                       <li><a href="/oet-score-requirements.html"><span class="submenu-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><span class="submenu-text">Score Requirements</span></a></li>
+                                                       <li><a href="/oet-test-dates-and-fees.html"><span class="submenu-icon"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></span><span class="submenu-text">Test Dates &amp; Fees</span></a></li>
+                                                       <li><a href="/oet-vs-ielts.html"><span class="submenu-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span><span class="submenu-text">OET vs IELTS</span></a></li>
+                                                       <li><a href="/oet-for-ecfmg.html"><span class="submenu-icon"><i class="fa-solid fa-flag" aria-hidden="true"></i></span><span class="submenu-text">OET for ECFMG</span></a></li>
+                                                       <li><a href="/oet-writing-sample-nursing.html"><span class="submenu-icon"><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i></span><span class="submenu-text">Writing Sample: Nursing</span></a></li>
+                                                       <li><a href="/oet-writing-sample-medicine.html"><span class="submenu-icon"><i class="fa-solid fa-file-waveform" aria-hidden="true"></i></span><span class="submenu-text">Writing Sample: Medicine</span></a></li>
+                                                       <li><a href="/oet-speaking-role-play-nursing.html"><span class="submenu-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span><span class="submenu-text">Speaking Role-Plays: Nursing</span></a></li>
+                                                       <li><a href="/oet-speaking-role-play-medicine.html"><span class="submenu-icon"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i></span><span class="submenu-text">Speaking Role-Plays: Medicine</span></a></li>
+                                                   </ul>
+                                               </li>
+                                               <li class="has-dropdown"><a href="/oet-test-centres.html"><span class="submenu-icon"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i></span><span class="submenu-text">Test Centres &amp; Rules</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                   <ul class="sub-menu">
+                                                       <li><a href="/oet-test-centres.html"><span class="submenu-icon"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i></span><span class="submenu-text">OET Test Centres</span></a></li>
+                                                       <li><a href="/oet-paper-test-centres-2027.html"><span class="submenu-icon"><i class="fa-solid fa-flag" aria-hidden="true"></i></span><span class="submenu-text">Paper Test Centres 2027</span></a></li>
+                                                       <li><a href="/oet-at-home.html"><span class="submenu-icon"><i class="fa-solid fa-desktop" aria-hidden="true"></i></span><span class="submenu-text">OET@Home Guide</span></a></li>
+                                                       <li><a href="/oet-clubbing-rules.html"><span class="submenu-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span><span class="submenu-text">OET Clubbing Rules</span></a></li>
+                                                       <li><a href="/oet-recognition-by-country.html"><span class="submenu-icon"><i class="fa-solid fa-passport" aria-hidden="true"></i></span><span class="submenu-text">Who Accepts OET</span></a></li>
+                                                   </ul>
+                                               </li>
+                                               <li class="has-dropdown"><a href="/oet-materials-support.html"><span class="submenu-icon"><i class="fa-solid fa-folder-open" aria-hidden="true"></i></span><span class="submenu-text">Materials &amp; Support</span> <span class="downarrow"><i class="fa-solid fa-angle-right" aria-hidden="true"></i></span></a>
+                                                   <ul class="sub-menu">
+                                                       <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span><span class="submenu-text">Telegram Materials</span></a></li>
+                                                       <li><a href="#oet-community-popup" class="oet-community-cta"><span class="submenu-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span><span class="submenu-text">Join Free Community</span></a></li>
+                                                       <li><a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer"><span class="submenu-icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><span class="submenu-text">WhatsApp Support</span></a></li>
+                                                   </ul>
+                                               </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="/blog/">OET Blog</a></li><li><a href="/oet-recalls.html">Recalls</a></li><li><a href="https://app.oetwithdrhesham.co.uk/webinars">Webinars</a></li>
+                                        <li><a href="/english-placement-test">Free Placement Test</a></li>
+                                        <li class="oet-nav-desktop-only"><a href="/contact.html">Contact</a></li>
+                                        <li class="oet-nav-cta-item"><a class="oet-header-cta-btn" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F" data-dashboard-href="https://app.oetwithdrhesham.co.uk/"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>Login / Register</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-6">
+                            <div class="vl-header-right">
+                                <!-- header btn -->
+                                <div class="vl-header-search d-none d-xl-block">
+                                    <button type="button" class="oet-search-btn" aria-label="Search this site" aria-controls="vl-header-search" aria-expanded="false"><img aria-hidden="true" loading="lazy" decoding="async" class="vl-search-toggle" src="/assets/img/icon/vl-search-1.1.svg" alt=""></button>
+                                </div>
+                                <!-- header social area -->
+                                <div class="social-area social-area-headerTop d-none d-xl-block">
+                                    <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                                    <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                                    <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
+                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+                                    <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                                    <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+                                </div>
+                            </div>
+
+                            <!-- action btn -->
+                            <div class="vl-header-action-item d-block d-xl-none">
+                                <a class="oet-header-login" href="https://app.oetwithdrhesham.co.uk/sign-in?next=%2F" data-dashboard-href="https://app.oetwithdrhesham.co.uk/">Login / Register</a>
+                                <button type="button" class="vl-offcanvas-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="vl-offcanvas-menu">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" aria-hidden="true" focusable="false">
+                                        <path d="M1.5 2.5h21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M1.5 9h21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M1.5 15.5h21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>    <!-- vl header search  -->
+    <div id="vl-header-search" class="vl-header-search-bar d-flex align-items-center">
+        <button class="vl-search-close" aria-label="Close search">&times;</button>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="vl-search-bar text-center">
+                        <h2 class="vl-search-bar-title mb-30">Search OET tips, writing, speaking, UK pathway</h2>
+                        <div class="contact-form-box contact-search-form-box">
+                            <form action="#">
+                                <input type="search" aria-label="Search this site" placeholder="Search OET preparation, writing, speaking...">
+                                <button type="submit"><i class="far fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- vl header search end -->
+
+    <!-- offcanvas menu start -->
+    <div id="vl-offcanvas-menu" class="vl-offcanvas">
+        <div class="vl-offcanvas-wrapper">
+            <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-50">
+                <div class="vl-offcanvas-logo">
+                    <a href="/" title="OET with Dr Hesham | The Pathway to UK"><img width="320" height="90" decoding="async" src="/assets/img/logo/platform-logo.webp" alt="OET with Dr Hesham | The Pathway to UK"></a>
+                </div>
+                <div class="vl-offcanvas-close">
+                    <button class="vl-offcanvas-toggle" type="button" aria-label="Close menu"><span aria-hidden="true">&times;</span></button>
+                </div>
+            </div>
+
+            <div class="vl-offcanvas-menu d-lg-block mb-40">
+                <nav aria-label="Mobile navigation"></nav>
+            </div>
+            <div class="vl-offcanvas-info mb-40">
+                <h3 class="vl-offcanvas-sm-title mb-20">Support &amp; Community</h3>
+                <a href="#oet-community-popup" class="oet-community-cta"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.1.svg" width="24" height="24" alt=""></span> Join Free Community</a>
+                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.3.svg" width="24" height="24" alt=""></span> WhatsApp Support</a>
+                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"> <span><img loading="lazy" decoding="async" src="/assets/img/icon/vl-icon-1.2.svg" width="24" height="24" alt=""></span> Telegram Channel</a>
+            </div>
+
+            <div class="vl-offcanvas-social mb-40">
+                <h3 class="vl-offcanvas-sm-title mb-20">Follow the Journey</h3>
+                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fab fa-youtube"></i></a>
+                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fab fa-telegram"></i></a>
+                                    <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+            </div>
+        </div>
+    </div>
+    <div class="vl-offcanvas-overlay"></div>
+
+    <!-- offcanvas menu end -->
+
+<!--================= Header section End =================-->
+<main id="main-content" tabindex="-1">
+
+        <section class="oet-resource-hero oet-skill-hero">
+            <div class="container">
+                <nav class="oet-breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/blog/">OET Blog</a></li><li><a href="/blog/#exam-format">Exam Format</a></li><li aria-current="page">OET@Home</li></ol></nav>
+                <div class="oet-tips-hero-grid">
+                    <div class="oet-tips-hero-copy">
+                        <span class="oet-resource-eyebrow"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Exam Format</span>
+                        <h1 class="oet-resource-title">OET@Home in 2027: who can book it, and which regulators accept it</h1>
+                        <p class="oet-resource-lead">OET@Home is the full OET test taken on your own computer with remote proctoring. Two separate rules decide whether it is any use to you. OET offers it only where no test venue is available, or as a case-by-case exception. And your regulator decides whether it accepts the result: several do not.</p>
+                        <p class="oet-resource-lead">This guide keeps three questions apart: can you book it, will your regulator accept it, and is &ldquo;online Speaking&rdquo; the same thing (it is not). Last verified: 27 November 2026.</p>
+                        <p class="oet-guide-meta">By <a href="/about.html">Dr Ahmed Hesham</a>, medical doctor and founder of OET with Dr Hesham &middot; Published <time datetime="2026-11-27">27 Nov 2026</time></p><p class="oet-guide-meta oet-lang-switch"><i class="fa-solid fa-language" aria-hidden="true"></i> Also in Arabic: <a href="/ar/oet-at-home.html" lang="ar" hreflang="ar">اقرأ هذا الدليل بالعربية</a></p>
+                        <div class="oet-resource-actions"><a class="oet-resource-btn" href="#who-accepts">Who accepts OET@Home <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><a class="oet-resource-btn oet-resource-btn--light" href="/oet-practice.html#computer-based">Practise on computer <i class="fa-solid fa-desktop" aria-hidden="true"></i></a></div>
+                    </div>
+                    <aside class="oet-tips-hero-panel" aria-label="The short answer">
+                        <span class="oet-tips-panel-kicker"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> The short answer</span>
+                        <h2>Three lines to remember</h2>
+                        <p>Read from oet.com and each regulator's own page on 27 November 2026.</p>
+                        <div class="oet-tips-roadmap"><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">01</span><div><strong>Booking</strong><span>Only where no venue is available, or by a case-by-case exception. OET publishes no country list.</span></div></div><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">02</span><div><strong>Acceptance</strong><span>Decided by each regulator. Many refuse OET@Home, so check before you pay.</span></div></div><div class="oet-tips-roadmap-item"><span class="oet-tips-roadmap-icon">03</span><div><strong>Online Speaking</strong><span>Speaking by video on a venue-based test is not OET@Home.</span></div></div></div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+        <nav class="oet-toc" aria-label="In this guide"><div class="container"><span class="oet-toc-label">In this guide</span><div class="oet-toc-links"><a href="#what-it-is">What it is</a><a href="#can-i-book">Can I book it?</a><a href="#professions">Professions</a><a href="#who-accepts">Who accepts it</a><a href="#online-speaking">Online Speaking</a><a href="#requirements">Equipment, room and ID</a><a href="#results">Results</a><a href="#not-confirmed">Not confirmed</a><a href="#prepare">How to prepare</a><a href="#faq">FAQ</a><a href="#sources">Sources</a></div></div></nav>
+
+        <section class="oet-resource-section"><div class="container"><div class="oet-resource-heading"><h2 id="what-it-is">What OET@Home is</h2><p>OET is delivered in three modes: the OET Test on Paper, the OET Test on Computer at a venue, and OET@Home (<a href="https://oet.com/test-regulations" target="_blank" rel="noopener noreferrer">OET Test Regulations</a>). The content, timing and marking are the same. What differs is where you sit and how you are supervised.</p></div>
+            <div class="oet-resource-grid oet-resource-grid--two">
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-desktop" aria-hidden="true"></i></span><h3>How it runs</h3><ul>
+                    <li>All four sub-tests are taken at home on your own computer, with full remote proctoring (<a href="https://oet.com/test/oet-test-at-home" target="_blank" rel="noopener noreferrer">OET@Home page</a>).</li>
+                    <li>Prometric delivers the test. You install its ProProctor application for Listening, Reading and Writing.</li>
+                    <li>Speaking is a live role-play with a human interlocutor on the OET Speaking platform, on a different day in the same test administration.</li>
+                </ul></article>
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></span><h3>Fee and booking</h3><ul>
+                    <li>The fee OET shows is AU$587, the same as the other two modes. In the United States it is US$455. OET publishes no local-currency price and says nothing about tax.</li>
+                    <li>Booking closes 7 days before test day.</li>
+                    <li>Changing or cancelling a booking costs AU$120 or AU$200 depending on timing: see <a href="/oet-cancellation-refund-policy.html">the cancellation and refund rules</a>.</li>
+                </ul></article>
+            </div>
+            <div class="oet-snippet"><strong>We are an independent coaching service</strong><p>OET with Dr Hesham is not OET, a regulator or a test centre, and we do not book tests. Every rule on this page is linked to its official source. Rules change, so read the source again before you pay for a test.</p></div>
+        </div></section>
+
+        <section class="oet-resource-section oet-resource-section--soft"><div class="container"><div class="oet-resource-heading"><h2 id="can-i-book">Question 1: can I book OET@Home from my country?</h2><p>Usually only if your country has no OET test venue. This is OET's rule, and it has nothing to do with your regulator.</p></div>
+            <div class="oet-resource-grid oet-resource-grid--two">
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span><h3>The no-venue rule</h3><p>OET's page says OET@Home is &ldquo;offered in countries where taking the test at a venue is not yet available&rdquo;. The Test Regulations (section 6.2) list the same condition first: sitting the test where there is no venue available.</p></article>
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span><h3>The case-by-case exception</h3><p>The second condition in the regulations is an exception approved case by case by a senior OET staff member. The example OET gives is a disability or medical condition. You apply through OET Support, and approval is not automatic.</p></article>
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-passport" aria-hidden="true"></i></span><h3>Book where you physically sit</h3><p>You must book in the same country in which you will physically sit the test, and OET asks for proof of residency to show that you are physically in that country. Moving a booking to another country means cancelling and booking again.</p></article>
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span><h3>There is no official country list</h3><p>OET publishes no list of countries where OET@Home can or cannot be booked. The regulations add that not all test dates and testing modes are available in all countries, and that OET does not test candidates residing in sanctioned countries.</p></article>
+            </div>
+            <div class="oet-snippet"><strong>How to check for your country</strong><p>Search your city in the <a href="https://oet.com/test/book-a-test" target="_blank" rel="noopener noreferrer">official OET booking tool</a> and look at the test modes it offers you. Our <a href="/oet-test-centres.html">OET test centres directory</a> shows which countries have venues. If your country has a venue, for example Egypt, Saudi Arabia, the UAE, Qatar, Kuwait or Oman, plan for a test at a venue: under OET's rule you cannot normally book OET@Home there.</p></div>
+        </div></section>
+
+        <section class="oet-resource-section"><div class="container"><div class="oet-resource-heading"><h2 id="professions">Which professions can take OET@Home?</h2><p>The two official sources disagree, and neither page is dated.</p></div>
+            <div class="oet-resource-grid oet-resource-grid--two">
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-stethoscope" aria-hidden="true"></i></span><h3>oet.com: all 12</h3><p>OET's own <a href="https://oet.com/test/oet-test-at-home" target="_blank" rel="noopener noreferrer">OET@Home page</a> lists all 12 professions: Medicine, Nursing, Dentistry, Dietetics, Pharmacy, Physiotherapy, Podiatry, Radiology, Occupational Therapy, Veterinary Science, Optometry and Speech Pathology.</p></article>
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-user-nurse" aria-hidden="true"></i></span><h3>Cambridge English: four</h3><p>The <a href="https://www.cambridgeenglish.org/exams-and-tests/oet/test-overview/" target="_blank" rel="noopener noreferrer">Cambridge English overview</a> of OET lists four professions for OET@Home: Medicine, Nursing, Pharmacy and Physiotherapy.</p></article>
+            </div>
+            <div class="oet-snippet"><strong>What to do about the conflict</strong><p>Which page is current is not confirmed. Check your own profession in the booking tool before you rely on OET@Home, and do not plan around it until the tool actually offers you a date.</p></div>
+        </div></section>
+
+        <section class="oet-resource-section oet-resource-section--soft"><div class="container"><div class="oet-resource-heading"><h2 id="who-accepts">Question 2: will my regulator accept OET@Home?</h2><p>That is your regulator's decision, not OET's. OET itself warns that OET@Home may not be accepted by all recognising organisations, and it publishes no list of who accepts which mode. The table uses four statuses:</p></div>
+            <article class="oet-resource-card"><h3>The four statuses</h3><ul>
+                <li><strong>Accepted:</strong> the regulator's own page says it accepts OET@Home.</li>
+                <li><strong>Conditional:</strong> accepted only in the situation the regulator describes.</li>
+                <li><strong>Not accepted:</strong> the regulator's own page says it does not accept OET@Home or at-home tests.</li>
+                <li><strong>Not confirmed:</strong> the regulator's page does not state a position on OET@Home, or we could not read it. Treat this as &ldquo;ask the regulator in writing&rdquo;, never as a yes.</li>
+            </ul></article>
+<div class="oet-data-wrap" tabindex="0" role="region" aria-label="OET@Home"><table class="oet-data-table oet-home-table"><thead><tr><th scope="col">Destination</th><th scope="col">Regulator</th><th scope="col">Professions</th><th scope="col">OET@Home</th><th scope="col">What the regulator says</th><th scope="col">Official source</th></tr></thead><tbody>
+<tr data-home="accepted"><td>United Kingdom</td><td><strong lang="en" dir="ltr">GMC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">General Medical Council</span></td><td>Medicine</td><td><span class="oet-status oet-status--accepted">Accepted</span></td><td>The GMC page lists three accepted versions: OET on paper, OET on computer and OET@Home.</td><td><a href="https://www.gmc-uk.org/registration-and-licensing/join-our-registers/before-you-apply/evidence-of-your-knowledge-of-english/using-your-oet-certificate" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">GMC: Using your OET certificate</a></td></tr>
+<tr data-home="accepted"><td>United Kingdom</td><td><strong lang="en" dir="ltr">NMC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Nursing and Midwifery Council</span></td><td>Nursing</td><td><span class="oet-status oet-status--accepted">Accepted</span></td><td>The NMC accepts OET on Paper, OET on Computer and OET@Home, and OET@Home may be combined with a paper or computer sitting.</td><td><a href="https://www.nmc.org.uk/registration/joining-the-register/english-language-requirements/accepted-english-language-tests/oet/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">NMC: Accepted English language tests, OET (last updated 08/03/2024)</a></td></tr>
+<tr data-home="not-accepted"><td>United Kingdom</td><td><strong lang="en" dir="ltr">GPhC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">General Pharmaceutical Council</span></td><td>Pharmacy</td><td><span class="oet-status oet-status--not-accepted">Not accepted</span></td><td>The GPhC guidance accepts Pharmacy OET on Paper or on Computer and says it does not accept the OET@Home test.</td><td><a href="https://assets.pharmacyregulation.org/files/2025-06/gphc-guidance-on-evidence-of-english-language-skills-june-2025_0.pdf" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">GPhC: Guidance on evidence of English language skills (June 2025)</a></td></tr>
+<tr data-home="not-confirmed"><td>United Kingdom</td><td><strong lang="en" dir="ltr">HCPC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Health and Care Professions Council</span></td><td>Podiatry, Dietetics, Occupational Therapy, Physiotherapy, Radiography</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>HCPC names OET Test on Computer and OET Test on Paper. OET@Home is not named for OET (the 'not at home' sentence sits under IELTS and TOEFL): not confirmed.</td><td><a href="https://www.hcpc-uk.org/registration/getting-on-the-register/international-applications/english-language-proficiency/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">HCPC: English language proficiency (page updated 05/11/2026)</a></td></tr>
+<tr data-home="not-confirmed"><td>United Kingdom</td><td><strong lang="en" dir="ltr">HCPC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Health and Care Professions Council (speech and language therapy)</span></td><td>Speech Pathology</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>HCPC names OET Test on Computer and OET Test on Paper. OET@Home is not named for OET (the 'not at home' sentence sits under IELTS and TOEFL): not confirmed.</td><td><a href="https://www.hcpc-uk.org/registration/getting-on-the-register/international-applications/english-language-proficiency/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">HCPC: English language proficiency (page updated 05/11/2026)</a></td></tr>
+<tr data-home="not-accepted"><td>Ireland</td><td><strong lang="en" dir="ltr">NMBI</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Nursing and Midwifery Board of Ireland</span></td><td>Nursing</td><td><span class="oet-status oet-status--not-accepted">Not accepted</span></td><td>NMBI says it does not accept OET at home.</td><td><a href="https://www.nmbi.ie/Registration/Qualified-outside-the-EU/Application-Process/English-Language-Requirements" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">NMBI: English Language Requirements</a></td></tr>
+<tr data-home="not-accepted"><td>Ireland</td><td><strong lang="en" dir="ltr">Medical Council</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Medical Council (Ireland)</span></td><td>Medicine</td><td><span class="oet-status oet-status--not-accepted">Not accepted</span></td><td>The Medical Council says it does not accept OET@Home online tests.</td><td><a href="https://www.medicalcouncil.ie/registration-applications/first-time-applicants/english-language.html" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Medical Council: English language</a></td></tr>
+<tr data-home="not-accepted"><td>Ireland</td><td><strong lang="en" dir="ltr">PSI</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Pharmaceutical Society of Ireland</span></td><td>Pharmacy</td><td><span class="oet-status oet-status--not-accepted">Not accepted</span></td><td>PSI says home-based tests are not accepted. The page notes that OET on Computer candidates take Speaking at home through a new platform since June 2026 but does not say whether that is acceptable: confirm with PSI.</td><td><a href="https://www.psi.ie/registration/pharmacists/first-time-registration/language-requirements" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">PSI: Language requirements</a></td></tr>
+<tr data-home="not-accepted"><td>Ireland</td><td><strong lang="en" dir="ltr">Dental Council</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Dental Council of Ireland</span></td><td>Dentistry</td><td><span class="oet-status oet-status--not-accepted">Not accepted</span></td><td>The Dental Council says it does not currently accept OET@Home.</td><td><a href="https://www.dentalcouncil.ie/registration/language-proficiency" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Dental Council: Language proficiency</a></td></tr>
+<tr data-home="not-confirmed"><td>Ireland</td><td><strong lang="en" dir="ltr">CORU</strong><br><span class="oet-data-sub" lang="en" dir="ltr">CORU (Physiotherapists, Occupational Therapists, Dietitians, Optical and Podiatrists Registration Boards)</span></td><td>Physiotherapy, Occupational Therapy, Dietetics, Optometry, Podiatry</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>CORU's page says online or at-home versions are accepted only for OET, but it does not name OET@Home. Recorded as not confirmed: get CORU's written confirmation before relying on OET@Home.</td><td><a href="https://www.coru.ie/health-and-social-care-professionals/registration/registration-requirements/language/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">CORU: Language requirements</a></td></tr>
+<tr data-home="not-confirmed"><td>Ireland</td><td><strong lang="en" dir="ltr">CORU</strong><br><span class="oet-data-sub" lang="en" dir="ltr">CORU (Radiographers Registration Board)</span></td><td>Radiography</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>CORU's page says online or at-home versions are accepted only for OET, but it does not name OET@Home. Recorded as not confirmed: get CORU's written confirmation before relying on OET@Home.</td><td><a href="https://www.coru.ie/health-and-social-care-professionals/registration/registration-requirements/language/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">CORU: Language requirements</a></td></tr>
+<tr data-home="not-confirmed"><td>Ireland</td><td><strong lang="en" dir="ltr">CORU</strong><br><span class="oet-data-sub" lang="en" dir="ltr">CORU (Speech and Language Therapists Registration Board)</span></td><td>Speech Pathology</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>CORU's page says online or at-home versions are accepted only for OET, but it does not name OET@Home. Recorded as not confirmed: get CORU's written confirmation before relying on OET@Home.</td><td><a href="https://www.coru.ie/health-and-social-care-professionals/registration/registration-requirements/language/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">CORU: Language requirements</a></td></tr>
+<tr data-home="not-confirmed"><td>Ireland</td><td><strong lang="en" dir="ltr">VCI</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Veterinary Council of Ireland</span></td><td>Veterinary Science</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>Not confirmed: the page could not be read.</td><td><a href="https://www.vci.ie/english-language-requirements-for-registration" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">VCI: English language requirements for registration (page not readable on 27 November 2026)</a></td></tr>
+<tr data-home="not-accepted"><td>Australia</td><td><strong lang="en" dir="ltr">Ahpra</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Australian Health Practitioner Regulation Agency and the National Boards</span></td><td>All regulated professions</td><td><span class="oet-status oet-status--not-accepted">Not accepted</span></td><td>Accepted on paper or computer-based in a testing centre; at-home versions are not approved. The computer test at a centre has one remote-proctored element that the Boards accept.</td><td><a href="https://www.ahpra.gov.au/Registration/Registration-Standards/English-language-skills/Accepted-English-language-tests.aspx" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Ahpra: Accepted English language tests (page reviewed 23/04/2026)</a></td></tr>
+<tr data-home="not-accepted"><td>Australia</td><td><strong lang="en" dir="ltr">Home Affairs</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Department of Home Affairs (Australia)</span></td><td>All regulated professions</td><td><span class="oet-status oet-status--not-accepted">Not accepted</span></td><td>OET must be taken at a secure test centre; tests delivered completely online are not accepted and OET@Home is named as an example.</td><td><a href="https://immi.homeaffairs.gov.au/help-support/meeting-our-requirements/english-language/competent-english" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Department of Home Affairs: Competent English</a></td></tr>
+<tr data-home="not-accepted"><td>Australia</td><td><strong lang="en" dir="ltr">ANMAC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Australian Nursing and Midwifery Accreditation Council</span></td><td>Nursing</td><td><span class="oet-status oet-status--not-accepted">Not accepted</span></td><td>Results must come from paper-based or computer-based tests taken in an authorised testing centre.</td><td><a href="https://www.anmac.org.au/skilled-migrants/apply/full-skills-assessment" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">ANMAC: Full skills assessment</a></td></tr>
+<tr data-home="not-accepted"><td>New Zealand</td><td><strong lang="en" dir="ltr">NCNZ</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Nursing Council of New Zealand</span></td><td>Nursing</td><td><span class="oet-status oet-status--not-accepted">Not accepted</span></td><td>Tests must be taken at a test centre, on paper or on computer. Fully online testing such as OET@Home is not accepted; the online Speaking part of the venue-based computer test is accepted.</td><td><a href="https://nursingcouncil.org.nz/IQN/IQN/H5.aspx" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Nursing Council of New Zealand: IQN requirements (English language)</a></td></tr>
+<tr data-home="not-accepted"><td>New Zealand</td><td><strong lang="en" dir="ltr">ODOB</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Optometrists and Dispensing Opticians Board</span></td><td>Optometry</td><td><span class="oet-status oet-status--not-accepted">Not accepted</span></td><td>Tests must be taken in person (handwritten or computer); online and distance tests are not accepted.</td><td><a href="https://www.odob.health.nz/document/8136/O.%20English%20language%20requirements%20(v1).pdf" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">ODOB: English Language Policy for Registration (POL-00020, v1.3)</a></td></tr>
+<tr data-home="not-accepted"><td>New Zealand</td><td><strong lang="en" dir="ltr">INZ</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Immigration New Zealand</span></td><td>All regulated professions</td><td><span class="oet-status oet-status--not-accepted">Not accepted</span></td><td>The test must be sat in person at a test centre; at-home tests are not acceptable.</td><td><a href="https://www.immigration.govt.nz/process-to-apply/applying-for-a-visa/providing-evidence-and-documents-to-support-your-visa-application/english-language-requirements/english-language-requirements-for-skilled-residence-visas/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Immigration New Zealand: English language requirements for skilled residence visas</a></td></tr>
+<tr data-home="not-confirmed"><td>New Zealand</td><td><strong lang="en" dir="ltr">MCNZ</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Medical Council of New Zealand</span></td><td>Medicine</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator's page states no delivery mode for OET; ask the regulator before booking.</td><td><a href="https://www.mcnz.org.nz/assets/Policies/English-language-policy.pdf" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">MCNZ: Policy on English language requirements (September 2026)</a></td></tr>
+<tr data-home="not-confirmed"><td>New Zealand</td><td><strong lang="en" dir="ltr">PCNZ</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Pharmacy Council of New Zealand</span></td><td>Pharmacy</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator's page states no delivery mode for OET; ask the regulator before booking.</td><td><a href="https://pharmacycouncil.org.nz/pharmacy_registries/english-language-requirements/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Pharmacy Council of New Zealand: English language requirements</a></td></tr>
+<tr data-home="not-confirmed"><td>New Zealand</td><td><strong lang="en" dir="ltr">PBNZ</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Physiotherapy Board of New Zealand</span></td><td>Physiotherapy</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator's page states no delivery mode for OET; ask the regulator before booking.</td><td><a href="https://pbnz.helpscoutdocs.com/article/35-english-proficiency-evidence" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Physiotherapy Board of New Zealand help portal: English proficiency evidence (last updated 5 June 2025)</a></td></tr>
+<tr data-home="not-confirmed"><td>New Zealand</td><td><strong lang="en" dir="ltr">DCNZ</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Dental Council (New Zealand)</span></td><td>Dentistry</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator's page states no delivery mode for OET; ask the regulator before booking.</td><td><a href="https://dcnz.org.nz/i-want-to-practise-in-new-zealand/registration-what-you-need-to-know" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Dental Council: Registration, what you need to know</a></td></tr>
+<tr data-home="not-confirmed"><td>New Zealand</td><td><strong lang="en" dir="ltr">VCNZ</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Veterinary Council of New Zealand</span></td><td>Veterinary Science</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator's page states no delivery mode for OET; ask the regulator before booking.</td><td><a href="https://vetcouncil.org.nz/common/Uploaded%20files/Web/Publications/Policies%20and%20Statements/EnglishCompetence.pdf" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">VCNZ: Policy on English Competence and English Tests (last reviewed December 2017)</a></td></tr>
+<tr data-home="not-confirmed"><td>New Zealand</td><td><strong lang="en" dir="ltr">OTBNZ</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Occupational Therapy Board of New Zealand</span></td><td>Occupational Therapy</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator's page states no delivery mode for OET; ask the regulator before booking.</td><td><a href="https://otboard.org.nz/document/8497/704%20English%20language%20policy%20for%20registration.pdf" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">OTBNZ: English language policy for registration (Policy 704, version 2.0)</a></td></tr>
+<tr data-home="not-confirmed"><td>New Zealand</td><td><strong lang="en" dir="ltr">MRTB</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Medical Radiation Technologists Board</span></td><td>Radiography</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The Board's policy states no delivery mode for OET: not confirmed. Ask the Board before booking OET@Home.</td><td><a href="https://www.mrtboard.org.nz/assets_mrtb/Uploads/2024-Aug-English-Language-Policy.pdf" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">MRTB: Policy, English language proficiency (August 2024)</a></td></tr>
+<tr data-home="not-confirmed"><td>New Zealand</td><td><strong lang="en" dir="ltr">Dietitians Board</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Dietitians Board (New Zealand)</span></td><td>Dietetics</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator's page states no delivery mode for OET; ask the regulator before booking.</td><td><a href="https://dietitiansboard.org.nz/Public/Public/Registration/English-Language-Requirements.aspx" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Dietitians Board: English Language Requirements</a></td></tr>
+<tr data-home="not-confirmed"><td>New Zealand</td><td><strong lang="en" dir="ltr">PBNZ (Podiatry)</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Podiatrists Board of New Zealand</span></td><td>Podiatry</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator's page states no delivery mode for OET; ask the regulator before booking.</td><td><a href="https://podiatristsboard.org.nz/wp-content/uploads/2024/10/Application-for-PBNZ-Registration.updated-Aug2024.pdf" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Podiatrists Board: Application for PBNZ Registration (updated August 2024)</a></td></tr>
+<tr data-home="conditional"><td>United States</td><td><strong lang="en" dir="ltr">ECFMG</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Educational Commission for Foreign Medical Graduates</span></td><td>Medicine</td><td><span class="oet-status oet-status--conditional">Conditional</span></td><td>OET@Home is available only to applicants who have no physical test venue in their country; others should take the paper or computer test at a venue.</td><td><a href="https://www.ecfmg.org/certification-pathways/oet.html" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">ECFMG: Requirements for 2027 Pathways, OET Medicine</a></td></tr>
+<tr data-home="not-accepted"><td>United States</td><td><strong lang="en" dir="ltr">TruMerit</strong><br><span class="oet-data-sub" lang="en" dir="ltr">TruMerit (formerly CGFNS International)</span></td><td>Nursing</td><td><span class="oet-status oet-status--not-accepted">Not accepted</span></td><td>TruMerit says it does not accept the at-home versions of English language proficiency exams.</td><td><a href="https://www.trumerit.org/services/certification/cgfns-certification-program/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">TruMerit: CGFNS Certification Program</a></td></tr>
+<tr data-home="not-accepted"><td>United States</td><td><strong lang="en" dir="ltr">NABP FPGEC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">National Association of Boards of Pharmacy, Foreign Pharmacy Graduate Examination Committee</span></td><td>Pharmacy</td><td><span class="oet-status oet-status--not-accepted">Not accepted</span></td><td>NABP does not accept home-edition scores; OET must be taken at an approved computer-based OET test centre. No NABP sentence names the paper test: not confirmed.</td><td><a href="https://read.nxtbook.com/nabp/bulletin/fpgec_bulletin/step_3.html" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">NABP: FPGEC Candidate Application Bulletin, Step 3 (October 2026)</a></td></tr>
+<tr data-home="not-confirmed"><td>United States</td><td><strong lang="en" dir="ltr">FCCPT</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Foreign Credentialing Commission on Physical Therapy</span></td><td>Physiotherapy</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The page says nothing about OET delivery mode (and is inconsistent about the TOEFL home edition): not confirmed.</td><td><a href="https://www.fccpt.org/services/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">FCCPT: Services</a></td></tr>
+<tr data-home="not-confirmed"><td>United States</td><td><strong lang="en" dir="ltr">State boards of nursing</strong><br><span class="oet-data-sub" lang="en" dir="ltr">US state boards of nursing</span></td><td>Nursing</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>Not confirmed for any state board.</td><td><a href="https://oet.com/test/who-recognises-oet/recognising-organisations/united-states" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">OET: Recognising organisations, United States (OET's own list, not a board's page)</a></td></tr>
+<tr data-home="accepted"><td>Canada</td><td><strong lang="en" dir="ltr">OCP</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Ontario College of Pharmacists</span></td><td>Pharmacy</td><td><span class="oet-status oet-status--accepted">Accepted</span></td><td>OCP lists OET Test on Paper, OET Test on Computer and OET@Home as accepted formats.</td><td><a href="https://ocpinfo.com/applicants/registration-requirements/language-proficiency/acceptable-language-proficiency-tests-and-cut-scores-for-applicants-effective-january-1-2026/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">OCP: Acceptable language proficiency tests and cut scores (effective 1 January 2026)</a></td></tr>
+<tr data-home="conditional"><td>Canada</td><td><strong lang="en" dir="ltr">NAPRA</strong><br><span class="oet-data-sub" lang="en" dir="ltr">National Association of Pharmacy Regulatory Authorities (model language policy)</span></td><td>Pharmacy</td><td><span class="oet-status oet-status--conditional">Conditional</span></td><td>The policy accepts remotely proctored tests if they keep the same security, validity and reliability as on-site tests. It does not name OET@Home, and each provincial regulator decides.</td><td><a href="https://www.napra.ca/wp-content/uploads/2024/02/NAPRA-Language-Proficiency-Requirement-Policy-February-2024-EN.pdf" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">NAPRA: Language Proficiency Requirement Policy (February 2024)</a></td></tr>
+<tr data-home="not-accepted"><td>Canada</td><td><strong lang="en" dir="ltr">BCCNM</strong><br><span class="oet-data-sub" lang="en" dir="ltr">British Columbia College of Nurses and Midwives</span></td><td>Nursing</td><td><span class="oet-status oet-status--not-accepted">Not accepted</span></td><td>The OET row gives the accepted testing method as 'In-person only'. If your computer test has Speaking online, ask BCCNM whether it counts.</td><td><a href="https://www.bccnm.ca/RN/applications_registration/Pages/English_proficiency.aspx" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">BCCNM: English proficiency (updated 24 November 2026)</a></td></tr>
+<tr data-home="not-accepted"><td>Canada</td><td><strong lang="en" dir="ltr">CRNA</strong><br><span class="oet-data-sub" lang="en" dir="ltr">College of Registered Nurses of Alberta</span></td><td>Nursing</td><td><span class="oet-status oet-status--not-accepted">Not accepted</span></td><td>OET is not accepted in any mode.</td><td><a href="https://www.nurses.ab.ca/nursing-in-alberta/registration-requirements/english-language-proficiency/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">CRNA: English language proficiency</a></td></tr>
+<tr data-home="not-confirmed"><td>Canada</td><td><strong lang="en" dir="ltr">CPSBC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">College of Physicians and Surgeons of British Columbia</span></td><td>Medicine</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator's page states no delivery mode for OET; ask the regulator before booking.</td><td><a href="https://www.cpsbc.ca/files/pdf/LIC-P-English-Language-Proficiency-Requirements.pdf" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">CPSBC: English Language Proficiency Requirements (version 2.2)</a></td></tr>
+<tr data-home="not-confirmed"><td>Canada</td><td><strong lang="en" dir="ltr">CPSA</strong><br><span class="oet-data-sub" lang="en" dir="ltr">College of Physicians and Surgeons of Alberta</span></td><td>Medicine</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator's page states no delivery mode for OET; ask the regulator before booking.</td><td><a href="https://cpsa.ca/physicians/registration/apply-to-practise/english-language-proficiency/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">CPSA: English language proficiency</a></td></tr>
+<tr data-home="not-confirmed"><td>Canada</td><td><strong lang="en" dir="ltr">CPSO</strong><br><span class="oet-data-sub" lang="en" dir="ltr">College of Physicians and Surgeons of Ontario</span></td><td>Medicine</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>Not confirmed: the page could not be read.</td><td><a href="https://www.cpso.on.ca/Physicians/Registration/Apply-for-Registration/Language-Proficiency" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">CPSO: Language proficiency (page not readable on 27 November 2026)</a></td></tr>
+<tr data-home="not-confirmed"><td>Canada</td><td><strong lang="en" dir="ltr">CNO</strong><br><span class="oet-data-sub" lang="en" dir="ltr">College of Nurses of Ontario</span></td><td>Nursing</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator's page states no delivery mode for OET; ask the regulator before booking.</td><td><a href="https://cno.org/become-a-nurse/registration-requirements/proficiency-in-english-or-french/types-of-evidence" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">CNO: Proficiency in English or French, types of evidence</a></td></tr>
+<tr data-home="not-confirmed"><td>Singapore</td><td><strong lang="en" dir="ltr">SMC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Singapore Medical Council</span></td><td>Medicine</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator's page states no delivery mode for OET; ask the regulator before booking.</td><td><a href="https://www.smc.gov.sg/for-professionals/apply-for-registration/documents-for-submission-and-processing-time/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">SMC: Documents for submission and processing time (last updated 2 September 2026)</a></td></tr>
+<tr data-home="not-confirmed"><td>Singapore</td><td><strong lang="en" dir="ltr">SNB</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Singapore Nursing Board</span></td><td>Nursing</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>Not confirmed: no English test is listed.</td><td><a href="https://www.snb.gov.sg/for-professionals/becoming-a-nurse-or-midwife/apply-for-registration-enrolment/foreign-trained-nurses-midwives/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">SNB: Foreign-trained nurses and midwives (last updated 9 June 2026)</a></td></tr>
+<tr data-home="not-confirmed"><td>Singapore</td><td><strong lang="en" dir="ltr">SPC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Singapore Pharmacy Council</span></td><td>Pharmacy</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator's page states no delivery mode for OET; ask the regulator before booking.</td><td><a href="https://www.spc.gov.sg/becoming-a-pharmacist/for-foreign-trained-pharmacy-graduates-pharmacists/evidence-of-proficiency-in-english-language" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">SPC: Evidence of proficiency in English language (last updated 15 July 2026)</a></td></tr>
+<tr data-home="not-confirmed"><td>Singapore</td><td><strong lang="en" dir="ltr">SDC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Singapore Dental Council</span></td><td>Dentistry</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator's page states no delivery mode for OET; ask the regulator before booking.</td><td><a href="https://www.sdc.gov.sg/for-professionals/registered-dentists/qualifying-examination/criteria-for-qe/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">SDC: Criteria for the Qualifying Examination (last updated 6 May 2026)</a></td></tr>
+<tr data-home="not-confirmed"><td>Singapore</td><td><strong lang="en" dir="ltr">AHPC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Allied Health Professions Council (physiotherapy)</span></td><td>Physiotherapy</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>AHPC's table adds that computer-based testing is also accepted for Physiotherapy. OET@Home is not mentioned: not confirmed.</td><td><a href="https://www.ahpc.gov.sg/for-professionals/apply-for-registration/requirements-for-registration-application/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">AHPC: Requirements for registration application (last updated 24 July 2026)</a></td></tr>
+<tr data-home="not-confirmed"><td>Singapore</td><td><strong lang="en" dir="ltr">AHPC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Allied Health Professions Council (occupational therapy, diagnostic radiography, radiation therapy)</span></td><td>Occupational Therapy, Radiography</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator's page states no delivery mode for OET; ask the regulator before booking.</td><td><a href="https://www.ahpc.gov.sg/for-professionals/apply-for-registration/requirements-for-registration-application/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">AHPC: Requirements for registration application (last updated 24 July 2026)</a></td></tr>
+<tr data-home="not-confirmed"><td>Singapore</td><td><strong lang="en" dir="ltr">AHPC</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Allied Health Professions Council (speech-language therapy)</span></td><td>Speech Pathology</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator's page states no delivery mode for OET; ask the regulator before booking.</td><td><a href="https://www.ahpc.gov.sg/for-professionals/apply-for-registration/requirements-for-registration-application/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">AHPC: Requirements for registration application (last updated 24 July 2026)</a></td></tr>
+<tr data-home="not-confirmed"><td>Gulf states</td><td><strong lang="en" dir="ltr">DHA</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Dubai Health Authority</span></td><td>All regulated professions</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator publishes no rule on any OET delivery mode. If an employer asks for OET, ask the employer which mode it accepts.</td><td><a href="https://dha.gov.ae/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Dubai Health Authority website (searched 27 November 2026)</a></td></tr>
+<tr data-home="not-confirmed"><td>Gulf states</td><td><strong lang="en" dir="ltr">DOH</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Department of Health Abu Dhabi</span></td><td>All regulated professions</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator publishes no rule on any OET delivery mode. If an employer asks for OET, ask the employer which mode it accepts.</td><td><a href="https://doh.gov.ae/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Department of Health Abu Dhabi website (searched 27 November 2026)</a></td></tr>
+<tr data-home="not-confirmed"><td>Gulf states</td><td><strong lang="en" dir="ltr">MOHAP</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Ministry of Health and Prevention (UAE)</span></td><td>All regulated professions</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator publishes no rule on any OET delivery mode. If an employer asks for OET, ask the employer which mode it accepts.</td><td><a href="https://mohap.gov.ae/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Ministry of Health and Prevention website (searched 27 November 2026)</a></td></tr>
+<tr data-home="not-confirmed"><td>Gulf states</td><td><strong lang="en" dir="ltr">SCFHS</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Saudi Commission for Health Specialties</span></td><td>All regulated professions</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator publishes no rule on any OET delivery mode. If an employer asks for OET, ask the employer which mode it accepts.</td><td><a href="https://scfhs.org.sa/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Saudi Commission for Health Specialties website (searched 27 November 2026)</a></td></tr>
+<tr data-home="not-confirmed"><td>Gulf states</td><td><strong lang="en" dir="ltr">DHP</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Department of Healthcare Professions, Ministry of Public Health (Qatar)</span></td><td>All regulated professions</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator publishes no rule on any OET delivery mode. If an employer asks for OET, ask the employer which mode it accepts.</td><td><a href="https://dhp.moph.gov.qa/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Department of Healthcare Professions website (searched 27 November 2026)</a></td></tr>
+<tr data-home="not-confirmed"><td>Gulf states</td><td><strong lang="en" dir="ltr">Kuwait MOH</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Ministry of Health (Kuwait)</span></td><td>All regulated professions</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator publishes no rule on any OET delivery mode. If an employer asks for OET, ask the employer which mode it accepts.</td><td><a href="https://moh.gov.kw/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Ministry of Health Kuwait website (searched 27 November 2026)</a></td></tr>
+<tr data-home="not-confirmed"><td>Gulf states</td><td><strong lang="en" dir="ltr">OMSB / MOH</strong><br><span class="oet-data-sub" lang="en" dir="ltr">Oman Medical Specialty Board and Ministry of Health (Oman)</span></td><td>All regulated professions</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator publishes no rule on any OET delivery mode. If an employer asks for OET, ask the employer which mode it accepts.</td><td><a href="https://omsb.gov.om/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">Oman Medical Specialty Board website (searched 27 November 2026)</a></td></tr>
+<tr data-home="not-confirmed"><td>Gulf states</td><td><strong lang="en" dir="ltr">NHRA</strong><br><span class="oet-data-sub" lang="en" dir="ltr">National Health Regulatory Authority (Bahrain)</span></td><td>All regulated professions</td><td><span class="oet-status oet-status--not-confirmed">Not confirmed</span></td><td>The regulator publishes no rule on any OET delivery mode. If an employer asks for OET, ask the employer which mode it accepts.</td><td><a href="https://nhra.bh/" target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">National Health Regulatory Authority website (searched 27 November 2026)</a></td></tr>
+</tbody></table></div>
+            <p>Regulator pages last checked: 27 November 2026.</p>
+            <div class="oet-resource-grid oet-resource-grid--two">
+                <article class="oet-resource-card"><h3>United Kingdom</h3><p>The <a href="https://www.gmc-uk.org/registration-and-licensing/join-our-registers/before-you-apply-guide-for-doctors/evidence-of-your-knowledge-of-english/using-your-oet-certificate" target="_blank" rel="noopener noreferrer">GMC</a> (doctors, OET Medicine) and the <a href="https://www.nmc.org.uk/registration/joining-the-register/english-language-requirements/accepted-english-language-tests/oet/" target="_blank" rel="noopener noreferrer">NMC</a> (nurses and midwives) accept OET@Home. The <a href="https://assets.pharmacyregulation.org/files/2025-06/gphc-guidance-on-evidence-of-english-language-skills-june-2025_0.pdf" target="_blank" rel="noopener noreferrer">GPhC</a> (pharmacists) does not. The <a href="https://www.hcpc-uk.org/registration/getting-on-the-register/international-applications/documents/certificate-of-english-language-proficiency/" target="_blank" rel="noopener noreferrer">HCPC</a> names only OET on Computer and OET on Paper, so OET@Home is not confirmed: treat it as not accepted unless the HCPC tells you otherwise in writing. The <a href="https://www.gdc-uk.org/registration/route-to-registration/english-language-controls" target="_blank" rel="noopener noreferrer">GDC</a> page does not name OET at all, so nothing is confirmed for dentists.</p></article>
+                <article class="oet-resource-card"><h3>Ireland</h3><p><a href="https://www.nmbi.ie/Registration/Qualified-outside-the-EU/Application-Process/English-Language-Requirements" target="_blank" rel="noopener noreferrer">NMBI</a> (nurses and midwives), the <a href="https://www.medicalcouncil.ie/registration-applications/first-time-applicants/english-language.html" target="_blank" rel="noopener noreferrer">Medical Council</a> (doctors) and the <a href="https://www.psi.ie/registration/pharmacists/first-time-registration/language-requirements" target="_blank" rel="noopener noreferrer">PSI</a> (pharmacists) do not accept it. <a href="https://www.coru.ie/health-and-social-care-professionals/registration/registration-requirements/language/" target="_blank" rel="noopener noreferrer">CORU</a> (health and social care professionals) says online or at-home versions are accepted for OET, although its page does not use the name OET@Home. Because the page never names OET@Home, the table lists CORU as not confirmed: ask CORU in writing before you rely on it.</p></article>
+                <article class="oet-resource-card"><h3>Australia</h3><p><a href="https://www.ahpra.gov.au/Registration/Registration-Standards/English-language-skills/Accepted-English-language-tests.aspx" target="_blank" rel="noopener noreferrer">Ahpra and the National Boards</a> do not accept OET@Home: they accept OET on paper, or on computer in a testing centre. The <a href="https://immi.homeaffairs.gov.au/help-support/meeting-our-requirements/english-language" target="_blank" rel="noopener noreferrer">Department of Home Affairs</a> does not accept it for visas either.</p></article>
+                <article class="oet-resource-card"><h3>New Zealand</h3><p>The <a href="https://nursingcouncil.org.nz/IQN/IQN/H5.aspx" target="_blank" rel="noopener noreferrer">Nursing Council of New Zealand</a> does not accept online tests such as OET@Home. For the <a href="https://www.mcnz.org.nz/assets/Policies/English-language-policy.pdf" target="_blank" rel="noopener noreferrer">Medical Council</a>, the <a href="https://pharmacycouncil.org.nz/pharmacy_registries/english-language-requirements/" target="_blank" rel="noopener noreferrer">Pharmacy Council</a> and the <a href="https://physioboard.org.nz/faq/english-proficiency-evidence" target="_blank" rel="noopener noreferrer">Physiotherapy Board</a> it is not confirmed: their pages say nothing about the delivery mode.</p></article>
+                <article class="oet-resource-card"><h3>United States</h3><p><a href="https://www.ecfmg.org/certification-pathways/oet.html" target="_blank" rel="noopener noreferrer">ECFMG</a> (doctors) is conditional: OET@Home only for applicants with no physical test venue in their country. <a href="https://www.trumerit.org/services/certification/cgfns-certification-program/" target="_blank" rel="noopener noreferrer">TruMerit</a>, formerly CGFNS (nurses), does not accept at-home versions of English tests. <a href="https://nabp.pharmacy/help/does-nabp-accept-the-toefl-ibt-special-home-edition-scores/" target="_blank" rel="noopener noreferrer">NABP</a> (pharmacists, FPGEC) does not accept home editions of OET or TOEFL iBT; it accepts OET Pharmacy only for tests taken on or after 11 January 2027, at an approved computer-based test centre in the United States, its territories or Canada. See <a href="/oet-for-pharmacists-usa.html">OET for pharmacists in the USA</a>. <a href="https://www.fccpt.org/services/" target="_blank" rel="noopener noreferrer">FCCPT</a> (physical therapists) and the state nursing boards: not confirmed.</p></article>
+                <article class="oet-resource-card"><h3>Canada</h3><p><a href="https://www.bccnm.ca/RN/applications_registration/Pages/English_proficiency.aspx" target="_blank" rel="noopener noreferrer">BCCNM</a> (nurses in British Columbia) accepts OET in person only. The national pharmacy policy of <a href="https://www.napra.ca/wp-content/uploads/2024/02/NAPRA-Language-Proficiency-Requirement-Policy-February-2024-EN.pdf" target="_blank" rel="noopener noreferrer">NAPRA</a> is conditional: remotely proctored tests can be accepted if they keep the same level of security, each provincial pharmacy regulator decides, and the policy does not name OET@Home. The College of Nurses of Ontario, CPSO, MCC, NNAS and PEBC: not confirmed.</p></article>
+                <article class="oet-resource-card"><h3>Singapore</h3><p>Not confirmed. The <a href="https://www.smc.gov.sg/for-professionals/apply-for-registration/documents-for-submission-and-processing-time/" target="_blank" rel="noopener noreferrer">Singapore Medical Council</a> and the <a href="https://www.spc.gov.sg/for-professionals/apply-for-registration/evidence-of-proficiency-in-english-language/" target="_blank" rel="noopener noreferrer">Singapore Pharmacy Council</a> state OET scores but no delivery mode, and we found no Singapore Nursing Board page listing accepted English tests.</p></article>
+                <article class="oet-resource-card"><h3>Gulf countries</h3><p>Not confirmed. The Gulf regulators we checked publish no rule on OET@Home. Where an employer asks for OET, ask that employer which mode it accepts. These countries also have OET venues, so OET@Home is normally not bookable there in the first place.</p></article>
+            </div>
+            <div class="oet-snippet"><strong>Before you pay</strong><p>Ask your regulator, in writing, whether it accepts OET@Home for your profession and route. OET gives the same instruction in its regulations: check with your recognising organisation that the test mode you have chosen is accepted. Score rules are in <a href="/oet-score-requirements.html">OET score requirements</a>, and the rules on combining sittings are in <a href="/oet-clubbing-rules.html">OET clubbing rules</a>.</p></div>
+        </div></section>
+
+        <section class="oet-resource-section"><div class="container"><div class="oet-resource-heading"><h2 id="online-speaking">Question 3: is online Speaking the same as OET@Home?</h2><p>No. A test is OET@Home only when all four sub-tests are taken at home under remote proctoring. A venue-based test can still include Speaking by video.</p></div>
+            <div class="oet-resource-grid oet-resource-grid--two">
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-desktop" aria-hidden="true"></i></span><h3>OET on Computer at a venue</h3><p>Listening, Reading and Writing are sat in an approved test centre. Speaking is, in OET's words, &ldquo;conducted at home via a secure platform or for select countries, conducted at venue&rdquo; (<a href="https://oet.com/test/oet-test-on-computer" target="_blank" rel="noopener noreferrer">OET on Computer</a>). OET lists the countries with <a href="https://oet.com/post/speaking-sub-test-available-for-select-countries" target="_blank" rel="noopener noreferrer">Speaking at a venue</a>. This is still OET on Computer, not OET@Home.</p></article>
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></span><h3>Regulators treat the two differently</h3><p>Ahpra does not accept OET@Home, yet it states that the computer test taken in a testing centre, with its one remotely proctored element, is acceptable. The Nursing Council of New Zealand refuses online tests but accepts OET on computer at an approved venue with the Speaking sub-test hosted online.</p></article>
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span><h3>Paper tests from January 2027</h3><p>From January 2027 paper candidates (Nursing and Medicine only) still attend a venue for Speaking, and depending on the venue they meet the interlocutor in person or over a live video connection. That is also not OET@Home. Details: <a href="/oet-paper-test-2027-changes.html">the January 2027 paper-test changes</a>.</p></article>
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></span><h3>One regulator to ask</h3><p>The PSI in Ireland says home-based tests are not accepted and notes that Speaking is delivered at home for OET on Computer candidates, without saying in so many words that this is acceptable. If you are a pharmacist applying to the PSI, confirm with the PSI before you book.</p></article>
+            </div>
+            <div class="oet-snippet"><strong>When you book OET on Computer</strong><p>OET's booking page asks you to make sure the Speaking mode you select is accepted by the organisation you are applying to. The two venue formats are compared in <a href="/oet-computer-vs-paper.html">OET on computer vs paper</a>.</p></div>
+        </div></section>
+
+        <section class="oet-resource-section oet-resource-section--soft"><div class="container"><div class="oet-resource-heading"><h2 id="requirements">Equipment, room and ID rules</h2><p>These are the rules OET states in its Test Regulations (section 6.2) and its OET@Home test day guide of 19 June 2026. Exact system figures are in the OET@Home User Guide, which we have not quoted here.</p></div>
+            <div class="oet-resource-grid oet-resource-grid--two">
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-headphones" aria-hidden="true"></i></span><h3>Equipment</h3><ul>
+                    <li>A computer with a video-enabled camera, speakers and a microphone for all sub-tests.</li>
+                    <li>Prometric's ProProctor application for Listening, Reading and Writing, and a secure browser for Speaking.</li>
+                    <li>A wired headset for Listening. Bluetooth headphones are not allowed.</li>
+                    <li>No headphones during the Speaking sub-test.</li>
+                    <li>One screen only: additional monitors are not allowed. VPNs, virtual machines and Bluetooth must be off.</li>
+                </ul></article>
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span><h3>Room</h3><ul>
+                    <li>A walled, indoor, well-lit space with no transparent glass walls or partitions.</li>
+                    <li>You must be alone in a quiet room, with no CCTV.</li>
+                    <li>All tests are monitored by video and audio recording.</li>
+                    <li>For Speaking, the interlocutor checks you in and carries out a 360-degree check of the room.</li>
+                </ul></article>
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-id-card" aria-hidden="true"></i></span><h3>ID</h3><ul>
+                    <li>You upload an image of your ID when you book, and you must show the same, original document on test day. Copies are not accepted.</li>
+                    <li>A valid passport, or a valid national ID issued by the government of the country where you sit the test, in English lettering.</li>
+                    <li>A driving licence is not an acceptable ID, with one exception OET states for candidates testing in the United States.</li>
+                </ul></article>
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-clock" aria-hidden="true"></i></span><h3>On the day</h3><ul>
+                    <li>Log on at least 15 minutes before your scheduled start time.</li>
+                    <li>There is one scheduled 10-minute break, after Reading Part A only.</li>
+                    <li>Speaking is on a different day in the same test administration.</li>
+                </ul></article>
+            </div>
+            <p>Sources: <a href="https://oet.com/test-regulations" target="_blank" rel="noopener noreferrer">OET Test Regulations</a>, <a href="https://oet.com/post/oethome-test-day-guide" target="_blank" rel="noopener noreferrer">OET@Home test day guide</a>, <a href="https://oet.com/post/oethome-test-day-guide-part-3" target="_blank" rel="noopener noreferrer">test day guide, part 3 (Speaking)</a>, <a href="https://oet.com/test/test-day-information" target="_blank" rel="noopener noreferrer">test day information</a>.</p>
+        </div></section>
+
+        <section class="oet-resource-section"><div class="container"><div class="oet-resource-heading"><h2 id="results">When do OET@Home results arrive?</h2><p>OET says OET@Home results can arrive as early as 48 hours after you have completed all sub-tests. That is the earliest case, not a promise.</p></div>
+            <div class="oet-snippet"><strong>Plan with a margin</strong><p>For the computer test at a venue OET adds that 95% of results are released within 6 calendar days. Whether that figure also applies to OET@Home is not confirmed, because the OET@Home page does not state it. ECFMG, for its own applicants, says OET Medicine results typically reach it 10 business days after the test. If you have a registration deadline, count back from the slowest of these.</p></div>
+        </div></section>
+
+        <section class="oet-resource-section oet-resource-section--soft"><div class="container"><div class="oet-resource-heading"><h2 id="not-confirmed">What is not confirmed</h2><p>We could not confirm these points from an official page on 27 November 2026. Do not rely on any of them until OET or your regulator confirms it to you.</p></div>
+            <div class="oet-resource-grid oet-resource-grid--two">
+                <article class="oet-resource-card"><h3>About booking</h3><ul>
+                    <li>A list of countries where OET@Home can be booked: OET publishes none.</li>
+                    <li>The names of the sanctioned countries where OET does not test.</li>
+                    <li>Whether OET@Home is open to all 12 professions or to four.</li>
+                    <li>The exact operating system, browser and internet speed figures in the OET@Home User Guide.</li>
+                    <li>Whether the January 2027 changes to the paper test affect OET@Home: OET's announcement does not mention it.</li>
+                </ul></article>
+                <article class="oet-resource-card"><h3>About acceptance</h3><ul>
+                    <li>Whether the Statement of Results shows the delivery mode. Several regulators verify results at source, so assume they can see how you sat the test.</li>
+                    <li>The HCPC and the GDC in the United Kingdom.</li>
+                    <li>The Medical Council, Pharmacy Council and Physiotherapy Board in New Zealand.</li>
+                    <li>FCCPT and the state nursing boards in the United States; the College of Nurses of Ontario, CPSO, MCC, NNAS and PEBC in Canada.</li>
+                    <li>Regulators in Singapore and the Gulf.</li>
+                </ul></article>
+            </div>
+        </div></section>
+
+        <section class="oet-resource-section"><div class="container"><div class="oet-resource-heading"><h2 id="prepare">How to prepare for a computer-delivered test</h2><p>OET@Home and OET on Computer use the same on-screen format, so the preparation is the same: type your letters, read on a screen and practise Speaking over video.</p></div>
+            <div class="oet-resource-grid oet-resource-grid--two">
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></span><h3>Train in the format</h3><ul>
+                    <li>Learn how the screen differs from paper: <a href="/oet-computer-vs-paper.html">OET on computer vs paper</a>.</li>
+                    <li>Start with <a href="/oet-practice.html#computer-based">computer-based practice</a>, then sit a timed <a href="/oet-mock-test.html">OET mock test</a>.</li>
+                    <li>Type every practice letter and time yourself honestly.</li>
+                </ul></article>
+                <article class="oet-resource-card"><span class="oet-resource-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><h3>Check the rules first</h3><ul>
+                    <li>The scores your regulator asks for: <a href="/oet-score-requirements.html">OET score requirements</a>.</li>
+                    <li>Whether you may combine two sittings: <a href="/oet-clubbing-rules.html">OET clubbing rules</a>.</li>
+                    <li>What changes for the paper test: <a href="/oet-paper-test-2027-changes.html">OET paper test 2027</a>.</li>
+                    <li>Where the venues are: <a href="/oet-test-centres.html">OET test centres</a>.</li>
+                </ul></article>
+            </div>
+            <div class="oet-resource-actions"><a class="oet-resource-btn" href="/oet-practice.html#free-practice">Start free practice <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><a class="oet-resource-btn oet-resource-btn--light" href="/english-placement-test">Free placement test <i class="fa-solid fa-language" aria-hidden="true"></i></a><a class="oet-resource-btn oet-resource-btn--light" href="/pricing.html">Courses and packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </div></section>
+
+        <section class="oet-resource-section oet-resource-section--soft" id="faq"><div class="container"><div class="oet-resource-heading"><h2 id="sec-faq">OET@Home FAQ</h2></div>
+            <div class="oet-faq-item"><h3>What is OET@Home?</h3><p>OET@Home is the full OET test taken at home on your own computer with remote proctoring. It is one of three delivery modes, next to the OET Test on Paper and the OET Test on Computer at a venue, and it has the same content, timing and marking.</p></div>
+            <div class="oet-faq-item"><h3>Can I take OET@Home from any country?</h3><p>No. OET offers OET@Home where taking the test at a venue is not yet available, or as an exception approved case by case. OET publishes no country list, so check the official booking tool for your city. If your country has a test venue, plan to sit at a venue.</p></div>
+            <div class="oet-faq-item"><h3>Which professions can take OET@Home?</h3><p>The official sources disagree. OET's own page lists all 12 professions, while the Cambridge English overview lists four: Medicine, Nursing, Pharmacy and Physiotherapy. Check your profession in the booking tool before you rely on OET@Home.</p></div>
+            <div class="oet-faq-item"><h3>Which regulators accept OET@Home?</h3><p>On their own pages, the GMC and the NMC accept it, and ECFMG accepts it only when your country has no physical test venue. CORU says at-home versions are accepted for OET without naming OET@Home, so we list it as not confirmed. The GPhC, NMBI, the Medical Council of Ireland, the PSI, Ahpra, the Australian Department of Home Affairs, the Nursing Council of New Zealand, TruMerit, NABP and BCCNM do not. For many others it is not confirmed, so ask your regulator in writing.</p></div>
+            <div class="oet-faq-item"><h3>Is online Speaking the same as OET@Home?</h3><p>No. On the OET Test on Computer you sit Listening, Reading and Writing at a venue, and Speaking may be taken at home or at a venue depending on the country. That is still a venue-based test. OET@Home means all four sub-tests are taken at home.</p></div>
+            <div class="oet-faq-item"><h3>How much does OET@Home cost?</h3><p>OET shows a fee of AU$587 for OET@Home, the same as the paper and computer tests. In the United States the fee is US$455. OET does not publish local-currency prices or say whether tax is added.</p></div>
+            <div class="oet-faq-item"><h3>How fast are OET@Home results?</h3><p>OET says results can arrive as early as 48 hours after you complete all sub-tests. That is the earliest case, not a guarantee, so leave a margin before any registration deadline.</p></div>
+            <div class="oet-faq-item"><h3>What equipment do I need for OET@Home?</h3><p>A computer with a camera, speakers and a microphone, Prometric's ProProctor application, a wired headset for Listening and a single screen. You must be alone in a quiet, walled, well-lit room and show the original ID you used to book.</p></div>
+        </div></section>
+
+        <section class="oet-resource-section" id="sources"><div class="container"><div class="oet-resource-heading"><h2>Sources</h2><p>All pages were read on 27 November 2026. Each regulator's page is linked in the section on acceptance above.</p></div>
+                <p>OET: <a href="https://oet.com/test/oet-test-at-home" target="_blank" rel="noopener noreferrer">OET@Home</a>, <a href="https://oet.com/test/oet-test-on-computer" target="_blank" rel="noopener noreferrer">OET Test on Computer</a>, <a href="https://oet.com/test-regulations" target="_blank" rel="noopener noreferrer">Test Regulations</a>, <a href="https://oet.com/test/book-a-test" target="_blank" rel="noopener noreferrer">booking tool</a>.</p>
+                <p>OET news: <a href="https://oet.com/post/oethome-test-day-guide" target="_blank" rel="noopener noreferrer">OET@Home test day guide</a> (19 June 2026), <a href="https://oet.com/post/new-speaking-platform" target="_blank" rel="noopener noreferrer">new Speaking platform</a>, <a href="https://oet.com/post/speaking-sub-test-available-for-select-countries" target="_blank" rel="noopener noreferrer">Speaking at a venue in select countries</a> (20 July 2026), <a href="https://oet.com/post/oet-test-on-paper-update-2027" target="_blank" rel="noopener noreferrer">paper test update for 2027</a> (16 November 2026).</p>
+                <p>OET Support: <a href="https://support.oet.com/articles/Knowledge/How-much-does-OET-cost" target="_blank" rel="noopener noreferrer">how much OET costs</a>, <a href="https://support.oet.com/articles/Knowledge/What-ID-can-I-use-to-book-and-sit-OET" target="_blank" rel="noopener noreferrer">accepted ID</a>.</p>
+                <p>Cambridge English: <a href="https://www.cambridgeenglish.org/exams-and-tests/oet/test-overview/" target="_blank" rel="noopener noreferrer">OET test overview</a>.</p>
+            <p><em>We are an independent OET coaching service. We are not affiliated with OET, Cambridge, Prometric, any regulator or any test centre, and we cannot book, move or approve a test. Always confirm the current rule with OET and with your regulator before you pay.</em></p>
+            <p class="oet-ar-note">Prefer Arabic? <a href="/ar/oet-at-home.html" lang="ar" hreflang="ar">اقرأ هذا المقال بالعربية</a>.</p>
+        </div></section>
+
+        <section class="oet-resource-section oet-author-bio" aria-label="About the author"><div class="container"><div class="oet-snippet"><strong>About the author</strong><p>Dr Ahmed Hesham is a medical doctor and OET educator who has coached doctors, nurses and allied health professionals preparing for OET since 2018. <a href="/about.html">More about Dr Hesham</a>.</p></div></div></section>
+
+        <section class="oet-related" aria-label="Related guides"><div class="container"><h2 class="oet-related-title">Keep exploring</h2><div class="oet-related-grid"><a class="oet-related-card" href="/oet-test-centres.html"><span class="oet-related-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Test Centres</strong><span>Which countries and cities have venues.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-computer-vs-paper.html"><span class="oet-related-icon"><i class="fa-solid fa-desktop" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET on Computer vs Paper</strong><span>How the modes differ and how to prepare for each.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-test-dates-and-fees.html"><span class="oet-related-icon"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Test Dates and Fees</strong><span>Dates, booking deadlines, fees and results by mode.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-score-requirements.html"><span class="oet-related-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Score Requirements</strong><span>What each regulator asks for, by profession.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/blog/"><span class="oet-related-icon"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Blog</strong><span>More practical guides for each OET sub-test.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a></div></div></section>
+        <section class="oet-related oet-related--articles" aria-label="Related articles"><div class="container"><h2 class="oet-related-title">Related articles</h2><div class="oet-related-grid"><a class="oet-related-card" href="/oet-paper-test-centres-2027.html"><span class="oet-related-icon"><i class="fa-solid fa-desktop" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET paper test centres 2027: the 16 countries and their venues</strong><span>The 16 countries where OET on Paper continues from January 2027 for Nursing and Medicine, with every listed…</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/what-is-oet.html"><span class="oet-related-icon"><i class="fa-solid fa-desktop" aria-hidden="true"></i></span><span class="oet-related-body"><strong>What Is the OET Exam? Format, Scoring and Who Accepts It</strong><span>The Occupational English Test explained: format, timing, scoring, cost and which regulators accept it.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-exam-fees.html"><span class="oet-related-icon"><i class="fa-solid fa-desktop" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Exam Fees 2026: How Much Does OET Cost?</strong><span>What the OET exam costs in pounds and other currencies, plus re-sit, re-mark and rescheduling fees.</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a><a class="oet-related-card" href="/oet-passing-score.html"><span class="oet-related-icon"><i class="fa-solid fa-desktop" aria-hidden="true"></i></span><span class="oet-related-body"><strong>OET Passing Score: What Score Do You Need to Pass OET?</strong><span>The usual OET pass mark, what 350 out of 500 and 30 out of 42 mean, the grade bands and the rules for nurses…</span></span><i class="fa-solid fa-arrow-right oet-related-arrow" aria-hidden="true"></i></a></div></div></section>
+</main>
+
+<!--================= Footer section start =================-->
+    <footer class="vl-footer-10 fix vkl-gray-bg-19 pt-60 oet-footer">
+                <div class="container">
+                    <div class="oet-footer-cols">
+                        <div class="oet-footer-brand vl-footer-widget-1">
+                            <div class="vl-footer-logo">
+                                <a href="/"><img width="320" height="90" loading="lazy" decoding="async" src="/assets/img/logo/footer-logo.webp" alt="OET with Dr Hesham"></a>
+                            </div>
+                            <div class="vl-footer-content vl-footer-content-6">
+                                <p class="para pt-16 pb-24">We help nurses, doctors, pharmacists, and allied health professionals prepare for OET with practical guidance, focused feedback, and clear UK pathway support.</p>
+                            </div>
+
+                            <!-- social area -->
+                            <div class="social-area-footer-10">
+                                <a href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+                                <a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><i class="fa-brands fa-telegram"></i></a>
+                                <a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support"><i class="fa-brands fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                                <a href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+                            </div>
+                        </div>
+
+                        <details class="oet-footer-group oet-footer-group--courses">
+                            <summary><h3 class="vl-footer-widget-title vl-footer-widget-title-6 oet-footer-group__title">Courses &amp; Practice</h3></summary>
+                            <div class="vl-footer-menu vl-footer-menu-10">
+                                <ul>
+                                    <li><a href="/service.html">OET Courses</a></li>
+                                    <li><a href="/oet-course-for-nurses.html">OET Course for Nurses</a></li>
+                                    <li><a href="/oet-course-for-doctors.html">OET Course for Doctors</a></li>
+                                    <li><a href="/oet-writing-correction.html">OET Writing Correction</a></li>
+                                    <li><a href="/pricing.html">Pricing</a></li>
+                                    <li><a href="/ar/" lang="ar">كورس OET بالعربية</a></li>
+<li><a href="/pricing.html#download-app">Download Candidates App</a></li>                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="oet-footer-group oet-footer-group--resources">
+                            <summary><h3 class="vl-footer-widget-title vl-footer-widget-title-6 oet-footer-group__title">Resources &amp; Guides</h3></summary>
+                            <div class="vl-footer-menu vl-footer-menu-10">
+                                <ul>
+                                    <li><a href="/blog/">OET Blog</a></li><li><a href="/oet-recalls.html">OET Recalls</a></li><li><a href="/ar/blog/" lang="ar" dir="rtl">مقالات OET بالعربي</a></li>
+                                    <li><a href="/oet-sample-tests.html">Free OET Sample Tests</a></li>
+                                    <li><a href="/oet-materials-support.html">Free Resources</a></li>
+                                    <li><a href="/oet-speaking-tips.html">Speaking Tips</a></li>
+                                    <li><a href="/oet-score-calculator.html">OET Score Calculator</a></li>
+                                    <li><a href="/oet-score-requirements.html">OET Score Requirements</a></li>
+                                    <li><a href="/oet-test-centres.html">OET Test Centres</a></li>
+                                    <li><a href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">Telegram Materials</a></li>
+                                    <li><a href="/uk-pathway-guide.html">UK Pathway Guide</a></li>
+                                    <li><a href="/usa-pathway-guide.html">USA Pathway Guide</a></li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="oet-footer-group oet-footer-group--support">
+                            <summary><h3 class="vl-footer-widget-title vl-footer-widget-title-6 oet-footer-group__title">About &amp; Support</h3></summary>
+                            <div class="vl-footer-menu vl-footer-menu-10">
+                                <ul>
+                                    <li><a href="/about.html">About Dr. Hesham</a></li>
+                                    <li><a href="/teaching-approach.html">Teaching Approach</a></li>
+                                    <li><a href="https://www.youtube.com/watch?v=hlD1BXfijWs" data-youtube-url="https://www.youtube.com/watch?v=hlD1BXfijWs" data-oet-inline-video="true" target="_blank" rel="noopener noreferrer">OET Programs</a></li>
+                                    <li><a href="https://wa.me/447961725989?text=Hi%20Dr%20Hesham%2C%20I'm%20interested%20in%20OET%20preparation." target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
+                                    <li><a href="mailto:support@oetwithdrhesham.co.uk">Email Support</a></li>
+                                    <li><a href="/faq.html">FAQ</a></li>
+                                    <li><a href="/contact.html">Contact</a></li>
+                                    <li><a href="/success-stories.html">Success Stories</a></li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="oet-footer-group oet-footer-group--connect">
+                            <summary><h3 class="vl-footer-widget-title vl-footer-widget-title-6 oet-footer-group__title">Stay Connected</h3></summary>
+                            <!-- Newslater -->
+                            <div class="vl-footer-newslate10 oet-footer-updates">
+                                <p class="oet-updates-copy">Free tips, live class alerts and course updates &mdash; straight from Dr Hesham.</p>
+                                <div class="oet-footer-subscribe-buttons">
+                                    <a class="oet-footer-btn oet-footer-btn--telegram" href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer">
+                                        <span class="oet-footer-btn__icon"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span>
+                                        <span class="oet-footer-btn__text">Join Telegram Channel</span>
+                                    </a>
+                                    <a class="oet-footer-btn oet-footer-btn--youtube" href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer">
+                                        <span class="oet-footer-btn__icon"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span>
+                                        <span class="oet-footer-btn__text">Subscribe on YouTube</span>
+                                    </a>
+                                    <a class="oet-footer-btn oet-footer-btn--facebook" href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer">
+                                        <span class="oet-footer-btn__icon"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span>
+                                        <span class="oet-footer-btn__text">Join Facebook Community</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="vl-copy-righ1t vl-copy-righ1t-10">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 mb-30">
+                                    <div class="vl-footer-copy-right-widget vl-footer-copy-right-widget-6">
+                                        <p class="para">&copy; Copyright 2026 - OET with Dr Hesham. All Rights Reserved</p>
+                                        <p class="para oet-footer-company-support">OET with Dr Hesham is a digital education platform supported by ProHealth Digital LLC, Wyoming, USA.</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 mb-30">
+                                    <div class="vl-copy-right-menu vl-copy-right-menu-10">
+                                        <ul aria-label="Legal">
+                                            <li><strong>Legal</strong></li>
+                                            <li><a href="/terms/">Terms &amp; Conditions</a></li>
+                                            <li><a href="/privacy/">Privacy Policy</a></li>
+                                            <li><a href="/refund-policy/">Refund Policy</a></li>
+                                            <li><a href="/cookie-policy/">Cookie Policy</a></li>
+                                            <li><a href="/cookie-policy/" onclick="oetCookieSettings();return false;">Cookie settings</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+<!--================= Footer section End =================-->
+
+
+    <!-- js file -->
+
+    <!-- jquery js-->
+<!-- gsap js-->
+<!-- scrollTrigger js-->
+<!-- fontawesome -->
+<!-- counter js -->
+<!-- waypoints js-->
+<!-- sal js-->
+    <script defer src="/assets/js/plugins/sal.min.js?v=3ff9a5f201"></script>
+    <!-- ScrollSmoother js -->
+    <script defer src="/assets/js/plugins/lenis.min.js?v=98598577bb"></script>
+<!-- Custom js -->
+<script defer src="/assets/js/main.js?v=96ff1fca64"></script>
+
+    
+
+
+    
+
+
+
+
+    
+
+    <div class="oet-community-popup" id="oet-community-popup" aria-hidden="true">
+        <div class="oet-community-popup__overlay" data-oet-community-close></div>
+        <div class="oet-community-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="oet-community-popup-title" aria-describedby="oet-community-popup-intro">
+            <button class="oet-community-popup__close" type="button" data-oet-community-close aria-label="Close community popup">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+            <div class="oet-community-popup__body">
+                <span class="oet-community-popup__eyebrow"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Free OET support</span>
+                <h2 class="oet-community-popup__title" id="oet-community-popup-title">Join Our Free OET Communities</h2>
+                <p class="oet-community-popup__intro" id="oet-community-popup-intro">Choose the group or resource that matches your profession, language preference, or preparation stage. Each link opens in a new tab so you can join instantly.</p>
+
+                <section class="oet-community-popup__section" aria-labelledby="oet-community-follow"><h3 class="oet-community-popup__section-title" id="oet-community-follow">Follow &amp; explore</h3><div class="oet-community-popup__resources"><a class="oet-community-popup__resource" href="https://www.tiktok.com/@dr.ahmedheshamuk" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon oet-community-popup__icon--tiktok"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">TikTok</span></span></a><a class="oet-community-popup__resource" href="https://www.instagram.com/oetwith.drhesham" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon oet-community-popup__icon--instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Instagram</span></span></a><a class="oet-community-popup__resource" href="https://www.youtube.com/@drhesham222" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">YouTube channel</span></span></a><a class="oet-community-popup__resource" href="https://linktr.ee/drahmedhesham222" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon oet-community-popup__icon--linktree"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="m13.73635 5.85251 4.00467-4.11665 2.3248 2.3808-4.20064 4.00466h5.9085v3.30473h-5.9365l4.22865 4.10766-2.3248 2.3338L12.0005 12.099l-5.74052 5.76852-2.3248-2.3248 4.22864-4.10766h-5.9375V8.12132h5.9085L3.93417 4.11666l2.3248-2.3808 4.00468 4.11665V0h3.4727zm-3.4727 10.30614h3.4727V24h-3.4727z"/></svg></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">All links (Linktree)</span></span></a></div></section>
+<section class="oet-community-popup__section" aria-labelledby="oet-community-communities"><h3 class="oet-community-popup__section-title" id="oet-community-communities">Join a study community</h3><div class="oet-community-popup__grid"><a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/GwXdSX6v38F3EjNzC4wS2F?mode=hq1tsha" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">OET Nursing Free Community</span><span class="oet-community-popup__hint">Highlighted nursing community</span></span></a><a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/CeJmvXO5dJA50OKBGtZcuD?mode=gi_t" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">OET Medicine Free Community</span><span class="oet-community-popup__hint">Free orientation sessions for medicine</span></span></a><a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/IuCFuWFXFrQHtK6qICP4jg?mode=gi_t" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">OET English Only - Non-Arabic Speakers</span><span class="oet-community-popup__hint">English-only practice community</span></span></a><a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/Kz8zXv7GpoCJBAHpfDygPW?mode=gi_t" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">OET Pharmacy Free Community</span><span class="oet-community-popup__hint">Pharmacy OET support</span></span></a><a class="oet-community-popup__card oet-community-popup__card--featured" href="https://chat.whatsapp.com/E6AkDZhctn95XP7Do1RYgc?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">OET Physiotherapy Free Community</span><span class="oet-community-popup__hint">Free OET community for physiotherapy</span></span></a><a class="oet-community-popup__card" href="https://chat.whatsapp.com/LPSFtrljYdjAYGpBStpMz5" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Exam Recalls Group 1</span><span class="oet-community-popup__hint">Recent exam recall discussions</span></span></a><a class="oet-community-popup__card" href="https://chat.whatsapp.com/CzVgwnH73Vn8PupWxPrhkz" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Exam Recalls Group 2</span><span class="oet-community-popup__hint">Backup recalls community</span></span></a><a class="oet-community-popup__card" href="https://www.facebook.com/groups/649430742699879/?ref=share" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon oet-community-popup__icon--facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Main Facebook Group</span></span></a></div></section>
+<section class="oet-community-popup__section" aria-labelledby="oet-community-orientation"><h3 class="oet-community-popup__section-title" id="oet-community-orientation">Free orientation &amp; resources</h3><div class="oet-community-popup__resources"><a class="oet-community-popup__resource" href="https://youtu.be/kL91eG32Uok?si=Q464XynULlIxpiav" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/kL91eG32Uok?si=Q464XynULlIxpiav" data-oet-inline-video="true"><span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Doctors Arabic Orientation</span></span></a><a class="oet-community-popup__resource" href="https://youtu.be/3aBIQq_p3MQ?si=eNwqS82aYuYBaifr" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/3aBIQq_p3MQ?si=eNwqS82aYuYBaifr" data-oet-inline-video="true"><span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Doctors Non-Arabic Orientation</span></span></a><a class="oet-community-popup__resource" href="https://youtu.be/hlD1BXfijWs?si=EQFjYcWKTBOvltPI" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/hlD1BXfijWs?si=EQFjYcWKTBOvltPI" data-oet-inline-video="true"><span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Nursing Orientation</span></span></a><a class="oet-community-popup__resource" href="https://youtu.be/wgJUsFT9HUA?si=asdHpYWHmHHAam-q" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/wgJUsFT9HUA?si=asdHpYWHmHHAam-q" data-oet-inline-video="true"><span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Pharmacy Arabic Orientation</span></span></a><a class="oet-community-popup__resource" href="https://youtu.be/rbNsB7Olxts?si=RNoigvu5kz_bUVYI" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/rbNsB7Olxts?si=RNoigvu5kz_bUVYI" data-oet-inline-video="true"><span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Course Feedback</span></span></a><a class="oet-community-popup__resource" href="https://youtu.be/MCPZb589zdY?si=vSLShtttUOEH89rx" target="_blank" rel="noopener noreferrer" data-youtube-url="https://youtu.be/MCPZb589zdY?si=vSLShtttUOEH89rx" data-oet-inline-video="true"><span class="oet-community-popup__icon oet-community-popup__icon--youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">OET &amp; UK Nursing Live</span></span></a></div></section>
+<section class="oet-community-popup__section" aria-labelledby="oet-community-channels"><h3 class="oet-community-popup__section-title" id="oet-community-channels">Updates &amp; channels</h3><div class="oet-community-popup__resources"><a class="oet-community-popup__resource" href="https://t.me/Oet_with_Hesham" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon oet-community-popup__icon--telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Official Telegram Channel</span></span></a><a class="oet-community-popup__resource" href="https://t.me/OET_Nursing_DrHesham" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon oet-community-popup__icon--telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Telegram Nursing Channel</span></span></a><a class="oet-community-popup__resource" href="https://www.facebook.com/share/1EMpS7pDau/" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon oet-community-popup__icon--facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Official Facebook Page</span></span></a></div></section>
+<section class="oet-community-popup__section" aria-labelledby="oet-community-profiles"><h3 class="oet-community-popup__section-title" id="oet-community-profiles">Professional profiles</h3><div class="oet-community-popup__resources"><a class="oet-community-popup__resource" href="https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon oet-community-popup__icon--linkedin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">LinkedIn</span></span></a><a class="oet-community-popup__resource" href="https://www.behance.net/drahme222" target="_blank" rel="noopener noreferrer"><span class="oet-community-popup__icon oet-community-popup__icon--behance"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M16.969 16.927a2.561 2.561 0 0 0 1.901.677 2.501 2.501 0 0 0 1.531-.475c.362-.235.636-.584.779-.99h2.585a5.091 5.091 0 0 1-1.9 2.896 5.292 5.292 0 0 1-3.091.88 5.839 5.839 0 0 1-2.284-.433 4.871 4.871 0 0 1-1.723-1.211 5.657 5.657 0 0 1-1.08-1.874 7.057 7.057 0 0 1-.383-2.393c-.005-.8.129-1.595.396-2.349a5.313 5.313 0 0 1 5.088-3.604 4.87 4.87 0 0 1 2.376.563c.661.362 1.231.87 1.668 1.485a6.2 6.2 0 0 1 .943 2.133c.194.821.263 1.666.205 2.508h-7.699c-.063.79.184 1.574.688 2.187ZM6.947 4.084a8.065 8.065 0 0 1 1.928.198 4.29 4.29 0 0 1 1.49.638c.418.303.748.711.958 1.182.241.579.357 1.203.341 1.83a3.506 3.506 0 0 1-.506 1.961 3.726 3.726 0 0 1-1.503 1.287 3.588 3.588 0 0 1 2.027 1.437c.464.747.697 1.615.67 2.494a4.593 4.593 0 0 1-.423 2.032 3.945 3.945 0 0 1-1.163 1.413 5.114 5.114 0 0 1-1.683.807 7.135 7.135 0 0 1-1.928.259H0V4.084h6.947Zm-.235 12.9c.308.004.616-.029.916-.099a2.18 2.18 0 0 0 .766-.332c.228-.158.411-.371.534-.619.142-.317.208-.663.191-1.009a2.08 2.08 0 0 0-.642-1.715 2.618 2.618 0 0 0-1.696-.505h-3.54v4.279h3.471Zm13.635-5.967a2.13 2.13 0 0 0-1.654-.619 2.336 2.336 0 0 0-1.163.259 2.474 2.474 0 0 0-.738.62 2.359 2.359 0 0 0-.396.792c-.074.239-.12.485-.137.734h4.769a3.239 3.239 0 0 0-.679-1.785l-.002-.001Zm-13.813-.648a2.254 2.254 0 0 0 1.423-.433c.399-.355.607-.88.56-1.413a1.916 1.916 0 0 0-.178-.891 1.298 1.298 0 0 0-.495-.533 1.851 1.851 0 0 0-.711-.274 3.966 3.966 0 0 0-.835-.073H3.241v3.631h3.293v-.014ZM21.62 5.122h-5.976v1.527h5.976V5.122Z"/></svg></span><span class="oet-community-popup__text"><span class="oet-community-popup__name">Behance portfolio</span></span></a></div></section>
+            </div>
+        </div>
+    </div>
+
+    <script defer src="/assets/js/oet-community-popup.js?v=b73488d264"></script>
+    <script src="/assets/js/oet-analytics.js?v=d6500c3d4b" defer></script>
+    <script src="/assets/js/oet-cookie-consent.js?v=e9753196cd" defer></script>
+    <script src="/assets/js/oet-search.js?v=ddf57f5228" defer></script>
+    <script src="/assets/js/oet-announce.js?v=b1609a8182" defer></script>
+</body>
+</html>

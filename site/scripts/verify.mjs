@@ -46,6 +46,9 @@ const PAGES = [
   'oet-recalls.html', 'ar/oet-recalls.html',
   // Brief of 22 Nov 2026: the Arabic library and the Arabic booking guide
   'ar/blog/index.html', 'ar/oet-test-fee-booking-2027.html',
+  // SEO handoff #2 (25 Nov 2026) + 2027 SEO expansion (owner brief of 26 Nov 2026): NABP, OET@Home, test centres, clubbing, four pathway guides
+  'oet-for-pharmacists-usa.html', 'oet-at-home.html', 'oet-test-centres.html', 'oet-paper-test-centres-2027.html', 'oet-clubbing-rules.html', 'oet-recognition-by-country.html', 'ireland-pathway-guide.html', 'canada-pathway-guide.html', 'new-zealand-pathway-guide.html', 'singapore-pathway-guide.html',
+  'ar/oet-for-pharmacists-usa.html', 'ar/oet-at-home.html', 'ar/oet-test-centres.html', 'ar/oet-paper-test-centres-2027.html', 'ar/oet-clubbing-rules.html', 'ar/oet-writing-correction.html', 'ar/oet-free-resources.html',
 ];
 
 let failures = 0;
@@ -836,7 +839,7 @@ if (distHtml['pricing.html']) {
     ['Courses & Practice', [['OET Courses', '/service.html'], ['OET Course for Nurses', '/oet-course-for-nurses.html'], ['OET Course for Doctors', '/oet-course-for-doctors.html'],
       ['OET Writing Correction', '/oet-writing-correction.html'], ['Pricing', '/pricing.html'], ['كورس OET بالعربية', '/ar/'], ['Download Candidates App', '/pricing.html#download-app']]],
     ['Resources & Guides', [['OET Blog', '/blog/'], ['Free OET Sample Tests', '/oet-sample-tests.html'], ['Free Resources', '/oet-materials-support.html'], ['Speaking Tips', '/oet-speaking-tips.html'],
-      ['OET Score Calculator', '/oet-score-calculator.html'], ['OET Score Requirements', '/oet-score-requirements.html'], ['Telegram Materials', 'https://t.me/Oet_with_Hesham'],
+      ['OET Score Calculator', '/oet-score-calculator.html'], ['OET Score Requirements', '/oet-score-requirements.html'], ['OET Test Centres', '/oet-test-centres.html'], ['Telegram Materials', 'https://t.me/Oet_with_Hesham'],
       ['UK Pathway Guide', '/uk-pathway-guide.html'], ['USA Pathway Guide', '/usa-pathway-guide.html']]],
     ['About & Support', [['About Dr. Hesham', '/about.html'], ['Teaching Approach', '/teaching-approach.html'], ['OET Programs', 'https://www.youtube.com/watch?v=hlD1BXfijWs'],
       ['WhatsApp Support', 'https://wa.me/447961725989'], ['Email Support', 'mailto:support@oetwithdrhesham.co.uk'], ['FAQ', '/faq.html'], ['Contact', '/contact.html'], ['Success Stories', '/success-stories.html']]],
@@ -856,12 +859,15 @@ if (distHtml['pricing.html']) {
   const { RECALLS_LINKS } = await import('../src/lib/recalls.mjs');
   const FROZEN_HOME = ['index.html', 'ar/index.html'];
   const recallsOf = (page) => RECALLS_LINKS[page.startsWith('ar/') ? 'ar' : 'en'];
-  for (const page of FROZEN_HOME) if (/oet-recalls/.test(distHtml[page] || '')) fail(`${page}: the landing page is frozen (owner brief 21 Nov 2026): it must not link or mention the Recalls page`);
+  // SEO handoff #2 (25 Nov 2026, item 1.1c): the /ar/ home MENU carries the Arabic Recalls item like every other Arabic page (exactly
+  // one link, in the header nav); the English homepage still carries none, and neither landing page has the footer link.
+  if (/oet-recalls/.test(distHtml['index.html'] || '')) fail('index.html: the English landing page must not link or mention the Recalls page (owner brief 21 Nov 2026)');
+  if (((distHtml['ar/index.html'] || '').match(/oet-recalls/g) || []).length !== 1) fail('ar/index.html: exactly one Recalls link (the header menu item, handoff #2 of 25 Nov 2026) and no other mention');
   for (const [page, html] of Object.entries(distHtml)) {
     if ((html.match(/id="vl-offcanvas-menu"/g) || []).length !== 1) fail(`${page}: expected exactly one offcanvas drawer`);
     const nav = (html.match(/<nav class="vl-mobile-menu-active"[\s\S]*?<\/nav>/) || [''])[0];
     const rl = recallsOf(page);
-    const wantTop = FROZEN_HOME.includes(page) ? TOP : [...TOP.slice(0, TOP.indexOf('OET Blog') + 1), rl.nav, ...TOP.slice(TOP.indexOf('OET Blog') + 1)];
+    const wantTop = page === 'index.html' ? TOP : [...TOP.slice(0, TOP.indexOf('OET Blog') + 1), rl.nav, ...TOP.slice(TOP.indexOf('OET Blog') + 1)];
     // top-level items = the first link text of each <li> directly inside the nav's outer <ul>
     const found = [];
     let depth = 0;
@@ -870,7 +876,7 @@ if (distHtml['pricing.html']) {
       else if (depth === 1 && wantTop.includes(m[2].trim())) found.push(m[2].trim());
     }
     if (found.join('|') !== wantTop.join('|')) fail(`${page}: main nav must be ${wantTop.join(' / ')} (found ${found.join(' / ')})`);
-    if (!FROZEN_HOME.includes(page) && !nav.includes(`<li><a href="/blog/">OET Blog</a></li><li><a href="${rl.href}"${rl.lang}>${rl.nav}</a></li>`)) fail(`${page}: the Recalls nav link (${rl.nav} -> ${rl.href}) must follow "OET Blog" directly`);
+    if (page !== 'index.html' && !nav.includes(`<li><a href="/blog/">OET Blog</a></li><li><a href="${rl.href}"${rl.lang}>${rl.nav}</a></li>`)) fail(`${page}: the Recalls nav link (${rl.nav} -> ${rl.href}) must follow "OET Blog" directly`);
     if (!nav.includes('<li><a href="/blog/">OET Blog</a></li>')) fail(`${page}: main nav must keep the plain "OET Blog" link to /blog/`);
     // Webinars (owner, 22 Nov 2026): a permanent menu tab on EVERY page, the two landing pages included (the desktop nav and the cloned mobile menu share this <nav>)
     const { WEBINARS_URL } = await import('../src/lib/webinars.mjs');
@@ -981,6 +987,8 @@ if (distHtml['pricing.html']) {
     ['oet-speaking-role-play-cards.html', 'ar/oet-speaking-role-play-cards.html'], ['oet-mock-test.html', 'ar/oet-mock-test.html'], ['oet-score-calculator.html', 'ar/oet-score-calculator.html'],
     // OET Recalls (owner brief v2, 21 Nov 2026)
     ['oet-recalls.html', 'ar/oet-recalls.html'],
+    // SEO handoff #2 (25 Nov 2026) + brief of 26 Nov 2026
+    ['oet-for-pharmacists-usa.html', 'ar/oet-for-pharmacists-usa.html'], ['oet-at-home.html', 'ar/oet-at-home.html'], ['oet-test-centres.html', 'ar/oet-test-centres.html'], ['oet-paper-test-centres-2027.html', 'ar/oet-paper-test-centres-2027.html'], ['oet-clubbing-rules.html', 'ar/oet-clubbing-rules.html'], ['oet-writing-correction.html', 'ar/oet-writing-correction.html'],
   ];
   const paired = new Map(HREFLANG_PAIRS.flatMap(([en, ar]) => [[en, [en, ar]], [ar, [en, ar]]]));
   for (const [page, html] of Object.entries(distHtml)) {
@@ -1356,7 +1364,8 @@ if (distHtml['pricing.html']) {
     for (const [page, h] of Object.entries(distHtml)) if (/oet-community-popup-script/.test(h)) fail(`${page}: the community popup script must be external (assets/js/oet-community-popup.js)`);
     // regression guard: 223,380 bytes before the brief. The brief's 100 KB target cannot be met without removing crawlable content (the nav, footer
     // and sections are server-rendered on purpose); this keeps what was won.
-    if (Buffer.byteLength(html) > 195000) fail(`index.html: ${Buffer.byteLength(html)} bytes (guard 195000; was 223,380 before the brief)`);
+    // 195,000 until 27 Nov 2026; SEO handoff #2 (25 Nov 2026) added the "Practise OET Online" link block and the FAQPage node (~3.6 KB)
+    if (Buffer.byteLength(html) > 199000) fail(`index.html: ${Buffer.byteLength(html)} bytes (guard 199000; was 223,380 before the 21 Nov brief)`);
     const motion = read('assets/js/main.js');
     if (!motion.includes('window.oetWhenMotionReady')) fail('main.js: GSAP-dependent code must wait for oetWhenMotionReady');
   }
@@ -1655,6 +1664,8 @@ if (distHtml['pricing.html']) {
     if (page === 'ar/index.html') {
       if (firstFree !== ARABIC_LIBRARY_NAV_ITEM) fail(`${page}: "${ARABIC_LIBRARY.label}" must be the first item of the Free Resources menu (owner, 22 Nov 2026)`);
       if (html.split(`href="${ARABIC_LIBRARY.href}"`).length !== 2) fail(`${page}: the freeze is lifted for the one header link only; no other link to ${ARABIC_LIBRARY.href} on the frozen page`);
+      if (!html.includes('<a class="oet-pricing-nav-link" href="/ar/pricing.html#download-app">Download App</a>') || !html.includes('<a class="oet-pricing-nav-link" href="/ar/pricing.html">Pricing</a>'))
+        fail(`${page}: the header "Pricing" and "Download App" items open the Arabic pricing page (handoff #2 of 25 Nov 2026, item 1.1b)`);
       continue;
     }
     if (FROZEN.includes(page)) { if (html.includes(`href="${ARABIC_LIBRARY.href}"`)) fail(`${page}: the frozen landing page must not change (no Arabic library link without the owner lifting the freeze)`); continue; }
@@ -1688,6 +1699,31 @@ if (distHtml['pricing.html']) {
     if (!js.includes('/^\\/(ar\\/)?pricing(\\.html)?\\/?$/')) fail('oet-analytics.js: pageType must classify /ar/pricing.html as "pricing"');
     if (!/grantAnalytics: function \(\) \{ loadGA4\(\); pageEvents\(\); \}/.test(js) || !/grantMarketing: function \(\) \{ grantMarketing\(\); pageEvents\(\); \}/.test(js)) fail('oet-analytics.js: a consent given after load must replay the page events (pageEvents)');
     if (!/firstTime\("view_item"\)/.test(js) || !/firstTime\("ViewContent"\)/.test(js) || !/oncePerSession\("oet_lead_sent"\)/.test(js)) fail('oet-analytics.js: the replayed events must be sent at most once');
+  }
+}
+
+// ---- SEO handoff #2 (25 Nov 2026), item 1.1: the main menu of every Arabic page stays inside the Arabic site ----------------
+// Every header / drawer link whose target has an Arabic twin opens the twin, the logo opens /ar/, and English pages are unchanged.
+{
+  const headerOf = (html) => (html.match(/<header>[\s\S]*?<div class="vl-offcanvas-overlay">/) || [''])[0];
+  for (const [page, html] of Object.entries(distHtml)) {
+    const head = headerOf(html);
+    if (!head) { fail(`${page}: header + drawer block not found`); continue; }
+    const hrefs = [...head.matchAll(/href="(\/[^"#?]*)(?:[#?][^"]*)?"/g)].map((m) => m[1]);
+    if (page.startsWith('ar/')) {
+      for (const h of hrefs) {
+        if (h.startsWith('/ar/') || !h.endsWith('.html')) continue;
+        if (distHtml[`ar${h}`]) fail(`${page}: the menu links the English ${h} although /ar${h} exists (handoff #2, item 1.1)`);
+      }
+      if (hrefs.includes('/')) fail(`${page}: the header / drawer logo must open /ar/ on Arabic pages`);
+      for (const need of ['/ar/pricing.html', '/ar/success-stories.html', '/ar/oet-course-for-nurses.html', '/ar/oet-course-for-doctors.html', '/ar/oet-course-for-pharmacists.html',
+        '/ar/oet-course-for-physiotherapists.html', '/ar/oet-writing-tips.html', '/ar/oet-speaking-tips.html', '/ar/oet-score-requirements.html', '/ar/oet-sample-tests.html',
+        '/ar/oet-score-calculator.html', '/ar/oet-test-dates-and-fees.html', '/ar/oet-vs-ielts.html', '/ar/gulf-pathway-guide.html', '/ar/oet-writing-sample-nursing.html',
+        '/ar/oet-writing-sample-medicine.html', '/ar/oet-recalls.html', '/ar/'])
+        if (!hrefs.includes(need)) fail(`${page}: the Arabic menu must link ${need}`);
+    } else if (hrefs.some((h) => h.startsWith('/ar/') && !['/ar/', '/ar/blog/'].includes(h))) {
+      fail(`${page}: an English page's menu must keep its English targets (only the "OET بالعربية" and Arabic library entries point into /ar/)`);
+    }
   }
 }
 
@@ -1778,6 +1814,189 @@ if (distHtml['pricing.html']) {
   for (const page of PAGES) if (/\/assets\/img\/hero\/dr-hesham-(480|720|960|1122)\./.test(distHtml[page] || '')) fail(`${page}: still points at the retired portrait (use dr-hesham-2026-*)`);
   const personFile = JSON.parse(readFileSync(path.join(SITE, 'src/data/person.json'), 'utf8'));
   if (personFile.image !== 'https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-2026-960.webp') fail('person.json: image must be the 2026 portrait (dr-hesham-2026-960.webp)');
+}
+
+// ---- SEO handoff #2 (25 Nov 2026) + "2027 SEO expansion: pathways, exam formats & test centres" (owner brief, 26 Nov 2026) ----
+// docs/seo-brief-2026-11-26/README.md has the evidence, the official-source research and the open owner items.
+{
+  const ORIGIN = 'https://oetwithdrhesham.co.uk';
+  const mainOf = (html) => (html.match(/<main[\s\S]*<\/main>/) || [''])[0];
+  const { loadTestCentres, loadRegulators, PAPER_2027, PROFESSION_IDS } = await import('../src/lib/regdata.mjs');
+  const centres = loadTestCentres(); // throws on a malformed venue file
+  const regs = loadRegulators(); // throws on a malformed regulator file (enums, sources, an OET@Home claim without the regulator's words)
+  const pricing = JSON.parse(readFileSync(path.join(SITE, 'src/data/pricing.json'), 'utf8'));
+  const price = (k) => pricing.find((c) => c.kicker === k).price;
+
+  // -- Handoff 1.2: /blog/ lists the Arabic tools (score calculator and mock test included), labelled "Arabic", never counted as articles
+  {
+    const blog = distHtml['blog/index.html'] || '';
+    const tools = (blog.match(/<div class="oet-blog-tools"[\s\S]*?<\/ul>/) || [''])[0];
+    for (const u of ['/ar/oet-score-calculator.html', '/ar/oet-mock-test.html'])
+      if (!new RegExp(`<a href="${u.replace(/[.]/g, '\\.')}" lang="ar" hreflang="ar"><span class="oet-blog-tools__badge" lang="en">Arabic</span>`).test(tools)) fail(`blog/index.html: the Arabic tools list must link ${u} with the "Arabic" label (handoff #2, item 1.2)`);
+    if (/class="oet-blog-card"/.test(tools)) fail('blog/index.html: the Arabic tools are not article cards (they must not be counted or filtered as articles)');
+  }
+
+  // -- Handoff 1.3 + R3 / R4 / R6: the English homepage links the practice cluster and marks up the FAQ it already shows
+  {
+    const home = distHtml['index.html'] || '';
+    const block = (home.match(/<section class="oet-home-x oet-home-section oet-home-practice"[\s\S]*?<\/section>/) || [''])[0];
+    for (const u of ['/oet-speaking-practice-online.html', '/oet-mock-test.html', '/oet-speaking-role-play-cards.html', '/oet-score-calculator.html', '/oet-practice.html'])
+      if (!block.includes(`<a href="${u}">`)) fail(`index.html: the "Practise OET Online" block must link ${u} (handoff #2, R3 / R6)`);
+    if (/\bfree\b/i.test(visibleText((block.match(/<a href="\/oet-mock-test\.html">[\s\S]*?<\/a>/) || [''])[0]))) fail('index.html: the mock-test link must not call the paid mocks free');
+    const faq = nodesOfType(ldBlocks(home), 'FAQPage');
+    const visibleQs = [...(home.match(/<!--=+ Faq section Start =+-->[\s\S]*?<!--=+ Faq section End =+-->/) || [''])[0].matchAll(/<button class="vl-accordion-button[^>]*>\s*([^<]+?)\s*<span/g)].map((m) => m[1].replace(/\s+/g, ' '));
+    if (faq.length !== 1 || faq[0].mainEntity.map((q) => q.name).join('|') !== visibleQs.join('|') || !visibleQs.length) fail('index.html: the FAQPage node must list exactly the questions of the visible homepage FAQ (handoff #2, item 1.3)');
+  }
+
+  // -- R1 / R8: the writing-correction page shows the real prices (from pricing.json), keeps the turnaround, and carries both dates
+  {
+    for (const [page, sym] of [['oet-writing-correction.html', '£'], ['ar/oet-writing-correction.html', '£']]) {
+      const html = distHtml[page] || '';
+      const v = visibleText(mainOf(html));
+      for (const k of ['Package 13', 'Package 14', 'Package 15', 'Package 16', 'Package 18', 'Package 39'])
+        if (!v.includes(`${sym}${price(k)}`)) fail(`${page}: must show the ${k} price (${sym}${price(k)}) from pricing.json (handoff #2, R1a / R2)`);
+      if (!/48\s*(?:[–-]|إلى)\s*72/.test(v)) fail(`${page}: the 48-72 hour turnaround must stay on the page (handoff #2, R1d)`);
+      if (/\d[\d,.]*\s*\+?\s*(letters corrected|corrected letters|رسالة مصحّحة|رسالة تم تصحيحها)/i.test(v)) fail(`${page}: no "letters corrected" count until the owner supplies the real number (handoff #2, decision D1)`);
+      const node = nodesOfType(ldBlocks(html), 'WebPage')[0];
+      if (!node?.datePublished || !node?.dateModified || node.dateModified < node.datePublished) fail(`${page}: the WebPage node needs a real datePublished and dateModified (handoff #2, R8)`);
+    }
+    const en = nodesOfType(ldBlocks(distHtml['oet-writing-correction.html'] || ''), 'WebPage')[0];
+    if (en?.datePublished !== '2026-10-24') fail('oet-writing-correction.html: datePublished is the page\'s real first-publication date (2026-10-24, from git), not a refreshed date');
+  }
+
+  // -- R3a: the live virtual-patient offer leads the Speaking practice page (introduction + the first H2 section)
+  {
+    const main = mainOf(distHtml['oet-speaking-practice-online.html'] || '');
+    const lead = visibleText((main.match(/<p class="oet-resource-lead">[\s\S]*?<\/p>/) || [''])[0]);
+    if (!lead.includes('virtual patient')) fail('oet-speaking-practice-online.html: the introduction must present the live virtual-patient role-plays (handoff #2, R3a)');
+    const firstSection = (main.match(/<section class="oet-resource-section[^"]*" id="([a-z-]+)"/) || [])[1];
+    if (firstSection !== 'speaking-virtual') fail(`oet-speaking-practice-online.html: the virtual-patient section must be the first content section (found ${firstSection})`);
+  }
+
+  // -- R5: the Arabic free-resources page is honest about free and paid
+  {
+    const html = distHtml['ar/oet-free-resources.html'] || '';
+    const main = mainOf(html);
+    for (const u of ['/english-placement-test', '/ar/oet-sample-tests.html', '/ar/oet-score-calculator.html', '/ar/pricing.html', '#oet-community-popup'])
+      if (!main.includes(`href="${u}"`)) fail(`ar/oet-free-resources.html: must link ${u}`);
+    if (!/ليس مجان|ليست مجان|مدفوع/.test(visibleText(main))) fail('ar/oet-free-resources.html: must say plainly what is NOT free (courses, personal correction, private sessions, full mocks)');
+    if (/كورس (?:OET )?(?:كامل )?مجاني(?!\s*[؟?])(?![^.]*لا يوجد)/.test(visibleText((main.match(/<h1[\s\S]*?<\/h1>/) || [''])[0]))) fail('ar/oet-free-resources.html: the H1 must not call the course free');
+  }
+
+  // -- P0 USA pharmacy: the stale TOEFL-only claims are gone everywhere, the confirmed NABP facts are stated, and no page invents an NABP OET score
+  {
+    const STALE = /FPGEC requires TOEFL iBT, not OET|MyBest scores are not accepted|Booking OET Pharmacy for FPGEC|Trying to use MyBest scores|does not replace FPGEC TOEFL rules/i;
+    for (const [page, html] of Object.entries(distHtml)) if (STALE.test(html)) fail(`${page}: a stale FPGEC claim is back (TOEFL only / MyBest rejected / booking OET Pharmacy is a mistake). NABP accepts OET Pharmacy for tests from 11 January 2027 and TOEFL MyBest from 1 November 2026`);
+    const nabp = regs.regulators.find((r) => r.id === 'nabp-fpgec');
+    if (!nabp || nabp.oet !== 'accepted' || nabp.formats.home !== 'not-accepted') fail('regulators.json: the NABP FPGEC row must say OET accepted and OET@Home not accepted');
+    const scoresPublished = !!(nabp && nabp.scores);
+    for (const page of ['usa-pathway-guide.html', 'oet-for-pharmacists-usa.html', 'ar/oet-for-pharmacists-usa.html', 'oet-course-for-pharmacists.html', 'ar/oet-course-for-pharmacists.html', 'oet-score-requirements.html', 'ar/oet-score-requirements.html']) {
+      const html = distHtml[page] || '';
+      const v = visibleText(mainOf(html));
+      if (!/11 january 2027|11 يناير 2027/.test(v)) fail(`${page}: must state that NABP accepts OET Pharmacy for tests taken on or after 11 January 2027`);
+      if (!scoresPublished && !/not (?:yet )?(?:been )?published|not yet available|لم تُنشر|لم تنشر|لم يُعلن|لم تعلن|لم تُعلن/.test(v)) fail(`${page}: must say the NABP minimum OET scores are not yet published (regulators.json has no NABP scores)`);
+    }
+    for (const page of ['oet-for-pharmacists-usa.html', 'ar/oet-for-pharmacists-usa.html']) {
+      const html = distHtml[page] || '';
+      for (const u of ['https://nabp.pharmacy/news/news-releases/nabp-expands-communication-skills-options-for-fpgec-certification/', 'https://nabp.pharmacy/help/does-the-oet-replace-the-toefl-ibt-requirement/', 'https://nabp.pharmacy/programs/foreign-pharmacy/', 'https://nabp.pharmacy/help/does-nabp-accept-the-toefl-ibt-special-home-edition-scores/'])
+        if (!html.includes(`href="${u}"`)) fail(`${page}: must link the official NABP source ${u}`);
+    }
+    if (!mainOf(distHtml['usa-pathway-guide.html'] || '').includes('href="/oet-for-pharmacists-usa.html"')) fail('usa-pathway-guide.html: must link the NABP article');
+  }
+
+  // -- P0 OET@Home: the guide exists in both languages, every acceptance status is rendered from regulators.json, and the blanket claims stay out
+  {
+    const BLANKET = /OET@Home is (?:now )?available (?:worldwide|everywhere|in (?:all|every) countr)|OET@Home (?:is|can be) (?:taken|sat|booked) (?:from|in) any country|all regulators accept OET@Home|accepted by all regulators|OET@Home is accepted everywhere/i;
+    for (const [page, html] of Object.entries(distHtml)) if (BLANKET.test(visibleText(mainOf(html)))) fail(`${page}: an unsupported blanket OET@Home claim (availability or acceptance); state the no-venue rule and the regulator-by-regulator status instead`);
+    for (const page of ['oet-at-home.html', 'ar/oet-at-home.html']) {
+      const main = mainOf(distHtml[page] || '');
+      const rows = [...main.matchAll(/<tr data-home="([a-z-]+)">/g)].map((m) => m[1]);
+      const want = regs.regulators.filter((r) => r.oet !== 'not-listed');
+      if (rows.length !== want.length) fail(`${page}: the OET@Home table shows ${rows.length} regulators, regulators.json has ${want.length}`);
+      for (const s of ['accepted', 'conditional', 'not-accepted', 'not-confirmed']) if (rows.filter((x) => x === s).length !== want.filter((r) => r.formats.home === s).length) fail(`${page}: the count of "${s}" OET@Home rows differs from regulators.json`);
+      const v = visibleText(main);
+      if (!/cambridge/i.test(v) || !/medicine, nursing, pharmacy and physiotherapy|الطب والتمريض والصيدلة والعلاج الطبيعي/i.test(v)) fail(`${page}: must state the professions conflict (oet.com lists all 12, Cambridge English lists Medicine, Nursing, Pharmacy and Physiotherapy)`);
+      if (!main.includes('href="https://oet.com/test/oet-test-at-home"')) fail(`${page}: must link OET's own OET@Home page`);
+    }
+    for (const dead of ['https://oet.com/test/oet-at-home"', 'https://oet.com/test/test-delivery-modes"', 'https://oet.com/test/test-venues"'])
+      for (const [page, html] of Object.entries(distHtml)) if (html.includes(dead)) fail(`${page}: links ${dead.slice(0, -1)}, which returns 404 (checked 27 Nov 2026)`);
+  }
+
+  // -- P1 test centres: one dataset, rendered on the hub and the 16-country paper directory, in both languages
+  {
+    const total = centres.countries.reduce((n, c) => n + c.venues.length, 0);
+    for (const page of ['oet-test-centres.html', 'ar/oet-test-centres.html']) {
+      const main = mainOf(distHtml[page] || '');
+      const ids = [...main.matchAll(/<section class="oet-venues__country" id="([a-z-]+)"/g)].map((m) => m[1]);
+      if (ids.slice().sort().join() !== centres.countries.map((c) => c.id).sort().join()) fail(`${page}: the directory must render every country of test-centres.json once`);
+      if ((main.match(/<tr data-mode="(?:computer|paper)"/g) || []).length !== total) fail(`${page}: ${(main.match(/<tr data-mode="/g) || []).length} venue rows for ${total} venues in test-centres.json`);
+      for (const f of ['country', 'city', 'mode', 'profession']) if (!main.includes(`data-f="${f}"`)) fail(`${page}: the directory needs the ${f} filter`);
+      if (!main.includes('href="https://oet.com/test/book-a-test"')) fail(`${page}: must link the official OET venue finder`);
+      if (!main.includes(page.startsWith('ar/') ? 'href="/ar/oet-paper-test-centres-2027.html' : 'href="/oet-paper-test-centres-2027.html') || !main.includes(page.startsWith('ar/') ? 'href="/ar/oet-at-home.html' : 'href="/oet-at-home.html')) fail(`${page}: the hub must link the paper directory and the OET@Home guide`);
+    }
+    for (const page of ['oet-paper-test-centres-2027.html', 'ar/oet-paper-test-centres-2027.html']) {
+      const main = mainOf(distHtml[page] || '');
+      const ids = [...main.matchAll(/<section class="oet-venues__country" id="([a-z-]+)"/g)].map((m) => m[1]);
+      if (ids.slice().sort().join() !== PAPER_2027.slice().sort().join()) fail(`${page}: must cover exactly the 16 paper countries (found ${ids.length})`);
+      const paper = centres.countries.filter((c) => c.paper2027).reduce((n, c) => n + c.venues.filter((v) => v.mode === 'paper').length, 0);
+      if ((main.match(/<tr data-mode="paper"/g) || []).length !== paper || /<tr data-mode="computer"/.test(main)) fail(`${page}: must list the ${paper} paper records of the 16 countries and no computer venue`);
+      const jan = centres.countries.reduce((n, c) => n + c.venues.filter((v) => v.jan2027).length, 0);
+      if ((main.match(/ data-jan2027>/g) || []).length !== jan) fail(`${page}: ${jan} paper records carry OET's January 2027 flag`);
+      const v = visibleText(main);
+      if (!/customer[- ]care|خدمة عملاء|خدمة العملاء/.test(v)) fail(`${page}: the 16-country list is attributed to the OET customer-care email, not to oet.com`);
+      if (!/nursing and medicine only|للتمريض والطب فقط|التمريض والطب فقط/.test(v)) fail(`${page}: from January 2027 paper is for Nursing and Medicine only`);
+    }
+    const checked = centres.checked;
+    for (const page of ['oet-test-centres.html', 'oet-paper-test-centres-2027.html']) if (!visibleText(mainOf(distHtml[page] || '')).includes(`${Number(checked.slice(8))} ${['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'][Number(checked.slice(5, 7)) - 1]} ${checked.slice(0, 4)}`)) fail(`${page}: must show the date the venues were last checked (${checked})`);
+    // no page claims an affiliation with a test centre, and no venue is typed outside the dataset on the two directory pages
+    for (const page of ['oet-test-centres.html', 'ar/oet-test-centres.html', 'oet-paper-test-centres-2027.html', 'ar/oet-paper-test-centres-2027.html'])
+      if (!/not affiliated|independent|مستقل|لا نتبع|ليست تابعة|غير تابع/.test(visibleText(mainOf(distHtml[page] || '')))) fail(`${page}: must state that we are independent of OET and of the test centres`);
+    // the January 2027 announcement links the 16-country directory; each country page links its section of the hub
+    for (const [page, pre] of [['oet-paper-test-2027-changes.html', ''], ['ar/oet-paper-test-2027-changes.html', '/ar']])
+      for (const u of [`${pre}/oet-paper-test-centres-2027.html`, `${pre}/oet-test-centres.html`]) if (!mainOf(distHtml[page] || '').includes(`href="${u}`)) fail(`${page}: must link ${u}`);
+    for (const c of centres.countries.filter((x) => x.coursePage))
+      for (const pre of ['', 'ar/']) if (!mainOf(distHtml[`${pre}${c.coursePage}.html`] || '').includes(`href="/${pre}oet-test-centres.html#${c.id}"`)) fail(`${pre}${c.coursePage}.html: must link its section of the test-centre directory (/${pre}oet-test-centres.html#${c.id})`);
+    const ht = readFileSync(path.join(ROOT, '.htaccess'), 'utf8');
+    if (!ht.includes('RewriteRule ^(ar/)?oet-test-centres/paper-2027/?$ https://%{HTTP_HOST}/$1oet-paper-test-centres-2027.html [R=301,L]') || !ht.includes('RewriteRule ^(ar/)?oet-test-centres/([a-z-]+)/?$ https://%{HTTP_HOST}/$1oet-test-centres.html#$2 [R=301,NE,L]'))
+      fail('.htaccess: the folder-style test-centre URLs of the brief must 301 to the published pages');
+  }
+
+  // -- P1 clubbing + the 12-profession matrix: rendered from regulators.json
+  {
+    const accepted = regs.regulators.filter((r) => r.oet === 'accepted');
+    for (const page of ['oet-clubbing-rules.html', 'ar/oet-clubbing-rules.html']) {
+      const main = mainOf(distHtml[page] || '');
+      const rows = [...main.matchAll(/<tr data-combine="([a-z-]+)">/g)].map((m) => m[1]);
+      if (rows.length !== accepted.length) fail(`${page}: the clubbing table shows ${rows.length} regulators, regulators.json has ${accepted.length} that accept OET`);
+      if (rows.filter((x) => x === 'yes').length !== accepted.filter((r) => r.combine === 'yes').length) fail(`${page}: the count of regulators that combine two sittings differs from regulators.json`);
+    }
+    const matrix = mainOf(distHtml['oet-recognition-by-country.html'] || '');
+    for (const p of PROFESSION_IDS) if (!matrix.includes(`<section class="oet-matrix__profession" id="profession-${p}">`)) fail(`oet-recognition-by-country.html: the matrix must address ${p} (all 12 OET professions)`);
+    for (const d of regs.destinations) if (!matrix.includes(`href="${d.guide}"`)) fail(`oet-recognition-by-country.html: must link the ${d.en} pathway guide (${d.guide})`);
+    // the Ahpra figures the brief verified (23 April 2026) stay exactly these in the dataset
+    const ahpra = regs.regulators.find((r) => r.id === 'ahpra');
+    if (!ahpra || JSON.stringify(ahpra.scores) !== '{"L":350,"R":360,"W":350,"S":360}' || JSON.stringify(ahpra.floors) !== '{"L":320,"R":340,"W":350,"S":350}' || ahpra.sittings !== 2 || ahpra.windowMonths !== 12 || ahpra.formats.home !== 'not-accepted')
+      fail('regulators.json: Ahpra must be L350 R360 W350 S360 (tests from 23 April 2026), two sittings within 12 months with floors 320 / 340 / 350 / 350, OET@Home not accepted');
+  }
+
+  // -- P1 / P2 pathway guides: each new guide is a dated article with official sources, and the navigation exposes the hubs
+  {
+    for (const page of ['canada-pathway-guide.html', 'ireland-pathway-guide.html', 'new-zealand-pathway-guide.html', 'singapore-pathway-guide.html']) {
+      const html = distHtml[page] || '';
+      const main = mainOf(html);
+      if (!nodesOfType(ldBlocks(html), 'BreadcrumbList').length || !(nodesOfType(ldBlocks(html), 'BlogPosting').length || nodesOfType(ldBlocks(html), 'Article').length)) fail(`${page}: needs Article and BreadcrumbList structured data`);
+      if ((main.match(/<a\b[^>]*href="https:\/\/(?!oetwithdrhesham|app\.oetwithdrhesham|wa\.me|apps\.apple|play\.google|oet\.com|support\.oet\.com)[^"]+"/g) || []).length < 4) fail(`${page}: must link the regulators' own pages as sources`);
+      if (!/27 november 2026/.test(visibleText(main))) fail(`${page}: must show the date its rules were last verified`);
+      if (!/not confirmed/.test(visibleText(main))) fail(`${page}: unverified points must be written as "not confirmed", not left out or assumed`);
+      for (const u of ['/oet-recognition-by-country.html', '/oet-score-requirements.html']) if (!main.includes(`href="${u}`)) fail(`${page}: must link ${u}`);
+    }
+    const nav = ((distHtml['oet-tips.html'] || '').match(/<nav class="vl-mobile-menu-active"[\s\S]*?<\/nav>/) || [''])[0];
+    for (const u of ['/canada-pathway-guide.html', '/ireland-pathway-guide.html', '/new-zealand-pathway-guide.html', '/singapore-pathway-guide.html', '/oet-test-centres.html', '/oet-paper-test-centres-2027.html', '/oet-at-home.html', '/oet-clubbing-rules.html', '/oet-recognition-by-country.html'])
+      if (!nav.includes(`href="${u}"`)) fail(`main navigation: ${u} must be reachable from Pathway Guidelines / Free Resources (brief of 26 Nov 2026)`);
+    const blog = distHtml['blog/index.html'] || '';
+    for (const u of ['/oet-test-centres.html', '/oet-at-home.html', '/oet-for-pharmacists-usa.html', '/oet-clubbing-rules.html', '/canada-pathway-guide.html', '/ireland-pathway-guide.html', '/new-zealand-pathway-guide.html', '/singapore-pathway-guide.html', '/oet-recognition-by-country.html', '/oet-paper-test-centres-2027.html'])
+      if (!blog.includes(`href="${u}"`)) fail(`blog/index.html: must list ${u}`);
+  }
 }
 
 if (failures) {

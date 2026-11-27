@@ -1,0 +1,54 @@
+/* Test-centre directory and regulator tables (owner brief of 26 Nov 2026). Markup comes from site/src/lib/regdata.mjs;
+   loaded only by pages that use a data marker. Tables scroll inside their own wrapper, never the page. */
+.oet-data-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 0 18px; border: 1px solid #e4dcff; border-radius: 14px; background: #fff; }
+.oet-data-wrap:focus-visible { outline: 3px solid #7c3aed; outline-offset: 2px; }
+.oet-data-table { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 15px; line-height: 1.5; color: #2b2750; }
+.oet-data-table th, .oet-data-table td { padding: 12px 14px; text-align: start; vertical-align: top; border-bottom: 1px solid #eee9ff; }
+.oet-data-table thead th { background: #f6f3ff; color: #1f1b4d; font-weight: 800; font-size: 14px; white-space: nowrap; position: sticky; top: 0; }
+.oet-data-table tbody tr:last-child td { border-bottom: 0; }
+.oet-data-table tbody tr:nth-child(even) td { background: #fcfbff; }
+.oet-data-table a { color: #5b3ff1; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.oet-data-sub { color: #5f5b86; font-size: 13.5px; }
+.oet-venue-table td:nth-child(3) { min-width: 260px; }
+.oet-venue-table td:nth-child(5) { min-width: 220px; }
+.oet-data-empty, .oet-data-checked { color: #5f5b86; font-size: 14.5px; }
+.oet-data-checked a { color: #5b3ff1; font-weight: 700; }
+
+.oet-mode, .oet-status { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 13px; font-weight: 800; line-height: 1.5; white-space: nowrap; }
+.oet-mode--computer { background: #e8f1ff; color: #14479a; }
+.oet-mode--paper { background: #fff1dc; color: #7a4a00; }
+.oet-status--accepted { background: #e2f6e9; color: #12602f; }
+.oet-status--conditional { background: #fff1dc; color: #7a4a00; }
+.oet-status--not-accepted { background: #fde7e7; color: #8f1d1d; }
+.oet-status--not-confirmed, .oet-status--not-stated, .oet-status--not-listed { background: #eeedf5; color: #46436b; }
+
+.oet-venues__filters { display: grid; grid-template-columns: 1fr; gap: 14px; padding: 18px; margin: 0 0 14px; border: 1px solid #e4dcff; border-radius: 16px; background: #f9f7ff; }
+.oet-venues__filters label { display: flex; flex-direction: column; gap: 6px; margin: 0; font-weight: 700; color: #1f1b4d; font-size: 14.5px; }
+.oet-venues__filters select, .oet-venues__filters input { width: 100%; min-height: 46px; padding: 8px 12px; border: 1px solid #cfc6f5; border-radius: 10px; background: #fff; color: #1f1b4d; font-size: 16px; }
+.oet-venues__filters select:focus, .oet-venues__filters input:focus { border-color: #7c3aed; outline: none; box-shadow: 0 0 0 4px rgba(124, 58, 237, .18); }
+.oet-venues__status { font-weight: 800; color: #1f1b4d; margin: 0 0 8px; }
+.oet-venues__profnote, .oet-venues__empty { padding: 12px 16px; border-radius: 12px; background: #fff7e8; color: #5c3a00; margin: 0 0 14px; }
+.oet-venues__jump ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 26px; padding: 0; }
+.oet-venues__jump a { display: inline-flex; align-items: center; min-height: 40px; padding: 6px 14px; border: 1px solid #d9d0ff; border-radius: 999px; background: #fff; color: #3b2ca8; font-weight: 700; font-size: 14.5px; text-decoration: none; }
+.oet-venues__jump a:hover, .oet-venues__jump a:focus-visible { border-color: #7c3aed; background: #f3efff; }
+.oet-venues__country, .oet-matrix__profession { margin: 0 0 34px; scroll-margin-top: 110px; }
+.oet-venues__country h3, .oet-venues__country h4, .oet-matrix__profession h3 { font-size: 22px; line-height: 1.3; color: #1f1b4d; margin: 0 0 8px; }
+.oet-venues__region { font-size: 24px; color: #1f1b4d; margin: 30px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #e4dcff; }
+.oet-venues__count { display: inline-block; margin-inline-start: 8px; padding: 2px 10px; border-radius: 999px; background: #f3efff; color: #4b2bd1; font-size: 13.5px; font-weight: 700; vertical-align: middle; }
+.oet-venues__meta { color: #4f4b7b; margin: 0 0 12px; }
+.oet-venues__meta a { color: #5b3ff1; font-weight: 700; }
+.oet-state-list { list-style: none; margin: 0 0 16px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 6px 14px; font-size: 14.5px; color: #2b2750; }
+.oet-state-list li { display: flex; justify-content: space-between; gap: 8px; padding: 6px 10px; border-radius: 8px; background: #f9f7ff; }
+.oet-state-list span { font-weight: 800; color: #4b2bd1; }
+[hidden] { display: none !important; }
+
+@media (min-width: 768px) {
+  .oet-venues__filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1100px) {
+  .oet-venues__filters { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 575px) {
+  .oet-data-table { font-size: 14px; min-width: 680px; }
+  .oet-data-table th, .oet-data-table td { padding: 10px 11px; }
+}

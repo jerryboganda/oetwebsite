@@ -1,0 +1,192 @@
+<link rel="stylesheet" href="/assets/css/oet-pathway.css">
+    <style>
+body.oet-live-site footer.vl-footer-10 { margin-top: 32px !important;
+            padding-top: 100px !important;
+            position: relative;
+            z-index: 1; }
+</style>
+    <style id="pathway-upgrade-css">
+    .pathway-hero { padding-top: 170px; }
+    .pathway-last-updated { margin-top: 18px; color: #6a648a; font-weight: 700; font-size: 14px; }
+    .pathway-trust-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 26px; }
+    .pathway-trust-card { background: rgba(255,255,255,0.86); border: 1px solid rgba(124,58,237,0.14); border-radius: 16px; padding: 16px; box-shadow: 0 16px 32px rgba(16,19,79,0.07); }
+    .pathway-trust-card strong { display: block; color: #7c3aed; font-size: 28px; line-height: 1; margin-bottom: 8px; }
+    .pathway-trust-card span { color: #5f5a82; font-weight: 700; line-height: 1.35; }
+    .pathway-mini-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; background: #f0ebff; color: #7c3aed; font-weight: 800; font-size: 13px; margin-bottom: 14px; }
+    .pathway-section-kicker { color: #7c3aed; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; margin-bottom: 10px; }
+    .pathway-profession-card { background: #ffffff; border: 1px solid rgba(124,58,237,0.14); border-radius: 18px; padding: 28px; height: 100%; box-shadow: 0 18px 38px rgba(16,19,79,0.06); }
+    .pathway-profession-card h3 { color: #10134f; font-size: 26px; margin: 10px 0 12px; }
+    .pathway-profession-meta { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 18px; }
+    .pathway-profession-meta span { padding: 8px 10px; border-radius: 10px; background: #f7f4ff; color: #4f3bf0; font-weight: 800; font-size: 13px; }
+    .pathway-step-list { counter-reset: pathwayStep; display: grid; gap: 14px; margin: 20px 0 0; }
+    .pathway-step { counter-increment: pathwayStep; display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 14px; align-items: start; background: #ffffff; border: 1px solid rgba(124,58,237,0.13); border-radius: 16px; padding: 16px; box-shadow: 0 12px 24px rgba(16,19,79,0.05); }
+    .pathway-step::before { content: counter(pathwayStep, decimal-leading-zero); width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; color: #ffffff; background: linear-gradient(135deg, #7c3aed, #8b5cf6); font-weight: 900; }
+    .pathway-step strong { display: block; color: #10134f; margin-bottom: 4px; }
+    .pathway-step span { color: #5f5a82; line-height: 1.55; }
+    .pathway-focus-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 24px; }
+    .pathway-focus-card { background: #ffffff; border: 1px solid rgba(124,58,237,0.13); border-radius: 16px; padding: 20px; height: 100%; }
+    .pathway-focus-card h4 { color: #10134f; font-size: 18px; margin: 12px 0 8px; }
+    .pathway-focus-card p { color: #5f5a82; line-height: 1.55; margin: 0; }
+    .pathway-warning { background: #fff8ee; border: 1px solid rgba(218,140,26,0.26); color: #5d4212; border-radius: 16px; padding: 18px; line-height: 1.6; }
+    .pathway-source-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
+    .pathway-source-link { display: flex; gap: 12px; align-items: flex-start; min-height: 74px; padding: 16px; border-radius: 14px; background: #ffffff; border: 1px solid rgba(124,58,237,0.14); color: #10134f; font-weight: 800; text-decoration: none; box-shadow: 0 12px 24px rgba(16,19,79,0.05); }
+    .pathway-source-link i { color: #7c3aed; margin-top: 4px; }
+    .pathway-source-link small { display: block; color: #6a648a; font-weight: 600; margin-top: 4px; line-height: 1.35; }
+    .pathway-btn.oet-community-cta { cursor: pointer; }
+    @media (max-width: 1199px) { .pathway-focus-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 767px) {
+        .pathway-hero { padding-top: 120px; }
+        .pathway-trust-grid, .pathway-focus-grid, .pathway-source-grid { grid-template-columns: 1fr; }
+        .pathway-profession-card { padding: 22px; }
+        .pathway-step { grid-template-columns: 42px minmax(0, 1fr); }
+        .pathway-step::before { width: 42px; height: 42px; border-radius: 12px; }
+    }
+</style>
+    <style>
+    .pathway-table-wrap { overflow-x: auto; }
+    .pathway-table--wide td, .pathway-table--wide th { padding: 13px 12px; font-size: 15px; line-height: 1.5; }
+    .pathway-table a, .pathway-warning a, .pathway-disclaimer a, .pathway-card a, .pathway-muted a, .pathway-list a, .pathway-step a { color: #5b3ff1; font-weight: 700; }
+    .pathway-profession-card h2 { color: #10134f; font-size: 26px; line-height: 1.25; margin: 10px 0 12px; }
+    .pathway-profession-card .pathway-table-wrap { margin: 6px 0 22px; }
+    .pathway-source-link:hover { border-color: rgba(124,58,237,0.32); }
+</style>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Ireland Pathway Guide 2027 for OET Candidates",
+    "url": "https://oetwithdrhesham.co.uk/ireland-pathway-guide.html",
+    "description": "Ireland pathway guide for OET candidates: NMBI, Medical Council, PSI, CORU and Dental Council scores, sittings, validity and OET@Home rules, with sources.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "OET with Dr Ahmed Hesham",
+      "url": "https://oetwithdrhesham.co.uk"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Ireland Pathway Guide 2027 for OET Candidates",
+    "description": "Ireland pathway guide for OET candidates: NMBI, Medical Council, PSI, CORU and Dental Council scores, sittings, validity and OET@Home rules, with sources.",
+    "image": "https://oetwithdrhesham.co.uk/assets/img/blog/ireland-pathway-guide.webp",
+    "datePublished": "2026-11-27",
+    "dateModified": "2026-11-27",
+    "author": {
+      "@type": "Person",
+      "@id": "https://oetwithdrhesham.co.uk/#drhesham",
+      "name": "Dr Ahmed Hesham",
+      "url": "https://oetwithdrhesham.co.uk/about.html",
+      "jobTitle": "Medical Doctor & OET Educator",
+      "image": "https://oetwithdrhesham.co.uk/assets/img/hero/dr-hesham-2026-960.webp",
+      "sameAs": [
+        "https://www.linkedin.com/in/ahmed-hesham-ibrahim-3b44281b3",
+        "https://www.youtube.com/@drhesham222"
+      ]
+    },
+    "publisher": {
+      "@type": "Organization",
+      "@id": "https://oetwithdrhesham.co.uk/#organization",
+      "name": "OET with Dr Hesham",
+      "url": "https://oetwithdrhesham.co.uk/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://oetwithdrhesham.co.uk/assets/img/logo/platform-logo.png"
+      }
+    },
+    "mainEntityOfPage": "https://oetwithdrhesham.co.uk/ireland-pathway-guide.html"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://oetwithdrhesham.co.uk/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "OET Blog",
+        "item": "https://oetwithdrhesham.co.uk/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Pathway Guides",
+        "item": "https://oetwithdrhesham.co.uk/blog/#pathways"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Ireland Pathway Guide",
+        "item": "https://oetwithdrhesham.co.uk/ireland-pathway-guide.html"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Ireland accept OET?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes for most health professions, but each regulator sets its own rule. NMBI, the Medical Council, PSI, CORU and the Dental Council all list OET on their English language pages. We could not confirm the Veterinary Council of Ireland's rule, so vets should check with it directly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What OET score do nurses need for NMBI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "NMBI asks for OET Nursing with grade B in three components and C+ in one, in a single result that is less than two years old. NMBI does not accept combined results or OET at home."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What OET score do doctors need for the Irish Medical Council?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For applications received on or after 1 March 2025, the Medical Council asks for OET Medicine with at least grade B in each module, in a single sitting within the last two years. It does not accept OET@Home."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I combine two OET sittings for Ireland?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Only CORU's page allows it: a maximum of two sittings from the same test provider, with the repeat taken within six months and no OET sub-test below C+. NMBI, the Medical Council and PSI ask for one sitting. The Dental Council's page does not say, so plan for one sitting."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is OET@Home accepted in Ireland?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "NMBI, the Medical Council, PSI and the Dental Council say they do not accept at-home tests. CORU's wording is unclear, so treat it as not confirmed and ask CORU in writing before you book."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I still take OET on paper in Ireland in 2027?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "From January 2027 OET on Paper continues for Nursing and Medicine only. OET's customer care team listed Ireland among the 16 countries that keep paper testing, but paper sessions are never guaranteed. All other professions sit OET on Computer at a venue."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which OET version do CORU professions need?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The version for your own profession. CORU lists OET Physiotherapy, Occupational Therapy, Dietetics, Optometry, Podiatry, Radiography and Speech Pathology, with three different score lines, so read the line for your registration board."
+        }
+      }
+    ]
+  }
+]
+    </script>

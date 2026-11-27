@@ -1,0 +1,2095 @@
+{
+ "checked": "2026-11-27",
+ "source": {
+  "name": "OET official venue finder",
+  "url": "https://oet.com/test/book-a-test"
+ },
+ "note": "Venue names and addresses are recorded as OET keys them in its own venue finder (read 27 Nov 2026). A record shows that the venue exists in the finder, not that a seat or a date is open. \"jan2027\": true marks paper records OET added for 2027 with the title \"Online Speaking test at venue\". \"paper2027\" marks the 16 countries of the OET customer-care email (Nov 2026). Re-check the finder and update \"checked\" before changing any venue.",
+ "countries": [
+  {
+   "id": "egypt",
+   "name": "Egypt",
+   "nameAr": "مصر",
+   "region": "Middle East and Africa",
+   "paper2027": true,
+   "coursePage": "oet-course-egypt",
+   "venues": [
+    {
+     "name": "American Center",
+     "city": "Alexandria",
+     "address": "American Center,3 Pharaana St., Azarita Alexandria 21111 Egypt",
+     "mode": "computer",
+     "record": "content-6576"
+    },
+    {
+     "name": "AMIDEAST - Cairo",
+     "city": "Cairo",
+     "address": "Amideast,38 Mohie El Din Abo El Ezz Street Dokki, Giza Cairo Egypt",
+     "mode": "computer",
+     "record": "content-5940"
+    },
+    {
+     "name": "American Center - Alexandria Egypt (8710) - Online Speaking test at venue",
+     "city": "Alexandria",
+     "address": "American Center, 3 Pharaana St., Azarita, Alexandria 21111, Egypt",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21212"
+    },
+    {
+     "name": "AMIDEAST - Cairo Egypt (8708) - Online Speaking test at venue",
+     "city": "Cairo",
+     "address": "AMIDEAST, 38 Mohie El Din Abo El Ezz Street, Dokki, Giza, Cairo, Egypt",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21213"
+    },
+    {
+     "name": "IEC - AASTMT",
+     "city": "Alexandria",
+     "address": "Arab Academy for Science and Technology and Maritime Transport, Miami Campus, Gamal Abdel Nasser Street, Main Building, Ground Floor, Miami Alexandria Egypt",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5715"
+    },
+    {
+     "name": "Future University (FUE)",
+     "city": "Cairo",
+     "address": "Future University in Egypt (FUE) 90th Street, Fifth Settlement New Cairo, Cairo 11835",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5698"
+    },
+    {
+     "name": "IEC – AASTMT – Smart Village",
+     "city": "GIZA",
+     "address": "28th Km- Cairo-Alexandria Desert Road- Smart Village Arab Academy for Science and Technology (AASTMT) Building B2401, Fourth Floor Egypt, Giza",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5716"
+    }
+   ]
+  },
+  {
+   "id": "saudi-arabia",
+   "name": "Saudi Arabia",
+   "nameAr": "السعودية",
+   "region": "Middle East and Africa",
+   "paper2027": true,
+   "coursePage": "oet-course-saudi-arabia",
+   "venues": [
+    {
+     "name": "National Institute, 1st Floor, WOMEN",
+     "city": "Al Joaf (Sakaka)",
+     "address": "National Institute, 1St Floor,King Fahd Street, Sakaka, Women Al Joaf (Sakaka) 4241 Saudi Arabia",
+     "mode": "computer",
+     "record": "content-6891"
+    },
+    {
+     "name": "AL JOAF - MEN ONLY, SAUDI ARABIA",
+     "city": "Al Joaf Men (Sakaka)",
+     "address": "Al Aziziyah 72345 1st Floor, Aisha bint Abi Bakr Street, Sakaka Al Joaf Men Saudi Arabia",
+     "mode": "computer",
+     "record": "content-6890"
+    },
+    {
+     "name": "MindMerge Training Center, Mousa Center",
+     "city": "Al Khobar",
+     "address": "Mindmerge Training Center, Mousa Center,Entrance C From The Back Of The Building Floor 1, King Faisal Street, Coastal Road Al Khobar 31952 Saudi Arabia",
+     "mode": "computer",
+     "record": "content-5926"
+    },
+    {
+     "name": "ALSHAFI INSTITUTE FOR TRAINING, MEN",
+     "city": "El Taef Men",
+     "address": "Alshafi Institute For Training (New Horizons/,Direct English) Next To Stc Building (Sharp) El Taef Men 26524-2244 Saudi Arabia",
+     "mode": "computer",
+     "record": "content-6912"
+    },
+    {
+     "name": "ALSHAFI INSTITUTE FOR TRAINING, WOMEN",
+     "city": "El Taef",
+     "address": "Alshafi Institute For Training (New Horizons/,Direct English)Next To Stc Building Back Side El Taef 26524-2244 Saudi Arabia",
+     "mode": "computer",
+     "record": "content-6913"
+    },
+    {
+     "name": "Institute Miqyas Al-Ma'rifah For Training, MEN",
+     "city": "Hail",
+     "address": "Institute Miqyas Al-Ma'Rifah For Training Men,1St Floor, 3763 - Sheikh Abdulaziz Bin Baz St Al-Matar District Hail 55421 - 7042 Saudi Arabia",
+     "mode": "computer",
+     "record": "content-6914"
+    },
+    {
+     "name": "Institute Miqyas Al-Ma'rifah For Training, WOMEN",
+     "city": "Hail",
+     "address": "Institute Miqyas Al-Ma'Rifah For Training Women,1St Floor, 3763 - Sheikh Abdulaziz Bin Baz St Al-Matar District Hail 55421 - 7042 Saudi Arabia",
+     "mode": "computer",
+     "record": "content-6915"
+    },
+    {
+     "name": "Saudi Business Center",
+     "city": "Jeddah",
+     "address": "Saudi Business Center, 4Th Flr, Office No.414,Al Madinah Al Munawarah Road, Alsharafiyah Jeddah 22234 Saudi Arabia",
+     "mode": "computer",
+     "record": "content-5912"
+    },
+    {
+     "name": "SCFHS Building, 1st Floor, Palestine Street",
+     "city": "Jeddah",
+     "address": "Scfhs Building, 1St Floor, Palestine Street,Next To Dallah Tower Jeddah Saudi Arabia",
+     "mode": "computer",
+     "record": "content-6918"
+    },
+    {
+     "name": "AMIDEAST Riyadh",
+     "city": "Riyadh",
+     "address": "AMIDEAST Saudi Arabia, King Fahad Branch Rd, 2nd Floor Al Murabba, Above Artis Medical Clinic Riyadh 12612, Saudi Arabia",
+     "mode": "computer",
+     "record": "content-5918"
+    },
+    {
+     "name": "Riyadh , SAUDI ARABIA",
+     "city": "Riyadh",
+     "address": "7027 Akaria Mall 12244 - 2455,3Rd Akaria Mall 7Th Floor- Computerized Exam Riyadh 11495 Saudi Arabia",
+     "mode": "computer",
+     "record": "content-6924"
+    },
+    {
+     "name": "Prometric test center-New Horizons",
+     "city": "Tabuk Men",
+     "address": "Prometric Test Center-New Horizons,Geber Ibn Hayyan Tabuk Men 47912 Saudi Arabia",
+     "mode": "computer",
+     "record": "content-6930"
+    },
+    {
+     "name": "Prometric Test Centre - New Horizons",
+     "city": "Tabuk Women",
+     "address": "Prometric Test Centre - New Horizons,Geber Ibn Hayyan Tabuk Women 47912 Saudi Arabia",
+     "mode": "computer",
+     "record": "content-6931"
+    },
+    {
+     "name": "Amideast Saudi Arabia - Riyadh Saudi Arabia (4373) - Online Speaking test at venue",
+     "city": "Riyadh",
+     "address": "Amideast Saudi Arabia 2nd Floor, King Fahad Branch Road, Above Abeer Medical Clinic, Al Murabba (Near Murabba Metro Station), Riyadh 12162, Saudi Arabia",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21211"
+    },
+    {
+     "name": "Dar al Hekma University - North Campus",
+     "city": "Jeddah",
+     "address": "4872 Prince Majid Rd Jeddah Makkah Province 22246 Saudi Arabia",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5670"
+    },
+    {
+     "name": "Alfaisal University",
+     "city": "Riyadh",
+     "address": "Takhassusi Road, Al Zahrawi Street , P.O. Box 50927 Riyadh Riyadh Province 11533 Saudi Arabia",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5637"
+    }
+   ]
+  },
+  {
+   "id": "uae",
+   "name": "United Arab Emirates",
+   "nameAr": "الإمارات",
+   "region": "Middle East and Africa",
+   "paper2027": true,
+   "coursePage": "oet-course-uae",
+   "venues": [
+    {
+     "name": "AMIDEAST, Abu Dhabi",
+     "city": "Abu Dhabi",
+     "address": "Amideast, Ground Floor Villa 100 And 102,Al Nahyan Commercial Complex Off Delma Street Al Nahyan Area Abu Dhabi United Arab Emirates",
+     "mode": "computer",
+     "record": "content-5917"
+    },
+    {
+     "name": "AMIDEAST Dubai",
+     "city": "Dubai",
+     "address": "Amideast Dubai, Office G01, Block 2B,Knowledge Village, Al Burouj Road, Al Sufouh Dubai United Arab Emirates",
+     "mode": "computer",
+     "record": "content-5920"
+    },
+    {
+     "name": "Amideast Abu Dhabi - Abu Dhabi UAE (8241) - Online Speaking test at venue",
+     "city": "Abu Dhabi",
+     "address": "Amideast Abu Dhabi, 100 Al Batoul St, Unit 100 - Villa 13B, Main Entrance, Ground Floor, Plaza 30, Al Nahyan Area, Abu Dhabi, United Arab Emirates",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21208"
+    },
+    {
+     "name": "Amideast Abu Dhabi (CFA) - Abu Dhabi UAE (4434) - Online Speaking test at venue",
+     "city": "Abu Dhabi",
+     "address": "100 Al Batoul St, Unit100 -, Villa13B (Main Entrance), Ground Floor, Plaza 30 - Al Nahyan area, Al Nahyan, P.O. Box 26446, Abu Dhabi 26446, United Arab Emirates",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21209"
+    },
+    {
+     "name": "CERT, Abu Dhabi",
+     "city": "Abu Dhabi",
+     "address": "CERT (HCT-Abu Dhabi Women's College), Behind Lebanon Flower restaurant. Opposite to Burjeel Hospital - Abu Dhabi, UAE",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5664"
+    },
+    {
+     "name": "Educate Learn Develop – Al Ain",
+     "city": "Al Ain",
+     "address": "Abu Dhabi University, Al Ain Campus Al Muwaij'iAlAl Sallan Al Ain Abu Dhabi United Arab Emirates",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5684"
+    },
+    {
+     "name": "Royal Science & Technology Institute Al Ain",
+     "city": "Al Ain",
+     "address": "244 Sultan Bin Wiqaish Al Dhaheri Street, Oud Bin Saghan Road 33, Al Muwaij'I Al Ain Abu Dhabi United Arab Emirates",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5772"
+    },
+    {
+     "name": "CERT - HCT DUBAI - AL NAHDA CAMPUS (OLD WOMEN'S COLLEGE)",
+     "city": "Dubai",
+     "address": "HCT- Dubai Al Nahda Women's College Campus, 55, Baghdad street , G Floor, Al Nahda 2, Dubai, Opposite Grand Service Station Al Qusais, Near Biryaniwalla & Co., Al Nadha, Dubai, UAE.",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5665"
+    },
+    {
+     "name": "CERT - HCT - Fujairah Men's College",
+     "city": "Fujairah",
+     "address": "HCT Fujairah Men's College. Sheikh Khalifa Bin Zayed Rd, Near City Center Fujairah - Fujairah - United Arab Emirates",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-6070"
+    },
+    {
+     "name": "CERT - HCT - Ras Al Khaimah Men's College",
+     "city": "Ras Al Khaimah",
+     "address": "Ras Al Khaimah Men's College , Sultan Al Kabeer East Street, Seih Al Araibi, Ras Al-Khaimah, UAE",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5663"
+    },
+    {
+     "name": "Educate Learn Develop – Sharjah",
+     "city": "Sharjah",
+     "address": "ALDAR Academy for Vocational Education, Al Gaizi Plaza, G Floor, 61A Street, Al Garhoud, Dubai, UAE",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5685"
+    },
+    {
+     "name": "Educate Learn Develop – Abu Dhabi",
+     "city": "",
+     "address": "Abu Dhabi University, Zayed City, Mussafah-Shabia Area Near Capital Mall – E22 , Abu Dhabi, United Arab Emirates",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-10086"
+    }
+   ]
+  },
+  {
+   "id": "turkey",
+   "name": "Turkey",
+   "nameAr": "تركيا",
+   "region": "Middle East and Africa",
+   "paper2027": true,
+   "venues": [
+    {
+     "name": "Turkish-American Association",
+     "city": "Ankara",
+     "address": "Turkish-American Association,Cinnah Caddesi 20, Kavaklidere Ankara 6690 Turkey",
+     "mode": "computer",
+     "record": "content-6986"
+    },
+    {
+     "name": "International Quality GuidanceTrainingService",
+     "city": "Istanbul",
+     "address": "International Quality Guidancetrainingservice,Onur Is Merkezi No:118 K:10, Esentepe Mah Buyukdere Cad, Sisli Istanbul 34394 Turkey",
+     "mode": "computer",
+     "record": "content-6988"
+    },
+    {
+     "name": "British Side, Istanbul, Turkey",
+     "city": "Istanbul",
+     "address": "CIHANNUMA MAH. BARBAROS BULVARI, NO:91 BESIKTAS ISTANBUL",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5645"
+    }
+   ]
+  },
+  {
+   "id": "ghana",
+   "name": "Ghana",
+   "nameAr": "غانا",
+   "region": "Middle East and Africa",
+   "paper2027": true,
+   "venues": [
+    {
+     "name": "Linear Assessment Services",
+     "city": "Accra",
+     "address": "Linear Assessment Services,1St Floor Total House Liberia Road Accra Ghana",
+     "mode": "computer",
+     "record": "content-5900"
+    },
+    {
+     "name": "Total Energies House - Accra Ghana (8238) - Online Speaking test at venue",
+     "city": "Accra",
+     "address": "Linear Assessment Services, 1st Floor Total Energies House, Liberia Road (near National Theatre), Accra, Ghana",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21217"
+    },
+    {
+     "name": "Wisconsin International University College",
+     "city": "Accra",
+     "address": "No. 23 Akoto Bamfo Street, Off Agbogba Street, Accra Greater Accra Region Ghana",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5793"
+    }
+   ]
+  },
+  {
+   "id": "kenya",
+   "name": "Kenya",
+   "nameAr": "كينيا",
+   "region": "Middle East and Africa",
+   "paper2027": true,
+   "venues": [
+    {
+     "name": "Computer Pride Limited",
+     "city": "Nairobi",
+     "address": "Computer Pride Limited,1St Floor, Jkuat Towers, Kenyatta Avenue (Previously Known As Icea Building) Nairobi Kenya",
+     "mode": "computer",
+     "record": "content-5895"
+    },
+    {
+     "name": "Computer Pride Limited - Nairobi Kenya (8282) - Online Speaking test at venue",
+     "city": "Nairobi",
+     "address": "Computer Pride Limited, 1st Floor, JKUAT Towers, Kenyatta Avenue, (Previously known as ICEA Building), Nairobi, Kenya",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21210"
+    },
+    {
+     "name": "KenyanNurse - Moi University, Eldoret",
+     "city": "Eldoret",
+     "address": "Moi University, College of Health sciences school of Medicine P.O BOX 4606, Eldoret 30100 Kenya",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-10117"
+    },
+    {
+     "name": "International University Pathways College",
+     "city": "Nairobi",
+     "address": "NO. 3 KANJATA ROAD, OFF JAMES GICHURU ROAD, LAVINGTON Nairobi Nairobi County 00400 Kenya",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5734"
+    }
+   ]
+  },
+  {
+   "id": "uk",
+   "name": "United Kingdom",
+   "nameAr": "المملكة المتحدة",
+   "region": "Europe",
+   "paper2027": true,
+   "venues": [
+    {
+     "name": "Birmingham City University, Faculty of Tech",
+     "city": "Birmingham",
+     "address": "Birmingham City University, Faculty Of Tech,Millennium Point, Curzon Street Birmingham B4 7Xg United Kingdom",
+     "mode": "computer",
+     "record": "content-7005"
+    },
+    {
+     "name": "Pitman Training Bristol",
+     "city": "Bristol",
+     "address": "Pitman Training Bristol, Unit 9, Ground Floor,Hide Market, Waterloo Road, St Phillips Bristol Bs2 0Pl United Kingdom",
+     "mode": "computer",
+     "record": "content-7012"
+    },
+    {
+     "name": "Mobile Testing Solutions",
+     "city": "Cardiff",
+     "address": "Mobile Testing Solutions, 5-7 Market Chambers,5Th Floor, St Mary'S Street Cardiff Cf101At United Kingdom",
+     "mode": "computer",
+     "record": "content-6041"
+    },
+    {
+     "name": "Pitman Training - Gemini Business Park",
+     "city": "Leeds",
+     "address": "Pitman Training - Gemini Business Park,Unit 8, Sheepscar Way Leeds Ls7 3Jb United Kingdom",
+     "mode": "computer",
+     "record": "content-6046"
+    },
+    {
+     "name": "High Holborn House",
+     "city": "London",
+     "address": "High Holborn House,52-54 High Holborn London Wc1V 6Rl United Kingdom",
+     "mode": "computer",
+     "record": "content-6042"
+    },
+    {
+     "name": "International Testing & Training Services Ltd",
+     "city": "Manchester",
+     "address": "International Testing & Training Services Ltd,Universal Square, Main Building, 3Rd Floor Devonshire St. North Manchester M12 6Jh United Kingdom",
+     "mode": "computer",
+     "record": "content-7060"
+    },
+    {
+     "name": "Peterborough Uk(Cfa)",
+     "city": "Peterborough, PE1 1YN",
+     "address": "Peterborough United Kingdom",
+     "mode": "computer",
+     "record": "content-7064"
+    },
+    {
+     "name": "Online Exams Sefton House",
+     "city": "Peterborough",
+     "address": "Online Exams Sefton House,Adam Court, Newark Rd Peterborough Pe1 5Pp United Kingdom",
+     "mode": "computer",
+     "record": "content-7065"
+    },
+    {
+     "name": "Belfast South Community Resources",
+     "city": "",
+     "address": "127-145 Sandy Row, Belfast BT12 5ET, United Kingdom",
+     "mode": "computer",
+     "record": "content-18242"
+    },
+    {
+     "name": "Leeds Media Centre - Leeds UK (4156) - Online Speaking test at venue",
+     "city": "Leeds",
+     "address": "21 Savile Mount, Leeds LS7 3HZ, United Kingdom",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21218"
+    },
+    {
+     "name": "High Holborn House - London UK (8495) - Online Speaking test at venue",
+     "city": "London",
+     "address": "High Holborn House, 52-54 High Holborn, London WC1V 6RL, United Kingdom",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21219"
+    },
+    {
+     "name": "ITTS London - Colet Court, London UK (5492) - Online Speaking test at venue",
+     "city": "London",
+     "address": "Colet Court Lower Ground Floor, 100 Hammersmith Road, London W6 7JP, United Kingdom",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21226"
+    },
+    {
+     "name": "ITTS London - Colet Court, London UK (5494) - Online Speaking test at venue",
+     "city": "London",
+     "address": "Colet Court Lower Ground Floor, 100 Hammersmith Road, London W6 7JP, United Kingdom",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21227"
+    },
+    {
+     "name": "Universal Square - Manchester UK (4537) - Online Speaking test at venue",
+     "city": "Manchester",
+     "address": "Universal Square, Main Building, 3rd Floor, Devonshire St. North, Manchester M12 6JH, United Kingdom",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21220"
+    },
+    {
+     "name": "Universal Square - Manchester UK (8652) - Online Speaking test at venue",
+     "city": "Manchester",
+     "address": "International Testing & Training Services Ltd, Universal Square, Main Building, 3rd Floor, Devonshire St. North, Manchester M12 6JH, United Kingdom",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21225"
+    },
+    {
+     "name": "Vistpro Exam Centre - Newcastle UK (4920) - Online Speaking test at venue",
+     "city": "Newcastle",
+     "address": "Vistpro Exam Centre, Unit 9, Bankside, The Watermark, Metro Riverside Park, Tyne & Wear, Newcastle NE11 9SY, United Kingdom",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21216"
+    },
+    {
+     "name": "International House Bristol",
+     "city": "Clifton, Bristol, Bristol",
+     "address": "2 Queens Avenue, Clifton, Bristol, BS8 1SE, UK",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5722"
+    },
+    {
+     "name": "International House London – Belfast",
+     "city": "Belfast, Northern Ireland",
+     "address": "Stranmills University College, Stranmillis Road, Belfast, Co. Antrim, BT9 5DY",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5884"
+    },
+    {
+     "name": "International House London Birmingham",
+     "city": "Birmingham",
+     "address": "Birmingham City University, Edgbaston Campus Westbourne Road Birmingham West Midlands B15 3TN United Kingdom",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5725"
+    },
+    {
+     "name": "Anglo-continental",
+     "city": "BourNEMOUTH",
+     "address": "ANGLO-CONTINENTAL 29-35 WIMBORNE ROAD BOURNEMOUTH DORSET BH2 6NA ENGLAND",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5639"
+    },
+    {
+     "name": "Medical English Plus",
+     "city": "Brighton",
+     "address": "Stanford Junior School, Stanford Road, Brighton, East Sussex, BN1 5PR",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5748"
+    },
+    {
+     "name": "International House London Cambridge",
+     "city": "Cambridge",
+     "address": "Anglia Ruskin University - Cambridge East Road Cambridge, CB1 1PT, UK",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5726"
+    },
+    {
+     "name": "Celtic English Academy, Cardiff",
+     "city": "Cardiff",
+     "address": "12-14 Park Grove, CF10 3BN, Cardiff",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5660"
+    },
+    {
+     "name": "International House London Chelmsford",
+     "city": "Chelmsford",
+     "address": "Anglia Ruskin University - Chelmsford Bishop Hall Lane Chelmsford, CM1 1SQ, UK",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5727"
+    },
+    {
+     "name": "International House London Edinburgh",
+     "city": "Edinburgh",
+     "address": "54 Manor Place Edinburgh Edinburgh EH37EH United Kingdom",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5728"
+    },
+    {
+     "name": "Centre of English Studies, Leeds",
+     "city": "Leeds",
+     "address": "CES Leeds School, 9 Park Place, Leeds, LS1 2RU",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5662"
+    },
+    {
+     "name": "Leicester College",
+     "city": "Leicester",
+     "address": "Leicester College Abbey Park Campus Painter Street Leicester LE1 3WA",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5739"
+    },
+    {
+     "name": "LILA Liverpool",
+     "city": "Liverpool",
+     "address": "New Barratt House, 47 North John Street, Liverpool, L2 6SG, UK",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5741"
+    },
+    {
+     "name": "Ealing, Hammersmith and West London College",
+     "city": "London",
+     "address": "Ealing, Hammersmith and West London College - Hammersmith Campus Gliddon Road Hammersmith, London, W14 9BL UK",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5675"
+    },
+    {
+     "name": "International House London",
+     "city": "London",
+     "address": "International House London 16 Stukeley Street, London WC2B 5LQ",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5724"
+    },
+    {
+     "name": "MTS Manchester",
+     "city": "Manchester",
+     "address": "Connell College, 301 Alan Turing Way, Manchester M11 3BS, UK",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5646"
+    },
+    {
+     "name": "International House London Newcastle",
+     "city": "Newcastle",
+     "address": "Gateshead College, Baltic Campus, Quarryfield Road, Baltic Business Quarter, Gateshead, Newcastle, NE8 3BE",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5730"
+    },
+    {
+     "name": "Accent International Torquay",
+     "city": "Torquay",
+     "address": "15 St Marychurch Rd Torquay Torbay TQ1 3HY United Kingdom",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5626"
+    }
+   ]
+  },
+  {
+   "id": "ireland",
+   "name": "Ireland",
+   "nameAr": "أيرلندا",
+   "region": "Europe",
+   "paper2027": true,
+   "venues": [
+    {
+     "name": "CORK , IRELAND",
+     "city": "Cork, Co Cork",
+     "address": "Unit 2,The Stables,Alfred Street Cork Ireland",
+     "mode": "computer",
+     "record": "content-6699"
+    },
+    {
+     "name": "Dublin , IRELAND",
+     "city": "Dublin, Co Dublin",
+     "address": "Ground Floor, La Touche House,Ifsc Dublin D01 R5P3 Ireland",
+     "mode": "computer",
+     "record": "content-6710"
+    },
+    {
+     "name": "The Stables - Cork Ireland (8440) - Online Speaking test at venue",
+     "city": "Cork",
+     "address": "Unit 2,The Stables, Alfred Street, Cork, Ireland",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21215"
+    },
+    {
+     "name": "One Custom House Plaza - Dublin Ireland (8044) - Online Speaking test at venue",
+     "city": "Dublin",
+     "address": "Suite 1A, Level One, One Custom House Plaza, IFSC, Dublin D01 C2C5, Ireland",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21214"
+    },
+    {
+     "name": "Cork English College",
+     "city": "Cork",
+     "address": "St. Patrick's Bridge Cork County Cork T23 D863 Ireland",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5669"
+    },
+    {
+     "name": "Centre of English Studies, Dublin",
+     "city": "Dublin",
+     "address": "LRW: Camden Court Hotel, Camden Street Lower, Saint Kevin's, Dublin, D02 W086 S: 31 Dame Street, Dublin 2,D02 CX73",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5661"
+    },
+    {
+     "name": "International House London Galway, Ireland",
+     "city": "Galway",
+     "address": "Atlantic Language School Galway, Fairgreen House, Fairgreen Road, Galway, Ireland",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5729"
+    }
+   ]
+  },
+  {
+   "id": "india",
+   "name": "India",
+   "nameAr": "الهند",
+   "region": "Asia",
+   "paper2027": true,
+   "venues": [
+    {
+     "name": "Ahmedabad , INDIA",
+     "city": "Ahmedabad",
+     "address": "Prometric Testing Pvt Ltd,5Th Floor, Unit 501, Parshwanath Esquare, Prahaladnagar Corporate Road, Prahaladnagar, Satellite Ahmedabad 3800051 India",
+     "mode": "computer",
+     "record": "content-5915"
+    },
+    {
+     "name": "Bengaluru , INDIA",
+     "city": "Bengaluru",
+     "address": "Prometric Testing Pvt Ltd,3Rd Floor Tower B Prestige Shantiniketan White Field Itpl Road Bangalore South Taluk Bengaluru 560048 India",
+     "mode": "computer",
+     "record": "content-5904"
+    },
+    {
+     "name": "Chennai , INDIA",
+     "city": "Chennai",
+     "address": "Prometric Testing Pvt Ltd,Unit #8,3Rd Floor, Centennial Square, No 6A, Dr Ambedkar Road, Kodambakkam, Chennai 600024 India",
+     "mode": "computer",
+     "record": "content-5905"
+    },
+    {
+     "name": "GURGAON , INDIA",
+     "city": "Gurgaon",
+     "address": "Prometric Testing Pvt Ltd,Iris Tech Park, 2Nd Floor Tower A, Sector 48, Sohna Road Sohna Road Gurgaon 122018 India",
+     "mode": "computer",
+     "record": "content-6638"
+    },
+    {
+     "name": "GURGAON , INDIA",
+     "city": "Gurgaon",
+     "address": "Prometric Testing Pvt Ltd,Iris Tech Park, 2Nd Floor Tower A, Sector 48, Sohna Road Sohna Road Gurgaon 122018 India",
+     "mode": "computer",
+     "record": "content-5931"
+    },
+    {
+     "name": "HYDERABAD , INDIA",
+     "city": "Hyderabad",
+     "address": "Prometric Testing Pvt Ltd,9Th Floor, Unit - 2,Kapil Towers It Block Survey No 115/1, It Park, Opp Icici Bldg, Nanakramguda,Serilingampaly Mandal,Gachibowli Hyderabad 500032 India",
+     "mode": "computer",
+     "record": "content-5908"
+    },
+    {
+     "name": "Kolkata , INDIA",
+     "city": "Kolkata",
+     "address": "Prometric Testing Pvt Ltd,Millennium City,9Th Floor Block Dn-62, Sector V, Salt Lake Kolkata 700091 India",
+     "mode": "computer",
+     "record": "content-5914"
+    },
+    {
+     "name": "Mumbai , INDIA",
+     "city": "Mumbai",
+     "address": "Prometric Testing Pvt Ltd,6Th Floor,Techniplex1 (Gate No.2),Goregaon(W) Ratnakar Bank Building, Balwa Group, Off Veer Savarkar Flyover Goregaon (W) Mumbai India",
+     "mode": "computer",
+     "record": "content-5910"
+    },
+    {
+     "name": "Thiruvananthapuram , INDIA",
+     "city": "Thiruvananthapuram",
+     "address": "Prometric Testing Pvt. Ltd,7Th Floor, K.E.K Towers Opposite Trivandrum Club Vazhuthacaud Thiruvananthapuram 695010 India",
+     "mode": "computer",
+     "record": "content-5902"
+    },
+    {
+     "name": "Prometric Testing Pvt Ltd - Ahmedabad India (8902) - Online Speaking test at venue",
+     "city": "Ahmedabad",
+     "address": "Prometric Testing Pvt Ltd, 5th Floor, Unit 501, Parshwanath Esquare, Prahaladnagar Corporate Road, Prahaladnagar, Satellite, Ahmedabad 3800051, India",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21200"
+    },
+    {
+     "name": "Prometric Testing Pvt Ltd - Bangalore India (8918) - Online Speaking test at venue",
+     "city": "Bengaluru",
+     "address": "Prometric Testing Pvt Ltd, 3rd Floor Tower B Prestige ShantiNiketan, White Field ITPL Road, Bangalore South Taluk, Bengaluru 560048, India",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21199"
+    },
+    {
+     "name": "Prometric Testing Pvt Ltd - Chennai India (8909) - Online Speaking test at venue",
+     "city": "Chennai",
+     "address": "Prometric Testing Pvt Ltd, Unit #8,3rd Floor, Centennial Square, No 6A, Dr Ambedkar Road, Kodambakkam, Chennai 600024, India",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21202"
+    },
+    {
+     "name": "Prometric Testing Pvt Ltd, Iris Tech Park - GURGAON India (8927) - Online Speaking test at venue",
+     "city": "Gurgaon",
+     "address": "PROMETRIC TESTING PVT LTD, Iris Tech Park, 2nd Floor Tower A, Sector 48, Sohna Road, Sohna Road, Gurgaon 122018, India",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21198"
+    },
+    {
+     "name": "Prometric Testing Pvt Ltd - Hyderabad India (8908) - Online Speaking test at venue",
+     "city": "Hyderabad",
+     "address": "Prometric Testing Pvt Ltd, 9th Floor, Unit - 2,Kapil Towers IT Block, Survey No 115/1, IT Park, Opp ICICI bldg, Nanakramguda,Serilingampaly Mandal,Gachibowli, Hyderabad 500032, India",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21203"
+    },
+    {
+     "name": "Prometric Testing Pvt Ltd - Calcutta India (8906) - Online Speaking test at venue",
+     "city": "Kolkata",
+     "address": "Prometric Testing Pvt Ltd, Millennium City,9th Floor, Block DN-62, Sector V, Salt Lake, Kolkata 700091, India",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21204"
+    },
+    {
+     "name": "Prometric Testing Pvt Ltd - Trivandrum India (8907) - Online Speaking test at venue",
+     "city": "Thiruvananthapuram",
+     "address": "Prometric Testing Pvt. Ltd, 7th Floor, K.E.K Towers, Opposite Trivandrum Club, Vazhuthacaud, Thiruvananthapuram 695010, India",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21201"
+    },
+    {
+     "name": "Ebek Ahmedabad",
+     "city": "Ahmedabad, Gujarat",
+     "address": "The New Tulip International School, Sterling City Road, Amidhara Society, Sterling City, Bopal, Ahmedabad, Gujarat",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5676"
+    },
+    {
+     "name": "MeritTrac - Bangalore",
+     "city": "Bangalore, Karnataka",
+     "address": "MeritTrac / St. Joseph's Institute of Management No. 28/1 Primrose Road, (Off M.G. Road), Near Trinity metro station Bengaluru, Karnataka 560025 India",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-12132"
+    },
+    {
+     "name": "PEAR Academy Bangalore",
+     "city": "Bengaluru, Karnataka",
+     "address": "Jyoti Nivas College Autonomous Hosur Road, Koramangala Bengaluru 560095",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5760"
+    },
+    {
+     "name": "Ebek Chennai",
+     "city": "Chennai, Tamil Nadu",
+     "address": "Ebek Language Laboratories Pvt. Limited Old No. 23, New No. 45, 1st Floor, 1st Main Road, West Shenoy Nagar Chennai - 600 030, Tamil Nadu, India",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5679"
+    },
+    {
+     "name": "Ebek Cochin",
+     "city": "Cochin",
+     "address": "Muthoot Institute of Technology and Science Kochi-Madurai-Tondi Point Rd, Puthenkurish, Varikoli PO, Cochin, Kerala – 682308 India",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5680"
+    },
+    {
+     "name": "PeopleCare Business Solutions Pvt Ltd (PeopleEnglish Coimbatore)",
+     "city": "Coimbatore, Tamil Nadu",
+     "address": "RATHINAM Techzone Campus Block III Pollachi Main Road, Eachanari Coimbatore, Tamil Nadu 641021 India",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5766"
+    },
+    {
+     "name": "Ebek Delhi",
+     "city": "Delhi",
+     "address": "Jesus and Mary College, San Martin Marg, Bapu dham, Chanakyapuri New Delhi Delhi 110021 India",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5681"
+    },
+    {
+     "name": "Ebek Angamaly",
+     "city": "Ernakulam",
+     "address": "ODEPC, 4th floor Intel tower 1, Angamaly South, Ernakulam, Kerala - 683573, India",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5677"
+    },
+    {
+     "name": "Ebek Hyderabad",
+     "city": "Hyderabad, Telangana",
+     "address": "Vijay Marie College of Nursing, Street Number 3, Uma Nagar, Begumpet, Hyderabad, Telangana 500016 India",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-10124"
+    },
+    {
+     "name": "Burlington English, Idukki",
+     "city": "Idukki, Kerala",
+     "address": "Newman College, Thodupuzha Newman College Rd, Mangattukavala, Thodupuzha Idukki, Kerala 685585 India",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-8116"
+    },
+    {
+     "name": "PEAR Academy Jalandhar",
+     "city": "Jalandhar, Punjab",
+     "address": "DAV Institute of Engineering & Technology (DAVIET) Kabir Nagar, Jalandhar Punjab 144008, India., Punjab 144008 India",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-11179"
+    },
+    {
+     "name": "PEAR Academy Kannur",
+     "city": "Kannur, KERALA",
+     "address": "Sreepuram English Medium School Pallikunnu P O, Kannur-4, Kerala, India, Pin: 670 004",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-8053"
+    },
+    {
+     "name": "PEAR Academy Kochi",
+     "city": "Kochi",
+     "address": "Viswajyothi College of Engineering Muvattupuzha-Thodupuzha Road Vazhakulam, PO, Muvattupuzha, Kerala 686670, India",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5762"
+    },
+    {
+     "name": "Ebek Kolkata",
+     "city": "Kolkata",
+     "address": "South City International School 375, Prince Anwar Shah Road, South City Complex, Jadavpur Kolkata, West Bengal, 700068",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5682"
+    },
+    {
+     "name": "Ebek Kottayam",
+     "city": "Kottayam",
+     "address": "Mangalam College of Engineering Mangalam Campus, Ettumanoor, Kottayam, Kerala – 989 631 India",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5683"
+    },
+    {
+     "name": "Ebek Calicut",
+     "city": "Kozhikode",
+     "address": "St. Joseph's College (Autonomous), Devagiri Medical College P O, Kozhikode - 673008, Kerala, India",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5678"
+    },
+    {
+     "name": "PEAR Academy Mangalore",
+     "city": "Mangalore",
+     "address": "Yenepoya (Deemed to be University) University Road, Deralakatte Mangalore Karnataka 575018 India",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5763"
+    },
+    {
+     "name": "Burlington English, Thrissur",
+     "city": "Thrissur",
+     "address": "Holygrace Academy Of Engineering Mala, Kuruvilassery (po), Thrissur, Pin – 680732",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5649"
+    },
+    {
+     "name": "Ebek Trivandrum",
+     "city": "Trivandrum, Kerala",
+     "address": "Marian Engineering College Menamkulam, Kazhakkoottam, Menamkulam Trivandrum, Kerala 695582",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-11837"
+    }
+   ]
+  },
+  {
+   "id": "pakistan",
+   "name": "Pakistan",
+   "nameAr": "باكستان",
+   "region": "Asia",
+   "paper2027": true,
+   "venues": [
+    {
+     "name": "Prometric Testing Center Islamabad",
+     "city": "Islamabad",
+     "address": "Prometric Testing Center Islamabad, 2nd floor, Maaksons C5, Civic Center, Gulberg Greens, Islamabad, Pakistan",
+     "mode": "computer",
+     "record": "content-5957"
+    },
+    {
+     "name": "Prometric Testing Center Karachi",
+     "city": "Karachi",
+     "address": "Prometric Testing Center Karachi,17Th Floor, Brr Tower, Hassan Ali Street Off I.I. Chundrigar Road, Saddar Karachi Pakistan",
+     "mode": "computer",
+     "record": "content-5919"
+    },
+    {
+     "name": "PROMETRIC TESTING CENTER LAHORE",
+     "city": "Lahore",
+     "address": "Prometric Testing Center Lahore, Upper ground floor, Parklane Tower/ Mall of Lahore, 172 Tufail Road, Lahore Cantt, Lahore, Pakistan",
+     "mode": "computer",
+     "record": "content-5944"
+    },
+    {
+     "name": "International Testing & Assessment Services - Islamabad Pakistan (8782) - Online Speaking test at venue",
+     "city": "Islamabad",
+     "address": "International Testing & Assessment Services, 2nd floor, Maaksons C5, Civic Center, Gulberg Greens, Islamabad, Pakistan",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21206"
+    },
+    {
+     "name": "International Testing & Assessment Services - Karachi Pakistan (8781) - Online Speaking test at venue",
+     "city": "Karachi",
+     "address": "International Testing & Assessment Services, 17th floor, BRR Tower, Hassan Ali Street, Off I.I. Chundrigar Road, Saddar, Karachi, Pakistan",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21205"
+    },
+    {
+     "name": "International Testing & Assessment Services - Lahore Pakistan (8783) - Online Speaking test at venue",
+     "city": "Lahore",
+     "address": "International Testing & Assessment Services, Upper GF, Parklane Tower/ Mall of Lahore, 172 Tufail Road, Lahore Cantt, Lahore, Pakistan",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21207"
+    },
+    {
+     "name": "AEO Pakistan, Islamabad Centre",
+     "city": "Islamabad",
+     "address": "National University of Technology, Main IJP Road, Sector I-12, Islamabad 44000",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5631"
+    },
+    {
+     "name": "AEO Pakistan, Karachi Centre",
+     "city": "Karachi",
+     "address": "MITE UNIVERSITY, No. 10, Sector-47 Korangi Creek Rd, Korangi Creek, Karachi Sindh 75190 Pakistan",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5632"
+    },
+    {
+     "name": "AEO Pakistan, Lahore Centre",
+     "city": "Lahore",
+     "address": "The Millennium Universal College (TMUC), 310 Street 1, Sector F DHA Phase 6, Lahore",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5633"
+    },
+    {
+     "name": "Institute of Career Development Lahore",
+     "city": "Lahore, Punjab",
+     "address": "ICD House, 107 Mamdot Block, Mustafa Town, Wahdet Road, Lahore, Pakistan - 54600",
+     "mode": "paper",
+     "jan2027": false,
+     "lastDate": "21 Nov 2026",
+     "record": "content-10122"
+    },
+    {
+     "name": "AEO Pakistan, Multan Centre",
+     "city": "Multan, Punjab",
+     "address": "La Salle Higher Secondary School, 9 # Chowk, Main Bosan Road, Multan, Punjab, Pakistan",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-9987"
+    }
+   ]
+  },
+  {
+   "id": "nepal",
+   "name": "Nepal",
+   "nameAr": "نيبال",
+   "region": "Asia",
+   "paper2027": true,
+   "venues": [
+    {
+     "name": "Alfa Beta",
+     "city": "Kathmandu, Nepal",
+     "address": "Alfa Beta 3rd Floor, Alfa Beta Complex, New Baneshwor, Madan Bhandari Road, Kathmandu, Nepal 44600",
+     "mode": "computer",
+     "record": "content-5929"
+    },
+    {
+     "name": "Alfa Beta Complex - Kathmandu Nepal (8893) - Online Speaking test at venue",
+     "city": "Kathmandu",
+     "address": "3rd Floor, Alfa Beta Complex, New Baneshwor, Madan Bhandari Road, Kathmandu 44600, Nepal",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21224"
+    },
+    {
+     "name": "Chitwan Medical College, Bharatpur",
+     "city": "BHARATPUR, CHITWAN",
+     "address": "East-west highway, 5th floor chitwan medical college, bharatpur-10, chitwan",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5668"
+    },
+    {
+     "name": "Universal Language & Computer Institute",
+     "city": "Kathmandu",
+     "address": "415, 419 Dillibazar Height Marga Kathmandu Nepal 44600",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5782"
+    }
+   ]
+  },
+  {
+   "id": "sri-lanka",
+   "name": "Sri Lanka",
+   "nameAr": "سريلانكا",
+   "region": "Asia",
+   "paper2027": true,
+   "venues": [
+    {
+     "name": "Open Arc Campus, Ground Floor",
+     "city": "Colombo 06",
+     "address": "Open Arc Campus, Ground Floor,126, High Level Road, Opposite Vajira Salon Colombo 06 600 Sri Lanka",
+     "mode": "computer",
+     "record": "content-5901"
+    },
+    {
+     "name": "Nexgen Education",
+     "city": "Kandy",
+     "address": "337/1 Katugastota Road, Kandy 20000, Sri Lanka",
+     "mode": "computer",
+     "record": "content-20559"
+    },
+    {
+     "name": "Australian College of Business and Technology Kandy",
+     "city": "KANDY",
+     "address": "Australian College of Business and Technology Kandy, Edith Cowan College, 670/5, Peradeniya Road, Kandy, Sri Lanka.",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5643"
+    }
+   ]
+  },
+  {
+   "id": "philippines",
+   "name": "Philippines",
+   "nameAr": "الفلبين",
+   "region": "Asia",
+   "paper2027": true,
+   "venues": [
+    {
+     "name": "Cebu City , PHILIPPINES",
+     "city": "Cebu City",
+     "address": "C/O Train,Educ & Dev Cons Inc Suite,308-Centro Maximo D Jakosalem St Cebu City Philippines",
+     "mode": "computer",
+     "record": "content-5903"
+    },
+    {
+     "name": "2/F Ateneo de Manila University",
+     "city": "Makati City",
+     "address": "2/F Ateneo De Manila University,130 Hv Dela Costa St. Salcedo Village Makati City 1227 Philippines",
+     "mode": "computer",
+     "record": "content-5907"
+    },
+    {
+     "name": "9.0 Niner CDO",
+     "city": "Misamis Oriental",
+     "address": "3rd Floor, Rodisa Building, 9.0 Don Apolinar Velez St, Cagayan De Oro City, Misamis Oriental, Philippines, 9000",
+     "mode": "computer",
+     "record": "content-18246"
+    },
+    {
+     "name": "9.0 Niner Bacolod",
+     "city": "",
+     "address": "9.0 NINER Bacolod, Room 321 & 325 3rd Floor, VSB Building, 6th, 7th Lacson St, Bacolod, 6100 Negros Occidental, Philippines",
+     "mode": "computer",
+     "record": "content-16207"
+    },
+    {
+     "name": "9.0 Niner Dagupan",
+     "city": "",
+     "address": "9.0 Niner Dagupan, 2nd Floor, Unit 201, RVT Office Suite, Old Judge Jose de Venecia Ave, Dagupan City, Pangasinan, Philippines",
+     "mode": "computer",
+     "record": "content-16205"
+    },
+    {
+     "name": "9.0 Niner Imus Branch",
+     "city": "",
+     "address": "9.0 Niner Imus Branch, 5th Floor, DCR Building, 7560 Aguinaldo Hwy, Imus, 4103 Cavite, Philippines",
+     "mode": "computer",
+     "record": "content-16206"
+    },
+    {
+     "name": "C/O Train, Educ & Dev Cons Inc - Cebu City Phillippines (8473) - Online Speaking test at venue",
+     "city": "Cebu City",
+     "address": "C/O Train,Educ & Dev Cons Inc Suite, 308-Centro Maximo D Jakosalem St, Cebu City, Philippines",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21222"
+    },
+    {
+     "name": "Ateneo de Manila University - Manila Philippines (8475) - Online Speaking test at venue",
+     "city": "Makati City",
+     "address": "2/F Ateneo de Manila University, 130 HV Dela Costa St. Salcedo Village, Makati City 1227, Philippines",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21223"
+    },
+    {
+     "name": "UTP Beyond Borders - Pampanga",
+     "city": "Pampanga",
+     "address": "University of the Assumption Unisite Subdvision Del Pilar San Fernando City Pampanga 2000 Philippines",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5788"
+    },
+    {
+     "name": "ICSEC Kaplan Bacolod",
+     "city": "Bacolod",
+     "address": "STI West Negros University Burgos Street, Bacolod City Negros Occidental 6100 Philippines",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5709"
+    },
+    {
+     "name": "UTP Beyond Borders - CDO",
+     "city": "Cagayan De Oro, Misamis Oriental",
+     "address": "Vineyard International Polytechnic College, Antonio Luna Street, Mabulay Subdivision (adjacent to Water District, Corrales Street), Barangay 27, Cagayan de Oro City, Misamis Oriental, 9000, Philippines",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-8687"
+    },
+    {
+     "name": "UTP Beyond Borders - Davao",
+     "city": "Davao",
+     "address": "KRISTY DAWN COLLEGE OF DAVAO INDANGAN CAMPUS INC. PHASE 2 BLK 47 LOT 36-40 DECA HOMES INDANGAN PELICAN ST. DAVAO CITY, DAVAO DEL SUR 8000 PHILIPPINES",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5786"
+    },
+    {
+     "name": "ICSEC Kaplan, Iloilo",
+     "city": "Iloilo city",
+     "address": "3F Brillantes Building M.H. Del Pilar Street. Molo Iloilo City Province of Iloilo 5000 Philippines",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5711"
+    },
+    {
+     "name": "UTP Beyond Borders - Laguna",
+     "city": "Laguna",
+     "address": "Km. 54 Pan-Philippine HWY Calamba Laguna Calamba 4027 Philippines",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5787"
+    },
+    {
+     "name": "ICSEC Kaplan, Cebu",
+     "city": "Mandaue",
+     "address": "EC Masucol BuildingAC Cortes Avenue, Alang-Alang Street Mandaue City, Cebu, 6014 Philippines",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5710"
+    },
+    {
+     "name": "ICSEC Kaplan, Manila",
+     "city": "Manila",
+     "address": "2nd Floor Saint Thomas Square, 1150 Espana Boulevard corner P. Campa Street, Sampaloc Manila Metro Manila 1015 Philippines",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5712"
+    },
+    {
+     "name": "ICSEC Kaplan, Quezon",
+     "city": "Quezon City",
+     "address": "U-401, 4th Floor, Pacific Corporate Center 131 West Avenue Quezon City, 1104 Philippines",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5713"
+    },
+    {
+     "name": "ICSEC Kaplan, San Juan",
+     "city": "San Jaun",
+     "address": "U-3002 30 F Atlanta Centre 31 Annapolis St, Greenhills, San Juan City 1503 San Juan Metro Manila 1503 Philippines",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5714"
+    }
+   ]
+  },
+  {
+   "id": "australia",
+   "name": "Australia",
+   "nameAr": "أستراليا",
+   "region": "Oceania and North America",
+   "paper2027": true,
+   "venues": [
+    {
+     "name": "ILSC Brisbane",
+     "city": "Brisbane, QLD",
+     "address": "Level 1, 232 Adelaide Street, CBD Brisbane City , QLD 4000 Australia",
+     "mode": "computer",
+     "record": "content-16066"
+    },
+    {
+     "name": "Melbourne International Graduate College",
+     "city": "Melbourne, Victoria",
+     "address": "Melbourne International Graduate College,Level 4 382-384 Lonsdale Street Melbourne 3000 Vic Australia",
+     "mode": "computer",
+     "record": "content-5888"
+    },
+    {
+     "name": "Perth - Prometric",
+     "city": "Perth, Western Australia",
+     "address": "150 Saint Georges Terrace, Perth, 6000, Australia",
+     "mode": "computer",
+     "record": "content-11467"
+    },
+    {
+     "name": "Yukon Consultants, Suite 204, Crows Nest",
+     "city": "Sydney, New South Wales",
+     "address": "Yukon Consultants, Suite 204, Crows Nest,272 Pacific Highway, New South Wales Sydney 2065 Australia",
+     "mode": "computer",
+     "record": "content-6399"
+    },
+    {
+     "name": "ELPIS EDUCATION PTY LTD (Elpis College)",
+     "city": "Victoria Park, Western Australia",
+     "address": "350 Albany Highway Victoria Park WA 6100 Australia",
+     "mode": "computer",
+     "record": "content-20587"
+    },
+    {
+     "name": "Melbourne International Graduate College - Melbourne Australia (8634) - Online Speaking test at venue",
+     "city": "Melbourne",
+     "address": "Melbourne International Graduate College, Level 4 382-384 Lonsdale Street, Melbourne 3000 VIC, Australia",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21197"
+    },
+    {
+     "name": "PEAR Academy Australia",
+     "city": "Adelaide",
+     "address": "L3-112-118 Rundle Mall Adelaide 5000",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5761"
+    },
+    {
+     "name": "ILSC Brisbane",
+     "city": "Brisbane, QLD",
+     "address": "Level 1, 232 Adelaide Street, CBD Brisbane City , QLD 4000 Australia",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-14548"
+    },
+    {
+     "name": "Lawson College Australia",
+     "city": "Dandenong",
+     "address": "53-59 WALKER ST. DANDENONG, VIC, 3175",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5738"
+    },
+    {
+     "name": "Discover English Exam Centre",
+     "city": "Melbourne",
+     "address": "7/628 Bourke Street, Melbourne, Victoria, 3000",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5673"
+    },
+    {
+     "name": "TAFE NSW Newcastle English Language Centre",
+     "city": "Newcastle",
+     "address": "266 Maitland Rd Tighes Hill, NSW P block, waiting room PG12",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5777"
+    },
+    {
+     "name": "UTAS English Language Centre",
+     "city": "Newham",
+     "address": "Building F, English Language Centre Newnham Drive, Newnham 7248 Australia",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5785"
+    },
+    {
+     "name": "MP Testing Services",
+     "city": "Sydney",
+     "address": "Suite 805, Level 8, 84 Pitt St Sydney New South Wales 2000 Australia",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5749"
+    }
+   ]
+  },
+  {
+   "id": "new-zealand",
+   "name": "New Zealand",
+   "nameAr": "نيوزيلندا",
+   "region": "Oceania and North America",
+   "paper2027": true,
+   "venues": [
+    {
+     "name": "PM Training School Limited",
+     "city": "Manukau, Auckland",
+     "address": "Level 3, 21 Putney Way Manukau, Auckland 2104",
+     "mode": "computer",
+     "record": "content-20666"
+    },
+    {
+     "name": "Lumify Auckland (CFA) - Auckland New Zealand (5081) - Online Speaking test at venue",
+     "city": "Auckland",
+     "address": "Level 9, 120 Albert Street, (Huawei Centre), Auckland CBD, Auckland 1011, New Zealand",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21195"
+    },
+    {
+     "name": "PM Training School Limited - Auckland New Zealand (8485) - Online Speaking test at venue",
+     "city": "Auckland",
+     "address": "PM Training School Limited, Level 3, 21 Putney Way Manukau, (Parkview Tower) Manukau CBD, Auckland 2104, New Zealand",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21196"
+    },
+    {
+     "name": "Languages International",
+     "city": "Auckland & Christchurch, Auckland",
+     "address": "23 Princes Street Auckland CBD 1010, Auckland, New Zealand",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5737"
+    },
+    {
+     "name": "DynaSpeak",
+     "city": "Auckland",
+     "address": "Level 10, 238 Queen Street Auckland, 1143",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5674"
+    },
+    {
+     "name": "ExamHub - Auckland",
+     "city": "Auckland",
+     "address": "Level 1, Suite 21 357 Great North Road, Henderson, Auckland, Auckland 0612 New Zealand",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-12158"
+    },
+    {
+     "name": "Ara Institute of Canterbury",
+     "city": "Christchurch, Canterbury",
+     "address": "128 Madras Street, Christchurch, 8011, Canterbury, New Zealand",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5640"
+    },
+    {
+     "name": "Waikato Institute of Education",
+     "city": "Hamilton",
+     "address": "Level 5, 218 Anglesea Street, Hamilton Central, Hamilton 3204",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5790"
+    },
+    {
+     "name": "WINTEC (Waikato Inst. of Technology)",
+     "city": "Hamilton",
+     "address": "WINTEC Centre for Languages Hamilton City Campus, A Block, Gate 2, Wintec City Centre Campus, Tristram Street, Whitiora, Hamilton, New Zealand 3200",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5792"
+    }
+   ]
+  },
+  {
+   "id": "canada",
+   "name": "Canada",
+   "nameAr": "كندا",
+   "region": "Oceania and North America",
+   "paper2027": true,
+   "venues": [
+    {
+     "name": "Calgary , CANADA",
+     "city": "Calgary, Alberta",
+     "address": "8989 Macleod Trail Sw,Suite 301 Calgary T2H0M2 Canada",
+     "mode": "computer",
+     "record": "content-6040"
+    },
+    {
+     "name": "Edmonton , CANADA",
+     "city": "Edmonton, Alberta",
+     "address": "8944 182Nd Street Nw,Suite 316 Edmonton T5T 2E3 Canada",
+     "mode": "computer",
+     "record": "content-6045"
+    },
+    {
+     "name": "Halifax , CANADA - 6090",
+     "city": "Halifax, Nova Scotia",
+     "address": "1959 Upper Water Street,Tower 1 - Suite 401 Halifax B3J 3N2 Canada",
+     "mode": "computer",
+     "record": "content-8769"
+    },
+    {
+     "name": "Hamilton , CANADA",
+     "city": "Hamilton, Ontario",
+     "address": "4 Hughson Street South,5Th Floor, Trios Office Hamilton L8N3Z1 Canada",
+     "mode": "computer",
+     "record": "content-6024"
+    },
+    {
+     "name": "LONDON , CANADA",
+     "city": "London, Ontario",
+     "address": "520 First Street,Unit 1 London N5V3C6 Canada",
+     "mode": "computer",
+     "record": "content-6021"
+    },
+    {
+     "name": "Mississauga , CANADA",
+     "city": "Mississauga, Ontario",
+     "address": "1290 Central Parkway West, Suite 104, Mississauga L5C4R3 Canada",
+     "mode": "computer",
+     "record": "content-6025"
+    },
+    {
+     "name": "Ottawa , CANADA",
+     "city": "Ottawa, Ontario",
+     "address": "450 March Rd.,Suite 101 Ottawa K2K 3K2 Canada",
+     "mode": "computer",
+     "record": "content-6031"
+    },
+    {
+     "name": "Pointe-Claire , CANADA",
+     "city": "Pointe-Claire, Quebec",
+     "address": "1000 Boul. St. Jean,Suite 206 Pointe-Claire H9R 5P1 Canada",
+     "mode": "computer",
+     "record": "content-6033"
+    },
+    {
+     "name": "Quebec City , CANADA",
+     "city": "Quebec City, Quebec",
+     "address": "1035, Avenue Wilfrid-Pelletier,Suite 150 (Building B) Quebec City G1W 0C5 Canada",
+     "mode": "computer",
+     "record": "content-6540"
+    },
+    {
+     "name": "Regina , CANADA",
+     "city": "Regina, Saskatchewan",
+     "address": "3520 5Th Avenue, Regina S4T 0M2 Canada",
+     "mode": "computer",
+     "record": "content-6546"
+    },
+    {
+     "name": "Saskatoon , CANADA",
+     "city": "Saskatoon, Saskatchewan",
+     "address": "502 Wellman Cres,Suite 140 Saskatoon S7T0J1 Canada",
+     "mode": "computer",
+     "record": "content-6547"
+    },
+    {
+     "name": "Memorial University of Newfoundland",
+     "city": "St. John'S, Newfoundland",
+     "address": "Memorial University Of Newfoundland,1 Arctic Ave Univ. Center - 4Th Floor Uc4000 St. John'S A1B5S7 Canada",
+     "mode": "computer",
+     "record": "content-8770"
+    },
+    {
+     "name": "Cestar College of Business Health &Technology",
+     "city": "Toronto, Ontario",
+     "address": "Cestar College Of Business Health &Technology,265 Yorkland Blvd Suite 302 Toronto M2J 1S5 Canada",
+     "mode": "computer",
+     "record": "content-8771"
+    },
+    {
+     "name": "Toronto , CANADA",
+     "city": "Toronto, Ontario",
+     "address": "425 Bloor St. East,Suite 202 Toronto M4W 3R4 Canada",
+     "mode": "computer",
+     "record": "content-6026"
+    },
+    {
+     "name": "Vancouver , CANADA",
+     "city": "Vancouver, British Columbia",
+     "address": "1190 Melville Street Suite 400 Vancouver V6E 3W1 Canada",
+     "mode": "computer",
+     "record": "content-6037"
+    },
+    {
+     "name": "Winnipeg , CANADA",
+     "city": "Winnipeg, Manitoba",
+     "address": "40-1128 Henderson Highway Winnipeg R2G 3Z7 Canada",
+     "mode": "computer",
+     "record": "content-6038"
+    },
+    {
+     "name": "Yonge and Eglinton Centre - Toronto ON (4805) - Online Speaking test at venue",
+     "city": "Toronto",
+     "address": "2300 Yonge Street. 30th Floor, Suite #3006, Yonge and Eglinton Centre, Entrance to Aroma Cafe, Toronto M4P 1E4, Canada",
+     "mode": "paper",
+     "jan2027": true,
+     "record": "content-21221"
+    },
+    {
+     "name": "Oxford International Halifax",
+     "city": "Halifax, NS",
+     "address": "1801 Hollis Street, Halifax, NS B3J 3N4 Canada",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-20904"
+    },
+    {
+     "name": "CES - TORONTO",
+     "city": "Toronto",
+     "address": "112 Elizabeth Street, Toronto, ON, Canada M5G 1P5",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5666"
+    },
+    {
+     "name": "Oxford International Vancouver",
+     "city": "Vancouver",
+     "address": "250-815 West Hastings Street Vancouver, BC V6C 1B4 Canad",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5758"
+    }
+   ]
+  },
+  {
+   "id": "qatar",
+   "name": "Qatar",
+   "nameAr": "قطر",
+   "region": "Middle East and Africa",
+   "paper2027": false,
+   "coursePage": "oet-course-qatar",
+   "venues": [
+    {
+     "name": "Test Orbits (Prometric Test Center)",
+     "city": "Doha",
+     "address": "Al Emadi Business Center, C Ring Road, 1st Floor, Doha, Qatar",
+     "mode": "computer",
+     "record": "content-18441"
+    }
+   ]
+  },
+  {
+   "id": "kuwait",
+   "name": "Kuwait",
+   "nameAr": "الكويت",
+   "region": "Middle East and Africa",
+   "paper2027": false,
+   "coursePage": "oet-course-kuwait",
+   "venues": [
+    {
+     "name": "AMIDEAST - Kuwait",
+     "city": "Kuwait",
+     "address": "Amideast, Dalal Complex 8Th Floor,Al Dimna St., 7 Ln, Salmiya Entrance Through Dalal City Hotel Kuwait Kuwait",
+     "mode": "computer",
+     "record": "content-5934"
+    }
+   ]
+  },
+  {
+   "id": "oman",
+   "name": "Oman",
+   "nameAr": "عُمان",
+   "region": "Middle East and Africa",
+   "paper2027": false,
+   "coursePage": "oet-course-oman",
+   "venues": [
+    {
+     "name": "Muscat , OMAN",
+     "city": "Muscat",
+     "address": "National Education Network, 405 West Wing, Al Watan Newspaper Building, 4th Floor - Al-Azaiba North, 130/669, Muscat, 130/669, Oman",
+     "mode": "computer",
+     "record": "content-6847"
+    }
+   ]
+  },
+  {
+   "id": "bahrain",
+   "name": "Bahrain",
+   "nameAr": "البحرين",
+   "region": "Middle East and Africa",
+   "paper2027": false,
+   "venues": [
+    {
+     "name": "BIT Ahlia UNV, Gate 2",
+     "city": "Manama",
+     "address": "Bit Ahlia Unv, Gate 2,Gosi Shopping Complex, Exhibition Avenue 1St Floor Manama 319 Bahrain",
+     "mode": "computer",
+     "record": "content-5924"
+    }
+   ]
+  },
+  {
+   "id": "jordan",
+   "name": "Jordan",
+   "nameAr": "الأردن",
+   "region": "Middle East and Africa",
+   "paper2027": false,
+   "venues": [
+    {
+     "name": "Amman , JORDAN",
+     "city": "Amman",
+     "address": "Amideast, 1St Floor ,Building No. C8,Princess Basma Street, Wadi Abdoon Amman Jordan",
+     "mode": "computer",
+     "record": "content-5947"
+    }
+   ]
+  },
+  {
+   "id": "nigeria",
+   "name": "Nigeria",
+   "nameAr": "نيجيريا",
+   "region": "Middle East and Africa",
+   "paper2027": false,
+   "venues": [
+    {
+     "name": "Dragnet Test Center - Abuja",
+     "city": "Abuja, Nigeria",
+     "address": "Galaxy Uniprep Center, Suite 309, Plot 106/107, NAWA COMPLEX, Abuja, 0, NGA",
+     "mode": "computer",
+     "record": "content-20530"
+    },
+    {
+     "name": "Initiative for Development, Education, and Learning - Asaba",
+     "city": "Asaba, Delta State",
+     "address": "37 Jesus Saves Road (NEAR PRESIDENTIAL LODGE), off Summit Road, Asaba, Delta State, 320233, NGA",
+     "mode": "computer",
+     "record": "content-19090"
+    },
+    {
+     "name": "Dragnet Prometric Test Center - Lagos",
+     "city": "Lagos",
+     "address": "Dragnet Prometric Test Center, Katia Gardens,Plot 1676, 3Rd Floor, Oladele Olashore Street Off Sanusi Fafunwa Street, Victoria Island Lagos Nigeria",
+     "mode": "computer",
+     "record": "content-6840"
+    }
+   ]
+  },
+  {
+   "id": "south-africa",
+   "name": "South Africa",
+   "nameAr": "جنوب أفريقيا",
+   "region": "Middle East and Africa",
+   "paper2027": false,
+   "venues": [
+    {
+     "name": "Skylar, Suite 105, 1st Floor",
+     "city": "Claremont",
+     "address": "Skylar, Suite 105, 1St Floor,Vineyard Centre Corner Of Vineyard And Dreyer Streets Claremont 7708 South Africa",
+     "mode": "computer",
+     "record": "content-5890"
+    },
+    {
+     "name": "Advanced Assessments & Training",
+     "city": "Randburg",
+     "address": "Advanced Assessments & Training,Building 1 & 3 Boskruin Village Office Park Cnr Hawken And President Fouche Dr, Boskruin Randburg 2188 South Africa",
+     "mode": "computer",
+     "record": "content-6956"
+    },
+    {
+     "name": "IH Cape Town Language Institute",
+     "city": "Cape Town",
+     "address": "3rd Floor, 35 Wale Street, Cape Town, 8001 South Africa",
+     "mode": "paper",
+     "jan2027": false,
+     "lastDate": "7/11/2026",
+     "record": "content-5717"
+    },
+    {
+     "name": "International House Johannesburg",
+     "city": "Johannesburg",
+     "address": "5 Winchester Road, Parktown, Johannesburg",
+     "mode": "paper",
+     "jan2027": false,
+     "lastDate": "5/12/2026",
+     "record": "content-5723"
+    }
+   ]
+  },
+  {
+   "id": "usa",
+   "name": "United States",
+   "nameAr": "الولايات المتحدة",
+   "region": "Oceania and North America",
+   "paper2027": false,
+   "computerByState": [
+    {
+     "state": "Alabama",
+     "venues": 5
+    },
+    {
+     "state": "Alaska",
+     "venues": 1
+    },
+    {
+     "state": "Arizona",
+     "venues": 6
+    },
+    {
+     "state": "Arkansas",
+     "venues": 3
+    },
+    {
+     "state": "California",
+     "venues": 15
+    },
+    {
+     "state": "Colorado",
+     "venues": 5
+    },
+    {
+     "state": "Connecticut",
+     "venues": 3
+    },
+    {
+     "state": "Delaware",
+     "venues": 1
+    },
+    {
+     "state": "Florida",
+     "venues": 11
+    },
+    {
+     "state": "Georgia",
+     "venues": 8
+    },
+    {
+     "state": "Hawaii",
+     "venues": 1
+    },
+    {
+     "state": "Idaho",
+     "venues": 2
+    },
+    {
+     "state": "Illinois",
+     "venues": 6
+    },
+    {
+     "state": "Indiana",
+     "venues": 7
+    },
+    {
+     "state": "Iowa",
+     "venues": 4
+    },
+    {
+     "state": "Kansas",
+     "venues": 5
+    },
+    {
+     "state": "Kentucky",
+     "venues": 4
+    },
+    {
+     "state": "Louisiana",
+     "venues": 4
+    },
+    {
+     "state": "Maine",
+     "venues": 2
+    },
+    {
+     "state": "Maryland",
+     "venues": 4
+    },
+    {
+     "state": "Massachusetts",
+     "venues": 5
+    },
+    {
+     "state": "Michigan",
+     "venues": 5
+    },
+    {
+     "state": "Minnesota",
+     "venues": 2
+    },
+    {
+     "state": "Mississippi",
+     "venues": 2
+    },
+    {
+     "state": "Missouri",
+     "venues": 3
+    },
+    {
+     "state": "Montana",
+     "venues": 2
+    },
+    {
+     "state": "Nebraska",
+     "venues": 5
+    },
+    {
+     "state": "Nevada",
+     "venues": 2
+    },
+    {
+     "state": "New Hampshire",
+     "venues": 2
+    },
+    {
+     "state": "New Jersey",
+     "venues": 3
+    },
+    {
+     "state": "New Mexico",
+     "venues": 5
+    },
+    {
+     "state": "New York",
+     "venues": 12
+    },
+    {
+     "state": "North Carolina",
+     "venues": 7
+    },
+    {
+     "state": "North Dakota",
+     "venues": 2
+    },
+    {
+     "state": "Ohio",
+     "venues": 8
+    },
+    {
+     "state": "Oklahoma",
+     "venues": 5
+    },
+    {
+     "state": "Oregon",
+     "venues": 5
+    },
+    {
+     "state": "Pennsylvania",
+     "venues": 8
+    },
+    {
+     "state": "Rhode Island",
+     "venues": 1
+    },
+    {
+     "state": "South Carolina",
+     "venues": 4
+    },
+    {
+     "state": "South Dakota",
+     "venues": 2
+    },
+    {
+     "state": "Tennessee",
+     "venues": 5
+    },
+    {
+     "state": "Texas",
+     "venues": 15
+    },
+    {
+     "state": "Utah",
+     "venues": 4
+    },
+    {
+     "state": "Vermont",
+     "venues": 1
+    },
+    {
+     "state": "Virginia",
+     "venues": 6
+    },
+    {
+     "state": "Washington DC",
+     "venues": 1
+    },
+    {
+     "state": "Washington",
+     "venues": 4
+    },
+    {
+     "state": "West Virginia",
+     "venues": 1
+    },
+    {
+     "state": "Wisconsin",
+     "venues": 3
+    },
+    {
+     "state": "Wyoming",
+     "venues": 1
+    }
+   ],
+   "computerCount": 228,
+   "venues": [
+    {
+     "name": "Rennert International Manhattan",
+     "city": "New York",
+     "address": "Rennert International 12, E 41st Street, 6th floor New York , N.Y. 10017 USA",
+     "mode": "paper",
+     "jan2027": false,
+     "lastDate": "21 Nov 2026",
+     "record": "content-5771"
+    }
+   ]
+  },
+  {
+   "id": "singapore",
+   "name": "Singapore",
+   "nameAr": "سنغافورة",
+   "region": "Asia",
+   "paper2027": false,
+   "venues": [
+    {
+     "name": "Studyworks Pte Ltd , Prometric Test Center",
+     "city": "Singapore",
+     "address": "Studyworks Pte Ltd , Prometric Test Center,26 Boon Lay Way, #01-85 Tradehub 21 Singapore 609970 Singapore",
+     "mode": "computer",
+     "record": "content-5897"
+    }
+   ]
+  },
+  {
+   "id": "malaysia",
+   "name": "Malaysia",
+   "nameAr": "ماليزيا",
+   "region": "Asia",
+   "paper2027": false,
+   "venues": [
+    {
+     "name": "Prometric Testing Center",
+     "city": "Kuala Lumpur",
+     "address": "Prometric Testing Center,Suite 2-1-04, Level 1, Wisma E&C N0 2, Lorong Dungun Kiri, Bukit Damansara Kuala Lumpur 50490 Malaysia",
+     "mode": "computer",
+     "record": "content-5898"
+    },
+    {
+     "name": "ELC Malaysia",
+     "city": "Kuala Lumpur",
+     "address": "ELC English Language Company, Unit 3.03, 3rd Floor, Wisma Bukit Bintang, 28, Jalan Bukit Bintang, 55100 Kuala Lumpur",
+     "mode": "paper",
+     "jan2027": false,
+     "record": "content-5687"
+    },
+    {
+     "name": "GPEX Penang",
+     "city": "Penang",
+     "address": "Sentral College, 3, Lebuh Penang, 10300 Penang",
+     "mode": "paper",
+     "jan2027": false,
+     "lastDate": "5/12/2026",
+     "record": "content-5704"
+    }
+   ]
+  }
+ ]
+}

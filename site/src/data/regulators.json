@@ -1,0 +1,3870 @@
+{
+ "checked": "2026-11-27",
+ "professions": [
+  {
+   "id": "medicine",
+   "en": "Medicine",
+   "ar": "الطب"
+  },
+  {
+   "id": "nursing",
+   "en": "Nursing",
+   "ar": "التمريض"
+  },
+  {
+   "id": "pharmacy",
+   "en": "Pharmacy",
+   "ar": "الصيدلة"
+  },
+  {
+   "id": "dentistry",
+   "en": "Dentistry",
+   "ar": "طب الأسنان"
+  },
+  {
+   "id": "dietetics",
+   "en": "Dietetics",
+   "ar": "التغذية العلاجية"
+  },
+  {
+   "id": "occupational-therapy",
+   "en": "Occupational Therapy",
+   "ar": "العلاج الوظيفي"
+  },
+  {
+   "id": "optometry",
+   "en": "Optometry",
+   "ar": "البصريات"
+  },
+  {
+   "id": "physiotherapy",
+   "en": "Physiotherapy",
+   "ar": "العلاج الطبيعي"
+  },
+  {
+   "id": "podiatry",
+   "en": "Podiatry",
+   "ar": "علاج القدم"
+  },
+  {
+   "id": "radiography",
+   "en": "Radiography",
+   "ar": "التصوير الإشعاعي"
+  },
+  {
+   "id": "speech-pathology",
+   "en": "Speech Pathology",
+   "ar": "علاج النطق والتخاطب"
+  },
+  {
+   "id": "veterinary-science",
+   "en": "Veterinary Science",
+   "ar": "الطب البيطري"
+  }
+ ],
+ "destinations": [
+  {
+   "id": "uk",
+   "en": "United Kingdom",
+   "ar": "المملكة المتحدة",
+   "guide": "/uk-pathway-guide.html"
+  },
+  {
+   "id": "ireland",
+   "en": "Ireland",
+   "ar": "أيرلندا",
+   "guide": "/ireland-pathway-guide.html"
+  },
+  {
+   "id": "australia",
+   "en": "Australia",
+   "ar": "أستراليا",
+   "guide": "/australia-pathway-guide.html"
+  },
+  {
+   "id": "new-zealand",
+   "en": "New Zealand",
+   "ar": "نيوزيلندا",
+   "guide": "/new-zealand-pathway-guide.html"
+  },
+  {
+   "id": "usa",
+   "en": "United States",
+   "ar": "الولايات المتحدة",
+   "guide": "/usa-pathway-guide.html"
+  },
+  {
+   "id": "canada",
+   "en": "Canada",
+   "ar": "كندا",
+   "guide": "/canada-pathway-guide.html"
+  },
+  {
+   "id": "singapore",
+   "en": "Singapore",
+   "ar": "سنغافورة",
+   "guide": "/singapore-pathway-guide.html"
+  },
+  {
+   "id": "gulf",
+   "en": "Gulf states",
+   "ar": "دول الخليج",
+   "guide": "/gulf-pathway-guide.html"
+  }
+ ],
+ "regulators": [
+  {
+   "id": "gmc",
+   "destination": "uk",
+   "short": "GMC",
+   "name": "General Medical Council",
+   "professions": [
+    "medicine"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "PLAB or another route to GMC registration",
+    "ar": "اختبار PLAB أو مسار آخر للتسجيل في GMC"
+   },
+   "oet": "accepted",
+   "version": "OET Medicine",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 350,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "Grade B in each sub-test. The regulator prints the grade; 350 is the lowest score in OET's B band.",
+    "ar": "الدرجة B في كل مهارة. الجهة تذكر الحرف فقط، و350 هي أدنى درجة في نطاق B في OET."
+   },
+   "combine": "no",
+   "sittings": 1,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "All four grades must come from the same test, and from your most recent sitting.",
+    "ar": "يجب أن تكون الدرجات الأربع من الاختبار نفسه، ومن آخر جلسة أديتها."
+   },
+   "formats": {
+    "paper": "accepted",
+    "computer": "accepted",
+    "home": "accepted"
+   },
+   "homeNote": {
+    "en": "The GMC page lists three accepted versions: OET on paper, OET on computer and OET@Home.",
+    "ar": "صفحة GMC تذكر ثلاث نسخ مقبولة: OET on paper و OET on computer و OET@Home."
+   },
+   "validity": {
+    "en": "2 years; valid on the day of PLAB part 1, or when the GMC approves the registration application",
+    "ar": "سنتان؛ يجب أن تكون النتيجة سارية يوم PLAB part 1 أو عند موافقة GMC على طلب التسجيل"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "GMC: Using your OET certificate",
+    "url": "https://www.gmc-uk.org/registration-and-licensing/join-our-registers/before-you-apply/evidence-of-your-knowledge-of-english/using-your-oet-certificate"
+   },
+   "verified": "2026-11-27",
+   "status": "confirmed",
+   "note": {
+    "en": "Only the Medicine version of OET is accepted.",
+    "ar": "تُقبل نسخة Medicine من OET فقط."
+   }
+  },
+  {
+   "id": "nmc",
+   "destination": "uk",
+   "short": "NMC",
+   "name": "Nursing and Midwifery Council",
+   "professions": [
+    "nursing"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Registration with the NMC as a nurse, midwife or nursing associate",
+    "ar": "التسجيل في NMC كممرض أو قابلة أو nursing associate"
+   },
+   "oet": "accepted",
+   "version": "OET Nursing",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 300,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "Grade B (350) in Listening, Reading and Speaking; grade C+ (300) in Writing.",
+    "ar": "الدرجة B (350) في Listening و Reading و Speaking، والدرجة C+ (300) في Writing."
+   },
+   "combine": "yes",
+   "sittings": 2,
+   "windowMonths": 12,
+   "floors": {
+    "L": 300,
+    "R": 300,
+    "W": 250,
+    "S": 300
+   },
+   "combineNote": {
+    "en": "Two sittings taken within 12 months of each other; all four sub-tests in each sitting; no sitting below C+ (300) in Listening, Reading or Speaking or below C (250) in Writing; a single sub-test cannot be retaken on its own; OET and IELTS cannot be mixed.",
+    "ar": "جلستان بينهما 12 شهرا على الأكثر؛ المهارات الأربع في كل جلسة؛ لا تقل أي جلسة عن C+ (300) في Listening و Reading و Speaking ولا عن C (250) في Writing؛ لا تُعاد مهارة واحدة منفردة؛ ولا يُجمع OET مع IELTS."
+   },
+   "formats": {
+    "paper": "accepted",
+    "computer": "accepted",
+    "home": "accepted"
+   },
+   "homeNote": {
+    "en": "The NMC accepts OET on Paper, OET on Computer and OET@Home, and OET@Home may be combined with a paper or computer sitting.",
+    "ar": "NMC يقبل OET on Paper و OET on Computer و OET@Home، ويجوز جمع OET@Home مع جلسة ورقية أو على الكمبيوتر."
+   },
+   "validity": {
+    "en": "2 years; both sittings must fall within the two years before the NMC assesses the complete application",
+    "ar": "سنتان؛ يجب أن تقع الجلستان خلال السنتين السابقتين لتقييم NMC للطلب المكتمل"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "NMC: Accepted English language tests, OET (last updated 08/03/2024)",
+    "url": "https://www.nmc.org.uk/registration/joining-the-register/english-language-requirements/accepted-english-language-tests/oet/"
+   },
+   "verified": "2026-11-27",
+   "status": "confirmed",
+   "note": {
+    "en": "Midwives and nursing associates also take the Nursing version. You may sit the test as often as you like, but only two sittings are combined.",
+    "ar": "القابلات و nursing associates يؤدون نسخة Nursing أيضا. يمكنك إعادة الاختبار أي عدد من المرات، لكن الجمع يكون بين جلستين فقط."
+   }
+  },
+  {
+   "id": "gphc",
+   "destination": "uk",
+   "short": "GPhC",
+   "name": "General Pharmaceutical Council",
+   "professions": [
+    "pharmacy"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Registration with the GPhC as a pharmacist",
+    "ar": "التسجيل في GPhC كصيدلي"
+   },
+   "oet": "accepted",
+   "version": "OET Pharmacy",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 350,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "Grade B in each sub-test. The regulator prints the grade; 350 is the lowest score in OET's B band.",
+    "ar": "الدرجة B في كل مهارة. الجهة تذكر الحرف فقط، و350 هي أدنى درجة في نطاق B في OET."
+   },
+   "combine": "no",
+   "sittings": 1,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "At least B in each of the four areas at one sitting.",
+    "ar": "B على الأقل في كل مهارة من الأربع في جلسة واحدة."
+   },
+   "formats": {
+    "paper": "accepted",
+    "computer": "accepted",
+    "home": "not-accepted"
+   },
+   "homeNote": {
+    "en": "The GPhC guidance accepts Pharmacy OET on Paper or on Computer and says it does not accept the OET@Home test.",
+    "ar": "إرشادات GPhC تقبل Pharmacy OET الورقي أو على الكمبيوتر وتنص على عدم قبول OET@Home."
+   },
+   "validity": {
+    "en": "Less than 2 years old at the point of application",
+    "ar": "أقل من سنتين عند تقديم الطلب"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "GPhC: Guidance on evidence of English language skills (June 2025)",
+    "url": "https://assets.pharmacyregulation.org/files/2025-06/gphc-guidance-on-evidence-of-english-language-skills-june-2025_0.pdf"
+   },
+   "verified": "2026-11-27",
+   "status": "confirmed",
+   "note": {
+    "en": "Older Pharmacy OET scores may be considered if you can show you have maintained your English. From January 2027 OET on Paper is offered for Nursing and Medicine only (oet.com, 16 November 2026), so pharmacists should plan for the computer test at a venue.",
+    "ar": "قد تُقبل نتائج Pharmacy OET الأقدم إذا أثبتّ أنك حافظت على مستواك في الإنجليزية. من يناير 2027 يُقدَّم OET الورقي للتمريض والطب فقط (oet.com، 16 نوفمبر 2026)، لذلك على الصيادلة التخطيط لاختبار الكمبيوتر في مركز اختبار."
+   }
+  },
+  {
+   "id": "hcpc",
+   "destination": "uk",
+   "short": "HCPC",
+   "name": "Health and Care Professions Council",
+   "professions": [
+    "podiatry",
+    "dietetics",
+    "occupational-therapy",
+    "physiotherapy",
+    "radiography"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "International application to the HCPC register",
+    "ar": "طلب دولي للتسجيل في سجل HCPC"
+   },
+   "oet": "accepted",
+   "version": "Profession-specific OET",
+   "scores": null,
+   "total": 1400,
+   "scoresNote": {
+    "en": "A total of 1400 across the four sub-tests with no element below 300.",
+    "ar": "مجموع 1400 في المهارات الأربع على ألا تقل أي مهارة عن 300."
+   },
+   "combine": "one-subtest-retake",
+   "sittings": null,
+   "windowMonths": 6,
+   "floors": null,
+   "combineNote": {
+    "en": "HCPC accepts a retake of one element only, completed within six months of the original test date. Combining two full sittings is not stated on the page: not confirmed.",
+    "ar": "HCPC يقبل إعادة مهارة واحدة فقط خلال ستة أشهر من تاريخ الاختبار الأصلي. جمع جلستين كاملتين غير مذكور في الصفحة: غير مؤكد."
+   },
+   "formats": {
+    "paper": "accepted",
+    "computer": "accepted",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "HCPC names OET Test on Computer and OET Test on Paper. OET@Home is not named for OET (the 'not at home' sentence sits under IELTS and TOEFL): not confirmed.",
+    "ar": "HCPC يذكر OET Test on Computer و OET Test on Paper. OET@Home غير مذكور في قسم OET (عبارة «ليس من المنزل» وردت تحت IELTS و TOEFL): غير مؤكد."
+   },
+   "validity": {
+    "en": "Certificate no more than 2 years old when HCPC receives the application",
+    "ar": "ألا يزيد عمر الشهادة على سنتين عند استلام HCPC للطلب"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "HCPC: English language proficiency (page updated 05/11/2026)",
+    "url": "https://www.hcpc-uk.org/registration/getting-on-the-register/international-applications/english-language-proficiency/"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "HCPC professions with no OET entry on this page (for example paramedics and biomedical scientists): OET acceptance not confirmed. From January 2027 OET on Paper is offered for Nursing and Medicine only (oet.com).",
+    "ar": "مهن HCPC التي لا يرد لها OET في هذه الصفحة (مثل المسعفين وعلماء الطب الحيوي): قبول OET غير مؤكد. من يناير 2027 يُقدَّم OET الورقي للتمريض والطب فقط (oet.com)."
+   }
+  },
+  {
+   "id": "hcpc-speech-and-language-therapy",
+   "destination": "uk",
+   "short": "HCPC",
+   "name": "Health and Care Professions Council (speech and language therapy)",
+   "professions": [
+    "speech-pathology"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "International application to the HCPC register",
+    "ar": "طلب دولي للتسجيل في سجل HCPC"
+   },
+   "oet": "accepted",
+   "version": "OET Speech Pathology",
+   "scores": null,
+   "total": 1800,
+   "scoresNote": {
+    "en": "A total of 1800 across the four sub-tests with no element below 400.",
+    "ar": "مجموع 1800 في المهارات الأربع على ألا تقل أي مهارة عن 400."
+   },
+   "combine": "one-subtest-retake",
+   "sittings": null,
+   "windowMonths": 6,
+   "floors": null,
+   "combineNote": {
+    "en": "HCPC accepts a retake of one element only, completed within six months of the original test date. Combining two full sittings is not stated on the page: not confirmed.",
+    "ar": "HCPC يقبل إعادة مهارة واحدة فقط خلال ستة أشهر من تاريخ الاختبار الأصلي. جمع جلستين كاملتين غير مذكور في الصفحة: غير مؤكد."
+   },
+   "formats": {
+    "paper": "accepted",
+    "computer": "accepted",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "HCPC names OET Test on Computer and OET Test on Paper. OET@Home is not named for OET (the 'not at home' sentence sits under IELTS and TOEFL): not confirmed.",
+    "ar": "HCPC يذكر OET Test on Computer و OET Test on Paper. OET@Home غير مذكور في قسم OET (عبارة «ليس من المنزل» وردت تحت IELTS و TOEFL): غير مؤكد."
+   },
+   "validity": {
+    "en": "Certificate no more than 2 years old when HCPC receives the application",
+    "ar": "ألا يزيد عمر الشهادة على سنتين عند استلام HCPC للطلب"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "HCPC: English language proficiency (page updated 05/11/2026)",
+    "url": "https://www.hcpc-uk.org/registration/getting-on-the-register/international-applications/english-language-proficiency/"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "Speech and language therapists need the higher total. From January 2027 OET on Paper is offered for Nursing and Medicine only (oet.com).",
+    "ar": "أخصائيو النطق واللغة مطالبون بالمجموع الأعلى. من يناير 2027 يُقدَّم OET الورقي للتمريض والطب فقط (oet.com)."
+   }
+  },
+  {
+   "id": "gdc",
+   "destination": "uk",
+   "short": "GDC",
+   "name": "General Dental Council",
+   "professions": [
+    "dentistry"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Registration with the GDC",
+    "ar": "التسجيل في GDC"
+   },
+   "oet": "not-listed",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "No OET score is published. The only test the GDC names is IELTS Academic (overall 7, at least 6.5 in each skill).",
+    "ar": "لا توجد درجة OET منشورة. الاختبار الوحيد الذي يسميه GDC هو IELTS Academic (المجموع 7 ولا يقل عن 6.5 في كل مهارة)."
+   },
+   "combine": "not-stated",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "",
+    "ar": ""
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "OET is not on the published list, so no delivery mode applies.",
+    "ar": "OET غير مذكور في القائمة المنشورة، فلا تنطبق أي طريقة أداء."
+   },
+   "validity": {
+    "en": "",
+    "ar": ""
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "GDC: English language controls",
+    "url": "https://www.gdc-uk.org/registration/route-to-registration/english-language-controls"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "OET is not named in the GDC's web page or guidance. The GDC says it will consider other credible evidence and that its English guidance is under review, so whether it would accept OET is not confirmed. Do not assume OET is accepted; ask the GDC.",
+    "ar": "OET غير مذكور في صفحة GDC ولا في إرشاداته. يقول GDC إنه ينظر في أدلة أخرى موثوقة وإن إرشادات اللغة قيد المراجعة، لذلك قبوله لاختبار OET غير مؤكد. لا تفترض أن OET مقبول؛ اسأل GDC."
+   }
+  },
+  {
+   "id": "nmbi",
+   "destination": "ireland",
+   "short": "NMBI",
+   "name": "Nursing and Midwifery Board of Ireland",
+   "professions": [
+    "nursing"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Qualification recognition, then registration (a compensation measure may apply)",
+    "ar": "الاعتراف بالمؤهل ثم التسجيل (وقد يُطلب إجراء تعويضي)"
+   },
+   "oet": "accepted",
+   "version": "OET Nursing",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "Grade B in three components and C+ in one. The page's table shows Writing as the C+ component (300-340), but the rule sentence does not name the component.",
+    "ar": "الدرجة B في ثلاث مهارات و C+ في مهارة واحدة. جدول الصفحة يُظهر Writing كمهارة C+ (300-340)، لكن نص القاعدة لا يسمي المهارة."
+   },
+   "combine": "no",
+   "sittings": 1,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "NMBI accepts one test result only and does not accept combined results.",
+    "ar": "NMBI يقبل نتيجة اختبار واحدة فقط ولا يقبل النتائج المجمعة."
+   },
+   "formats": {
+    "paper": "accepted",
+    "computer": "accepted",
+    "home": "not-accepted"
+   },
+   "homeNote": {
+    "en": "NMBI says it does not accept OET at home.",
+    "ar": "NMBI ينص على أنه لا يقبل OET من المنزل."
+   },
+   "validity": {
+    "en": "Less than 2 years old",
+    "ar": "أقل من سنتين"
+   },
+   "effective": {
+    "en": "English requirement applies from 2 April 2018",
+    "ar": "شرط اللغة سارٍ منذ 2 أبريل 2018"
+   },
+   "source": {
+    "label": "NMBI: English Language Requirements",
+    "url": "https://www.nmbi.ie/Registration/Qualified-outside-the-EU/Application-Process/English-Language-Requirements"
+   },
+   "verified": "2026-11-27",
+   "status": "confirmed",
+   "note": {
+    "en": "English evidence is needed at the registration stage. Midwives use the same rule.",
+    "ar": "دليل اللغة مطلوب في مرحلة التسجيل. القاعدة نفسها تنطبق على القابلات."
+   }
+  },
+  {
+   "id": "medical-council-ireland",
+   "destination": "ireland",
+   "short": "Medical Council",
+   "name": "Medical Council (Ireland)",
+   "professions": [
+    "medicine"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Registration with the Medical Council; PRES examination unless exempt",
+    "ar": "التسجيل في Medical Council؛ اختبار PRES ما لم تكن معفى"
+   },
+   "oet": "accepted",
+   "version": "OET Medicine",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 350,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "Grade B in each sub-test. The regulator prints the grade; 350 is the lowest score in OET's B band.",
+    "ar": "الدرجة B في كل مهارة. الجهة تذكر الحرف فقط، و350 هي أدنى درجة في نطاق B في OET."
+   },
+   "combine": "no",
+   "sittings": 1,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "Grade B in each module in a single sitting.",
+    "ar": "الدرجة B في كل مهارة في جلسة واحدة."
+   },
+   "formats": {
+    "paper": "accepted",
+    "computer": "accepted",
+    "home": "not-accepted"
+   },
+   "homeNote": {
+    "en": "The Medical Council says it does not accept OET@Home online tests.",
+    "ar": "Medical Council ينص على أنه لا يقبل اختبارات OET@Home."
+   },
+   "validity": {
+    "en": "Single sitting within the last 2 years; certificate dated within 2 years of the date of registration",
+    "ar": "جلسة واحدة خلال آخر سنتين؛ وتاريخ الشهادة خلال سنتين من تاريخ التسجيل"
+   },
+   "effective": {
+    "en": "Applications received on or after 1 March 2025",
+    "ar": "الطلبات المستلمة من 1 مارس 2025"
+   },
+   "source": {
+    "label": "Medical Council: English language",
+    "url": "https://www.medicalcouncil.ie/registration-applications/first-time-applicants/english-language.html"
+   },
+   "verified": "2026-11-27",
+   "status": "confirmed",
+   "note": {
+    "en": "Some applicants are exempt (for example graduates of Irish, EU/EEA, UK, Australian, New Zealand and US medical schools); the page says this is likely to change.",
+    "ar": "بعض المتقدمين معفون (مثل خريجي كليات الطب في أيرلندا و EU/EEA وبريطانيا وأستراليا ونيوزيلندا وأمريكا)، وتذكر الصفحة أن ذلك قد يتغير."
+   }
+  },
+  {
+   "id": "psi",
+   "destination": "ireland",
+   "short": "PSI",
+   "name": "Pharmaceutical Society of Ireland",
+   "professions": [
+    "pharmacy"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Qualification recognition, holistic assessment, MCQ and/or OSCE, then registration",
+    "ar": "الاعتراف بالمؤهل ثم التقييم الشامل ثم MCQ و/أو OSCE ثم التسجيل"
+   },
+   "oet": "accepted",
+   "version": "OET Pharmacy",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 300,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "",
+    "ar": ""
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "All components must be attempted at the same sitting and one-skill retakes are not accepted. The page also prints 'base scores for super-scoring' (OET 300 each); the super-scoring rule itself was not read in full: not confirmed.",
+    "ar": "يجب أداء جميع المهارات في الجلسة نفسها ولا تُقبل إعادة مهارة واحدة. الصفحة تذكر أيضا «درجات أساسية للـ super-scoring» (OET 300 لكل مهارة)، لكن قاعدة super-scoring نفسها لم تُقرأ كاملة: غير مؤكد."
+   },
+   "formats": {
+    "paper": "accepted",
+    "computer": "not-confirmed",
+    "home": "not-accepted"
+   },
+   "homeNote": {
+    "en": "PSI says home-based tests are not accepted. The page notes that OET on Computer candidates take Speaking at home through a new platform since June 2026 but does not say whether that is acceptable: confirm with PSI.",
+    "ar": "PSI ينص على عدم قبول الاختبارات المنزلية. الصفحة تذكر أن مرشحي OET on Computer يؤدون Speaking من المنزل عبر منصة جديدة منذ يونيو 2026، ولا تقول هل هذا مقبول: تأكد من PSI."
+   },
+   "validity": {
+    "en": "2 years from the test date",
+    "ar": "سنتان من تاريخ الاختبار"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "PSI: Language requirements",
+    "url": "https://www.psi.ie/registration/pharmacists/first-time-registration/language-requirements"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "From 1 June 2026 PSI no longer accepts a university letter saying the course was taught in English. From January 2027 OET on Paper is offered for Nursing and Medicine only (oet.com).",
+    "ar": "من 1 يونيو 2026 لم يعد PSI يقبل خطاب الجامعة بأن الدراسة كانت بالإنجليزية. من يناير 2027 يُقدَّم OET الورقي للتمريض والطب فقط (oet.com)."
+   }
+  },
+  {
+   "id": "coru",
+   "destination": "ireland",
+   "short": "CORU",
+   "name": "CORU (Physiotherapists, Occupational Therapists, Dietitians, Optical and Podiatrists Registration Boards)",
+   "professions": [
+    "physiotherapy",
+    "occupational-therapy",
+    "dietetics",
+    "optometry",
+    "podiatry"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Recognition of the qualification, a compensation measure where required, then registration",
+    "ar": "الاعتراف بالمؤهل ثم إجراء تعويضي عند الحاجة ثم التسجيل"
+   },
+   "oet": "accepted",
+   "version": "Profession-specific OET",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "Grade B (350) in three components and at least C+ (300) in one component.",
+    "ar": "الدرجة B (350) في ثلاث مهارات و C+ (300) على الأقل في مهارة واحدة."
+   },
+   "combine": "yes",
+   "sittings": 2,
+   "windowMonths": 6,
+   "floors": {
+    "L": 300,
+    "R": 300,
+    "W": 300,
+    "S": 300
+   },
+   "combineNote": {
+    "en": "At most two sittings; the repeat test must be with the same provider and within six months of the first; no OET sub-test below C+ (300); the page adds that the overall minimum must be met on both sittings. Individual sub-test retakes are not accepted.",
+    "ar": "جلستان على الأكثر؛ الإعادة لدى الجهة نفسها وخلال ستة أشهر من الاختبار الأول؛ لا تقل أي مهارة في OET عن C+ (300)؛ وتضيف الصفحة أن الحد الأدنى العام يجب تحقيقه في الجلستين. لا تُقبل إعادة مهارة واحدة منفردة."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "CORU's page says online or at-home versions are accepted only for OET, but it does not name OET@Home. Recorded as not confirmed: get CORU's written confirmation before relying on OET@Home.",
+    "ar": "صفحة CORU تقول إن النسخ المنزلية أو الأونلاين مقبولة في OET فقط، لكنها لا تذكر اسم OET@Home. لذلك سُجّلت «غير مؤكد»: اطلب تأكيداً مكتوباً من CORU قبل الاعتماد على OET@Home."
+   },
+   "validity": {
+    "en": "Certificate dated within 2 years of the date the application is submitted",
+    "ar": "تاريخ الشهادة خلال سنتين من تاريخ تقديم الطلب"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "CORU: Language requirements",
+    "url": "https://www.coru.ie/health-and-social-care-professionals/registration/registration-requirements/language/"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "CORU's page states no rule for the paper or computer test at a venue.",
+    "ar": "صفحة CORU لا تذكر قاعدة للاختبار الورقي أو على الكمبيوتر في مركز الاختبار."
+   }
+  },
+  {
+   "id": "coru-radiography",
+   "destination": "ireland",
+   "short": "CORU",
+   "name": "CORU (Radiographers Registration Board)",
+   "professions": [
+    "radiography"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Recognition of the qualification, a compensation measure where required, then registration",
+    "ar": "الاعتراف بالمؤهل ثم إجراء تعويضي عند الحاجة ثم التسجيل"
+   },
+   "oet": "accepted",
+   "version": "OET Radiography",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 350,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "Grade B (minimum score 350) in all components.",
+    "ar": "الدرجة B (350 على الأقل) في جميع المهارات."
+   },
+   "combine": "yes",
+   "sittings": 2,
+   "windowMonths": 6,
+   "floors": {
+    "L": 300,
+    "R": 300,
+    "W": 300,
+    "S": 300
+   },
+   "combineNote": {
+    "en": "At most two sittings; the repeat test must be with the same provider and within six months of the first; no OET sub-test below C+ (300); the page adds that the overall minimum must be met on both sittings. Individual sub-test retakes are not accepted.",
+    "ar": "جلستان على الأكثر؛ الإعادة لدى الجهة نفسها وخلال ستة أشهر من الاختبار الأول؛ لا تقل أي مهارة في OET عن C+ (300)؛ وتضيف الصفحة أن الحد الأدنى العام يجب تحقيقه في الجلستين. لا تُقبل إعادة مهارة واحدة منفردة."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "CORU's page says online or at-home versions are accepted only for OET, but it does not name OET@Home. Recorded as not confirmed: get CORU's written confirmation before relying on OET@Home.",
+    "ar": "صفحة CORU تقول إن النسخ المنزلية أو الأونلاين مقبولة في OET فقط، لكنها لا تذكر اسم OET@Home. لذلك سُجّلت «غير مؤكد»: اطلب تأكيداً مكتوباً من CORU قبل الاعتماد على OET@Home."
+   },
+   "validity": {
+    "en": "Certificate dated within 2 years of the date the application is submitted",
+    "ar": "تاريخ الشهادة خلال سنتين من تاريخ تقديم الطلب"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "CORU: Language requirements",
+    "url": "https://www.coru.ie/health-and-social-care-professionals/registration/registration-requirements/language/"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "CORU's page states no rule for the paper or computer test at a venue.",
+    "ar": "صفحة CORU لا تذكر قاعدة للاختبار الورقي أو على الكمبيوتر في مركز الاختبار."
+   }
+  },
+  {
+   "id": "coru-speech-and-language-therapy",
+   "destination": "ireland",
+   "short": "CORU",
+   "name": "CORU (Speech and Language Therapists Registration Board)",
+   "professions": [
+    "speech-pathology"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Recognition of the qualification, a compensation measure where required, then registration",
+    "ar": "الاعتراف بالمؤهل ثم إجراء تعويضي عند الحاجة ثم التسجيل"
+   },
+   "oet": "accepted",
+   "version": "OET Speech Pathology",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "Grade B (400) in three components and B (350) in one component.",
+    "ar": "الدرجة B (400) في ثلاث مهارات و B (350) في مهارة واحدة."
+   },
+   "combine": "yes",
+   "sittings": 2,
+   "windowMonths": 6,
+   "floors": {
+    "L": 300,
+    "R": 300,
+    "W": 300,
+    "S": 300
+   },
+   "combineNote": {
+    "en": "At most two sittings; the repeat test must be with the same provider and within six months of the first; no OET sub-test below C+ (300); the page adds that the overall minimum must be met on both sittings. Individual sub-test retakes are not accepted.",
+    "ar": "جلستان على الأكثر؛ الإعادة لدى الجهة نفسها وخلال ستة أشهر من الاختبار الأول؛ لا تقل أي مهارة في OET عن C+ (300)؛ وتضيف الصفحة أن الحد الأدنى العام يجب تحقيقه في الجلستين. لا تُقبل إعادة مهارة واحدة منفردة."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "CORU's page says online or at-home versions are accepted only for OET, but it does not name OET@Home. Recorded as not confirmed: get CORU's written confirmation before relying on OET@Home.",
+    "ar": "صفحة CORU تقول إن النسخ المنزلية أو الأونلاين مقبولة في OET فقط، لكنها لا تذكر اسم OET@Home. لذلك سُجّلت «غير مؤكد»: اطلب تأكيداً مكتوباً من CORU قبل الاعتماد على OET@Home."
+   },
+   "validity": {
+    "en": "Certificate dated within 2 years of the date the application is submitted",
+    "ar": "تاريخ الشهادة خلال سنتين من تاريخ تقديم الطلب"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "CORU: Language requirements",
+    "url": "https://www.coru.ie/health-and-social-care-professionals/registration/registration-requirements/language/"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "CORU's page states no rule for the paper or computer test at a venue.",
+    "ar": "صفحة CORU لا تذكر قاعدة للاختبار الورقي أو على الكمبيوتر في مركز الاختبار."
+   }
+  },
+  {
+   "id": "dental-council-ireland",
+   "destination": "ireland",
+   "short": "Dental Council",
+   "name": "Dental Council of Ireland",
+   "professions": [
+    "dentistry"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Dental Council examination (Part 1 and Part 2) for dentists qualified outside the EEA",
+    "ar": "اختبار Dental Council (الجزء 1 والجزء 2) لأطباء الأسنان المؤهلين خارج EEA"
+   },
+   "oet": "accepted",
+   "version": "OET Dentistry",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 350,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "Grade B in each sub-test. The regulator prints the grade; 350 is the lowest score in OET's B band.",
+    "ar": "الدرجة B في كل مهارة. الجهة تذكر الحرف فقط، و350 هي أدنى درجة في نطاق B في OET."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "The page does not say whether sittings can be combined: not confirmed.",
+    "ar": "الصفحة لا تذكر هل يمكن جمع الجلسات: غير مؤكد."
+   },
+   "formats": {
+    "paper": "accepted",
+    "computer": "accepted",
+    "home": "not-accepted"
+   },
+   "homeNote": {
+    "en": "The Dental Council says it does not currently accept OET@Home.",
+    "ar": "Dental Council ينص على أنه لا يقبل OET@Home حاليا."
+   },
+   "validity": {
+    "en": "Obtained no more than 2 years before the application is submitted",
+    "ar": "ألا يكون قد مضى عليها أكثر من سنتين قبل تقديم الطلب"
+   },
+   "effective": {
+    "en": "Applicants from 1 November 2018",
+    "ar": "المتقدمون من 1 نوفمبر 2018"
+   },
+   "source": {
+    "label": "Dental Council: Language proficiency",
+    "url": "https://www.dentalcouncil.ie/registration/language-proficiency"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "From January 2027 OET on Paper is offered for Nursing and Medicine only (oet.com), so dentists should plan for the computer test at a venue.",
+    "ar": "من يناير 2027 يُقدَّم OET الورقي للتمريض والطب فقط (oet.com)، لذلك على أطباء الأسنان التخطيط لاختبار الكمبيوتر في مركز اختبار."
+   }
+  },
+  {
+   "id": "veterinary-council-ireland",
+   "destination": "ireland",
+   "short": "VCI",
+   "name": "Veterinary Council of Ireland",
+   "professions": [
+    "veterinary-science"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Registration with the Veterinary Council of Ireland",
+    "ar": "التسجيل في Veterinary Council of Ireland"
+   },
+   "oet": "not-confirmed",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "Not confirmed: the Veterinary Council of Ireland's page could not be opened on 27 November 2026. Ask the Council which English tests and scores it accepts.",
+    "ar": "غير مؤكد: تعذّر فتح صفحة Veterinary Council of Ireland في 27 نوفمبر 2026. اسأل المجلس عن الاختبارات والدرجات التي يقبلها."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "",
+    "ar": ""
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "Not confirmed: the page could not be read.",
+    "ar": "غير مؤكد: تعذرت قراءة الصفحة."
+   },
+   "validity": {
+    "en": "Not confirmed",
+    "ar": "غير مؤكد"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "VCI: English language requirements for registration (page not readable on 27 November 2026)",
+    "url": "https://www.vci.ie/english-language-requirements-for-registration"
+   },
+   "verified": "2026-11-27",
+   "status": "not-confirmed",
+   "note": {
+    "en": "The VCI page returned an error on every attempt on 27 November 2026, so nothing here is confirmed. Read the VCI page or ask the VCI before booking.",
+    "ar": "صفحة VCI أعادت خطأ في كل محاولة يوم 27 نوفمبر 2026، فلا شيء هنا مؤكد. اقرأ صفحة VCI أو اسأل VCI قبل الحجز."
+   }
+  },
+  {
+   "id": "ahpra",
+   "destination": "australia",
+   "short": "Ahpra",
+   "name": "Australian Health Practitioner Regulation Agency and the National Boards",
+   "professions": [
+    "all"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Registration with the relevant National Board through Ahpra",
+    "ar": "التسجيل لدى National Board المختص عبر Ahpra"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": {
+    "L": 350,
+    "R": 360,
+    "W": 350,
+    "S": 360
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "For tests taken on or after 23 April 2026. Tests taken on or before 22 April 2026 use the earlier table: B in Listening, Reading and Speaking and C+ in Writing. The test date decides which table applies.",
+    "ar": "للاختبارات المؤداة من 23 أبريل 2026. الاختبارات حتى 22 أبريل 2026 يطبق عليها الجدول السابق: B في Listening و Reading و Speaking و C+ في Writing. تاريخ الاختبار هو الذي يحدد الجدول."
+   },
+   "combine": "yes",
+   "sittings": 2,
+   "windowMonths": 12,
+   "floors": {
+    "L": 320,
+    "R": 340,
+    "W": 350,
+    "S": 350
+   },
+   "combineNote": {
+    "en": "At most two sittings within 12 months; all four components in each sitting; no component in either sitting below 320 Listening, 340 Reading, 350 Writing, 350 Speaking (earlier table: nothing below C+). No single-skill retake for OET, and tests from different providers cannot be combined.",
+    "ar": "جلستان على الأكثر خلال 12 شهرا؛ المهارات الأربع في كل جلسة؛ لا تقل أي مهارة في أي جلسة عن 320 Listening و340 Reading و350 Writing و350 Speaking (الجدول السابق: لا شيء أقل من C+). لا إعادة لمهارة واحدة في OET، ولا يُجمع اختباران من جهتين مختلفتين."
+   },
+   "formats": {
+    "paper": "accepted",
+    "computer": "accepted",
+    "home": "not-accepted"
+   },
+   "homeNote": {
+    "en": "Accepted on paper or computer-based in a testing centre; at-home versions are not approved. The computer test at a centre has one remote-proctored element that the Boards accept.",
+    "ar": "مقبول ورقيا أو على الكمبيوتر في مركز اختبار؛ النسخ المنزلية غير معتمدة. اختبار الكمبيوتر في المركز يتضمن جزءا واحدا بمراقبة عن بعد تقبله المجالس."
+   },
+   "validity": {
+    "en": "2 years before the date you lodge the application (counted from the earlier sitting when two are used)",
+    "ar": "سنتان قبل تاريخ تقديم الطلب (تُحسب من الجلسة الأقدم عند استخدام جلستين)"
+   },
+   "effective": {
+    "en": "Tests taken on or after 23 April 2026",
+    "ar": "الاختبارات المؤداة من 23 أبريل 2026"
+   },
+   "source": {
+    "label": "Ahpra: Accepted English language tests (page reviewed 23/04/2026)",
+    "url": "https://www.ahpra.gov.au/Registration/Registration-Standards/English-language-skills/Accepted-English-language-tests.aspx"
+   },
+   "verified": "2026-11-27",
+   "status": "confirmed",
+   "note": {
+    "en": "Same tests and scores for every National Board except the Aboriginal and Torres Strait Islander Health Practice Board. A profession without its own OET version may use the OET of another registered profession.",
+    "ar": "الاختبارات والدرجات نفسها لكل National Board ما عدا Aboriginal and Torres Strait Islander Health Practice Board. المهنة التي ليس لها نسخة OET خاصة يمكنها استخدام OET لمهنة مسجلة أخرى."
+   }
+  },
+  {
+   "id": "home-affairs-australia",
+   "destination": "australia",
+   "short": "Home Affairs",
+   "name": "Department of Home Affairs (Australia)",
+   "professions": [
+    "all"
+   ],
+   "purpose": "immigration",
+   "route": {
+    "en": "Visa English levels (Competent, Proficient)",
+    "ar": "مستويات اللغة للتأشيرة (Competent و Proficient)"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": {
+    "L": 290,
+    "R": 310,
+    "W": 290,
+    "S": 330
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "Competent English, tests taken on or after 7 August 2025. Tests taken on or before 6 August 2025: B in each component.",
+    "ar": "مستوى Competent English للاختبارات من 7 أغسطس 2025. الاختبارات حتى 6 أغسطس 2025: B في كل مهارة."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "The pages do not mention combining OET sittings; retake schemes are named only for other tests. Not confirmed.",
+    "ar": "الصفحات لا تذكر جمع جلسات OET؛ أنظمة الإعادة مذكورة لاختبارات أخرى فقط. غير مؤكد."
+   },
+   "formats": {
+    "paper": "accepted",
+    "computer": "accepted",
+    "home": "not-accepted"
+   },
+   "homeNote": {
+    "en": "OET must be taken at a secure test centre; tests delivered completely online are not accepted and OET@Home is named as an example.",
+    "ar": "يجب أداء OET في مركز اختبار آمن؛ الاختبارات المقدمة كليا عبر الإنترنت غير مقبولة و OET@Home مذكور كمثال."
+   },
+   "validity": {
+    "en": "Within 3 years before the visa application, depending on the visa subclass",
+    "ar": "خلال 3 سنوات قبل طلب التأشيرة، بحسب فئة التأشيرة"
+   },
+   "effective": {
+    "en": "Tests taken on or after 7 August 2025",
+    "ar": "الاختبارات المؤداة من 7 أغسطس 2025"
+   },
+   "source": {
+    "label": "Department of Home Affairs: Competent English",
+    "url": "https://immi.homeaffairs.gov.au/help-support/meeting-our-requirements/english-language/competent-english"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "Proficient English (tests on or after 7 August 2025): Listening 350, Reading 360, Writing 380, Speaking 360. That Writing score is higher than Ahpra's 350, so meeting Ahpra does not guarantee Proficient. Superior English figures were not read directly: not confirmed. Results from tests up to 6 August 2025 can be used until 6 August 2028.",
+    "ar": "مستوى Proficient English (للاختبارات من 7 أغسطس 2025): Listening 350 و Reading 360 و Writing 380 و Speaking 360. درجة Writing هذه أعلى من 350 المطلوبة في Ahpra، فتحقيق شرط Ahpra لا يضمن Proficient. أرقام Superior English لم تُقرأ مباشرة: غير مؤكد. نتائج الاختبارات حتى 6 أغسطس 2025 تُستخدم حتى 6 أغسطس 2028."
+   }
+  },
+  {
+   "id": "anmac",
+   "destination": "australia",
+   "short": "ANMAC",
+   "name": "Australian Nursing and Midwifery Accreditation Council",
+   "professions": [
+    "nursing"
+   ],
+   "purpose": "credentialing",
+   "route": {
+    "en": "Full skills assessment for migration",
+    "ar": "تقييم المهارات الكامل (Full skills assessment) للهجرة"
+   },
+   "oet": "accepted",
+   "version": "OET Nursing",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 300,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "ANMAC's page prints grades: B in Listening, Reading and Speaking and C+ in Writing. The numbers are OET's band floors; ANMAC has not published numeric scores, and whether it now applies Ahpra's 23 April 2026 scores is not confirmed.",
+    "ar": "صفحة ANMAC تذكر الحروف: B في Listening و Reading و Speaking و C+ في Writing. الأرقام هي أدنى درجات النطاق في OET؛ ANMAC لم ينشر درجات رقمية، وتطبيقه لدرجات Ahpra الصادرة في 23 أبريل 2026 غير مؤكد."
+   },
+   "combine": "yes",
+   "sittings": 2,
+   "windowMonths": 12,
+   "floors": {
+    "L": 300,
+    "R": 300,
+    "W": 300,
+    "S": 300
+   },
+   "combineNote": {
+    "en": "One sitting, or at most two sittings in a 12-month period; all four components in each sitting; no component in either sitting below C+; same test provider.",
+    "ar": "جلسة واحدة أو جلستان على الأكثر خلال 12 شهرا؛ المهارات الأربع في كل جلسة؛ لا تقل أي مهارة في أي جلسة عن C+؛ ومن جهة الاختبار نفسها."
+   },
+   "formats": {
+    "paper": "accepted",
+    "computer": "accepted",
+    "home": "not-accepted"
+   },
+   "homeNote": {
+    "en": "Results must come from paper-based or computer-based tests taken in an authorised testing centre.",
+    "ar": "يجب أن تكون النتائج من اختبار ورقي أو على الكمبيوتر في مركز اختبار معتمد."
+   },
+   "validity": {
+    "en": "Less than 2 years old",
+    "ar": "أقل من سنتين"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "ANMAC: Full skills assessment",
+    "url": "https://www.anmac.org.au/skilled-migrants/apply/full-skills-assessment"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "The Modified and Direct care skills assessments need no English test from ANMAC. The page announces coming changes to fees, names and the portal: re-check before applying.",
+    "ar": "تقييما Modified و Direct care لا يتطلبان اختبار لغة من ANMAC. الصفحة تعلن تغييرات قادمة في الرسوم والأسماء والبوابة: راجعها قبل التقديم."
+   }
+  },
+  {
+   "id": "mcnz",
+   "destination": "new-zealand",
+   "short": "MCNZ",
+   "name": "Medical Council of New Zealand",
+   "professions": [
+    "medicine"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "NZREX Clinical or another MCNZ registration pathway",
+    "ar": "اختبار NZREX Clinical أو مسار تسجيل آخر لدى MCNZ"
+   },
+   "oet": "accepted",
+   "version": "OET Medicine",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 300,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "",
+    "ar": ""
+   },
+   "combine": "yes",
+   "sittings": 2,
+   "windowMonths": 12,
+   "floors": {
+    "L": 300,
+    "R": 300,
+    "W": 300,
+    "S": 300
+   },
+   "combineNote": {
+    "en": "One sitting, or at most two sittings in a 12-month period, tested in all four components each time, with no component in either sitting below 300.",
+    "ar": "جلسة واحدة أو جلستان على الأكثر خلال 12 شهرا، مع أداء المهارات الأربع في كل مرة، وألا تقل أي مهارة في أي جلسة عن 300."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator's page states no delivery mode for OET; ask the regulator before booking.",
+    "ar": "لا تذكر صفحة الجهة أي طريقة أداء لاختبار OET؛ اسأل الجهة قبل الحجز."
+   },
+   "validity": {
+    "en": "Within 2 years of the application for registration, or of the NZREX Clinical date for a new candidate",
+    "ar": "خلال سنتين من طلب التسجيل، أو من تاريخ NZREX Clinical للمرشح الجديد"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "MCNZ: Policy on English language requirements (September 2026)",
+    "url": "https://www.mcnz.org.nz/assets/Policies/English-language-policy.pdf"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "The scores here are from MCNZ's English language policy (September 2026). If you apply through NZREX, confirm the score wording on the NZREX application form with MCNZ.",
+    "ar": "الدرجات هنا من سياسة اللغة الإنجليزية لدى MCNZ (سبتمبر 2026). إذا كنت تتقدم عبر NZREX فتأكد من صيغة الدرجات في نموذج طلب NZREX من MCNZ."
+   }
+  },
+  {
+   "id": "ncnz",
+   "destination": "new-zealand",
+   "short": "NCNZ",
+   "name": "Nursing Council of New Zealand",
+   "professions": [
+    "nursing"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Internationally qualified nurse application; a competence assessment applies to some applicants",
+    "ar": "طلب الممرضين المؤهلين دوليا؛ ويُطلب تقييم كفاءة من بعض المتقدمين"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 300,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "",
+    "ar": ""
+   },
+   "combine": "yes",
+   "sittings": null,
+   "windowMonths": 12,
+   "floors": null,
+   "combineNote": {
+    "en": "The scores can be reached over more than one sitting of OET: all required scores within 12 months of the first sitting, and all sittings within three years of starting the application. No per-sitting floor is printed. OET and IELTS cannot be mixed.",
+    "ar": "يمكن تحقيق الدرجات على أكثر من جلسة OET: جميع الدرجات المطلوبة خلال 12 شهرا من أول جلسة، وجميع الجلسات خلال ثلاث سنوات من بدء الطلب. لا يوجد حد أدنى منشور لكل جلسة. لا يُجمع OET مع IELTS."
+   },
+   "formats": {
+    "paper": "accepted",
+    "computer": "accepted",
+    "home": "not-accepted"
+   },
+   "homeNote": {
+    "en": "Tests must be taken at a test centre, on paper or on computer. Fully online testing such as OET@Home is not accepted; the online Speaking part of the venue-based computer test is accepted.",
+    "ar": "يجب أداء الاختبار في مركز اختبار، ورقيا أو على الكمبيوتر. الاختبار الكامل عبر الإنترنت مثل OET@Home غير مقبول؛ وجزء Speaking عبر الإنترنت في اختبار الكمبيوتر بالمركز مقبول."
+   },
+   "validity": {
+    "en": "All sittings within 3 years of starting the application; required scores within 12 months of the first sitting",
+    "ar": "جميع الجلسات خلال 3 سنوات من بدء الطلب؛ والدرجات المطلوبة خلال 12 شهرا من أول جلسة"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "Nursing Council of New Zealand: IQN requirements (English language)",
+    "url": "https://nursingcouncil.org.nz/IQN/IQN/H5.aspx"
+   },
+   "verified": "2026-11-27",
+   "status": "confirmed",
+   "note": {
+    "en": "The Council's English policy guidance is dated 19 August 2022.",
+    "ar": "إرشادات سياسة اللغة لدى المجلس مؤرخة 19 أغسطس 2022."
+   }
+  },
+  {
+   "id": "pharmacy-council-nz",
+   "destination": "new-zealand",
+   "short": "PCNZ",
+   "name": "Pharmacy Council of New Zealand",
+   "professions": [
+    "pharmacy"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Preliminary review, OPRA exam and legislation course, intern programme, then registration",
+    "ar": "المراجعة الأولية ثم اختبار OPRA ودورة التشريعات ثم برنامج التدريب ثم التسجيل"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 350,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "Grade A or B in each of the four sub-tests. The regulator prints grades; 350 is the lowest score in OET's B band.",
+    "ar": "الدرجة A أو B في كل مهارة من المهارات الأربع. الجهة تذكر الحروف فقط، و350 هي أدنى درجة في نطاق B في OET."
+   },
+   "combine": "yes",
+   "sittings": null,
+   "windowMonths": 24,
+   "floors": null,
+   "combineNote": {
+    "en": "Results from earlier OET tests obtained within a two-year period are accepted when not all scores are reached at one sitting. No number of sittings or per-sitting floor is printed.",
+    "ar": "تُقبل نتائج اختبارات OET السابقة خلال فترة سنتين إذا لم تتحقق كل الدرجات في جلسة واحدة. لا يوجد عدد جلسات أو حد أدنى لكل جلسة منشور."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator's page states no delivery mode for OET; ask the regulator before booking.",
+    "ar": "لا تذكر صفحة الجهة أي طريقة أداء لاختبار OET؛ اسأل الجهة قبل الحجز."
+   },
+   "validity": {
+    "en": "Achieved within 2 years of the application date",
+    "ar": "محققة خلال سنتين من تاريخ الطلب"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "Pharmacy Council of New Zealand: English language requirements",
+    "url": "https://pharmacycouncil.org.nz/pharmacy_registries/english-language-requirements/"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "No test is required if you are registered in Australia, Canada, Ireland, the UK or the USA. Results are verified against OET records.",
+    "ar": "لا يُطلب اختبار إذا كنت مسجلا في أستراليا أو كندا أو أيرلندا أو بريطانيا أو أمريكا. النتائج تُراجع مع سجلات OET."
+   }
+  },
+  {
+   "id": "physiotherapy-board-nz",
+   "destination": "new-zealand",
+   "short": "PBNZ",
+   "name": "Physiotherapy Board of New Zealand",
+   "professions": [
+    "physiotherapy"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Registration with the Physiotherapy Board (international pathways)",
+    "ar": "التسجيل في Physiotherapy Board (المسارات الدولية)"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 300,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "",
+    "ar": ""
+   },
+   "combine": "yes",
+   "sittings": 2,
+   "windowMonths": 6,
+   "floors": null,
+   "combineNote": {
+    "en": "OET scores may be obtained across two sittings in six months. Whether every sub-test must be sat in both sittings, and the lowest score allowed in each, are not confirmed: ask the Board.",
+    "ar": "يمكن تحقيق درجات OET على جلستين خلال ستة أشهر. أما هل تُؤدى كل الأجزاء في الجلستين، وأقل درجة مسموحة في كل جلسة، فغير مؤكد: اسأل المجلس."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator's page states no delivery mode for OET; ask the regulator before booking.",
+    "ar": "لا تذكر صفحة الجهة أي طريقة أداء لاختبار OET؛ اسأل الجهة قبل الحجز."
+   },
+   "validity": {
+    "en": "Less than 2 years old on the date you submit the application",
+    "ar": "أقل من سنتين في تاريخ تقديم الطلب"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "Physiotherapy Board of New Zealand help portal: English proficiency evidence (last updated 5 June 2025)",
+    "url": "https://pbnz.helpscoutdocs.com/article/35-english-proficiency-evidence"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "Read from the Board's help portal; the Board's own web page blocked automated reading. The Board does not accept composite results from multiple examinations.",
+    "ar": "المصدر بوابة المساعدة التابعة للمجلس؛ صفحة المجلس نفسها حجبت القراءة الآلية. المجلس لا يقبل نتائج مركبة من اختبارات متعددة."
+   }
+  },
+  {
+   "id": "dental-council-nz",
+   "destination": "new-zealand",
+   "short": "DCNZ",
+   "name": "Dental Council (New Zealand)",
+   "professions": [
+    "dentistry"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Prescribed qualification, individual assessment or the registration examination",
+    "ar": "مؤهل معتمد أو تقييم فردي أو اختبار التسجيل"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 350,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "Grade A or B in each of the four sub-tests. The regulator prints grades; 350 is the lowest score in OET's B band.",
+    "ar": "الدرجة A أو B في كل مهارة من المهارات الأربع. الجهة تذكر الحروف فقط، و350 هي أدنى درجة في نطاق B في OET."
+   },
+   "combine": "no",
+   "sittings": 1,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "The test must be passed in one sitting; one-skill retakes are not accepted.",
+    "ar": "يجب اجتياز الاختبار في جلسة واحدة؛ ولا تُقبل إعادة مهارة واحدة."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator's page states no delivery mode for OET; ask the regulator before booking.",
+    "ar": "لا تذكر صفحة الجهة أي طريقة أداء لاختبار OET؛ اسأل الجهة قبل الحجز."
+   },
+   "validity": {
+    "en": "2 years",
+    "ar": "سنتان"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "Dental Council: Registration, what you need to know",
+    "url": "https://dcnz.org.nz/i-want-to-practise-in-new-zealand/registration-what-you-need-to-know"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "The rule also covers dental specialists, oral health therapists, dental therapists, hygienists and clinical dental technicians.",
+    "ar": "القاعدة تشمل أيضا أخصائيي الأسنان و oral health therapists و dental therapists و hygienists و clinical dental technicians."
+   }
+  },
+  {
+   "id": "veterinary-council-nz",
+   "destination": "new-zealand",
+   "short": "VCNZ",
+   "name": "Veterinary Council of New Zealand",
+   "professions": [
+    "veterinary-science"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Registration with the Veterinary Council of New Zealand",
+    "ar": "التسجيل في Veterinary Council of New Zealand"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 350,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "Grade A or B in each of the four sub-tests. The regulator prints grades; 350 is the lowest score in OET's B band.",
+    "ar": "الدرجة A أو B في كل مهارة من المهارات الأربع. الجهة تذكر الحروف فقط، و350 هي أدنى درجة في نطاق B في OET."
+   },
+   "combine": "no",
+   "sittings": 1,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "A or B in each of the four sections at one sitting.",
+    "ar": "A أو B في كل قسم من الأربعة في جلسة واحدة."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator's page states no delivery mode for OET; ask the regulator before booking.",
+    "ar": "لا تذكر صفحة الجهة أي طريقة أداء لاختبار OET؛ اسأل الجهة قبل الحجز."
+   },
+   "validity": {
+    "en": "2 years; may be extended up to 5 years for applicants who lived and worked in an English-first country for 4 of the previous 5 years",
+    "ar": "سنتان؛ وقد تُمدد حتى 5 سنوات لمن عاش وعمل في بلد لغته الأولى الإنجليزية 4 من آخر 5 سنوات"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "VCNZ: Policy on English Competence and English Tests (last reviewed December 2017)",
+    "url": "https://vetcouncil.org.nz/common/Uploaded%20files/Web/Publications/Policies%20and%20Statements/EnglishCompetence.pdf"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "The policy was last reviewed in December 2017 and does not say which OET profession version is required; check with VCNZ.",
+    "ar": "آخر مراجعة للسياسة كانت في ديسمبر 2017 ولا تذكر نسخة المهنة المطلوبة في OET؛ تأكد من VCNZ."
+   }
+  },
+  {
+   "id": "otbnz",
+   "destination": "new-zealand",
+   "short": "OTBNZ",
+   "name": "Occupational Therapy Board of New Zealand",
+   "professions": [
+    "occupational-therapy"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Individual assessment of the overseas qualification by OTBNZ",
+    "ar": "تقييم فردي للمؤهل الأجنبي من OTBNZ"
+   },
+   "oet": "accepted",
+   "version": "OET Occupational Therapy",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 350,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "Grade B in each sub-test. The regulator prints the grade; 350 is the lowest score in OET's B band.",
+    "ar": "الدرجة B في كل مهارة. الجهة تذكر الحرف فقط، و350 هي أدنى درجة في نطاق B في OET."
+   },
+   "combine": "yes",
+   "sittings": null,
+   "windowMonths": 12,
+   "floors": null,
+   "combineNote": {
+    "en": "Results of more than one test attempt may be combined (clubbed), but the standard must be reached within 12 months of sitting the first test. No per-sitting floor is printed.",
+    "ar": "يجوز جمع نتائج أكثر من محاولة (clubbing)، على أن يتحقق المستوى المطلوب خلال 12 شهرا من أول اختبار. لا يوجد حد أدنى منشور لكل جلسة."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator's page states no delivery mode for OET; ask the regulator before booking.",
+    "ar": "لا تذكر صفحة الجهة أي طريقة أداء لاختبار OET؛ اسأل الجهة قبل الحجز."
+   },
+   "validity": {
+    "en": "No older than 24 months when submitted",
+    "ar": "ألا تزيد على 24 شهرا عند التقديم"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "OTBNZ: English language policy for registration (Policy 704, version 2.0)",
+    "url": "https://otboard.org.nz/document/8497/704%20English%20language%20policy%20for%20registration.pdf"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "No test is needed for applicants educated in New Zealand, Australia, Canada, Ireland, South Africa or the United Kingdom.",
+    "ar": "لا يُطلب اختبار لمن درس في نيوزيلندا أو أستراليا أو كندا أو أيرلندا أو جنوب أفريقيا أو بريطانيا."
+   }
+  },
+  {
+   "id": "odob",
+   "destination": "new-zealand",
+   "short": "ODOB",
+   "name": "Optometrists and Dispensing Opticians Board",
+   "professions": [
+    "optometry"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Registration with the Optometrists and Dispensing Opticians Board",
+    "ar": "التسجيل في Optometrists and Dispensing Opticians Board"
+   },
+   "oet": "accepted",
+   "version": "OET Optometry",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 350,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "A minimum B pass (or a score of 350) in each of the four components, achieved in one result.",
+    "ar": "B على الأقل (أو 350) في كل مهارة من الأربع، في نتيجة واحدة."
+   },
+   "combine": "no",
+   "sittings": 1,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "The standard must be achieved in one result.",
+    "ar": "يجب تحقيق المستوى في نتيجة واحدة."
+   },
+   "formats": {
+    "paper": "accepted",
+    "computer": "accepted",
+    "home": "not-accepted"
+   },
+   "homeNote": {
+    "en": "Tests must be taken in person (handwritten or computer); online and distance tests are not accepted.",
+    "ar": "يجب أداء الاختبار حضوريا (كتابة باليد أو على الكمبيوتر)؛ الاختبارات عبر الإنترنت وعن بعد غير مقبولة."
+   },
+   "validity": {
+    "en": "No more than 2 years old when the Board receives the application",
+    "ar": "ألا تزيد على سنتين عند استلام المجلس للطلب"
+   },
+   "effective": {
+    "en": "Policy v1.3 approved 21 September 2026",
+    "ar": "السياسة v1.3 المعتمدة في 21 سبتمبر 2026"
+   },
+   "source": {
+    "label": "ODOB: English Language Policy for Registration (POL-00020, v1.3)",
+    "url": "https://www.odob.health.nz/document/8136/O.%20English%20language%20requirements%20(v1).pdf"
+   },
+   "verified": "2026-11-27",
+   "status": "confirmed",
+   "note": {
+    "en": "From January 2027 OET on Paper is offered for Nursing and Medicine only (oet.com), so optometrists should plan for the computer test at a venue.",
+    "ar": "من يناير 2027 يُقدَّم OET الورقي للتمريض والطب فقط (oet.com)، لذلك على أخصائيي البصريات التخطيط لاختبار الكمبيوتر في مركز اختبار."
+   }
+  },
+  {
+   "id": "mrtb",
+   "destination": "new-zealand",
+   "short": "MRTB",
+   "name": "Medical Radiation Technologists Board",
+   "professions": [
+    "radiography"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Eligibility check, application, then assessment of qualifications and experience",
+    "ar": "فحص الأهلية ثم الطلب ثم تقييم المؤهلات والخبرة"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 350,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "Grade B in each sub-test. The regulator prints the grade; 350 is the lowest score in OET's B band.",
+    "ar": "الدرجة B في كل مهارة. الجهة تذكر الحرف فقط، و350 هي أدنى درجة في نطاق B في OET."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "The policy prints no sitting rule for OET (one sitting is stated for IELTS only): not confirmed.",
+    "ar": "السياسة لا تذكر قاعدة جلسات لاختبار OET (الجلسة الواحدة مذكورة لـ IELTS فقط): غير مؤكد."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The Board's policy states no delivery mode for OET: not confirmed. Ask the Board before booking OET@Home.",
+    "ar": "سياسة المجلس لا تذكر طريقة أداء OET: غير مؤكد. اسأل المجلس قبل حجز OET@Home."
+   },
+   "validity": {
+    "en": "Not stated for OET (2 years is stated for IELTS)",
+    "ar": "غير مذكورة لاختبار OET (سنتان مذكورتان لـ IELTS)"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "MRTB: Policy, English language proficiency (August 2024)",
+    "url": "https://www.mrtboard.org.nz/assets_mrtb/Uploads/2024-Aug-English-Language-Policy.pdf"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "",
+    "ar": ""
+   }
+  },
+  {
+   "id": "dietitians-board-nz",
+   "destination": "new-zealand",
+   "short": "Dietitians Board",
+   "name": "Dietitians Board (New Zealand)",
+   "professions": [
+    "dietetics"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Registration with the Dietitians Board",
+    "ar": "التسجيل في Dietitians Board"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 350,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "Grade A or B in each of the four sub-tests. The regulator prints grades; 350 is the lowest score in OET's B band.",
+    "ar": "الدرجة A أو B في كل مهارة من المهارات الأربع. الجهة تذكر الحروف فقط، و350 هي أدنى درجة في نطاق B في OET."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "The page does not address combining sittings: not confirmed.",
+    "ar": "الصفحة لا تتناول جمع الجلسات: غير مؤكد."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator's page states no delivery mode for OET; ask the regulator before booking.",
+    "ar": "لا تذكر صفحة الجهة أي طريقة أداء لاختبار OET؛ اسأل الجهة قبل الحجز."
+   },
+   "validity": {
+    "en": "All components passed and dated within the 12 months before the Board receives the application",
+    "ar": "اجتياز جميع المهارات وتاريخها خلال 12 شهرا قبل استلام المجلس للطلب"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "Dietitians Board: English Language Requirements",
+    "url": "https://dietitiansboard.org.nz/Public/Public/Registration/English-Language-Requirements.aspx"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "Note the 12-month window: shorter than the 2 years most regulators use.",
+    "ar": "انتبه لمدة 12 شهرا: أقصر من السنتين المعتمدتين لدى معظم الجهات."
+   }
+  },
+  {
+   "id": "podiatrists-board-nz",
+   "destination": "new-zealand",
+   "short": "PBNZ (Podiatry)",
+   "name": "Podiatrists Board of New Zealand",
+   "professions": [
+    "podiatry"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Application for registration with the Podiatrists Board",
+    "ar": "طلب تسجيل في Podiatrists Board"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "The registration form asks for an OET certificate with 'Grades A and B'; no score per sub-test is printed.",
+    "ar": "نموذج التسجيل يطلب شهادة OET «بالدرجتين A و B»؛ ولا يذكر درجة لكل مهارة."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "The form states no sitting rule: not confirmed.",
+    "ar": "النموذج لا يذكر قاعدة للجلسات: غير مؤكد."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator's page states no delivery mode for OET; ask the regulator before booking.",
+    "ar": "لا تذكر صفحة الجهة أي طريقة أداء لاختبار OET؛ اسأل الجهة قبل الحجز."
+   },
+   "validity": {
+    "en": "Not stated",
+    "ar": "غير مذكورة"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "Podiatrists Board: Application for PBNZ Registration (updated August 2024)",
+    "url": "https://podiatristsboard.org.nz/wp-content/uploads/2024/10/Application-for-PBNZ-Registration.updated-Aug2024.pdf"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "Applies to applicants for whom English is a second language. The form does not say which OET profession version is needed, and no separate English policy was found on the Board's site.",
+    "ar": "ينطبق على من كانت الإنجليزية لغته الثانية. النموذج لا يحدد نسخة المهنة المطلوبة في OET، ولم نجد سياسة لغة مستقلة في موقع المجلس."
+   }
+  },
+  {
+   "id": "immigration-nz",
+   "destination": "new-zealand",
+   "short": "INZ",
+   "name": "Immigration New Zealand",
+   "professions": [
+    "all"
+   ],
+   "purpose": "immigration",
+   "route": {
+    "en": "Skilled residence visa (principal applicant)",
+    "ar": "تأشيرة الإقامة للمهرة (المتقدم الرئيسي)"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": {
+    "L": 300,
+    "R": 300,
+    "W": 300,
+    "S": 300
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "Grade C+ or higher in all four skills for the principal applicant; 300 is the lowest score in OET's C+ band. Non-principal applicants: grade C or higher in all four skills.",
+    "ar": "C+ أو أعلى في المهارات الأربع للمتقدم الرئيسي؛ و300 هي أدنى درجة في نطاق C+ في OET. المتقدمون غير الرئيسيين: C أو أعلى في المهارات الأربع."
+   },
+   "combine": "not-stated",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "",
+    "ar": ""
+   },
+   "formats": {
+    "paper": "accepted",
+    "computer": "accepted",
+    "home": "not-accepted"
+   },
+   "homeNote": {
+    "en": "The test must be sat in person at a test centre; at-home tests are not acceptable.",
+    "ar": "يجب أداء الاختبار حضوريا في مركز اختبار؛ الاختبارات المنزلية غير مقبولة."
+   },
+   "validity": {
+    "en": "No more than 2 years old at the time you apply",
+    "ar": "ألا تزيد على سنتين وقت التقديم"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "Immigration New Zealand: English language requirements for skilled residence visas",
+    "url": "https://www.immigration.govt.nz/process-to-apply/applying-for-a-visa/providing-evidence-and-documents-to-support-your-visa-application/english-language-requirements/english-language-requirements-for-skilled-residence-visas/"
+   },
+   "verified": "2026-11-27",
+   "status": "confirmed",
+   "note": {
+    "en": "The visa score is lower than every health regulator's score, so it does not satisfy registration. Only the skilled residence instructions were read (Amendment Circular 2026-21, 7 August 2026); other visa categories are not confirmed.",
+    "ar": "درجة التأشيرة أقل من درجة أي جهة تنظيم صحية، فهي لا تكفي للتسجيل المهني. قُرئت تعليمات الإقامة للمهرة فقط (Amendment Circular 2026-21 بتاريخ 7 أغسطس 2026)؛ فئات التأشيرات الأخرى غير مؤكدة."
+   }
+  },
+  {
+   "id": "ecfmg",
+   "destination": "usa",
+   "short": "ECFMG",
+   "name": "Educational Commission for Foreign Medical Graduates",
+   "professions": [
+    "medicine"
+   ],
+   "purpose": "credentialing",
+   "route": {
+    "en": "ECFMG Certification through the 2027 Pathways",
+    "ar": "شهادة ECFMG عبر 2027 Pathways"
+   },
+   "oet": "accepted",
+   "version": "OET Medicine",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 300,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "",
+    "ar": ""
+   },
+   "combine": "no",
+   "sittings": 1,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "All scores in one test administration; if any sub-test is short, all four must be retaken together. There is no limit on attempts.",
+    "ar": "جميع الدرجات في جلسة اختبار واحدة؛ إذا نقصت أي مهارة تُعاد الأربع معا. لا حد لعدد المحاولات."
+   },
+   "formats": {
+    "paper": "accepted",
+    "computer": "accepted",
+    "home": "conditional"
+   },
+   "homeNote": {
+    "en": "OET@Home is available only to applicants who have no physical test venue in their country; others should take the paper or computer test at a venue.",
+    "ar": "OET@Home متاح فقط لمن لا يوجد مركز اختبار فعلي في بلده؛ وعلى غيرهم أداء الاختبار الورقي أو على الكمبيوتر في مركز."
+   },
+   "validity": {
+    "en": "2027 Pathways: a satisfactory score attained on or after 1 January 2025",
+    "ar": "2027 Pathways: درجة مقبولة محققة من 1 يناير 2025"
+   },
+   "effective": {
+    "en": "2027 Pathways (page last updated 14 May 2026)",
+    "ar": "2027 Pathways (آخر تحديث للصفحة 14 مايو 2026)"
+   },
+   "source": {
+    "label": "ECFMG: Requirements for 2027 Pathways, OET Medicine",
+    "url": "https://www.ecfmg.org/certification-pathways/oet.html"
+   },
+   "verified": "2026-11-27",
+   "status": "confirmed",
+   "note": {
+    "en": "For the Match, ECFMG says to take the test on or before the last scheduled test date in December 2026. Since 14 May 2026 releasing results needs your MyIntealth ID.",
+    "ar": "لأجل الـ Match تنصح ECFMG بأداء الاختبار في آخر موعد مقرر في ديسمبر 2026 أو قبله. منذ 14 مايو 2026 يتطلب إرسال النتائج رقم MyIntealth ID."
+   }
+  },
+  {
+   "id": "trumerit",
+   "destination": "usa",
+   "short": "TruMerit",
+   "name": "TruMerit (formerly CGFNS International)",
+   "professions": [
+    "nursing"
+   ],
+   "purpose": "credentialing",
+   "route": {
+    "en": "CGFNS Certification Program; VisaScreen follows the federal (HRSA) score table",
+    "ar": "برنامج CGFNS Certification Program؛ و VisaScreen يتبع جدول الدرجات الفيدرالي (HRSA)"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": {
+    "L": 320,
+    "R": 340,
+    "W": 350,
+    "S": 360
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "As printed on TruMerit's Certification Program page; applied to exams taken on or after 12 May 2026. The federal HRSA table itself could not be opened: not confirmed at hrsa.gov.",
+    "ar": "كما في صفحة Certification Program لدى TruMerit؛ وتطبق على الاختبارات من 12 مايو 2026. جدول HRSA الفيدرالي نفسه تعذر فتحه: غير مؤكد من hrsa.gov."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "TruMerit's pages say nothing about combining sittings or a single sub-test retake: not confirmed. OET tells candidates to ask the credentialling organisation.",
+    "ar": "صفحات TruMerit لا تذكر جمع الجلسات ولا إعادة مهارة واحدة: غير مؤكد. OET ينصح بسؤال جهة الاعتماد."
+   },
+   "formats": {
+    "paper": "accepted",
+    "computer": "accepted",
+    "home": "not-accepted"
+   },
+   "homeNote": {
+    "en": "TruMerit says it does not accept the at-home versions of English language proficiency exams.",
+    "ar": "TruMerit ينص على أنه لا يقبل النسخ المنزلية من اختبارات اللغة الإنجليزية."
+   },
+   "validity": {
+    "en": "Certification Program: exam taken within one year of the Nurse Qualifying Exam date. VisaScreen validity: not confirmed",
+    "ar": "Certification Program: اختبار مؤدى خلال سنة من تاريخ Nurse Qualifying Exam. صلاحية VisaScreen: غير مؤكدة"
+   },
+   "effective": {
+    "en": "Exams taken on or after 12 May 2026",
+    "ar": "الاختبارات المؤداة من 12 مايو 2026"
+   },
+   "source": {
+    "label": "TruMerit: CGFNS Certification Program",
+    "url": "https://www.trumerit.org/services/certification/cgfns-certification-program/"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "Exams taken before 12 May 2026 are certified under the previous criteria. The VisaScreen page itself was not read.",
+    "ar": "الاختبارات قبل 12 مايو 2026 تُعتمد بالمعايير السابقة. صفحة VisaScreen نفسها لم تُقرأ."
+   }
+  },
+  {
+   "id": "nabp-fpgec",
+   "destination": "usa",
+   "short": "NABP FPGEC",
+   "name": "National Association of Boards of Pharmacy, Foreign Pharmacy Graduate Examination Committee",
+   "professions": [
+    "pharmacy"
+   ],
+   "purpose": "credentialing",
+   "route": {
+    "en": "FPGEC Certification: the FPGEE plus TOEFL iBT or OET Pharmacy",
+    "ar": "شهادة FPGEC: اختبار FPGEE مع TOEFL iBT أو OET Pharmacy"
+   },
+   "oet": "accepted",
+   "version": "OET Pharmacy",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "Not yet published as of 27 November 2026",
+    "ar": "لم تُنشر بعد حتى 27 نوفمبر 2026"
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "NABP says nothing about combining OET sittings or a single-sitting rule for OET: not confirmed.",
+    "ar": "NABP لا يذكر جمع جلسات OET ولا قاعدة الجلسة الواحدة لـ OET: غير مؤكد."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "accepted",
+    "home": "not-accepted"
+   },
+   "homeNote": {
+    "en": "NABP does not accept home-edition scores; OET must be taken at an approved computer-based OET test centre. No NABP sentence names the paper test: not confirmed.",
+    "ar": "NABP لا يقبل نتائج النسخ المنزلية؛ ويجب أداء OET في مركز اختبار OET معتمد على الكمبيوتر. لا توجد جملة من NABP تذكر الاختبار الورقي: غير مؤكد."
+   },
+   "validity": {
+    "en": "Not confirmed for OET (the 2-year rule is stated for TOEFL iBT only)",
+    "ar": "غير مؤكدة لاختبار OET (قاعدة السنتين مذكورة لـ TOEFL iBT فقط)"
+   },
+   "effective": {
+    "en": "Tests taken on or after 11 January 2027",
+    "ar": "الاختبارات المؤداة من 11 يناير 2027"
+   },
+   "source": {
+    "label": "NABP: FPGEC Candidate Application Bulletin, Step 3 (October 2026)",
+    "url": "https://read.nxtbook.com/nabp/bulletin/fpgec_bulletin/step_3.html"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "The test centre must be in an NABP member or associate member jurisdiction: the 50 US states, the District of Columbia, Guam, Puerto Rico, the Virgin Islands or one of 10 Canadian provinces. OET tests taken before 11 January 2027 are not accepted. OET or TOEFL iBT, not both. How OET results are reported to NABP is not confirmed.",
+    "ar": "يجب أن يكون مركز الاختبار في ولاية أو منطقة عضو أو عضو منتسب في NABP: الولايات الأمريكية الخمسون أو District of Columbia أو Guam أو Puerto Rico أو Virgin Islands أو إحدى 10 مقاطعات كندية. اختبارات OET قبل 11 يناير 2027 غير مقبولة. المطلوب OET أو TOEFL iBT وليس كلاهما. طريقة إرسال نتائج OET إلى NABP غير مؤكدة."
+   }
+  },
+  {
+   "id": "fccpt",
+   "destination": "usa",
+   "short": "FCCPT",
+   "name": "Foreign Credentialing Commission on Physical Therapy",
+   "professions": [
+    "physiotherapy"
+   ],
+   "purpose": "credentialing",
+   "route": {
+    "en": "FCCPT credentials review (Type 1 for immigration)",
+    "ar": "مراجعة المؤهلات لدى FCCPT (Type 1 للهجرة)"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": {
+    "L": 320,
+    "R": 340,
+    "W": 350,
+    "S": 360
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "Listed for 'Type 1 for Immigration', as of 12 May 2026.",
+    "ar": "مذكورة لـ «Type 1 for Immigration» اعتبارا من 12 مايو 2026."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "Not stated on the page: not confirmed.",
+    "ar": "غير مذكور في الصفحة: غير مؤكد."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The page says nothing about OET delivery mode (and is inconsistent about the TOEFL home edition): not confirmed.",
+    "ar": "الصفحة لا تذكر طريقة أداء OET (ومتناقضة بخصوص النسخة المنزلية من TOEFL): غير مؤكد."
+   },
+   "validity": {
+    "en": "Not confirmed",
+    "ar": "غير مؤكدة"
+   },
+   "effective": {
+    "en": "As of 12 May 2026",
+    "ar": "اعتبارا من 12 مايو 2026"
+   },
+   "source": {
+    "label": "FCCPT: Services",
+    "url": "https://www.fccpt.org/services/"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "State physical therapy boards were not researched: their rules are not confirmed.",
+    "ar": "مجالس العلاج الطبيعي في الولايات لم تُبحث: قواعدها غير مؤكدة."
+   }
+  },
+  {
+   "id": "us-state-boards-of-nursing",
+   "destination": "usa",
+   "short": "State boards of nursing",
+   "name": "US state boards of nursing",
+   "professions": [
+    "nursing"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "State licensure; each board sets its own English rule",
+    "ar": "ترخيص الولاية؛ وكل مجلس يضع قاعدة اللغة الخاصة به"
+   },
+   "oet": "not-confirmed",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "Not confirmed: no state board was read individually.",
+    "ar": "غير مؤكد: لم يُقرأ أي مجلس ولاية على حدة."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "",
+    "ar": ""
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "Not confirmed for any state board.",
+    "ar": "غير مؤكد لأي مجلس ولاية."
+   },
+   "validity": {
+    "en": "",
+    "ar": ""
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "OET: Recognising organisations, United States (OET's own list, not a board's page)",
+    "url": "https://oet.com/test/who-recognises-oet/recognising-organisations/united-states"
+   },
+   "verified": "2026-11-27",
+   "status": "not-confirmed",
+   "note": {
+    "en": "There are more than 40 boards and none was read on 27 November 2026, so there is no single US nursing board rule. OET itself tells candidates to check whether their state board accepts a single sub-test retake. Ask your state board.",
+    "ar": "هناك أكثر من 40 مجلسا ولم يُقرأ أي منها يوم 27 نوفمبر 2026، فلا توجد قاعدة واحدة لمجالس التمريض الأمريكية. OET نفسه ينصح بالتأكد من قبول مجلس الولاية لإعادة مهارة واحدة. اسأل مجلس ولايتك."
+   }
+  },
+  {
+   "id": "ircc",
+   "destination": "canada",
+   "short": "IRCC",
+   "name": "Immigration, Refugees and Citizenship Canada (Express Entry)",
+   "professions": [
+    "all"
+   ],
+   "purpose": "immigration",
+   "route": {
+    "en": "Express Entry language test",
+    "ar": "اختبار اللغة لنظام Express Entry"
+   },
+   "oet": "not-listed",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "No OET score: the approved English tests are CELPIP, IELTS and PTE Core.",
+    "ar": "لا توجد درجة OET: الاختبارات الإنجليزية المعتمدة هي CELPIP و IELTS و PTE Core."
+   },
+   "combine": "not-stated",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "",
+    "ar": ""
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "OET is not on the published list, so no delivery mode applies.",
+    "ar": "OET غير مذكور في القائمة المنشورة، فلا تنطبق أي طريقة أداء."
+   },
+   "validity": {
+    "en": "",
+    "ar": ""
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "IRCC: Language test results for Express Entry (page dated 2026-10-16)",
+    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html"
+   },
+   "verified": "2026-11-27",
+   "status": "confirmed",
+   "note": {
+    "en": "IRCC does not list OET as an approved language test for Express Entry, so a candidate may need one test for immigration and another for registration. Other IRCC programs were not read.",
+    "ar": "IRCC لا يدرج OET ضمن اختبارات اللغة المعتمدة لـ Express Entry، فقد تحتاج اختبارا للهجرة وآخر للتسجيل المهني. برامج IRCC الأخرى لم تُقرأ."
+   }
+  },
+  {
+   "id": "cpsbc",
+   "destination": "canada",
+   "short": "CPSBC",
+   "name": "College of Physicians and Surgeons of British Columbia",
+   "professions": [
+    "medicine"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Provincial medical licence (British Columbia)",
+    "ar": "ترخيص طبي إقليمي (British Columbia)"
+   },
+   "oet": "accepted",
+   "version": "OET Medicine",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 350,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "Grade B in each sub-test. The regulator prints the grade; 350 is the lowest score in OET's B band.",
+    "ar": "الدرجة B في كل مهارة. الجهة تذكر الحرف فقط، و350 هي أدنى درجة في نطاق B في OET."
+   },
+   "combine": "no",
+   "sittings": 1,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "Grade B in each component in one sitting; combined scores from multiple attempts are not accepted.",
+    "ar": "B في كل مهارة في جلسة واحدة؛ ولا تُقبل الدرجات المجمعة من محاولات متعددة."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator's page states no delivery mode for OET; ask the regulator before booking.",
+    "ar": "لا تذكر صفحة الجهة أي طريقة أداء لاختبار OET؛ اسأل الجهة قبل الحجز."
+   },
+   "validity": {
+    "en": "2 years from the date taken",
+    "ar": "سنتان من تاريخ الاختبار"
+   },
+   "effective": {
+    "en": "Effective 7 April 2026, revised 11 September 2026",
+    "ar": "سارية من 7 أبريل 2026 ومعدلة في 11 سبتمبر 2026"
+   },
+   "source": {
+    "label": "CPSBC: English Language Proficiency Requirements (version 2.2)",
+    "url": "https://www.cpsbc.ca/files/pdf/LIC-P-English-Language-Proficiency-Requirements.pdf"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "Results are sent by adding CPSBC as a verified organisation in your myOET account.",
+    "ar": "تُرسل النتائج بإضافة CPSBC كجهة موثقة في حسابك على myOET."
+   }
+  },
+  {
+   "id": "cpsa",
+   "destination": "canada",
+   "short": "CPSA",
+   "name": "College of Physicians and Surgeons of Alberta",
+   "professions": [
+    "medicine"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Provincial medical licence (Alberta)",
+    "ar": "ترخيص طبي إقليمي (Alberta)"
+   },
+   "oet": "accepted",
+   "version": "OET Medicine",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 350,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "Grade B in each sub-test. The regulator prints the grade; 350 is the lowest score in OET's B band.",
+    "ar": "الدرجة B في كل مهارة. الجهة تذكر الحرف فقط، و350 هي أدنى درجة في نطاق B في OET."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "The CPSA page read does not state whether all four scores must come from one sitting: not confirmed.",
+    "ar": "صفحة CPSA التي قرأناها لا تذكر هل يجب أن تكون الدرجات الأربع من جلسة واحدة: غير مؤكد."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator's page states no delivery mode for OET; ask the regulator before booking.",
+    "ar": "لا تذكر صفحة الجهة أي طريقة أداء لاختبار OET؛ اسأل الجهة قبل الحجز."
+   },
+   "validity": {
+    "en": "Test completed within 24 months before the CPSA application",
+    "ar": "اختبار مكتمل خلال 24 شهرا قبل طلب CPSA"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "CPSA: English language proficiency",
+    "url": "https://cpsa.ca/physicians/registration/apply-to-practise/english-language-proficiency/"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "",
+    "ar": ""
+   }
+  },
+  {
+   "id": "cpso",
+   "destination": "canada",
+   "short": "CPSO",
+   "name": "College of Physicians and Surgeons of Ontario",
+   "professions": [
+    "medicine"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Provincial medical licence (Ontario)",
+    "ar": "ترخيص طبي إقليمي (Ontario)"
+   },
+   "oet": "not-confirmed",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "Not confirmed: the CPSO page could not be opened on 27 November 2026. Ask CPSO which tests and scores it accepts.",
+    "ar": "غير مؤكد: تعذّر فتح صفحة CPSO في 27 نوفمبر 2026. اسأل CPSO عن الاختبارات والدرجات التي تقبلها."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "",
+    "ar": ""
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "Not confirmed: the page could not be read.",
+    "ar": "غير مؤكد: تعذرت قراءة الصفحة."
+   },
+   "validity": {
+    "en": "Not confirmed",
+    "ar": "غير مؤكدة"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "CPSO: Language proficiency (page not readable on 27 November 2026)",
+    "url": "https://www.cpso.on.ca/Physicians/Registration/Apply-for-Registration/Language-Proficiency"
+   },
+   "verified": "2026-11-27",
+   "status": "not-confirmed",
+   "note": {
+    "en": "The CPSO page blocked reading on 27 November 2026, so nothing here is confirmed. Read the CPSO page yourself before booking. Other provincial medical colleges were not researched.",
+    "ar": "صفحة CPSO حجبت القراءة يوم 27 نوفمبر 2026، فلا شيء هنا مؤكد. اقرأ صفحة CPSO بنفسك قبل الحجز. كليات الأطباء في المقاطعات الأخرى لم تُبحث."
+   }
+  },
+  {
+   "id": "cno",
+   "destination": "canada",
+   "short": "CNO",
+   "name": "College of Nurses of Ontario",
+   "professions": [
+    "nursing"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Registration as a nurse in Ontario",
+    "ar": "التسجيل كممرض في Ontario"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": {
+    "L": 350,
+    "R": 330,
+    "W": 320,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "As printed by CNO: Writing C+ (320), Speaking B (350), Listening B (350), Reading C+ (330).",
+    "ar": "كما تنشرها CNO: Writing C+ (320) و Speaking B (350) و Listening B (350) و Reading C+ (330)."
+   },
+   "combine": "no",
+   "sittings": 1,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "The minimum scores for all components must be achieved in one complete attempt.",
+    "ar": "يجب تحقيق الحد الأدنى في جميع المهارات في محاولة كاملة واحدة."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator's page states no delivery mode for OET; ask the regulator before booking.",
+    "ar": "لا تذكر صفحة الجهة أي طريقة أداء لاختبار OET؛ اسأل الجهة قبل الحجز."
+   },
+   "validity": {
+    "en": "Test written within two years of registering",
+    "ar": "اختبار مؤدى خلال سنتين من التسجيل"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "CNO: Proficiency in English or French, types of evidence",
+    "url": "https://cno.org/become-a-nurse/registration-requirements/proficiency-in-english-or-french/types-of-evidence"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "",
+    "ar": ""
+   }
+  },
+  {
+   "id": "bccnm",
+   "destination": "canada",
+   "short": "BCCNM",
+   "name": "British Columbia College of Nurses and Midwives",
+   "professions": [
+    "nursing"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Registration as a nurse in British Columbia",
+    "ar": "التسجيل كممرض في British Columbia"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": {
+    "L": 350,
+    "R": 300,
+    "W": 300,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "BCCNM prints grades: Reading C+, Listening B, Writing C+, Speaking B. The numbers are OET's band floors (B 350, C+ 300).",
+    "ar": "BCCNM تذكر الحروف: Reading C+ و Listening B و Writing C+ و Speaking B. الأرقام هي أدنى درجات النطاق في OET (B 350 و C+ 300)."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "Not stated on the page: not confirmed.",
+    "ar": "غير مذكور في الصفحة: غير مؤكد."
+   },
+   "formats": {
+    "paper": "accepted",
+    "computer": "accepted",
+    "home": "not-accepted"
+   },
+   "homeNote": {
+    "en": "The OET row gives the accepted testing method as 'In-person only'. If your computer test has Speaking online, ask BCCNM whether it counts.",
+    "ar": "صف OET يذكر طريقة الاختبار المقبولة «حضوريا فقط». إذا كان Speaking في اختبار الكمبيوتر عبر الإنترنت فاسأل BCCNM هل يُحتسب."
+   },
+   "validity": {
+    "en": "Evidence no more than 2 years old",
+    "ar": "دليل لا يزيد عمره على سنتين"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "BCCNM: English proficiency (updated 24 November 2026)",
+    "url": "https://www.bccnm.ca/RN/applications_registration/Pages/English_proficiency.aspx"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "",
+    "ar": ""
+   }
+  },
+  {
+   "id": "crna",
+   "destination": "canada",
+   "short": "CRNA",
+   "name": "College of Registered Nurses of Alberta",
+   "professions": [
+    "nursing"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Registration as a nurse in Alberta",
+    "ar": "التسجيل كممرض في Alberta"
+   },
+   "oet": "not-accepted",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "No OET score: CRNA lists only CELBAN and IELTS Academic.",
+    "ar": "لا توجد درجة OET: CRNA تدرج CELBAN و IELTS Academic فقط."
+   },
+   "combine": "not-stated",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "",
+    "ar": ""
+   },
+   "formats": {
+    "paper": "not-accepted",
+    "computer": "not-accepted",
+    "home": "not-accepted"
+   },
+   "homeNote": {
+    "en": "OET is not accepted in any mode.",
+    "ar": "OET غير مقبول بأي طريقة أداء."
+   },
+   "validity": {
+    "en": "",
+    "ar": ""
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "CRNA: English language proficiency",
+    "url": "https://www.nurses.ab.ca/nursing-in-alberta/registration-requirements/english-language-proficiency/"
+   },
+   "verified": "2026-11-27",
+   "status": "confirmed",
+   "note": {
+    "en": "CRNA says it does not currently accept any language test other than CELBAN and IELTS Academic.",
+    "ar": "CRNA تنص على أنها لا تقبل حاليا أي اختبار لغة غير CELBAN و IELTS Academic."
+   }
+  },
+  {
+   "id": "napra",
+   "destination": "canada",
+   "short": "NAPRA",
+   "name": "National Association of Pharmacy Regulatory Authorities (model language policy)",
+   "professions": [
+    "pharmacy"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "National model policy; each provincial pharmacy regulator applies it",
+    "ar": "سياسة وطنية نموذجية؛ وتطبقها كل جهة تنظيم صيدلة في مقاطعتها"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 300,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "The policy prints grades for pharmacists: Reading B, Listening B, Speaking B, Writing C+. The numbers are OET's band floors.",
+    "ar": "السياسة تذكر الحروف للصيادلة: Reading B و Listening B و Speaking B و Writing C+. الأرقام هي أدنى درجات النطاق في OET."
+   },
+   "combine": "no",
+   "sittings": 1,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "All four sub-tests in a single testing session, with a passing score in each.",
+    "ar": "المهارات الأربع في جلسة اختبار واحدة مع درجة النجاح في كل منها."
+   },
+   "formats": {
+    "paper": "accepted",
+    "computer": "accepted",
+    "home": "conditional"
+   },
+   "homeNote": {
+    "en": "The policy accepts remotely proctored tests if they keep the same security, validity and reliability as on-site tests. It does not name OET@Home, and each provincial regulator decides.",
+    "ar": "السياسة تقبل الاختبارات المراقبة عن بعد إذا حافظت على مستوى الأمان والصدق والثبات نفسه كالاختبارات الحضورية. لا تذكر OET@Home بالاسم، والقرار لكل جهة إقليمية."
+   },
+   "validity": {
+    "en": "Typically 2 years; Pharmacists' Gateway Canada says two years from the date of the sitting",
+    "ar": "عادة سنتان؛ و Pharmacists' Gateway Canada تذكر سنتين من تاريخ الجلسة"
+   },
+   "effective": {
+    "en": "Adopted or adapted by most jurisdictions on 1 September 2024, Manitoba on 24 March 2025, Ontario on 1 January 2026",
+    "ar": "اعتمدتها معظم المقاطعات في 1 سبتمبر 2024، و Manitoba في 24 مارس 2025، و Ontario في 1 يناير 2026"
+   },
+   "source": {
+    "label": "NAPRA: Language Proficiency Requirement Policy (February 2024)",
+    "url": "https://www.napra.ca/wp-content/uploads/2024/02/NAPRA-Language-Proficiency-Requirement-Policy-February-2024-EN.pdf"
+   },
+   "verified": "2026-11-27",
+   "status": "confirmed",
+   "note": {
+    "en": "This is a recommendation to provincial regulators, not a rule of its own; Quebec is outside the scheme. Apart from Ontario, provincial pharmacy rules were not read.",
+    "ar": "هذه توصية للجهات الإقليمية وليست قاعدة مستقلة؛ و Quebec خارج هذا النظام. عدا Ontario، قواعد الصيدلة في المقاطعات لم تُقرأ."
+   }
+  },
+  {
+   "id": "ocp",
+   "destination": "canada",
+   "short": "OCP",
+   "name": "Ontario College of Pharmacists",
+   "professions": [
+    "pharmacy"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Registration as a pharmacist in Ontario",
+    "ar": "التسجيل كصيدلي في Ontario"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 300,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "OCP prints grades: Reading B, Writing C+, Listening B, Speaking B. The numbers are OET's band floors.",
+    "ar": "OCP تذكر الحروف: Reading B و Writing C+ و Listening B و Speaking B. الأرقام هي أدنى درجات النطاق في OET."
+   },
+   "combine": "not-stated",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "Not stated on OCP's page. The NAPRA model policy asks for a single testing session.",
+    "ar": "غير مذكور في صفحة OCP. سياسة NAPRA النموذجية تطلب جلسة اختبار واحدة."
+   },
+   "formats": {
+    "paper": "accepted",
+    "computer": "accepted",
+    "home": "accepted"
+   },
+   "homeNote": {
+    "en": "OCP lists OET Test on Paper, OET Test on Computer and OET@Home as accepted formats.",
+    "ar": "OCP تدرج OET Test on Paper و OET Test on Computer و OET@Home كصيغ مقبولة."
+   },
+   "validity": {
+    "en": "2 years",
+    "ar": "سنتان"
+   },
+   "effective": {
+    "en": "From 1 January 2026",
+    "ar": "من 1 يناير 2026"
+   },
+   "source": {
+    "label": "OCP: Acceptable language proficiency tests and cut scores (effective 1 January 2026)",
+    "url": "https://ocpinfo.com/applicants/registration-requirements/language-proficiency/acceptable-language-proficiency-tests-and-cut-scores-for-applicants-effective-january-1-2026/"
+   },
+   "verified": "2026-11-27",
+   "status": "confirmed",
+   "note": {
+    "en": "OCP notes the paper test will not be offered from January 2027 and still accepts valid paper results. Whether you can book OET@Home is OET's decision, not OCP's.",
+    "ar": "OCP تذكر أن الاختبار الورقي لن يُقدَّم من يناير 2027 وتبقى تقبل النتائج الورقية السارية. إمكانية حجز OET@Home يقررها OET وليس OCP."
+   }
+  },
+  {
+   "id": "capr",
+   "destination": "canada",
+   "short": "CAPR",
+   "name": "Canadian Alliance of Physiotherapy Regulators",
+   "professions": [
+    "physiotherapy"
+   ],
+   "purpose": "credentialing",
+   "route": {
+    "en": "Credentialing of internationally trained physiotherapists",
+    "ar": "اعتماد مؤهلات أخصائيي العلاج الطبيعي المتدربين دوليا"
+   },
+   "oet": "not-listed",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "No OET score: the list is CELPIP General, IELTS General Training, IELTS Academic and PTE Core (plus French tests).",
+    "ar": "لا توجد درجة OET: القائمة تضم CELPIP General و IELTS General Training و IELTS Academic و PTE Core (واختبارات فرنسية)."
+   },
+   "combine": "not-stated",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "",
+    "ar": ""
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "OET is not on the published list, so no delivery mode applies.",
+    "ar": "OET غير مذكور في القائمة المنشورة، فلا تنطبق أي طريقة أداء."
+   },
+   "validity": {
+    "en": "",
+    "ar": ""
+   },
+   "effective": {
+    "en": "Policy effective 3 March 2025",
+    "ar": "السياسة سارية من 3 مارس 2025"
+   },
+   "source": {
+    "label": "CAPR: Policy 2.2 Language Proficiency",
+    "url": "https://alliancept.org/internationally-trained/credentialing-overview/policies/2-2-language-proficiency/"
+   },
+   "verified": "2026-11-27",
+   "status": "confirmed",
+   "note": {
+    "en": "OET is not on CAPR's list of accepted tests.",
+    "ar": "OET غير مدرج في قائمة الاختبارات المقبولة لدى CAPR."
+   }
+  },
+  {
+   "id": "acotro",
+   "destination": "canada",
+   "short": "ACOTRO",
+   "name": "Association of Canadian Occupational Therapy Regulatory Organizations (SEAS)",
+   "professions": [
+    "occupational-therapy"
+   ],
+   "purpose": "credentialing",
+   "route": {
+    "en": "SEAS assessment for internationally educated occupational therapists",
+    "ar": "تقييم SEAS لأخصائيي العلاج الوظيفي المتعلمين دوليا"
+   },
+   "oet": "not-listed",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "No OET score: the list is CELPIP General, IELTS Academic, IELTS General Training, TOEFL iBT and PTE Core (plus French tests).",
+    "ar": "لا توجد درجة OET: القائمة تضم CELPIP General و IELTS Academic و IELTS General Training و TOEFL iBT و PTE Core (واختبارات فرنسية)."
+   },
+   "combine": "not-stated",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "",
+    "ar": ""
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "OET is not on the published list, so no delivery mode applies.",
+    "ar": "OET غير مذكور في القائمة المنشورة، فلا تنطبق أي طريقة أداء."
+   },
+   "validity": {
+    "en": "",
+    "ar": ""
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "ACOTRO: SEAS, documents required",
+    "url": "https://acotro-acore.org/seas/documents-required/"
+   },
+   "verified": "2026-11-27",
+   "status": "confirmed",
+   "note": {
+    "en": "OET is not on the list of tests approved for SEAS.",
+    "ar": "OET غير مدرج في قائمة الاختبارات المعتمدة لـ SEAS."
+   }
+  },
+  {
+   "id": "rcdso",
+   "destination": "canada",
+   "short": "RCDSO",
+   "name": "Royal College of Dental Surgeons of Ontario",
+   "professions": [
+    "dentistry"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "NDEB equivalency process, then an Ontario licence",
+    "ar": "مسار المعادلة لدى NDEB ثم ترخيص Ontario"
+   },
+   "oet": "not-listed",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "No OET score: the approved English tests are IELTS, TOEFL iBT, CELPIP and PTE.",
+    "ar": "لا توجد درجة OET: الاختبارات الإنجليزية المعتمدة هي IELTS و TOEFL iBT و CELPIP و PTE."
+   },
+   "combine": "not-stated",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "",
+    "ar": ""
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "OET is not on the published list, so no delivery mode applies.",
+    "ar": "OET غير مذكور في القائمة المنشورة، فلا تنطبق أي طريقة أداء."
+   },
+   "validity": {
+    "en": "",
+    "ar": ""
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "RCDSO: Language proficiency",
+    "url": "https://www.rcdso.org/become-a-dentist/process-and-requirements/language-proficiency"
+   },
+   "verified": "2026-11-27",
+   "status": "confirmed",
+   "note": {
+    "en": "OET is not on RCDSO's list. The NDEB sets no language test of its own. Dental regulators in other provinces were not read.",
+    "ar": "OET غير مدرج في قائمة RCDSO. و NDEB لا يضع اختبار لغة خاصا به. جهات طب الأسنان في المقاطعات الأخرى لم تُقرأ."
+   }
+  },
+  {
+   "id": "cvma-neb",
+   "destination": "canada",
+   "short": "CVMA NEB",
+   "name": "Canadian Veterinary Medical Association, National Examining Board",
+   "professions": [
+    "veterinary-science"
+   ],
+   "purpose": "credentialing",
+   "route": {
+    "en": "National Examining Board document evaluation and examinations",
+    "ar": "تقييم الوثائق والاختبارات لدى National Examining Board"
+   },
+   "oet": "not-listed",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "No OET score. From 1 January 2027 the list is TOEFL iBT, IELTS (Academic or General Training), CAEL, CELPIP-General and PTE Core.",
+    "ar": "لا توجد درجة OET. من 1 يناير 2027 القائمة هي TOEFL iBT و IELTS (Academic أو General Training) و CAEL و CELPIP-General و PTE Core."
+   },
+   "combine": "not-stated",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "",
+    "ar": ""
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "OET is not on the published list, so no delivery mode applies.",
+    "ar": "OET غير مذكور في القائمة المنشورة، فلا تنطبق أي طريقة أداء."
+   },
+   "validity": {
+    "en": "",
+    "ar": ""
+   },
+   "effective": {
+    "en": "Test list changes on 1 January 2027",
+    "ar": "قائمة الاختبارات تتغير في 1 يناير 2027"
+   },
+   "source": {
+    "label": "CVMA National Examining Board: Language proficiency requirement",
+    "url": "https://www.canadianveterinarians.net/accreditation-and-national-examining-board/national-examining-board/application-process-and-document-evaluation/language-proficiency-requirement/"
+   },
+   "verified": "2026-11-27",
+   "status": "confirmed",
+   "note": {
+    "en": "OET is not listed before or after 1 January 2027.",
+    "ar": "OET غير مدرج قبل 1 يناير 2027 ولا بعده."
+   }
+  },
+  {
+   "id": "smc",
+   "destination": "singapore",
+   "short": "SMC",
+   "name": "Singapore Medical Council",
+   "professions": [
+    "medicine"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Registration with SMC (recognised qualification and an offer of employment)",
+    "ar": "التسجيل في SMC (مؤهل معترف به وعرض عمل)"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 350,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "Grade B in each sub-test. The regulator prints the grade; 350 is the lowest score in OET's B band.",
+    "ar": "الدرجة B في كل مهارة. الجهة تذكر الحرف فقط، و350 هي أدنى درجة في نطاق B في OET."
+   },
+   "combine": "no",
+   "sittings": 1,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "Results must be obtained in a single sitting.",
+    "ar": "يجب الحصول على النتائج في جلسة واحدة."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator's page states no delivery mode for OET; ask the regulator before booking.",
+    "ar": "لا تذكر صفحة الجهة أي طريقة أداء لاختبار OET؛ اسأل الجهة قبل الحجز."
+   },
+   "validity": {
+    "en": "Within 2 years from the date of the test",
+    "ar": "خلال سنتين من تاريخ الاختبار"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "SMC: Documents for submission and processing time (last updated 2 September 2026)",
+    "url": "https://www.smc.gov.sg/for-professionals/apply-for-registration/documents-for-submission-and-processing-time/"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "Applies to graduates of medical schools where English is not the medium of instruction.",
+    "ar": "ينطبق على خريجي كليات الطب التي ليست الإنجليزية لغة التدريس فيها."
+   }
+  },
+  {
+   "id": "snb",
+   "destination": "singapore",
+   "short": "SNB",
+   "name": "Singapore Nursing Board",
+   "professions": [
+    "nursing"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Offer of employment, then SNB registration; a licensure exam or competency assessment may apply",
+    "ar": "عرض عمل ثم التسجيل في SNB؛ وقد يُطلب اختبار ترخيص أو تقييم كفاءة"
+   },
+   "oet": "not-confirmed",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "SNB's page for foreign-trained nurses lists no English test at all, so there is no OET score.",
+    "ar": "صفحة SNB للممرضين المتدربين في الخارج لا تذكر أي اختبار لغة، فلا توجد درجة OET."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "",
+    "ar": ""
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "Not confirmed: no English test is listed.",
+    "ar": "غير مؤكد: لا يوجد اختبار لغة مذكور."
+   },
+   "validity": {
+    "en": "",
+    "ar": ""
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "SNB: Foreign-trained nurses and midwives (last updated 9 June 2026)",
+    "url": "https://www.snb.gov.sg/for-professionals/becoming-a-nurse-or-midwife/apply-for-registration-enrolment/foreign-trained-nurses-midwives/"
+   },
+   "verified": "2026-11-27",
+   "status": "not-confirmed",
+   "note": {
+    "en": "SNB's page does not list OET or any other English test. Employers may set their own requirement; whether SNB or employers accept OET in practice is not confirmed.",
+    "ar": "صفحة SNB لا تذكر OET ولا أي اختبار لغة آخر. قد يضع أصحاب العمل شرطهم الخاص؛ وقبول SNB أو أصحاب العمل لاختبار OET عمليا غير مؤكد."
+   }
+  },
+  {
+   "id": "spc",
+   "destination": "singapore",
+   "short": "SPC",
+   "name": "Singapore Pharmacy Council",
+   "professions": [
+    "pharmacy"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Job offer, pre-registration training, competency and forensic exams, conditional then full registration",
+    "ar": "عرض عمل ثم تدريب ما قبل التسجيل ثم اختبارا الكفاءة والتشريعات ثم تسجيل مشروط فتسجيل كامل"
+   },
+   "oet": "accepted",
+   "version": "OET Pharmacy",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 350,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "At least 350 in each of the four components.",
+    "ar": "350 على الأقل في كل مهارة من الأربع."
+   },
+   "combine": "no",
+   "sittings": 1,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "Results must be obtained at one sitting.",
+    "ar": "يجب الحصول على النتائج في جلسة واحدة."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator's page states no delivery mode for OET; ask the regulator before booking.",
+    "ar": "لا تذكر صفحة الجهة أي طريقة أداء لاختبار OET؛ اسأل الجهة قبل الحجز."
+   },
+   "validity": {
+    "en": "Within 2 years before the application for pre-registration training",
+    "ar": "خلال سنتين قبل طلب تدريب ما قبل التسجيل"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "SPC: Evidence of proficiency in English language (last updated 15 July 2026)",
+    "url": "https://www.spc.gov.sg/becoming-a-pharmacist/for-foreign-trained-pharmacy-graduates-pharmacists/evidence-of-proficiency-in-english-language"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "Applies to pharmacy degrees obtained outside the UK, USA, Canada, Australia and New Zealand.",
+    "ar": "ينطبق على شهادات الصيدلة من خارج بريطانيا وأمريكا وكندا وأستراليا ونيوزيلندا."
+   }
+  },
+  {
+   "id": "sdc",
+   "destination": "singapore",
+   "short": "SDC",
+   "name": "Singapore Dental Council",
+   "professions": [
+    "dentistry"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Qualifying Examination criteria and conditional registration",
+    "ar": "شروط Qualifying Examination والتسجيل المشروط"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 350,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "Grade B in each sub-test. The regulator prints the grade; 350 is the lowest score in OET's B band.",
+    "ar": "الدرجة B في كل مهارة. الجهة تذكر الحرف فقط، و350 هي أدنى درجة في نطاق B في OET."
+   },
+   "combine": "no",
+   "sittings": 1,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "The scores must be obtained in a single sitting.",
+    "ar": "يجب الحصول على الدرجات في جلسة واحدة."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator's page states no delivery mode for OET; ask the regulator before booking.",
+    "ar": "لا تذكر صفحة الجهة أي طريقة أداء لاختبار OET؛ اسأل الجهة قبل الحجز."
+   },
+   "validity": {
+    "en": "2 years from the date of the test",
+    "ar": "سنتان من تاريخ الاختبار"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "SDC: Criteria for the Qualifying Examination (last updated 6 May 2026)",
+    "url": "https://www.sdc.gov.sg/for-professionals/registered-dentists/qualifying-examination/criteria-for-qe/"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "The rule is printed on the Qualifying Examination criteria page and applies to foreign-trained applicants whose first language is not English; the conditional registration page mentions no English test.",
+    "ar": "القاعدة منشورة في صفحة شروط Qualifying Examination وتنطبق على المتدربين في الخارج ممن ليست الإنجليزية لغتهم الأولى؛ وصفحة التسجيل المشروط لا تذكر اختبار لغة."
+   }
+  },
+  {
+   "id": "ahpc-physiotherapy",
+   "destination": "singapore",
+   "short": "AHPC",
+   "name": "Allied Health Professions Council (physiotherapy)",
+   "professions": [
+    "physiotherapy"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Conditional registration; a Qualifying Examination if the qualification is not on AHPC's recognised list",
+    "ar": "تسجيل مشروط؛ واختبار Qualifying Examination إذا لم يكن المؤهل ضمن قائمة AHPC المعترف بها"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 350,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "'Grade B or above' in AHPC's table. 350 is the lowest score in OET's B band.",
+    "ar": "«Grade B أو أعلى» في جدول AHPC. و350 هي أدنى درجة في نطاق B في OET."
+   },
+   "combine": "no",
+   "sittings": 1,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "All components must be met in a single examination sitting; there is no limit on attempts.",
+    "ar": "يجب تحقيق جميع المهارات في جلسة اختبار واحدة؛ ولا حد لعدد المحاولات."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "accepted",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "AHPC's table adds that computer-based testing is also accepted for Physiotherapy. OET@Home is not mentioned: not confirmed.",
+    "ar": "جدول AHPC يضيف أن الاختبار على الكمبيوتر مقبول أيضا للعلاج الطبيعي. OET@Home غير مذكور: غير مؤكد."
+   },
+   "validity": {
+    "en": "Taken within 2 years before the registration application date",
+    "ar": "مؤدى خلال سنتين قبل تاريخ طلب التسجيل"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "AHPC: Requirements for registration application (last updated 24 July 2026)",
+    "url": "https://www.ahpc.gov.sg/for-professionals/apply-for-registration/requirements-for-registration-application/"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "No English test is needed where the basic qualification is from Singapore, Australia, Canada (except Quebec), New Zealand, Ireland, South Africa, the UK or the USA. The table was read as a summary, not as quoted sentences: re-read AHPC's page before relying on it.",
+    "ar": "لا يُطلب اختبار لغة إذا كان المؤهل الأساسي من سنغافورة أو أستراليا أو كندا (عدا Quebec) أو نيوزيلندا أو أيرلندا أو جنوب أفريقيا أو بريطانيا أو أمريكا. الجدول قُرئ ملخصا لا نصا حرفيا: أعد قراءة صفحة AHPC قبل الاعتماد عليه."
+   }
+  },
+  {
+   "id": "ahpc-occupational-therapy-radiography",
+   "destination": "singapore",
+   "short": "AHPC",
+   "name": "Allied Health Professions Council (occupational therapy, diagnostic radiography, radiation therapy)",
+   "professions": [
+    "occupational-therapy",
+    "radiography"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Conditional registration; a Qualifying Examination if the qualification is not on AHPC's recognised list",
+    "ar": "تسجيل مشروط؛ واختبار Qualifying Examination إذا لم يكن المؤهل ضمن قائمة AHPC المعترف بها"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": {
+    "L": 350,
+    "R": 350,
+    "W": 350,
+    "S": 350
+   },
+   "total": null,
+   "scoresNote": {
+    "en": "'Grade B or above' in AHPC's table. 350 is the lowest score in OET's B band.",
+    "ar": "«Grade B أو أعلى» في جدول AHPC. و350 هي أدنى درجة في نطاق B في OET."
+   },
+   "combine": "no",
+   "sittings": 1,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "All components must be met in a single examination sitting; there is no limit on attempts.",
+    "ar": "يجب تحقيق جميع المهارات في جلسة اختبار واحدة؛ ولا حد لعدد المحاولات."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator's page states no delivery mode for OET; ask the regulator before booking.",
+    "ar": "لا تذكر صفحة الجهة أي طريقة أداء لاختبار OET؛ اسأل الجهة قبل الحجز."
+   },
+   "validity": {
+    "en": "Taken within 2 years before the registration application date",
+    "ar": "مؤدى خلال سنتين قبل تاريخ طلب التسجيل"
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "AHPC: Requirements for registration application (last updated 24 July 2026)",
+    "url": "https://www.ahpc.gov.sg/for-professionals/apply-for-registration/requirements-for-registration-application/"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "No English test is needed where the basic qualification is from Singapore, Australia, Canada (except Quebec), New Zealand, Ireland, South Africa, the UK or the USA. The table was read as a summary, not as quoted sentences: re-read AHPC's page before relying on it.",
+    "ar": "لا يُطلب اختبار لغة إذا كان المؤهل الأساسي من سنغافورة أو أستراليا أو كندا (عدا Quebec) أو نيوزيلندا أو أيرلندا أو جنوب أفريقيا أو بريطانيا أو أمريكا. الجدول قُرئ ملخصا لا نصا حرفيا: أعد قراءة صفحة AHPC قبل الاعتماد عليه."
+   }
+  },
+  {
+   "id": "ahpc-speech-language-therapy",
+   "destination": "singapore",
+   "short": "AHPC",
+   "name": "Allied Health Professions Council (speech-language therapy)",
+   "professions": [
+    "speech-pathology"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "Conditional registration; a Qualifying Examination if the qualification is not on AHPC's recognised list",
+    "ar": "تسجيل مشروط؛ واختبار Qualifying Examination إذا لم يكن المؤهل ضمن قائمة AHPC المعترف بها"
+   },
+   "oet": "accepted",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "Grade B (400) in three components and B (350) in one.",
+    "ar": "الدرجة B (400) في ثلاث مهارات و B (350) في مهارة واحدة."
+   },
+   "combine": "no",
+   "sittings": 1,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "All components must be met in a single examination sitting; there is no limit on attempts.",
+    "ar": "يجب تحقيق جميع المهارات في جلسة اختبار واحدة؛ ولا حد لعدد المحاولات."
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator's page states no delivery mode for OET; ask the regulator before booking.",
+    "ar": "لا تذكر صفحة الجهة أي طريقة أداء لاختبار OET؛ اسأل الجهة قبل الحجز."
+   },
+   "validity": {
+    "en": "Taken within 2 years before the registration application date",
+    "ar": "مؤدى خلال سنتين قبل تاريخ طلب التسجيل"
+   },
+   "effective": {
+    "en": "With effect from 1 August 2025",
+    "ar": "سارية من 1 أغسطس 2025"
+   },
+   "source": {
+    "label": "AHPC: Requirements for registration application (last updated 24 July 2026)",
+    "url": "https://www.ahpc.gov.sg/for-professionals/apply-for-registration/requirements-for-registration-application/"
+   },
+   "verified": "2026-11-27",
+   "status": "partly-confirmed",
+   "note": {
+    "en": "No English test is needed where the basic qualification is from Singapore, Australia, Canada (except Quebec), New Zealand, Ireland, South Africa, the UK or the USA. The table was read as a summary, not as quoted sentences: re-read AHPC's page before relying on it.",
+    "ar": "لا يُطلب اختبار لغة إذا كان المؤهل الأساسي من سنغافورة أو أستراليا أو كندا (عدا Quebec) أو نيوزيلندا أو أيرلندا أو جنوب أفريقيا أو بريطانيا أو أمريكا. الجدول قُرئ ملخصا لا نصا حرفيا: أعد قراءة صفحة AHPC قبل الاعتماد عليه."
+   }
+  },
+  {
+   "id": "dha",
+   "destination": "gulf",
+   "short": "DHA",
+   "name": "Dubai Health Authority",
+   "professions": [
+    "all"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "The regulator's own licensing exam and credential verification",
+    "ar": "اختبار الترخيص الخاص بالجهة والتحقق من المؤهلات"
+   },
+   "oet": "not-confirmed",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "Not confirmed: no OET score is published by the regulator.",
+    "ar": "غير مؤكد: الجهة لا تنشر درجة OET."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "",
+    "ar": ""
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator publishes no rule on any OET delivery mode. If an employer asks for OET, ask the employer which mode it accepts.",
+    "ar": "الجهة لا تنشر قاعدة عن أي طريقة أداء لاختبار OET. إذا طلب صاحب العمل OET فاسأله عن الطريقة التي يقبلها."
+   },
+   "validity": {
+    "en": "",
+    "ar": ""
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "Dubai Health Authority website (searched 27 November 2026)",
+    "url": "https://dha.gov.ae/"
+   },
+   "verified": "2026-11-27",
+   "status": "not-confirmed",
+   "note": {
+    "en": "No published OET requirement found on the regulator's website as of 27 November 2026; licensing runs through the regulator's own exam and credential verification. Confirm with the regulator or employer. A search of DHA's site, including its licensing manual, returned no mention of OET or of any English test score.",
+    "ar": "لم نجد شرطا منشورا لاختبار OET في موقع الجهة حتى 27 نوفمبر 2026؛ الترخيص يتم عبر اختبار الجهة نفسها والتحقق من المؤهلات. تأكد من الجهة أو من صاحب العمل. البحث في موقع DHA، ومنه دليل الترخيص، لم يُظهر أي ذكر لاختبار OET أو لدرجة أي اختبار لغة."
+   }
+  },
+  {
+   "id": "doh-abu-dhabi",
+   "destination": "gulf",
+   "short": "DOH",
+   "name": "Department of Health Abu Dhabi",
+   "professions": [
+    "all"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "The regulator's own licensing exam and credential verification",
+    "ar": "اختبار الترخيص الخاص بالجهة والتحقق من المؤهلات"
+   },
+   "oet": "not-confirmed",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "Not confirmed: no OET score is published by the regulator.",
+    "ar": "غير مؤكد: الجهة لا تنشر درجة OET."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "",
+    "ar": ""
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator publishes no rule on any OET delivery mode. If an employer asks for OET, ask the employer which mode it accepts.",
+    "ar": "الجهة لا تنشر قاعدة عن أي طريقة أداء لاختبار OET. إذا طلب صاحب العمل OET فاسأله عن الطريقة التي يقبلها."
+   },
+   "validity": {
+    "en": "",
+    "ar": ""
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "Department of Health Abu Dhabi website (searched 27 November 2026)",
+    "url": "https://doh.gov.ae/"
+   },
+   "verified": "2026-11-27",
+   "status": "not-confirmed",
+   "note": {
+    "en": "No published OET requirement found on the regulator's website as of 27 November 2026; licensing runs through the regulator's own exam and credential verification. Confirm with the regulator or employer. The DOH Healthcare Professionals Manual speaks only of a general language competence requirement; no test or score was named in what was retrieved.",
+    "ar": "لم نجد شرطا منشورا لاختبار OET في موقع الجهة حتى 27 نوفمبر 2026؛ الترخيص يتم عبر اختبار الجهة نفسها والتحقق من المؤهلات. تأكد من الجهة أو من صاحب العمل. دليل المهنيين الصحيين لدى DOH يذكر شرطا عاما للكفاءة اللغوية فقط؛ ولم يرد اسم اختبار أو درجة فيما أمكن الاطلاع عليه."
+   }
+  },
+  {
+   "id": "mohap",
+   "destination": "gulf",
+   "short": "MOHAP",
+   "name": "Ministry of Health and Prevention (UAE)",
+   "professions": [
+    "all"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "The regulator's own licensing exam and credential verification",
+    "ar": "اختبار الترخيص الخاص بالجهة والتحقق من المؤهلات"
+   },
+   "oet": "not-confirmed",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "Not confirmed: no OET score is published by the regulator.",
+    "ar": "غير مؤكد: الجهة لا تنشر درجة OET."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "",
+    "ar": ""
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator publishes no rule on any OET delivery mode. If an employer asks for OET, ask the employer which mode it accepts.",
+    "ar": "الجهة لا تنشر قاعدة عن أي طريقة أداء لاختبار OET. إذا طلب صاحب العمل OET فاسأله عن الطريقة التي يقبلها."
+   },
+   "validity": {
+    "en": "",
+    "ar": ""
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "Ministry of Health and Prevention website (searched 27 November 2026)",
+    "url": "https://mohap.gov.ae/"
+   },
+   "verified": "2026-11-27",
+   "status": "not-confirmed",
+   "note": {
+    "en": "No published OET requirement found on the regulator's website as of 27 November 2026; licensing runs through the regulator's own exam and credential verification. Confirm with the regulator or employer. The Unified Healthcare Professional Qualification Requirements document hosted by MOHAP could not be downloaded, so it was not read.",
+    "ar": "لم نجد شرطا منشورا لاختبار OET في موقع الجهة حتى 27 نوفمبر 2026؛ الترخيص يتم عبر اختبار الجهة نفسها والتحقق من المؤهلات. تأكد من الجهة أو من صاحب العمل. وثيقة المتطلبات الموحدة لمؤهلات المهنيين الصحيين المنشورة لدى MOHAP تعذر تنزيلها فلم تُقرأ."
+   }
+  },
+  {
+   "id": "scfhs",
+   "destination": "gulf",
+   "short": "SCFHS",
+   "name": "Saudi Commission for Health Specialties",
+   "professions": [
+    "all"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "The regulator's own licensing exam and credential verification",
+    "ar": "اختبار الترخيص الخاص بالجهة والتحقق من المؤهلات"
+   },
+   "oet": "not-confirmed",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "Not confirmed: no OET score is published by the regulator.",
+    "ar": "غير مؤكد: الجهة لا تنشر درجة OET."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "",
+    "ar": ""
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator publishes no rule on any OET delivery mode. If an employer asks for OET, ask the employer which mode it accepts.",
+    "ar": "الجهة لا تنشر قاعدة عن أي طريقة أداء لاختبار OET. إذا طلب صاحب العمل OET فاسأله عن الطريقة التي يقبلها."
+   },
+   "validity": {
+    "en": "",
+    "ar": ""
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "Saudi Commission for Health Specialties website (searched 27 November 2026)",
+    "url": "https://scfhs.org.sa/"
+   },
+   "verified": "2026-11-27",
+   "status": "not-confirmed",
+   "note": {
+    "en": "No published OET requirement found on the regulator's website as of 27 November 2026; licensing runs through the regulator's own exam and credential verification. Confirm with the regulator or employer. The classification and registration requirement pages returned no English test requirement and no mention of OET.",
+    "ar": "لم نجد شرطا منشورا لاختبار OET في موقع الجهة حتى 27 نوفمبر 2026؛ الترخيص يتم عبر اختبار الجهة نفسها والتحقق من المؤهلات. تأكد من الجهة أو من صاحب العمل. صفحات متطلبات التصنيف والتسجيل لم تُظهر شرط اختبار لغة ولا أي ذكر لاختبار OET."
+   }
+  },
+  {
+   "id": "qatar-dhp",
+   "destination": "gulf",
+   "short": "DHP",
+   "name": "Department of Healthcare Professions, Ministry of Public Health (Qatar)",
+   "professions": [
+    "all"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "The regulator's own licensing exam and credential verification",
+    "ar": "اختبار الترخيص الخاص بالجهة والتحقق من المؤهلات"
+   },
+   "oet": "not-confirmed",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "Not confirmed: no OET score is published by the regulator.",
+    "ar": "غير مؤكد: الجهة لا تنشر درجة OET."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "",
+    "ar": ""
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator publishes no rule on any OET delivery mode. If an employer asks for OET, ask the employer which mode it accepts.",
+    "ar": "الجهة لا تنشر قاعدة عن أي طريقة أداء لاختبار OET. إذا طلب صاحب العمل OET فاسأله عن الطريقة التي يقبلها."
+   },
+   "validity": {
+    "en": "",
+    "ar": ""
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "Department of Healthcare Professions website (searched 27 November 2026)",
+    "url": "https://dhp.moph.gov.qa/"
+   },
+   "verified": "2026-11-27",
+   "status": "not-confirmed",
+   "note": {
+    "en": "No published OET requirement found on the regulator's website as of 27 November 2026; licensing runs through the regulator's own exam and credential verification. Confirm with the regulator or employer. DHP circulars require the applicant to be fluent in Arabic or English; no test or score is named.",
+    "ar": "لم نجد شرطا منشورا لاختبار OET في موقع الجهة حتى 27 نوفمبر 2026؛ الترخيص يتم عبر اختبار الجهة نفسها والتحقق من المؤهلات. تأكد من الجهة أو من صاحب العمل. تعاميم DHP تشترط إتقان العربية أو الإنجليزية؛ دون تسمية اختبار أو درجة."
+   }
+  },
+  {
+   "id": "kuwait-moh",
+   "destination": "gulf",
+   "short": "Kuwait MOH",
+   "name": "Ministry of Health (Kuwait)",
+   "professions": [
+    "all"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "The regulator's own licensing exam and credential verification",
+    "ar": "اختبار الترخيص الخاص بالجهة والتحقق من المؤهلات"
+   },
+   "oet": "not-confirmed",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "Not confirmed: no OET score is published by the regulator.",
+    "ar": "غير مؤكد: الجهة لا تنشر درجة OET."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "",
+    "ar": ""
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator publishes no rule on any OET delivery mode. If an employer asks for OET, ask the employer which mode it accepts.",
+    "ar": "الجهة لا تنشر قاعدة عن أي طريقة أداء لاختبار OET. إذا طلب صاحب العمل OET فاسأله عن الطريقة التي يقبلها."
+   },
+   "validity": {
+    "en": "",
+    "ar": ""
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "Ministry of Health Kuwait website (searched 27 November 2026)",
+    "url": "https://moh.gov.kw/"
+   },
+   "verified": "2026-11-27",
+   "status": "not-confirmed",
+   "note": {
+    "en": "No published OET requirement found on the regulator's website as of 27 November 2026; licensing runs through the regulator's own exam and credential verification. Confirm with the regulator or employer. Nursing job criteria say only that the applicant can speak and write English. One MOH scholarship guide for dental programmes accepts OET as an IELTS alternative, which concerns study abroad, not licensing.",
+    "ar": "لم نجد شرطا منشورا لاختبار OET في موقع الجهة حتى 27 نوفمبر 2026؛ الترخيص يتم عبر اختبار الجهة نفسها والتحقق من المؤهلات. تأكد من الجهة أو من صاحب العمل. معايير وظائف التمريض تذكر فقط أن يجيد المتقدم التحدث والكتابة بالإنجليزية. أحد أدلة البعثات لبرامج طب الأسنان يقبل OET بديلا عن IELTS، وهذا يخص الدراسة في الخارج لا الترخيص."
+   }
+  },
+  {
+   "id": "oman-omsb-moh",
+   "destination": "gulf",
+   "short": "OMSB / MOH",
+   "name": "Oman Medical Specialty Board and Ministry of Health (Oman)",
+   "professions": [
+    "all"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "The regulator's own licensing exam and credential verification",
+    "ar": "اختبار الترخيص الخاص بالجهة والتحقق من المؤهلات"
+   },
+   "oet": "not-confirmed",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "Not confirmed: no OET score is published by the regulator.",
+    "ar": "غير مؤكد: الجهة لا تنشر درجة OET."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "",
+    "ar": ""
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator publishes no rule on any OET delivery mode. If an employer asks for OET, ask the employer which mode it accepts.",
+    "ar": "الجهة لا تنشر قاعدة عن أي طريقة أداء لاختبار OET. إذا طلب صاحب العمل OET فاسأله عن الطريقة التي يقبلها."
+   },
+   "validity": {
+    "en": "",
+    "ar": ""
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "Oman Medical Specialty Board website (searched 27 November 2026)",
+    "url": "https://omsb.gov.om/"
+   },
+   "verified": "2026-11-27",
+   "status": "not-confirmed",
+   "note": {
+    "en": "No published OET requirement found on the regulator's website as of 27 November 2026; licensing runs through the regulator's own exam and credential verification. Confirm with the regulator or employer. MOH licensing procedures list no English test item. OMSB hosts OET as a test centre and mentions IELTS or OET only for overseas training applications, not for Omani licensing.",
+    "ar": "لم نجد شرطا منشورا لاختبار OET في موقع الجهة حتى 27 نوفمبر 2026؛ الترخيص يتم عبر اختبار الجهة نفسها والتحقق من المؤهلات. تأكد من الجهة أو من صاحب العمل. إجراءات الترخيص لدى MOH لا تتضمن بند اختبار لغة. و OMSB يستضيف OET كمركز اختبار ويذكر IELTS أو OET لطلبات التدريب في الخارج فقط، لا للترخيص في عُمان."
+   }
+  },
+  {
+   "id": "bahrain-nhra",
+   "destination": "gulf",
+   "short": "NHRA",
+   "name": "National Health Regulatory Authority (Bahrain)",
+   "professions": [
+    "all"
+   ],
+   "purpose": "registration",
+   "route": {
+    "en": "The regulator's own licensing exam and credential verification",
+    "ar": "اختبار الترخيص الخاص بالجهة والتحقق من المؤهلات"
+   },
+   "oet": "not-confirmed",
+   "version": "",
+   "scores": null,
+   "total": null,
+   "scoresNote": {
+    "en": "Not confirmed: no OET score is published by the regulator.",
+    "ar": "غير مؤكد: الجهة لا تنشر درجة OET."
+   },
+   "combine": "not-confirmed",
+   "sittings": null,
+   "windowMonths": null,
+   "floors": null,
+   "combineNote": {
+    "en": "",
+    "ar": ""
+   },
+   "formats": {
+    "paper": "not-confirmed",
+    "computer": "not-confirmed",
+    "home": "not-confirmed"
+   },
+   "homeNote": {
+    "en": "The regulator publishes no rule on any OET delivery mode. If an employer asks for OET, ask the employer which mode it accepts.",
+    "ar": "الجهة لا تنشر قاعدة عن أي طريقة أداء لاختبار OET. إذا طلب صاحب العمل OET فاسأله عن الطريقة التي يقبلها."
+   },
+   "validity": {
+    "en": "",
+    "ar": ""
+   },
+   "effective": {
+    "en": "",
+    "ar": ""
+   },
+   "source": {
+    "label": "National Health Regulatory Authority website (searched 27 November 2026)",
+    "url": "https://nhra.bh/"
+   },
+   "verified": "2026-11-27",
+   "status": "not-confirmed",
+   "note": {
+    "en": "No published OET requirement found on the regulator's website as of 27 November 2026; licensing runs through the regulator's own exam and credential verification. Confirm with the regulator or employer. NHRA licensing standards returned no English test requirement and no mention of OET.",
+    "ar": "لم نجد شرطا منشورا لاختبار OET في موقع الجهة حتى 27 نوفمبر 2026؛ الترخيص يتم عبر اختبار الجهة نفسها والتحقق من المؤهلات. تأكد من الجهة أو من صاحب العمل. معايير الترخيص لدى NHRA لم تُظهر شرط اختبار لغة ولا أي ذكر لاختبار OET."
+   }
+  }
+ ]
+}

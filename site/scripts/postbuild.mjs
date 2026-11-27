@@ -136,6 +136,24 @@ const PAGES = [
   // Brief of 22 Nov 2026: the Arabic library (built from blog.json, like /blog/) and the Arabic booking guide (no English pair)
   ['ar/blog/index.html', '/ar/blog/', 'weekly', '0.8'],
   ['ar/oet-test-fee-booking-2027.html', '/ar/oet-test-fee-booking-2027.html', 'monthly', '0.8'],
+  // SEO handoff #2 (25 Nov 2026) + 2027 SEO expansion (owner brief of 26 Nov 2026)
+  ['oet-for-pharmacists-usa.html', '/oet-for-pharmacists-usa.html', 'monthly', '0.8'],
+  ['oet-at-home.html', '/oet-at-home.html', 'monthly', '0.8'],
+  ['oet-test-centres.html', '/oet-test-centres.html', 'monthly', '0.8'],
+  ['oet-paper-test-centres-2027.html', '/oet-paper-test-centres-2027.html', 'monthly', '0.8'],
+  ['oet-clubbing-rules.html', '/oet-clubbing-rules.html', 'monthly', '0.8'],
+  ['oet-recognition-by-country.html', '/oet-recognition-by-country.html', 'monthly', '0.8'],
+  ['ireland-pathway-guide.html', '/ireland-pathway-guide.html', 'monthly', '0.8'],
+  ['canada-pathway-guide.html', '/canada-pathway-guide.html', 'monthly', '0.8'],
+  ['new-zealand-pathway-guide.html', '/new-zealand-pathway-guide.html', 'monthly', '0.8'],
+  ['singapore-pathway-guide.html', '/singapore-pathway-guide.html', 'monthly', '0.8'],
+  ['ar/oet-for-pharmacists-usa.html', '/ar/oet-for-pharmacists-usa.html', 'monthly', '0.8'],
+  ['ar/oet-at-home.html', '/ar/oet-at-home.html', 'monthly', '0.8'],
+  ['ar/oet-test-centres.html', '/ar/oet-test-centres.html', 'monthly', '0.8'],
+  ['ar/oet-paper-test-centres-2027.html', '/ar/oet-paper-test-centres-2027.html', 'monthly', '0.8'],
+  ['ar/oet-clubbing-rules.html', '/ar/oet-clubbing-rules.html', 'monthly', '0.8'],
+  ['ar/oet-writing-correction.html', '/ar/oet-writing-correction.html', 'monthly', '0.8'],
+  ['ar/oet-free-resources.html', '/ar/oet-free-resources.html', 'monthly', '0.8'],
   ['404.html', null, null, null],
 ];
 

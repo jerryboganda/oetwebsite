@@ -32,15 +32,15 @@
       "id": "exam-format",
       "label": "Exam Format",
       "labelAr": "معلومات الامتحان",
-      "intro": "Computer vs paper, test dates and fees, study plans, retakes, and how OET compares with IELTS and PTE.",
-      "introAr": "نظام الامتحان ومواعيده ورسومه، وطريقة الحجز، ودرجة النجاح، والمقارنة مع IELTS."
+      "intro": "Computer vs paper, OET@Home, test centres, test dates and fees, study plans, retakes, and how OET compares with IELTS and PTE.",
+      "introAr": "نظام الامتحان ومراكزه ومواعيده ورسومه، وOET@Home، وطريقة الحجز، ودرجة النجاح، والمقارنة مع IELTS."
     },
     {
       "id": "pathways",
       "label": "Pathway Guides",
       "labelAr": "أدلة الترخيص",
-      "intro": "Score requirements and registration steps for the UK, USA, Australia and the Gulf.",
-      "introAr": "الدرجات التي تطلبها كل جهة ترخيص، وخطوات الترخيص الصحي في الخليج."
+      "intro": "Score requirements, sittings and registration steps for the UK, Ireland, USA, Canada, Australia, New Zealand, Singapore and the Gulf.",
+      "introAr": "الدرجات التي تطلبها كل جهة ترخيص، وقواعد دمج الجلسات، وخطوات الترخيص الصحي في الخليج وأمريكا."
     }
   ],
   "posts": [
@@ -347,6 +347,74 @@
       "featured": true,
       "professions": [],
       "summary": "From January 2027 the OET Test on Paper continues for Nursing and Medicine only, in 16 countries. Who is affected, the official country list, and how to prepare for the computer test."
+    },
+    {
+      "slug": "oet-for-pharmacists-usa",
+      "category": "pathways",
+      "featured": true,
+      "professions": [
+        "pharmacy"
+      ],
+      "summary": "NABP accepts OET Pharmacy for FPGEC from 11 January 2027: what is confirmed, why the minimum scores are still pending, the test-centre rule and how OET compares with TOEFL iBT."
+    },
+    {
+      "slug": "oet-at-home",
+      "category": "exam-format",
+      "featured": true,
+      "professions": [],
+      "summary": "Who can book OET@Home, which regulators accept it, and why online Speaking at a venue is not the same thing, checked regulator by regulator."
+    },
+    {
+      "slug": "oet-test-centres",
+      "category": "exam-format",
+      "featured": true,
+      "professions": [],
+      "summary": "A searchable directory of OET test venues in 26 countries, by city and test mode, as listed in the official OET venue finder, with booking, ID and fee rules."
+    },
+    {
+      "slug": "oet-paper-test-centres-2027",
+      "category": "exam-format",
+      "professions": [
+        "medicine",
+        "nursing"
+      ],
+      "summary": "The 16 countries where OET on Paper continues from January 2027 for Nursing and Medicine, with every listed paper venue and its 2027 status."
+    },
+    {
+      "slug": "oet-clubbing-rules",
+      "category": "pathways",
+      "professions": [],
+      "summary": "Which regulators combine two OET sittings, the window, the lowest score allowed in each sitting, and who insists on one sitting."
+    },
+    {
+      "slug": "oet-recognition-by-country",
+      "category": "pathways",
+      "professions": [],
+      "summary": "The 12 OET professions by destination and regulator: where OET is accepted, the scores, the formats and what is still not confirmed."
+    },
+    {
+      "slug": "ireland-pathway-guide",
+      "category": "pathways",
+      "professions": [],
+      "summary": "NMBI, Medical Council, PSI, CORU and Dental Council rules for OET: scores, sittings, formats and registration steps."
+    },
+    {
+      "slug": "canada-pathway-guide",
+      "category": "pathways",
+      "professions": [],
+      "summary": "Where OET is accepted in Canada and where it is not: provincial colleges for doctors, nurses and pharmacists, and why IRCC does not list OET."
+    },
+    {
+      "slug": "new-zealand-pathway-guide",
+      "category": "pathways",
+      "professions": [],
+      "summary": "OET scores, sittings and formats for the Medical Council, Nursing Council and nine other New Zealand boards, plus the immigration rule."
+    },
+    {
+      "slug": "singapore-pathway-guide",
+      "category": "pathways",
+      "professions": [],
+      "summary": "OET requirements of the SMC, SPC, SDC and AHPC for doctors, pharmacists, dentists and allied health professionals, and what SNB asks of nurses."
     }
   ],
   "arabicPosts": [
@@ -440,6 +508,31 @@
       "slug": "ar/gulf-pathway-guide",
       "twin": "gulf-pathway-guide",
       "category": "pathways"
+    },
+    {
+      "slug": "ar/oet-for-pharmacists-usa",
+      "twin": "oet-for-pharmacists-usa",
+      "category": "pathways"
+    },
+    {
+      "slug": "ar/oet-at-home",
+      "twin": "oet-at-home",
+      "category": "exam-format"
+    },
+    {
+      "slug": "ar/oet-test-centres",
+      "twin": "oet-test-centres",
+      "category": "exam-format"
+    },
+    {
+      "slug": "ar/oet-paper-test-centres-2027",
+      "twin": "oet-paper-test-centres-2027",
+      "category": "exam-format"
+    },
+    {
+      "slug": "ar/oet-clubbing-rules",
+      "twin": "oet-clubbing-rules",
+      "category": "pathways"
     }
   ],
   "arabicPages": [
@@ -452,6 +545,13 @@
         "ar/oet-course-for-nurses",
         "ar/oet-course-for-pharmacists",
         "ar/oet-course-for-physiotherapists"
+      ]
+    },
+    {
+      "group": "services",
+      "labelAr": "خدمات التصحيح",
+      "pages": [
+        "ar/oet-writing-correction"
       ]
     },
     {
@@ -470,6 +570,7 @@
       "group": "tools",
       "labelAr": "أدوات ومصادر مجانية",
       "pages": [
+        "ar/oet-free-resources",
         "ar/oet-sample-tests",
         "ar/oet-mock-test",
         "ar/oet-score-calculator",

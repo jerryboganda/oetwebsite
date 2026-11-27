@@ -38,6 +38,9 @@ const recalls = !['index', 'ar/index'].includes(pageKey(Astro.props.meta) ?? '')
 // The Arabic library link ("مقالات OET بالعربي", first item of Free Resources) is on every page except the English homepage: the
 // owner lifted the freeze on /ar/ for this one header link on 22 Nov 2026 (its footer, Recalls and Pricing links stay as they were).
 const arabicLibrary = pageKey(Astro.props.meta) !== 'index';
+// SEO handoff #2 (25 Nov 2026, item 1.1c): the /ar/ home MENU also gets the Recalls item the other Arabic pages have. Its footer is
+// unchanged, and the English homepage still carries no Recalls link.
+const recallsHeader = pageKey(Astro.props.meta) !== 'index';
 
 // Announcement bar state, applied before first paint: expired (after `until`, end of day UTC) or dismissed by the
 // visitor (localStorage). The bar and the homepage news card hide themselves from these two html classes (oet-redesign.css).
@@ -128,7 +131,7 @@ const { meta, headExtra, main, tail } = enrichPage({
 <!--================= Announcement bar (data/announcement.json) =================-->
     <Announcement lang={lang} />
 <!--================= Header section start =================-->
-    <Header showApps={showApps} lang={lang} recalls={recalls} arabicLibrary={arabicLibrary} />
+    <Header showApps={showApps} lang={lang} recalls={recallsHeader} arabicLibrary={arabicLibrary} />
 <!--================= Header section End =================-->
 <Fragment set:html={main} />
 <!--================= Footer section start =================-->

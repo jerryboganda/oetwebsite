@@ -5,6 +5,7 @@ import offcanvas from '../partials/chrome/offcanvas.html?raw';
 import { addRecallsLink } from '../lib/recalls.mjs';
 import { addWebinarsLink } from '../lib/webinars.mjs';
 import { addArabicLibraryLink } from '../lib/blog.mjs';
+import { localiseNav } from '../lib/arabic-nav.mjs';
 const { showApps = false, lang = 'en', recalls = true, arabicLibrary = recalls } = Astro.props;
 // "Recalls" / "الريكولز" directly after "OET Blog"; main.js clones this nav into the mobile menu, so the menu gets it in the same position.
 // "Webinars" (owner brief 21 Nov 2026) is inserted first so Recalls still directly follows "OET Blog" (Blog, Recalls, Webinars).
@@ -12,16 +13,20 @@ const { showApps = false, lang = 'en', recalls = true, arabicLibrary = recalls }
 // it vanished whenever a visitor returned to the homepage, because the frozen landing pages had been left without it.
 // "مقالات OET بالعربي" (brief of 22 Nov 2026: an Arabic articles entry in desktop and mobile navigation) is the first item of the
 // "Free Resources" dropdown (the inline nav has no room for another top-level item at 1500px). It is not rendered on the English
-// homepage; the owner lifted the /ar/ freeze for it on 22 Nov 2026 (`arabicLibrary`, set in Base.astro).
+// homepage; the owner lifted the /ar/ freeze for it on 22 Nov 2026 (`arabicLibrary`, set in Base.astro). `recalls` here is the HEADER
+// Recalls link: on every page except the English homepage (handoff #2 of 25 Nov 2026 adds it to the /ar/ home menu).
 const withWebinars = addWebinarsLink(part2, lang === 'ar' ? 'ar' : 'en');
 const withRecalls = recalls ? addRecallsLink(withWebinars, lang === 'ar' ? 'ar' : 'en', 'header') : withWebinars;
 const nav = arabicLibrary ? addArabicLibraryLink(withRecalls, 'header') : withRecalls;
-// Keep Arabic visitors in Arabic (brief of 22 Nov 2026): on Arabic pages "Pricing" and "Download App" open the Arabic pricing page
-// (it has the same #download-app section). `recalls` is false only on the two frozen landing pages, which keep their original links.
-const arabic = lang === 'ar' && recalls;
+// Keep Arabic visitors in Arabic (brief of 22 Nov 2026; SEO handoff #2 of 25 Nov 2026, item 1.1): on EVERY Arabic page, the Arabic
+// home page included (the owner's handoff lifts the /ar/ freeze for its header menu), "Pricing" and "Download App" open the Arabic
+// pricing page, every menu link that has an Arabic twin opens the twin, and the logo opens /ar/ (lib/arabic-nav.mjs).
+const arabic = lang === 'ar';
 const PRICING = '<a class="oet-pricing-nav-link" href="/pricing.html">Pricing</a>';
 if (part1.split(PRICING).length !== 2) throw new Error('Header: expected exactly one top-level "Pricing" link in header-1.html');
-const head = arabic ? part1.replace(PRICING, '<a class="oet-pricing-nav-link" href="/ar/pricing.html">Pricing</a>') : part1;
+const head = arabic ? localiseNav(part1) : part1;
+const menu = arabic ? localiseNav(nav) : nav;
+const drawer = arabic ? localiseNav(offcanvas) : offcanvas;
 const appHref = showApps ? '#download-app' : arabic ? '/ar/pricing.html#download-app' : '/pricing.html#download-app';
 ---
-<Fragment set:html={head} /><li><a class="oet-pricing-nav-link" href={appHref}>Download App</a></li><Fragment set:html={nav} /><Fragment set:html={offcanvas} />
+<Fragment set:html={head} /><li><a class="oet-pricing-nav-link" href={appHref}>Download App</a></li><Fragment set:html={menu} /><Fragment set:html={drawer} />

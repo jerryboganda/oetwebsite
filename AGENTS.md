@@ -11,7 +11,7 @@ enrollment **web app** lives at app./api.oetwithdrhesham.co.uk (repo
 OUTPUT, committed for parity/deploy. Never hand-edit root HTML — edit the
 partials/data and rebuild.**
 
-- `site/src/pages/*.astro` — 119 thin wrappers incl. 404 (one per page; `ar/` = Arabic, `lang="ar"`), each importing
+- `site/src/pages/*.astro` — 136 thin wrappers incl. 404 (one per page; `ar/` = Arabic, `lang="ar"`), each importing
   its page partials `?raw` and rendering through `site/src/layouts/Base.astro`.
 - `site/src/partials/<page>/{meta,head-extra,main,tail}.html` — byte-preserved
   page bodies. This is where page content/CSS edits happen.
@@ -130,7 +130,7 @@ partials/data and rebuild.**
   `[page: …]` labels: the source page is tracked by `oet-analytics.js`), generates
   `sitemap.xml` (per-page git dates), `assets/search-index.json`, `llms.txt`,
   `llms-full.txt` and `feed.xml` (see "SEO + AI-search layer" below), copies the
-  119 built pages + sitemap + generated files to the repo root. `--check-root` asserts root ==
+  136 built pages + sitemap + generated files to the repo root. `--check-root` asserts root ==
   dist for the pages, `oet-core.css` and the three generated files (CI parity). New page = add it to
   `PAGES` here and in `verify.mjs`, and to `LLMS_GROUPS` here unless it is a blog post (posts are grouped by category).
 - `site/scripts/verify.mjs` — asserts pages/assets/JSON-LD/sitemap/pricing, one
@@ -349,6 +349,60 @@ Decision record and checks: `docs/hero-2026-11-26.md`.
   covers the OET logo on the scrubs below 992 px and touches his hair at 992-1199 px. The fix offered to the owner (not applied):
   `.oet-hero__badge--rating { top: 50%; }` in the phone, tablet and 992-1199 bands of `oet-hero.css`.
 
+## SEO handoff #2 (25 Nov 2026) + "2027 SEO expansion: pathways, exam formats & test centres" (owner brief, 26 Nov 2026; built 27 Nov 2026)
+
+Status, official-source research, release evidence and the open owner items: `docs/seo-brief-2026-11-26/README.md`. The research the pages are
+built on (regulators' own sites and oet.com, read 27 Nov 2026) is in `docs/seo-brief-2026-11-26/research/`; authoring rules for any further
+page are in `docs/seo-brief-2026-11-26/AUTHORING.md`. The `verify.mjs` block "SEO handoff #2 ... + 2027 SEO expansion" gates every point below.
+
+- **Two data files are the single source of truth** (the brief's "reusable regulatory data model"), rendered by `site/src/lib/regdata.mjs`
+  through `enrichPage` on any page, in the page's language (Arabic under `/ar/`):
+  - `site/src/data/test-centres.json`: venues exactly as OET keys them in its own venue finder (26 countries, read 27 Nov 2026; `checked`).
+    A record proves the venue is listed, not that a seat or date is open. `jan2027: true` = a paper record OET added for 2027 ("Online
+    Speaking test at venue"); `paper2027` = the 16 countries of the OET customer-care email (never attributed to oet.com).
+  - `site/src/data/regulators.json`: one row per regulator (62): OET accepted / not accepted / not listed / not confirmed, scores, combining
+    rules, formats (paper / computer / OET@Home), validity, the regulator's own source URL, `verified`, `status`. The loader fails the build
+    on an unknown enum, a missing source, or an OET@Home status without the regulator's words (`homeNote`).
+  - Markers: `<!--oet:venue-directory-->`, `<!--oet:paper-2027-directory-->`, `<!--oet:venues:<country id>-->`, `<!--oet:home-acceptance-->`,
+    `<!--oet:clubbing-table-->`, `<!--oet:recognition-matrix-->`, `<!--oet:data-checked:venues|regulators-->`. A page that uses one also
+    loads `assets/css/oet-directory.css`. **Never type a venue list or a regulator table into a partial**: re-read the official source, edit
+    the JSON and its `checked` / `verified` date, rebuild. Unknown stays "not confirmed"; never a blank that reads as approval.
+- **New pages** (all in `blog.json`, `PAGES`, the sitemap, `llms.txt`): `/oet-for-pharmacists-usa.html`, `/oet-at-home.html`,
+  `/oet-test-centres.html`, `/oet-paper-test-centres-2027.html`, `/oet-clubbing-rules.html` (each with an `/ar/` twin and hreflang),
+  `/oet-recognition-by-country.html` (the 12-profession matrix), `/ireland-`, `/canada-`, `/new-zealand-`, `/singapore-pathway-guide.html`
+  (English only, like the UK / USA / Australia guides), `/ar/oet-writing-correction.html` (twin of the English page) and
+  `/ar/oet-free-resources.html` (no English twin). No per-city or per-country venue pages exist on purpose (thin pages): the hub has one
+  section per country (`#<country id>`), and `.htaccess` 301s the brief's folder-style URLs (`/oet-test-centres/paper-2027/`,
+  `/oet-test-centres/<country>/`) to the published pages.
+- **NABP / FPGEC (USA pharmacists)**: OET Pharmacy is accepted for tests taken on or after 11 January 2027; TOEFL MyBest from 1 November
+  2026; home editions never; test centre in a US or Canadian NABP jurisdiction. **The minimum OET scores were NOT published on 27 Nov 2026**
+  (NABP said "by the end of November"). When NABP publishes them: put them in the `nabp-fpgec` row of `regulators.json` (`scores`,
+  `scoresNote`, `verified`), update the pending-score notices on `oet-for-pharmacists-usa` (EN + AR), `usa-pathway-guide`,
+  `oet-course-for-pharmacists` (EN + AR) and `oet-score-requirements` (EN + AR), and bump their `dateModified`. `verify.mjs` requires the
+  "not yet published" wording on those pages for as long as the row has no scores, and fails if the old "TOEFL only / MyBest rejected /
+  booking OET Pharmacy is a mistake" claims return anywhere.
+- **OET@Home**: three questions are never merged: can I book it (OET's rule: no venue in the country, or a case-by-case exception; OET
+  publishes no country list), does my regulator accept it (per regulator, four statuses, from `regulators.json`), and "online Speaking" on a
+  venue test is not OET@Home. oet.com lists all 12 professions, Cambridge English lists four: pages state that conflict and never a blanket
+  availability or acceptance claim (`verify.mjs` rejects the blanket wordings and the three dead oet.com URLs).
+- **Arabic menu (handoff 1.1)**: on EVERY Arabic page, `/ar/` included, each header / drawer link whose target has an Arabic twin opens the
+  twin and the logo opens `/ar/` (`site/src/lib/arabic-nav.mjs` reads `src/pages/ar/`, so a new Arabic page is picked up automatically);
+  the `/ar/` home menu also has the Recalls item. English pages are unchanged. Labels stay as they are (owner-approved chrome).
+- **Homepage (handoff 1.3, R3, R4, R6)**: the owner's handoff lifts the landing-page freeze for exactly these: on `index.html` the
+  "Practise OET Online" block (five links, before the blog section; CSS in `assets/css/oet-home.css`) and a FAQPage node for the FAQ the
+  page already shows; on `ar/index.html` the header menu changes above. Everything else on the two landing pages stays frozen (no Recalls
+  link on the English homepage, no footer change). The homepage size guard is now 199,000 bytes.
+- **Navigation**: Pathway Guidelines gained the four guides and "Who Accepts OET"; Free Resources gained the "Test Centres & Rules" group
+  (test centres, paper centres 2027, OET@Home, clubbing, who accepts OET); the footer Resources & Guides group gained "OET Test Centres".
+- **Writing correction (R1, R2, R8)**: the English page shows the package prices by marker (`<!--oet:price:Package NN-->`; inside JSON-LD a
+  price marker now renders as the character "£N", `applyPriceMarkers`), keeps the 48-72 hour turnaround, and has a real `datePublished`
+  (2026-10-24, from git). **No "letters corrected" count and no marked-letter example** until the owner supplies the number and the
+  permission (handoff decisions D1 / D2); `verify.mjs` fails on a typed count.
+- **Speaking practice (R3a)**: the live virtual-patient section is the first content section and is in the introduction.
+- Browser QA for this work: `node scripts/qa-brief-2026-11-26.mjs` (needs `node server.js` + Chrome); screenshots in `docs/qa/2026-11-26/`.
+- Not built on purpose (owner decisions, see the README): a free mini-mock (D3), the OET preparation-provider application (D4), Arabic
+  versions of the four new pathway guides and of the 12-profession matrix, per-country pages for the ten paper countries we do not teach in.
+
 ## SEO implementation brief (external audit of 21 Nov 2026; built 21 Nov 2026)
 
 Status, evidence and open decisions: `docs/seo-brief-2026-11-21.md`. What the code now does:
@@ -374,7 +428,7 @@ and a FAQ. Operating guide, brief-vs-reality notes and the open items: `docs/rec
   English on both versions; the Arabic page adds the optional one-line `hintAr`. At most three month groups (about the last two months): `loadRecalls()` fails the
   build on an older month, a wrong order, an unknown skill or profession. **Never invent topics**; they come from Dr Hesham after each test date. While `months` is
   empty the page shows a holding line and `verify.mjs` prints a WARN: do not deploy in that state.
-- **The two landing pages are FROZEN** (`index.html`, `ar/index.html`: no banner, link, script or content change). The Recalls link in the shared header (after
+- **The two landing pages are FROZEN** (`index.html`, `ar/index.html`: no banner, link, script or content change). **Since 27 Nov 2026 the owner's SEO handoff #2 lifts the freeze for the items listed in "SEO handoff #2 (25 Nov 2026) + 2027 SEO expansion" above (the Arabic header menu and Recalls item on `/ar/`, the "Practise OET Online" block and the FAQPage node on `index.html`) and nothing else.** The Recalls link in the shared header (after
   "OET Blog": "Recalls" / "الريكولز") and footer (Resources & Guides: "OET Recalls" / "ريكولز OET") is language-matched and is NOT rendered on those two pages
   (`layouts/Base.astro`, keyed on the canonical via `pageKey`), because their markup is this same chrome. `verify.mjs` fails if either landing page mentions the page.
   Their SHA-256 was identical before and after the change. Putting the link on the homepage needs the owner to lift the freeze.
